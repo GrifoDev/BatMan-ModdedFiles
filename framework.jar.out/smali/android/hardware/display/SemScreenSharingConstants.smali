@@ -40,15 +40,21 @@
 
 .field public static final KEY_CONFIGURATION_SEND_VOLUME_MUTE_KEY_EVENT:Ljava/lang/String; = "mkev"
 
+.field public static final KEY_CONFIGURATION_SET_DIRECT_STREAM_APP_LIST:Ljava/lang/String; = "dsal"
+
 .field public static final KEY_CONFIGURATION_SET_DISPLAY_VOLUME:Ljava/lang/String; = "svol"
 
 .field public static final KEY_CONFIGURATION_SET_DONGLE_NAME:Ljava/lang/String; = "res"
+
+.field public static final KEY_CONFIGURATION_SET_FORCE_UDP:Ljava/lang/String; = "fudp"
 
 .field public static final KEY_CONFIGURATION_SET_LOW_LATENCY_MODE:Ljava/lang/String; = "lowl"
 
 .field public static final KEY_CONFIGURATION_SET_MAX_BITRATE:Ljava/lang/String; = "smb"
 
 .field public static final KEY_CONFIGURATION_SET_MUTE:Ljava/lang/String; = "mute"
+
+.field public static final KEY_CONFIGURATION_SET_REAL_DISPLAY_SIZE:Ljava/lang/String; = "dprs"
 
 .field public static final KEY_CONFIGURATION_SET_VOLUME_FOR_TCP:Ljava/lang/String; = "vol"
 

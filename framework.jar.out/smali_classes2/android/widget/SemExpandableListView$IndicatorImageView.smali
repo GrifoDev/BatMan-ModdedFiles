@@ -131,7 +131,7 @@
 
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->semSetHoverPopupType(I)V
+    invoke-virtual {p0, v0}, Landroid/widget/SemExpandableListView$IndicatorImageView;->semSetHoverPopupType(I)V
 
     return-void
 .end method
@@ -149,7 +149,7 @@
 
     const/high16 v6, 0x40000000    # 2.0f
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView$IndicatorImageView;->getWidth()I
 
     move-result v2
 
@@ -157,7 +157,7 @@
 
     iput v2, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mWidth:F
 
-    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView$IndicatorImageView;->getHeight()I
 
     move-result v2
 
@@ -243,6 +243,8 @@
 
     iput-object v2, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mPath:Landroid/graphics/Path;
 
+    const/4 v1, 0x0
+
     iget v2, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mHeight:F
 
     iget v3, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mPaddingValue:F
@@ -300,7 +302,7 @@
     :cond_0
     iget-object v2, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mMorphingAnimationToDown:Landroid/animation/ValueAnimator;
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView$IndicatorImageView;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
@@ -328,7 +330,7 @@
 
     iget-object v3, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mAnimatorListener:Landroid/animation/Animator$AnimatorListener;
 
-    invoke-virtual {v2, v3}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-virtual {v2, v3}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     iget v2, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mHeight:F
 
@@ -337,6 +339,8 @@
     mul-float/2addr v3, v6
 
     sub-float v1, v2, v3
+
+    const/4 v0, 0x0
 
     new-array v2, v10, [F
 
@@ -385,7 +389,7 @@
     :cond_1
     iget-object v2, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mMorphingAnimationToUp:Landroid/animation/ValueAnimator;
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView$IndicatorImageView;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
@@ -413,7 +417,7 @@
 
     iget-object v3, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mAnimatorListener:Landroid/animation/Animator$AnimatorListener;
 
-    invoke-virtual {v2, v3}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-virtual {v2, v3}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     return-void
 .end method
@@ -449,7 +453,7 @@
 
     iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mMorphingAnimationToDown:Landroid/animation/ValueAnimator;
 
-    invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Landroid/animation/Animator;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -470,7 +474,7 @@
     :cond_1
     iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mMorphingAnimationToUp:Landroid/animation/ValueAnimator;
 
-    invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Landroid/animation/Animator;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -535,7 +539,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView$IndicatorImageView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
@@ -667,7 +671,7 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_6
 
     iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mPath:Landroid/graphics/Path;
 
@@ -678,7 +682,7 @@
     :cond_0
     iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mPath:Landroid/graphics/Path;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mPath:Landroid/graphics/Path;
 
@@ -698,7 +702,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
     iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mMorphingAnimationToUp:Landroid/animation/ValueAnimator;
 
@@ -706,41 +710,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_1
-    :goto_0
-    iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mPath:Landroid/graphics/Path;
+    if-eqz v0, :cond_2
 
-    iget v1, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mCenterX:F
-
-    iget v2, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mCenterY:F
-
-    iget v3, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mMorphingAnimatedValue:F
-
-    add-float/2addr v2, v3
-
-    invoke-virtual {v0, v1, v2}, Landroid/graphics/Path;->lineTo(FF)V
-
-    iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mPath:Landroid/graphics/Path;
-
-    iget v1, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mEndPointX:F
-
-    iget v2, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mEndPointY:F
-
-    invoke-virtual {v0, v1, v2}, Landroid/graphics/Path;->lineTo(FF)V
-
-    iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mPath:Landroid/graphics/Path;
-
-    iget-object v1, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
-
-    :cond_2
-    :goto_1
-    return-void
-
-    :cond_3
     iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->this$0:Landroid/widget/SemExpandableListView;
 
     invoke-static {v0}, Landroid/widget/SemExpandableListView;->-get16(Landroid/widget/SemExpandableListView;)Landroid/widget/SemExpandableListConnector;
@@ -753,13 +726,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
     invoke-static {}, Landroid/widget/SemExpandableListView;->-get1()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_1
 
     invoke-static {}, Landroid/widget/SemExpandableListView;->-get5()Ljava/lang/String;
 
@@ -793,19 +766,49 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_4
+    :cond_1
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mMorphingAnimatedValue:F
 
-    goto :goto_0
+    :cond_2
+    :goto_0
+    iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mPath:Landroid/graphics/Path;
 
-    :cond_5
+    iget v1, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mCenterX:F
+
+    iget v2, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mCenterY:F
+
+    iget v3, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mMorphingAnimatedValue:F
+
+    add-float/2addr v2, v3
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Path;->lineTo(FF)V
+
+    iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mPath:Landroid/graphics/Path;
+
+    iget v1, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mEndPointX:F
+
+    iget v2, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mEndPointY:F
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Path;->lineTo(FF)V
+
+    iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mPath:Landroid/graphics/Path;
+
+    iget-object v1, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+
+    :cond_3
+    :goto_1
+    return-void
+
+    :cond_4
     invoke-static {}, Landroid/widget/SemExpandableListView;->-get1()Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_5
 
     invoke-static {}, Landroid/widget/SemExpandableListView;->-get5()Ljava/lang/String;
 
@@ -839,14 +842,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_6
+    :cond_5
     iget v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mIndicatorArrowHeight:F
 
     iput v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mMorphingAnimatedValue:F
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    :cond_7
+    :cond_6
     invoke-super {p0, p1}, Landroid/widget/ImageView;->onDraw(Landroid/graphics/Canvas;)V
 
     goto :goto_1
@@ -871,11 +874,20 @@
 
     iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mMorphingAnimationToUp:Landroid/animation/ValueAnimator;
 
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mMorphingAnimationToUp:Landroid/animation/ValueAnimator;
+
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isRunning()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
+
+    :cond_0
+    iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mMorphingAnimationToDown:Landroid/animation/ValueAnimator;
+
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mMorphingAnimationToDown:Landroid/animation/ValueAnimator;
 
@@ -883,19 +895,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
-
-    :cond_0
-    return-void
+    if-eqz v0, :cond_2
 
     :cond_1
+    return-void
+
+    :cond_2
     iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->this$0:Landroid/widget/SemExpandableListView;
 
     invoke-static {v0}, Landroid/widget/SemExpandableListView;->-get16(Landroid/widget/SemExpandableListView;)Landroid/widget/SemExpandableListConnector;
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->this$0:Landroid/widget/SemExpandableListView;
 
@@ -909,13 +921,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     invoke-static {}, Landroid/widget/SemExpandableListView;->-get1()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     invoke-static {}, Landroid/widget/SemExpandableListView;->-get5()Ljava/lang/String;
 
@@ -957,21 +969,25 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
+    :cond_3
+    iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mMorphingAnimationToUp:Landroid/animation/ValueAnimator;
+
+    if-eqz v0, :cond_4
+
     iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mMorphingAnimationToUp:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
 
-    :cond_3
+    :cond_4
     :goto_0
     return-void
 
-    :cond_4
+    :cond_5
     invoke-static {}, Landroid/widget/SemExpandableListView;->-get1()Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     invoke-static {}, Landroid/widget/SemExpandableListView;->-get5()Ljava/lang/String;
 
@@ -1013,7 +1029,11 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_5
+    :cond_6
+    iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mMorphingAnimationToDown:Landroid/animation/ValueAnimator;
+
+    if-eqz v0, :cond_4
+
     iget-object v0, p0, Landroid/widget/SemExpandableListView$IndicatorImageView;->mMorphingAnimationToDown:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V

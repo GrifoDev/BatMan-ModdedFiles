@@ -53,25 +53,10 @@
 
     const-wide/16 v12, 0x0
 
-    sget-boolean v9, Lcom/android/internal/os/ZygoteInit;->primaryZygoteThreadRunning:Z
-
-    if-eqz v9, :cond_0
-
-    sget-boolean v9, Lcom/android/internal/os/ZygoteInit;->debug_flag:Z
-
-    if-eqz v9, :cond_0
-
-    const-string/jumbo v9, "Zygote"
-
-    const-string/jumbo v14, " Inside Thread3 : Setting priority to Audio as primaryZygoteThreadRunning=TRUE"
-
-    invoke-static {v9, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v9, -0x13
+    const/16 v9, -0x10
 
     invoke-static {v9}, Landroid/os/Process;->setThreadPriority(I)V
 
-    :cond_0
     invoke-static {}, Lcom/android/internal/os/ZygoteInit;->-get5()I
 
     move-result v3
@@ -81,7 +66,7 @@
 
     move-result v9
 
-    if-gt v3, v9, :cond_7
+    if-gt v3, v9, :cond_6
 
     move-object/from16 v0, p0
 
@@ -101,7 +86,7 @@
 
     array-length v9, v9
 
-    if-ge v4, v9, :cond_1
+    if-ge v4, v9, :cond_0
 
     sget-object v9, Lcom/android/internal/os/ZygoteInit;->postLoadClasses:[Ljava/lang/String;
 
@@ -111,7 +96,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_2
 
     const-string/jumbo v9, "Zygote"
 
@@ -137,22 +122,30 @@
 
     const/4 v5, 0x0
 
-    :cond_1
-    if-nez v5, :cond_4
+    :cond_0
+    if-nez v5, :cond_3
 
-    :cond_2
+    :cond_1
     :goto_2
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    :cond_3
+    :cond_2
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 
-    :cond_4
+    :cond_3
+    const-wide/16 v14, 0x4000
+
+    invoke-static {v14, v15, v5}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
+
     invoke-static {v5}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+
+    const-wide/16 v14, 0x4000
+
+    invoke-static {v14, v15}, Landroid/os/Trace;->traceEnd(J)V
 
     invoke-static {}, Landroid/os/Debug;->getGlobalAllocSize()I
 
@@ -162,7 +155,7 @@
 
     move-result v14
 
-    if-le v9, v14, :cond_2
+    if-le v9, v14, :cond_1
 
     const-string/jumbo v9, "Zygote"
 
@@ -281,37 +274,29 @@
 
     instance-of v9, v8, Ljava/lang/Error;
 
+    if-eqz v9, :cond_4
+
+    check-cast v8, Ljava/lang/Error;
+
+    throw v8
+
+    :cond_4
+    instance-of v9, v8, Ljava/lang/RuntimeException;
+
     if-eqz v9, :cond_5
 
-    nop
-
-    nop
+    check-cast v8, Ljava/lang/RuntimeException;
 
     throw v8
 
     :cond_5
-    instance-of v9, v8, Ljava/lang/RuntimeException;
-
-    if-eqz v9, :cond_6
-
-    nop
-
-    nop
-
-    throw v8
-
-    :cond_6
     new-instance v9, Ljava/lang/RuntimeException;
 
     invoke-direct {v9, v8}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v9
 
-    :cond_7
-    sget-boolean v9, Lcom/android/internal/os/ZygoteInit;->primaryZygoteThreadRunning:Z
-
-    if-eqz v9, :cond_8
-
+    :cond_6
     const-string/jumbo v9, "Zygote"
 
     new-instance v14, Ljava/lang/StringBuilder;
@@ -362,7 +347,6 @@
 
     invoke-static {v9, v14}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_8
     const/4 v9, 0x0
 
     sput-boolean v9, Lcom/android/internal/os/ZygoteInit;->parallelPCThread3running:Z

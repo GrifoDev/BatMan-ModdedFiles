@@ -6,6 +6,8 @@
 # static fields
 .field private static final RIPPLE_EFFECT_OPACITY:I = 0x29
 
+.field private static final SEEKBAR_MAX_VALUE:I = 0xff
+
 .field private static final SEEKBAR_THUMB_OFFSET_DEFAULT:I = 0x5
 
 .field private static final TAG:Ljava/lang/String; = "SemGradientColorSeekBar"
@@ -14,9 +16,11 @@
 # instance fields
 .field private mColors:[I
 
-.field private mContext:Landroid/content/Context;
+.field private final mContext:Landroid/content/Context;
 
-.field private progressDrawable:Landroid/graphics/drawable/GradientDrawable;
+.field private mProgressDrawable:Landroid/graphics/drawable/GradientDrawable;
+
+.field private final mResources:Landroid/content/res/Resources;
 
 
 # direct methods
@@ -36,6 +40,12 @@
     iput-object v0, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->mColors:[I
 
     iput-object p1, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->mResources:Landroid/content/res/Resources;
 
     return-void
 .end method
@@ -67,7 +77,7 @@
 
     aput v3, v2, v4
 
-    invoke-virtual {p0}, Landroid/widget/ProgressBar;->getMax()I
+    invoke-virtual {p0}, Lcom/samsung/android/widget/SemGradientColorSeekBar;->getMax()I
 
     move-result v2
 
@@ -79,81 +89,29 @@
 
     move-result v2
 
-    invoke-virtual {p0, v2}, Landroid/widget/ProgressBar;->setProgress(I)V
+    invoke-virtual {p0, v2}, Lcom/samsung/android/widget/SemGradientColorSeekBar;->setProgress(I)V
 
     return-void
 .end method
 
 .method private initProgressDrawable()V
-    .locals 6
+    .locals 2
 
-    iget-object v3, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    const v1, 0x108081c
 
-    move-result-object v3
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    const v4, 0x1050375
+    move-result-object v0
 
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    check-cast v0, Landroid/graphics/drawable/GradientDrawable;
 
-    move-result v3
+    iput-object v0, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->mProgressDrawable:Landroid/graphics/drawable/GradientDrawable;
 
-    int-to-float v3, v3
+    iget-object v0, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->mProgressDrawable:Landroid/graphics/drawable/GradientDrawable;
 
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
-
-    move-result v2
-
-    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const v4, 0x106019f
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
-
-    move-result v0
-
-    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const v4, 0x1050376
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v1
-
-    new-instance v3, Landroid/graphics/drawable/GradientDrawable;
-
-    sget-object v4, Landroid/graphics/drawable/GradientDrawable$Orientation;->LEFT_RIGHT:Landroid/graphics/drawable/GradientDrawable$Orientation;
-
-    iget-object v5, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->mColors:[I
-
-    invoke-direct {v3, v4, v5}, Landroid/graphics/drawable/GradientDrawable;-><init>(Landroid/graphics/drawable/GradientDrawable$Orientation;[I)V
-
-    iput-object v3, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->progressDrawable:Landroid/graphics/drawable/GradientDrawable;
-
-    iget-object v3, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->progressDrawable:Landroid/graphics/drawable/GradientDrawable;
-
-    int-to-float v4, v2
-
-    invoke-virtual {v3, v4}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
-
-    iget-object v3, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->progressDrawable:Landroid/graphics/drawable/GradientDrawable;
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v3, v4, v2}, Landroid/graphics/drawable/GradientDrawable;->setSize(II)V
-
-    iget-object v3, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->progressDrawable:Landroid/graphics/drawable/GradientDrawable;
-
-    invoke-virtual {v3, v1, v0}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
-
-    iget-object v3, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->progressDrawable:Landroid/graphics/drawable/GradientDrawable;
-
-    invoke-virtual {p0, v3}, Landroid/widget/AbsSeekBar;->setProgressDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, v0}, Lcom/samsung/android/widget/SemGradientColorSeekBar;->setProgressDrawable(Landroid/graphics/drawable/Drawable;)V
 
     return-void
 .end method
@@ -165,29 +123,23 @@
 
     const/4 v5, 0x0
 
-    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+    iget-object v3, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->mContext:Landroid/content/Context;
 
-    move-result-object v3
+    const v4, 0x1080820
 
-    const v4, 0x10807b8
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+    iget-object v3, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->mResources:Landroid/content/res/Resources;
 
-    move-result-object v3
-
-    const v4, 0x1050377
+    const v4, 0x10501d5
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v3
+    iget-object v3, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->mContext:Landroid/content/Context;
 
     check-cast v1, Landroid/graphics/drawable/BitmapDrawable;
 
@@ -195,11 +147,9 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Landroid/widget/AbsSeekBar;->setThumb(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, v0}, Lcom/samsung/android/widget/SemGradientColorSeekBar;->setThumb(Landroid/graphics/drawable/Drawable;)V
 
-    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
+    iget-object v3, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->mResources:Landroid/content/res/Resources;
 
     invoke-virtual {v3}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
@@ -213,7 +163,7 @@
 
     float-to-int v3, v3
 
-    invoke-virtual {p0, v3}, Landroid/widget/AbsSeekBar;->setThumbOffset(I)V
+    invoke-virtual {p0, v3}, Lcom/samsung/android/widget/SemGradientColorSeekBar;->setThumbOffset(I)V
 
     new-instance v3, Landroid/graphics/drawable/RippleDrawable;
 
@@ -229,7 +179,7 @@
 
     invoke-direct {v3, v4, v6, v6}, Landroid/graphics/drawable/RippleDrawable;-><init>(Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    invoke-virtual {p0, v3}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, v3}, Lcom/samsung/android/widget/SemGradientColorSeekBar;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     return-void
 .end method
@@ -318,7 +268,7 @@
 .method changeColorBase(I)V
     .locals 2
 
-    iget-object v0, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->progressDrawable:Landroid/graphics/drawable/GradientDrawable;
+    iget-object v0, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->mProgressDrawable:Landroid/graphics/drawable/GradientDrawable;
 
     if-eqz v0, :cond_0
 
@@ -328,21 +278,21 @@
 
     aput p1, v0, v1
 
-    iget-object v0, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->progressDrawable:Landroid/graphics/drawable/GradientDrawable;
+    iget-object v0, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->mProgressDrawable:Landroid/graphics/drawable/GradientDrawable;
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->mColors:[I
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/GradientDrawable;->setColors([I)V
 
-    iget-object v0, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->progressDrawable:Landroid/graphics/drawable/GradientDrawable;
+    iget-object v0, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->mProgressDrawable:Landroid/graphics/drawable/GradientDrawable;
 
-    invoke-virtual {p0, v0}, Landroid/widget/AbsSeekBar;->setProgressDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, v0}, Lcom/samsung/android/widget/SemGradientColorSeekBar;->setProgressDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    invoke-virtual {p0}, Landroid/widget/ProgressBar;->getMax()I
+    invoke-virtual {p0}, Lcom/samsung/android/widget/SemGradientColorSeekBar;->getMax()I
 
     move-result v0
 
-    invoke-virtual {p0, v0}, Landroid/widget/ProgressBar;->setProgress(I)V
+    invoke-virtual {p0, v0}, Lcom/samsung/android/widget/SemGradientColorSeekBar;->setProgress(I)V
 
     :cond_0
     return-void
@@ -353,7 +303,7 @@
 
     const/16 v0, 0xff
 
-    invoke-virtual {p0, v0}, Landroid/widget/AbsSeekBar;->setMax(I)V
+    invoke-virtual {p0, v0}, Lcom/samsung/android/widget/SemGradientColorSeekBar;->setMax(I)V
 
     invoke-direct {p0, p1}, Lcom/samsung/android/widget/SemGradientColorSeekBar;->initColor(I)V
 
@@ -369,15 +319,15 @@
 
     invoke-direct {p0, p1}, Lcom/samsung/android/widget/SemGradientColorSeekBar;->initColor(I)V
 
-    iget-object v0, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->progressDrawable:Landroid/graphics/drawable/GradientDrawable;
+    iget-object v0, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->mProgressDrawable:Landroid/graphics/drawable/GradientDrawable;
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->mColors:[I
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/GradientDrawable;->setColors([I)V
 
-    iget-object v0, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->progressDrawable:Landroid/graphics/drawable/GradientDrawable;
+    iget-object v0, p0, Lcom/samsung/android/widget/SemGradientColorSeekBar;->mProgressDrawable:Landroid/graphics/drawable/GradientDrawable;
 
-    invoke-virtual {p0, v0}, Landroid/widget/AbsSeekBar;->setProgressDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, v0}, Lcom/samsung/android/widget/SemGradientColorSeekBar;->setProgressDrawable(Landroid/graphics/drawable/Drawable;)V
 
     return-void
 .end method

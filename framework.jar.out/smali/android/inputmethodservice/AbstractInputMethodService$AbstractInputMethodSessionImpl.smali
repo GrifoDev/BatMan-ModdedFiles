@@ -160,3 +160,6 @@
     :cond_0
     return-void
 .end method
+
+.method public abstract showSideSyncSoftInput(I)V
+.end method

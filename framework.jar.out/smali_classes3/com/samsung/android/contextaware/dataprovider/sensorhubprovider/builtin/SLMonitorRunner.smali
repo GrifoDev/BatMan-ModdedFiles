@@ -65,7 +65,7 @@
 
     if-eqz p1, :cond_0
 
-    invoke-virtual/range {p1 .. p1}, Landroid/os/BaseBundle;->isEmpty()Z
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Bundle;->isEmpty()Z
 
     move-result v19
 
@@ -115,7 +115,7 @@
 
     move-object/from16 v1, v19
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v8
 
@@ -131,7 +131,7 @@
 
     move-object/from16 v1, v19
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v6
 
@@ -145,7 +145,7 @@
 
     move/from16 v2, v20
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
     move-result v11
 
@@ -221,7 +221,7 @@
 
     move-object/from16 v1, v19
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLongArray(Ljava/lang/String;)[J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLongArray(Ljava/lang/String;)[J
 
     move-result-object v18
 
@@ -288,7 +288,7 @@
 
     move-object/from16 v1, v19
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v16
 
@@ -331,7 +331,7 @@
 
     move-object/from16 v0, v19
 
-    invoke-virtual {v7, v0}, Landroid/os/BaseBundle;->getIntArray(Ljava/lang/String;)[I
+    invoke-virtual {v7, v0}, Landroid/os/Bundle;->getIntArray(Ljava/lang/String;)[I
 
     move-result-object v14
 
@@ -339,7 +339,7 @@
 
     move-object/from16 v0, v19
 
-    invoke-virtual {v7, v0}, Landroid/os/BaseBundle;->getIntArray(Ljava/lang/String;)[I
+    invoke-virtual {v7, v0}, Landroid/os/Bundle;->getIntArray(Ljava/lang/String;)[I
 
     move-result-object v13
 
@@ -347,7 +347,7 @@
 
     move-object/from16 v0, v19
 
-    invoke-virtual {v7, v0}, Landroid/os/BaseBundle;->getDoubleArray(Ljava/lang/String;)[D
+    invoke-virtual {v7, v0}, Landroid/os/Bundle;->getDoubleArray(Ljava/lang/String;)[D
 
     move-result-object v9
 
@@ -355,7 +355,7 @@
 
     move-object/from16 v0, v19
 
-    invoke-virtual {v7, v0}, Landroid/os/BaseBundle;->getDoubleArray(Ljava/lang/String;)[D
+    invoke-virtual {v7, v0}, Landroid/os/Bundle;->getDoubleArray(Ljava/lang/String;)[D
 
     move-result-object v5
 
@@ -363,7 +363,7 @@
 
     move-object/from16 v0, v19
 
-    invoke-virtual {v7, v0}, Landroid/os/BaseBundle;->getIntArray(Ljava/lang/String;)[I
+    invoke-virtual {v7, v0}, Landroid/os/Bundle;->getIntArray(Ljava/lang/String;)[I
 
     move-result-object v10
 
@@ -724,7 +724,7 @@
 
     move-object/from16 v1, v19
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v4
 
@@ -915,7 +915,7 @@
 
     aget-object v15, v11, v15
 
-    invoke-virtual {v3, v15, v13}, Landroid/os/BaseBundle;->putIntArray(Ljava/lang/String;[I)V
+    invoke-virtual {v3, v15, v13}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
 
     sget-object v15, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;->StepCount:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;
 
@@ -925,7 +925,7 @@
 
     aget-object v15, v11, v15
 
-    invoke-virtual {v3, v15, v12}, Landroid/os/BaseBundle;->putIntArray(Ljava/lang/String;[I)V
+    invoke-virtual {v3, v15, v12}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
 
     sget-object v15, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;->Distance:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;
 
@@ -935,7 +935,7 @@
 
     aget-object v15, v11, v15
 
-    invoke-virtual {v3, v15, v5}, Landroid/os/BaseBundle;->putDoubleArray(Ljava/lang/String;[D)V
+    invoke-virtual {v3, v15, v5}, Landroid/os/Bundle;->putDoubleArray(Ljava/lang/String;[D)V
 
     sget-object v15, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;->Calorie:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;
 
@@ -945,7 +945,7 @@
 
     aget-object v15, v11, v15
 
-    invoke-virtual {v3, v15, v2}, Landroid/os/BaseBundle;->putDoubleArray(Ljava/lang/String;[D)V
+    invoke-virtual {v3, v15, v2}, Landroid/os/Bundle;->putDoubleArray(Ljava/lang/String;[D)V
 
     sget-object v15, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;->Duration:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;
 
@@ -955,9 +955,9 @@
 
     aget-object v15, v11, v15
 
-    invoke-virtual {v3, v15, v6}, Landroid/os/BaseBundle;->putIntArray(Ljava/lang/String;[I)V
+    invoke-virtual {v3, v15, v6}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
 
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->getContextBean()Lcom/samsung/android/contextaware/manager/ContextBean;
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner;->getContextBean()Lcom/samsung/android/contextaware/manager/ContextBean;
 
     move-result-object v15
 
@@ -973,7 +973,7 @@
 
     invoke-virtual {v15, v0, v10}, Lcom/samsung/android/contextaware/manager/ContextBean;->putContext(Ljava/lang/String;I)V
 
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->getContextBean()Lcom/samsung/android/contextaware/manager/ContextBean;
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner;->getContextBean()Lcom/samsung/android/contextaware/manager/ContextBean;
 
     move-result-object v15
 
@@ -989,7 +989,7 @@
 
     invoke-virtual {v15, v0, v14}, Lcom/samsung/android/contextaware/manager/ContextBean;->putContext(Ljava/lang/String;[J)V
 
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->getContextBean()Lcom/samsung/android/contextaware/manager/ContextBean;
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner;->getContextBean()Lcom/samsung/android/contextaware/manager/ContextBean;
 
     move-result-object v15
 
@@ -1005,7 +1005,7 @@
 
     invoke-virtual {v15, v0, v3}, Lcom/samsung/android/contextaware/manager/ContextBean;->putContext(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->getContextBean()Lcom/samsung/android/contextaware/manager/ContextBean;
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner;->getContextBean()Lcom/samsung/android/contextaware/manager/ContextBean;
 
     move-result-object v15
 
@@ -1021,7 +1021,7 @@
 
     invoke-virtual {v15, v0, v4}, Lcom/samsung/android/contextaware/manager/ContextBean;->putContext(Ljava/lang/String;I)V
 
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->getContextBean()Lcom/samsung/android/contextaware/manager/ContextBean;
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner;->getContextBean()Lcom/samsung/android/contextaware/manager/ContextBean;
 
     move-result-object v15
 
@@ -1049,7 +1049,7 @@
 
     aget-object v15, v11, v15
 
-    invoke-virtual {v9, v15, v10}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v9, v15, v10}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     sget-object v15, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;->TimeStampArray:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;
 
@@ -1059,7 +1059,7 @@
 
     aget-object v15, v11, v15
 
-    invoke-virtual {v9, v15, v14}, Landroid/os/BaseBundle;->putLongArray(Ljava/lang/String;[J)V
+    invoke-virtual {v9, v15, v14}, Landroid/os/Bundle;->putLongArray(Ljava/lang/String;[J)V
 
     sget-object v15, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;->DataBundle:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;
 
@@ -1079,7 +1079,7 @@
 
     aget-object v15, v11, v15
 
-    invoke-virtual {v9, v15, v4}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v9, v15, v4}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     sget-object v15, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;->HistoryMode:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;
 
@@ -1093,7 +1093,7 @@
 
     move/from16 v0, v16
 
-    invoke-virtual {v9, v15, v0}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v9, v15, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     move-object/from16 v0, p0
 
@@ -1369,7 +1369,7 @@
 .method public getFaultDetectionResult()Landroid/os/Bundle;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->checkFaultDetectionResult()Z
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner;->checkFaultDetectionResult()Z
 
     move-result v0
 
@@ -2085,7 +2085,7 @@
 
     move-result-object v3
 
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual/range {v26 .. v26}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v11
 
@@ -2191,7 +2191,7 @@
 
     move-object/from16 v1, v35
 
-    invoke-virtual {v0, v3, v1}, Landroid/os/BaseBundle;->putIntArray(Ljava/lang/String;[I)V
+    invoke-virtual {v0, v3, v1}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
 
     sget-object v3, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;->StepCount:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;
 
@@ -2205,7 +2205,7 @@
 
     move-object/from16 v1, v34
 
-    invoke-virtual {v0, v3, v1}, Landroid/os/BaseBundle;->putIntArray(Ljava/lang/String;[I)V
+    invoke-virtual {v0, v3, v1}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
 
     sget-object v3, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;->Distance:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;
 
@@ -2219,7 +2219,7 @@
 
     move-object/from16 v1, v24
 
-    invoke-virtual {v0, v3, v1}, Landroid/os/BaseBundle;->putDoubleArray(Ljava/lang/String;[D)V
+    invoke-virtual {v0, v3, v1}, Landroid/os/Bundle;->putDoubleArray(Ljava/lang/String;[D)V
 
     sget-object v3, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;->Calorie:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;
 
@@ -2231,7 +2231,7 @@
 
     move-object/from16 v0, v21
 
-    invoke-virtual {v0, v3, v10}, Landroid/os/BaseBundle;->putDoubleArray(Ljava/lang/String;[D)V
+    invoke-virtual {v0, v3, v10}, Landroid/os/Bundle;->putDoubleArray(Ljava/lang/String;[D)V
 
     sget-object v3, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;->Duration:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;
 
@@ -2245,9 +2245,9 @@
 
     move-object/from16 v1, v25
 
-    invoke-virtual {v0, v3, v1}, Landroid/os/BaseBundle;->putIntArray(Ljava/lang/String;[I)V
+    invoke-virtual {v0, v3, v1}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
 
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->getContextBean()Lcom/samsung/android/contextaware/manager/ContextBean;
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner;->getContextBean()Lcom/samsung/android/contextaware/manager/ContextBean;
 
     move-result-object v3
 
@@ -2263,7 +2263,7 @@
 
     invoke-virtual {v3, v11, v0}, Lcom/samsung/android/contextaware/manager/ContextBean;->putContext(Ljava/lang/String;I)V
 
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->getContextBean()Lcom/samsung/android/contextaware/manager/ContextBean;
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner;->getContextBean()Lcom/samsung/android/contextaware/manager/ContextBean;
 
     move-result-object v3
 
@@ -2277,7 +2277,7 @@
 
     invoke-virtual {v3, v11, v8, v9}, Lcom/samsung/android/contextaware/manager/ContextBean;->putContext(Ljava/lang/String;J)V
 
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->getContextBean()Lcom/samsung/android/contextaware/manager/ContextBean;
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner;->getContextBean()Lcom/samsung/android/contextaware/manager/ContextBean;
 
     move-result-object v3
 
@@ -2293,7 +2293,7 @@
 
     invoke-virtual {v3, v11, v0}, Lcom/samsung/android/contextaware/manager/ContextBean;->putContext(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->getContextBean()Lcom/samsung/android/contextaware/manager/ContextBean;
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner;->getContextBean()Lcom/samsung/android/contextaware/manager/ContextBean;
 
     move-result-object v3
 
@@ -2325,7 +2325,7 @@
 
     move/from16 v1, v22
 
-    invoke-virtual {v0, v3, v1}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v3, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     sget-object v3, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;->Timestamp:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;
 
@@ -2337,7 +2337,7 @@
 
     move-object/from16 v0, v29
 
-    invoke-virtual {v0, v3, v8, v9}, Landroid/os/BaseBundle;->putLong(Ljava/lang/String;J)V
+    invoke-virtual {v0, v3, v8, v9}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
     sget-object v3, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;->DataBundle:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner$ContextValIndex;
 
@@ -2365,7 +2365,7 @@
 
     move/from16 v1, v23
 
-    invoke-virtual {v0, v3, v1}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v3, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     move-object/from16 v0, p0
 
@@ -2519,7 +2519,7 @@
 
     const/16 v3, 0x2c
 
-    invoke-virtual {p0, v2, v3, v4, v1}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->sendPropertyValueToSensorHub(BBB[B)Z
+    invoke-virtual {p0, v2, v3, v4, v1}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/SLMonitorRunner;->sendPropertyValueToSensorHub(BBB[B)Z
 
     goto :goto_0
 

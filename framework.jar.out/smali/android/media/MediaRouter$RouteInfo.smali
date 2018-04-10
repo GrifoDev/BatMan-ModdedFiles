@@ -37,6 +37,8 @@
 
 .field public static final PLAYBACK_VOLUME_VARIABLE:I = 0x1
 
+.field public static final SEM_STATUS_CONNECTED:I = 0x6
+
 .field public static final STATUS_AVAILABLE:I = 0x3
 
 .field public static final STATUS_CONNECTED:I = 0x6
@@ -353,8 +355,6 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/media/MediaRouter$RouteInfo;->mName:Ljava/lang/CharSequence;
-
     return-object v0
 
     :cond_0
@@ -380,36 +380,26 @@
 .end method
 
 .method public getPresentationDisplay()Landroid/view/Display;
-    .locals 4
+    .locals 1
 
-    const/4 v3, 0x0
+    sget-object v0, Landroid/media/MediaRouter;->sStatic:Landroid/media/MediaRouter$Static;
 
-    sget-object v1, Landroid/media/MediaRouter;->sStatic:Landroid/media/MediaRouter$Static;
+    iget-object v0, v0, Landroid/media/MediaRouter$Static;->mResources:Landroid/content/res/Resources;
 
-    iget-object v1, v1, Landroid/media/MediaRouter$Static;->mAppContext:Landroid/content/Context;
+    invoke-static {v0}, Lcom/samsung/android/desktopmode/DesktopModeFeature;->isDesktopMode(Landroid/content/res/Resources;)Z
 
-    const-string/jumbo v2, "desktopmode"
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/samsung/android/desktopmode/SemDesktopModeManager;
+    move-result v0
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->isDesktopMode()Z
+    const/4 v0, 0x0
 
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    return-object v3
+    return-object v0
 
     :cond_0
-    iget-object v1, p0, Landroid/media/MediaRouter$RouteInfo;->mPresentationDisplay:Landroid/view/Display;
+    iget-object v0, p0, Landroid/media/MediaRouter$RouteInfo;->mPresentationDisplay:Landroid/view/Display;
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public getStatus()Ljava/lang/CharSequence;
@@ -788,27 +778,27 @@
     return v2
 
     :pswitch_2
-    const v0, 0x1040517
+    const v0, 0x1040510
 
     goto :goto_1
 
     :pswitch_3
-    const v0, 0x1040518
+    const v0, 0x104050d
 
     goto :goto_1
 
     :pswitch_4
-    const v0, 0x1040519
+    const v0, 0x104050c
 
     goto :goto_1
 
     :pswitch_5
-    const v0, 0x104051a
+    const v0, 0x104050f
 
     goto :goto_1
 
     :pswitch_6
-    const v0, 0x104051b
+    const v0, 0x104050e
 
     goto :goto_1
 
@@ -862,6 +852,46 @@
     iget-object v0, p0, Landroid/media/MediaRouter$RouteInfo;->mDeviceAddress:Ljava/lang/String;
 
     return-object v0
+.end method
+
+.method public semGetStatusCode()I
+    .locals 1
+
+    iget v0, p0, Landroid/media/MediaRouter$RouteInfo;->mResolvedStatusCode:I
+
+    return v0
+.end method
+
+.method public semIsSelected()Z
+    .locals 1
+
+    sget-object v0, Landroid/media/MediaRouter;->sStatic:Landroid/media/MediaRouter$Static;
+
+    iget-object v0, v0, Landroid/media/MediaRouter$Static;->mSelectedRoute:Landroid/media/MediaRouter$RouteInfo;
+
+    if-ne p0, v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public semSelect()V
+    .locals 2
+
+    iget v0, p0, Landroid/media/MediaRouter$RouteInfo;->mSupportedTypes:I
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, p0, v1}, Landroid/media/MediaRouter;->selectRouteStatic(ILandroid/media/MediaRouter$RouteInfo;Z)V
+
+    return-void
 .end method
 
 .method setRealStatusCode(I)Z

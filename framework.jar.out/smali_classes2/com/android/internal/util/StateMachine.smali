@@ -32,7 +32,15 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/internal/util/StateMachine;)Landroid/os/HandlerThread;
+.method static synthetic -get0(Lcom/android/internal/util/StateMachine;)Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mName:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/android/internal/util/StateMachine;)Landroid/os/HandlerThread;
     .locals 1
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmThread:Landroid/os/HandlerThread;
@@ -124,7 +132,7 @@
 
 
 # virtual methods
-.method protected addLogRec(Ljava/lang/String;)V
+.method public addLogRec(Ljava/lang/String;)V
     .locals 8
 
     iget-object v7, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
@@ -171,7 +179,7 @@
     return-void
 .end method
 
-.method protected final addState(Lcom/android/internal/util/State;)V
+.method public final addState(Lcom/android/internal/util/State;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
@@ -183,7 +191,7 @@
     return-void
 .end method
 
-.method protected final addState(Lcom/android/internal/util/State;Lcom/android/internal/util/State;)V
+.method public final addState(Lcom/android/internal/util/State;Lcom/android/internal/util/State;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
@@ -246,7 +254,7 @@
     return-object v3
 .end method
 
-.method protected final deferMessage(Landroid/os/Message;)V
+.method public final deferMessage(Landroid/os/Message;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
@@ -392,7 +400,7 @@
     return-void
 .end method
 
-.method protected final getCurrentMessage()Landroid/os/Message;
+.method public final getCurrentMessage()Landroid/os/Message;
     .locals 2
 
     const/4 v1, 0x0
@@ -411,7 +419,7 @@
     return-object v1
 .end method
 
-.method protected final getCurrentState()Lcom/android/internal/util/IState;
+.method public final getCurrentState()Lcom/android/internal/util/IState;
     .locals 2
 
     const/4 v1, 0x0
@@ -478,6 +486,29 @@
     move-result-object v1
 
     invoke-virtual {v1}, Lcom/android/internal/util/StateMachine$LogRecords;->count()I
+
+    move-result v1
+
+    return v1
+.end method
+
+.method public final getLogRecMaxSize()I
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
+
+    if-nez v0, :cond_0
+
+    const/4 v1, 0x0
+
+    return v1
+
+    :cond_0
+    invoke-static {v0}, Lcom/android/internal/util/StateMachine$SmHandler;->-get4(Lcom/android/internal/util/StateMachine$SmHandler;)Lcom/android/internal/util/StateMachine$LogRecords;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/util/StateMachine$LogRecords;->-get1(Lcom/android/internal/util/StateMachine$LogRecords;)I
 
     move-result v1
 
@@ -878,7 +909,7 @@
     return-void
 .end method
 
-.method protected final quit()V
+.method public final quit()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
@@ -893,7 +924,7 @@
     return-void
 .end method
 
-.method protected final quitNow()V
+.method public final quitNow()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
@@ -975,7 +1006,17 @@
     return-void
 .end method
 
-.method public final sendMessage(I)V
+.method public final removeState(Lcom/android/internal/util/State;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
+
+    invoke-static {v0, p1}, Lcom/android/internal/util/StateMachine$SmHandler;->-wrap9(Lcom/android/internal/util/StateMachine$SmHandler;Lcom/android/internal/util/State;)V
+
+    return-void
+.end method
+
+.method public sendMessage(I)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
@@ -994,7 +1035,7 @@
     return-void
 .end method
 
-.method public final sendMessage(II)V
+.method public sendMessage(II)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
@@ -1013,7 +1054,7 @@
     return-void
 .end method
 
-.method public final sendMessage(III)V
+.method public sendMessage(III)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
@@ -1032,7 +1073,7 @@
     return-void
 .end method
 
-.method public final sendMessage(IIILjava/lang/Object;)V
+.method public sendMessage(IIILjava/lang/Object;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
@@ -1051,7 +1092,7 @@
     return-void
 .end method
 
-.method public final sendMessage(ILjava/lang/Object;)V
+.method public sendMessage(ILjava/lang/Object;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
@@ -1070,7 +1111,7 @@
     return-void
 .end method
 
-.method public final sendMessage(Landroid/os/Message;)V
+.method public sendMessage(Landroid/os/Message;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
@@ -1195,7 +1236,7 @@
     return-void
 .end method
 
-.method public final sendMessageDelayed(IIIJ)V
+.method public sendMessageDelayed(IIIJ)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
@@ -1214,7 +1255,7 @@
     return-void
 .end method
 
-.method public final sendMessageDelayed(IIILjava/lang/Object;J)V
+.method public sendMessageDelayed(IIILjava/lang/Object;J)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
@@ -1233,7 +1274,7 @@
     return-void
 .end method
 
-.method public final sendMessageDelayed(IIJ)V
+.method public sendMessageDelayed(IIJ)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
@@ -1252,7 +1293,7 @@
     return-void
 .end method
 
-.method public final sendMessageDelayed(IJ)V
+.method public sendMessageDelayed(IJ)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
@@ -1271,7 +1312,7 @@
     return-void
 .end method
 
-.method public final sendMessageDelayed(ILjava/lang/Object;J)V
+.method public sendMessageDelayed(ILjava/lang/Object;J)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
@@ -1290,7 +1331,7 @@
     return-void
 .end method
 
-.method public final sendMessageDelayed(Landroid/os/Message;J)V
+.method public sendMessageDelayed(Landroid/os/Message;J)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
@@ -1315,17 +1356,17 @@
     return-void
 
     :cond_0
-    invoke-static {v0, p1}, Lcom/android/internal/util/StateMachine$SmHandler;->-wrap9(Lcom/android/internal/util/StateMachine$SmHandler;Z)V
+    invoke-static {v0, p1}, Lcom/android/internal/util/StateMachine$SmHandler;->-wrap10(Lcom/android/internal/util/StateMachine$SmHandler;Z)V
 
     return-void
 .end method
 
-.method protected final setInitialState(Lcom/android/internal/util/State;)V
+.method public final setInitialState(Lcom/android/internal/util/State;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
 
-    invoke-static {v0, p1}, Lcom/android/internal/util/StateMachine$SmHandler;->-wrap10(Lcom/android/internal/util/StateMachine$SmHandler;Lcom/android/internal/util/State;)V
+    invoke-static {v0, p1}, Lcom/android/internal/util/StateMachine$SmHandler;->-wrap11(Lcom/android/internal/util/StateMachine$SmHandler;Lcom/android/internal/util/State;)V
 
     return-void
 .end method
@@ -1399,17 +1440,17 @@
     return-object v2
 .end method
 
-.method protected final transitionTo(Lcom/android/internal/util/IState;)V
+.method public final transitionTo(Lcom/android/internal/util/IState;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
 
-    invoke-static {v0, p1}, Lcom/android/internal/util/StateMachine$SmHandler;->-wrap11(Lcom/android/internal/util/StateMachine$SmHandler;Lcom/android/internal/util/IState;)V
+    invoke-static {v0, p1}, Lcom/android/internal/util/StateMachine$SmHandler;->-wrap12(Lcom/android/internal/util/StateMachine$SmHandler;Lcom/android/internal/util/IState;)V
 
     return-void
 .end method
 
-.method protected final transitionToHaltingState()V
+.method public final transitionToHaltingState()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine;->mSmHandler:Lcom/android/internal/util/StateMachine$SmHandler;
@@ -1420,7 +1461,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/internal/util/StateMachine$SmHandler;->-wrap11(Lcom/android/internal/util/StateMachine$SmHandler;Lcom/android/internal/util/IState;)V
+    invoke-static {v0, v1}, Lcom/android/internal/util/StateMachine$SmHandler;->-wrap12(Lcom/android/internal/util/StateMachine$SmHandler;Lcom/android/internal/util/IState;)V
 
     return-void
 .end method

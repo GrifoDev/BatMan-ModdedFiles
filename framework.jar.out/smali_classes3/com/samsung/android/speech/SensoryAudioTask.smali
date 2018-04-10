@@ -505,7 +505,7 @@
 
     const-string/jumbo v3, "recognition_result"
 
-    invoke-virtual {v0, v3, p1}, Landroid/os/BaseBundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
+    invoke-virtual {v0, v3, p1}, Landroid/os/Bundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
 
     invoke-virtual {v2, v0}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
 
@@ -534,7 +534,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/IllegalStateException;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -657,15 +657,15 @@
 
     iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aMMUIRecognizer:Lcom/samsung/android/speech/MMUIRecognizer;
 
-    iget-object v1, p0, Lcom/samsung/android/speech/AudioTask;->cmResult:[F
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->cmResult:[F
 
-    iget-object v2, p0, Lcom/samsung/android/speech/AudioTask;->strResult:[Ljava/lang/String;
+    iget-object v2, p0, Lcom/samsung/android/speech/SensoryAudioTask;->strResult:[Ljava/lang/String;
 
     const-string/jumbo v3, "/system/voicebargeindata/sasr/input.txt"
 
-    iget-object v4, p0, Lcom/samsung/android/speech/AudioTask;->BargeinAct:[S
+    iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->BargeinAct:[S
 
-    iget-object v5, p0, Lcom/samsung/android/speech/AudioTask;->utfResult:[Ljava/lang/String;
+    iget-object v5, p0, Lcom/samsung/android/speech/SensoryAudioTask;->utfResult:[Ljava/lang/String;
 
     invoke-virtual/range {v0 .. v5}, Lcom/samsung/android/speech/MMUIRecognizer;->SASRDoRecognition([F[Ljava/lang/String;Ljava/lang/String;[S[Ljava/lang/String;)I
 
@@ -673,9 +673,9 @@
 
     iput v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->numRecogResult:I
 
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->strResult:[Ljava/lang/String;
+    iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->strResult:[Ljava/lang/String;
 
-    iget-object v1, p0, Lcom/samsung/android/speech/AudioTask;->strResult:[Ljava/lang/String;
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->strResult:[Ljava/lang/String;
 
     aget-object v1, v1, v7
 
@@ -696,9 +696,9 @@
     if-ne v0, v9, :cond_6
 
     :cond_5
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->utfResult:[Ljava/lang/String;
+    iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->utfResult:[Ljava/lang/String;
 
-    iget-object v1, p0, Lcom/samsung/android/speech/AudioTask;->utfResult:[Ljava/lang/String;
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->utfResult:[Ljava/lang/String;
 
     aget-object v1, v1, v7
 
@@ -710,9 +710,9 @@
 
     aput-object v1, v0, v7
 
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->strResult:[Ljava/lang/String;
+    iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->strResult:[Ljava/lang/String;
 
-    iget-object v1, p0, Lcom/samsung/android/speech/AudioTask;->utfResult:[Ljava/lang/String;
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->utfResult:[Ljava/lang/String;
 
     aget-object v1, v1, v7
 
@@ -731,7 +731,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/samsung/android/speech/AudioTask;->cmResult:[F
+    iget-object v2, p0, Lcom/samsung/android/speech/SensoryAudioTask;->cmResult:[F
 
     aget v2, v2, v7
 
@@ -757,7 +757,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/samsung/android/speech/AudioTask;->strResult:[Ljava/lang/String;
+    iget-object v2, p0, Lcom/samsung/android/speech/SensoryAudioTask;->strResult:[Ljava/lang/String;
 
     aget-object v2, v2, v7
 
@@ -783,7 +783,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/samsung/android/speech/AudioTask;->BargeinAct:[S
+    iget-object v2, p0, Lcom/samsung/android/speech/SensoryAudioTask;->BargeinAct:[S
 
     aget-short v2, v2, v7
 
@@ -803,7 +803,7 @@
 
     if-ne v0, v1, :cond_7
 
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->BargeinAct:[S
+    iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->BargeinAct:[S
 
     aget-short v0, v0, v7
 
@@ -903,7 +903,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/samsung/android/speech/AudioTask;->BargeinAct:[S
+    iget-object v2, p0, Lcom/samsung/android/speech/SensoryAudioTask;->BargeinAct:[S
 
     aget-short v2, v2, v7
 
@@ -965,24 +965,24 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->strResult:[Ljava/lang/String;
+    iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->strResult:[Ljava/lang/String;
 
     const-string/jumbo v1, "TH-Reject"
 
     aput-object v1, v0, v7
 
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->BargeinAct:[S
+    iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->BargeinAct:[S
 
     aput-short v8, v0, v7
 
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->strResult:[Ljava/lang/String;
+    iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->strResult:[Ljava/lang/String;
 
     invoke-direct {p0, v0}, Lcom/samsung/android/speech/SensoryAudioTask;->SendHandlerMessage([Ljava/lang/String;)V
 
     goto :goto_1
 
     :cond_b
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->cmResult:[F
+    iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->cmResult:[F
 
     aget v0, v0, v7
 
@@ -994,24 +994,24 @@
 
     if-lez v0, :cond_c
 
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->strResult:[Ljava/lang/String;
+    iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->strResult:[Ljava/lang/String;
 
     invoke-direct {p0, v0}, Lcom/samsung/android/speech/SensoryAudioTask;->SendHandlerMessage([Ljava/lang/String;)V
 
     goto :goto_1
 
     :cond_c
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->strResult:[Ljava/lang/String;
+    iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->strResult:[Ljava/lang/String;
 
     const-string/jumbo v1, "TH-Reject"
 
     aput-object v1, v0, v7
 
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->BargeinAct:[S
+    iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->BargeinAct:[S
 
     aput-short v8, v0, v7
 
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->strResult:[Ljava/lang/String;
+    iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->strResult:[Ljava/lang/String;
 
     invoke-direct {p0, v0}, Lcom/samsung/android/speech/SensoryAudioTask;->SendHandlerMessage([Ljava/lang/String;)V
 
@@ -1076,7 +1076,7 @@
 
     if-eqz v9, :cond_3
 
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->BargeinAct:[S
+    iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->BargeinAct:[S
 
     iget v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->mCommandType:I
 
@@ -1090,7 +1090,7 @@
 
     aput-short v1, v0, v2
 
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->strResult:[Ljava/lang/String;
+    iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->strResult:[Ljava/lang/String;
 
     const/4 v1, 0x0
 
@@ -1134,7 +1134,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/samsung/android/speech/AudioTask;->strResult:[Ljava/lang/String;
+    iget-object v2, p0, Lcom/samsung/android/speech/SensoryAudioTask;->strResult:[Ljava/lang/String;
 
     const/4 v3, 0x0
 
@@ -1162,7 +1162,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/samsung/android/speech/AudioTask;->BargeinAct:[S
+    iget-object v2, p0, Lcom/samsung/android/speech/SensoryAudioTask;->BargeinAct:[S
 
     const/4 v3, 0x0
 
@@ -1224,7 +1224,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->BargeinAct:[S
+    iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->BargeinAct:[S
 
     const/4 v1, 0x0
 
@@ -1240,7 +1240,7 @@
 
     if-nez v0, :cond_1
 
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->strResult:[Ljava/lang/String;
+    iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->strResult:[Ljava/lang/String;
 
     invoke-direct {p0, v0}, Lcom/samsung/android/speech/SensoryAudioTask;->SendHandlerMessage([Ljava/lang/String;)V
 
@@ -1268,7 +1268,7 @@
 
     iput v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->recogAfterReadCount:I
 
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->strResult:[Ljava/lang/String;
+    iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->strResult:[Ljava/lang/String;
 
     invoke-direct {p0, v0}, Lcom/samsung/android/speech/SensoryAudioTask;->SendHandlerMessage([Ljava/lang/String;)V
 
@@ -1318,7 +1318,7 @@
 .method private resultSensoryOOV(JIF)Z
     .locals 7
 
-    const/4 v6, 0x5
+    const/high16 v6, 0x43960000    # 300.0f
 
     const/4 v5, 0x4
 
@@ -1366,24 +1366,38 @@
 
     if-ne v0, v1, :cond_9
 
-    iget v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->dualThresholdFlag:I
-
-    if-ne v0, v2, :cond_5
-
     iget v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->mLanguage:I
 
     packed-switch v0, :pswitch_data_1
 
+    :pswitch_1
     goto :goto_0
 
-    :pswitch_1
-    if-ne p3, v4, :cond_2
+    :pswitch_2
+    iget v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->dualThresholdFlag:I
 
-    const/high16 v0, 0x43960000    # 300.0f
+    if-ne v0, v2, :cond_0
 
-    cmpg-float v0, p4, v0
+    if-ne p3, v2, :cond_2
+
+    cmpg-float v0, p4, v6
 
     if-gez v0, :cond_2
+
+    iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "Korean smile score is low. So rejected"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v2
+
+    :cond_2
+    if-ne p3, v4, :cond_3
+
+    cmpg-float v0, p4, v6
+
+    if-gez v0, :cond_3
 
     iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
 
@@ -1393,14 +1407,14 @@
 
     return v2
 
-    :cond_2
-    if-ne p3, v3, :cond_3
+    :cond_3
+    if-ne p3, v3, :cond_4
 
     const/high16 v0, 0x44960000    # 1200.0f
 
     cmpg-float v0, p4, v0
 
-    if-gez v0, :cond_3
+    if-gez v0, :cond_4
 
     iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
 
@@ -1410,14 +1424,14 @@
 
     return v2
 
-    :cond_3
-    if-ne p3, v5, :cond_4
+    :cond_4
+    if-ne p3, v5, :cond_5
 
     const/high16 v0, 0x43c80000    # 400.0f
 
     cmpg-float v0, p4, v0
 
-    if-gez v0, :cond_4
+    if-gez v0, :cond_5
 
     iget-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
 
@@ -1427,8 +1441,10 @@
 
     return v2
 
-    :cond_4
-    if-ne p3, v6, :cond_0
+    :cond_5
+    const/4 v0, 0x5
+
+    if-ne p3, v0, :cond_0
 
     const/high16 v0, 0x44480000    # 800.0f
 
@@ -1443,14 +1459,6 @@
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     return v2
-
-    :cond_5
-    iget v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->mLanguage:I
-
-    packed-switch v0, :pswitch_data_2
-
-    :pswitch_2
-    goto :goto_0
 
     :pswitch_3
     iget-boolean v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->isSubModelBargeInEnable:Z
@@ -1514,7 +1522,9 @@
     return v2
 
     :cond_8
-    if-ne p3, v6, :cond_0
+    const/4 v0, 0x5
+
+    if-ne p3, v0, :cond_0
 
     iget v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->sensoryUSEnglishRecordVideoCMTH:F
 
@@ -1686,7 +1696,7 @@
 
     iget v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->mLanguage:I
 
-    packed-switch v0, :pswitch_data_3
+    packed-switch v0, :pswitch_data_2
 
     goto/16 :goto_0
 
@@ -1716,20 +1726,16 @@
 
     :pswitch_data_1
     .packed-switch 0x0
-        :pswitch_1
-    .end packed-switch
-
-    :pswitch_data_2
-    .packed-switch 0x1
+        :pswitch_2
         :pswitch_3
         :pswitch_4
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
         :pswitch_5
         :pswitch_6
-        :pswitch_2
+        :pswitch_1
         :pswitch_3
     .end packed-switch
 
@@ -1741,7 +1747,7 @@
         0xa -> :sswitch_3
     .end sparse-switch
 
-    :pswitch_data_3
+    :pswitch_data_2
     .packed-switch 0x0
         :pswitch_7
     .end packed-switch
@@ -2506,7 +2512,7 @@
 
     iput p5, p0, Lcom/samsung/android/speech/SensoryAudioTask;->mCommandType:I
 
-    iput-object v4, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iput-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->rec:Landroid/media/AudioRecord;
 
     iput-object p3, p0, Lcom/samsung/android/speech/SensoryAudioTask;->m_listener:Lcom/samsung/android/speech/SemSpeechRecognizer$ResultListener;
 
@@ -2514,7 +2520,7 @@
 
     iput p6, p0, Lcom/samsung/android/speech/SensoryAudioTask;->mLanguage:I
 
-    iget-object v1, p0, Lcom/samsung/android/speech/AudioTask;->BargeinAct:[S
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->BargeinAct:[S
 
     aput-short v7, v1, v5
 
@@ -2628,20 +2634,20 @@
 
     iget-boolean v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->isCancelBargeIn:Z
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_d
 
     :cond_2
     iput v5, p0, Lcom/samsung/android/speech/SensoryAudioTask;->AUDIO_START:I
 
-    iget v1, p0, Lcom/samsung/android/speech/AudioTask;->AUDIO_RECORD_FOR_VOICE_RECOGNITION:I
+    iget v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->AUDIO_RECORD_FOR_VOICE_RECOGNITION:I
 
-    invoke-virtual {p0, v1}, Lcom/samsung/android/speech/AudioTask;->getAudioRecord(I)Landroid/media/AudioRecord;
+    invoke-virtual {p0, v1}, Lcom/samsung/android/speech/SensoryAudioTask;->getAudioRecord(I)Landroid/media/AudioRecord;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iput-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->rec:Landroid/media/AudioRecord;
 
-    iget-object v1, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->rec:Landroid/media/AudioRecord;
 
     if-eqz v1, :cond_3
 
@@ -2657,7 +2663,7 @@
 
     move-result-object v2
 
-    iget v3, p0, Lcom/samsung/android/speech/AudioTask;->AUDIO_RECORD_FOR_VOICE_RECOGNITION:I
+    iget v3, p0, Lcom/samsung/android/speech/SensoryAudioTask;->AUDIO_RECORD_FOR_VOICE_RECOGNITION:I
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -2671,17 +2677,17 @@
 
     :cond_3
     :goto_1
-    iget-object v1, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->rec:Landroid/media/AudioRecord;
 
     if-nez v1, :cond_4
 
-    iget v1, p0, Lcom/samsung/android/speech/AudioTask;->AUDIO_RECORD_FOR_BARGE_IN:I
+    iget v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->AUDIO_RECORD_FOR_BARGE_IN:I
 
-    invoke-virtual {p0, v1}, Lcom/samsung/android/speech/AudioTask;->getAudioRecord(I)Landroid/media/AudioRecord;
+    invoke-virtual {p0, v1}, Lcom/samsung/android/speech/SensoryAudioTask;->getAudioRecord(I)Landroid/media/AudioRecord;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iput-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->rec:Landroid/media/AudioRecord;
 
     iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
 
@@ -2695,7 +2701,7 @@
 
     move-result-object v2
 
-    iget v3, p0, Lcom/samsung/android/speech/AudioTask;->AUDIO_RECORD_FOR_BARGE_IN:I
+    iget v3, p0, Lcom/samsung/android/speech/SensoryAudioTask;->AUDIO_RECORD_FOR_BARGE_IN:I
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -2720,7 +2726,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aSensoryBargeInEngine:Lcom/sensoryinc/fluentsoftsdk/SensoryBargeInEngine;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_e
 
     iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aSensoryBargeInEngine:Lcom/sensoryinc/fluentsoftsdk/SensoryBargeInEngine;
 
@@ -2758,15 +2764,226 @@
 
     iget-boolean v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->isEnableSamsungOOVResult:Z
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_7
 
     :cond_6
     iget-boolean v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->isSensoryBargeInEnable:Z
 
-    if-eqz v1, :cond_a
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_c
 
     :cond_7
+    invoke-static {}, Lcom/samsung/android/speech/IWSpeechRecognizerWrapper;->getInstance()Lcom/samsung/android/speech/MMUIRecognizer;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aMMUIRecognizer:Lcom/samsung/android/speech/MMUIRecognizer;
+
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aMMUIRecognizer:Lcom/samsung/android/speech/MMUIRecognizer;
+
+    if-eqz v1, :cond_8
+
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aMMUIRecognizer:Lcom/samsung/android/speech/MMUIRecognizer;
+
+    iget v2, p0, Lcom/samsung/android/speech/SensoryAudioTask;->mEmbeddedEngineLanguage:I
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/speech/MMUIRecognizer;->SetSRLanguage(I)I
+
+    :cond_8
+    iget v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->mEmbeddedEngineLanguage:I
+
+    invoke-virtual {p0, v1, p5}, Lcom/samsung/android/speech/SensoryAudioTask;->setSamsungFilePath(II)V
+
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "Load Model"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aMMUIRecognizer:Lcom/samsung/android/speech/MMUIRecognizer;
+
+    if-eqz v1, :cond_9
+
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aMMUIRecognizer:Lcom/samsung/android/speech/MMUIRecognizer;
+
+    iget-object v2, p0, Lcom/samsung/android/speech/SensoryAudioTask;->modelPath:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/speech/MMUIRecognizer;->SASRLoadModel(Ljava/lang/String;)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->resultSASRLoadModel:I
+
+    iget v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->resultSASRLoadModel:I
+
+    if-nez v1, :cond_9
+
+    iput-boolean v6, p0, Lcom/samsung/android/speech/SensoryAudioTask;->isSASRInitProblem:Z
+
+    :cond_9
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Load Model result : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/samsung/android/speech/SensoryAudioTask;->resultSASRLoadModel:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v2, p0, Lcom/samsung/android/speech/SensoryAudioTask;->wordListPath:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/samsung/android/speech/SensoryAudioTask;->loadNameList:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1}, Lcom/samsung/android/speech/SensoryAudioTask;->isBargeInFile(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_f
+
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Wordlist is "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/samsung/android/speech/SensoryAudioTask;->loadNameList:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     :goto_3
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "Load Wordlist"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aMMUIRecognizer:Lcom/samsung/android/speech/MMUIRecognizer;
+
+    if-eqz v1, :cond_b
+
+    iget-boolean v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->isSASRInitProblem:Z
+
+    if-nez v1, :cond_a
+
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aMMUIRecognizer:Lcom/samsung/android/speech/MMUIRecognizer;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v3, p0, Lcom/samsung/android/speech/SensoryAudioTask;->wordListPath:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/samsung/android/speech/SensoryAudioTask;->loadNameList:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/speech/MMUIRecognizer;->SASRInit(Ljava/lang/String;)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->resultSASRInit:I
+
+    :cond_a
+    iget v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->resultSASRInit:I
+
+    if-nez v1, :cond_b
+
+    iput-boolean v6, p0, Lcom/samsung/android/speech/SensoryAudioTask;->isSASRInitProblem:Z
+
+    :cond_b
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Load Wordlist result : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/samsung/android/speech/SensoryAudioTask;->resultSASRInit:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aMMUIRecognizer:Lcom/samsung/android/speech/MMUIRecognizer;
+
+    if-eqz v1, :cond_c
+
+    iget-boolean v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->isSASRInitProblem:Z
+
+    if-nez v1, :cond_c
+
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aMMUIRecognizer:Lcom/samsung/android/speech/MMUIRecognizer;
+
+    invoke-virtual {v1}, Lcom/samsung/android/speech/MMUIRecognizer;->SASRReset()I
+
+    :cond_c
     iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2844,11 +3061,11 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/FileNotFoundException;->printStackTrace()V
 
     goto/16 :goto_0
 
-    :cond_8
+    :cond_d
     iget-boolean v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->isSensoryBargeInEnable:Z
 
     if-eqz v1, :cond_3
@@ -2857,15 +3074,15 @@
 
     iput v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->AUDIO_START:I
 
-    iget v1, p0, Lcom/samsung/android/speech/AudioTask;->AUDIO_RECORD_FOR_BARGE_IN_SENSORY:I
+    iget v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->AUDIO_RECORD_FOR_BARGE_IN_SENSORY:I
 
-    invoke-virtual {p0, v1}, Lcom/samsung/android/speech/AudioTask;->getAudioRecord(I)Landroid/media/AudioRecord;
+    invoke-virtual {p0, v1}, Lcom/samsung/android/speech/SensoryAudioTask;->getAudioRecord(I)Landroid/media/AudioRecord;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iput-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->rec:Landroid/media/AudioRecord;
 
-    iget-object v1, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->rec:Landroid/media/AudioRecord;
 
     if-eqz v1, :cond_3
 
@@ -2881,7 +3098,7 @@
 
     move-result-object v2
 
-    iget v3, p0, Lcom/samsung/android/speech/AudioTask;->AUDIO_RECORD_FOR_BARGE_IN_SENSORY:I
+    iget v3, p0, Lcom/samsung/android/speech/SensoryAudioTask;->AUDIO_RECORD_FOR_BARGE_IN_SENSORY:I
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -2895,7 +3112,7 @@
 
     goto/16 :goto_1
 
-    :cond_9
+    :cond_e
     iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
 
     const-string/jumbo v2, "SensoryBargeInEngineWrapper.getInstance() is null"
@@ -2903,218 +3120,6 @@
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_2
-
-    :cond_a
-    invoke-static {}, Lcom/samsung/android/speech/IWSpeechRecognizerWrapper;->getInstance()Lcom/samsung/android/speech/MMUIRecognizer;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aMMUIRecognizer:Lcom/samsung/android/speech/MMUIRecognizer;
-
-    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aMMUIRecognizer:Lcom/samsung/android/speech/MMUIRecognizer;
-
-    if-eqz v1, :cond_b
-
-    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aMMUIRecognizer:Lcom/samsung/android/speech/MMUIRecognizer;
-
-    iget v2, p0, Lcom/samsung/android/speech/SensoryAudioTask;->mEmbeddedEngineLanguage:I
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/speech/MMUIRecognizer;->SetSRLanguage(I)I
-
-    :cond_b
-    iget v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->mEmbeddedEngineLanguage:I
-
-    invoke-virtual {p0, v1, p5}, Lcom/samsung/android/speech/SensoryAudioTask;->setSamsungFilePath(II)V
-
-    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "Load Model"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aMMUIRecognizer:Lcom/samsung/android/speech/MMUIRecognizer;
-
-    if-eqz v1, :cond_c
-
-    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aMMUIRecognizer:Lcom/samsung/android/speech/MMUIRecognizer;
-
-    iget-object v2, p0, Lcom/samsung/android/speech/SensoryAudioTask;->modelPath:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/speech/MMUIRecognizer;->SASRLoadModel(Ljava/lang/String;)I
-
-    move-result v1
-
-    iput v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->resultSASRLoadModel:I
-
-    iget v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->resultSASRLoadModel:I
-
-    if-nez v1, :cond_c
-
-    iput-boolean v6, p0, Lcom/samsung/android/speech/SensoryAudioTask;->isSASRInitProblem:Z
-
-    :cond_c
-    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "Load Model result : "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget v3, p0, Lcom/samsung/android/speech/SensoryAudioTask;->resultSASRLoadModel:I
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v2, p0, Lcom/samsung/android/speech/SensoryAudioTask;->wordListPath:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/samsung/android/speech/SensoryAudioTask;->loadNameList:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p0, v1}, Lcom/samsung/android/speech/AudioTask;->isBargeInFile(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_f
-
-    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "Wordlist is "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/samsung/android/speech/SensoryAudioTask;->loadNameList:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_4
-    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "Load Wordlist"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aMMUIRecognizer:Lcom/samsung/android/speech/MMUIRecognizer;
-
-    if-eqz v1, :cond_e
-
-    iget-boolean v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->isSASRInitProblem:Z
-
-    if-nez v1, :cond_d
-
-    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aMMUIRecognizer:Lcom/samsung/android/speech/MMUIRecognizer;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v3, p0, Lcom/samsung/android/speech/SensoryAudioTask;->wordListPath:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/samsung/android/speech/SensoryAudioTask;->loadNameList:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/speech/MMUIRecognizer;->SASRInit(Ljava/lang/String;)I
-
-    move-result v1
-
-    iput v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->resultSASRInit:I
-
-    :cond_d
-    iget v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->resultSASRInit:I
-
-    if-nez v1, :cond_e
-
-    iput-boolean v6, p0, Lcom/samsung/android/speech/SensoryAudioTask;->isSASRInitProblem:Z
-
-    :cond_e
-    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "Load Wordlist result : "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget v3, p0, Lcom/samsung/android/speech/SensoryAudioTask;->resultSASRInit:I
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aMMUIRecognizer:Lcom/samsung/android/speech/MMUIRecognizer;
-
-    if-eqz v1, :cond_7
-
-    iget-boolean v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->isSASRInitProblem:Z
-
-    if-nez v1, :cond_7
-
-    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aMMUIRecognizer:Lcom/samsung/android/speech/MMUIRecognizer;
-
-    invoke-virtual {v1}, Lcom/samsung/android/speech/MMUIRecognizer;->SASRReset()I
-
-    goto/16 :goto_3
 
     :cond_f
     iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
@@ -3127,7 +3132,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->loadNameList:Ljava/lang/String;
 
-    goto :goto_4
+    goto/16 :goto_3
 .end method
 
 .method public isSensoryBargeinEnabled()Z
@@ -3175,32 +3180,17 @@
     return v7
 
     :cond_1
-    iget-object v4, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->rec:Landroid/media/AudioRecord;
 
     if-eqz v4, :cond_2
 
     iget-boolean v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->done:Z
 
-    if-eqz v4, :cond_3
+    xor-int/lit8 v4, v4, 0x1
 
-    :cond_2
-    :goto_0
-    iget-boolean v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->done:Z
+    if-eqz v4, :cond_2
 
-    if-eqz v4, :cond_4
-
-    iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v5, "readByteBlock return -1 : Section2"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    iput v7, p0, Lcom/samsung/android/speech/SensoryAudioTask;->readNshorts:I
-
-    return v7
-
-    :cond_3
-    iget-object v4, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->rec:Landroid/media/AudioRecord;
 
     iget-object v5, p0, Lcom/samsung/android/speech/SensoryAudioTask;->speech:[S
 
@@ -3214,14 +3204,27 @@
 
     iput v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->readNshorts:I
 
-    goto :goto_0
+    :cond_2
+    iget-boolean v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->done:Z
 
-    :cond_4
+    if-eqz v4, :cond_3
+
+    iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v5, "readByteBlock return -1 : Section2"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput v7, p0, Lcom/samsung/android/speech/SensoryAudioTask;->readNshorts:I
+
+    return v7
+
+    :cond_3
     iget v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->readNshorts:I
 
     const/16 v5, 0xa0
 
-    if-ge v4, v5, :cond_5
+    if-ge v4, v5, :cond_4
 
     iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
 
@@ -3271,12 +3274,12 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_5
+    :cond_4
     iget v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->totalReadCount:I
 
     rem-int/lit8 v4, v4, 0x14
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_5
 
     iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
 
@@ -3340,7 +3343,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_6
+    :cond_5
     iget v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->totalReadCount:I
 
     add-int/lit8 v4, v4, 0x1
@@ -3349,7 +3352,7 @@
 
     iget v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->recogAfterReadCount:I
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_6
 
     iget v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->recogAfterReadCount:I
 
@@ -3359,10 +3362,10 @@
 
     iput v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->recogAfterReadCount:I
 
-    :cond_7
+    :cond_6
     iget-boolean v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->done:Z
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_7
 
     iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
 
@@ -3374,14 +3377,14 @@
 
     return v7
 
-    :cond_8
+    :cond_7
     iget v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->readNshorts:I
 
-    if-lez v4, :cond_11
+    if-lez v4, :cond_10
 
     iget-boolean v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->done:Z
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_8
 
     iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
 
@@ -3393,16 +3396,16 @@
 
     return v7
 
-    :cond_9
+    :cond_8
     const/4 v2, 0x0
 
     iget-boolean v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->isSensoryBargeInEnable:Z
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_a
 
     iget-boolean v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->done:Z
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_9
 
     iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
 
@@ -3414,16 +3417,16 @@
 
     return v7
 
-    :cond_a
+    :cond_9
     iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aSensoryBargeInEngine:Lcom/sensoryinc/fluentsoftsdk/SensoryBargeInEngine;
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_a
 
     iget v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->totalReadCount:I
 
     iget v5, p0, Lcom/samsung/android/speech/SensoryAudioTask;->AUDIO_START:I
 
-    if-le v4, v5, :cond_b
+    if-le v4, v5, :cond_a
 
     const/4 v3, 0x0
 
@@ -3437,7 +3440,7 @@
 
     iget-boolean v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->isSubModelBargeInEnable:Z
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_a
 
     iget-wide v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->consoleInitReturn_sub:J
 
@@ -3447,7 +3450,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_a
 
     iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
 
@@ -3455,63 +3458,32 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_b
+    :cond_a
     iget v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->totalReadCount:I
 
     const/16 v5, 0x32
 
-    if-le v4, v5, :cond_d
+    if-le v4, v5, :cond_e
 
     iget-boolean v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->isSensoryCameraBargeIn:Z
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_b
 
     iget-boolean v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->isEnableSamsungOOVResult:Z
 
-    if-nez v4, :cond_e
+    if-nez v4, :cond_c
 
-    :cond_c
+    :cond_b
     iget-boolean v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->isSensoryBargeInEnable:Z
+
+    xor-int/lit8 v4, v4, 0x1
 
     if-eqz v4, :cond_e
 
-    :cond_d
-    iget-boolean v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->isMakePCM:Z
-
-    if-eqz v4, :cond_10
-
-    iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->speech:[S
-
-    invoke-static {v4}, Lcom/samsung/android/speech/AudioTask;->swap([S)V
-
-    const/4 v1, 0x0
-
-    :goto_1
-    :try_start_0
-    iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->speech:[S
-
-    array-length v4, v4
-
-    if-ge v1, v4, :cond_10
-
-    iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->mDataOutputStream:Ljava/io/DataOutputStream;
-
-    iget-object v5, p0, Lcom/samsung/android/speech/SensoryAudioTask;->speech:[S
-
-    aget-short v5, v5, v1
-
-    invoke-virtual {v4, v5}, Ljava/io/DataOutputStream;->writeShort(I)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_1
-
-    :cond_e
+    :cond_c
     iget-boolean v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->done:Z
 
-    if-eqz v4, :cond_f
+    if-eqz v4, :cond_d
 
     iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
 
@@ -3523,10 +3495,10 @@
 
     return v7
 
-    :cond_f
+    :cond_d
     iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->aMMUIRecognizer:Lcom/samsung/android/speech/MMUIRecognizer;
 
-    if-eqz v4, :cond_d
+    if-eqz v4, :cond_e
 
     iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->speech:[S
 
@@ -3540,22 +3512,55 @@
 
     iget v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->readNshorts:I
 
-    if-ne v4, v7, :cond_d
+    if-ne v4, v7, :cond_e
 
     return v7
+
+    :cond_e
+    iget-boolean v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->isMakePCM:Z
+
+    if-eqz v4, :cond_f
+
+    iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->speech:[S
+
+    invoke-static {v4}, Lcom/samsung/android/speech/AudioTask;->swap([S)V
+
+    const/4 v1, 0x0
+
+    :goto_0
+    :try_start_0
+    iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->speech:[S
+
+    array-length v4, v4
+
+    if-ge v1, v4, :cond_f
+
+    iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->mDataOutputStream:Ljava/io/DataOutputStream;
+
+    iget-object v5, p0, Lcom/samsung/android/speech/SensoryAudioTask;->speech:[S
+
+    aget-short v5, v5, v1
+
+    invoke-virtual {v4, v5}, Ljava/io/DataOutputStream;->writeShort(I)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
 
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    :cond_10
-    :goto_2
+    :cond_f
+    :goto_1
     iget v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->readNshorts:I
 
     return v4
 
-    :cond_11
+    :cond_10
     iget-object v4, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -3586,7 +3591,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_2
+    goto :goto_1
 .end method
 
 .method public run()V
@@ -3604,7 +3609,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v1, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->rec:Landroid/media/AudioRecord;
 
     if-eqz v1, :cond_9
 
@@ -3614,7 +3619,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v1, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->rec:Landroid/media/AudioRecord;
 
     invoke-virtual {v1}, Landroid/media/AudioRecord;->startRecording()V
 
@@ -4057,7 +4062,7 @@
 
     const-string/jumbo v4, "/system/lib/libSensoryBargeInEngine.so"
 
-    invoke-virtual {p0, v4}, Lcom/samsung/android/speech/AudioTask;->isBargeInFile(Ljava/lang/String;)Z
+    invoke-virtual {p0, v4}, Lcom/samsung/android/speech/SensoryAudioTask;->isBargeInFile(Ljava/lang/String;)Z
 
     move-result v4
 
@@ -4065,20 +4070,20 @@
 
     const-string/jumbo v4, "/system/lib64/libSensoryBargeInEngine.so"
 
-    invoke-virtual {p0, v4}, Lcom/samsung/android/speech/AudioTask;->isBargeInFile(Ljava/lang/String;)Z
+    invoke-virtual {p0, v4}, Lcom/samsung/android/speech/SensoryAudioTask;->isBargeInFile(Ljava/lang/String;)Z
 
     move-result v4
 
     if-eqz v4, :cond_2
 
     :cond_0
-    invoke-virtual {p0, v2}, Lcom/samsung/android/speech/AudioTask;->isBargeInFile(Ljava/lang/String;)Z
+    invoke-virtual {p0, v2}, Lcom/samsung/android/speech/SensoryAudioTask;->isBargeInFile(Ljava/lang/String;)Z
 
     move-result v4
 
     if-eqz v4, :cond_1
 
-    invoke-virtual {p0, v0}, Lcom/samsung/android/speech/AudioTask;->isBargeInFile(Ljava/lang/String;)Z
+    invoke-virtual {p0, v0}, Lcom/samsung/android/speech/SensoryAudioTask;->isBargeInFile(Ljava/lang/String;)Z
 
     move-result v4
 
@@ -4091,13 +4096,13 @@
     iput-object v0, p0, Lcom/samsung/android/speech/SensoryAudioTask;->searchGrammarPathname:Ljava/lang/String;
 
     :cond_1
-    invoke-virtual {p0, v3}, Lcom/samsung/android/speech/AudioTask;->isBargeInFile(Ljava/lang/String;)Z
+    invoke-virtual {p0, v3}, Lcom/samsung/android/speech/SensoryAudioTask;->isBargeInFile(Ljava/lang/String;)Z
 
     move-result v4
 
     if-eqz v4, :cond_2
 
-    invoke-virtual {p0, v1}, Lcom/samsung/android/speech/AudioTask;->isBargeInFile(Ljava/lang/String;)Z
+    invoke-virtual {p0, v1}, Lcom/samsung/android/speech/SensoryAudioTask;->isBargeInFile(Ljava/lang/String;)Z
 
     move-result v4
 
@@ -4187,7 +4192,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v1, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->rec:Landroid/media/AudioRecord;
 
     if-eqz v1, :cond_1
 
@@ -4202,7 +4207,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->mDataOutputStream:Ljava/io/DataOutputStream;
 
-    invoke-virtual {v1}, Ljava/io/FilterOutputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/DataOutputStream;->close()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -4214,7 +4219,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v1, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->rec:Landroid/media/AudioRecord;
 
     invoke-virtual {v1}, Landroid/media/AudioRecord;->stop()V
 
@@ -4230,7 +4235,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v1, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->rec:Landroid/media/AudioRecord;
 
     invoke-virtual {v1}, Landroid/media/AudioRecord;->release()V
 
@@ -4240,7 +4245,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput-object v3, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iput-object v3, p0, Lcom/samsung/android/speech/SensoryAudioTask;->rec:Landroid/media/AudioRecord;
 
     iget-object v1, p0, Lcom/samsung/android/speech/SensoryAudioTask;->TAG:Ljava/lang/String;
 
@@ -4260,7 +4265,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 .end method

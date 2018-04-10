@@ -57,6 +57,8 @@
 
 .field private final mTargetRect:Landroid/graphics/Rect;
 
+.field private final mTmpRect:Landroid/graphics/Rect;
+
 .field private mUserCaptionBackgroundDrawable:Landroid/graphics/drawable/Drawable;
 
 
@@ -108,9 +110,15 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mStableInsets:Landroid/graphics/Rect;
 
+    new-instance v1, Landroid/graphics/Rect;
+
+    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
+
+    iput-object v1, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mTmpRect:Landroid/graphics/Rect;
+
     const-string/jumbo v1, "ResizeFrame"
 
-    invoke-virtual {p0, v1}, Ljava/lang/Thread;->setName(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/policy/BackdropFrameRenderer;->setName(Ljava/lang/String;)V
 
     iput-object p2, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mRenderer:Landroid/view/ThreadedRenderer;
 
@@ -148,31 +156,6 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/view/ThreadedRenderer;->addRenderNode(Landroid/view/RenderNode;Z)V
 
-    sget-boolean v1, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
-
-    if-eqz v1, :cond_0
-
-    sget-boolean v1, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->FREEFORM_FOCUSED_FRAME:Z
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mDecorView:Lcom/android/internal/policy/DecorView;
-
-    iget v1, v1, Lcom/android/internal/policy/DecorView;->mStackId:I
-
-    const/4 v2, 0x2
-
-    if-ne v1, v2, :cond_0
-
-    iget-object v1, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mDecorView:Lcom/android/internal/policy/DecorView;
-
-    iget-object v1, v1, Lcom/android/internal/policy/DecorView;->mMultiWindowDecorSupportBridge:Lcom/samsung/android/internal/policy/MultiWindowDecorSupportBridge;
-
-    iget-object v2, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mRenderer:Landroid/view/ThreadedRenderer;
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/internal/policy/MultiWindowDecorSupportBridge;->createResizingFrameRenderNode(Landroid/view/ThreadedRenderer;)V
-
-    :cond_0
     iget-object v1, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mTargetRect:Landroid/graphics/Rect;
 
     invoke-virtual {v1, p3}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
@@ -213,7 +196,7 @@
 
     iput v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mResizeMode:I
 
-    invoke-virtual {p0}, Ljava/lang/Thread;->start()V
+    invoke-virtual {p0}, Lcom/android/internal/policy/BackdropFrameRenderer;->start()V
 
     return-void
 .end method
@@ -320,7 +303,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
+
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mSystemInsets:Landroid/graphics/Rect;
 
@@ -330,7 +315,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
+
+    if-nez v0, :cond_0
 
     iget-boolean v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mReportNextDraw:Z
 
@@ -340,165 +327,90 @@
 .end method
 
 .method private drawColorViews(IIIIZLandroid/graphics/Rect;Landroid/graphics/Rect;)V
-    .locals 11
+    .locals 6
 
-    iget-object v7, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mSystemBarBackgroundNode:Landroid/view/RenderNode;
+    const/4 v5, 0x0
 
-    if-nez v7, :cond_0
+    iget-object v2, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mSystemBarBackgroundNode:Landroid/view/RenderNode;
+
+    if-nez v2, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v7, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mSystemBarBackgroundNode:Landroid/view/RenderNode;
+    iget-object v2, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mSystemBarBackgroundNode:Landroid/view/RenderNode;
 
-    invoke-virtual {v7, p3, p4}, Landroid/view/RenderNode;->start(II)Landroid/view/DisplayListCanvas;
+    invoke-virtual {v2, p3, p4}, Landroid/view/RenderNode;->start(II)Landroid/view/DisplayListCanvas;
 
-    move-result-object v2
+    move-result-object v0
 
-    iget-object v7, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mSystemBarBackgroundNode:Landroid/view/RenderNode;
+    iget-object v2, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mSystemBarBackgroundNode:Landroid/view/RenderNode;
 
-    add-int v8, p1, p3
+    add-int v3, p1, p3
 
-    add-int v9, p2, p4
+    add-int v4, p2, p4
 
-    invoke-virtual {v7, p1, p2, v8, v9}, Landroid/view/RenderNode;->setLeftTopRightBottom(IIII)Z
+    invoke-virtual {v2, p1, p2, v3, v4}, Landroid/view/RenderNode;->setLeftTopRightBottom(IIII)Z
 
-    iget-object v7, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mStableInsets:Landroid/graphics/Rect;
+    iget-object v2, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mStableInsets:Landroid/graphics/Rect;
 
-    iget v7, v7, Landroid/graphics/Rect;->top:I
+    iget v2, v2, Landroid/graphics/Rect;->top:I
 
-    iget-object v8, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mSystemInsets:Landroid/graphics/Rect;
+    iget-object v3, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mSystemInsets:Landroid/graphics/Rect;
 
-    iget v8, v8, Landroid/graphics/Rect;->top:I
+    iget v3, v3, Landroid/graphics/Rect;->top:I
 
-    invoke-static {v7, v8}, Lcom/android/internal/policy/DecorView;->getColorViewTopInset(II)I
-
-    move-result v6
-
-    move-object/from16 v0, p7
-
-    iget v7, v0, Landroid/graphics/Rect;->bottom:I
-
-    move-object/from16 v0, p6
-
-    iget v8, v0, Landroid/graphics/Rect;->bottom:I
-
-    invoke-static {v7, v8}, Lcom/android/internal/policy/DecorView;->getColorViewBottomInset(II)I
+    invoke-static {v2, v3}, Lcom/android/internal/policy/DecorView;->getColorViewTopInset(II)I
 
     move-result v1
 
-    move-object/from16 v0, p7
+    iget-object v2, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mStatusBarColor:Landroid/graphics/drawable/ColorDrawable;
 
-    iget v7, v0, Landroid/graphics/Rect;->right:I
+    if-eqz v2, :cond_1
 
-    move-object/from16 v0, p6
+    iget-object v2, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mStatusBarColor:Landroid/graphics/drawable/ColorDrawable;
 
-    iget v8, v0, Landroid/graphics/Rect;->right:I
+    add-int v3, p1, p3
 
-    invoke-static {v7, v8}, Lcom/android/internal/policy/DecorView;->getColorViewRightInset(II)I
+    invoke-virtual {v2, v5, v5, v3, v1}, Landroid/graphics/drawable/ColorDrawable;->setBounds(IIII)V
 
-    move-result v4
+    iget-object v2, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mStatusBarColor:Landroid/graphics/drawable/ColorDrawable;
 
-    move-object/from16 v0, p7
-
-    iget v7, v0, Landroid/graphics/Rect;->left:I
-
-    move-object/from16 v0, p6
-
-    iget v8, v0, Landroid/graphics/Rect;->left:I
-
-    invoke-static {v7, v8}, Lcom/android/internal/policy/DecorView;->getColorViewLeftInset(II)I
-
-    move-result v3
-
-    iget-object v7, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mStatusBarColor:Landroid/graphics/drawable/ColorDrawable;
-
-    if-eqz v7, :cond_1
-
-    iget-object v7, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mStatusBarColor:Landroid/graphics/drawable/ColorDrawable;
-
-    add-int v8, p1, p3
-
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    invoke-virtual {v7, v9, v10, v8, v6}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
-
-    iget-object v7, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mStatusBarColor:Landroid/graphics/drawable/ColorDrawable;
-
-    invoke-virtual {v7, v2}, Landroid/graphics/drawable/ColorDrawable;->draw(Landroid/graphics/Canvas;)V
+    invoke-virtual {v2, v0}, Landroid/graphics/drawable/ColorDrawable;->draw(Landroid/graphics/Canvas;)V
 
     :cond_1
-    iget-object v7, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mNavigationBarColor:Landroid/graphics/drawable/ColorDrawable;
+    iget-object v2, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mNavigationBarColor:Landroid/graphics/drawable/ColorDrawable;
 
-    if-eqz v7, :cond_2
+    if-eqz v2, :cond_2
 
     if-eqz p5, :cond_2
 
-    invoke-static {v1, v4, v3}, Lcom/android/internal/policy/DecorView;->getNavBarSize(III)I
+    iget-object v2, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mTmpRect:Landroid/graphics/Rect;
 
-    move-result v5
+    invoke-static {p3, p4, p7, p6, v2}, Lcom/android/internal/policy/DecorView;->getNavigationBarRect(IILandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
 
-    invoke-static {v1, v4}, Lcom/android/internal/policy/DecorView;->isNavBarToRightEdge(II)Z
+    iget-object v2, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mNavigationBarColor:Landroid/graphics/drawable/ColorDrawable;
 
-    move-result v7
+    iget-object v3, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mTmpRect:Landroid/graphics/Rect;
 
-    if-eqz v7, :cond_3
+    invoke-virtual {v2, v3}, Landroid/graphics/drawable/ColorDrawable;->setBounds(Landroid/graphics/Rect;)V
 
-    iget-object v7, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mNavigationBarColor:Landroid/graphics/drawable/ColorDrawable;
+    iget-object v2, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mNavigationBarColor:Landroid/graphics/drawable/ColorDrawable;
 
-    sub-int v8, p3, v5
-
-    const/4 v9, 0x0
-
-    invoke-virtual {v7, v8, v9, p3, p4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
-
-    :goto_0
-    iget-object v7, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mNavigationBarColor:Landroid/graphics/drawable/ColorDrawable;
-
-    invoke-virtual {v7, v2}, Landroid/graphics/drawable/ColorDrawable;->draw(Landroid/graphics/Canvas;)V
+    invoke-virtual {v2, v0}, Landroid/graphics/drawable/ColorDrawable;->draw(Landroid/graphics/Canvas;)V
 
     :cond_2
-    iget-object v7, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mSystemBarBackgroundNode:Landroid/view/RenderNode;
+    iget-object v2, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mSystemBarBackgroundNode:Landroid/view/RenderNode;
 
-    invoke-virtual {v7, v2}, Landroid/view/RenderNode;->end(Landroid/view/DisplayListCanvas;)V
+    invoke-virtual {v2, v0}, Landroid/view/RenderNode;->end(Landroid/view/DisplayListCanvas;)V
 
-    iget-object v7, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mRenderer:Landroid/view/ThreadedRenderer;
+    iget-object v2, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mRenderer:Landroid/view/ThreadedRenderer;
 
-    iget-object v8, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mSystemBarBackgroundNode:Landroid/view/RenderNode;
+    iget-object v3, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mSystemBarBackgroundNode:Landroid/view/RenderNode;
 
-    invoke-virtual {v7, v8}, Landroid/view/ThreadedRenderer;->drawRenderNode(Landroid/view/RenderNode;)V
+    invoke-virtual {v2, v3}, Landroid/view/ThreadedRenderer;->drawRenderNode(Landroid/view/RenderNode;)V
 
     return-void
-
-    :cond_3
-    invoke-static {v1, v3}, Lcom/android/internal/policy/DecorView;->isNavBarToLeftEdge(II)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_4
-
-    iget-object v7, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mNavigationBarColor:Landroid/graphics/drawable/ColorDrawable;
-
-    const/4 v8, 0x0
-
-    const/4 v9, 0x0
-
-    invoke-virtual {v7, v8, v9, v5, p4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
-
-    goto :goto_0
-
-    :cond_4
-    iget-object v7, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mNavigationBarColor:Landroid/graphics/drawable/ColorDrawable;
-
-    sub-int v8, p4, v5
-
-    const/4 v9, 0x0
-
-    invoke-virtual {v7, v9, v8, p3, p4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
-
-    goto :goto_0
 .end method
 
 .method private pingRenderLocked(Z)V
@@ -508,295 +420,169 @@
 
     if-eqz v0, :cond_0
 
-    if-eqz p1, :cond_1
+    xor-int/lit8 v0, p1, 0x1
 
-    :cond_0
-    invoke-direct {p0}, Lcom/android/internal/policy/BackdropFrameRenderer;->doFrameUncheckedLocked()V
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mChoreographer:Landroid/view/Choreographer;
+
+    invoke-virtual {v0, p0}, Landroid/view/Choreographer;->postFrameCallback(Landroid/view/Choreographer$FrameCallback;)V
 
     :goto_0
     return-void
 
-    :cond_1
-    iget-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mChoreographer:Landroid/view/Choreographer;
-
-    invoke-virtual {v0, p0}, Landroid/view/Choreographer;->postFrameCallback(Landroid/view/Choreographer$FrameCallback;)V
+    :cond_0
+    invoke-direct {p0}, Lcom/android/internal/policy/BackdropFrameRenderer;->doFrameUncheckedLocked()V
 
     goto :goto_0
 .end method
 
 .method private redrawLocked(Landroid/graphics/Rect;ZLandroid/graphics/Rect;Landroid/graphics/Rect;)V
-    .locals 16
+    .locals 12
 
-    move-object/from16 v0, p0
+    iget-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mDecorView:Lcom/android/internal/policy/DecorView;
 
-    iget-object v1, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mDecorView:Lcom/android/internal/policy/DecorView;
+    invoke-virtual {v0}, Lcom/android/internal/policy/DecorView;->getCaptionHeight()I
 
-    invoke-virtual {v1}, Lcom/android/internal/policy/DecorView;->getCaptionHeight()I
+    move-result v9
 
-    move-result v14
+    if-eqz v9, :cond_0
 
-    if-eqz v14, :cond_0
-
-    move-object/from16 v0, p0
-
-    iput v14, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastCaptionHeight:I
+    iput v9, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastCaptionHeight:I
 
     :cond_0
-    move-object/from16 v0, p0
+    iget v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastCaptionHeight:I
 
-    iget v1, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastCaptionHeight:I
+    if-nez v0, :cond_1
 
-    if-nez v1, :cond_1
+    iget-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mDecorView:Lcom/android/internal/policy/DecorView;
 
-    move-object/from16 v0, p0
+    invoke-virtual {v0}, Lcom/android/internal/policy/DecorView;->isShowingCaption()Z
 
-    iget-object v1, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mDecorView:Lcom/android/internal/policy/DecorView;
+    move-result v0
 
-    invoke-virtual {v1}, Lcom/android/internal/policy/DecorView;->isShowingCaption()Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
+    if-nez v0, :cond_2
 
     :cond_1
-    move-object/from16 v0, p0
+    iget v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastContentWidth:I
 
-    iget v1, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastContentWidth:I
-
-    if-nez v1, :cond_3
+    if-nez v0, :cond_3
 
     :cond_2
-    invoke-direct/range {p0 .. p0}, Lcom/android/internal/policy/BackdropFrameRenderer;->reportDrawIfNeeded()V
-
     return-void
 
     :cond_3
-    move-object/from16 v0, p0
+    iget v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastContentHeight:I
 
-    iget v1, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastContentHeight:I
+    if-eqz v0, :cond_2
 
-    if-eqz v1, :cond_2
+    iget v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastXOffset:I
 
-    move-object/from16 v0, p0
+    iget v5, p1, Landroid/graphics/Rect;->left:I
 
-    iget v1, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastXOffset:I
+    add-int v1, v0, v5
 
-    move-object/from16 v0, p1
+    iget v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastYOffset:I
 
-    iget v6, v0, Landroid/graphics/Rect;->left:I
+    iget v5, p1, Landroid/graphics/Rect;->top:I
 
-    add-int v2, v1, v6
+    add-int v2, v0, v5
 
-    move-object/from16 v0, p0
+    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
 
-    iget v1, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastYOffset:I
+    move-result v3
 
-    move-object/from16 v0, p1
-
-    iget v6, v0, Landroid/graphics/Rect;->top:I
-
-    add-int v3, v1, v6
-
-    invoke-virtual/range {p1 .. p1}, Landroid/graphics/Rect;->width()I
+    invoke-virtual {p1}, Landroid/graphics/Rect;->height()I
 
     move-result v4
 
-    invoke-virtual/range {p1 .. p1}, Landroid/graphics/Rect;->height()I
+    iget-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mFrameAndBackdropNode:Landroid/view/RenderNode;
 
-    move-result v5
-
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mFrameAndBackdropNode:Landroid/view/RenderNode;
+    add-int v5, v1, v3
 
     add-int v6, v2, v4
 
-    add-int v7, v3, v5
+    invoke-virtual {v0, v1, v2, v5, v6}, Landroid/view/RenderNode;->setLeftTopRightBottom(IIII)Z
 
-    invoke-virtual {v1, v2, v3, v6, v7}, Landroid/view/RenderNode;->setLeftTopRightBottom(IIII)Z
+    iget-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mFrameAndBackdropNode:Landroid/view/RenderNode;
 
-    move-object/from16 v0, p0
+    invoke-virtual {v0, v3, v4}, Landroid/view/RenderNode;->start(II)Landroid/view/DisplayListCanvas;
 
-    iget-object v1, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mFrameAndBackdropNode:Landroid/view/RenderNode;
+    move-result-object v8
 
-    invoke-virtual {v1, v4, v5}, Landroid/view/RenderNode;->start(II)Landroid/view/DisplayListCanvas;
+    iget-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mUserCaptionBackgroundDrawable:Landroid/graphics/drawable/Drawable;
 
-    move-result-object v13
+    if-eqz v0, :cond_6
 
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mUserCaptionBackgroundDrawable:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v1, :cond_7
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mUserCaptionBackgroundDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object v10, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mUserCaptionBackgroundDrawable:Landroid/graphics/drawable/Drawable;
 
     :goto_0
-    if-eqz v15, :cond_4
+    if-eqz v10, :cond_4
 
-    if-gez v2, :cond_8
+    add-int v0, v1, v3
 
-    move-object/from16 v0, p0
+    iget v5, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastCaptionHeight:I
 
-    iget v1, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastCaptionHeight:I
-
-    add-int/2addr v1, v3
+    add-int/2addr v5, v2
 
     const/4 v6, 0x0
 
     const/4 v7, 0x0
 
-    invoke-virtual {v15, v6, v7, v4, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    invoke-virtual {v10, v6, v7, v0, v5}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    :goto_1
-    invoke-virtual {v15, v13}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+    invoke-virtual {v10, v8}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     :cond_4
-    move-object/from16 v0, p0
+    iget-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mResizingBackgroundDrawable:Landroid/graphics/drawable/Drawable;
 
-    iget-object v1, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mResizingBackgroundDrawable:Landroid/graphics/drawable/Drawable;
+    if-eqz v0, :cond_5
 
-    if-eqz v1, :cond_5
+    iget-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mResizingBackgroundDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-gez v2, :cond_9
+    iget v5, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastCaptionHeight:I
 
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mResizingBackgroundDrawable:Landroid/graphics/drawable/Drawable;
-
-    move-object/from16 v0, p0
-
-    iget v6, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastCaptionHeight:I
-
-    add-int v7, v3, v5
-
-    const/4 v8, 0x0
-
-    invoke-virtual {v1, v8, v6, v4, v7}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
-
-    :goto_2
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mResizingBackgroundDrawable:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {v1, v13}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
-
-    :cond_5
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mFrameAndBackdropNode:Landroid/view/RenderNode;
-
-    invoke-virtual {v1, v13}, Landroid/view/RenderNode;->end(Landroid/view/DisplayListCanvas;)V
-
-    move-object/from16 v1, p0
-
-    move/from16 v6, p2
-
-    move-object/from16 v7, p3
-
-    move-object/from16 v8, p4
-
-    invoke-direct/range {v1 .. v8}, Lcom/android/internal/policy/BackdropFrameRenderer;->drawColorViews(IIIIZLandroid/graphics/Rect;Landroid/graphics/Rect;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mRenderer:Landroid/view/ThreadedRenderer;
-
-    move-object/from16 v0, p0
-
-    iget-object v6, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mFrameAndBackdropNode:Landroid/view/RenderNode;
-
-    invoke-virtual {v1, v6}, Landroid/view/ThreadedRenderer;->drawRenderNode(Landroid/view/RenderNode;)V
-
-    sget-boolean v1, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
-
-    if-eqz v1, :cond_6
-
-    sget-boolean v1, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->FREEFORM_FOCUSED_FRAME:Z
-
-    if-eqz v1, :cond_6
-
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mDecorView:Lcom/android/internal/policy/DecorView;
-
-    iget v1, v1, Lcom/android/internal/policy/DecorView;->mStackId:I
-
-    const/4 v6, 0x2
-
-    if-ne v1, v6, :cond_6
-
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mDecorView:Lcom/android/internal/policy/DecorView;
-
-    iget-object v6, v1, Lcom/android/internal/policy/DecorView;->mMultiWindowDecorSupportBridge:Lcom/samsung/android/internal/policy/MultiWindowDecorSupportBridge;
-
-    move-object/from16 v0, p0
-
-    iget-object v7, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mRenderer:Landroid/view/ThreadedRenderer;
-
-    move v8, v2
-
-    move v9, v3
-
-    move v10, v4
-
-    move v11, v5
-
-    move-object/from16 v12, p1
-
-    invoke-virtual/range {v6 .. v12}, Lcom/samsung/android/internal/policy/MultiWindowDecorSupportBridge;->drawResizingFrameRenderNode(Landroid/view/ThreadedRenderer;IIIILandroid/graphics/Rect;)V
-
-    :cond_6
-    invoke-direct/range {p0 .. p0}, Lcom/android/internal/policy/BackdropFrameRenderer;->reportDrawIfNeeded()V
-
-    return-void
-
-    :cond_7
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mCaptionBackgroundDrawable:Landroid/graphics/drawable/Drawable;
-
-    goto :goto_0
-
-    :cond_8
-    add-int v1, v2, v4
-
-    move-object/from16 v0, p0
-
-    iget v6, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastCaptionHeight:I
-
-    add-int/2addr v6, v3
-
-    const/4 v7, 0x0
-
-    const/4 v8, 0x0
-
-    invoke-virtual {v15, v7, v8, v1, v6}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
-
-    goto :goto_1
-
-    :cond_9
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mResizingBackgroundDrawable:Landroid/graphics/drawable/Drawable;
-
-    move-object/from16 v0, p0
-
-    iget v6, v0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastCaptionHeight:I
+    add-int v6, v1, v3
 
     add-int v7, v2, v4
 
-    add-int v8, v3, v5
+    const/4 v11, 0x0
 
-    const/4 v9, 0x0
+    invoke-virtual {v0, v11, v5, v6, v7}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    invoke-virtual {v1, v9, v6, v7, v8}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    iget-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mResizingBackgroundDrawable:Landroid/graphics/drawable/Drawable;
 
-    goto :goto_2
+    invoke-virtual {v0, v8}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+
+    :cond_5
+    iget-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mFrameAndBackdropNode:Landroid/view/RenderNode;
+
+    invoke-virtual {v0, v8}, Landroid/view/RenderNode;->end(Landroid/view/DisplayListCanvas;)V
+
+    move-object v0, p0
+
+    move v5, p2
+
+    move-object v6, p3
+
+    move-object/from16 v7, p4
+
+    invoke-direct/range {v0 .. v7}, Lcom/android/internal/policy/BackdropFrameRenderer;->drawColorViews(IIIIZLandroid/graphics/Rect;Landroid/graphics/Rect;)V
+
+    iget-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mRenderer:Landroid/view/ThreadedRenderer;
+
+    iget-object v5, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mFrameAndBackdropNode:Landroid/view/RenderNode;
+
+    invoke-virtual {v0, v5}, Landroid/view/ThreadedRenderer;->drawRenderNode(Landroid/view/RenderNode;)V
+
+    invoke-direct {p0}, Lcom/android/internal/policy/BackdropFrameRenderer;->reportDrawIfNeeded()V
+
+    return-void
+
+    :cond_6
+    iget-object v10, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mCaptionBackgroundDrawable:Landroid/graphics/drawable/Drawable;
+
+    goto :goto_0
 .end method
 
 .method private reportDrawIfNeeded()V
@@ -808,7 +594,7 @@
 
     iget-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mDecorView:Lcom/android/internal/policy/DecorView;
 
-    invoke-virtual {v0}, Landroid/view/View;->isAttachedToWindow()Z
+    invoke-virtual {v0}, Lcom/android/internal/policy/DecorView;->isAttachedToWindow()Z
 
     move-result v0
 
@@ -816,7 +602,7 @@
 
     iget-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mDecorView:Lcom/android/internal/policy/DecorView;
 
-    invoke-virtual {v0}, Landroid/view/View;->getViewRootImpl()Landroid/view/ViewRootImpl;
+    invoke-virtual {v0}, Lcom/android/internal/policy/DecorView;->getViewRootImpl()Landroid/view/ViewRootImpl;
 
     move-result-object v0
 
@@ -917,75 +703,71 @@
 .end method
 
 .method public onContentDrawn(IIII)Z
-    .locals 9
+    .locals 8
 
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     monitor-enter p0
 
     :try_start_0
-    iget v3, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastContentWidth:I
+    iget v2, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastContentWidth:I
 
-    if-nez v3, :cond_1
+    if-nez v2, :cond_1
 
     const/4 v0, 0x1
 
     :goto_0
     iput p3, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastContentWidth:I
 
-    iget v3, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastCaptionHeight:I
+    iget v2, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastCaptionHeight:I
 
-    sub-int v3, p4, v3
+    sub-int v2, p4, v2
 
-    iput v3, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastContentHeight:I
+    iput v2, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastContentHeight:I
 
     iput p1, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastXOffset:I
 
     iput p2, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastYOffset:I
 
-    iget-object v3, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mRenderer:Landroid/view/ThreadedRenderer;
+    iget-object v2, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mRenderer:Landroid/view/ThreadedRenderer;
 
-    iget v4, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastXOffset:I
+    iget v3, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastXOffset:I
 
-    iget v5, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastYOffset:I
+    iget v4, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastYOffset:I
 
-    iget v6, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastXOffset:I
+    iget v5, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastXOffset:I
 
-    iget v7, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastContentWidth:I
+    iget v6, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastContentWidth:I
+
+    add-int/2addr v5, v6
+
+    iget v6, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastYOffset:I
+
+    iget v7, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastCaptionHeight:I
 
     add-int/2addr v6, v7
 
-    iget v7, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastYOffset:I
+    iget v7, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastContentHeight:I
 
-    iget v8, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastCaptionHeight:I
+    add-int/2addr v6, v7
 
-    add-int/2addr v7, v8
+    invoke-virtual {v2, v3, v4, v5, v6}, Landroid/view/ThreadedRenderer;->setContentDrawBounds(IIII)V
 
-    iget v8, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastContentHeight:I
+    if-eqz v0, :cond_0
 
-    add-int/2addr v7, v8
+    iget v1, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastCaptionHeight:I
 
-    invoke-virtual {v3, v4, v5, v6, v7}, Landroid/view/ThreadedRenderer;->setContentDrawBounds(IIII)V
+    if-nez v1, :cond_2
 
-    if-eqz v0, :cond_2
+    iget-object v1, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mDecorView:Lcom/android/internal/policy/DecorView;
 
-    iget v3, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mLastCaptionHeight:I
-
-    if-nez v3, :cond_0
-
-    iget-object v3, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mDecorView:Lcom/android/internal/policy/DecorView;
-
-    invoke-virtual {v3}, Lcom/android/internal/policy/DecorView;->isShowingCaption()Z
+    invoke-virtual {v1}, Lcom/android/internal/policy/DecorView;->isShowingCaption()Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_0
-
-    move v1, v2
+    xor-int/lit8 v1, v1, 0x1
 
     :cond_0
     :goto_1
@@ -999,7 +781,7 @@
     goto :goto_0
 
     :cond_2
-    move v1, v2
+    const/4 v1, 0x1
 
     goto :goto_1
 
@@ -1050,15 +832,19 @@
 .end method
 
 .method onResourcesLoaded(Lcom/android/internal/policy/DecorView;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;II)V
-    .locals 4
-
-    const/4 v3, 0x0
+    .locals 2
 
     const/4 v1, 0x0
 
     iput-object p1, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mDecorView:Lcom/android/internal/policy/DecorView;
 
     if-eqz p2, :cond_1
+
+    invoke-virtual {p2}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
 
     invoke-virtual {p2}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
 
@@ -1077,6 +863,12 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_2
+
+    invoke-virtual {p3}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
+
+    move-result-object v0
+
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -1085,6 +877,12 @@
     iput-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mCaptionBackgroundDrawable:Landroid/graphics/drawable/Drawable;
 
     if-eqz p4, :cond_3
+
+    invoke-virtual {p4}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_3
 
     invoke-virtual {p4}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
 
@@ -1117,7 +915,7 @@
     invoke-direct {p0}, Lcom/android/internal/policy/BackdropFrameRenderer;->addSystemBarNodeIfNeeded()V
 
     :goto_3
-    if-eqz p6, :cond_7
+    if-eqz p6, :cond_5
 
     new-instance v0, Landroid/graphics/drawable/ColorDrawable;
 
@@ -1146,43 +944,11 @@
     goto :goto_2
 
     :cond_4
-    sget-boolean v0, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
-
-    if-eqz v0, :cond_6
-
-    sget-boolean v0, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->FREEFORM_FOCUSED_FRAME:Z
-
-    if-eqz v0, :cond_6
-
-    iget-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mDecorView:Lcom/android/internal/policy/DecorView;
-
-    iget v0, v0, Lcom/android/internal/policy/DecorView;->mStackId:I
-
-    const/4 v2, 0x2
-
-    if-ne v0, v2, :cond_6
-
-    iget-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mStatusBarColor:Landroid/graphics/drawable/ColorDrawable;
-
-    if-nez v0, :cond_5
-
-    new-instance v0, Landroid/graphics/drawable/ColorDrawable;
-
-    invoke-direct {v0, v3}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
-
-    iput-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mStatusBarColor:Landroid/graphics/drawable/ColorDrawable;
-
-    :cond_5
-    invoke-direct {p0}, Lcom/android/internal/policy/BackdropFrameRenderer;->addSystemBarNodeIfNeeded()V
-
-    goto :goto_3
-
-    :cond_6
     iput-object v1, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mStatusBarColor:Landroid/graphics/drawable/ColorDrawable;
 
     goto :goto_3
 
-    :cond_7
+    :cond_5
     iput-object v1, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mNavigationBarColor:Landroid/graphics/drawable/ColorDrawable;
 
     goto :goto_4
@@ -1227,14 +993,6 @@
     invoke-virtual {v0, v1}, Landroid/view/ThreadedRenderer;->removeRenderNode(Landroid/view/RenderNode;)V
 
     :cond_0
-    iget-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mDecorView:Lcom/android/internal/policy/DecorView;
-
-    iget-object v0, v0, Lcom/android/internal/policy/DecorView;->mMultiWindowDecorSupportBridge:Lcom/samsung/android/internal/policy/MultiWindowDecorSupportBridge;
-
-    iget-object v1, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mRenderer:Landroid/view/ThreadedRenderer;
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/internal/policy/MultiWindowDecorSupportBridge;->removeResizingFrameRenderNode(Landroid/view/ThreadedRenderer;)V
-
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/policy/BackdropFrameRenderer;->mRenderer:Landroid/view/ThreadedRenderer;

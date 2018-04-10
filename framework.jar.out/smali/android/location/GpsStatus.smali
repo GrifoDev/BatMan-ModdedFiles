@@ -20,8 +20,6 @@
 # static fields
 .field private static final BEIDOU_SVID_OFFSET:I = 0xc8
 
-.field private static final GALILEO_SVID_OFFSET:I = 0x12c
-
 .field private static final GLONASS_SVID_OFFSET:I = 0x40
 
 .field public static final GPS_EVENT_FIRST_FIX:I = 0x3
@@ -32,7 +30,7 @@
 
 .field public static final GPS_EVENT_STOPPED:I = 0x2
 
-.field private static final NUM_SATELLITES:I = 0x15e
+.field private static final NUM_SATELLITES:I = 0xff
 
 .field private static final SBAS_SVID_OFFSET:I = -0x57
 
@@ -93,9 +91,7 @@
 .end method
 
 .method private clearSatellites()V
-    .locals 5
-
-    const/4 v4, 0x0
+    .locals 4
 
     iget-object v3, p0, Landroid/location/GpsStatus;->mSatellites:Landroid/util/SparseArray;
 
@@ -116,9 +112,9 @@
 
     check-cast v1, Landroid/location/GpsSatellite;
 
-    iput-boolean v4, v1, Landroid/location/GpsSatellite;->mValid:Z
+    const/4 v3, 0x0
 
-    iput-boolean v4, v1, Landroid/location/GpsSatellite;->mUsedInFix:Z
+    iput-boolean v3, v1, Landroid/location/GpsSatellite;->mValid:Z
 
     add-int/lit8 v0, v0, 0x1
 
@@ -137,6 +133,18 @@
 
     invoke-direct {p0}, Landroid/location/GpsStatus;->clearSatellites()V
 
+    if-eqz p2, :cond_0
+
+    if-nez p3, :cond_1
+
+    :cond_0
+    return-void
+
+    :cond_1
+    if-eqz p4, :cond_0
+
+    if-eqz p5, :cond_0
+
     const/4 v1, 0x0
 
     :goto_0
@@ -144,38 +152,27 @@
 
     aget v4, p2, v1
 
-    shr-int/lit8 v4, v4, 0x3
+    shr-int/lit8 v4, v4, 0x4
 
     and-int/lit8 v0, v4, 0xf
 
     aget v4, p2, v1
 
-    shr-int/lit8 v2, v4, 0x7
+    shr-int/lit8 v2, v4, 0x8
 
     const/4 v4, 0x3
 
-    if-ne v0, v4, :cond_4
+    if-ne v0, v4, :cond_5
 
-    const/16 v4, 0x18
-
-    if-le v2, v4, :cond_1
-
-    :cond_0
-    :goto_1
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_1
     add-int/lit8 v2, v2, 0x40
 
     :cond_2
-    :goto_2
-    if-lez v2, :cond_0
+    :goto_1
+    if-lez v2, :cond_4
 
-    const/16 v4, 0x15e
+    const/16 v4, 0xff
 
-    if-gt v2, v4, :cond_0
+    if-gt v2, v4, :cond_4
 
     iget-object v4, p0, Landroid/location/GpsStatus;->mSatellites:Landroid/util/SparseArray;
 
@@ -218,7 +215,7 @@
 
     move v4, v5
 
-    :goto_3
+    :goto_2
     iput-boolean v4, v3, Landroid/location/GpsSatellite;->mHasEphemeris:Z
 
     aget v4, p2, v1
@@ -229,7 +226,7 @@
 
     move v4, v5
 
-    :goto_4
+    :goto_3
     iput-boolean v4, v3, Landroid/location/GpsSatellite;->mHasAlmanac:Z
 
     aget v4, p2, v1
@@ -240,28 +237,23 @@
 
     move v4, v5
 
-    :goto_5
+    :goto_4
     iput-boolean v4, v3, Landroid/location/GpsSatellite;->mUsedInFix:Z
 
-    goto :goto_1
-
     :cond_4
-    const/4 v4, 0x5
+    :goto_5
+    add-int/lit8 v1, v1, 0x1
 
-    if-ne v0, v4, :cond_5
-
-    add-int/lit16 v2, v2, 0xc8
-
-    goto :goto_2
+    goto :goto_0
 
     :cond_5
-    const/4 v4, 0x6
+    const/4 v4, 0x5
 
     if-ne v0, v4, :cond_6
 
-    add-int/lit16 v2, v2, 0x12c
+    add-int/lit16 v2, v2, 0xc8
 
-    goto :goto_2
+    goto :goto_1
 
     :cond_6
     const/4 v4, 0x2
@@ -270,7 +262,7 @@
 
     add-int/lit8 v2, v2, -0x57
 
-    goto :goto_2
+    goto :goto_1
 
     :cond_7
     if-eq v0, v5, :cond_2
@@ -279,22 +271,22 @@
 
     if-eq v0, v4, :cond_2
 
-    goto :goto_1
+    goto :goto_5
 
     :cond_8
     move v4, v6
 
-    goto :goto_3
+    goto :goto_2
 
     :cond_9
     move v4, v6
 
-    goto :goto_4
+    goto :goto_3
 
     :cond_a
     move v4, v6
 
-    goto :goto_5
+    goto :goto_4
 
     :cond_b
     return-void
@@ -305,7 +297,7 @@
 .method public getMaxSatellites()I
     .locals 1
 
-    const/16 v0, 0x15e
+    const/16 v0, 0xff
 
     return v0
 .end method

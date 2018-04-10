@@ -21,9 +21,13 @@
 
 .field private mCustomScanWindow:I
 
+.field private mLegacy:Z
+
 .field private mMatchMode:I
 
 .field private mNumOfMatchesPerFilter:I
+
+.field private mPhy:I
 
 .field private mReportDelayMillis:J
 
@@ -40,9 +44,9 @@
 .method public constructor <init>()V
     .locals 5
 
-    const/4 v4, 0x1
+    const/16 v4, -0x80
 
-    const/16 v3, -0x80
+    const/4 v3, 0x1
 
     const/4 v2, 0x0
 
@@ -50,7 +54,7 @@
 
     iput v2, p0, Landroid/bluetooth/le/ScanSettings$Builder;->mScanMode:I
 
-    iput v4, p0, Landroid/bluetooth/le/ScanSettings$Builder;->mCallbackType:I
+    iput v3, p0, Landroid/bluetooth/le/ScanSettings$Builder;->mCallbackType:I
 
     iput v2, p0, Landroid/bluetooth/le/ScanSettings$Builder;->mScanResultType:I
 
@@ -58,7 +62,7 @@
 
     iput-wide v0, p0, Landroid/bluetooth/le/ScanSettings$Builder;->mReportDelayMillis:J
 
-    iput v4, p0, Landroid/bluetooth/le/ScanSettings$Builder;->mMatchMode:I
+    iput v3, p0, Landroid/bluetooth/le/ScanSettings$Builder;->mMatchMode:I
 
     const/4 v0, 0x3
 
@@ -68,9 +72,15 @@
 
     iput v2, p0, Landroid/bluetooth/le/ScanSettings$Builder;->mCustomScanWindow:I
 
-    iput v3, p0, Landroid/bluetooth/le/ScanSettings$Builder;->mScanFilterRssiValue:I
+    iput v4, p0, Landroid/bluetooth/le/ScanSettings$Builder;->mScanFilterRssiValue:I
 
-    iput v3, p0, Landroid/bluetooth/le/ScanSettings$Builder;->mTrackableScanFilterRssiValue:I
+    iput v4, p0, Landroid/bluetooth/le/ScanSettings$Builder;->mTrackableScanFilterRssiValue:I
+
+    iput-boolean v3, p0, Landroid/bluetooth/le/ScanSettings$Builder;->mLegacy:Z
+
+    const/16 v0, 0xff
+
+    iput v0, p0, Landroid/bluetooth/le/ScanSettings$Builder;->mPhy:I
 
     return-void
 .end method
@@ -110,7 +120,7 @@
 
 # virtual methods
 .method public build()Landroid/bluetooth/le/ScanSettings;
-    .locals 13
+    .locals 15
 
     new-instance v0, Landroid/bluetooth/le/ScanSettings;
 
@@ -134,9 +144,13 @@
 
     iget v11, p0, Landroid/bluetooth/le/ScanSettings$Builder;->mTrackableScanFilterRssiValue:I
 
-    const/4 v12, 0x0
+    iget-boolean v12, p0, Landroid/bluetooth/le/ScanSettings$Builder;->mLegacy:Z
 
-    invoke-direct/range {v0 .. v12}, Landroid/bluetooth/le/ScanSettings;-><init>(IIIJIIIIIILandroid/bluetooth/le/ScanSettings;)V
+    iget v13, p0, Landroid/bluetooth/le/ScanSettings$Builder;->mPhy:I
+
+    const/4 v14, 0x0
+
+    invoke-direct/range {v0 .. v14}, Landroid/bluetooth/le/ScanSettings;-><init>(IIIJIIIIIIZILandroid/bluetooth/le/ScanSettings;)V
 
     return-object v0
 .end method
@@ -326,6 +340,14 @@
     return-object p0
 .end method
 
+.method public setLegacy(Z)Landroid/bluetooth/le/ScanSettings$Builder;
+    .locals 0
+
+    iput-boolean p1, p0, Landroid/bluetooth/le/ScanSettings$Builder;->mLegacy:Z
+
+    return-object p0
+.end method
+
 .method public setMatchMode(I)Landroid/bluetooth/le/ScanSettings$Builder;
     .locals 3
 
@@ -408,6 +430,14 @@
 
     :cond_1
     iput p1, p0, Landroid/bluetooth/le/ScanSettings$Builder;->mNumOfMatchesPerFilter:I
+
+    return-object p0
+.end method
+
+.method public setPhy(I)Landroid/bluetooth/le/ScanSettings$Builder;
+    .locals 0
+
+    iput p1, p0, Landroid/bluetooth/le/ScanSettings$Builder;->mPhy:I
 
     return-object p0
 .end method

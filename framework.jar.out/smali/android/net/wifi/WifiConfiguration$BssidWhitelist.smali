@@ -15,7 +15,7 @@
 
 
 # static fields
-.field private static final MAX_NUM_BSSID:I = 0x64
+.field private static final MAX_NUM_BSSID:I = 0x32
 
 
 # instance fields
@@ -202,7 +202,7 @@
 
     move-result v2
 
-    const/16 v3, 0x64
+    const/16 v3, 0x32
 
     if-lt v2, v3, :cond_0
 

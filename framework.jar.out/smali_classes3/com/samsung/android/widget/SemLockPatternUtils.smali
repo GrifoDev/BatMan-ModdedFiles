@@ -36,6 +36,18 @@
     return v0
 .end method
 
+.method public isCarrierLockEnabled(I)Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/widget/SemLockPatternUtils;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v0, p1}, Lcom/android/internal/widget/LockPatternUtils;->isCarrierPasswordSaved(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public isFmmLockEnabled(I)Z
     .locals 1
 
@@ -54,6 +66,18 @@
     iget-object v0, p0, Lcom/samsung/android/widget/SemLockPatternUtils;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/widget/LockPatternUtils;->isLockScreenDisabled(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public isRemoteMobileManagerLockEnabled(I)Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/widget/SemLockPatternUtils;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v0, p1}, Lcom/android/internal/widget/LockPatternUtils;->isRMMLockEnabled(I)Z
 
     move-result v0
 

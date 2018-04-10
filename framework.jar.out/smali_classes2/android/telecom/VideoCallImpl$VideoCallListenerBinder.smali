@@ -42,9 +42,25 @@
 .method public changeCallDataUsage(J)V
     .locals 3
 
-    const-string/jumbo v0, "VideoCallImpl"
+    const-string/jumbo v0, "Telecom-VideoCallImpl"
 
-    const-string/jumbo v1, "changeCallDataUsage(long)"
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "changeCallDataUsage - dataUsage: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -83,9 +99,9 @@
 .method public changeCameraCapabilities(Landroid/telecom/VideoProfile$CameraCapabilities;)V
     .locals 2
 
-    const-string/jumbo v0, "VideoCallImpl"
+    const-string/jumbo v0, "Telecom-VideoCallImpl"
 
-    const-string/jumbo v1, "changeCameraCapabilities(VideoProfile.CameraCapabilities)"
+    const-string/jumbo v1, "changeCameraCapabilities"
 
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -120,9 +136,9 @@
 .method public changePeerDimensions(II)V
     .locals 3
 
-    const-string/jumbo v1, "VideoCallImpl"
+    const-string/jumbo v1, "Telecom-VideoCallImpl"
 
-    const-string/jumbo v2, "changePeerDimensions(int, int)"
+    const-string/jumbo v2, "changePeerDimensions"
 
     invoke-static {v1, v2}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -173,9 +189,25 @@
 .method public changeVideoQuality(I)V
     .locals 3
 
-    const-string/jumbo v0, "VideoCallImpl"
+    const-string/jumbo v0, "Telecom-VideoCallImpl"
 
-    const-string/jumbo v1, "changeVideoQuality(int)"
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "changeVideoQuality - videoQuality: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -212,9 +244,25 @@
 .method public handleCallSessionEvent(I)V
     .locals 3
 
-    const-string/jumbo v0, "VideoCallImpl"
+    const-string/jumbo v0, "Telecom-VideoCallImpl"
 
-    const-string/jumbo v1, "handleCallSessionEvent(int)"
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "handleCallSessionEvent - event: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -251,7 +299,29 @@
 .end method
 
 .method public receiveSessionModifyRequest(Landroid/telecom/VideoProfile;)V
-    .locals 2
+    .locals 3
+
+    const-string/jumbo v0, "Telecom-VideoCallImpl"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "receiveSessionModifyRequest - videoProfile: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Landroid/telecom/VideoCallImpl$VideoCallListenerBinder;->this$0:Landroid/telecom/VideoCallImpl;
 
@@ -264,12 +334,6 @@
     return-void
 
     :cond_0
-    const-string/jumbo v0, "VideoCallImpl"
-
-    const-string/jumbo v1, "receiveSessionModifyRequest(VideoProfile)"
-
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     iget-object v0, p0, Landroid/telecom/VideoCallImpl$VideoCallListenerBinder;->this$0:Landroid/telecom/VideoCallImpl;
 
     invoke-static {v0}, Landroid/telecom/VideoCallImpl;->-get1(Landroid/telecom/VideoCallImpl;)Landroid/os/Handler;
@@ -288,11 +352,47 @@
 .end method
 
 .method public receiveSessionModifyResponse(ILandroid/telecom/VideoProfile;Landroid/telecom/VideoProfile;)V
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v1, "VideoCallImpl"
+    const-string/jumbo v1, "Telecom-VideoCallImpl"
 
-    const-string/jumbo v2, "receiveSessionModifyRequest(int, VideoProfile, VideoProfile)"
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "receiveSessionModifyRequest - status: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ", request: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ", response: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
 
     invoke-static {v1, v2}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 

@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/os/health/SystemHealthManager;",
+        "Landroid/hardware/location/ContextHubManager;",
         ">;"
     }
 .end annotation
@@ -34,20 +34,44 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/os/health/SystemHealthManager;
-    .locals 1
+.method public createService(Landroid/app/ContextImpl;)Landroid/hardware/location/ContextHubManager;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    new-instance v0, Landroid/os/health/SystemHealthManager;
+    new-instance v0, Landroid/hardware/location/ContextHubManager;
 
-    invoke-direct {v0}, Landroid/os/health/SystemHealthManager;-><init>()V
+    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    iget-object v2, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
+
+    invoke-virtual {v2}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
+
+    move-result-object v2
+
+    invoke-direct {v0, v1, v2}, Landroid/hardware/location/ContextHubManager;-><init>(Landroid/content/Context;Landroid/os/Looper;)V
 
     return-object v0
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$89;->createService(Landroid/app/ContextImpl;)Landroid/os/health/SystemHealthManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$89;->createService(Landroid/app/ContextImpl;)Landroid/hardware/location/ContextHubManager;
 
     move-result-object v0
 

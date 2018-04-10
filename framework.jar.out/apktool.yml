@@ -6,6 +6,7 @@ isFrameworkApk: false
 packageInfo: null
 sdkInfo: null
 sharedLibrary: false
+sparseResources: false
 unknownFiles:
   fragmentshadernv12.glsl: '8'
   fragmentshadernv21.glsl: '8'
@@ -13,5 +14,5 @@ unknownFiles:
   vertexshader3d.glsl: '8'
   vertexshader.glsl: '8'
 usesFramework: null
-version: 2.2.3
+version: 2.3.2
 versionInfo: null

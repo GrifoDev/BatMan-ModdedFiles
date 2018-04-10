@@ -31,7 +31,15 @@
     .end annotation
 .end method
 
-.method public abstract setActive(Z)V
+.method public abstract reportFullscreenMode(Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setActive(ZZ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

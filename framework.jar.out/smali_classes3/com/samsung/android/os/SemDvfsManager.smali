@@ -4,6 +4,8 @@
 
 
 # static fields
+.field public static final HINT_AMS_ACT_LAZY:Ljava/lang/String; = "AMS_ACT_LAZY"
+
 .field public static final HINT_AMS_ACT_RESUME:Ljava/lang/String; = "AMS_ACT_RESUME"
 
 .field public static final HINT_AMS_ACT_START:Ljava/lang/String; = "AMS_ACT_START"
@@ -82,11 +84,15 @@
 
 .field public static final TYPE_HINT:I = 0x15
 
-.field public static final TYPE_MAX:I = 0x1d
+.field public static final TYPE_LPM_BIAS:I = 0x1e
+
+.field public static final TYPE_MAX:I = 0x1f
 
 .field public static final TYPE_NONE:I = 0xb
 
 .field public static final TYPE_PCIE_PSM_DISABLE:I = 0x1a
+
+.field public static final TYPE_SCHEDTUNE_POLICY:I = 0x1d
 
 .field static mToken:I
 
@@ -137,52 +143,8 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;Ljava/lang/String;I)V
-    .locals 5
+    .locals 4
 
-    sget-boolean v4, Landroid/os/Build;->renovateDreamDevice:Z
-
-    if-nez v4, :cond_0
-
-    sget-boolean v4, Landroid/os/Build;->renovateDream2Device:Z
-
-    if-nez v4, :cond_1
-
-    sget-boolean v4, Landroid/os/Build;->renovateHeroDevice:Z
-
-    if-nez v4, :cond_2
-
-    sget-boolean v4, Landroid/os/Build;->renovateHero2Device:Z
-
-    if-nez v4, :cond_3
-
-    sget-boolean v4, Landroid/os/Build;->renovateGreatDevice:Z
-
-    if-nez v4, :cond_4
-
-    :cond_0
-    const-string/jumbo v4, "ssrm_dreaml_xx"
-
-    goto :goto_0
-
-    :cond_1
-    const-string/jumbo v4, "ssrm_dream2_xx"
-
-    goto :goto_0
-
-    :cond_2
-    const-string/jumbo v4, "ssrm_herol_xx"
-
-    goto :goto_0
-
-    :cond_3
-    const-string/jumbo v4, "ssrm_hero2_xx"
-
-    goto :goto_0
-
-    :cond_4
-    const-string/jumbo v4, "ssrm_greatl_xx"
-
-    :goto_0
     const/4 v3, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -215,7 +177,9 @@
 
     iput-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->BASE_MODEL:Ljava/lang/String;
 
-    iput-object v4, p0, Lcom/samsung/android/os/SemDvfsManager;->SIOP_MODEL:Ljava/lang/String;
+    const-string/jumbo v0, "ssrm_dream2l_xx"
+
+    iput-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->SIOP_MODEL:Ljava/lang/String;
 
     const-string/jumbo v0, "dvfs_policy_kangchen_xx"
 
@@ -255,11 +219,11 @@
 
     iput v0, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsValue:I
 
-    if-nez p1, :cond_5
+    if-nez p1, :cond_0
 
     return-void
 
-    :cond_5
+    :cond_0
     iput-object p1, p0, Lcom/samsung/android/os/SemDvfsManager;->mContext:Landroid/content/Context;
 
     iput-object p2, p0, Lcom/samsung/android/os/SemDvfsManager;->mTagName:Ljava/lang/String;
@@ -280,7 +244,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
 
@@ -290,7 +254,7 @@
 
     return-void
 
-    :cond_6
+    :cond_1
     iget-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -333,7 +297,7 @@
 
     sput v0, Lcom/samsung/android/os/SemDvfsManager;->mToken:I
 
-    if-eqz p2, :cond_7
+    if-eqz p2, :cond_2
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -361,10 +325,10 @@
 
     iput-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->mTagName:Ljava/lang/String;
 
-    :goto_1
+    :goto_0
     return-void
 
-    :cond_7
+    :cond_2
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -395,7 +359,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->mTagName:Ljava/lang/String;
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method public static createInstance(Landroid/content/Context;I)Lcom/samsung/android/os/SemDvfsManager;
@@ -514,16 +478,40 @@
     return-object v0
 
     :cond_a
-    if-ne p2, v1, :cond_b
+    const/16 v0, 0x1d
 
-    new-instance v0, Lcom/samsung/android/os/SemDvfsHintManager;
+    if-ne p2, v0, :cond_b
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/os/SemDvfsHintManager;-><init>(Landroid/content/Context;Ljava/lang/String;I)V
+    new-instance v0, Lcom/samsung/android/os/SemDvfsSchedTunePolicyManager;
+
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/os/SemDvfsSchedTunePolicyManager;-><init>(Landroid/content/Context;Ljava/lang/String;I)V
 
     return-object v0
 
     :cond_b
-    if-le p2, v1, :cond_c
+    const/16 v0, 0x1e
+
+    if-ne p2, v0, :cond_c
+
+    new-instance v0, Lcom/samsung/android/os/SemDvfsLpmBiasManager;
+
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/os/SemDvfsLpmBiasManager;-><init>(Landroid/content/Context;Ljava/lang/String;I)V
+
+    return-object v0
+
+    :cond_c
+    if-ne p2, v1, :cond_d
+
+    new-instance v0, Lcom/samsung/android/os/SemDvfsHintManager;
+
+    const/4 v1, 0x1
+
+    invoke-direct {v0, p0, p1, p2, v1}, Lcom/samsung/android/os/SemDvfsHintManager;-><init>(Landroid/content/Context;Ljava/lang/String;II)V
+
+    return-object v0
+
+    :cond_d
+    if-le p2, v1, :cond_e
 
     new-instance v0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;
 
@@ -531,7 +519,7 @@
 
     return-object v0
 
-    :cond_c
+    :cond_e
     sget v0, Lcom/samsung/android/os/SemDvfsManager;->mToken:I
 
     add-int/lit8 v0, v0, 0x1
@@ -1094,7 +1082,7 @@
     move-exception v0
 
     :try_start_2
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 

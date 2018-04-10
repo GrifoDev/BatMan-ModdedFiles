@@ -237,7 +237,7 @@
 
     const-string/jumbo v2, "commandType"
 
-    invoke-virtual {v0, v2, p1}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v2, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     invoke-virtual {v1, v0}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
 
@@ -903,14 +903,14 @@
 
     :cond_0
     :goto_1
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     return-object v7
 
     :catch_1
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
@@ -1170,7 +1170,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_b
 
     const/4 v5, 0x3
 
@@ -1186,7 +1186,13 @@
 
     move-result v5
 
-    if-eqz v5, :cond_b
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_a
+
+    iput v8, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+
+    goto/16 :goto_1
 
     :cond_a
     sget-object v5, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
@@ -1214,18 +1220,13 @@
     goto/16 :goto_1
 
     :cond_b
-    iput v8, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
-
-    goto/16 :goto_1
-
-    :cond_c
     const-string/jumbo v5, "es"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_d
+    if-eqz v5, :cond_c
 
     const/16 v5, 0xb
 
@@ -1233,8 +1234,27 @@
 
     goto/16 :goto_1
 
-    :cond_d
+    :cond_c
     sget-object v5, Ljava/util/Locale;->FRANCE:Ljava/util/Locale;
+
+    invoke-virtual {v5}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_d
+
+    const/4 v5, 0x4
+
+    iput v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+
+    goto/16 :goto_1
+
+    :cond_d
+    sget-object v5, Ljava/util/Locale;->GERMAN:Ljava/util/Locale;
 
     invoke-virtual {v5}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
@@ -1246,14 +1266,14 @@
 
     if-eqz v5, :cond_e
 
-    const/4 v5, 0x4
+    const/4 v5, 0x5
 
     iput v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
     goto/16 :goto_1
 
     :cond_e
-    sget-object v5, Ljava/util/Locale;->GERMAN:Ljava/util/Locale;
+    sget-object v5, Ljava/util/Locale;->ITALY:Ljava/util/Locale;
 
     invoke-virtual {v5}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
@@ -1265,14 +1285,14 @@
 
     if-eqz v5, :cond_f
 
-    const/4 v5, 0x5
+    const/4 v5, 0x6
 
     iput v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
     goto/16 :goto_1
 
     :cond_f
-    sget-object v5, Ljava/util/Locale;->ITALY:Ljava/util/Locale;
+    sget-object v5, Ljava/util/Locale;->JAPAN:Ljava/util/Locale;
 
     invoke-virtual {v5}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
@@ -1284,18 +1304,14 @@
 
     if-eqz v5, :cond_10
 
-    const/4 v5, 0x6
+    const/4 v5, 0x7
 
     iput v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
     goto/16 :goto_1
 
     :cond_10
-    sget-object v5, Ljava/util/Locale;->JAPAN:Ljava/util/Locale;
-
-    invoke-virtual {v5}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
-
-    move-result-object v5
+    const-string/jumbo v5, "ru"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1303,33 +1319,18 @@
 
     if-eqz v5, :cond_11
 
-    const/4 v5, 0x7
-
-    iput v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
-
-    goto/16 :goto_1
-
-    :cond_11
-    const-string/jumbo v5, "ru"
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_12
-
     iput v9, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
     goto/16 :goto_1
 
-    :cond_12
+    :cond_11
     const-string/jumbo v5, "pt"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_14
+    if-eqz v5, :cond_13
 
     const-string/jumbo v5, "BR"
 
@@ -1337,7 +1338,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_13
+    if-eqz v5, :cond_12
 
     const/16 v5, 0x9
 
@@ -1345,15 +1346,15 @@
 
     goto/16 :goto_1
 
-    :cond_13
+    :cond_12
     iput v8, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
     goto/16 :goto_1
 
-    :cond_14
+    :cond_13
     iget-boolean v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->isEnableExtraRussian:Z
 
-    if-eqz v5, :cond_17
+    if-eqz v5, :cond_16
 
     const-string/jumbo v5, "az_AZ"
 
@@ -1361,7 +1362,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_15
+    if-nez v5, :cond_14
 
     const-string/jumbo v5, "kk_KZ"
 
@@ -1369,7 +1370,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_15
+    if-nez v5, :cond_14
 
     const-string/jumbo v5, "uz_UZ"
 
@@ -1377,7 +1378,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_15
+    if-nez v5, :cond_14
 
     const-string/jumbo v5, "ky_KZ"
 
@@ -1385,7 +1386,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_15
+    if-nez v5, :cond_14
 
     const-string/jumbo v5, "tg_TJ"
 
@@ -1393,7 +1394,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_15
+    if-nez v5, :cond_14
 
     const-string/jumbo v5, "tk_TM"
 
@@ -1401,7 +1402,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_15
+    if-nez v5, :cond_14
 
     const-string/jumbo v5, "be_BY"
 
@@ -1409,9 +1410,9 @@
 
     move-result v5
 
-    if-eqz v5, :cond_16
+    if-eqz v5, :cond_15
 
-    :cond_15
+    :cond_14
     iput v9, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
     sget-object v5, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
@@ -1438,12 +1439,12 @@
 
     goto/16 :goto_1
 
-    :cond_16
+    :cond_15
     iput v8, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
     goto/16 :goto_1
 
-    :cond_17
+    :cond_16
     iput v8, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
     goto/16 :goto_1
@@ -2633,7 +2634,7 @@
     move-exception v0
 
     :try_start_3
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 

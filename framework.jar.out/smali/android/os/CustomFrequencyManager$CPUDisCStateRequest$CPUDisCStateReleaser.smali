@@ -45,7 +45,7 @@
 
     iget-object v0, p0, Landroid/os/CustomFrequencyManager$CPUDisCStateRequest$CPUDisCStateReleaser;->this$1:Landroid/os/CustomFrequencyManager$CPUDisCStateRequest;
 
-    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->cancelFrequencyRequest()V
+    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$CPUDisCStateRequest;->cancelFrequencyRequest()V
 
     :cond_0
     return-void

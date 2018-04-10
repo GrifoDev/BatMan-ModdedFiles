@@ -148,17 +148,17 @@
     return v8
 
     :sswitch_2
-    const-string/jumbo v9, "android.bluetooth.IBluetoothPan"
+    const-string/jumbo v7, "android.bluetooth.IBluetoothPan"
 
-    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v9
+    move-result v7
 
-    if-eqz v9, :cond_1
+    if-eqz v7, :cond_1
 
-    move v1, v8
+    const/4 v1, 0x1
 
     :goto_0
     invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetoothPan$Stub;->setBluetoothTethering(Z)V
@@ -168,7 +168,7 @@
     return v8
 
     :cond_1
-    move v1, v7
+    const/4 v1, 0x0
 
     goto :goto_0
 

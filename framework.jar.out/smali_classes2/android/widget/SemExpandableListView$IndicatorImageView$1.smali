@@ -53,7 +53,7 @@
 
     iget-object v1, p0, Landroid/widget/SemExpandableListView$IndicatorImageView$1;->this$1:Landroid/widget/SemExpandableListView$IndicatorImageView;
 
-    invoke-virtual {v1}, Landroid/view/View;->invalidate()V
+    invoke-virtual {v1}, Landroid/widget/SemExpandableListView$IndicatorImageView;->invalidate()V
 
     return-void
 .end method

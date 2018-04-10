@@ -15,27 +15,27 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iput-object v0, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->LOG_TAG:Ljava/lang/String;
 
     const-string/jumbo v0, "GPU"
 
-    iput-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->mName:Ljava/lang/String;
+    iput-object v0, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mName:Ljava/lang/String;
 
-    iget-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
-
-    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager;->getSupportedGPUFrequency()[I
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->mSupportedValues:[I
-
-    iget-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
+    iget-object v0, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
 
     invoke-virtual {v0}, Landroid/os/CustomFrequencyManager;->getSupportedGPUFrequency()[I
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->mSupportedValuesForSsrm:[I
+    iput-object v0, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mSupportedValues:[I
+
+    iget-object v0, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
+
+    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager;->getSupportedGPUFrequency()[I
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mSupportedValuesForSsrm:[I
 
     invoke-direct {p0}, Lcom/samsung/android/os/SemDvfsGpuManager;->adjustGPUFreqTable()V
 
@@ -45,7 +45,7 @@
 .method private adjustGPUFreqTable()V
     .locals 5
 
-    iget-object v3, p0, Lcom/samsung/android/os/SemDvfsManager;->mSupportedValues:[I
+    iget-object v3, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mSupportedValues:[I
 
     if-nez v3, :cond_0
 
@@ -141,13 +141,13 @@
     :goto_0
     if-lez v0, :cond_6
 
-    iget-object v3, p0, Lcom/samsung/android/os/SemDvfsManager;->mSupportedValues:[I
+    iget-object v3, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mSupportedValues:[I
 
     array-length v3, v3
 
     if-le v3, v0, :cond_6
 
-    iget-object v3, p0, Lcom/samsung/android/os/SemDvfsManager;->mSupportedValues:[I
+    iget-object v3, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mSupportedValues:[I
 
     array-length v3, v3
 
@@ -158,7 +158,7 @@
     const/4 v1, 0x0
 
     :goto_1
-    iget-object v3, p0, Lcom/samsung/android/os/SemDvfsManager;->mSupportedValues:[I
+    iget-object v3, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mSupportedValues:[I
 
     array-length v3, v3
 
@@ -166,7 +166,7 @@
 
     if-ge v1, v3, :cond_5
 
-    iget-object v3, p0, Lcom/samsung/android/os/SemDvfsManager;->mSupportedValues:[I
+    iget-object v3, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mSupportedValues:[I
 
     add-int v4, v1, v0
 
@@ -209,7 +209,7 @@
     goto :goto_0
 
     :cond_5
-    iput-object v2, p0, Lcom/samsung/android/os/SemDvfsManager;->mSupportedValues:[I
+    iput-object v2, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mSupportedValues:[I
 
     :cond_6
     return-void
@@ -232,7 +232,7 @@
 
     const/4 v8, -0x1
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
 
     if-nez v1, :cond_0
 
@@ -244,7 +244,7 @@
     move-result-object v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->LOG_TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -278,7 +278,7 @@
 
     move-result-object v2
 
-    iget-object v4, p0, Lcom/samsung/android/os/SemDvfsManager;->mTagName:Ljava/lang/String;
+    iget-object v4, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mTagName:Ljava/lang/String;
 
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -288,7 +288,7 @@
 
     move-result-object v2
 
-    invoke-virtual {p0, v1, v2}, Lcom/samsung/android/os/SemDvfsManager;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v2}, Lcom/samsung/android/os/SemDvfsGpuManager;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
     iget-boolean v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mIsAcquired:Z
 
@@ -296,40 +296,40 @@
 
     if-ne p1, v8, :cond_1
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->LOG_TAG:Ljava/lang/String;
 
     const-string/jumbo v2, "acquire:: DVFS lock is already acquired. Previous lock will be released first."
 
-    invoke-virtual {p0, v1, v2}, Lcom/samsung/android/os/SemDvfsManager;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v2}, Lcom/samsung/android/os/SemDvfsGpuManager;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {p0}, Lcom/samsung/android/os/SemDvfsManager;->release()V
+    invoke-virtual {p0}, Lcom/samsung/android/os/SemDvfsGpuManager;->release()V
 
     :cond_1
-    iget v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mType:I
+    iget v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mType:I
 
     const/16 v2, 0x10
 
     if-ne v1, v2, :cond_4
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mSupportedValues:[I
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mSupportedValues:[I
 
     if-eqz v1, :cond_7
 
-    iget v3, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsValue:I
+    iget v3, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mDvfsValue:I
 
     if-eq v3, v8, :cond_2
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
     if-nez v1, :cond_2
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
 
     int-to-long v4, p1
 
-    iget-object v6, p0, Lcom/samsung/android/os/SemDvfsManager;->mTagName:Ljava/lang/String;
+    iget-object v6, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mTagName:Ljava/lang/String;
 
-    iget-object v7, p0, Lcom/samsung/android/os/SemDvfsManager;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mContext:Landroid/content/Context;
 
     const/4 v2, 0x1
 
@@ -337,25 +337,25 @@
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    iput-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
     :cond_2
     if-eq v3, v8, :cond_7
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
     if-eqz v1, :cond_7
 
     if-lez p1, :cond_3
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
     int-to-long v4, p1
 
     invoke-virtual {v1, v4, v5}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->setValueTimeout(J)V
 
     :cond_3
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
     invoke-virtual {v1, v3}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->setValueFreq(I)Z
 
@@ -363,7 +363,7 @@
 
     if-nez v1, :cond_7
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->LOG_TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -383,7 +383,7 @@
 
     move-result-object v2
 
-    invoke-virtual {p0, v1, v2}, Lcom/samsung/android/os/SemDvfsManager;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v2}, Lcom/samsung/android/os/SemDvfsGpuManager;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -393,31 +393,31 @@
 
     :cond_4
     :try_start_1
-    iget v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mType:I
+    iget v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mType:I
 
     const/16 v2, 0x11
 
     if-ne v1, v2, :cond_7
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mSupportedValues:[I
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mSupportedValues:[I
 
     if-eqz v1, :cond_7
 
-    iget v3, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsValue:I
+    iget v3, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mDvfsValue:I
 
     if-eq v3, v8, :cond_5
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
     if-nez v1, :cond_5
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
 
     int-to-long v4, p1
 
-    iget-object v6, p0, Lcom/samsung/android/os/SemDvfsManager;->mTagName:Ljava/lang/String;
+    iget-object v6, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mTagName:Ljava/lang/String;
 
-    iget-object v7, p0, Lcom/samsung/android/os/SemDvfsManager;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mContext:Landroid/content/Context;
 
     const/16 v2, 0x9
 
@@ -425,25 +425,25 @@
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    iput-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
     :cond_5
     if-eq v3, v8, :cond_7
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
     if-eqz v1, :cond_7
 
     if-lez p1, :cond_6
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
     int-to-long v4, p1
 
     invoke-virtual {v1, v4, v5}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->setValueTimeout(J)V
 
     :cond_6
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
     invoke-virtual {v1, v3}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->setValueFreq(I)Z
 
@@ -451,7 +451,7 @@
 
     if-nez v1, :cond_7
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->LOG_TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -471,7 +471,7 @@
 
     move-result-object v2
 
-    invoke-virtual {p0, v1, v2}, Lcom/samsung/android/os/SemDvfsManager;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v2}, Lcom/samsung/android/os/SemDvfsGpuManager;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -481,11 +481,11 @@
 
     :cond_7
     :try_start_2
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
     if-eqz v1, :cond_8
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
     invoke-virtual {v1}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->doFrequencyRequest()V
 
@@ -513,7 +513,7 @@
 
     const/16 v0, -0x3e7
 
-    iput v0, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsValue:I
+    iput v0, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mDvfsValue:I
 
     return-void
 .end method
@@ -521,7 +521,7 @@
 .method public setDvfsValue(I)V
     .locals 0
 
-    iput p1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsValue:I
+    iput p1, p0, Lcom/samsung/android/os/SemDvfsGpuManager;->mDvfsValue:I
 
     return-void
 .end method

@@ -17,19 +17,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     sput-boolean v0, Lcom/android/internal/util/GrowingArrayUtils;->-assertionsDisabled:Z
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method private constructor <init>()V
@@ -43,20 +35,15 @@
 .method public static append([FIF)[F
     .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     sget-boolean v1, Lcom/android/internal/util/GrowingArrayUtils;->-assertionsDisabled:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     array-length v1, p0
 
-    if-gt p1, v1, :cond_0
-
-    const/4 v1, 0x1
-
-    :goto_0
-    if-nez v1, :cond_1
+    if-le p1, v1, :cond_0
 
     new-instance v1, Ljava/lang/AssertionError;
 
@@ -65,16 +52,11 @@
     throw v1
 
     :cond_0
-    move v1, v2
-
-    goto :goto_0
-
-    :cond_1
     add-int/lit8 v1, p1, 0x1
 
-    array-length v3, p0
+    array-length v2, p0
 
-    if-le v1, v3, :cond_2
+    if-le v1, v2, :cond_1
 
     invoke-static {p1}, Lcom/android/internal/util/GrowingArrayUtils;->growSize(I)I
 
@@ -84,11 +66,11 @@
 
     move-result-object v0
 
-    invoke-static {p0, v2, v0, v2, p1}, Ljava/lang/System;->arraycopy([FI[FII)V
+    invoke-static {p0, v3, v0, v3, p1}, Ljava/lang/System;->arraycopy([FI[FII)V
 
     move-object p0, v0
 
-    :cond_2
+    :cond_1
     aput p2, p0, p1
 
     return-object p0
@@ -97,20 +79,15 @@
 .method public static append([III)[I
     .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     sget-boolean v1, Lcom/android/internal/util/GrowingArrayUtils;->-assertionsDisabled:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     array-length v1, p0
 
-    if-gt p1, v1, :cond_0
-
-    const/4 v1, 0x1
-
-    :goto_0
-    if-nez v1, :cond_1
+    if-le p1, v1, :cond_0
 
     new-instance v1, Ljava/lang/AssertionError;
 
@@ -119,16 +96,11 @@
     throw v1
 
     :cond_0
-    move v1, v2
-
-    goto :goto_0
-
-    :cond_1
     add-int/lit8 v1, p1, 0x1
 
-    array-length v3, p0
+    array-length v2, p0
 
-    if-le v1, v3, :cond_2
+    if-le v1, v2, :cond_1
 
     invoke-static {p1}, Lcom/android/internal/util/GrowingArrayUtils;->growSize(I)I
 
@@ -138,11 +110,11 @@
 
     move-result-object v0
 
-    invoke-static {p0, v2, v0, v2, p1}, Ljava/lang/System;->arraycopy([II[III)V
+    invoke-static {p0, v3, v0, v3, p1}, Ljava/lang/System;->arraycopy([II[III)V
 
     move-object p0, v0
 
-    :cond_2
+    :cond_1
     aput p2, p0, p1
 
     return-object p0
@@ -151,20 +123,15 @@
 .method public static append([JIJ)[J
     .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     sget-boolean v1, Lcom/android/internal/util/GrowingArrayUtils;->-assertionsDisabled:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     array-length v1, p0
 
-    if-gt p1, v1, :cond_0
-
-    const/4 v1, 0x1
-
-    :goto_0
-    if-nez v1, :cond_1
+    if-le p1, v1, :cond_0
 
     new-instance v1, Ljava/lang/AssertionError;
 
@@ -173,16 +140,11 @@
     throw v1
 
     :cond_0
-    move v1, v2
-
-    goto :goto_0
-
-    :cond_1
     add-int/lit8 v1, p1, 0x1
 
-    array-length v3, p0
+    array-length v2, p0
 
-    if-le v1, v3, :cond_2
+    if-le v1, v2, :cond_1
 
     invoke-static {p1}, Lcom/android/internal/util/GrowingArrayUtils;->growSize(I)I
 
@@ -192,11 +154,11 @@
 
     move-result-object v0
 
-    invoke-static {p0, v2, v0, v2, p1}, Ljava/lang/System;->arraycopy([JI[JII)V
+    invoke-static {p0, v3, v0, v3, p1}, Ljava/lang/System;->arraycopy([JI[JII)V
 
     move-object p0, v0
 
-    :cond_2
+    :cond_1
     aput-wide p2, p0, p1
 
     return-object p0
@@ -212,20 +174,15 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     sget-boolean v1, Lcom/android/internal/util/GrowingArrayUtils;->-assertionsDisabled:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     array-length v1, p0
 
-    if-gt p1, v1, :cond_0
-
-    const/4 v1, 0x1
-
-    :goto_0
-    if-nez v1, :cond_1
+    if-le p1, v1, :cond_0
 
     new-instance v1, Ljava/lang/AssertionError;
 
@@ -234,16 +191,11 @@
     throw v1
 
     :cond_0
-    move v1, v2
-
-    goto :goto_0
-
-    :cond_1
     add-int/lit8 v1, p1, 0x1
 
-    array-length v3, p0
+    array-length v2, p0
 
-    if-le v1, v3, :cond_2
+    if-le v1, v2, :cond_1
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -255,17 +207,17 @@
 
     invoke-static {p1}, Lcom/android/internal/util/GrowingArrayUtils;->growSize(I)I
 
-    move-result v3
+    move-result v2
 
-    invoke-static {v1, v3}, Lcom/android/internal/util/ArrayUtils;->newUnpaddedArray(Ljava/lang/Class;I)[Ljava/lang/Object;
+    invoke-static {v1, v2}, Lcom/android/internal/util/ArrayUtils;->newUnpaddedArray(Ljava/lang/Class;I)[Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-static {p0, v2, v0, v2, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p0, v3, v0, v3, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     move-object p0, v0
 
-    :cond_2
+    :cond_1
     aput-object p2, p0, p1
 
     return-object p0
@@ -274,20 +226,15 @@
 .method public static append([ZIZ)[Z
     .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     sget-boolean v1, Lcom/android/internal/util/GrowingArrayUtils;->-assertionsDisabled:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     array-length v1, p0
 
-    if-gt p1, v1, :cond_0
-
-    const/4 v1, 0x1
-
-    :goto_0
-    if-nez v1, :cond_1
+    if-le p1, v1, :cond_0
 
     new-instance v1, Ljava/lang/AssertionError;
 
@@ -296,16 +243,11 @@
     throw v1
 
     :cond_0
-    move v1, v2
-
-    goto :goto_0
-
-    :cond_1
     add-int/lit8 v1, p1, 0x1
 
-    array-length v3, p0
+    array-length v2, p0
 
-    if-le v1, v3, :cond_2
+    if-le v1, v2, :cond_1
 
     invoke-static {p1}, Lcom/android/internal/util/GrowingArrayUtils;->growSize(I)I
 
@@ -315,11 +257,11 @@
 
     move-result-object v0
 
-    invoke-static {p0, v2, v0, v2, p1}, Ljava/lang/System;->arraycopy([ZI[ZII)V
+    invoke-static {p0, v3, v0, v3, p1}, Ljava/lang/System;->arraycopy([ZI[ZII)V
 
     move-object p0, v0
 
-    :cond_2
+    :cond_1
     aput-boolean p2, p0, p1
 
     return-object p0
@@ -346,20 +288,15 @@
 .method public static insert([IIII)[I
     .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     sget-boolean v1, Lcom/android/internal/util/GrowingArrayUtils;->-assertionsDisabled:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     array-length v1, p0
 
-    if-gt p1, v1, :cond_0
-
-    const/4 v1, 0x1
-
-    :goto_0
-    if-nez v1, :cond_1
+    if-le p1, v1, :cond_0
 
     new-instance v1, Ljava/lang/AssertionError;
 
@@ -368,16 +305,11 @@
     throw v1
 
     :cond_0
-    move v1, v2
-
-    goto :goto_0
-
-    :cond_1
     add-int/lit8 v1, p1, 0x1
 
-    array-length v3, p0
+    array-length v2, p0
 
-    if-gt v1, v3, :cond_2
+    if-gt v1, v2, :cond_1
 
     add-int/lit8 v1, p2, 0x1
 
@@ -389,7 +321,7 @@
 
     return-object p0
 
-    :cond_2
+    :cond_1
     invoke-static {p1}, Lcom/android/internal/util/GrowingArrayUtils;->growSize(I)I
 
     move-result v1
@@ -398,7 +330,7 @@
 
     move-result-object v0
 
-    invoke-static {p0, v2, v0, v2, p2}, Ljava/lang/System;->arraycopy([II[III)V
+    invoke-static {p0, v3, v0, v3, p2}, Ljava/lang/System;->arraycopy([II[III)V
 
     aput p3, v0, p2
 
@@ -416,20 +348,15 @@
 .method public static insert([JIIJ)[J
     .locals 5
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     sget-boolean v1, Lcom/android/internal/util/GrowingArrayUtils;->-assertionsDisabled:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     array-length v1, p0
 
-    if-gt p1, v1, :cond_0
-
-    const/4 v1, 0x1
-
-    :goto_0
-    if-nez v1, :cond_1
+    if-le p1, v1, :cond_0
 
     new-instance v1, Ljava/lang/AssertionError;
 
@@ -438,16 +365,11 @@
     throw v1
 
     :cond_0
-    move v1, v2
-
-    goto :goto_0
-
-    :cond_1
     add-int/lit8 v1, p1, 0x1
 
-    array-length v3, p0
+    array-length v2, p0
 
-    if-gt v1, v3, :cond_2
+    if-gt v1, v2, :cond_1
 
     add-int/lit8 v1, p2, 0x1
 
@@ -459,7 +381,7 @@
 
     return-object p0
 
-    :cond_2
+    :cond_1
     invoke-static {p1}, Lcom/android/internal/util/GrowingArrayUtils;->growSize(I)I
 
     move-result v1
@@ -468,7 +390,7 @@
 
     move-result-object v0
 
-    invoke-static {p0, v2, v0, v2, p2}, Ljava/lang/System;->arraycopy([JI[JII)V
+    invoke-static {p0, v3, v0, v3, p2}, Ljava/lang/System;->arraycopy([JI[JII)V
 
     aput-wide p3, v0, p2
 
@@ -493,20 +415,15 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     sget-boolean v1, Lcom/android/internal/util/GrowingArrayUtils;->-assertionsDisabled:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     array-length v1, p0
 
-    if-gt p1, v1, :cond_0
-
-    const/4 v1, 0x1
-
-    :goto_0
-    if-nez v1, :cond_1
+    if-le p1, v1, :cond_0
 
     new-instance v1, Ljava/lang/AssertionError;
 
@@ -515,16 +432,11 @@
     throw v1
 
     :cond_0
-    move v1, v2
-
-    goto :goto_0
-
-    :cond_1
     add-int/lit8 v1, p1, 0x1
 
-    array-length v3, p0
+    array-length v2, p0
 
-    if-gt v1, v3, :cond_2
+    if-gt v1, v2, :cond_1
 
     add-int/lit8 v1, p2, 0x1
 
@@ -536,7 +448,7 @@
 
     return-object p0
 
-    :cond_2
+    :cond_1
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -547,13 +459,13 @@
 
     invoke-static {p1}, Lcom/android/internal/util/GrowingArrayUtils;->growSize(I)I
 
-    move-result v3
+    move-result v2
 
-    invoke-static {v1, v3}, Lcom/android/internal/util/ArrayUtils;->newUnpaddedArray(Ljava/lang/Class;I)[Ljava/lang/Object;
+    invoke-static {v1, v2}, Lcom/android/internal/util/ArrayUtils;->newUnpaddedArray(Ljava/lang/Class;I)[Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-static {p0, v2, v0, v2, p2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p0, v3, v0, v3, p2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     aput-object p3, v0, p2
 
@@ -571,20 +483,15 @@
 .method public static insert([ZIIZ)[Z
     .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     sget-boolean v1, Lcom/android/internal/util/GrowingArrayUtils;->-assertionsDisabled:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     array-length v1, p0
 
-    if-gt p1, v1, :cond_0
-
-    const/4 v1, 0x1
-
-    :goto_0
-    if-nez v1, :cond_1
+    if-le p1, v1, :cond_0
 
     new-instance v1, Ljava/lang/AssertionError;
 
@@ -593,16 +500,11 @@
     throw v1
 
     :cond_0
-    move v1, v2
-
-    goto :goto_0
-
-    :cond_1
     add-int/lit8 v1, p1, 0x1
 
-    array-length v3, p0
+    array-length v2, p0
 
-    if-gt v1, v3, :cond_2
+    if-gt v1, v2, :cond_1
 
     add-int/lit8 v1, p2, 0x1
 
@@ -614,7 +516,7 @@
 
     return-object p0
 
-    :cond_2
+    :cond_1
     invoke-static {p1}, Lcom/android/internal/util/GrowingArrayUtils;->growSize(I)I
 
     move-result v1
@@ -623,7 +525,7 @@
 
     move-result-object v0
 
-    invoke-static {p0, v2, v0, v2, p2}, Ljava/lang/System;->arraycopy([ZI[ZII)V
+    invoke-static {p0, v3, v0, v3, p2}, Ljava/lang/System;->arraycopy([ZI[ZII)V
 
     aput-boolean p3, v0, p2
 

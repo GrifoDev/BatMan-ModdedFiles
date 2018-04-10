@@ -32,13 +32,12 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 9
+    .locals 5
 
-    iget v8, p1, Landroid/os/Message;->what:I
+    iget v4, p1, Landroid/os/Message;->what:I
 
-    packed-switch v8, :pswitch_data_0
+    packed-switch v4, :pswitch_data_0
 
-    :cond_0
     :goto_0
     return-void
 
@@ -47,54 +46,24 @@
 
     check-cast v0, Lcom/android/internal/os/SomeArgs;
 
-    iget-object v5, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iget-object v3, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    check-cast v5, Landroid/print/PrintManager$PrintJobStateChangeListenerWrapper;
+    check-cast v3, Landroid/print/PrintManager$PrintJobStateChangeListenerWrapper;
 
-    invoke-virtual {v5}, Landroid/print/PrintManager$PrintJobStateChangeListenerWrapper;->getListener()Landroid/print/PrintManager$PrintJobStateChangeListener;
+    invoke-virtual {v3}, Landroid/print/PrintManager$PrintJobStateChangeListenerWrapper;->getListener()Landroid/print/PrintManager$PrintJobStateChangeListener;
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
-    iget-object v4, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    check-cast v4, Landroid/print/PrintJobId;
+    check-cast v2, Landroid/print/PrintJobId;
 
-    invoke-interface {v1, v4}, Landroid/print/PrintManager$PrintJobStateChangeListener;->onPrintJobStateChanged(Landroid/print/PrintJobId;)V
+    invoke-interface {v1, v2}, Landroid/print/PrintManager$PrintJobStateChangeListener;->onPrintJobStateChanged(Landroid/print/PrintJobId;)V
 
-    :cond_1
+    :cond_0
     invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
-
-    goto :goto_0
-
-    :pswitch_1
-    iget-object v7, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v7, Landroid/print/PrintManager$PrintServicesChangeListenerWrapper;
-
-    invoke-virtual {v7}, Landroid/print/PrintManager$PrintServicesChangeListenerWrapper;->getListener()Landroid/print/PrintManager$PrintServicesChangeListener;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_0
-
-    invoke-interface {v3}, Landroid/print/PrintManager$PrintServicesChangeListener;->onPrintServicesChanged()V
-
-    goto :goto_0
-
-    :pswitch_2
-    iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v6, Landroid/print/PrintManager$PrintServiceRecommendationsChangeListenerWrapper;
-
-    invoke-virtual {v6}, Landroid/print/PrintManager$PrintServiceRecommendationsChangeListenerWrapper;->getListener()Landroid/print/PrintManager$PrintServiceRecommendationsChangeListener;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_0
-
-    invoke-interface {v2}, Landroid/print/PrintManager$PrintServiceRecommendationsChangeListener;->onPrintServiceRecommendationsChanged()V
 
     goto :goto_0
 
@@ -103,7 +72,5 @@
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
-        :pswitch_1
-        :pswitch_2
     .end packed-switch
 .end method

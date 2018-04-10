@@ -76,6 +76,8 @@
 
 .field public static final TAG_CSCFEATURE_SETTING_CONFIGQUICKSETTINGS:Ljava/lang/String; = "CscFeature_Setting_ConfigQuickSettings"
 
+.field public static final TAG_CSCFEATURE_SETTING_CONFIGREVISIONFORREGULATORYINFO:Ljava/lang/String; = "CscFeature_Setting_ConfigRevisionForRegulatoryInfo"
+
 .field public static final TAG_CSCFEATURE_SETTING_CONFIGTYPEFACTORYRESET:Ljava/lang/String; = "CscFeature_Setting_ConfigTypeFactoryReset"
 
 .field public static final TAG_CSCFEATURE_SETTING_CONFIGTYPEHELP:Ljava/lang/String; = "CscFeature_Setting_ConfigTypeHelp"
@@ -204,6 +206,8 @@
 
 .field public static final TAG_CSCFEATURE_SETTING_SUPPORTOMADMSETTINGFROMSERVER:Ljava/lang/String; = "CscFeature_Setting_SupportOmadmSettingFromServer"
 
+.field public static final TAG_CSCFEATURE_SETTING_SUPPORTPREINSTALLERSKIPUSERDELETEDAPP:Ljava/lang/String; = "CscFeature_Setting_SupportPreInstallerSkipUserDeletedApp"
+
 .field public static final TAG_CSCFEATURE_SETTING_SUPPORTREALTIMENETWORKSPEED:Ljava/lang/String; = "CscFeature_Setting_SupportRealTimeNetworkSpeed"
 
 .field public static final TAG_CSCFEATURE_SETTING_SUPPORTREGULATORYINFO:Ljava/lang/String; = "CscFeature_Setting_SupportRegulatoryInfo"
@@ -215,6 +219,8 @@
 .field public static final TAG_CSCFEATURE_SETTING_SUPPORTSIMUNLOCK:Ljava/lang/String; = "CscFeature_Setting_SupportSimUnlock"
 
 .field public static final TAG_CSCFEATURE_SETTING_SUPPORTTDSCDMA:Ljava/lang/String; = "CscFeature_Setting_SupportTdsCdma"
+
+.field public static final TAG_CSCFEATURE_SETTING_SUPPORTUSERAPN4OMCUPDATE:Ljava/lang/String; = "CscFeature_Setting_SupportUserApn4OmcUpdate"
 
 .field public static final TAG_CSCFEATURE_SETTING_SUPPORTWIFICALL:Ljava/lang/String; = "CscFeature_Setting_SupportWifiCall"
 

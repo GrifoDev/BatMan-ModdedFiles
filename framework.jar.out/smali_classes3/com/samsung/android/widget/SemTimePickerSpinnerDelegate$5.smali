@@ -47,7 +47,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {v2}, Lcom/samsung/android/widget/SemNumberPicker;->isEnabled()Z
 
     move-result v2
 

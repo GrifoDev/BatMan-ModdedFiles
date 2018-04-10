@@ -59,7 +59,7 @@
     :try_start_0
     sget-object v1, Lcom/samsung/android/share/executor/ExecutorCommandHandler$NlgParamMode;->MULTIPLE:Lcom/samsung/android/share/executor/ExecutorCommandHandler$NlgParamMode;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/share/executor/ExecutorCommandHandler$NlgParamMode;->ordinal()I
 
     move-result v1
 
@@ -73,7 +73,7 @@
     :try_start_1
     sget-object v1, Lcom/samsung/android/share/executor/ExecutorCommandHandler$NlgParamMode;->NONE:Lcom/samsung/android/share/executor/ExecutorCommandHandler$NlgParamMode;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/share/executor/ExecutorCommandHandler$NlgParamMode;->ordinal()I
 
     move-result v1
 
@@ -87,7 +87,7 @@
     :try_start_2
     sget-object v1, Lcom/samsung/android/share/executor/ExecutorCommandHandler$NlgParamMode;->TARGETED:Lcom/samsung/android/share/executor/ExecutorCommandHandler$NlgParamMode;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/share/executor/ExecutorCommandHandler$NlgParamMode;->ordinal()I
 
     move-result v1
 
@@ -213,7 +213,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {p0}, Lcom/samsung/android/share/executor/ExecutorCommandHandler$NlgParamMode;->ordinal()I
 
     move-result v2
 

@@ -39,9 +39,7 @@
 
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$3;->this$0:Lcom/android/internal/app/ResolverActivity;
 
-    invoke-static {v1}, Lcom/android/internal/app/ResolverActivity;->-get1(Lcom/android/internal/app/ResolverActivity;)Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/internal/app/ResolverActivity;->mAdapter:Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;
 
     invoke-virtual {v1}, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->getOtherProfile()Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
 
@@ -56,7 +54,7 @@
 
     const/4 v2, -0x1
 
-    invoke-static {v1, v2}, Lcom/android/internal/app/ResolverActivity;->-set6(Lcom/android/internal/app/ResolverActivity;I)I
+    invoke-static {v1, v2}, Lcom/android/internal/app/ResolverActivity;->-set5(Lcom/android/internal/app/ResolverActivity;I)I
 
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$3;->this$0:Lcom/android/internal/app/ResolverActivity;
 

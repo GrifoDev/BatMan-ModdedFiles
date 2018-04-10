@@ -430,7 +430,7 @@
 
     move-result-object v3
 
-    const v4, 0x1050069
+    const v4, 0x1050072
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -438,7 +438,7 @@
 
     iput v4, p2, Landroid/graphics/Rect;->left:I
 
-    const v4, 0x105006b
+    const v4, 0x1050073
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -446,7 +446,7 @@
 
     iput v4, p2, Landroid/graphics/Rect;->right:I
 
-    const v4, 0x105006a
+    const v4, 0x1050074
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -454,7 +454,7 @@
 
     iput v4, p2, Landroid/graphics/Rect;->top:I
 
-    const v4, 0x105006c
+    const v4, 0x1050071
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -560,83 +560,96 @@
 .end method
 
 .method private updateContentDescription(Landroid/appwidget/AppWidgetProviderInfo;)V
-    .locals 6
+    .locals 7
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     if-eqz p1, :cond_0
 
     invoke-virtual {p0}, Landroid/appwidget/AppWidgetHostView;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-class v3, Landroid/content/pm/LauncherApps;
+    const-class v4, Landroid/content/pm/LauncherApps;
 
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/content/pm/LauncherApps;
-
-    iget-object v2, p1, Landroid/appwidget/AppWidgetProviderInfo;->provider:Landroid/content/ComponentName;
-
-    invoke-virtual {v2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
-    invoke-virtual {p1}, Landroid/appwidget/AppWidgetProviderInfo;->getProfile()Landroid/os/UserHandle;
+    check-cast v2, Landroid/content/pm/LauncherApps;
+
+    const/4 v0, 0x0
+
+    :try_start_0
+    iget-object v3, p1, Landroid/appwidget/AppWidgetProviderInfo;->provider:Landroid/content/ComponentName;
+
+    invoke-virtual {v3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v1, v2, v5, v3}, Landroid/content/pm/LauncherApps;->getApplicationInfo(Ljava/lang/String;ILandroid/os/UserHandle;)Landroid/content/pm/ApplicationInfo;
+    invoke-virtual {p1}, Landroid/appwidget/AppWidgetProviderInfo;->getProfile()Landroid/os/UserHandle;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v2, v3, v5, v4}, Landroid/content/pm/LauncherApps;->getApplicationInfo(Ljava/lang/String;ILandroid/os/UserHandle;)Landroid/content/pm/ApplicationInfo;
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
 
+    :goto_0
     if-eqz v0, :cond_1
 
-    iget v2, v0, Landroid/content/pm/ApplicationInfo;->flags:I
+    iget v3, v0, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    const/high16 v3, 0x40000000    # 2.0f
+    const/high16 v4, 0x40000000    # 2.0f
 
-    and-int/2addr v2, v3
+    and-int/2addr v3, v4
 
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_1
 
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v3
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    new-array v3, v3, [Ljava/lang/Object;
+    new-array v4, v4, [Ljava/lang/Object;
 
-    iget-object v4, p1, Landroid/appwidget/AppWidgetProviderInfo;->label:Ljava/lang/String;
+    iget-object v5, p1, Landroid/appwidget/AppWidgetProviderInfo;->label:Ljava/lang/String;
 
-    aput-object v4, v3, v5
+    aput-object v5, v4, v6
 
-    const v4, 0x104061a
+    const v5, 0x1040a03
 
-    invoke-virtual {v2, v4, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v3, v5, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {p0, v2}, Landroid/appwidget/AppWidgetHostView;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v3}, Landroid/appwidget/AppWidgetHostView;->setContentDescription(Ljava/lang/CharSequence;)V
 
     :cond_0
-    :goto_0
+    :goto_1
     return-void
 
     :cond_1
-    iget-object v2, p1, Landroid/appwidget/AppWidgetProviderInfo;->label:Ljava/lang/String;
+    iget-object v3, p1, Landroid/appwidget/AppWidgetProviderInfo;->label:Ljava/lang/String;
 
-    invoke-virtual {p0, v2}, Landroid/appwidget/AppWidgetHostView;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v3}, Landroid/appwidget/AppWidgetHostView;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    goto :goto_1
+
+    :catch_0
+    move-exception v1
 
     goto :goto_0
 .end method
 
 
 # virtual methods
-.method protected applyRemoteViews(Landroid/widget/RemoteViews;)V
+.method protected applyRemoteViews(Landroid/widget/RemoteViews;Z)V
     .locals 8
 
     const/4 v7, 0x3
@@ -692,6 +705,8 @@
     iget-object v5, p0, Landroid/appwidget/AppWidgetHostView;->mAsyncExecutor:Ljava/util/concurrent/Executor;
 
     if-eqz v5, :cond_3
+
+    if-eqz p2, :cond_3
 
     invoke-direct {p0, p1}, Landroid/appwidget/AppWidgetHostView;->inflateAsync(Landroid/widget/RemoteViews;)V
 
@@ -912,6 +927,16 @@
     return v0
 .end method
 
+.method public bridge synthetic generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
+    .locals 1
+
+    invoke-virtual {p0, p1}, Landroid/appwidget/AppWidgetHostView;->generateLayoutParams(Landroid/util/AttributeSet;)Landroid/widget/FrameLayout$LayoutParams;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public generateLayoutParams(Landroid/util/AttributeSet;)Landroid/widget/FrameLayout$LayoutParams;
     .locals 2
 
@@ -1121,7 +1146,7 @@
 
     invoke-direct {v0, v1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x1040473
+    const v1, 0x1040387
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -1575,7 +1600,7 @@
     return-void
 .end method
 
-.method public setAsyncExecutor(Ljava/util/concurrent/Executor;)V
+.method public setExecutor(Ljava/util/concurrent/Executor;)V
     .locals 2
 
     const/4 v1, 0x0
@@ -1605,10 +1630,51 @@
 .end method
 
 .method public updateAppWidget(Landroid/widget/RemoteViews;)V
-    .locals 0
+    .locals 2
 
-    invoke-virtual {p0, p1}, Landroid/appwidget/AppWidgetHostView;->applyRemoteViews(Landroid/widget/RemoteViews;)V
+    const/4 v0, 0x1
 
+    invoke-virtual {p0, p1, v0}, Landroid/appwidget/AppWidgetHostView;->applyRemoteViews(Landroid/widget/RemoteViews;Z)V
+
+    iget-object v0, p0, Landroid/appwidget/AppWidgetHostView;->mInfo:Landroid/appwidget/AppWidgetProviderInfo;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/appwidget/AppWidgetHostView;->mInfo:Landroid/appwidget/AppWidgetProviderInfo;
+
+    invoke-virtual {v0}, Landroid/appwidget/AppWidgetProviderInfo;->getProfile()Landroid/os/UserHandle;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/appwidget/AppWidgetHostView;->mInfo:Landroid/appwidget/AppWidgetProviderInfo;
+
+    invoke-virtual {v0}, Landroid/appwidget/AppWidgetProviderInfo;->getProfile()Landroid/os/UserHandle;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/samsung/android/app/SemDualAppManager;->isDualAppId(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/appwidget/AppWidgetHostView;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Landroid/appwidget/AppWidgetHostView;->mInfo:Landroid/appwidget/AppWidgetProviderInfo;
+
+    invoke-virtual {v1}, Landroid/appwidget/AppWidgetProviderInfo;->getProfile()Landroid/os/UserHandle;
+
+    move-result-object v1
+
+    invoke-static {v0, p0, v1}, Lcom/samsung/android/app/SemDualAppManager;->drawDualAppBadge(Landroid/content/Context;Landroid/appwidget/AppWidgetHostView;Landroid/os/UserHandle;)V
+
+    :cond_0
     return-void
 .end method
 

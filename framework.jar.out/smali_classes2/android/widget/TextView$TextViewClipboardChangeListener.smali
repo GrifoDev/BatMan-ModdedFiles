@@ -90,7 +90,7 @@
 
     iget-object v0, p0, Landroid/widget/TextView$TextViewClipboardChangeListener;->this$0:Landroid/widget/TextView;
 
-    invoke-virtual {v0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {v0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
     move-result-object v0
 

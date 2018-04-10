@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Lcom/samsung/android/edge/SemEdgeManager;",
+        "Landroid/os/HardwarePropertiesManager;",
         ">;"
     }
 .end annotation
@@ -34,30 +34,40 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/edge/SemEdgeManager;
+.method public createService(Landroid/app/ContextImpl;)Landroid/os/HardwarePropertiesManager;
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    const-string/jumbo v1, "edge"
+    const-string/jumbo v2, "hardware_properties"
 
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v2}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    new-instance v1, Lcom/samsung/android/edge/SemEdgeManager;
+    invoke-static {v0}, Landroid/os/IHardwarePropertiesManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IHardwarePropertiesManager;
 
-    invoke-static {v0}, Lcom/samsung/android/edge/IEdgeManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/edge/IEdgeManager;
+    move-result-object v1
 
-    move-result-object v2
+    new-instance v2, Landroid/os/HardwarePropertiesManager;
 
-    invoke-direct {v1, p1, v2}, Lcom/samsung/android/edge/SemEdgeManager;-><init>(Landroid/content/Context;Lcom/samsung/android/edge/IEdgeManager;)V
+    invoke-direct {v2, p1, v1}, Landroid/os/HardwarePropertiesManager;-><init>(Landroid/content/Context;Landroid/os/IHardwarePropertiesManager;)V
 
-    return-object v1
+    return-object v2
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$85;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/edge/SemEdgeManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$85;->createService(Landroid/app/ContextImpl;)Landroid/os/HardwarePropertiesManager;
 
     move-result-object v0
 

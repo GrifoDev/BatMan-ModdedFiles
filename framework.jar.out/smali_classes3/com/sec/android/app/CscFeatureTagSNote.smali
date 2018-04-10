@@ -10,8 +10,6 @@
 
 .field public static final Str_NoTag:Ljava/lang/String; = ""
 
-.field public static final TAG_CSCFEATURE_SNOTE_ADDONFONTCONFIG:Ljava/lang/String; = "CscFeature_SNote_AddOnFontConfig"
-
 .field public static final TAG_CSCFEATURE_SNOTE_CONFIGCONTENTSMIMETYPE:Ljava/lang/String; = "CscFeature_SNote_ConfigContentsMimeType"
 
 .field public static final TAG_CSCFEATURE_SNOTE_CONFIGLOCALDATAFORMAT:Ljava/lang/String; = "CscFeature_SNote_ConfigLocalDataFormat"

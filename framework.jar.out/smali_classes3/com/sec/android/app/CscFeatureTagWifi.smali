@@ -22,7 +22,9 @@
 
 .field public static final TAG_CSCFEATURE_WIFI_CONFIGAUTOCONNECTHOTSPOT:Ljava/lang/String; = "CscFeature_Wifi_ConfigAutoConnectHotspot"
 
-.field public static final TAG_CSCFEATURE_WIFI_CONFIGBESTAPSELECTION:Ljava/lang/String; = "CscFeature_Wifi_ConfigBestApSelection"
+.field public static final TAG_CSCFEATURE_WIFI_CONFIGAUTOWIFINAMING:Ljava/lang/String; = "CscFeature_Wifi_ConfigAutoWifiNaming"
+
+.field public static final TAG_CSCFEATURE_WIFI_CONFIGDEFSTATUSWIFISHARING:Ljava/lang/String; = "CscFeature_Wifi_ConfigDefStatusWifiSharing"
 
 .field public static final TAG_CSCFEATURE_WIFI_CONFIGDHCPLEASETIME:Ljava/lang/String; = "CscFeature_Wifi_ConfigDhcpLeaseTime"
 
@@ -74,6 +76,8 @@
 
 .field public static final TAG_CSCFEATURE_WIFI_DEFAULTSSIDNPWD:Ljava/lang/String; = "CscFeature_Wifi_DefaultSsidNPwd"
 
+.field public static final TAG_CSCFEATURE_WIFI_DISABLEADPSMENU:Ljava/lang/String; = "CscFeature_Wifi_DisableAdpsMenu"
+
 .field public static final TAG_CSCFEATURE_WIFI_DISABLEAUTORECONNECT:Ljava/lang/String; = "CscFeature_Wifi_DisableAutoReconnect"
 
 .field public static final TAG_CSCFEATURE_WIFI_DISABLEEAPNETWORKAFTERAUTHFAIL:Ljava/lang/String; = "CscFeature_Wifi_DisableEapNetworkAfterAuthFail"
@@ -92,15 +96,11 @@
 
 .field public static final TAG_CSCFEATURE_WIFI_ENABLEDISCBUTTONAPNLIST:Ljava/lang/String; = "CscFeature_Wifi_EnableDiscButtonApnList"
 
-.field public static final TAG_CSCFEATURE_WIFI_ENABLEDWEP4EAPSIM:Ljava/lang/String; = "CscFeature_Wifi_EnableDwep4EapSim"
-
 .field public static final TAG_CSCFEATURE_WIFI_ENABLEMENUAUTOJOIN:Ljava/lang/String; = "CscFeature_Wifi_EnableMenuAutoJoin"
 
 .field public static final TAG_CSCFEATURE_WIFI_ENABLEMENUCONNECTIONTYPE:Ljava/lang/String; = "CscFeature_Wifi_EnableMenuConnectionType"
 
 .field public static final TAG_CSCFEATURE_WIFI_ENABLEMENUCONNPRIORITYMODE:Ljava/lang/String; = "CscFeature_Wifi_EnableMenuConnPriorityMode"
-
-.field public static final TAG_CSCFEATURE_WIFI_ENABLEMENUIWLAN4:Ljava/lang/String; = "CscFeature_Wifi_EnableMenuIWLAN4"
 
 .field public static final TAG_CSCFEATURE_WIFI_ENABLEMENUPRIORITY:Ljava/lang/String; = "CscFeature_Wifi_EnableMenuPriority"
 
@@ -156,6 +156,8 @@
 
 .field public static final TAG_CSCFEATURE_WIFI_SUPPORTEAPFASTREAUTH:Ljava/lang/String; = "CscFeature_Wifi_SupportEapFastReauth"
 
+.field public static final TAG_CSCFEATURE_WIFI_SUPPORTGID:Ljava/lang/String; = "CscFeature_Wifi_SupportGid"
+
 .field public static final TAG_CSCFEATURE_WIFI_SUPPORTMENUMOBILEAPMAXCLIENT:Ljava/lang/String; = "CscFeature_Wifi_SupportMenuMobileApMaxClient"
 
 .field public static final TAG_CSCFEATURE_WIFI_SUPPORTMOBILEAP5G:Ljava/lang/String; = "CscFeature_Wifi_SupportMobileAp5G"
@@ -179,6 +181,8 @@
 .field public static final TAG_CSCFEATURE_WIFI_SUPPORTRSSIPOLLSTATEDURINGWIFICALLING:Ljava/lang/String; = "CscFeature_Wifi_SupportRssiPollStateDuringWifiCalling"
 
 .field public static final TAG_CSCFEATURE_WIFI_SUPPORTRSSIREADDURINGVOWIFICALL:Ljava/lang/String; = "CscFeature_Wifi_SupportRssiReadDuringVoWifiCall"
+
+.field public static final TAG_CSCFEATURE_WIFI_SUPPORTSECUREWIFI:Ljava/lang/String; = "CscFeature_Wifi_SupportSecureWifi"
 
 .field public static final TAG_CSCFEATURE_WIFI_SUPPORTSIMSELECTIONFOREAPSIMAKA:Ljava/lang/String; = "CscFeature_Wifi_SupportSimSelectionForEapSimAka"
 

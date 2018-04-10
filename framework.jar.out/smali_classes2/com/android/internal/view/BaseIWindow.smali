@@ -32,12 +32,6 @@
     return-void
 .end method
 
-.method public dispatchAttachedDisplayChanged(I)V
-    .locals 0
-
-    return-void
-.end method
-
 .method public dispatchCoverStateChanged(Z)V
     .locals 0
 
@@ -45,12 +39,48 @@
 .end method
 
 .method public dispatchDragEvent(Landroid/view/DragEvent;)V
+    .locals 3
+
+    invoke-virtual {p1}, Landroid/view/DragEvent;->getAction()I
+
+    move-result v1
+
+    const/4 v2, 0x3
+
+    if-ne v1, v2, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/internal/view/BaseIWindow;->mSession:Landroid/view/IWindowSession;
+
+    const/4 v2, 0x0
+
+    invoke-interface {v1, p0, v2}, Landroid/view/IWindowSession;->reportDropResult(Landroid/view/IWindow;Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
+.end method
+
+.method public dispatchFinishMovingTask()V
     .locals 0
 
     return-void
 .end method
 
 .method public dispatchGetNewSurface()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public dispatchPointerCaptureChanged(Z)V
     .locals 0
 
     return-void
@@ -148,7 +178,7 @@
     return-void
 .end method
 
-.method public resized(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZLandroid/content/res/Configuration;Landroid/graphics/Rect;ZZ)V
+.method public resized(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZLandroid/util/MergedConfiguration;Landroid/graphics/Rect;ZZI)V
     .locals 2
 
     if-eqz p7, :cond_0
@@ -178,8 +208,22 @@
     return-void
 .end method
 
-.method public updatePointerIcon(FF)V
+.method public touchFocusTransferred()V
     .locals 0
+
+    return-void
+.end method
+
+.method public updatePointerIcon(FF)V
+    .locals 2
+
+    invoke-static {}, Landroid/hardware/input/InputManager;->getInstance()Landroid/hardware/input/InputManager;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/hardware/input/InputManager;->setPointerIconType(I)V
 
     return-void
 .end method

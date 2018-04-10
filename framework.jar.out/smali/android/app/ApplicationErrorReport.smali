@@ -13,6 +13,7 @@
         Landroid/app/ApplicationErrorReport$AnrInfo;,
         Landroid/app/ApplicationErrorReport$BatteryInfo;,
         Landroid/app/ApplicationErrorReport$CrashInfo;,
+        Landroid/app/ApplicationErrorReport$ParcelableCrashInfo;,
         Landroid/app/ApplicationErrorReport$RunningServiceInfo;
     }
 .end annotation
@@ -35,6 +36,8 @@
 .field private static final PLAY_STORE_ERROR_RECEIVER_PACKAGE_NAME:Ljava/lang/String; = "com.android.vending"
 
 .field private static final SAMSUNG_MEMBERS_ERROR_RECEIVER_PACKAGE_NAME:Ljava/lang/String; = "com.samsung.android.voc"
+
+.field private static final SAMSUNG_PLUS_ERROR_RECEIVER_PACKAGE_NAME:Ljava/lang/String; = "com.samsung.oh"
 
 .field static final SYSTEM_APPS_ERROR_RECEIVER_PROPERTY:Ljava/lang/String; = "ro.error.receiver.system.apps"
 
@@ -103,143 +106,172 @@
 .end method
 
 .method public static getErrorReportReceiver(Landroid/content/Context;Ljava/lang/String;I)Landroid/content/ComponentName;
-    .locals 11
+    .locals 12
+
+    const/4 v11, 0x0
 
     const/4 v10, 0x0
 
-    const/4 v9, 0x0
-
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     if-eqz p1, :cond_1
 
-    const-string/jumbo v7, "com.sec."
+    const-string/jumbo v8, "com.sec."
 
-    invoke-virtual {p1, v7}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v8}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v7
+    move-result v8
 
-    if-nez v7, :cond_0
+    if-nez v8, :cond_0
 
-    const-string/jumbo v7, "com.samsung."
+    const-string/jumbo v8, "com.samsung."
 
-    invoke-virtual {p1, v7}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v8}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_1
+    if-eqz v8, :cond_1
 
     :cond_0
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
     :cond_1
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v7
+    move-result-object v8
 
-    const-string/jumbo v8, "send_action_app_error"
+    const-string/jumbo v9, "send_action_app_error"
 
-    invoke-static {v7, v8, v10}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v8, v9, v11}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v2
 
     if-nez v2, :cond_2
 
-    if-eqz v3, :cond_4
+    xor-int/lit8 v8, v4, 0x1
+
+    if-eqz v8, :cond_2
+
+    return-object v10
 
     :cond_2
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v4
+    move-result-object v5
 
     const/4 v0, 0x0
 
-    const/4 v5, 0x0
+    const/4 v7, 0x0
 
     :try_start_0
-    invoke-virtual {v4, p1}, Landroid/content/pm/PackageManager;->getInstallerPackageName(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v5, p1}, Landroid/content/pm/PackageManager;->getInstallerPackageName(Ljava/lang/String;)Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
 
     :goto_0
+    if-eqz v4, :cond_4
+
+    const-string/jumbo v8, "com.android.vending"
+
+    invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_4
+
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v8
+
+    const-string/jumbo v9, "device_provisioned"
+
+    invoke-static {v8, v9, v11}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v6
+
+    const/4 v3, 0x0
+
+    const-string/jumbo v8, "com.samsung.android.voc"
+
+    invoke-static {v5, p1, v8}, Landroid/app/ApplicationErrorReport;->getErrorReportReceiver(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
+
+    move-result-object v3
+
+    if-eqz v6, :cond_3
+
     if-eqz v3, :cond_3
 
-    const-string/jumbo v7, "com.android.vending"
-
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_5
-
-    :cond_3
-    if-nez v2, :cond_6
-
-    return-object v9
-
-    :cond_4
-    return-object v9
+    return-object v3
 
     :catch_0
     move-exception v1
 
     goto :goto_0
 
+    :cond_3
+    const-string/jumbo v8, "com.samsung.oh"
+
+    invoke-static {v5, p1, v8}, Landroid/app/ApplicationErrorReport;->getErrorReportReceiver(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
+
+    move-result-object v3
+
+    if-eqz v6, :cond_4
+
+    if-eqz v3, :cond_4
+
+    return-object v3
+
+    :cond_4
+    if-nez v2, :cond_5
+
+    return-object v10
+
     :cond_5
-    const-string/jumbo v7, "com.samsung.android.voc"
+    if-eqz v0, :cond_6
 
-    invoke-static {v4, p1, v7}, Landroid/app/ApplicationErrorReport;->getErrorReportReceiver(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
-
-    move-result-object v6
-
-    if-eqz v6, :cond_3
-
-    return-object v6
-
-    :cond_6
-    if-eqz v0, :cond_7
-
-    invoke-static {v4, p1, v0}, Landroid/app/ApplicationErrorReport;->getErrorReportReceiver(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_7
-
-    return-object v5
-
-    :cond_7
-    and-int/lit8 v7, p2, 0x1
-
-    if-eqz v7, :cond_8
-
-    const-string/jumbo v7, "ro.error.receiver.system.apps"
-
-    invoke-static {v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v4, p1, v0}, Landroid/app/ApplicationErrorReport;->getErrorReportReceiver(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_8
-
-    return-object v5
-
-    :cond_8
-    const-string/jumbo v7, "ro.error.receiver.default"
-
-    invoke-static {v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v4, p1, v0}, Landroid/app/ApplicationErrorReport;->getErrorReportReceiver(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
+    invoke-static {v5, p1, v0}, Landroid/app/ApplicationErrorReport;->getErrorReportReceiver(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
 
     move-result-object v7
 
+    if-eqz v7, :cond_6
+
     return-object v7
+
+    :cond_6
+    and-int/lit8 v8, p2, 0x1
+
+    if-eqz v8, :cond_7
+
+    const-string/jumbo v8, "ro.error.receiver.system.apps"
+
+    invoke-static {v8}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v5, p1, v0}, Landroid/app/ApplicationErrorReport;->getErrorReportReceiver(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_7
+
+    return-object v7
+
+    :cond_7
+    const-string/jumbo v8, "ro.error.receiver.default"
+
+    invoke-static {v8}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v5, p1, v0}, Landroid/app/ApplicationErrorReport;->getErrorReportReceiver(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
+
+    move-result-object v8
+
+    return-object v8
 .end method
 
 .method static getErrorReportReceiver(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;

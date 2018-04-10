@@ -139,6 +139,14 @@
     .end annotation
 .end method
 
+.method public abstract isKnoxKeyguardShowing()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isPackageAllowed(I)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {

@@ -42,7 +42,7 @@
 .method public cancelFrequencyRequestImpl()V
     .locals 6
 
-    iget-object v2, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mToken:Landroid/os/IBinder;
+    iget-object v2, p0, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;->mToken:Landroid/os/IBinder;
 
     monitor-enter v2
 
@@ -62,11 +62,11 @@
 
     iget-object v1, v1, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
-    iget v3, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mType:I
+    iget v3, p0, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;->mType:I
 
-    iget-object v4, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mToken:Landroid/os/IBinder;
+    iget-object v4, p0, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;->mToken:Landroid/os/IBinder;
 
-    iget-object v5, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mPkgName:Ljava/lang/String;
+    iget-object v5, p0, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;->mPkgName:Ljava/lang/String;
 
     invoke-interface {v1, v3, v4, v5}, Landroid/os/ICustomFrequencyManager;->releaseCPUCore(ILandroid/os/IBinder;Ljava/lang/String;)V
 
@@ -117,7 +117,7 @@
 
     move-result-object v2
 
-    iget v3, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mFrequency:I
+    iget v3, p0, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;->mFrequency:I
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -129,7 +129,7 @@
 
     move-result-object v2
 
-    iget-wide v4, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mTimeoutMs:J
+    iget-wide v4, p0, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;->mTimeoutMs:J
 
     invoke-virtual {v2, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
@@ -141,7 +141,7 @@
 
     invoke-static {v1, v2}, Landroid/os/CustomFrequencyManager;->-wrap1(Ljava/lang/String;Ljava/lang/String;)V
 
-    iget-object v2, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mToken:Landroid/os/IBinder;
+    iget-object v2, p0, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;->mToken:Landroid/os/IBinder;
 
     monitor-enter v2
 
@@ -150,17 +150,17 @@
 
     iget-object v1, v1, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
-    iget v3, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mType:I
+    iget v3, p0, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;->mType:I
 
-    iget v4, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mFrequency:I
+    iget v4, p0, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;->mFrequency:I
 
-    iget-object v5, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mToken:Landroid/os/IBinder;
+    iget-object v5, p0, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;->mToken:Landroid/os/IBinder;
 
-    iget-object v6, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mPkgName:Ljava/lang/String;
+    iget-object v6, p0, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;->mPkgName:Ljava/lang/String;
 
     invoke-interface {v1, v3, v4, v5, v6}, Landroid/os/ICustomFrequencyManager;->requestCPUCore(IILandroid/os/IBinder;Ljava/lang/String;)V
 
-    iget-wide v4, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mTimeoutMs:J
+    iget-wide v4, p0, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;->mTimeoutMs:J
 
     const-wide/16 v6, -0x1
 
@@ -207,7 +207,7 @@
 
     iget-object v3, p0, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;->mCPUCoreReleaser:Landroid/os/CustomFrequencyManager$CPUCoreControlRequest$CPUCoreReleaser;
 
-    iget-wide v4, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mTimeoutMs:J
+    iget-wide v4, p0, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;->mTimeoutMs:J
 
     invoke-virtual {v1, v3, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 

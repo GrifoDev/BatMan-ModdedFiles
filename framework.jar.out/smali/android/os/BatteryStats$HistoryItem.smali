@@ -40,13 +40,11 @@
 
 .field public static final EVENT_ALARM_START:I = 0x800d
 
-.field public static final EVENT_CHECKIN_COUNT:I = 0x13
-
 .field public static final EVENT_COLLECT_EXTERNAL_STATS:I = 0xe
 
 .field public static final EVENT_CONNECTIVITY_CHANGED:I = 0x9
 
-.field public static final EVENT_COUNT:I = 0x14
+.field public static final EVENT_COUNT:I = 0x16
 
 .field public static final EVENT_FLAG_FINISH:I = 0x4000
 
@@ -63,6 +61,12 @@
 .field public static final EVENT_JOB_FINISH:I = 0x4006
 
 .field public static final EVENT_JOB_START:I = 0x8006
+
+.field public static final EVENT_LONG_WAKE_LOCK:I = 0x14
+
+.field public static final EVENT_LONG_WAKE_LOCK_FINISH:I = 0x4014
+
+.field public static final EVENT_LONG_WAKE_LOCK_START:I = 0x8014
 
 .field public static final EVENT_NONE:I = 0x0
 

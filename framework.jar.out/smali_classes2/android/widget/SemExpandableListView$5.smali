@@ -84,7 +84,7 @@
 
     iget v2, p0, Landroid/widget/SemExpandableListView$5;->val$shiftedGroupPosition:I
 
-    invoke-virtual {v0, v1, v2}, Landroid/widget/AbsListView;->smoothScrollToPosition(II)V
+    invoke-virtual {v0, v1, v2}, Landroid/widget/SemExpandableListView;->smoothScrollToPosition(II)V
 
     return-void
 .end method

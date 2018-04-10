@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Lcom/samsung/android/aod/AODManager;",
+        "Landroid/media/soundtrigger/SoundTriggerManager;",
         ">;"
     }
 .end annotation
@@ -34,30 +34,40 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/aod/AODManager;
+.method public createService(Landroid/app/ContextImpl;)Landroid/media/soundtrigger/SoundTriggerManager;
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    const-string/jumbo v1, "AODManagerService"
+    const-string/jumbo v1, "soundtrigger"
 
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v1}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    new-instance v1, Lcom/samsung/android/aod/AODManager;
+    new-instance v1, Landroid/media/soundtrigger/SoundTriggerManager;
 
-    invoke-static {v0}, Lcom/samsung/android/aod/IAODManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/aod/IAODManager;
+    invoke-static {v0}, Lcom/android/internal/app/ISoundTriggerService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/ISoundTriggerService;
 
     move-result-object v2
 
-    invoke-direct {v1, p1, v2}, Lcom/samsung/android/aod/AODManager;-><init>(Landroid/content/Context;Lcom/samsung/android/aod/IAODManager;)V
+    invoke-direct {v1, p1, v2}, Landroid/media/soundtrigger/SoundTriggerManager;-><init>(Landroid/content/Context;Lcom/android/internal/app/ISoundTriggerService;)V
 
     return-object v1
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$86;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/aod/AODManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$86;->createService(Landroid/app/ContextImpl;)Landroid/media/soundtrigger/SoundTriggerManager;
 
     move-result-object v0
 

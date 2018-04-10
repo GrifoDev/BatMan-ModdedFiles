@@ -14,6 +14,8 @@
 
 .field public static final TAG_CSCFEATURE_FINDER_CONFIGDEFSTATUSSEARCHCATEGORY:Ljava/lang/String; = "CscFeature_Finder_ConfigDefStatusSearchCategory"
 
+.field public static final TAG_CSCFEATURE_FINDER_CONFIGORDERRESULTCARD:Ljava/lang/String; = "CscFeature_Finder_ConfigOrderResultCard"
+
 .field public static final TAG_CSCFEATURE_FINDER_CONFIGQUERYHINTTEXT:Ljava/lang/String; = "CscFeature_Finder_ConfigQueryHintText"
 
 

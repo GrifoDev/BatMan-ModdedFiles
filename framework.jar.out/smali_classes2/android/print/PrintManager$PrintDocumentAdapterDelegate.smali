@@ -99,7 +99,7 @@
 
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getMainLooper()Landroid/os/Looper;
+    invoke-virtual {v1}, Landroid/app/Activity;->getMainLooper()Landroid/os/Looper;
 
     move-result-object v1
 

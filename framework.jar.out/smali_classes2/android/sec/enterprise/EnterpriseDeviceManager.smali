@@ -131,7 +131,7 @@
     :catch_0
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v3, 0x0
 
@@ -162,9 +162,7 @@
 
     const/4 v3, 0x0
 
-    nop
-
-    nop
+    check-cast v3, [Ljava/lang/Object;
 
     const/4 v4, 0x0
 
@@ -179,7 +177,7 @@
     :catch_0
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     return-object v5
 .end method
@@ -227,7 +225,7 @@
     :catch_0
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v3, 0x0
 

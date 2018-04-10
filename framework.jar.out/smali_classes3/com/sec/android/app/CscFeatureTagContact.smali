@@ -60,8 +60,6 @@
 
 .field public static final TAG_CSCFEATURE_CONTACT_CONFIGLOGSCALLTIMETYPE:Ljava/lang/String; = "CscFeature_Contact_ConfigLogsCallTimeType"
 
-.field public static final TAG_CSCFEATURE_CONTACT_CONFIGLOGSOPSTYLEVARIATION:Ljava/lang/String; = "CscFeature_Contact_ConfigLogsOpStyleVariation"
-
 .field public static final TAG_CSCFEATURE_CONTACT_CONFIGLOGSTIMEBASE:Ljava/lang/String; = "CscFeature_Contact_ConfigLogsTimeBase"
 
 .field public static final TAG_CSCFEATURE_CONTACT_CONFIGMSGICONOPSTYLE:Ljava/lang/String; = "CscFeature_Contact_ConfigMsgIconOpStyle"

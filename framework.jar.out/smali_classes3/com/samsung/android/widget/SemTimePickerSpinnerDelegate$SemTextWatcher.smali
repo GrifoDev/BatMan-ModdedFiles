@@ -75,7 +75,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate$SemTextWatcher;->this$0:Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;
 
-    iget-object v1, v1, Lcom/samsung/android/widget/SemTimePicker$AbstractSemTimePickerDelegate;->mContext:Landroid/content/Context;
+    iget-object v1, v1, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Landroid/view/accessibility/AccessibilityManager;->getInstance(Landroid/content/Context;)Landroid/view/accessibility/AccessibilityManager;
 
@@ -104,7 +104,7 @@
 
     aget-object v1, v1, v2
 
-    invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
+    invoke-virtual {v1}, Landroid/widget/EditText;->requestFocus()Z
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate$SemTextWatcher;->this$0:Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;
 
@@ -116,7 +116,7 @@
 
     aget-object v1, v1, v2
 
-    invoke-virtual {v1}, Landroid/view/View;->isFocused()Z
+    invoke-virtual {v1}, Landroid/widget/EditText;->isFocused()Z
 
     move-result v1
 
@@ -132,7 +132,7 @@
 
     aget-object v1, v1, v2
 
-    invoke-virtual {v1}, Landroid/view/View;->clearFocus()V
+    invoke-virtual {v1}, Landroid/widget/EditText;->clearFocus()V
 
     :cond_1
     :goto_0
@@ -458,7 +458,7 @@
 
     aget-object v2, v2, v3
 
-    invoke-virtual {v2}, Landroid/view/View;->getTag()Ljava/lang/Object;
+    invoke-virtual {v2}, Landroid/widget/EditText;->getTag()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -495,7 +495,7 @@
 
     const-string/jumbo v3, ""
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
+    invoke-virtual {v2, v3}, Landroid/widget/EditText;->setTag(Ljava/lang/Object;)V
 
     return-void
 
@@ -526,7 +526,7 @@
 
     aget-object v2, v2, v3
 
-    invoke-virtual {v2}, Landroid/view/View;->isFocused()Z
+    invoke-virtual {v2}, Landroid/widget/EditText;->isFocused()Z
 
     move-result v2
 
@@ -565,7 +565,9 @@
 
     move-result v2
 
-    if-nez v2, :cond_4
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_4
 
     :cond_6
     iget-object v2, p0, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate$SemTextWatcher;->this$0:Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;
@@ -578,7 +580,7 @@
 
     aget-object v2, v2, v3
 
-    invoke-virtual {v2}, Landroid/view/View;->isFocused()Z
+    invoke-virtual {v2}, Landroid/widget/EditText;->isFocused()Z
 
     move-result v2
 
@@ -615,7 +617,7 @@
 
     aget-object v2, v2, v3
 
-    invoke-virtual {v2}, Landroid/view/View;->isFocused()Z
+    invoke-virtual {v2}, Landroid/widget/EditText;->isFocused()Z
 
     move-result v2
 
@@ -658,7 +660,7 @@
 
     aget-object v2, v2, v3
 
-    invoke-virtual {v2}, Landroid/view/View;->isFocused()Z
+    invoke-virtual {v2}, Landroid/widget/EditText;->isFocused()Z
 
     move-result v2
 
@@ -699,7 +701,7 @@
 
     aget-object v2, v2, v3
 
-    invoke-virtual {v2}, Landroid/view/View;->isFocused()Z
+    invoke-virtual {v2}, Landroid/widget/EditText;->isFocused()Z
 
     move-result v2
 

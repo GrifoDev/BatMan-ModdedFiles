@@ -35,24 +35,84 @@
 
 # virtual methods
 .method public onFinishedInputEvent(Ljava/lang/Object;Z)V
-    .locals 2
+    .locals 3
 
-    move-object v0, p1
+    move-object v1, p1
 
-    check-cast v0, Landroid/view/ViewRootImpl$QueuedInputEvent;
+    check-cast v1, Landroid/view/ViewRootImpl$QueuedInputEvent;
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1
 
-    const/4 v1, 0x1
+    invoke-static {}, Landroid/view/ViewRootImpl;->-get9()Z
 
-    invoke-virtual {p0, v0, v1}, Landroid/view/ViewRootImpl$NativePostImeInputStage;->finish(Landroid/view/ViewRootImpl$QueuedInputEvent;Z)V
+    move-result v2
 
-    return-void
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Landroid/view/ViewRootImpl$NativePostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
+
+    iget-object v2, v2, Landroid/view/ViewRootImpl;->mParentDecorView:Landroid/view/View;
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Landroid/view/ViewRootImpl$NativePostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
+
+    iget-object v2, v2, Landroid/view/ViewRootImpl;->mParentDecorView:Landroid/view/View;
+
+    instance-of v2, v2, Lcom/android/internal/policy/DecorView;
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, v1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mEvent:Landroid/view/InputEvent;
+
+    instance-of v2, v2, Landroid/view/MotionEvent;
+
+    if-eqz v2, :cond_0
+
+    iget-object v0, v1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mEvent:Landroid/view/InputEvent;
+
+    check-cast v0, Landroid/view/MotionEvent;
+
+    invoke-virtual {v0}, Landroid/view/MotionEvent;->getActionMasked()I
+
+    move-result v2
+
+    packed-switch v2, :pswitch_data_0
 
     :cond_0
-    invoke-virtual {p0, v0}, Landroid/view/ViewRootImpl$NativePostImeInputStage;->forward(Landroid/view/ViewRootImpl$QueuedInputEvent;)V
+    :goto_0
+    :pswitch_0
+    const/4 v2, 0x1
+
+    invoke-virtual {p0, v1, v2}, Landroid/view/ViewRootImpl$NativePostImeInputStage;->finish(Landroid/view/ViewRootImpl$QueuedInputEvent;Z)V
 
     return-void
+
+    :pswitch_1
+    iget-object v2, p0, Landroid/view/ViewRootImpl$NativePostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
+
+    iget-object v2, v2, Landroid/view/ViewRootImpl;->mParentDecorView:Landroid/view/View;
+
+    check-cast v2, Lcom/android/internal/policy/DecorView;
+
+    invoke-virtual {v2, v0}, Lcom/android/internal/policy/DecorView;->nativeDispatchHoverEventForDexCompat(Landroid/view/MotionEvent;)V
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {p0, v1}, Landroid/view/ViewRootImpl$NativePostImeInputStage;->forward(Landroid/view/ViewRootImpl$QueuedInputEvent;)V
+
+    return-void
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x7
+        :pswitch_1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
+    .end packed-switch
 .end method
 
 .method protected onProcess(Landroid/view/ViewRootImpl$QueuedInputEvent;)I

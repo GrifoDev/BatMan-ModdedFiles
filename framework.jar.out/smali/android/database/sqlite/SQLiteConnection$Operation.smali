@@ -46,6 +46,8 @@
 
 .field public mStartTime:J
 
+.field public mStartWallTime:J
+
 
 # direct methods
 .method static synthetic -wrap0(Landroid/database/sqlite/SQLiteConnection$Operation;)Ljava/lang/String;
@@ -95,7 +97,7 @@
 
     new-instance v1, Ljava/util/Date;
 
-    iget-wide v2, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mStartTime:J
+    iget-wide v2, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mStartWallTime:J
 
     invoke-direct {v1, v2, v3}, Ljava/util/Date;-><init>(J)V
 
@@ -317,7 +319,7 @@
 
     move-result-wide v4
 
-    iget-wide v6, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mStartTime:J
+    iget-wide v6, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mStartWallTime:J
 
     sub-long/2addr v4, v6
 

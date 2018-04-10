@@ -18,7 +18,7 @@
 
 .field private static final ENABLE_FLOATING_VISUAL_CUE_POSITION_Y:Z = false
 
-.field private static final TAG:Ljava/lang/String; = "WritingBuddyPopupCue"
+.field private static final TAG:Ljava/lang/String; = "DirectPenInputPopupCue"
 
 .field public static final TYPE_MULTILINE_EDITOR:I = 0x2
 
@@ -261,19 +261,19 @@
 
     check-cast v20, Landroid/widget/EditText;
 
-    invoke-virtual/range {v20 .. v20}, Landroid/widget/TextView;->getLayout()Landroid/text/Layout;
+    invoke-virtual/range {v20 .. v20}, Landroid/widget/EditText;->getLayout()Landroid/text/Layout;
 
     move-result-object v7
 
-    invoke-virtual/range {v20 .. v20}, Landroid/widget/TextView;->getCompoundPaddingStart()I
+    invoke-virtual/range {v20 .. v20}, Landroid/widget/EditText;->getCompoundPaddingStart()I
 
     move-result v16
 
-    invoke-virtual/range {v20 .. v20}, Landroid/widget/TextView;->getCompoundPaddingTop()I
+    invoke-virtual/range {v20 .. v20}, Landroid/widget/EditText;->getCompoundPaddingTop()I
 
     move-result v17
 
-    invoke-virtual/range {v20 .. v20}, Landroid/widget/TextView;->getCompoundPaddingBottom()I
+    invoke-virtual/range {v20 .. v20}, Landroid/widget/EditText;->getCompoundPaddingBottom()I
 
     move-result v15
 
@@ -287,7 +287,7 @@
 
     move-result-object v27
 
-    const v28, 0x10503af
+    const v28, 0x10503f5
 
     invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -307,7 +307,7 @@
 
     move-result-object v27
 
-    const v28, 0x10503b0
+    const v28, 0x10503f2
 
     invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -319,7 +319,7 @@
 
     if-eqz v7, :cond_9
 
-    invoke-virtual/range {v20 .. v20}, Landroid/widget/TextView;->getBaseline()I
+    invoke-virtual/range {v20 .. v20}, Landroid/widget/EditText;->getBaseline()I
 
     move-result v27
 
@@ -343,7 +343,7 @@
 
     sub-int v8, v27, v28
 
-    invoke-virtual/range {v20 .. v20}, Landroid/widget/TextView;->getBaseline()I
+    invoke-virtual/range {v20 .. v20}, Landroid/widget/EditText;->getBaseline()I
 
     move-result v27
 
@@ -532,7 +532,7 @@
 
     if-eqz v27, :cond_7
 
-    const-string/jumbo v27, "WritingBuddyPopupCue"
+    const-string/jumbo v27, "DirectPenInputPopupCue"
 
     new-instance v28, Ljava/lang/StringBuilder;
 
@@ -706,7 +706,7 @@
 
     move-result-object v27
 
-    const v28, 0x10503ad
+    const v28, 0x10503f3
 
     invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -728,7 +728,7 @@
 
     move-result-object v27
 
-    const v28, 0x10503ae
+    const v28, 0x10503f4
 
     invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -919,7 +919,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/directpeninput/PopupCue;->mTouchListner:Landroid/view/View$OnTouchListener;
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+    invoke-virtual {v0, v1}, Lcom/samsung/android/directpeninput/PopupCue$CueContainer;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/directpeninput/PopupCue;->mHoverListner:Landroid/view/View$OnHoverListener;
@@ -930,7 +930,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/directpeninput/PopupCue;->mHoverListner:Landroid/view/View$OnHoverListener;
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnHoverListener(Landroid/view/View$OnHoverListener;)V
+    invoke-virtual {v0, v1}, Lcom/samsung/android/directpeninput/PopupCue$CueContainer;->setOnHoverListener(Landroid/view/View$OnHoverListener;)V
 
     :cond_1
     return-void
@@ -943,7 +943,7 @@
 
     if-eqz v1, :cond_0
 
-    const-string/jumbo v1, "WritingBuddyPopupCue"
+    const-string/jumbo v1, "DirectPenInputPopupCue"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1014,11 +1014,11 @@
 
     iget v1, p0, Lcom/samsung/android/directpeninput/PopupCue;->mPopupWidth:I
 
-    iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->width:I
 
     iget v1, p0, Lcom/samsung/android/directpeninput/PopupCue;->mPopupHeight:I
 
-    iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->height:I
 
     iget v1, p0, Lcom/samsung/android/directpeninput/PopupCue;->mPopupPosX:I
 
@@ -1040,13 +1040,13 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "WritingBuddyCue : "
+    const-string/jumbo v2, "DirectPenInputCue : "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
+    invoke-virtual {p0}, Lcom/samsung/android/directpeninput/PopupCue;->hashCode()I
 
     move-result v2
 
@@ -1094,7 +1094,7 @@
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    const v1, 0x1030526
+    const v1, 0x10302f0
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -1127,7 +1127,7 @@
 
     if-nez v5, :cond_0
 
-    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v3}, Landroid/view/View;->getClass()Ljava/lang/Class;
 
     move-result-object v5
 
@@ -1260,7 +1260,7 @@
 .end method
 
 .method private getStatusBarHeight()I
-    .locals 4
+    .locals 5
 
     const/4 v1, 0x0
 
@@ -1271,7 +1271,7 @@
 
     move-result-object v2
 
-    const v3, 0x1050017
+    const v3, 0x10502b1
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
     :try_end_0
@@ -1280,14 +1280,36 @@
     move-result v1
 
     :goto_0
+    const-string/jumbo v2, "DirectPenInputPopupCue"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "getStatusBarHeight : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     return v1
 
     :catch_0
     move-exception v0
 
-    const-string/jumbo v2, "WritingBuddyPopupCue"
+    const-string/jumbo v2, "DirectPenInputPopupCue"
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/content/res/Resources$NotFoundException;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -1432,7 +1454,7 @@
     goto :goto_2
 
     :cond_3
-    const-string/jumbo v7, "WritingBuddyPopupCue"
+    const-string/jumbo v7, "DirectPenInputPopupCue"
 
     new-instance v8, Ljava/lang/StringBuilder;
 
@@ -1462,218 +1484,253 @@
 .end method
 
 .method private getVisibleRectOnScreen(Landroid/view/View;)Landroid/graphics/Rect;
-    .locals 13
+    .locals 11
 
     invoke-direct {p0, p1}, Lcom/samsung/android/directpeninput/PopupCue;->getRectOnScreen(Landroid/view/View;)Landroid/graphics/Rect;
 
-    move-result-object v6
+    move-result-object v4
 
-    move-object v8, p1
+    move-object v6, p1
 
     invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v9
+    move-result-object v7
 
-    const/4 v7, 0x0
+    const/4 v5, 0x0
 
     const/4 v0, 0x0
 
     :goto_0
-    instance-of v10, v9, Landroid/view/View;
+    instance-of v8, v7, Landroid/view/View;
 
-    if-eqz v10, :cond_3
+    if-eqz v8, :cond_3
 
-    move-object v4, v9
+    move-object v3, v7
 
-    check-cast v4, Landroid/view/View;
+    check-cast v3, Landroid/view/View;
 
-    invoke-virtual {v8}, Landroid/view/View;->getY()F
+    invoke-virtual {v6}, Landroid/view/View;->getY()F
 
-    move-result v10
+    move-result v8
 
-    float-to-int v10, v10
+    float-to-int v8, v8
 
-    add-int/2addr v7, v10
+    add-int/2addr v5, v8
 
-    invoke-virtual {v4}, Landroid/view/View;->getScrollY()I
+    invoke-virtual {v3}, Landroid/view/View;->getScrollY()I
 
-    move-result v10
+    move-result v8
 
-    if-lez v10, :cond_0
+    if-lez v8, :cond_0
 
-    invoke-virtual {v4}, Landroid/view/View;->getScrollY()I
+    invoke-virtual {v3}, Landroid/view/View;->getScrollY()I
 
-    move-result v10
+    move-result v8
 
-    if-le v10, v7, :cond_1
+    if-le v8, v5, :cond_1
 
-    iget v10, v6, Landroid/graphics/Rect;->top:I
+    iget v8, v4, Landroid/graphics/Rect;->top:I
 
-    invoke-virtual {v4}, Landroid/view/View;->getScrollY()I
+    invoke-virtual {v3}, Landroid/view/View;->getScrollY()I
 
-    move-result v11
+    move-result v9
 
-    sub-int/2addr v11, v7
+    sub-int/2addr v9, v5
 
-    add-int/2addr v10, v11
+    add-int/2addr v8, v9
 
-    iput v10, v6, Landroid/graphics/Rect;->top:I
+    iput v8, v4, Landroid/graphics/Rect;->top:I
 
-    const/4 v7, 0x0
+    const/4 v5, 0x0
 
     :cond_0
     :goto_1
-    invoke-virtual {v8}, Landroid/view/View;->getY()F
+    invoke-virtual {v6}, Landroid/view/View;->getY()F
 
-    move-result v10
+    move-result v8
 
-    float-to-int v10, v10
+    float-to-int v8, v8
 
-    invoke-virtual {v8}, Landroid/view/View;->getHeight()I
+    invoke-virtual {v6}, Landroid/view/View;->getHeight()I
 
-    move-result v11
+    move-result v9
 
-    add-int/2addr v10, v11
+    add-int/2addr v8, v9
 
-    invoke-virtual {v4}, Landroid/view/View;->getScrollY()I
+    invoke-virtual {v3}, Landroid/view/View;->getScrollY()I
 
-    move-result v11
+    move-result v9
 
-    sub-int v1, v10, v11
+    sub-int v1, v8, v9
 
-    add-int v10, v1, v0
+    add-int v8, v1, v0
 
-    invoke-virtual {v4}, Landroid/view/View;->getHeight()I
+    invoke-virtual {v3}, Landroid/view/View;->getHeight()I
 
-    move-result v11
+    move-result v9
 
-    if-ge v10, v11, :cond_2
+    if-ge v8, v9, :cond_2
 
-    invoke-virtual {v4}, Landroid/view/View;->getHeight()I
+    invoke-virtual {v3}, Landroid/view/View;->getHeight()I
 
-    move-result v10
+    move-result v8
 
-    add-int v11, v1, v0
+    add-int v9, v1, v0
 
-    sub-int/2addr v10, v11
+    sub-int/2addr v8, v9
 
-    neg-int v0, v10
+    neg-int v0, v8
 
     :goto_2
-    move-object v8, v4
+    move-object v6, v3
 
-    invoke-virtual {v4}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {v3}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v9
+    move-result-object v7
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v4}, Landroid/view/View;->getScrollY()I
+    invoke-virtual {v3}, Landroid/view/View;->getScrollY()I
 
-    move-result v10
+    move-result v8
 
-    sub-int/2addr v7, v10
+    sub-int/2addr v5, v8
 
     goto :goto_1
 
     :cond_2
-    iget v10, v6, Landroid/graphics/Rect;->bottom:I
+    iget v8, v4, Landroid/graphics/Rect;->bottom:I
 
-    add-int v11, v1, v0
+    add-int v9, v1, v0
 
-    invoke-virtual {v4}, Landroid/view/View;->getHeight()I
+    invoke-virtual {v3}, Landroid/view/View;->getHeight()I
 
-    move-result v12
+    move-result v10
 
-    sub-int/2addr v11, v12
+    sub-int/2addr v9, v10
 
-    sub-int/2addr v10, v11
+    sub-int/2addr v8, v9
 
-    iput v10, v6, Landroid/graphics/Rect;->bottom:I
+    iput v8, v4, Landroid/graphics/Rect;->bottom:I
 
     const/4 v0, 0x0
 
     goto :goto_2
 
     :cond_3
-    instance-of v10, v9, Landroid/view/ViewRootImpl;
+    instance-of v8, v7, Landroid/view/ViewRootImpl;
 
-    if-eqz v10, :cond_5
+    if-eqz v8, :cond_6
 
-    const/4 v2, 0x1
+    new-instance v2, Landroid/graphics/Rect;
 
-    iget-object v10, p0, Lcom/samsung/android/directpeninput/PopupCue;->mContext:Landroid/content/Context;
+    invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
 
-    instance-of v10, v10, Landroid/app/Activity;
+    invoke-virtual {p1, v2}, Landroid/view/View;->getWindowVisibleDisplayFrame(Landroid/graphics/Rect;)V
 
-    if-eqz v10, :cond_4
+    const-string/jumbo v8, "DirectPenInputPopupCue"
 
-    iget-object v10, p0, Lcom/samsung/android/directpeninput/PopupCue;->mContext:Landroid/content/Context;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    check-cast v10, Landroid/app/Activity;
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v10}, Landroid/app/Activity;->isInMultiWindowMode()Z
+    const-string/jumbo v10, "getWindowVisibleDisplayFrame : "
 
-    move-result v2
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v2}, Landroid/graphics/Rect;->toShortString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget v8, v2, Landroid/graphics/Rect;->left:I
+
+    if-lez v8, :cond_4
+
+    iget v8, v4, Landroid/graphics/Rect;->left:I
+
+    iget v9, v2, Landroid/graphics/Rect;->left:I
+
+    sub-int/2addr v8, v9
+
+    iput v8, v4, Landroid/graphics/Rect;->left:I
 
     :cond_4
-    if-eqz v2, :cond_5
+    iget v8, v2, Landroid/graphics/Rect;->top:I
 
-    nop
+    if-lez v8, :cond_5
 
-    nop
+    iget v8, v4, Landroid/graphics/Rect;->top:I
 
-    iget-object v3, v9, Landroid/view/ViewRootImpl;->mParentDecorView:Landroid/view/View;
+    iget v9, v2, Landroid/graphics/Rect;->top:I
 
-    invoke-direct {p0, v3}, Lcom/samsung/android/directpeninput/PopupCue;->getRectOnScreen(Landroid/view/View;)Landroid/graphics/Rect;
+    sub-int/2addr v8, v9
 
-    move-result-object v5
-
-    iget v10, v6, Landroid/graphics/Rect;->left:I
-
-    iget v11, v5, Landroid/graphics/Rect;->left:I
-
-    sub-int/2addr v10, v11
-
-    iput v10, v6, Landroid/graphics/Rect;->left:I
-
-    iget v10, v6, Landroid/graphics/Rect;->top:I
-
-    iget v11, v5, Landroid/graphics/Rect;->top:I
-
-    sub-int/2addr v10, v11
-
-    iput v10, v6, Landroid/graphics/Rect;->top:I
+    iput v8, v4, Landroid/graphics/Rect;->top:I
 
     :cond_5
-    const-string/jumbo v10, "WritingBuddyPopupCue"
+    invoke-direct {p0}, Lcom/samsung/android/directpeninput/PopupCue;->getStatusBarHeight()I
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    move-result v8
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    iget v9, v2, Landroid/graphics/Rect;->top:I
 
-    const-string/jumbo v12, "getVisibleRectOnScreen : "
+    if-ne v8, v9, :cond_6
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v8, v2, Landroid/graphics/Rect;->left:I
 
-    move-result-object v11
+    if-nez v8, :cond_6
 
-    invoke-virtual {v6}, Landroid/graphics/Rect;->toShortString()Ljava/lang/String;
+    iget v8, v4, Landroid/graphics/Rect;->top:I
 
-    move-result-object v12
+    invoke-direct {p0}, Lcom/samsung/android/directpeninput/PopupCue;->getStatusBarHeight()I
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v9
 
-    move-result-object v11
+    add-int/2addr v8, v9
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iput v8, v4, Landroid/graphics/Rect;->top:I
 
-    move-result-object v11
+    :cond_6
+    const-string/jumbo v8, "DirectPenInputPopupCue"
 
-    invoke-static {v10, v11}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    return-object v6
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "getVisibleRectOnScreen : "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v4}, Landroid/graphics/Rect;->toShortString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v4
 .end method
 
 .method private initPopup()V
@@ -1784,7 +1841,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/directpeninput/PopupCue;->mCueContainerView:Lcom/samsung/android/directpeninput/PopupCue$CueContainer;
 
-    invoke-virtual {v3}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v3}, Lcom/samsung/android/directpeninput/PopupCue$CueContainer;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v1
 
@@ -1794,13 +1851,11 @@
 
     move-object v2, v1
 
-    nop
-
-    nop
+    check-cast v2, Landroid/view/WindowManager$LayoutParams;
 
     if-eqz p1, :cond_2
 
-    const v0, 0x1030526
+    const v0, 0x10302f0
 
     :goto_0
     iget v3, v2, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
@@ -1809,9 +1864,7 @@
 
     move-object v3, v1
 
-    nop
-
-    nop
+    check-cast v3, Landroid/view/WindowManager$LayoutParams;
 
     iput v0, v3, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -1976,7 +2029,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/directpeninput/PopupCue;->mCueContainerView:Lcom/samsung/android/directpeninput/PopupCue$CueContainer;
 
-    invoke-virtual {v0, p1}, Landroid/view/View;->setOnHoverListener(Landroid/view/View$OnHoverListener;)V
+    invoke-virtual {v0, p1}, Lcom/samsung/android/directpeninput/PopupCue$CueContainer;->setOnHoverListener(Landroid/view/View$OnHoverListener;)V
 
     :cond_0
     return-void
@@ -1993,7 +2046,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/directpeninput/PopupCue;->mCueContainerView:Lcom/samsung/android/directpeninput/PopupCue$CueContainer;
 
-    invoke-virtual {v0, p1}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+    invoke-virtual {v0, p1}, Lcom/samsung/android/directpeninput/PopupCue$CueContainer;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
     :cond_0
     return-void
@@ -2096,7 +2149,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/directpeninput/PopupCue;->mCueContainerView:Lcom/samsung/android/directpeninput/PopupCue$CueContainer;
 
-    invoke-virtual {v1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v1}, Lcom/samsung/android/directpeninput/PopupCue$CueContainer;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v0
 
@@ -2106,7 +2159,7 @@
 
     if-eqz v1, :cond_0
 
-    const-string/jumbo v1, "WritingBuddyPopupCue"
+    const-string/jumbo v1, "DirectPenInputPopupCue"
 
     const-string/jumbo v2, "updatePopupPosition()"
 
@@ -2129,11 +2182,11 @@
 
     iget v1, p0, Lcom/samsung/android/directpeninput/PopupCue;->mPopupWidth:I
 
-    iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->width:I
 
     iget v1, p0, Lcom/samsung/android/directpeninput/PopupCue;->mPopupHeight:I
 
-    iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->height:I
 
     iget-object v1, p0, Lcom/samsung/android/directpeninput/PopupCue;->mWindowManager:Landroid/view/WindowManager;
 

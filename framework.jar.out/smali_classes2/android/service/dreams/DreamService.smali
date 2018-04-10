@@ -111,10 +111,10 @@
     return p1
 .end method
 
-.method static synthetic -wrap0(Landroid/service/dreams/DreamService;Landroid/os/IBinder;Z)V
+.method static synthetic -wrap0(Landroid/service/dreams/DreamService;Landroid/os/IBinder;ZLandroid/os/IRemoteCallback;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Landroid/service/dreams/DreamService;->attach(Landroid/os/IBinder;Z)V
+    invoke-direct {p0, p1, p2, p3}, Landroid/service/dreams/DreamService;->attach(Landroid/os/IBinder;ZLandroid/os/IRemoteCallback;)V
 
     return-void
 .end method
@@ -240,11 +240,11 @@
 .method private applySystemUiVisibilityFlags(II)V
     .locals 2
 
-    const/4 v0, 0x0
-
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     if-nez v1, :cond_1
+
+    const/4 v0, 0x0
 
     :goto_0
     if-eqz v0, :cond_0
@@ -315,7 +315,7 @@
     return-void
 .end method
 
-.method private final attach(Landroid/os/IBinder;Z)V
+.method private final attach(Landroid/os/IBinder;ZLandroid/os/IRemoteCallback;)V
     .locals 12
 
     const/16 v11, 0x7e7
@@ -397,7 +397,17 @@
 
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mCanDoze:Z
 
-    if-eqz v3, :cond_7
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_3
+
+    new-instance v3, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v4, "Only doze dreams can be windowless"
+
+    invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v3
 
     :cond_3
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mWindowless:Z
@@ -471,7 +481,7 @@
 
     iput-object p1, v2, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    const v3, 0x10302f8
+    const v3, 0x10302f1
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -479,7 +489,7 @@
 
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mFullscreen:Z
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_7
 
     const/16 v3, 0x400
 
@@ -490,7 +500,7 @@
 
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mScreenBright:Z
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_8
 
     const/16 v3, 0x80
 
@@ -507,13 +517,19 @@
 
     iget-object v3, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
+    const/high16 v6, -0x80000000
+
+    invoke-virtual {v3, v6}, Landroid/view/Window;->clearFlags(I)V
+
+    iget-object v3, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
+
     const-string/jumbo v6, "dream"
 
     invoke-virtual {v3, v9, p1, v6, v5}, Landroid/view/Window;->setWindowManager(Landroid/view/WindowManager;Landroid/os/IBinder;Ljava/lang/String;Z)V
 
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mLowProfile:Z
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_9
 
     move v3, v5
 
@@ -609,32 +625,23 @@
 
     new-instance v4, Landroid/service/dreams/DreamService$1;
 
-    invoke-direct {v4, p0}, Landroid/service/dreams/DreamService$1;-><init>(Landroid/service/dreams/DreamService;)V
+    invoke-direct {v4, p0, p3}, Landroid/service/dreams/DreamService$1;-><init>(Landroid/service/dreams/DreamService;Landroid/os/IRemoteCallback;)V
 
     invoke-virtual {v3, v4}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 
     :cond_7
-    new-instance v3, Ljava/lang/IllegalStateException;
-
-    const-string/jumbo v4, "Only doze dreams can be windowless"
-
-    invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_8
     move v3, v4
 
     goto/16 :goto_1
 
-    :cond_9
+    :cond_8
     move v3, v4
 
     goto/16 :goto_2
 
-    :cond_a
+    :cond_9
     move v3, v4
 
     goto :goto_3
@@ -766,11 +773,11 @@
 
     const/4 v1, 0x0
 
-    const/4 v0, 0x0
-
     iget-object v2, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     if-nez v2, :cond_0
+
+    const/4 v0, 0x0
 
     :goto_0
     if-nez v0, :cond_1
@@ -933,13 +940,10 @@
 
     iget-boolean v1, p0, Landroid/service/dreams/DreamService;->mFinished:Z
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_1
-    :goto_0
-    return-void
+    if-eqz v1, :cond_1
 
-    :cond_2
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Landroid/service/dreams/DreamService;->mWaking:Z
@@ -950,11 +954,13 @@
 
     iget-boolean v1, p0, Landroid/service/dreams/DreamService;->mFinished:Z
 
-    if-nez v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mWindowToken:Landroid/os/IBinder;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_2
 
     iget-object v1, p0, Landroid/service/dreams/DreamService;->TAG:Ljava/lang/String;
 
@@ -962,9 +968,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    :cond_1
+    :goto_0
+    return-void
 
-    :cond_3
+    :cond_2
     :try_start_0
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mSandman:Landroid/service/dreams/IDreamManager;
 
@@ -1461,6 +1469,13 @@
 
 .method public findViewById(I)Landroid/view/View;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Landroid/view/View;",
+            ">(I)TT;"
+        }
+    .end annotation
 
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->getWindow()Landroid/view/Window;
 
@@ -2130,20 +2145,18 @@
 
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mDozing:Z
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/service/dreams/DreamService;->mDozing:Z
 
     invoke-direct {p0}, Landroid/service/dreams/DreamService;->updateDoze()V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public stopDozing()V

@@ -170,17 +170,15 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .locals 9
-
-    const/4 v4, 0x0
+    .locals 7
 
     const/4 v3, 0x1
 
-    const/4 v8, 0x0
+    const/4 v6, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-virtual {p1, v8}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+    invoke-virtual {p1, v6}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v2
 
@@ -194,7 +192,7 @@
 
     iput-object v2, p0, Landroid/print/PrintJobInfo;->mLabel:Ljava/lang/String;
 
-    invoke-virtual {p1, v8}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+    invoke-virtual {p1, v6}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v2
 
@@ -228,9 +226,9 @@
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v6
+    move-result-wide v4
 
-    iput-wide v6, p0, Landroid/print/PrintJobInfo;->mCreationTime:J
+    iput-wide v4, p0, Landroid/print/PrintJobInfo;->mCreationTime:J
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -238,7 +236,7 @@
 
     iput v2, p0, Landroid/print/PrintJobInfo;->mCopies:I
 
-    invoke-virtual {p1, v8}, Landroid/os/Parcel;->readParcelableArray(Ljava/lang/ClassLoader;)[Landroid/os/Parcelable;
+    invoke-virtual {p1, v6}, Landroid/os/Parcel;->readParcelableArray(Ljava/lang/ClassLoader;)[Landroid/os/Parcelable;
 
     move-result-object v1
 
@@ -257,20 +255,20 @@
 
     if-ge v0, v2, :cond_0
 
-    iget-object v5, p0, Landroid/print/PrintJobInfo;->mPageRanges:[Landroid/print/PageRange;
+    iget-object v4, p0, Landroid/print/PrintJobInfo;->mPageRanges:[Landroid/print/PageRange;
 
     aget-object v2, v1, v0
 
     check-cast v2, Landroid/print/PageRange;
 
-    aput-object v2, v5, v0
+    aput-object v2, v4, v0
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p1, v8}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+    invoke-virtual {p1, v6}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v2
 
@@ -278,7 +276,7 @@
 
     iput-object v2, p0, Landroid/print/PrintJobInfo;->mAttributes:Landroid/print/PrintAttributes;
 
-    invoke-virtual {p1, v8}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+    invoke-virtual {p1, v6}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v2
 
@@ -333,27 +331,21 @@
 
     iget-object v2, p0, Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
 
-    invoke-virtual {v2, v8}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+    invoke-virtual {v2, v6}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    xor-int/lit8 v2, v2, 0x1
 
-    :goto_2
-    invoke-static {v4}, Lcom/android/internal/util/Preconditions;->checkArgument(Z)V
+    invoke-static {v2}, Lcom/android/internal/util/Preconditions;->checkArgument(Z)V
 
     :cond_1
     return-void
 
     :cond_2
-    move v2, v4
+    const/4 v2, 0x0
 
     goto :goto_1
-
-    :cond_3
-    move v4, v3
-
-    goto :goto_2
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/print/PrintJobInfo;)V

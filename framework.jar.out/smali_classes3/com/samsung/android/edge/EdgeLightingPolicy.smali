@@ -32,6 +32,8 @@
 
 .field public static final TYPE_INCLUDE_ALL_APP:I = 0x1
 
+.field public static final TYPE_NOT_CONNECTED_MODE:I = 0x8
+
 
 # instance fields
 .field private mPolicyInfoList:Ljava/util/ArrayList;

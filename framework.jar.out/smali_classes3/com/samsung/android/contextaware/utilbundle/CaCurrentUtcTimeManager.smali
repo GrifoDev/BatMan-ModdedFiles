@@ -83,7 +83,7 @@
 
     const/16 v3, 0x9
 
-    invoke-virtual {v0, v3}, Ljava/util/Calendar;->get(I)I
+    invoke-virtual {v0, v3}, Ljava/util/GregorianCalendar;->get(I)I
 
     move-result v3
 
@@ -94,7 +94,7 @@
     :cond_0
     const/16 v3, 0xa
 
-    invoke-virtual {v0, v3}, Ljava/util/Calendar;->get(I)I
+    invoke-virtual {v0, v3}, Ljava/util/GregorianCalendar;->get(I)I
 
     move-result v3
 
@@ -106,7 +106,7 @@
 
     const/16 v3, 0xc
 
-    invoke-virtual {v0, v3}, Ljava/util/Calendar;->get(I)I
+    invoke-virtual {v0, v3}, Ljava/util/GregorianCalendar;->get(I)I
 
     move-result v3
 
@@ -114,7 +114,7 @@
 
     const/16 v3, 0xd
 
-    invoke-virtual {v0, v3}, Ljava/util/Calendar;->get(I)I
+    invoke-virtual {v0, v3}, Ljava/util/GregorianCalendar;->get(I)I
 
     move-result v3
 

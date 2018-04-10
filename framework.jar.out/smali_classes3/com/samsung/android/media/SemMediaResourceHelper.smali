@@ -6,21 +6,45 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/samsung/android/media/SemMediaResourceHelper$CodecStateChangedListener;,
         Lcom/samsung/android/media/SemMediaResourceHelper$EventHandler;,
         Lcom/samsung/android/media/SemMediaResourceHelper$MediaResourceInfo;,
-        Lcom/samsung/android/media/SemMediaResourceHelper$ResourceInfoChangedListener;
+        Lcom/samsung/android/media/SemMediaResourceHelper$ResourceInfoChangedListener;,
+        Lcom/samsung/android/media/SemMediaResourceHelper$VideoCapacityErrorListener;
     }
 .end annotation
 
 
 # static fields
+.field public static final CODEC_STATE_RUNNING:I = 0x1
+
+.field public static final CODEC_STATE_WAITING:I = 0x0
+
 .field private static final DEBUG:Z = true
 
 .field private static final EVENT_ADD_RESOURCE:I = 0x1
 
+.field private static final EVENT_CAPACITY_ERROR:I = 0x4
+
 .field private static final EVENT_ERROR:I = 0x64
 
 .field private static final EVENT_REMOVE_RESOURCE:I = 0x2
+
+.field private static final EVENT_UPDATE_STATE:I = 0x3
+
+.field private static final LISTENER_TYPE_CAPACITY_ERROR:I = 0x2
+
+.field private static final LISTENER_TYPE_INFO:I = 0x0
+
+.field private static final LISTENER_TYPE_STATE:I = 0x1
+
+.field private static final PARAMETER_CAPACITY_MAX:I = 0x0
+
+.field private static final PARAMETER_CAPACITY_REMAINED:I = 0x1
+
+.field public static final RESOURCE_PRIORITY_HIGH:I = 0xa
+
+.field public static final RESOURCE_PRIORITY_LOW:I = 0x0
 
 .field public static final RESOURCE_TYPE_ALL:I = 0x0
 
@@ -34,6 +58,8 @@
 
 
 # instance fields
+.field private mCodecStateChangedListener:Lcom/samsung/android/media/SemMediaResourceHelper$CodecStateChangedListener;
+
 .field private mEventHandler:Lcom/samsung/android/media/SemMediaResourceHelper$EventHandler;
 
 .field private mNativeContext:J
@@ -46,12 +72,30 @@
 
 .field private mResourceType:I
 
+.field private mVideoCapacityErrorListener:Lcom/samsung/android/media/SemMediaResourceHelper$VideoCapacityErrorListener;
+
 
 # direct methods
-.method static synthetic -get0(Lcom/samsung/android/media/SemMediaResourceHelper;)Lcom/samsung/android/media/SemMediaResourceHelper$ResourceInfoChangedListener;
+.method static synthetic -get0(Lcom/samsung/android/media/SemMediaResourceHelper;)Lcom/samsung/android/media/SemMediaResourceHelper$CodecStateChangedListener;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mCodecStateChangedListener:Lcom/samsung/android/media/SemMediaResourceHelper$CodecStateChangedListener;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/samsung/android/media/SemMediaResourceHelper;)Lcom/samsung/android/media/SemMediaResourceHelper$ResourceInfoChangedListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mResourceInfoChangedListener:Lcom/samsung/android/media/SemMediaResourceHelper$ResourceInfoChangedListener;
+
+    return-object v0
+.end method
+
+.method static synthetic -get2(Lcom/samsung/android/media/SemMediaResourceHelper;)Lcom/samsung/android/media/SemMediaResourceHelper$VideoCapacityErrorListener;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mVideoCapacityErrorListener:Lcom/samsung/android/media/SemMediaResourceHelper$VideoCapacityErrorListener;
 
     return-object v0
 .end method
@@ -78,6 +122,10 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object v2, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mResourceInfoChangedListener:Lcom/samsung/android/media/SemMediaResourceHelper$ResourceInfoChangedListener;
+
+    iput-object v2, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mCodecStateChangedListener:Lcom/samsung/android/media/SemMediaResourceHelper$CodecStateChangedListener;
+
+    iput-object v2, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mVideoCapacityErrorListener:Lcom/samsung/android/media/SemMediaResourceHelper$VideoCapacityErrorListener;
 
     const/4 v1, 0x0
 
@@ -226,8 +274,33 @@
     throw v0
 .end method
 
+.method private dropOwnResourceEvent(I)Z
+    .locals 2
+
+    const/4 v1, 0x0
+
+    iget-boolean v0, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mOwnResourceEventExcluded:Z
+
+    if-eqz v0, :cond_0
+
+    iget v0, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mPid:I
+
+    if-lez v0, :cond_0
+
+    iget v0, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mPid:I
+
+    if-ne p1, v0, :cond_0
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    return v1
+.end method
+
 .method private makeMediaResourceInfo(Landroid/os/Parcel;)Ljava/util/ArrayList;
-    .locals 10
+    .locals 19
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -240,179 +313,267 @@
         }
     .end annotation
 
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v15, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v15}, Ljava/util/ArrayList;-><init>()V
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_5
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v6
+    move-result v16
 
-    if-lez v6, :cond_4
+    if-lez v16, :cond_5
 
-    const-string/jumbo v7, "SemMediaResourceHelper"
+    const-string/jumbo v4, "SemMediaResourceHelper"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v17, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v17 .. v17}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "makeMediaResourceInfo mOwnResourceEventExcluded : "
+    const-string/jumbo v18, "makeMediaResourceInfo mOwnResourceEventExcluded : "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v17
 
-    iget-boolean v9, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mOwnResourceEventExcluded:Z
+    move-object/from16 v0, p0
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    iget-boolean v0, v0, Lcom/samsung/android/media/SemMediaResourceHelper;->mOwnResourceEventExcluded:Z
 
-    move-result-object v8
+    move/from16 v18, v0
 
-    const-string/jumbo v9, ", mPid : "
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v17
 
-    move-result-object v8
+    const-string/jumbo v18, ", mPid : "
 
-    iget v9, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mPid:I
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v17
 
-    move-result-object v8
+    move-object/from16 v0, p0
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget v0, v0, Lcom/samsung/android/media/SemMediaResourceHelper;->mPid:I
 
-    move-result-object v8
+    move/from16 v18, v0
 
-    invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const/4 v0, 0x0
+    move-result-object v17
+
+    invoke-virtual/range {v17 .. v17}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v17
+
+    move-object/from16 v0, v17
+
+    invoke-static {v4, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v0, v6, :cond_4
+    move/from16 v0, v16
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    if-ge v2, v0, :cond_5
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    const/16 v17, 0x1
+
+    move/from16 v0, v17
+
+    if-ne v4, v0, :cond_3
+
+    const/4 v6, 0x1
+
+    :goto_1
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v7
 
-    const/4 v8, 0x1
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readLong()J
 
-    if-ne v7, v8, :cond_3
+    move-result-wide v8
 
-    const/4 v1, 0x1
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    :goto_1
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    move-result v10
 
-    move-result v3
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    const-string/jumbo v7, "SemMediaResourceHelper"
+    move-result v11
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    move-result v12
 
-    const-string/jumbo v9, "["
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v13
 
-    move-result-object v8
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    add-int/lit8 v9, v0, 0x1
+    move-result v4
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const/16 v17, 0x1
 
-    move-result-object v8
+    move/from16 v0, v17
 
-    const-string/jumbo v9, "] makeMediaResourceInfo resourceType : "
+    if-ne v4, v0, :cond_4
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/4 v14, 0x1
 
-    move-result-object v8
+    :goto_2
+    const-string/jumbo v4, "SemMediaResourceHelper"
 
-    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    new-instance v17, Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    invoke-direct/range {v17 .. v17}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, " isSecured : "
+    const-string/jumbo v18, "["
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v17
 
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    add-int/lit8 v18, v2, 0x1
 
-    move-result-object v8
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v9, ", pid : "
+    move-result-object v17
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v18, "] makeMediaResourceInfo resourceType : "
 
-    move-result-object v8
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v17
 
-    move-result-object v8
+    move-object/from16 v0, v17
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v17
 
-    invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v18, " isSecured : "
 
-    iget v7, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mResourceType:I
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz v7, :cond_0
+    move-result-object v17
 
-    iget v7, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mResourceType:I
+    move-object/from16 v0, v17
 
-    if-ne v7, v5, :cond_2
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    const-string/jumbo v18, ", pid : "
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    const-string/jumbo v18, ", client id : "
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    invoke-virtual/range {v17 .. v17}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v17
+
+    move-object/from16 v0, v17
+
+    invoke-static {v4, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v3, 0x0
+
+    move-object/from16 v0, p0
+
+    iget v4, v0, Lcom/samsung/android/media/SemMediaResourceHelper;->mResourceType:I
+
+    if-eqz v4, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget v4, v0, Lcom/samsung/android/media/SemMediaResourceHelper;->mResourceType:I
+
+    if-ne v4, v5, :cond_2
 
     :cond_0
-    iget-boolean v7, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mOwnResourceEventExcluded:Z
+    move-object/from16 v0, p0
 
-    if-eqz v7, :cond_1
+    iget-boolean v4, v0, Lcom/samsung/android/media/SemMediaResourceHelper;->mOwnResourceEventExcluded:Z
 
-    iget-boolean v7, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mOwnResourceEventExcluded:Z
+    if-eqz v4, :cond_1
 
-    if-eqz v7, :cond_2
+    move-object/from16 v0, p0
 
-    iget v7, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mPid:I
+    iget-boolean v4, v0, Lcom/samsung/android/media/SemMediaResourceHelper;->mOwnResourceEventExcluded:Z
 
-    if-lez v7, :cond_2
+    if-eqz v4, :cond_2
 
-    iget v7, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mPid:I
+    move-object/from16 v0, p0
 
-    if-eq v7, v3, :cond_2
+    iget v4, v0, Lcom/samsung/android/media/SemMediaResourceHelper;->mPid:I
+
+    if-lez v4, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget v4, v0, Lcom/samsung/android/media/SemMediaResourceHelper;->mPid:I
+
+    if-eq v4, v7, :cond_2
 
     :cond_1
-    new-instance v4, Lcom/samsung/android/media/SemMediaResourceHelper$MediaResourceInfo;
+    new-instance v3, Lcom/samsung/android/media/SemMediaResourceHelper$MediaResourceInfo;
 
-    invoke-direct {v4, p0, v5, v1, v3}, Lcom/samsung/android/media/SemMediaResourceHelper$MediaResourceInfo;-><init>(Lcom/samsung/android/media/SemMediaResourceHelper;IZI)V
+    move-object/from16 v4, p0
 
-    invoke-virtual {v2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-direct/range {v3 .. v14}, Lcom/samsung/android/media/SemMediaResourceHelper$MediaResourceInfo;-><init>(Lcom/samsung/android/media/SemMediaResourceHelper;IZIJIIIIZ)V
+
+    invoke-virtual {v15, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_2
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_3
-    const/4 v1, 0x0
+    const/4 v6, 0x0
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_4
-    return-object v2
+    const/4 v14, 0x0
+
+    goto/16 :goto_2
+
+    :cond_5
+    return-object v15
 .end method
 
-.method private native native_enableObserver(Z)V
+.method private native native_enableObserver(IZ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -421,6 +582,14 @@
 .end method
 
 .method private final native native_finalize()V
+.end method
+
+.method private native native_getCodecCapacity(I)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalStateException;
+        }
+    .end annotation
 .end method
 
 .method private native native_getMediaResourceInfo(ILandroid/os/Parcel;)V
@@ -434,61 +603,88 @@
 .method private final native native_release()V
 .end method
 
+.method private native native_setResourcePriority(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalStateException;
+        }
+    .end annotation
+.end method
+
 .method private final native native_setup(Ljava/lang/Object;)V
 .end method
 
 .method private static postEventFromNative(Ljava/lang/Object;IIILjava/lang/Object;)V
-    .locals 6
+    .locals 7
 
     check-cast p0, Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {p0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+    invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Lcom/samsung/android/media/SemMediaResourceHelper;
+    check-cast v4, Lcom/samsung/android/media/SemMediaResourceHelper;
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_0
 
-    const-string/jumbo v4, "SemMediaResourceHelper"
+    const-string/jumbo v5, "SemMediaResourceHelper"
 
-    const-string/jumbo v5, "semMediaResourceHelper ref is null"
+    const-string/jumbo v6, "semMediaResourceHelper ref is null"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
-    iget-object v4, v3, Lcom/samsung/android/media/SemMediaResourceHelper;->mEventHandler:Lcom/samsung/android/media/SemMediaResourceHelper$EventHandler;
+    iget-object v5, v4, Lcom/samsung/android/media/SemMediaResourceHelper;->mEventHandler:Lcom/samsung/android/media/SemMediaResourceHelper$EventHandler;
 
-    if-eqz v4, :cond_2
+    if-eqz v5, :cond_3
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_2
 
-    move-object v2, p4
+    move-object v3, p4
 
-    check-cast v2, Landroid/os/Parcel;
+    check-cast v3, Landroid/os/Parcel;
 
-    invoke-direct {v3, v2}, Lcom/samsung/android/media/SemMediaResourceHelper;->makeMediaResourceInfo(Landroid/os/Parcel;)Ljava/util/ArrayList;
+    invoke-virtual {v3}, Landroid/os/Parcel;->readInt()I
 
-    move-result-object v0
+    move-result v0
 
-    invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
+    invoke-direct {v4, v0}, Lcom/samsung/android/media/SemMediaResourceHelper;->dropOwnResourceEvent(I)Z
 
-    move-object p4, v0
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    const-string/jumbo v5, "SemMediaResourceHelper"
+
+    const-string/jumbo v6, "Skip event. mOwnResourceEventExcluded is enabled and owned resource"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
 
     :cond_1
-    iget-object v4, v3, Lcom/samsung/android/media/SemMediaResourceHelper;->mEventHandler:Lcom/samsung/android/media/SemMediaResourceHelper$EventHandler;
-
-    invoke-virtual {v4, p1, p2, p3, p4}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-direct {v4, v3}, Lcom/samsung/android/media/SemMediaResourceHelper;->makeMediaResourceInfo(Landroid/os/Parcel;)Ljava/util/ArrayList;
 
     move-result-object v1
 
-    iget-object v4, v3, Lcom/samsung/android/media/SemMediaResourceHelper;->mEventHandler:Lcom/samsung/android/media/SemMediaResourceHelper$EventHandler;
+    invoke-virtual {v3}, Landroid/os/Parcel;->recycle()V
 
-    invoke-virtual {v4, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    move-object p4, v1
 
     :cond_2
+    iget-object v5, v4, Lcom/samsung/android/media/SemMediaResourceHelper;->mEventHandler:Lcom/samsung/android/media/SemMediaResourceHelper$EventHandler;
+
+    invoke-virtual {v5, p1, p2, p3, p4}, Lcom/samsung/android/media/SemMediaResourceHelper$EventHandler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v2
+
+    iget-object v5, v4, Lcom/samsung/android/media/SemMediaResourceHelper;->mEventHandler:Lcom/samsung/android/media/SemMediaResourceHelper$EventHandler;
+
+    invoke-virtual {v5, v2}, Lcom/samsung/android/media/SemMediaResourceHelper$EventHandler;->sendMessage(Landroid/os/Message;)Z
+
+    :cond_3
     return-void
 .end method
 
@@ -500,6 +696,23 @@
     invoke-direct {p0}, Lcom/samsung/android/media/SemMediaResourceHelper;->native_finalize()V
 
     return-void
+.end method
+
+.method public getMaxVideoCapacity()I
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalStateException;
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, v0}, Lcom/samsung/android/media/SemMediaResourceHelper;->native_getCodecCapacity(I)I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public final getMediaResourceInfo(I)Ljava/util/ArrayList;
@@ -545,6 +758,23 @@
     throw v1
 .end method
 
+.method public getRemainedVideoCapacity()I
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalStateException;
+        }
+    .end annotation
+
+    const/4 v0, 0x1
+
+    invoke-direct {p0, v0}, Lcom/samsung/android/media/SemMediaResourceHelper;->native_getCodecCapacity(I)I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public release()V
     .locals 2
 
@@ -558,16 +788,49 @@
 
     iget-object v0, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mEventHandler:Lcom/samsung/android/media/SemMediaResourceHelper$EventHandler;
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
+    invoke-virtual {v0, v1}, Lcom/samsung/android/media/SemMediaResourceHelper$EventHandler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
     :cond_0
     iput-object v1, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mResourceInfoChangedListener:Lcom/samsung/android/media/SemMediaResourceHelper$ResourceInfoChangedListener;
+
+    iput-object v1, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mCodecStateChangedListener:Lcom/samsung/android/media/SemMediaResourceHelper$CodecStateChangedListener;
+
+    iput-object v1, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mVideoCapacityErrorListener:Lcom/samsung/android/media/SemMediaResourceHelper$VideoCapacityErrorListener;
 
     iput-object v1, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mEventHandler:Lcom/samsung/android/media/SemMediaResourceHelper$EventHandler;
 
     sput-object v1, Lcom/samsung/android/media/SemMediaResourceHelper;->mMediaResourceHelper:Lcom/samsung/android/media/SemMediaResourceHelper;
 
     return-void
+.end method
+
+.method public setCodecStateChangedListener(Lcom/samsung/android/media/SemMediaResourceHelper$CodecStateChangedListener;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalStateException;
+        }
+    .end annotation
+
+    const/4 v1, 0x1
+
+    iput-object p1, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mCodecStateChangedListener:Lcom/samsung/android/media/SemMediaResourceHelper$CodecStateChangedListener;
+
+    iget-object v0, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mCodecStateChangedListener:Lcom/samsung/android/media/SemMediaResourceHelper$CodecStateChangedListener;
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0, v1, v1}, Lcom/samsung/android/media/SemMediaResourceHelper;->native_enableObserver(IZ)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    invoke-direct {p0, v1, v0}, Lcom/samsung/android/media/SemMediaResourceHelper;->native_enableObserver(IZ)V
+
+    goto :goto_0
 .end method
 
 .method public declared-synchronized setOwnResourceEventExcluded(Z)V
@@ -615,12 +878,14 @@
 .end method
 
 .method public setResourceInfoChangedListener(Lcom/samsung/android/media/SemMediaResourceHelper$ResourceInfoChangedListener;)V
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
         }
     .end annotation
+
+    const/4 v1, 0x0
 
     iput-object p1, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mResourceInfoChangedListener:Lcom/samsung/android/media/SemMediaResourceHelper$ResourceInfoChangedListener;
 
@@ -630,17 +895,50 @@
 
     const/4 v0, 0x1
 
-    invoke-direct {p0, v0}, Lcom/samsung/android/media/SemMediaResourceHelper;->native_enableObserver(Z)V
+    invoke-direct {p0, v1, v0}, Lcom/samsung/android/media/SemMediaResourceHelper;->native_enableObserver(IZ)V
 
     :goto_0
     return-void
 
     :cond_0
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Lcom/samsung/android/media/SemMediaResourceHelper;->native_enableObserver(Z)V
+    invoke-direct {p0, v1, v1}, Lcom/samsung/android/media/SemMediaResourceHelper;->native_enableObserver(IZ)V
 
     goto :goto_0
+.end method
+
+.method public setResourcePriority(I)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalStateException;
+        }
+    .end annotation
+
+    const-string/jumbo v0, "SemMediaResourceHelper"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "setResourcePriority(): "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0, p1}, Lcom/samsung/android/media/SemMediaResourceHelper;->native_setResourcePriority(I)V
+
+    return-void
 .end method
 
 .method public declared-synchronized setResourceTypeForEvent(I)V
@@ -685,4 +983,35 @@
     monitor-exit p0
 
     throw v0
+.end method
+
+.method public setVideoCapacityErrorListener(Lcom/samsung/android/media/SemMediaResourceHelper$VideoCapacityErrorListener;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalStateException;
+        }
+    .end annotation
+
+    const/4 v1, 0x2
+
+    iput-object p1, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mVideoCapacityErrorListener:Lcom/samsung/android/media/SemMediaResourceHelper$VideoCapacityErrorListener;
+
+    iget-object v0, p0, Lcom/samsung/android/media/SemMediaResourceHelper;->mVideoCapacityErrorListener:Lcom/samsung/android/media/SemMediaResourceHelper$VideoCapacityErrorListener;
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    invoke-direct {p0, v1, v0}, Lcom/samsung/android/media/SemMediaResourceHelper;->native_enableObserver(IZ)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    invoke-direct {p0, v1, v0}, Lcom/samsung/android/media/SemMediaResourceHelper;->native_enableObserver(IZ)V
+
+    goto :goto_0
 .end method

@@ -121,7 +121,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Landroid/net/wifi/WifiInfo;->-set4(Landroid/net/wifi/WifiInfo;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, v2}, Landroid/net/wifi/WifiInfo;->-set3(Landroid/net/wifi/WifiInfo;Ljava/lang/String;)Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -132,7 +132,7 @@
     move v2, v3
 
     :goto_1
-    invoke-static {v1, v2}, Landroid/net/wifi/WifiInfo;->-set5(Landroid/net/wifi/WifiInfo;Z)Z
+    invoke-static {v1, v2}, Landroid/net/wifi/WifiInfo;->-set4(Landroid/net/wifi/WifiInfo;Z)Z
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -187,12 +187,6 @@
 
     iput v2, v1, Landroid/net/wifi/WifiInfo;->lowRssiCount:I
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-ne v2, v3, :cond_4
-
     sget-object v2, Landroid/net/wifi/SupplicantState;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v2, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -201,9 +195,19 @@
 
     check-cast v2, Landroid/net/wifi/SupplicantState;
 
-    invoke-static {v1, v2}, Landroid/net/wifi/WifiInfo;->-set6(Landroid/net/wifi/WifiInfo;Landroid/net/wifi/SupplicantState;)Landroid/net/wifi/SupplicantState;
+    invoke-static {v1, v2}, Landroid/net/wifi/WifiInfo;->-set5(Landroid/net/wifi/WifiInfo;Landroid/net/wifi/SupplicantState;)Landroid/net/wifi/SupplicantState;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    if-ne v2, v3, :cond_4
+
+    move v2, v3
 
     :goto_3
+    invoke-virtual {v1, v2}, Landroid/net/wifi/WifiInfo;->setSkipInternetCheck(Z)V
+
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
@@ -213,7 +217,7 @@
     move v2, v3
 
     :goto_4
-    invoke-virtual {v1, v2}, Landroid/net/wifi/WifiInfo;->setSkipInternetCheck(Z)V
+    invoke-virtual {v1, v2}, Landroid/net/wifi/WifiInfo;->setCaptivePortal(Z)V
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -224,7 +228,7 @@
     move v2, v3
 
     :goto_5
-    invoke-virtual {v1, v2}, Landroid/net/wifi/WifiInfo;->setSkipInternetCheckConfirmedOnThisConnection(Z)V
+    invoke-virtual {v1, v2}, Landroid/net/wifi/WifiInfo;->setAuthenticated(Z)V
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -235,57 +239,7 @@
     move v2, v3
 
     :goto_6
-    invoke-virtual {v1, v2}, Landroid/net/wifi/WifiInfo;->setCaptivePortal(Z)V
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-ne v2, v3, :cond_8
-
-    move v2, v3
-
-    :goto_7
-    invoke-virtual {v1, v2}, Landroid/net/wifi/WifiInfo;->setAuthenticated(Z)V
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-ne v2, v3, :cond_9
-
-    move v2, v3
-
-    :goto_8
     invoke-virtual {v1, v2}, Landroid/net/wifi/WifiInfo;->setManualConnection(Z)V
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/net/wifi/WifiInfo;->-set3(Landroid/net/wifi/WifiInfo;Ljava/lang/String;)Ljava/lang/String;
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-ne v2, v3, :cond_a
-
-    move v2, v3
-
-    :goto_9
-    invoke-virtual {v1, v2}, Landroid/net/wifi/WifiInfo;->setDefaultAp(Z)V
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-ne v2, v3, :cond_b
-
-    move v2, v3
-
-    :goto_a
-    invoke-virtual {v1, v2}, Landroid/net/wifi/WifiInfo;->setSharedAp(Z)V
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -297,43 +251,45 @@
 
     move-result v2
 
-    if-ne v2, v3, :cond_c
+    if-ne v2, v3, :cond_8
 
     move v2, v3
 
-    :goto_b
-    invoke-virtual {v1, v2}, Landroid/net/wifi/WifiInfo;->setVerifiedPassword(Z)V
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-ne v2, v3, :cond_d
-
-    move v2, v3
-
-    :goto_c
+    :goto_7
     invoke-virtual {v1, v2}, Landroid/net/wifi/WifiInfo;->setCheckVsieForSns(Z)V
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    if-eqz v2, :cond_e
+    if-ne v2, v3, :cond_9
 
-    move v2, v3
+    :goto_8
+    invoke-virtual {v1, v3}, Landroid/net/wifi/WifiInfo;->setGigaAp(Z)V
 
-    :goto_d
-    iput-boolean v2, v1, Landroid/net/wifi/WifiInfo;->isGigaAp:Z
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/net/wifi/WifiInfo;->-set6(Landroid/net/wifi/WifiInfo;Ljava/lang/String;)Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    if-eqz v2, :cond_f
+    invoke-virtual {v1, v2}, Landroid/net/wifi/WifiInfo;->setSnr(I)V
 
-    :goto_e
-    iput-boolean v3, v1, Landroid/net/wifi/WifiInfo;->isVendorAp:Z
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Landroid/net/wifi/WifiInfo;->setLqcmTx(I)V
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Landroid/net/wifi/WifiInfo;->setLqcmRx(I)V
 
     return-object v1
 
@@ -348,16 +304,14 @@
     goto/16 :goto_2
 
     :cond_4
-    sget-object v2, Landroid/net/wifi/SupplicantState;->DISCONNECTED:Landroid/net/wifi/SupplicantState;
+    move v2, v4
 
-    invoke-static {v1, v2}, Landroid/net/wifi/WifiInfo;->-set6(Landroid/net/wifi/WifiInfo;Landroid/net/wifi/SupplicantState;)Landroid/net/wifi/SupplicantState;
-
-    goto/16 :goto_3
+    goto :goto_3
 
     :cond_5
     move v2, v4
 
-    goto/16 :goto_4
+    goto :goto_4
 
     :cond_6
     move v2, v4
@@ -375,39 +329,9 @@
     goto :goto_7
 
     :cond_9
-    move v2, v4
-
-    goto :goto_8
-
-    :cond_a
-    move v2, v4
-
-    goto :goto_9
-
-    :cond_b
-    move v2, v4
-
-    goto :goto_a
-
-    :cond_c
-    move v2, v4
-
-    goto :goto_b
-
-    :cond_d
-    move v2, v4
-
-    goto :goto_c
-
-    :cond_e
-    move v2, v4
-
-    goto :goto_d
-
-    :cond_f
     move v3, v4
 
-    goto :goto_e
+    goto :goto_8
 
     :catch_0
     move-exception v0

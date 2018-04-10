@@ -12,7 +12,13 @@
 
 
 # static fields
+.field public static final ALIASES_LIST_KNOX:I = 0x1
+
+.field public static final ALIASES_LIST_OWN:I = 0x0
+
 .field private static final CERTIFICATE_STRING:Ljava/lang/String; = "certificate"
+
+.field public static final FLAG_CRITICAL_TO_DEVICE_ENCRYPTION:I = 0x8
 
 .field public static final FLAG_ENCRYPTED:I = 0x1
 
@@ -50,18 +56,6 @@
 
 .field public static final WRONG_PASSWORD:I = 0xa
 
-.field public static final mNeedToCheckOldKeyStore:Landroid/util/ArrayMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/util/ArrayMap",
-            "<",
-            "Ljava/lang/Integer;",
-            "Ljava/lang/Boolean;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 
 # instance fields
 .field private lMdmService:Landroid/sec/enterprise/IEDMProxy;
@@ -92,12 +86,6 @@
     move-result-object v0
 
     sput-object v0, Landroid/security/KeyStore;->SYSTEM_CREDENTIAL_UIDS:[I
-
-    new-instance v0, Landroid/util/ArrayMap;
-
-    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
-
-    sput-object v0, Landroid/security/KeyStore;->mNeedToCheckOldKeyStore:Landroid/util/ArrayMap;
 
     return-void
 .end method
@@ -437,7 +425,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
+    invoke-static {}, Lcom/samsung/android/security/mdf/MdfUtils;->isMdfEnforced()Z
 
     move-result v1
 
@@ -683,348 +671,298 @@
 .end method
 
 .method private getRequestorInfo()Ljava/lang/String;
-    .locals 16
-
-    const-string/jumbo v10, ""
+    .locals 12
 
     const-string/jumbo v6, ""
 
+    const-string/jumbo v4, ""
+
     invoke-static {}, Landroid/os/Process;->myUid()I
 
-    move-result v11
+    move-result v7
 
-    const/16 v12, 0x3e8
+    const/16 v8, 0x3e8
 
-    if-ne v11, v12, :cond_2
+    if-ne v7, v8, :cond_0
 
-    const-string/jumbo v10, "SystemApp"
+    const-string/jumbo v6, "SystemApp"
 
     :goto_0
     :try_start_0
-    const-string/jumbo v11, "android.app.ActivityManagerNative"
+    iget-object v7, p0, Landroid/security/KeyStore;->mContext:Landroid/content/Context;
 
-    invoke-static {v11}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
-
-    move-result-object v11
-
-    const-string/jumbo v12, "getDefault"
-
-    const/4 v13, 0x0
-
-    new-array v13, v13, [Ljava/lang/Class;
-
-    invoke-virtual {v11, v12, v13}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v11
-
-    const/4 v12, 0x0
-
-    new-array v12, v12, [Ljava/lang/Object;
-
-    const/4 v13, 0x0
-
-    invoke-virtual {v11, v13, v12}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v11
-
-    const-string/jumbo v12, "getRunningAppProcesses"
-
-    const/4 v13, 0x0
-
-    new-array v13, v13, [Ljava/lang/Class;
-
-    invoke-virtual {v11, v12, v13}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v5
-
-    const/4 v11, 0x0
-
-    new-array v11, v11, [Ljava/lang/Object;
-
-    invoke-virtual {v5, v2, v11}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v11
-
-    check-cast v11, Ljava/util/List;
-
-    invoke-interface {v11}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v8
-
-    :cond_0
-    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v11
-
-    if-eqz v11, :cond_1
-
-    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v7}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v7
 
-    check-cast v7, Landroid/app/ActivityManager$RunningAppProcessInfo;
+    invoke-static {}, Landroid/os/Process;->myUid()I
 
-    iget v11, v7, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
+    move-result v8
 
-    invoke-static {}, Landroid/os/Process;->myPid()I
+    invoke-virtual {v7, v8}, Landroid/content/pm/PackageManager;->getNameForUid(I)Ljava/lang/String;
 
-    move-result v12
+    move-result-object v4
 
-    if-ne v11, v12, :cond_0
+    const-string/jumbo v7, "android.os.ServiceManager"
 
-    iget-object v6, v7, Landroid/app/ActivityManager$RunningAppProcessInfo;->processName:Ljava/lang/String;
+    invoke-static {v7}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    :cond_1
-    const-string/jumbo v11, "android.os.ServiceManager"
+    move-result-object v7
 
-    invoke-static {v11}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    const-string/jumbo v8, "getService"
 
-    move-result-object v11
+    const/4 v9, 0x1
 
-    const-string/jumbo v12, "getService"
+    new-array v9, v9, [Ljava/lang/Class;
 
-    const/4 v13, 0x1
+    const-class v10, Ljava/lang/String;
 
-    new-array v13, v13, [Ljava/lang/Class;
+    const/4 v11, 0x0
 
-    const-class v14, Ljava/lang/String;
+    aput-object v10, v9, v11
 
-    const/4 v15, 0x0
+    invoke-virtual {v7, v8, v9}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    aput-object v14, v13, v15
+    move-result-object v7
 
-    invoke-virtual {v11, v12, v13}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    const/4 v8, 0x1
 
-    move-result-object v11
+    new-array v8, v8, [Ljava/lang/Object;
 
-    const/4 v12, 0x1
+    const-string/jumbo v9, "enterprise_policy"
 
-    new-array v12, v12, [Ljava/lang/Object;
+    const/4 v10, 0x0
 
-    const-string/jumbo v13, "enterprise_policy"
+    aput-object v9, v8, v10
 
-    const/4 v14, 0x0
+    const/4 v9, 0x0
 
-    aput-object v13, v12, v14
-
-    const/4 v13, 0x0
-
-    invoke-virtual {v11, v13, v12}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v7, v9, v8}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/os/IBinder;
 
-    const-string/jumbo v11, "com.samsung.android.knox.IEnterpriseDeviceManager$Stub"
+    const-string/jumbo v7, "com.samsung.android.knox.IEnterpriseDeviceManager$Stub"
 
-    invoke-static {v11}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-static {v7}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v11
+    move-result-object v7
 
-    const-string/jumbo v12, "asInterface"
+    const-string/jumbo v8, "asInterface"
 
-    const/4 v13, 0x1
+    const/4 v9, 0x1
 
-    new-array v13, v13, [Ljava/lang/Class;
+    new-array v9, v9, [Ljava/lang/Class;
 
-    const-class v14, Landroid/os/IBinder;
+    const-class v10, Landroid/os/IBinder;
 
-    const/4 v15, 0x0
+    const/4 v11, 0x0
 
-    aput-object v14, v13, v15
+    aput-object v10, v9, v11
 
-    invoke-virtual {v11, v12, v13}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v7, v8, v9}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v11
+    move-result-object v7
 
-    const/4 v12, 0x1
+    const/4 v8, 0x1
 
-    new-array v12, v12, [Ljava/lang/Object;
+    new-array v8, v8, [Ljava/lang/Object;
 
-    const/4 v13, 0x0
+    const/4 v9, 0x0
 
-    aput-object v0, v12, v13
+    aput-object v0, v8, v9
 
-    const/4 v13, 0x0
+    const/4 v9, 0x0
 
-    invoke-virtual {v11, v13, v12}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v7, v9, v8}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v7
+
+    const-string/jumbo v8, "packageHasActiveAdmins"
+
+    const/4 v9, 0x1
+
+    new-array v9, v9, [Ljava/lang/Class;
+
+    const-class v10, Ljava/lang/String;
+
+    const/4 v11, 0x0
+
+    aput-object v10, v9, v11
+
+    invoke-virtual {v7, v8, v9}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    const/4 v7, 0x1
 
-    move-result-object v11
+    new-array v7, v7, [Ljava/lang/Object;
 
-    const-string/jumbo v12, "packageHasActiveAdmins"
+    const/4 v8, 0x0
 
-    const/4 v13, 0x1
+    aput-object v4, v7, v8
 
-    new-array v13, v13, [Ljava/lang/Class;
+    invoke-virtual {v3, v2, v7}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-class v14, Ljava/lang/String;
+    move-result-object v7
 
-    const/4 v15, 0x0
+    check-cast v7, Ljava/lang/Boolean;
 
-    aput-object v14, v13, v15
+    invoke-virtual {v7}, Ljava/lang/Boolean;->booleanValue()Z
 
-    invoke-virtual {v11, v12, v13}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    move-result v5
 
-    move-result-object v4
+    if-eqz v5, :cond_1
 
-    const/4 v11, 0x1
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    new-array v11, v11, [Ljava/lang/Object;
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/4 v12, 0x0
+    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    aput-object v6, v11, v12
+    move-result-object v7
 
-    invoke-virtual {v4, v3, v11}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    const-string/jumbo v8, "|Administrator"
 
-    move-result-object v11
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    check-cast v11, Ljava/lang/Boolean;
+    move-result-object v7
 
-    invoke-virtual {v11}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v9
-
-    if-eqz v9, :cond_3
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v11, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    const-string/jumbo v12, "|Administrator"
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v10
+    move-result-object v6
 
     :goto_1
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v7
 
-    const-string/jumbo v12, ": uid="
+    const-string/jumbo v8, ": pid="
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v7
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, " uid="
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
 
     invoke-static {}, Landroid/os/Process;->myUid()I
 
-    move-result v12
+    move-result v8
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v7
 
-    const-string/jumbo v12, " role="
+    const-string/jumbo v8, " role="
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v7
 
-    invoke-virtual {v11, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v7
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v7
 
-    return-object v11
+    return-object v7
 
-    :cond_2
-    const-string/jumbo v10, "UserApp"
+    :cond_0
+    const-string/jumbo v6, "UserApp"
 
     goto/16 :goto_0
 
-    :cond_3
+    :cond_1
     :try_start_1
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v11, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v7
 
-    const-string/jumbo v12, "|NonAdministrator"
+    const-string/jumbo v8, "|NonAdministrator"
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v7
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    move-result-object v10
+    move-result-object v6
 
     goto :goto_1
 
     :catch_0
     move-exception v1
 
-    const-string/jumbo v11, "KeyStore"
+    const-string/jumbo v7, "KeyStore"
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v13, "Administrator status cannot be defined for requestor: uid="
+    const-string/jumbo v9, "Administrator status cannot be defined for requestor: uid="
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v8
 
     invoke-static {}, Landroid/os/Process;->myUid()I
 
-    move-result v13
+    move-result v9
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v8
 
-    const-string/jumbo v13, " pid="
+    const-string/jumbo v9, " pid="
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v8
 
     invoke-static {}, Landroid/os/Process;->myPid()I
 
-    move-result v13
+    move-result v9
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v8
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v8
 
-    invoke-static {v11, v12, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v7, v8, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_1
 .end method
@@ -1105,156 +1043,60 @@
     goto :goto_0
 .end method
 
-.method public static isNeedMigration(I)Z
-    .locals 4
+.method private isCertificateTrustedByMdm([BI)Z
+    .locals 5
 
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfSupported()Z
+    const/4 v4, 0x0
 
-    move-result v1
+    iget-object v2, p0, Landroid/security/KeyStore;->mContext:Landroid/content/Context;
 
-    if-eqz v1, :cond_1
-
-    sget-object v1, Landroid/security/KeyStore;->mNeedToCheckOldKeyStore:Landroid/util/ArrayMap;
-
-    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v2}, Landroid/sec/enterprise/certificate/CertificatePolicyCache;->getInstance(Landroid/content/Context;)Landroid/sec/enterprise/certificate/CertificatePolicyCache;
 
     move-result-object v1
 
-    if-nez v1, :cond_0
-
-    sget-object v1, Landroid/security/KeyStore;->mNeedToCheckOldKeyStore:Landroid/util/ArrayMap;
-
-    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getInstance()Landroid/sec/enterprise/EnterpriseDeviceManager;
 
     move-result-object v2
 
-    const/4 v3, 0x1
-
-    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v2, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    invoke-static {}, Landroid/security/KeyStore;->getInstance()Landroid/security/KeyStore;
+    invoke-virtual {v2}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getCertificatePolicy()Landroid/sec/enterprise/certificate/CertificatePolicy;
 
     move-result-object v0
 
-    invoke-direct {v0, p0}, Landroid/security/KeyStore;->isNeedMigrationInternal(I)Z
+    invoke-virtual {v1}, Landroid/sec/enterprise/certificate/CertificatePolicyCache;->isCertificateTrustedUntrustedEnabled()Z
 
-    move-result v1
+    move-result v2
 
-    return v1
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v0, p1, v4, p2}, Landroid/sec/enterprise/certificate/CertificatePolicy;->isCaCertificateTrustedAsUser([BZI)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    return v4
 
     :cond_0
-    sget-object v1, Landroid/security/KeyStore;->mNeedToCheckOldKeyStore:Landroid/util/ArrayMap;
+    invoke-virtual {v1}, Landroid/sec/enterprise/certificate/CertificatePolicyCache;->isCertificateValidationAtInstallEnabled()Z
 
-    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result v2
 
-    move-result-object v2
+    if-eqz v2, :cond_1
 
-    invoke-virtual {v1, v2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1, p2}, Landroid/sec/enterprise/certificate/CertificatePolicy;->validateCertificateAtInstallAsUser([BI)I
 
-    move-result-object v1
+    move-result v2
 
-    check-cast v1, Ljava/lang/Boolean;
+    const/4 v3, -0x1
 
-    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
+    if-eq v2, v3, :cond_1
 
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-static {}, Landroid/security/KeyStore;->getInstance()Landroid/security/KeyStore;
-
-    move-result-object v0
-
-    invoke-direct {v0, p0}, Landroid/security/KeyStore;->isNeedMigrationInternal(I)Z
-
-    move-result v1
-
-    return v1
+    return v4
 
     :cond_1
-    const/4 v1, 0x0
+    const/4 v2, 0x1
 
-    return v1
-.end method
-
-.method private isNeedMigrationInternal(I)Z
-    .locals 6
-
-    const/4 v3, 0x1
-
-    const/4 v5, 0x0
-
-    :try_start_0
-    iget-object v2, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
-
-    invoke-interface {v2, p1}, Landroid/security/IKeystoreService;->getState_MDFPP(I)I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    packed-switch v1, :pswitch_data_0
-
-    new-instance v2, Ljava/lang/AssertionError;
-
-    iget v3, p0, Landroid/security/KeyStore;->mError:I
-
-    invoke-direct {v2, v3}, Ljava/lang/AssertionError;-><init>(I)V
-
-    throw v2
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v2, "KeyStore"
-
-    const-string/jumbo v3, "Cannot connect to keystore"
-
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    new-instance v2, Ljava/lang/AssertionError;
-
-    invoke-direct {v2, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
-
-    throw v2
-
-    :pswitch_0
-    return v3
-
-    :pswitch_1
-    return v3
-
-    :pswitch_2
-    sget-object v2, Landroid/security/KeyStore;->mNeedToCheckOldKeyStore:Landroid/util/ArrayMap;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v4
-
-    invoke-virtual {v2, v3, v4}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    return v5
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-        :pswitch_1
-        :pswitch_2
-    .end packed-switch
+    return v2
 .end method
 
 .method private isPrivateKeyPrefix(Ljava/lang/String;)Z
@@ -1270,17 +1112,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method private refreshRollbackUserKeystore(I)V
@@ -1339,6 +1173,34 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     const/4 v1, 0x4
+
+    return v1
+.end method
+
+.method public addAccessorToPrivilegedList(Ljava/lang/String;)Z
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
+
+    invoke-interface {v1, p1}, Landroid/security/IKeystoreService;->addAccessorToPrivilegedList(Ljava/lang/String;)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "KeyStore"
+
+    const-string/jumbo v2, "Cannot connect to keystore"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 v1, 0x0
 
     return v1
 .end method
@@ -1407,6 +1269,34 @@
     invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     return v2
+.end method
+
+.method public attestDeviceIds(Landroid/security/keymaster/KeymasterArguments;Landroid/security/keymaster/KeymasterCertificateChain;)I
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
+
+    invoke-interface {v1, p1, p2}, Landroid/security/IKeystoreService;->attestDeviceIds(Landroid/security/keymaster/KeymasterArguments;Landroid/security/keymaster/KeymasterCertificateChain;)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "KeyStore"
+
+    const-string/jumbo v2, "Cannot connect to keystore"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 v1, 0x4
+
+    return v1
 .end method
 
 .method public attestKey(Ljava/lang/String;Landroid/security/keymaster/KeymasterArguments;Landroid/security/keymaster/KeymasterCertificateChain;)I
@@ -1755,6 +1645,55 @@
     return v2
 .end method
 
+.method public containsAlias(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 3
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, p1, p2}, Landroid/security/KeyStore;->list(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    array-length v2, v0
+
+    if-lez v2, :cond_0
+
+    const/4 v1, 0x1
+
+    :cond_0
+    return v1
+.end method
+
+.method public containsUniqueAlias(Ljava/lang/String;)Z
+    .locals 4
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    const-string/jumbo v3, "*"
+
+    invoke-virtual {p0, v3, p1}, Landroid/security/KeyStore;->list(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    array-length v3, v0
+
+    if-ne v3, v1, :cond_0
+
+    :goto_0
+    return v1
+
+    :cond_0
+    move v1, v2
+
+    goto :goto_0
+.end method
+
 .method public delete(Ljava/lang/String;)Z
     .locals 1
 
@@ -1768,7 +1707,7 @@
 .end method
 
 .method public delete(Ljava/lang/String;I)Z
-    .locals 19
+    .locals 20
 
     move-object/from16 v0, p0
 
@@ -1782,13 +1721,13 @@
 
     move-result v16
 
-    const-string/jumbo v17, ""
+    const-string/jumbo v18, ""
 
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
+    invoke-static {}, Lcom/samsung/android/security/mdf/MdfUtils;->isMdfEnforced()Z
 
-    move-result v3
+    move-result v17
 
-    if-eqz v3, :cond_0
+    if-eqz v17, :cond_0
 
     const-string/jumbo v3, " (Keystore=%s, key=%s, uid=%s, requested by %s)"
 
@@ -1830,7 +1769,7 @@
 
     invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v18
 
     :cond_0
     new-instance v11, Ljava/util/ArrayList;
@@ -1861,17 +1800,13 @@
 
     invoke-interface {v3, v0, v1}, Landroid/security/IKeystoreService;->del(Ljava/lang/String;I)I
 
-    move-result v18
+    move-result v19
 
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
+    if-eqz v17, :cond_2
 
     const/4 v3, 0x1
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     if-ne v0, v3, :cond_6
 
@@ -1897,7 +1832,7 @@
 
     move-result-object v3
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1937,7 +1872,7 @@
 
     const/4 v3, 0x1
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     if-ne v0, v3, :cond_7
 
@@ -1955,7 +1890,7 @@
     :cond_3
     const/4 v3, 0x1
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     if-ne v0, v3, :cond_8
 
@@ -2015,11 +1950,7 @@
 
     invoke-static {v3, v4, v15}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
+    if-eqz v17, :cond_4
 
     invoke-static {}, Landroid/os/Process;->myPid()I
 
@@ -2043,7 +1974,7 @@
 
     move-result-object v3
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2125,7 +2056,7 @@
 
     move-result-object v3
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2143,7 +2074,7 @@
 
     move-result-object v3
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -2183,13 +2114,13 @@
     :cond_8
     const/4 v3, 0x1
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     if-eq v0, v3, :cond_9
 
     const/4 v3, 0x7
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     if-ne v0, v3, :cond_a
 
@@ -2344,147 +2275,145 @@
 .end method
 
 .method public generate(Ljava/lang/String;IIII[[B)Z
-    .locals 9
+    .locals 11
+
+    invoke-static {}, Lcom/samsung/android/security/mdf/MdfUtils;->isMdfEnforced()Z
+
+    move-result v9
 
     :try_start_0
-    iget-object v0, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
+    iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
-    new-instance v6, Landroid/security/KeystoreArguments;
+    new-instance v7, Landroid/security/KeystoreArguments;
 
-    invoke-direct {v6, p6}, Landroid/security/KeystoreArguments;-><init>([[B)V
+    move-object/from16 v0, p6
 
-    move-object v1, p1
+    invoke-direct {v7, v0}, Landroid/security/KeystoreArguments;-><init>([[B)V
 
-    move v2, p2
+    move-object v2, p1
 
-    move v3, p3
+    move v3, p2
 
-    move v4, p4
+    move v4, p3
 
-    move v5, p5
+    move v5, p4
 
-    invoke-interface/range {v0 .. v6}, Landroid/security/IKeystoreService;->generate(Ljava/lang/String;IIIILandroid/security/KeystoreArguments;)I
+    move/from16 v6, p5
 
-    move-result v8
+    invoke-interface/range {v1 .. v7}, Landroid/security/IKeystoreService;->generate(Ljava/lang/String;IIIILandroid/security/KeystoreArguments;)I
 
-    const/4 v0, 0x1
-
-    if-eq v8, v0, :cond_0
-
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v3
-
-    invoke-virtual {p0}, Landroid/security/KeyStore;->getClass()Ljava/lang/Class;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v4
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v1, "Key generation failed with error "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    const/4 v0, 0x1
-
-    invoke-direct {p0, p2, v0}, Landroid/security/KeyStore;->getUserId(IZ)I
-
-    move-result v6
-
-    const/4 v0, 0x1
+    move-result v10
 
     const/4 v1, 0x1
 
-    const/4 v2, 0x0
+    if-eq v10, v1, :cond_0
 
-    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logPrivilegedAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    if-eqz v9, :cond_0
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v4
+
+    invoke-virtual {p0}, Landroid/security/KeyStore;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v5
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Key generation failed with error "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    const/4 v1, 0x1
+
+    invoke-direct {p0, p2, v1}, Landroid/security/KeyStore;->getUserId(IZ)I
+
+    move-result v7
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    invoke-static/range {v1 .. v7}, Landroid/sec/enterprise/auditlog/AuditLog;->logPrivilegedAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    if-ne v8, v0, :cond_1
+    if-ne v10, v1, :cond_1
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     :goto_0
-    return v0
+    return v1
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     goto :goto_0
 
     :catch_0
-    move-exception v7
+    move-exception v8
 
-    const-string/jumbo v0, "KeyStore"
+    const-string/jumbo v1, "KeyStore"
 
-    const-string/jumbo v1, "Cannot connect to keystore"
+    const-string/jumbo v2, "Cannot connect to keystore"
 
-    invoke-static {v0, v1, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v2, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
+    if-eqz v9, :cond_2
 
     invoke-static {}, Landroid/os/Process;->myPid()I
 
-    move-result v3
+    move-result v4
 
     invoke-virtual {p0}, Landroid/security/KeyStore;->getClass()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    const-string/jumbo v5, "Key generation failed cannot connect to KeyStore"
-
-    const/4 v0, 0x1
-
-    invoke-direct {p0, p2, v0}, Landroid/security/KeyStore;->getUserId(IZ)I
-
-    move-result v6
-
-    const/4 v0, 0x1
+    const-string/jumbo v6, "Key generation failed cannot connect to KeyStore"
 
     const/4 v1, 0x1
 
-    const/4 v2, 0x0
+    invoke-direct {p0, p2, v1}, Landroid/security/KeyStore;->getUserId(IZ)I
 
-    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logPrivilegedAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    move-result v7
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    invoke-static/range {v1 .. v7}, Landroid/sec/enterprise/auditlog/AuditLog;->logPrivilegedAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
 
     :cond_2
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return v0
+    return v1
 .end method
 
 .method public generateKey(Ljava/lang/String;Landroid/security/keymaster/KeymasterArguments;[BIILandroid/security/keymaster/KeyCharacteristics;)I
@@ -2513,7 +2442,7 @@
 
     if-eq v8, v0, :cond_0
 
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
+    invoke-static {}, Lcom/samsung/android/security/mdf/MdfUtils;->isMdfEnforced()Z
 
     move-result v0
 
@@ -2577,12 +2506,6 @@
 
     invoke-static {v0, v1, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
     invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v3
@@ -2611,7 +2534,6 @@
 
     invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logPrivilegedAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
 
-    :cond_1
     const/4 v0, 0x4
 
     return v0
@@ -2696,159 +2618,257 @@
 .end method
 
 .method public getInvalidKeyException(Ljava/lang/String;ILandroid/security/KeyStoreException;)Ljava/security/InvalidKeyException;
-    .locals 12
+    .locals 20
 
-    invoke-virtual {p3}, Landroid/security/KeyStoreException;->getErrorCode()I
+    invoke-virtual/range {p3 .. p3}, Landroid/security/KeyStoreException;->getErrorCode()I
 
-    move-result v0
+    move-result v2
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v2, :sswitch_data_0
 
-    new-instance v0, Ljava/security/InvalidKeyException;
+    new-instance v2, Ljava/security/InvalidKeyException;
 
-    const-string/jumbo v1, "Keystore operation failed"
+    const-string/jumbo v3, "Keystore operation failed"
 
-    invoke-direct {v0, v1, p3}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    move-object/from16 v0, p3
 
-    return-object v0
+    invoke-direct {v2, v3, v0}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    return-object v2
 
     :sswitch_0
-    new-instance v0, Landroid/security/keystore/UserNotAuthenticatedException;
+    new-instance v2, Landroid/security/keystore/UserNotAuthenticatedException;
 
-    invoke-direct {v0}, Landroid/security/keystore/UserNotAuthenticatedException;-><init>()V
+    invoke-direct {v2}, Landroid/security/keystore/UserNotAuthenticatedException;-><init>()V
 
-    return-object v0
+    return-object v2
 
     :sswitch_1
-    new-instance v0, Landroid/security/keystore/KeyExpiredException;
+    new-instance v2, Landroid/security/keystore/KeyExpiredException;
 
-    invoke-direct {v0}, Landroid/security/keystore/KeyExpiredException;-><init>()V
+    invoke-direct {v2}, Landroid/security/keystore/KeyExpiredException;-><init>()V
 
-    return-object v0
+    return-object v2
 
     :sswitch_2
-    new-instance v0, Landroid/security/keystore/KeyNotYetValidException;
+    new-instance v2, Landroid/security/keystore/KeyNotYetValidException;
 
-    invoke-direct {v0}, Landroid/security/keystore/KeyNotYetValidException;-><init>()V
+    invoke-direct {v2}, Landroid/security/keystore/KeyNotYetValidException;-><init>()V
 
-    return-object v0
+    return-object v2
 
     :sswitch_3
-    new-instance v5, Landroid/security/keymaster/KeyCharacteristics;
+    new-instance v7, Landroid/security/keymaster/KeyCharacteristics;
 
-    invoke-direct {v5}, Landroid/security/keymaster/KeyCharacteristics;-><init>()V
+    invoke-direct {v7}, Landroid/security/keymaster/KeyCharacteristics;-><init>()V
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
-    move-object v0, p0
+    move-object/from16 v2, p0
 
-    move-object v1, p1
+    move-object/from16 v3, p1
 
-    move v4, p2
+    move/from16 v6, p2
 
-    invoke-virtual/range {v0 .. v5}, Landroid/security/KeyStore;->getKeyCharacteristics(Ljava/lang/String;Landroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;ILandroid/security/keymaster/KeyCharacteristics;)I
+    invoke-virtual/range {v2 .. v7}, Landroid/security/KeyStore;->getKeyCharacteristics(Ljava/lang/String;Landroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;ILandroid/security/keymaster/KeyCharacteristics;)I
 
-    move-result v8
+    move-result v10
 
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    if-eq v8, v0, :cond_0
+    if-eq v10, v2, :cond_0
 
-    new-instance v0, Ljava/security/InvalidKeyException;
+    new-instance v2, Ljava/security/InvalidKeyException;
 
-    const-string/jumbo v1, "Failed to obtained key characteristics"
+    const-string/jumbo v3, "Failed to obtained key characteristics"
 
-    invoke-static {v8}, Landroid/security/KeyStore;->getKeyStoreException(I)Landroid/security/KeyStoreException;
+    invoke-static {v10}, Landroid/security/KeyStore;->getKeyStoreException(I)Landroid/security/KeyStoreException;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-direct {v0, v1, v2}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v2, v3, v4}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    return-object v0
+    return-object v2
 
     :cond_0
-    const v0, -0x5ffffe0a
+    const v2, -0x5ffffe0a
 
-    invoke-virtual {v5, v0}, Landroid/security/keymaster/KeyCharacteristics;->getUnsignedLongs(I)Ljava/util/List;
+    invoke-virtual {v7, v2}, Landroid/security/keymaster/KeyCharacteristics;->getUnsignedLongs(I)Ljava/util/List;
 
-    move-result-object v9
+    move-result-object v11
 
-    invoke-interface {v9}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {v11}, Ljava/util/List;->isEmpty()Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_1
+    if-eqz v2, :cond_1
 
-    new-instance v0, Landroid/security/keystore/KeyPermanentlyInvalidatedException;
+    new-instance v2, Landroid/security/keystore/KeyPermanentlyInvalidatedException;
 
-    invoke-direct {v0}, Landroid/security/keystore/KeyPermanentlyInvalidatedException;-><init>()V
+    invoke-direct {v2}, Landroid/security/keystore/KeyPermanentlyInvalidatedException;-><init>()V
 
-    return-object v0
+    return-object v2
 
     :cond_1
     invoke-static {}, Landroid/security/GateKeeper;->getSecureUserId()J
 
-    move-result-wide v10
+    move-result-wide v16
 
-    const-wide/16 v0, 0x0
+    const-wide/16 v2, 0x0
 
-    cmp-long v0, v10, v0
+    cmp-long v2, v16, v2
 
-    if-eqz v0, :cond_2
+    if-eqz v2, :cond_2
 
-    invoke-static {v10, v11}, Landroid/security/keymaster/KeymasterArguments;->toUint64(J)Ljava/math/BigInteger;
+    invoke-static/range {v16 .. v17}, Landroid/security/keymaster/KeymasterArguments;->toUint64(J)Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-interface {v9, v0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    invoke-interface {v11, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_2
+    if-eqz v2, :cond_2
 
-    new-instance v0, Landroid/security/keystore/UserNotAuthenticatedException;
+    new-instance v2, Landroid/security/keystore/UserNotAuthenticatedException;
 
-    invoke-direct {v0}, Landroid/security/keystore/UserNotAuthenticatedException;-><init>()V
+    invoke-direct {v2}, Landroid/security/keystore/UserNotAuthenticatedException;-><init>()V
 
-    return-object v0
+    return-object v2
 
     :cond_2
-    invoke-direct {p0}, Landroid/security/KeyStore;->getFingerprintOnlySid()J
+    invoke-direct/range {p0 .. p0}, Landroid/security/KeyStore;->getFingerprintOnlySid()J
 
-    move-result-wide v6
+    move-result-wide v8
 
-    const-wide/16 v0, 0x0
+    const-wide/16 v2, 0x0
 
-    cmp-long v0, v6, v0
+    cmp-long v2, v8, v2
 
-    if-eqz v0, :cond_3
+    if-eqz v2, :cond_3
 
-    invoke-static {v6, v7}, Landroid/security/keymaster/KeymasterArguments;->toUint64(J)Ljava/math/BigInteger;
+    invoke-static {v8, v9}, Landroid/security/keymaster/KeymasterArguments;->toUint64(J)Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-interface {v9, v0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    invoke-interface {v11, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_3
+    if-eqz v2, :cond_3
 
-    new-instance v0, Landroid/security/keystore/UserNotAuthenticatedException;
+    new-instance v2, Landroid/security/keystore/UserNotAuthenticatedException;
 
-    invoke-direct {v0}, Landroid/security/keystore/UserNotAuthenticatedException;-><init>()V
+    invoke-direct {v2}, Landroid/security/keystore/UserNotAuthenticatedException;-><init>()V
 
-    return-object v0
+    return-object v2
 
     :cond_3
-    new-instance v0, Landroid/security/keystore/KeyPermanentlyInvalidatedException;
+    invoke-static {}, Landroid/security/KeyStore;->getApplicationContext()Landroid/content/Context;
 
-    invoke-direct {v0}, Landroid/security/keystore/KeyPermanentlyInvalidatedException;-><init>()V
+    move-result-object v2
 
-    return-object v0
+    invoke-static {v2}, Lcom/samsung/android/camera/iris/SemIrisManager;->getSemIrisManager(Landroid/content/Context;)Lcom/samsung/android/camera/iris/SemIrisManager;
 
-    nop
+    move-result-object v19
+
+    if-eqz v19, :cond_4
+
+    invoke-virtual/range {v19 .. v19}, Lcom/samsung/android/camera/iris/SemIrisManager;->getAuthenticatorId()J
+
+    move-result-wide v14
+
+    :goto_0
+    const-wide/16 v2, 0x0
+
+    cmp-long v2, v14, v2
+
+    if-eqz v2, :cond_5
+
+    invoke-static {v14, v15}, Landroid/security/keymaster/KeymasterArguments;->toUint64(J)Ljava/math/BigInteger;
+
+    move-result-object v2
+
+    invoke-interface {v11, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    const-string/jumbo v2, "KeyStore"
+
+    const-string/jumbo v3, "UserNotAuthenticatedException because of Iris"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v2, Landroid/security/keystore/UserNotAuthenticatedException;
+
+    invoke-direct {v2}, Landroid/security/keystore/UserNotAuthenticatedException;-><init>()V
+
+    return-object v2
+
+    :cond_4
+    const-wide/16 v14, 0x0
+
+    goto :goto_0
+
+    :cond_5
+    invoke-static {}, Landroid/security/KeyStore;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/samsung/android/biometrics/SemBiometricsManager;->getInstance(Landroid/content/Context;)Lcom/samsung/android/biometrics/SemBiometricsManager;
+
+    move-result-object v18
+
+    if-eqz v18, :cond_6
+
+    invoke-virtual/range {v18 .. v18}, Lcom/samsung/android/biometrics/SemBiometricsManager;->getAuthenticatorId()J
+
+    move-result-wide v12
+
+    :goto_1
+    const-wide/16 v2, 0x0
+
+    cmp-long v2, v12, v2
+
+    if-eqz v2, :cond_7
+
+    invoke-static {v12, v13}, Landroid/security/keymaster/KeymasterArguments;->toUint64(J)Ljava/math/BigInteger;
+
+    move-result-object v2
+
+    invoke-interface {v11, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_7
+
+    const-string/jumbo v2, "KeyStore"
+
+    const-string/jumbo v3, "UserNotAuthenticatedException because of intelligent scan"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v2, Landroid/security/keystore/UserNotAuthenticatedException;
+
+    invoke-direct {v2}, Landroid/security/keystore/UserNotAuthenticatedException;-><init>()V
+
+    return-object v2
+
+    :cond_6
+    const-wide/16 v12, 0x0
+
+    goto :goto_1
+
+    :cond_7
+    new-instance v2, Landroid/security/keystore/KeyPermanentlyInvalidatedException;
+
+    invoke-direct {v2}, Landroid/security/keystore/KeyPermanentlyInvalidatedException;-><init>()V
+
+    return-object v2
 
     :sswitch_data_0
     .sparse-switch
@@ -3018,15 +3038,15 @@
 .end method
 
 .method public importKey(Ljava/lang/String;Landroid/security/keymaster/KeymasterArguments;I[BIILandroid/security/keymaster/KeyCharacteristics;)I
-    .locals 12
+    .locals 13
 
-    const-string/jumbo v10, ""
+    const-string/jumbo v11, ""
 
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
+    invoke-static {}, Lcom/samsung/android/security/mdf/MdfUtils;->isMdfEnforced()Z
 
-    move-result v1
+    move-result v10
 
-    if-eqz v1, :cond_0
+    if-eqz v10, :cond_0
 
     const-string/jumbo v1, " (Keystore=%s, alias=%s, uid=%s, requested by %s)"
 
@@ -3066,7 +3086,7 @@
 
     invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
     :cond_0
     :try_start_0
@@ -3076,7 +3096,7 @@
 
     move-object v3, p2
 
-    move v4, p3
+    move/from16 v4, p3
 
     move-object/from16 v5, p4
 
@@ -3088,17 +3108,13 @@
 
     invoke-interface/range {v1 .. v8}, Landroid/security/IKeystoreService;->importKey(Ljava/lang/String;Landroid/security/keymaster/KeymasterArguments;I[BIILandroid/security/keymaster/KeyCharacteristics;)I
 
-    move-result v11
+    move-result v12
 
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
+    if-eqz v10, :cond_1
 
     const/4 v1, 0x1
 
-    if-ne v11, v1, :cond_2
+    if-ne v12, v1, :cond_2
 
     invoke-static {}, Landroid/os/Process;->myPid()I
 
@@ -3122,7 +3138,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -3154,7 +3170,7 @@
 
     :cond_1
     :goto_0
-    return v11
+    return v12
 
     :cond_2
     invoke-static {}, Landroid/os/Process;->myPid()I
@@ -3179,7 +3195,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -3195,7 +3211,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -3232,11 +3248,7 @@
 
     invoke-static {v1, v2, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
+    if-eqz v10, :cond_3
 
     invoke-static {}, Landroid/os/Process;->myPid()I
 
@@ -3260,7 +3272,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -3329,15 +3341,15 @@
 .end method
 
 .method public importKey(Ljava/lang/String;[BII)Z
-    .locals 10
+    .locals 11
 
-    const-string/jumbo v8, ""
+    const-string/jumbo v9, ""
 
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
+    invoke-static {}, Lcom/samsung/android/security/mdf/MdfUtils;->isMdfEnforced()Z
 
-    move-result v0
+    move-result v8
 
-    if-eqz v0, :cond_0
+    if-eqz v8, :cond_0
 
     const-string/jumbo v0, " (Keystore=%s, keyName=%s, uid=%s, requested by %s)"
 
@@ -3375,7 +3387,7 @@
 
     invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
     :cond_0
     :try_start_0
@@ -3383,17 +3395,13 @@
 
     invoke-interface {v0, p1, p2, p3, p4}, Landroid/security/IKeystoreService;->import_key(Ljava/lang/String;[BII)I
 
-    move-result v9
+    move-result v10
 
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
+    if-eqz v8, :cond_1
 
     const/4 v0, 0x1
 
-    if-ne v9, v0, :cond_2
+    if-ne v10, v0, :cond_2
 
     invoke-static {}, Landroid/os/Process;->myPid()I
 
@@ -3417,7 +3425,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -3449,7 +3457,7 @@
     :goto_0
     const/4 v0, 0x1
 
-    if-ne v9, v0, :cond_4
+    if-ne v10, v0, :cond_4
 
     const/4 v0, 0x1
 
@@ -3479,7 +3487,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -3495,7 +3503,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -3530,11 +3538,7 @@
 
     invoke-static {v0, v1, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
+    if-eqz v8, :cond_3
 
     invoke-static {}, Landroid/os/Process;->myPid()I
 
@@ -3558,7 +3562,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -3606,17 +3610,19 @@
 .method public insert(Ljava/lang/String;[BII)I
     .locals 19
 
-    const/4 v4, 0x0
-
-    :try_start_0
     move-object/from16 v0, p0
 
     move/from16 v1, p3
 
-    invoke-direct {v0, v1, v4}, Landroid/security/KeyStore;->getUserId(IZ)I
+    invoke-direct {v0, v1}, Landroid/security/KeyStore;->getUserId(I)I
 
     move-result v18
 
+    invoke-static/range {v18 .. v18}, Landroid/sec/enterprise/auditlog/AuditLog;->isAuditLogEnabledAsUser(I)Z
+
+    move-result v15
+
+    :try_start_0
     move-object/from16 v0, p0
 
     move/from16 v1, p3
@@ -3625,50 +3631,25 @@
 
     move-result-object v16
 
-    invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getInstance()Landroid/sec/enterprise/EnterpriseDeviceManager;
+    move-object/from16 v0, p0
 
-    move-result-object v4
+    move-object/from16 v1, p2
 
-    invoke-virtual {v4}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getCertificatePolicy()Landroid/sec/enterprise/certificate/CertificatePolicy;
+    move/from16 v2, v18
 
-    move-result-object v13
-
-    const/4 v4, 0x0
-
-    move-object/from16 v0, p2
-
-    move/from16 v1, v18
-
-    invoke-virtual {v13, v0, v4, v1}, Landroid/sec/enterprise/certificate/CertificatePolicy;->isCaCertificateTrustedAsUser([BZI)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    move-object/from16 v0, p2
-
-    move/from16 v1, v18
-
-    invoke-virtual {v13, v0, v1}, Landroid/sec/enterprise/certificate/CertificatePolicy;->validateCertificateAtInstallAsUser([BI)I
-
-    move-result v4
-
-    const/4 v5, -0x1
-
-    if-eq v4, v5, :cond_4
-
-    :cond_0
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/String;->isEmpty()Z
+    invoke-direct {v0, v1, v2}, Landroid/security/KeyStore;->isCertificateTrustedByMdm([BI)Z
 
     move-result v4
 
     if-nez v4, :cond_3
 
-    invoke-static/range {v18 .. v18}, Landroid/sec/enterprise/auditlog/AuditLog;->isAuditLogEnabledAsUser(I)Z
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/String;->isEmpty()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-nez v4, :cond_2
+
+    if-eqz v15, :cond_2
 
     move-object/from16 v0, p0
 
@@ -3676,9 +3657,9 @@
 
     invoke-direct {v0, v1}, Landroid/security/KeyStore;->convertFromPem([B)Ljava/util/List;
 
-    move-result-object v14
+    move-result-object v13
 
-    invoke-interface {v14}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v13}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v12
 
@@ -3687,7 +3668,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_2
 
     invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3755,7 +3736,7 @@
 
     move-result-object v5
 
-    if-nez v11, :cond_1
+    if-nez v11, :cond_0
 
     const-string/jumbo v4, "Not available"
 
@@ -3770,7 +3751,7 @@
 
     move-result-object v5
 
-    if-nez v11, :cond_2
+    if-nez v11, :cond_1
 
     const-string/jumbo v4, "Not available"
 
@@ -3806,7 +3787,7 @@
     goto :goto_0
 
     :catch_0
-    move-exception v15
+    move-exception v14
 
     move-object/from16 v0, p0
 
@@ -3820,21 +3801,9 @@
 
     move-result v4
 
-    if-nez v4, :cond_d
+    if-nez v4, :cond_c
 
-    move-object/from16 v0, p0
-
-    move/from16 v1, p3
-
-    invoke-direct {v0, v1}, Landroid/security/KeyStore;->getUserId(I)I
-
-    move-result v4
-
-    invoke-static {v4}, Landroid/sec/enterprise/auditlog/AuditLog;->isAuditLogEnabledAsUser(I)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_d
+    if-eqz v15, :cond_c
 
     move-object/from16 v0, p0
 
@@ -3842,9 +3811,9 @@
 
     invoke-direct {v0, v1}, Landroid/security/KeyStore;->convertFromPem([B)Ljava/util/List;
 
-    move-result-object v14
+    move-result-object v13
 
-    invoke-interface {v14}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v13}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v12
 
@@ -3853,7 +3822,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_d
+    if-eqz v4, :cond_c
 
     invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3921,7 +3890,7 @@
 
     move-result-object v5
 
-    if-nez v11, :cond_b
+    if-nez v11, :cond_a
 
     const-string/jumbo v4, "Not available"
 
@@ -3936,7 +3905,7 @@
 
     move-result-object v5
 
-    if-nez v11, :cond_c
+    if-nez v11, :cond_b
 
     const-string/jumbo v4, "Not available"
 
@@ -3969,7 +3938,7 @@
 
     goto :goto_3
 
-    :cond_1
+    :cond_0
     :try_start_1
     invoke-virtual {v11}, Ljava/security/cert/X509Certificate;->getSubjectDN()Ljava/security/Principal;
 
@@ -3977,14 +3946,14 @@
 
     goto/16 :goto_1
 
-    :cond_2
+    :cond_1
     invoke-virtual {v11}, Ljava/security/cert/X509Certificate;->getIssuerDN()Ljava/security/Principal;
 
     move-result-object v4
 
     goto/16 :goto_2
 
-    :cond_3
+    :cond_2
     const-string/jumbo v4, "KeyStore"
 
     const-string/jumbo v5, "Put not allowed. Untrusted certificate."
@@ -3995,7 +3964,7 @@
 
     return v4
 
-    :cond_4
+    :cond_3
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
@@ -4016,13 +3985,9 @@
 
     move-result v4
 
-    if-nez v4, :cond_a
+    if-nez v4, :cond_9
 
-    invoke-static/range {v18 .. v18}, Landroid/sec/enterprise/auditlog/AuditLog;->isAuditLogEnabledAsUser(I)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_a
+    if-eqz v15, :cond_9
 
     move-object/from16 v0, p0
 
@@ -4030,15 +3995,15 @@
 
     invoke-direct {v0, v1}, Landroid/security/KeyStore;->convertFromPem([B)Ljava/util/List;
 
-    move-result-object v14
+    move-result-object v13
 
     const/4 v4, 0x1
 
     move/from16 v0, v17
 
-    if-ne v0, v4, :cond_7
+    if-ne v0, v4, :cond_6
 
-    invoke-interface {v14}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v13}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v12
 
@@ -4047,7 +4012,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_9
 
     invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4115,7 +4080,7 @@
 
     move-result-object v5
 
-    if-nez v11, :cond_5
+    if-nez v11, :cond_4
 
     const-string/jumbo v4, "Not available"
 
@@ -4130,7 +4095,7 @@
 
     move-result-object v5
 
-    if-nez v11, :cond_6
+    if-nez v11, :cond_5
 
     const-string/jumbo v4, "Not available"
 
@@ -4163,22 +4128,22 @@
 
     goto :goto_6
 
-    :cond_5
+    :cond_4
     invoke-virtual {v11}, Ljava/security/cert/X509Certificate;->getSubjectDN()Ljava/security/Principal;
 
     move-result-object v4
 
     goto :goto_7
 
-    :cond_6
+    :cond_5
     invoke-virtual {v11}, Ljava/security/cert/X509Certificate;->getIssuerDN()Ljava/security/Principal;
 
     move-result-object v4
 
     goto :goto_8
 
-    :cond_7
-    invoke-interface {v14}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    :cond_6
+    invoke-interface {v13}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v12
 
@@ -4187,7 +4152,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_9
 
     invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4255,7 +4220,7 @@
 
     move-result-object v5
 
-    if-nez v11, :cond_8
+    if-nez v11, :cond_7
 
     const-string/jumbo v4, "Not available"
 
@@ -4270,7 +4235,7 @@
 
     move-result-object v5
 
-    if-nez v11, :cond_9
+    if-nez v11, :cond_8
 
     const-string/jumbo v4, "Not available"
 
@@ -4303,14 +4268,14 @@
 
     goto :goto_9
 
-    :cond_8
+    :cond_7
     invoke-virtual {v11}, Ljava/security/cert/X509Certificate;->getSubjectDN()Ljava/security/Principal;
 
     move-result-object v4
 
     goto :goto_a
 
-    :cond_9
+    :cond_8
     invoke-virtual {v11}, Ljava/security/cert/X509Certificate;->getIssuerDN()Ljava/security/Principal;
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
@@ -4319,29 +4284,29 @@
 
     goto :goto_b
 
-    :cond_a
+    :cond_9
     return v17
 
-    :cond_b
+    :cond_a
     invoke-virtual {v11}, Ljava/security/cert/X509Certificate;->getSubjectDN()Ljava/security/Principal;
 
     move-result-object v4
 
     goto/16 :goto_4
 
-    :cond_c
+    :cond_b
     invoke-virtual {v11}, Ljava/security/cert/X509Certificate;->getIssuerDN()Ljava/security/Principal;
 
     move-result-object v4
 
     goto/16 :goto_5
 
-    :cond_d
+    :cond_c
     const-string/jumbo v4, "KeyStore"
 
     const-string/jumbo v5, "Cannot connect to keystore"
 
-    invoke-static {v4, v5, v15}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v4, v5, v14}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     const/4 v4, 0x4
 
@@ -4534,6 +4499,76 @@
     goto :goto_0
 .end method
 
+.method public list()[Ljava/lang/String;
+    .locals 1
+
+    const-string/jumbo v0, ""
+
+    invoke-virtual {p0, v0}, Landroid/security/KeyStore;->list(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public list(I)[Ljava/lang/String;
+    .locals 3
+
+    packed-switch p1, :pswitch_data_0
+
+    const-string/jumbo v0, "KeyStore"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "list_knox : unknown mode : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x0
+
+    return-object v0
+
+    :pswitch_0
+    const-string/jumbo v0, ""
+
+    invoke-virtual {p0, v0}, Landroid/security/KeyStore;->list(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    :pswitch_1
+    const-string/jumbo v0, "*"
+
+    const-string/jumbo v1, "*"
+
+    invoke-virtual {p0, v0, v1}, Landroid/security/KeyStore;->list(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
+.end method
+
 .method public list(Ljava/lang/String;)[Ljava/lang/String;
     .locals 1
 
@@ -4553,6 +4588,90 @@
     iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
     invoke-interface {v1, p1, p2}, Landroid/security/IKeystoreService;->list(Ljava/lang/String;I)[Ljava/lang/String;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "KeyStore"
+
+    const-string/jumbo v2, "Cannot connect to keystore"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 v1, 0x0
+
+    return-object v1
+.end method
+
+.method public list(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
+
+    invoke-interface {v1, p1, p2}, Landroid/security/IKeystoreService;->listFromDb(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "KeyStore"
+
+    const-string/jumbo v2, "Cannot connect to keystore"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 v1, 0x0
+
+    return-object v1
+.end method
+
+.method public listAccessorsFromDb(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
+
+    invoke-interface {v1, p1, p2}, Landroid/security/IKeystoreService;->listAccessorsFromDb(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "KeyStore"
+
+    const-string/jumbo v2, "Cannot connect to keystore"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 v1, 0x0
+
+    return-object v1
+.end method
+
+.method public listPrivilegedAccessors()[Ljava/lang/String;
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
+
+    invoke-interface {v1}, Landroid/security/IKeystoreService;->listPrivilegedAccessors()[Ljava/lang/String;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -4626,7 +4745,7 @@
     return v2
 .end method
 
-.method public migrateMDFPPKeystore(ILjava/lang/String;Z)Z
+.method public modifyCcmCsrAccessorsBasedOnUSRPKEY(Ljava/lang/String;Ljava/lang/String;)Z
     .locals 5
 
     const/4 v2, 0x1
@@ -4636,46 +4755,46 @@
     :try_start_0
     iget-object v4, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
-    if-eqz p3, :cond_0
-
-    move v1, v2
-
-    :goto_0
-    invoke-interface {v4, p2, p1, v1}, Landroid/security/IKeystoreService;->migrate_MDFPP_keystore(Ljava/lang/String;II)I
-
-    move-result v1
-
-    if-ne v1, v2, :cond_1
-
-    sget-object v1, Landroid/security/KeyStore;->mNeedToCheckOldKeyStore:Landroid/util/ArrayMap;
-
-    invoke-static {p1}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v3
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v4
-
-    invoke-virtual {v1, v3, v4}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v4, p1, p2}, Landroid/security/IKeystoreService;->modifyCcmCsrAccessorsBasedOnUSRPKEY(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    move-result v1
+
+    if-ne v1, v2, :cond_0
+
+    :goto_0
     return v2
 
     :cond_0
-    move v1, v3
+    move v2, v3
 
     goto :goto_0
 
-    :cond_1
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "KeyStore"
+
+    const-string/jumbo v4, "Cannot connect to keystore"
+
+    invoke-static {v2, v4, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
     return v3
+.end method
+
+.method public onDeviceOffBody()V
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
+
+    invoke-interface {v1}, Landroid/security/IKeystoreService;->onDeviceOffBody()I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
 
     :catch_0
     move-exception v0
@@ -4686,13 +4805,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    new-instance v1, Ljava/lang/AssertionError;
-
-    iget v2, p0, Landroid/security/KeyStore;->mError:I
-
-    invoke-direct {v1, v2}, Ljava/lang/AssertionError;-><init>(I)V
-
-    throw v1
+    goto :goto_0
 .end method
 
 .method public onUserAdded(I)V
@@ -4712,31 +4825,6 @@
     iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
     invoke-interface {v1, p1, p2}, Landroid/security/IKeystoreService;->onUserAdded(II)I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "KeyStore"
-
-    const-string/jumbo v2, "Cannot connect to keystore"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-.end method
-
-.method public onUserAddedMDFPP(II)V
-    .locals 3
-
-    :try_start_0
-    iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
-
-    invoke-interface {v1, p1, p2}, Landroid/security/IKeystoreService;->onUserAdded_MDFPP(II)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -4861,6 +4949,34 @@
     goto :goto_0
 .end method
 
+.method public removeAccessorFromPrivilegedList(Ljava/lang/String;)Z
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
+
+    invoke-interface {v1, p1}, Landroid/security/IKeystoreService;->removeAccessorFromPrivilegedList(Ljava/lang/String;)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "KeyStore"
+
+    const-string/jumbo v2, "Cannot connect to keystore"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
 .method public reset()Z
     .locals 4
 
@@ -4899,53 +5015,33 @@
     return v2
 .end method
 
-.method public resetMDFPP(I)Z
-    .locals 6
-
-    const/4 v5, 0x1
-
-    const/4 v4, 0x0
-
-    :try_start_0
-    iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
-
-    invoke-interface {v1, p1}, Landroid/security/IKeystoreService;->reset_MDFPP(I)I
-
-    move-result v1
-
-    if-ne v1, v5, :cond_0
-
-    sget-object v1, Landroid/security/KeyStore;->mNeedToCheckOldKeyStore:Landroid/util/ArrayMap;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
+.method public retrieveUniqueAlias(Ljava/lang/String;)Ljava/lang/String;
+    .locals 4
 
     const/4 v3, 0x0
 
-    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    const-string/jumbo v1, "*"
 
-    move-result-object v3
+    invoke-virtual {p0, v1, p1}, Landroid/security/KeyStore;->list(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
 
-    invoke-virtual {v1, v2, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object v0
 
-    return v5
+    if-eqz v0, :cond_0
+
+    array-length v1, v0
+
+    const/4 v2, 0x1
+
+    if-ne v1, v2, :cond_0
+
+    const/4 v1, 0x0
+
+    aget-object v1, v0, v1
+
+    return-object v1
 
     :cond_0
-    return v4
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "KeyStore"
-
-    const-string/jumbo v2, "Cannot connect to keystore"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    return v4
+    return-object v3
 .end method
 
 .method public sign(Ljava/lang/String;[B)[B
@@ -5089,24 +5185,22 @@
 .end method
 
 .method public unlock(ILjava/lang/String;)Z
-    .locals 5
-
-    const/4 v3, 0x0
-
-    const/4 v2, 0x1
+    .locals 4
 
     :try_start_0
-    iget-object v4, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
+    iget-object v2, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
-    invoke-interface {v4, p1, p2}, Landroid/security/IKeystoreService;->unlock(ILjava/lang/String;)I
+    invoke-interface {v2, p1, p2}, Landroid/security/IKeystoreService;->unlock(ILjava/lang/String;)I
 
-    move-result v4
+    move-result v2
 
-    iput v4, p0, Landroid/security/KeyStore;->mError:I
+    iput v2, p0, Landroid/security/KeyStore;->mError:I
 
-    iget v4, p0, Landroid/security/KeyStore;->mError:I
+    iget v2, p0, Landroid/security/KeyStore;->mError:I
 
-    if-ne v4, v2, :cond_1
+    const/4 v3, 0x1
+
+    if-ne v2, v3, :cond_1
 
     const/4 v1, 0x1
 
@@ -5115,44 +5209,36 @@
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v4
+    move-result v2
 
-    invoke-static {v4}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-static {v2}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v4
+    move-result v2
 
-    invoke-direct {p0, v4}, Landroid/security/KeyStore;->refreshRollbackUserKeystore(I)V
-
-    :cond_0
-    iget v4, p0, Landroid/security/KeyStore;->mError:I
+    invoke-direct {p0, v2}, Landroid/security/KeyStore;->refreshRollbackUserKeystore(I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-ne v4, v2, :cond_2
-
-    :goto_1
-    return v2
+    :cond_0
+    return v1
 
     :cond_1
     const/4 v1, 0x0
 
     goto :goto_0
 
-    :cond_2
-    move v2, v3
-
-    goto :goto_1
-
     :catch_0
     move-exception v0
 
     const-string/jumbo v2, "KeyStore"
 
-    const-string/jumbo v4, "Cannot connect to keystore"
+    const-string/jumbo v3, "Cannot connect to keystore"
 
-    invoke-static {v2, v4, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    return v3
+    const/4 v2, 0x0
+
+    return v2
 .end method
 
 .method public unlock(Ljava/lang/String;)Z

@@ -10,6 +10,8 @@
 
 .field public static final NOTIFICATION_KEY_IS_UPDATE:Ljava/lang/String; = "isUpdate"
 
+.field public static final NOTIFICATION_KEY_VISIBILITY:Ljava/lang/String; = "visibility"
+
 
 # direct methods
 .method public constructor <init>()V
@@ -29,6 +31,9 @@
 .end method
 
 .method public abstract hideForWakeLockByWindow(Ljava/lang/String;Ljava/lang/String;)V
+.end method
+
+.method public abstract setSuppressed(I)V
 .end method
 
 .method public abstract showForNotification(Landroid/service/notification/StatusBarNotification;Landroid/os/Bundle;)Z

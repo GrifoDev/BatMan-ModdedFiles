@@ -71,7 +71,7 @@
 
     move-object/from16 v25, v0
 
-    invoke-virtual/range {v25 .. v25}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    invoke-virtual/range {v25 .. v25}, Landroid/widget/SemExpandableListView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v25
 
@@ -87,7 +87,7 @@
 
     move-object/from16 v25, v0
 
-    invoke-virtual/range {v25 .. v25}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual/range {v25 .. v25}, Landroid/widget/SemExpandableListView;->getChildCount()I
 
     move-result v9
 
@@ -134,7 +134,7 @@
 
     move-object/from16 v25, v0
 
-    invoke-virtual/range {v25 .. v25}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
+    invoke-virtual/range {v25 .. v25}, Landroid/widget/SemExpandableListView;->getFirstVisiblePosition()I
 
     move-result v14
 
@@ -166,7 +166,7 @@
 
     sub-int v26, v11, v14
 
-    invoke-virtual/range {v25 .. v26}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual/range {v25 .. v26}, Landroid/widget/SemExpandableListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v10
 
@@ -326,7 +326,7 @@
 
     move-object/from16 v27, v0
 
-    invoke-virtual/range {v27 .. v27}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual/range {v27 .. v27}, Landroid/widget/SemExpandableListView;->getChildCount()I
 
     move-result v27
 
@@ -390,7 +390,7 @@
 
     move/from16 v1, v16
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemExpandableListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v8
 
@@ -549,7 +549,7 @@
 
     move-object/from16 v0, v25
 
-    iget-object v0, v0, Landroid/widget/AbsListView;->mSelectorRect:Landroid/graphics/Rect;
+    iget-object v0, v0, Landroid/widget/SemExpandableListView;->mSelectorRect:Landroid/graphics/Rect;
 
     move-object/from16 v25, v0
 
@@ -822,7 +822,7 @@
 
     move-object/from16 v1, v25
 
-    invoke-virtual {v0, v1}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-virtual {v0, v1}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     invoke-virtual/range {v19 .. v19}, Landroid/animation/AnimatorSet;->start()V
 

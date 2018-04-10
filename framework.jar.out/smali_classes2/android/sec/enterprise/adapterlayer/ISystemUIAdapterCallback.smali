@@ -31,6 +31,14 @@
     .end annotation
 .end method
 
+.method public abstract setApplicationNameControlEnabled(Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setBluetoothAllowed(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -103,6 +111,14 @@
     .end annotation
 .end method
 
+.method public abstract setMultifactorAuthEnabled(Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setNFCAllowed(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -128,6 +144,14 @@
 .end method
 
 .method public abstract setPasswordLockDelay(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setPasswordVisibilityEnabled(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

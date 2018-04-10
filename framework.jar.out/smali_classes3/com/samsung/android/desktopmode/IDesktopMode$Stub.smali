@@ -26,47 +26,57 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.samsung.android.desktopmode.IDesktopMode"
 
-.field static final TRANSACTION_getDesktopModeKillPolicy:I = 0x8
+.field static final TRANSACTION_commandDesktopModeService:I = 0x1a
 
-.field static final TRANSACTION_getDesktopModeState:I = 0xc
+.field static final TRANSACTION_getDesktopModeKillPolicy:I = 0xe
 
-.field static final TRANSACTION_getLaunchModePolicyList:I = 0x9
+.field static final TRANSACTION_getDesktopModeState:I = 0x3
 
-.field static final TRANSACTION_getLaunchPolicyForPackage:I = 0x7
+.field static final TRANSACTION_getLaunchPolicyForPackage:I = 0xc
 
-.field static final TRANSACTION_getLaunchPolicyRunnable:I = 0xb
+.field static final TRANSACTION_getLaunchPolicyRunnable:I = 0xd
 
-.field static final TRANSACTION_getModeChangePolicy:I = 0xa
+.field static final TRANSACTION_isAllowed:I = 0xb
 
-.field static final TRANSACTION_isDefaultDisplayBlocked:I = 0x12
+.field static final TRANSACTION_isDefaultDisplayBlocked:I = 0x14
 
 .field static final TRANSACTION_isDesktopDockConnected:I = 0x1
 
+.field static final TRANSACTION_isDesktopDockConnectedOrForced:I = 0xa
+
 .field static final TRANSACTION_isDesktopMode:I = 0x2
 
-.field static final TRANSACTION_isDesktopModeAvailable:I = 0xd
+.field static final TRANSACTION_isDesktopModeAvailable:I = 0xf
 
-.field static final TRANSACTION_isDesktopModeAvailableEx:I = 0xe
+.field static final TRANSACTION_isDesktopModeAvailableEx:I = 0x10
 
-.field static final TRANSACTION_isDesktopModeEnablingOrEnabled:I = 0xf
+.field static final TRANSACTION_isDesktopModeEnablingOrEnabled:I = 0x11
 
-.field static final TRANSACTION_isDesktopModeForPreparing:I = 0x10
+.field static final TRANSACTION_isDesktopModeForPreparing:I = 0x12
 
-.field static final TRANSACTION_isDesktopModeLoadingScreenShowing:I = 0x11
+.field static final TRANSACTION_isDesktopModeLoadingScreenShowing:I = 0x13
 
-.field static final TRANSACTION_isExternalDisplayConnected:I = 0x14
+.field static final TRANSACTION_isExternalDisplayConnected:I = 0x16
 
-.field static final TRANSACTION_isModeChangePending:I = 0x13
+.field static final TRANSACTION_isForcedInternalScreenModeEnabled:I = 0x17
 
-.field static final TRANSACTION_registerStateCallback:I = 0x3
+.field static final TRANSACTION_isModeChangePending:I = 0x15
 
-.field static final TRANSACTION_setDefaultDisplayOn:I = 0x6
+.field static final TRANSACTION_registerBlocker:I = 0x6
 
-.field static final TRANSACTION_setHdmiSettings:I = 0x15
+.field static final TRANSACTION_registerDesktopLauncher:I = 0x19
 
-.field static final TRANSACTION_setTouchScreenOn:I = 0x5
+.field static final TRANSACTION_registerDesktopModeListener:I = 0x5
 
-.field static final TRANSACTION_unregisterStateCallback:I = 0x4
+.field static final TRANSACTION_registerEventListener:I = 0x4
+
+.field static final TRANSACTION_setHdmiSettings:I = 0x18
+
+.field static final TRANSACTION_unregisterBlocker:I = 0x9
+
+.field static final TRANSACTION_unregisterDesktopModeListener:I = 0x8
+
+.field static final TRANSACTION_unregisterEventListener:I = 0x7
 
 
 # direct methods
@@ -77,7 +87,7 @@
 
     const-string/jumbo v0, "com.samsung.android.desktopmode.IDesktopMode"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -125,7 +135,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 11
+    .locals 18
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -134,481 +144,588 @@
 
     sparse-switch p1, :sswitch_data_0
 
-    invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-super/range {p0 .. p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v10
+    move-result v17
 
-    return v10
+    return v17
 
     :sswitch_0
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
 
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    move-object/from16 v0, p3
 
-    const/4 v10, 0x1
+    move-object/from16 v1, v17
 
-    return v10
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    const/16 v17, 0x1
+
+    return v17
 
     :sswitch_1
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isDesktopDockConnected()Z
+    move-object/from16 v1, v17
 
-    move-result v9
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isDesktopDockConnected()Z
 
-    if-eqz v9, :cond_0
+    move-result v16
 
-    const/4 v10, 0x1
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v16, :cond_0
+
+    const/16 v17, 0x1
 
     :goto_0
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
+    move-object/from16 v0, p3
 
-    const/4 v10, 0x1
+    move/from16 v1, v17
 
-    return v10
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v17, 0x1
+
+    return v17
 
     :cond_0
-    const/4 v10, 0x0
+    const/16 v17, 0x0
 
     goto :goto_0
 
     :sswitch_2
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isDesktopMode()Z
+    move-object/from16 v1, v17
 
-    move-result v9
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isDesktopMode()Z
 
-    if-eqz v9, :cond_1
+    move-result v16
 
-    const/4 v10, 0x1
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v16, :cond_1
+
+    const/16 v17, 0x1
 
     :goto_1
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
+    move-object/from16 v0, p3
 
-    const/4 v10, 0x1
+    move/from16 v1, v17
 
-    return v10
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v17, 0x1
+
+    return v17
 
     :cond_1
-    const/4 v10, 0x0
+    const/16 v17, 0x0
 
     goto :goto_1
 
     :sswitch_3
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+    move-object/from16 v1, v17
 
-    move-result-object v10
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-static {v10}, Lcom/samsung/android/desktopmode/IDesktopModeCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/desktopmode/IDesktopModeCallback;
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->getDesktopModeState()Lcom/samsung/android/desktopmode/SemDesktopModeState;
 
-    move-result-object v1
+    move-result-object v15
 
-    invoke-virtual {p0, v1}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->registerStateCallback(Lcom/samsung/android/desktopmode/IDesktopModeCallback;)Z
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    move-result v9
+    if-eqz v15, :cond_2
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    const/16 v17, 0x1
 
-    if-eqz v9, :cond_2
+    move-object/from16 v0, p3
 
-    const/4 v10, 0x1
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v17, 0x1
+
+    move-object/from16 v0, p3
+
+    move/from16 v1, v17
+
+    invoke-virtual {v15, v0, v1}, Lcom/samsung/android/desktopmode/SemDesktopModeState;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_2
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
+    const/16 v17, 0x1
 
-    const/4 v10, 0x1
-
-    return v10
+    return v17
 
     :cond_2
-    const/4 v10, 0x0
+    const/16 v17, 0x0
+
+    move-object/from16 v0, p3
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_2
 
     :sswitch_4
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+    move-object/from16 v1, v17
 
-    move-result-object v10
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-static {v10}, Lcom/samsung/android/desktopmode/IDesktopModeCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/desktopmode/IDesktopModeCallback;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v1
+    move-result-object v17
 
-    invoke-virtual {p0, v1}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->unregisterStateCallback(Lcom/samsung/android/desktopmode/IDesktopModeCallback;)Z
+    invoke-static/range {v17 .. v17}, Lcom/samsung/android/desktopmode/IEventListener$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/desktopmode/IEventListener;
 
-    move-result v9
+    move-result-object v7
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    if-eqz v9, :cond_3
+    move-result-object v11
 
-    const/4 v10, 0x1
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v7, v11}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->registerEventListener(Lcom/samsung/android/desktopmode/IEventListener;Ljava/lang/String;)Z
+
+    move-result v16
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v16, :cond_3
+
+    const/16 v17, 0x1
 
     :goto_3
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
+    move-object/from16 v0, p3
 
-    const/4 v10, 0x1
+    move/from16 v1, v17
 
-    return v10
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v17, 0x1
+
+    return v17
 
     :cond_3
-    const/4 v10, 0x0
+    const/16 v17, 0x0
 
     goto :goto_3
 
     :sswitch_5
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    move-object/from16 v1, v17
 
-    move-result v10
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    if-eqz v10, :cond_4
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    const/4 v3, 0x1
+    move-result-object v17
+
+    invoke-static/range {v17 .. v17}, Lcom/samsung/android/desktopmode/IDesktopModeListener$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/desktopmode/IDesktopModeListener;
+
+    move-result-object v6
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v11
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v6, v11}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->registerDesktopModeListener(Lcom/samsung/android/desktopmode/IDesktopModeListener;Ljava/lang/String;)Z
+
+    move-result v16
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v16, :cond_4
+
+    const/16 v17, 0x1
 
     :goto_4
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    move-object/from16 v0, p3
 
-    move-result-object v5
+    move/from16 v1, v17
 
-    invoke-virtual {p0, v3, v5}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->setTouchScreenOn(ZLjava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    const/16 v17, 0x1
 
-    const/4 v10, 0x1
-
-    return v10
+    return v17
 
     :cond_4
-    const/4 v3, 0x0
+    const/16 v17, 0x0
 
     goto :goto_4
 
     :sswitch_6
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    move-object/from16 v1, v17
 
-    move-result v10
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    if-eqz v10, :cond_5
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    const/4 v3, 0x1
+    move-result-object v17
+
+    invoke-static/range {v17 .. v17}, Lcom/samsung/android/desktopmode/IDesktopModeBlocker$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/desktopmode/IDesktopModeBlocker;
+
+    move-result-object v4
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v11
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4, v11}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->registerBlocker(Lcom/samsung/android/desktopmode/IDesktopModeBlocker;Ljava/lang/String;)Z
+
+    move-result v16
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v16, :cond_5
+
+    const/16 v17, 0x1
 
     :goto_5
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    move-object/from16 v0, p3
 
-    move-result-object v5
+    move/from16 v1, v17
 
-    invoke-virtual {p0, v3, v5}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->setDefaultDisplayOn(ZLjava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    const/16 v17, 0x1
 
-    const/4 v10, 0x1
-
-    return v10
+    return v17
 
     :cond_5
-    const/4 v3, 0x0
+    const/16 v17, 0x0
 
     goto :goto_5
 
     :sswitch_7
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    move-object/from16 v1, v17
 
-    move-result v10
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    if-eqz v10, :cond_6
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    sget-object v10, Landroid/content/pm/ApplicationInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+    move-result-object v17
 
-    invoke-interface {v10, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-static/range {v17 .. v17}, Lcom/samsung/android/desktopmode/IEventListener$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/desktopmode/IEventListener;
 
-    move-result-object v0
+    move-result-object v7
 
-    check-cast v0, Landroid/content/pm/ApplicationInfo;
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v7}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->unregisterEventListener(Lcom/samsung/android/desktopmode/IEventListener;)Z
+
+    move-result v16
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v16, :cond_6
+
+    const/16 v17, 0x1
 
     :goto_6
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    move-object/from16 v0, p3
 
-    move-result v10
+    move/from16 v1, v17
 
-    if-eqz v10, :cond_7
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    sget-object v10, Landroid/content/pm/ActivityInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+    const/16 v17, 0x1
 
-    invoke-interface {v10, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/content/pm/ActivityInfo;
-
-    :goto_7
-    invoke-virtual {p0, v0, v4}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->getLaunchPolicyForPackage(Landroid/content/pm/ApplicationInfo;Landroid/content/pm/ActivityInfo;)I
-
-    move-result v7
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v10, 0x1
-
-    return v10
+    return v17
 
     :cond_6
-    const/4 v0, 0x0
+    const/16 v17, 0x0
 
     goto :goto_6
 
+    :sswitch_8
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v17
+
+    invoke-static/range {v17 .. v17}, Lcom/samsung/android/desktopmode/IDesktopModeListener$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/desktopmode/IDesktopModeListener;
+
+    move-result-object v6
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v6}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->unregisterDesktopModeListener(Lcom/samsung/android/desktopmode/IDesktopModeListener;)Z
+
+    move-result v16
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v16, :cond_7
+
+    const/16 v17, 0x1
+
+    :goto_7
+    move-object/from16 v0, p3
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v17, 0x1
+
+    return v17
+
     :cond_7
-    const/4 v4, 0x0
+    const/16 v17, 0x0
 
     goto :goto_7
 
-    :sswitch_8
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
+    :sswitch_9
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->getDesktopModeKillPolicy()Landroid/os/Bundle;
+    move-object/from16 v1, v17
 
-    move-result-object v8
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    if-eqz v8, :cond_8
+    move-result-object v17
 
-    const/4 v10, 0x1
+    invoke-static/range {v17 .. v17}, Lcom/samsung/android/desktopmode/IDesktopModeBlocker$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/desktopmode/IDesktopModeBlocker;
 
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
+    move-result-object v4
 
-    const/4 v10, 0x1
+    move-object/from16 v0, p0
 
-    invoke-virtual {v8, p3, v10}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-virtual {v0, v4}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->unregisterBlocker(Lcom/samsung/android/desktopmode/IDesktopModeBlocker;)Z
+
+    move-result v16
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v16, :cond_8
+
+    const/16 v17, 0x1
 
     :goto_8
-    const/4 v10, 0x1
+    move-object/from16 v0, p3
 
-    return v10
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v17, 0x1
+
+    return v17
 
     :cond_8
-    const/4 v10, 0x0
-
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
+    const/16 v17, 0x0
 
     goto :goto_8
 
-    :sswitch_9
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
+    :sswitch_a
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->getLaunchModePolicyList()Landroid/os/Bundle;
+    move-object/from16 v1, v17
 
-    move-result-object v8
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isDesktopDockConnectedOrForced()Z
 
-    if-eqz v8, :cond_9
+    move-result v16
 
-    const/4 v10, 0x1
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
+    if-eqz v16, :cond_9
 
-    const/4 v10, 0x1
-
-    invoke-virtual {v8, p3, v10}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
+    const/16 v17, 0x1
 
     :goto_9
-    const/4 v10, 0x1
+    move-object/from16 v0, p3
 
-    return v10
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v17, 0x1
+
+    return v17
 
     :cond_9
-    const/4 v10, 0x0
-
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
+    const/16 v17, 0x0
 
     goto :goto_9
 
-    :sswitch_a
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
-
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v2}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->getModeChangePolicy(Ljava/lang/String;)I
-
-    move-result v7
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v10, 0x1
-
-    return v10
-
     :sswitch_b
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    move-object/from16 v1, v17
 
-    move-result v10
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    if-eqz v10, :cond_a
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    sget-object v10, Landroid/content/pm/ApplicationInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+    move-result v17
 
-    invoke-interface {v10, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    if-eqz v17, :cond_a
 
-    move-result-object v0
-
-    check-cast v0, Landroid/content/pm/ApplicationInfo;
+    const/4 v8, 0x1
 
     :goto_a
-    invoke-virtual {p0, v0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->getLaunchPolicyRunnable(Landroid/content/pm/ApplicationInfo;)Z
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v9
+    move-result v17
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    if-eqz v17, :cond_b
 
-    if-eqz v9, :cond_b
-
-    const/4 v10, 0x1
+    const/4 v12, 0x1
 
     :goto_b
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
+    move-object/from16 v0, p0
 
-    const/4 v10, 0x1
+    invoke-virtual {v0, v8, v12}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isAllowed(ZZ)Z
 
-    return v10
+    move-result v16
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v16, :cond_c
+
+    const/16 v17, 0x1
+
+    :goto_c
+    move-object/from16 v0, p3
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v17, 0x1
+
+    return v17
 
     :cond_a
-    const/4 v0, 0x0
+    const/4 v8, 0x0
 
     goto :goto_a
 
     :cond_b
-    const/4 v10, 0x0
+    const/4 v12, 0x0
 
     goto :goto_b
 
-    :sswitch_c
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
-
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->getDesktopModeState()I
-
-    move-result v7
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v10, 0x1
-
-    return v10
-
-    :sswitch_d
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
-
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isDesktopModeAvailable()Z
-
-    move-result v9
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v9, :cond_c
-
-    const/4 v10, 0x1
-
-    :goto_c
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v10, 0x1
-
-    return v10
-
     :cond_c
-    const/4 v10, 0x0
+    const/16 v17, 0x0
 
     goto :goto_c
 
-    :sswitch_e
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
+    :sswitch_c
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    move-object/from16 v1, v17
 
-    move-result v10
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    if-eqz v10, :cond_d
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    const/4 v3, 0x1
+    move-result v17
+
+    if-eqz v17, :cond_d
+
+    sget-object v17, Landroid/content/pm/ApplicationInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p2
+
+    invoke-interface {v0, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/content/pm/ApplicationInfo;
 
     :goto_d
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v10
+    move-result v17
 
-    if-eqz v10, :cond_e
+    if-eqz v17, :cond_e
 
-    const/4 v6, 0x1
+    sget-object v17, Landroid/content/pm/ActivityInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p2
+
+    invoke-interface {v0, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Landroid/content/pm/ActivityInfo;
 
     :goto_e
-    invoke-virtual {p0, v3, v6}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isDesktopModeAvailableEx(ZZ)Z
+    move-object/from16 v0, p0
 
-    move-result v9
+    invoke-virtual {v0, v3, v10}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->getLaunchPolicyForPackage(Landroid/content/pm/ApplicationInfo;Landroid/content/pm/ActivityInfo;)I
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    move-result v13
 
-    if-eqz v9, :cond_f
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    const/4 v10, 0x1
+    move-object/from16 v0, p3
 
-    :goto_f
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v13}, Landroid/os/Parcel;->writeInt(I)V
 
-    const/4 v10, 0x1
+    const/16 v17, 0x1
 
-    return v10
+    return v17
 
     :cond_d
     const/4 v3, 0x0
@@ -616,203 +733,571 @@
     goto :goto_d
 
     :cond_e
-    const/4 v6, 0x0
+    const/4 v10, 0x0
 
     goto :goto_e
 
+    :sswitch_d
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v17
+
+    if-eqz v17, :cond_f
+
+    sget-object v17, Landroid/content/pm/ApplicationInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p2
+
+    invoke-interface {v0, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/content/pm/ApplicationInfo;
+
+    :goto_f
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v3}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->getLaunchPolicyRunnable(Landroid/content/pm/ApplicationInfo;)Z
+
+    move-result v16
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v16, :cond_10
+
+    const/16 v17, 0x1
+
+    :goto_10
+    move-object/from16 v0, p3
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v17, 0x1
+
+    return v17
+
     :cond_f
-    const/4 v10, 0x0
+    const/4 v3, 0x0
 
     goto :goto_f
 
-    :sswitch_f
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
-
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isDesktopModeEnablingOrEnabled()Z
-
-    move-result v9
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v9, :cond_10
-
-    const/4 v10, 0x1
-
-    :goto_10
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v10, 0x1
-
-    return v10
-
     :cond_10
-    const/4 v10, 0x0
+    const/16 v17, 0x0
 
     goto :goto_10
 
-    :sswitch_10
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
+    :sswitch_e
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isDesktopModeForPreparing()Z
+    move-object/from16 v1, v17
 
-    move-result v9
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->getDesktopModeKillPolicy()Landroid/os/Bundle;
 
-    if-eqz v9, :cond_11
+    move-result-object v14
 
-    const/4 v10, 0x1
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v14, :cond_11
+
+    const/16 v17, 0x1
+
+    move-object/from16 v0, p3
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v17, 0x1
+
+    move-object/from16 v0, p3
+
+    move/from16 v1, v17
+
+    invoke-virtual {v14, v0, v1}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_11
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
+    const/16 v17, 0x1
 
-    const/4 v10, 0x1
-
-    return v10
+    return v17
 
     :cond_11
-    const/4 v10, 0x0
+    const/16 v17, 0x0
+
+    move-object/from16 v0, p3
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_11
 
-    :sswitch_11
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
+    :sswitch_f
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isDesktopModeLoadingScreenShowing()Z
+    move-object/from16 v1, v17
 
-    move-result v9
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isDesktopModeAvailable()Z
 
-    if-eqz v9, :cond_12
+    move-result v16
 
-    const/4 v10, 0x1
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v16, :cond_12
+
+    const/16 v17, 0x1
 
     :goto_12
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
+    move-object/from16 v0, p3
 
-    const/4 v10, 0x1
+    move/from16 v1, v17
 
-    return v10
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v17, 0x1
+
+    return v17
 
     :cond_12
-    const/4 v10, 0x0
+    const/16 v17, 0x0
 
     goto :goto_12
 
-    :sswitch_12
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
+    :sswitch_10
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isDefaultDisplayBlocked()Z
+    move-object/from16 v1, v17
 
-    move-result v9
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    if-eqz v9, :cond_13
+    move-result v17
 
-    const/4 v10, 0x1
+    if-eqz v17, :cond_13
+
+    const/4 v8, 0x1
 
     :goto_13
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    const/4 v10, 0x1
+    move-result v17
 
-    return v10
+    if-eqz v17, :cond_14
+
+    const/4 v12, 0x1
+
+    :goto_14
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v8, v12}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isDesktopModeAvailableEx(ZZ)Z
+
+    move-result v16
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v16, :cond_15
+
+    const/16 v17, 0x1
+
+    :goto_15
+    move-object/from16 v0, p3
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v17, 0x1
+
+    return v17
 
     :cond_13
-    const/4 v10, 0x0
+    const/4 v8, 0x0
 
     goto :goto_13
 
-    :sswitch_13
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
-
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isModeChangePending()Z
-
-    move-result v9
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v9, :cond_14
-
-    const/4 v10, 0x1
-
-    :goto_14
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v10, 0x1
-
-    return v10
-
     :cond_14
-    const/4 v10, 0x0
+    const/4 v12, 0x0
 
     goto :goto_14
 
-    :sswitch_14
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
-
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isExternalDisplayConnected()Z
-
-    move-result v9
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v9, :cond_15
-
-    const/4 v10, 0x1
-
-    :goto_15
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v10, 0x1
-
-    return v10
-
     :cond_15
-    const/4 v10, 0x0
+    const/16 v17, 0x0
 
     goto :goto_15
 
-    :sswitch_15
-    const-string/jumbo v10, "com.samsung.android.desktopmode.IDesktopMode"
+    :sswitch_11
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    move-object/from16 v1, v17
 
-    move-result v10
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    if-eqz v10, :cond_16
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isDesktopModeEnablingOrEnabled()Z
 
-    const/4 v3, 0x1
+    move-result v16
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v16, :cond_16
+
+    const/16 v17, 0x1
 
     :goto_16
-    invoke-virtual {p0, v3}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->setHdmiSettings(Z)V
+    move-object/from16 v0, p3
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    move/from16 v1, v17
 
-    const/4 v10, 0x1
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    return v10
+    const/16 v17, 0x1
+
+    return v17
 
     :cond_16
-    const/4 v3, 0x0
+    const/16 v17, 0x0
 
     goto :goto_16
+
+    :sswitch_12
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isDesktopModeForPreparing()Z
+
+    move-result v16
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v16, :cond_17
+
+    const/16 v17, 0x1
+
+    :goto_17
+    move-object/from16 v0, p3
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v17, 0x1
+
+    return v17
+
+    :cond_17
+    const/16 v17, 0x0
+
+    goto :goto_17
+
+    :sswitch_13
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isDesktopModeLoadingScreenShowing()Z
+
+    move-result v16
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v16, :cond_18
+
+    const/16 v17, 0x1
+
+    :goto_18
+    move-object/from16 v0, p3
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v17, 0x1
+
+    return v17
+
+    :cond_18
+    const/16 v17, 0x0
+
+    goto :goto_18
+
+    :sswitch_14
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isDefaultDisplayBlocked()Z
+
+    move-result v16
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v16, :cond_19
+
+    const/16 v17, 0x1
+
+    :goto_19
+    move-object/from16 v0, p3
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v17, 0x1
+
+    return v17
+
+    :cond_19
+    const/16 v17, 0x0
+
+    goto :goto_19
+
+    :sswitch_15
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isModeChangePending()Z
+
+    move-result v16
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v16, :cond_1a
+
+    const/16 v17, 0x1
+
+    :goto_1a
+    move-object/from16 v0, p3
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v17, 0x1
+
+    return v17
+
+    :cond_1a
+    const/16 v17, 0x0
+
+    goto :goto_1a
+
+    :sswitch_16
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isExternalDisplayConnected()Z
+
+    move-result v16
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v16, :cond_1b
+
+    const/16 v17, 0x1
+
+    :goto_1b
+    move-object/from16 v0, p3
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v17, 0x1
+
+    return v17
+
+    :cond_1b
+    const/16 v17, 0x0
+
+    goto :goto_1b
+
+    :sswitch_17
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->isForcedInternalScreenModeEnabled()Z
+
+    move-result v16
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v16, :cond_1c
+
+    const/16 v17, 0x1
+
+    :goto_1c
+    move-object/from16 v0, p3
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v17, 0x1
+
+    return v17
+
+    :cond_1c
+    const/16 v17, 0x0
+
+    goto :goto_1c
+
+    :sswitch_18
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v17
+
+    if-eqz v17, :cond_1d
+
+    const/4 v8, 0x1
+
+    :goto_1d
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v8}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->setHdmiSettings(Z)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/16 v17, 0x1
+
+    return v17
+
+    :cond_1d
+    const/4 v8, 0x0
+
+    goto :goto_1d
+
+    :sswitch_19
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v17
+
+    invoke-static/range {v17 .. v17}, Lcom/samsung/android/desktopmode/IDesktopModeLauncher$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/desktopmode/IDesktopModeLauncher;
+
+    move-result-object v5
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v5}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->registerDesktopLauncher(Lcom/samsung/android/desktopmode/IDesktopModeLauncher;)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/16 v17, 0x1
+
+    return v17
+
+    :sswitch_1a
+    const-string/jumbo v17, "com.samsung.android.desktopmode.IDesktopMode"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v9
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v2, v9}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->commandDesktopModeService(II)Z
+
+    move-result v16
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v16, :cond_1e
+
+    const/16 v17, 0x1
+
+    :goto_1e
+    move-object/from16 v0, p3
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v17, 0x1
+
+    return v17
+
+    :cond_1e
+    const/16 v17, 0x0
+
+    goto :goto_1e
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -837,6 +1322,11 @@
         0x13 -> :sswitch_13
         0x14 -> :sswitch_14
         0x15 -> :sswitch_15
+        0x16 -> :sswitch_16
+        0x17 -> :sswitch_17
+        0x18 -> :sswitch_18
+        0x19 -> :sswitch_19
+        0x1a -> :sswitch_1a
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

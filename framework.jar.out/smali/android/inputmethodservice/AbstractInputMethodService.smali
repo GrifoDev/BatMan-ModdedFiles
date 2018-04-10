@@ -54,6 +54,12 @@
     return-void
 .end method
 
+.method public exposeContent(Landroid/view/inputmethod/InputContentInfo;Landroid/view/inputmethod/InputConnection;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public getKeyDispatcherState()Landroid/view/KeyEvent$DispatcherState;
     .locals 1
 

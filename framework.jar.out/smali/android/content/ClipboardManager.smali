@@ -690,60 +690,60 @@
 .end method
 
 .method public setPrimaryClip(Landroid/content/ClipData;)V
-    .locals 7
+    .locals 5
 
     if-nez p1, :cond_0
 
     return-void
 
     :cond_0
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
     :try_start_0
-    invoke-virtual {p1, v4}, Landroid/content/ClipData;->prepareToLeaveProcess(Z)V
+    invoke-virtual {p1, v3}, Landroid/content/ClipData;->prepareToLeaveProcess(Z)V
 
     invoke-static {}, Landroid/content/ClipboardManager;->getService()Landroid/content/IClipboard;
 
+    move-result-object v3
+
+    iget-object v4, p0, Landroid/content/ClipboardManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+
     move-result-object v4
 
-    iget-object v5, p0, Landroid/content/ClipboardManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v5}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-interface {v4, p1, v5}, Landroid/content/IClipboard;->setPrimaryClip(Landroid/content/ClipData;Ljava/lang/String;)V
+    invoke-interface {v3, p1, v4}, Landroid/content/IClipboard;->setPrimaryClip(Landroid/content/ClipData;Ljava/lang/String;)V
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v0
 
-    const/4 v3, -0x1
+    const/4 v2, -0x1
 
     invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v4
+    move-result v3
 
-    invoke-static {v4}, Lcom/samsung/android/knox/SemPersonaManager;->isBBCContainer(I)Z
+    invoke-static {v3}, Lcom/samsung/android/knox/SemPersonaManager;->isBBCContainer(I)Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_2
+    if-eqz v3, :cond_2
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_0
     invoke-static {}, Landroid/content/ClipboardManager;->getServiceEx()Landroid/sec/clipboard/IClipboardService;
 
-    move-result-object v4
+    move-result-object v3
 
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_1
 
     invoke-static {}, Landroid/content/ClipboardManager;->getServiceEx()Landroid/sec/clipboard/IClipboardService;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-interface {v4, p1, v3}, Landroid/sec/clipboard/IClipboardService;->addClip(Landroid/content/ClipData;I)V
+    invoke-interface {v3, p1, v2}, Landroid/sec/clipboard/IClipboardService;->addClip(Landroid/content/ClipData;I)V
 
     :cond_1
     :goto_1
@@ -752,36 +752,16 @@
     :cond_2
     invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
     :try_end_0
-    .catch Landroid/os/TransactionTooLargeException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v3
+    move-result v2
 
     goto :goto_0
 
     :catch_0
-    move-exception v2
-
-    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_1
-
-    :catch_1
     move-exception v1
 
-    iget-object v4, p0, Landroid/content/ClipboardManager;->mContext:Landroid/content/Context;
-
-    const v5, 0x1040629
-
-    const/4 v6, 0x0
-
-    invoke-static {v4, v5, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/widget/Toast;->show()V
-
-    invoke-virtual {v1}, Landroid/os/TransactionTooLargeException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_1
 .end method

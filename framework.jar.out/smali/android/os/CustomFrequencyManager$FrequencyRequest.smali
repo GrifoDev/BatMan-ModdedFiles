@@ -627,7 +627,7 @@
 
     iget v1, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mType:I
 
-    const/16 v2, 0x11
+    const/16 v2, 0x12
 
     if-gt v1, v2, :cond_2
 

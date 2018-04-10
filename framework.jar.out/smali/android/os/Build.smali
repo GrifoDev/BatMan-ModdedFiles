@@ -41,15 +41,19 @@
 
 .field public static final ID:Ljava/lang/String;
 
+.field public static final IS_CONTAINER:Z
+
 .field public static final IS_DEBUGGABLE:Z
 
 .field public static final IS_EMULATOR:Z
 
-.field private static final IS_SECURE:Z
+.field public static final IS_ENG:Z
 
-.field public static final IS_SYSTEM_SECURE:Z
+.field public static final IS_TREBLE_ENABLED:Z
 
-.field private static final IS_TRANSLATION_ASSISTANT_ENABLED:Z
+.field public static final IS_USER:Z
+
+.field public static final IS_USERDEBUG:Z
 
 .field public static final MANUFACTURER:Ljava/lang/String;
 
@@ -65,6 +69,9 @@
 .end field
 
 .field public static final SERIAL:Ljava/lang/String;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final SUPPORTED_32_BIT_ABIS:[Ljava/lang/String;
 
@@ -83,18 +90,6 @@
 .field public static final UNKNOWN:Ljava/lang/String; = "unknown"
 
 .field public static final USER:Ljava/lang/String;
-
-.field public static renovateDream2Device:Z
-
-.field public static renovateDreamDevice:Z
-
-.field public static renovateGreatDevice:Z
-
-.field public static renovateHero2Device:Z
-
-.field public static renovateHeroDevice:Z
-
-.field public static renovateHeroSeries:Z
 
 
 # direct methods
@@ -124,8 +119,6 @@
     const/4 v2, 0x1
 
     const/4 v3, 0x0
-
-    invoke-static {}, Landroid/os/Build;->getRenovateSetup()V
 
     const-string/jumbo v1, "ro.build.id"
 
@@ -229,7 +222,7 @@
 
     sput-boolean v1, Landroid/os/Build;->IS_EMULATOR:Z
 
-    const-string/jumbo v1, "ro.serialno"
+    const-string/jumbo v1, "no.such.thing"
 
     invoke-static {v1}, Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -315,6 +308,14 @@
 
     sput-object v1, Landroid/os/Build;->FINGERPRINT:Ljava/lang/String;
 
+    const-string/jumbo v1, "ro.treble.enabled"
+
+    invoke-static {v1, v3}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v1
+
+    sput-boolean v1, Landroid/os/Build;->IS_TREBLE_ENABLED:Z
+
     const-string/jumbo v1, "ro.build.date.utc"
 
     invoke-static {v1}, Landroid/os/Build;->getLong(Ljava/lang/String;)J
@@ -356,44 +357,43 @@
     :goto_2
     sput-boolean v1, Landroid/os/Build;->IS_DEBUGGABLE:Z
 
-    const-string/jumbo v1, "ro.secure"
+    const-string/jumbo v1, "eng"
 
-    invoke-static {v1, v2}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+    sget-object v4, Landroid/os/Build;->TYPE:Ljava/lang/String;
 
-    move-result v1
-
-    if-nez v1, :cond_3
-
-    move v1, v2
-
-    :goto_3
-    sput-boolean v1, Landroid/os/Build;->IS_SECURE:Z
-
-    const-string/jumbo v1, "persist.translation.assistant"
-
-    invoke-static {v1, v3}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-ne v1, v2, :cond_4
+    sput-boolean v1, Landroid/os/Build;->IS_ENG:Z
 
-    move v1, v2
+    const-string/jumbo v1, "userdebug"
 
-    :goto_4
-    sput-boolean v1, Landroid/os/Build;->IS_TRANSLATION_ASSISTANT_ENABLED:Z
+    sget-object v4, Landroid/os/Build;->TYPE:Ljava/lang/String;
 
-    sget-boolean v1, Landroid/os/Build;->IS_DEBUGGABLE:Z
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v1, :cond_5
+    move-result v1
 
-    sget-boolean v1, Landroid/os/Build;->IS_SECURE:Z
+    sput-boolean v1, Landroid/os/Build;->IS_USERDEBUG:Z
 
-    if-eqz v1, :cond_5
+    const-string/jumbo v1, "user"
 
-    sget-boolean v1, Landroid/os/Build;->IS_TRANSLATION_ASSISTANT_ENABLED:Z
+    sget-object v4, Landroid/os/Build;->TYPE:Ljava/lang/String;
 
-    :goto_5
-    sput-boolean v1, Landroid/os/Build;->IS_SYSTEM_SECURE:Z
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    sput-boolean v1, Landroid/os/Build;->IS_USER:Z
+
+    const-string/jumbo v1, "ro.boot.container"
+
+    invoke-static {v1, v3}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v1
+
+    sput-boolean v1, Landroid/os/Build;->IS_CONTAINER:Z
 
     const-string/jumbo v1, "ro.permission_review_required"
 
@@ -401,9 +401,9 @@
 
     move-result v1
 
-    if-ne v1, v2, :cond_6
+    if-ne v1, v2, :cond_3
 
-    :goto_6
+    :goto_3
     sput-boolean v2, Landroid/os/Build;->PERMISSIONS_REVIEW_REQUIRED:Z
 
     return-void
@@ -411,14 +411,14 @@
     :cond_0
     sget-object v0, Landroid/os/Build;->SUPPORTED_32_BIT_ABIS:[Ljava/lang/String;
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_1
     const-string/jumbo v1, ""
 
     sput-object v1, Landroid/os/Build;->CPU_ABI2:Ljava/lang/String;
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_2
     move v1, v3
@@ -426,24 +426,9 @@
     goto :goto_2
 
     :cond_3
-    move v1, v3
-
-    goto :goto_3
-
-    :cond_4
-    move v1, v3
-
-    goto :goto_4
-
-    :cond_5
-    move v1, v3
-
-    goto :goto_5
-
-    :cond_6
     move v2, v3
 
-    goto :goto_6
+    goto :goto_3
 .end method
 
 .method public constructor <init>()V
@@ -671,162 +656,36 @@
     return-object v0
 .end method
 
-.method public static getRenovateSetup()V
-    .locals 5
+.method public static getSerial()Ljava/lang/String;
+    .locals 3
 
-    const/4 v3, 0x1
+    const-string/jumbo v2, "device_identifiers"
 
-    const/4 v4, 0x0
+    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    sput-boolean v4, Landroid/os/Build;->renovateGreatDevice:Z
+    move-result-object v2
 
-    sput-boolean v4, Landroid/os/Build;->renovateHeroSeries:Z
-
-    sput-boolean v4, Landroid/os/Build;->renovateHero2Device:Z
-
-    sput-boolean v4, Landroid/os/Build;->renovateHeroDevice:Z
-
-    sput-boolean v4, Landroid/os/Build;->renovateDream2Device:Z
-
-    const-string/jumbo v1, "ro.chipname"
-
-    invoke-static {v1}, Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2}, Landroid/os/IDeviceIdentifiersPolicyService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IDeviceIdentifiersPolicyService;
 
     move-result-object v1
 
-    const-string/jumbo v2, "exynos8890"
+    :try_start_0
+    invoke-interface {v1}, Landroid/os/IDeviceIdentifiersPolicyService;->getSerial()Ljava/lang/String;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v2
 
-    move-result v1
+    return-object v2
 
-    if-nez v1, :cond_0
+    :catch_0
+    move-exception v0
 
-    sput-boolean v4, Landroid/os/Build;->renovateHeroSeries:Z
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
-    goto :goto_0
+    const-string/jumbo v2, "unknown"
 
-    :cond_0
-    sput-boolean v3, Landroid/os/Build;->renovateHeroSeries:Z
-
-    :goto_0
-    const-string/jumbo v1, "batman.id"
-
-    invoke-static {v1}, Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "hero2"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    sput-boolean v4, Landroid/os/Build;->renovateHero2Device:Z
-
-    goto :goto_1
-
-    :cond_1
-    sput-boolean v3, Landroid/os/Build;->renovateHero2Device:Z
-
-    goto :goto_5
-
-    :goto_1
-    const-string/jumbo v1, "batman.id"
-
-    invoke-static {v1}, Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "hero"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    sput-boolean v4, Landroid/os/Build;->renovateHeroDevice:Z
-
-    goto :goto_2
-
-    :cond_2
-    sput-boolean v3, Landroid/os/Build;->renovateHeroDevice:Z
-
-    goto :goto_5
-
-    :goto_2
-    const-string/jumbo v1, "batman.id"
-
-    invoke-static {v1}, Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "dream"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_3
-
-    sput-boolean v4, Landroid/os/Build;->renovateDreamDevice:Z
-
-    goto :goto_3
-
-    :cond_3
-    sput-boolean v3, Landroid/os/Build;->renovateDreamDevice:Z
-
-    goto :goto_5
-
-    :goto_3
-    const-string/jumbo v1, "batman.id"
-
-    invoke-static {v1}, Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "dream2"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_4
-
-    sput-boolean v4, Landroid/os/Build;->renovateDream2Device:Z
-
-    goto :goto_4
-
-    :cond_4
-    sput-boolean v3, Landroid/os/Build;->renovateDream2Device:Z
-
-    :goto_4
-    const-string/jumbo v1, "batman.id"
-
-    invoke-static {v1}, Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "great"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_5
-
-    sput-boolean v4, Landroid/os/Build;->renovateGreatDevice:Z
-
-    goto :goto_5
-
-    :cond_5
-    sput-boolean v3, Landroid/os/Build;->renovateGreatDevice:Z
-
-    :goto_5
-    return-void
+    return-object v2
 .end method
 
 .method private static getString(Ljava/lang/String;)Ljava/lang/String;
@@ -869,128 +728,172 @@
 .end method
 
 .method public static isBuildConsistent()Z
-    .locals 11
+    .locals 13
 
-    const/4 v9, 0x1
+    const/4 v8, 0x1
 
-    const/4 v10, 0x0
+    const/4 v9, 0x0
 
-    const-string/jumbo v7, "eng"
+    sget-boolean v10, Landroid/os/Build;->IS_ENG:Z
 
-    sget-object v8, Landroid/os/Build;->TYPE:Ljava/lang/String;
+    if-eqz v10, :cond_0
 
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_0
-
-    return v9
+    return v8
 
     :cond_0
-    const-string/jumbo v7, "ro.build.fingerprint"
+    sget-boolean v10, Landroid/os/Build;->IS_TREBLE_ENABLED:Z
 
-    invoke-static {v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    if-eqz v10, :cond_3
 
-    move-result-object v5
+    new-array v10, v9, [Ljava/lang/String;
 
-    const-string/jumbo v7, "ro.vendor.build.fingerprint"
+    invoke-static {v10}, Landroid/os/VintfObject;->verify([Ljava/lang/String;)I
 
-    invoke-static {v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    const-string/jumbo v10, "Build"
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v12, "Vendor interface is incompatible, error="
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-static {v5}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    if-nez v5, :cond_2
+
+    :goto_0
+    return v8
+
+    :cond_2
+    move v8, v9
+
+    goto :goto_0
+
+    :cond_3
+    const-string/jumbo v10, "ro.build.fingerprint"
+
+    invoke-static {v10}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
-    const-string/jumbo v7, "ro.bootimage.build.fingerprint"
+    const-string/jumbo v10, "ro.vendor.build.fingerprint"
 
-    invoke-static {v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v10}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v7
+
+    const-string/jumbo v10, "ro.bootimage.build.fingerprint"
+
+    invoke-static {v10}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v7, "ro.build.expect.bootloader"
+    const-string/jumbo v10, "ro.build.expect.bootloader"
 
-    invoke-static {v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v10}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    const-string/jumbo v7, "ro.bootloader"
+    const-string/jumbo v10, "ro.bootloader"
 
-    invoke-static {v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v10}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    const-string/jumbo v7, "ro.build.expect.baseband"
+    const-string/jumbo v10, "ro.build.expect.baseband"
 
-    invoke-static {v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v10}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    const-string/jumbo v7, "gsm.version.baseband"
+    const-string/jumbo v10, "gsm.version.baseband"
 
-    invoke-static {v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v10}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_1
-
-    const-string/jumbo v7, "Build"
-
-    const-string/jumbo v8, "Required ro.build.fingerprint is empty!"
-
-    invoke-static {v7, v8}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v10
-
-    :cond_1
     invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v7
+    move-result v10
 
-    if-nez v7, :cond_2
+    if-eqz v10, :cond_4
 
-    invoke-static {v5, v6}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    const-string/jumbo v8, "Build"
 
-    move-result v7
+    const-string/jumbo v10, "Required ro.build.fingerprint is empty!"
 
-    if-nez v7, :cond_2
+    invoke-static {v8, v10}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v7, "Build"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "Mismatched fingerprints; system reported "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, " but vendor reported "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v10
-
-    :cond_2
     return v9
+
+    :cond_4
+    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_5
+
+    invoke-static {v6, v7}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_5
+
+    const-string/jumbo v8, "Build"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "Mismatched fingerprints; system reported "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, " but vendor reported "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v8, v10}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v9
+
+    :cond_5
+    return v8
 .end method

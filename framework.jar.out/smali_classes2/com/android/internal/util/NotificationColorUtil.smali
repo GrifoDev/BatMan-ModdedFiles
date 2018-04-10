@@ -14,6 +14,12 @@
 # static fields
 .field private static final DEBUG:Z = false
 
+.field public static final OPACITY_TARGET_NOTI_BACKGROUND:I = 0x1
+
+.field public static final OPACITY_TARGET_NOTI_NORMAL:I = 0x0
+
+.field public static final OPACITY_TARGET_NOTI_SELECTED:I = 0x2
+
 .field private static final TAG:Ljava/lang/String; = "NotificationColorUtil"
 
 .field private static sInstance:Lcom/android/internal/util/NotificationColorUtil;
@@ -37,7 +43,7 @@
     .end annotation
 .end field
 
-.field private mGrayscaleIconMaxSize:I
+.field private final mGrayscaleIconMaxSize:I
 
 .field private final mImageUtils:Lcom/android/internal/util/ImageUtils;
 
@@ -87,6 +93,84 @@
     return-void
 .end method
 
+.method public static calculateContrast(II)D
+    .locals 2
+
+    invoke-static {p0, p1}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->calculateContrast(II)D
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
+.method public static calculateLuminance(I)D
+    .locals 2
+
+    invoke-static {p0}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->calculateLuminance(I)D
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
+.method public static changeColorLightness(II)I
+    .locals 8
+
+    const/4 v7, 0x0
+
+    invoke-static {}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->getTempDouble3Array()[D
+
+    move-result-object v6
+
+    invoke-static {p0, v6}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->colorToLAB(I[D)V
+
+    const-wide/high16 v0, 0x4059000000000000L    # 100.0
+
+    aget-wide v2, v6, v7
+
+    int-to-double v4, p1
+
+    add-double/2addr v2, v4
+
+    invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->min(DD)D
+
+    move-result-wide v0
+
+    const-wide/16 v2, 0x0
+
+    invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->max(DD)D
+
+    move-result-wide v0
+
+    aput-wide v0, v6, v7
+
+    aget-wide v0, v6, v7
+
+    const/4 v2, 0x1
+
+    aget-wide v2, v6, v2
+
+    const/4 v4, 0x2
+
+    aget-wide v4, v6, v4
+
+    invoke-static/range {v0 .. v5}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->LABToColor(DDD)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static compositeColors(II)I
+    .locals 1
+
+    invoke-static {p0, p1}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->compositeColors(II)I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method private static contrastChange(III)Ljava/lang/String;
     .locals 4
 
@@ -127,7 +211,7 @@
     return-object v0
 .end method
 
-.method private static ensureLargeTextContrast(II)I
+.method public static ensureLargeTextContrast(II)I
     .locals 3
 
     const-wide/high16 v0, 0x4008000000000000L    # 3.0
@@ -175,7 +259,108 @@
     return v0
 .end method
 
-.method private static findContrastColor(IIZD)I
+.method public static ensureTextContrastOnBlack(I)I
+    .locals 4
+
+    const-wide/high16 v0, 0x4028000000000000L    # 12.0
+
+    const/high16 v2, -0x1000000
+
+    const/4 v3, 0x1
+
+    invoke-static {p0, v2, v3, v0, v1}, Lcom/android/internal/util/NotificationColorUtil;->findContrastColorAgainstDark(IIZD)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static findAlphaToMeetContrast(IID)I
+    .locals 12
+
+    move v3, p0
+
+    move v2, p1
+
+    invoke-static {p0, p1}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->calculateContrast(II)D
+
+    move-result-wide v10
+
+    cmpl-double v10, v10, p2
+
+    if-ltz v10, :cond_0
+
+    return p0
+
+    :cond_0
+    invoke-static {p0}, Landroid/graphics/Color;->alpha(I)I
+
+    move-result v9
+
+    invoke-static {p0}, Landroid/graphics/Color;->red(I)I
+
+    move-result v8
+
+    invoke-static {p0}, Landroid/graphics/Color;->green(I)I
+
+    move-result v4
+
+    invoke-static {p0}, Landroid/graphics/Color;->blue(I)I
+
+    move-result v1
+
+    move v7, v9
+
+    const/16 v5, 0xff
+
+    const/4 v6, 0x0
+
+    :goto_0
+    const/16 v10, 0xf
+
+    if-ge v6, v10, :cond_2
+
+    sub-int v10, v5, v7
+
+    if-lez v10, :cond_2
+
+    add-int v10, v7, v5
+
+    div-int/lit8 v0, v10, 0x2
+
+    invoke-static {v0, v8, v4, v1}, Landroid/graphics/Color;->argb(IIII)I
+
+    move-result v3
+
+    invoke-static {v3, p1}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->calculateContrast(II)D
+
+    move-result-wide v10
+
+    cmpl-double v10, v10, p2
+
+    if-lez v10, :cond_1
+
+    move v5, v0
+
+    :goto_1
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    move v7, v0
+
+    goto :goto_1
+
+    :cond_2
+    invoke-static {v5, v8, v4, v1}, Landroid/graphics/Color;->argb(IIII)I
+
+    move-result v10
+
+    return v10
+.end method
+
+.method public static findContrastColor(IIZD)I
     .locals 21
 
     if-eqz p2, :cond_0
@@ -312,6 +497,135 @@
     return v10
 .end method
 
+.method public static findContrastColorAgainstDark(IIZD)I
+    .locals 13
+
+    if-eqz p2, :cond_0
+
+    move v1, p0
+
+    :goto_0
+    if-eqz p2, :cond_1
+
+    move v0, p1
+
+    :goto_1
+    invoke-static {v1, v0}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->calculateContrast(II)D
+
+    move-result-wide v8
+
+    cmpl-double v7, v8, p3
+
+    if-ltz v7, :cond_2
+
+    return p0
+
+    :cond_0
+    move v1, p1
+
+    goto :goto_0
+
+    :cond_1
+    move v0, p0
+
+    goto :goto_1
+
+    :cond_2
+    const/4 v7, 0x3
+
+    new-array v3, v7, [F
+
+    if-eqz p2, :cond_3
+
+    move v7, v1
+
+    :goto_2
+    invoke-static {v7, v3}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->colorToHSL(I[F)V
+
+    const/4 v7, 0x2
+
+    aget v6, v3, v7
+
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    const/4 v4, 0x0
+
+    :goto_3
+    const/16 v7, 0xf
+
+    if-ge v4, v7, :cond_6
+
+    sub-float v7, v2, v6
+
+    float-to-double v8, v7
+
+    const-wide v10, 0x3ee4f8b588e368f1L    # 1.0E-5
+
+    cmpl-double v7, v8, v10
+
+    if-lez v7, :cond_6
+
+    add-float v7, v6, v2
+
+    const/high16 v8, 0x40000000    # 2.0f
+
+    div-float v5, v7, v8
+
+    const/4 v7, 0x2
+
+    aput v5, v3, v7
+
+    if-eqz p2, :cond_4
+
+    invoke-static {v3}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->HSLToColor([F)I
+
+    move-result v1
+
+    :goto_4
+    invoke-static {v1, v0}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->calculateContrast(II)D
+
+    move-result-wide v8
+
+    cmpl-double v7, v8, p3
+
+    if-lez v7, :cond_5
+
+    move v2, v5
+
+    :goto_5
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_3
+
+    :cond_3
+    move v7, v0
+
+    goto :goto_2
+
+    :cond_4
+    invoke-static {v3}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->HSLToColor([F)I
+
+    move-result v0
+
+    goto :goto_4
+
+    :cond_5
+    move v6, v5
+
+    goto :goto_5
+
+    :cond_6
+    if-eqz p2, :cond_7
+
+    :goto_6
+    return v1
+
+    :cond_7
+    move v1, v0
+
+    goto :goto_6
+.end method
+
 .method public static getInstance(Landroid/content/Context;)Lcom/android/internal/util/NotificationColorUtil;
     .locals 2
 
@@ -345,6 +659,214 @@
     monitor-exit v1
 
     throw v0
+.end method
+
+.method public static getOpacityOnKeyguard(FIZ)F
+    .locals 4
+
+    const v2, 0x3f555326    # 0.8333f
+
+    const/4 v3, 0x0
+
+    cmpl-float v1, p0, v3
+
+    if-nez v1, :cond_0
+
+    return v3
+
+    :cond_0
+    const/4 v0, 0x0
+
+    if-nez p2, :cond_2
+
+    packed-switch p1, :pswitch_data_0
+
+    move v0, p0
+
+    :cond_1
+    :goto_0
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->min(FF)F
+
+    move-result v1
+
+    return v1
+
+    :pswitch_0
+    move v0, p0
+
+    goto :goto_0
+
+    :pswitch_1
+    const/high16 v1, 0x3f900000    # 1.125f
+
+    mul-float/2addr v1, p0
+
+    const v2, 0x3bcccccd    # 0.00625f
+
+    sub-float v0, v1, v2
+
+    cmpg-float v1, v0, v3
+
+    if-gez v1, :cond_1
+
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :pswitch_2
+    const/high16 v1, 0x3fe00000    # 1.75f
+
+    mul-float/2addr v1, p0
+
+    const v2, 0x3e59999a    # 0.2125f
+
+    add-float v0, v1, v2
+
+    goto :goto_0
+
+    :cond_2
+    packed-switch p1, :pswitch_data_1
+
+    move v0, p0
+
+    goto :goto_0
+
+    :pswitch_3
+    mul-float v1, v2, p0
+
+    const v2, 0x3e8ccccd    # 0.275f
+
+    add-float v0, v1, v2
+
+    goto :goto_0
+
+    :pswitch_4
+    mul-float v1, v2, p0
+
+    const v2, 0x3ccccccd    # 0.025f
+
+    add-float v0, v1, v2
+
+    goto :goto_0
+
+    :pswitch_5
+    const/high16 v1, 0x3f600000    # 0.875f
+
+    mul-float/2addr v1, p0
+
+    const v2, 0x3f1b3333
+
+    add-float v0, v1, v2
+
+    goto :goto_0
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+    .end packed-switch
+
+    :pswitch_data_1
+    .packed-switch 0x0
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+    .end packed-switch
+.end method
+
+.method public static getShiftedColor(II)I
+    .locals 8
+
+    const/4 v7, 0x0
+
+    invoke-static {}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->getTempDouble3Array()[D
+
+    move-result-object v6
+
+    invoke-static {p0, v6}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->colorToLAB(I[D)V
+
+    aget-wide v0, v6, v7
+
+    const-wide/high16 v2, 0x4010000000000000L    # 4.0
+
+    cmpl-double v0, v0, v2
+
+    if-ltz v0, :cond_0
+
+    const-wide/16 v0, 0x0
+
+    aget-wide v2, v6, v7
+
+    int-to-double v4, p1
+
+    sub-double/2addr v2, v4
+
+    invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->max(DD)D
+
+    move-result-wide v0
+
+    aput-wide v0, v6, v7
+
+    :goto_0
+    aget-wide v0, v6, v7
+
+    const/4 v2, 0x1
+
+    aget-wide v2, v6, v2
+
+    const/4 v4, 0x2
+
+    aget-wide v4, v6, v4
+
+    invoke-static/range {v0 .. v5}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->LABToColor(DDD)I
+
+    move-result v0
+
+    return v0
+
+    :cond_0
+    const-wide/high16 v0, 0x4059000000000000L    # 100.0
+
+    aget-wide v2, v6, v7
+
+    int-to-double v4, p1
+
+    add-double/2addr v2, v4
+
+    invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->min(DD)D
+
+    move-result-wide v0
+
+    aput-wide v0, v6, v7
+
+    goto :goto_0
+.end method
+
+.method public static isColorLight(I)Z
+    .locals 4
+
+    invoke-static {p0}, Lcom/android/internal/util/NotificationColorUtil;->calculateLuminance(I)D
+
+    move-result-wide v0
+
+    const-wide/high16 v2, 0x3fe0000000000000L    # 0.5
+
+    cmpl-double v0, v0, v2
+
+    if-lez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method private processColor(I)I
@@ -470,41 +992,12 @@
     return-object p1
 .end method
 
-.method public static resolveColor(Landroid/content/Context;I)I
-    .locals 7
+.method public static resolveActionBarColor(Landroid/content/Context;I)I
+    .locals 1
 
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    if-nez p1, :cond_0
 
-    move-result-object v4
-
-    const-string/jumbo v5, "unlock_notification_colors"
-
-    const/4 v6, 0x0
-
-    invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "notification_icon_color"
-
-    const v3, -0xa38b80
-
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v0
-
-    goto :goto_0
-
-    :cond_0
-    if-nez p1, :cond_1
-
-    const v0, 0x1060052
+    const v0, 0x10600f1
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getColor(I)I
 
@@ -512,129 +1005,345 @@
 
     return v0
 
-    :cond_1
-    return p1
+    :cond_0
+    const/4 v0, 0x7
 
-    :goto_0
-    return v0
-.end method
-
-.method public static resolveContrastColor(Landroid/content/Context;I)I
-    .locals 5
-
-    invoke-static {p0, p1}, Lcom/android/internal/util/NotificationColorUtil;->resolveColor(Landroid/content/Context;I)I
-
-    move-result v3
-
-    const v4, 0x1060054
-
-    invoke-virtual {p0, v4}, Landroid/content/Context;->getColor(I)I
+    invoke-static {p1, v0}, Lcom/android/internal/util/NotificationColorUtil;->getShiftedColor(II)I
 
     move-result v0
 
-    const v4, 0x1060050
+    return v0
+.end method
 
-    invoke-virtual {p0, v4}, Landroid/content/Context;->getColor(I)I
+.method public static resolveAmbientColor(Landroid/content/Context;I)I
+    .locals 2
+
+    invoke-static {p0, p1}, Lcom/android/internal/util/NotificationColorUtil;->resolveColor(Landroid/content/Context;I)I
+
+    move-result v1
+
+    move v0, v1
+
+    invoke-static {v1}, Lcom/android/internal/util/NotificationColorUtil;->ensureTextContrastOnBlack(I)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static resolveColor(Landroid/content/Context;I)I
+    .locals 1
+
+    if-nez p1, :cond_0
+
+    const v0, 0x10600f5
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getColor(I)I
+
+    move-result v0
+
+    return v0
+
+    :cond_0
+    return p1
+.end method
+
+.method public static resolveContrastColor(Landroid/content/Context;II)I
+    .locals 4
+
+    invoke-static {p0, p1}, Lcom/android/internal/util/NotificationColorUtil;->resolveColor(Landroid/content/Context;I)I
 
     move-result v2
 
-    move v1, v3
+    const v3, 0x10600f1
 
-    invoke-static {v3, v0}, Lcom/android/internal/util/NotificationColorUtil;->ensureLargeTextContrast(II)I
+    invoke-virtual {p0, v3}, Landroid/content/Context;->getColor(I)I
+
+    move-result v0
+
+    move v1, v2
+
+    invoke-static {v2, v0}, Lcom/android/internal/util/NotificationColorUtil;->ensureLargeTextContrast(II)I
 
     move-result v1
 
-    invoke-static {v1, v2}, Lcom/android/internal/util/NotificationColorUtil;->ensureTextContrast(II)I
+    invoke-static {v1, p2}, Lcom/android/internal/util/NotificationColorUtil;->ensureTextContrast(II)I
 
     move-result v1
 
-    if-eq v1, v3, :cond_0
+    return v1
+.end method
+
+.method public static resolvePrimaryColor(Landroid/content/Context;I)I
+    .locals 2
+
+    invoke-static {p1}, Lcom/android/internal/util/NotificationColorUtil;->shouldUseDark(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const v1, 0x10600f9
+
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getColor(I)I
+
+    move-result v1
+
+    return v1
 
     :cond_0
+    const v1, 0x10600f8
+
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getColor(I)I
+
+    move-result v1
+
     return v1
+.end method
+
+.method public static resolveSecondaryColor(Landroid/content/Context;I)I
+    .locals 2
+
+    invoke-static {p1}, Lcom/android/internal/util/NotificationColorUtil;->shouldUseDark(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const v1, 0x10600fc
+
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getColor(I)I
+
+    move-result v1
+
+    return v1
+
+    :cond_0
+    const v1, 0x10600fb
+
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getColor(I)I
+
+    move-result v1
+
+    return v1
+.end method
+
+.method public static satisfiesTextContrast(II)Z
+    .locals 4
+
+    invoke-static {p1, p0}, Lcom/android/internal/util/NotificationColorUtil;->calculateContrast(II)D
+
+    move-result-wide v0
+
+    const-wide/high16 v2, 0x4012000000000000L    # 4.5
+
+    cmpl-double v0, v0, v2
+
+    if-ltz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static shouldInvertTextColor(FZ)Z
+    .locals 2
+
+    const/4 v1, 0x0
+
+    if-eqz p1, :cond_0
+
+    return v1
+
+    :cond_0
+    const/high16 v0, 0x3e800000    # 0.25f
+
+    cmpg-float v0, p0, v0
+
+    if-gez v0, :cond_1
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_1
+    return v1
+.end method
+
+.method private static shouldUseDark(I)Z
+    .locals 6
+
+    if-nez p0, :cond_1
+
+    const/4 v0, 0x1
+
+    :goto_0
+    if-nez v0, :cond_0
+
+    invoke-static {p0}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->calculateLuminance(I)D
+
+    move-result-wide v2
+
+    const-wide/high16 v4, 0x3fe0000000000000L    # 0.5
+
+    cmpl-double v1, v2, v4
+
+    if-lez v1, :cond_2
+
+    const/4 v0, 0x1
+
+    :cond_0
+    :goto_1
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public invertCharSequenceColors(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 10
+    .locals 13
 
-    const/4 v5, 0x0
+    const/4 v8, 0x0
 
-    instance-of v6, p1, Landroid/text/Spanned;
+    instance-of v9, p1, Landroid/text/Spanned;
 
-    if-eqz v6, :cond_2
+    if-eqz v9, :cond_5
 
-    move-object v4, p1
+    move-object v7, p1
 
-    check-cast v4, Landroid/text/Spanned;
+    check-cast v7, Landroid/text/Spanned;
 
-    invoke-interface {v4}, Landroid/text/Spanned;->length()I
-
-    move-result v6
-
-    const-class v7, Ljava/lang/Object;
-
-    invoke-interface {v4, v5, v6, v7}, Landroid/text/Spanned;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
-
-    move-result-object v3
-
-    new-instance v0, Landroid/text/SpannableStringBuilder;
-
-    invoke-interface {v4}, Landroid/text/Spanned;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-direct {v0, v6}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;)V
-
-    array-length v7, v3
-
-    move v6, v5
-
-    :goto_0
-    if-ge v6, v7, :cond_1
-
-    aget-object v2, v3, v6
-
-    move-object v1, v2
-
-    instance-of v5, v2, Landroid/text/style/TextAppearanceSpan;
-
-    if-eqz v5, :cond_0
-
-    move-object v5, v2
-
-    check-cast v5, Landroid/text/style/TextAppearanceSpan;
-
-    invoke-direct {p0, v5}, Lcom/android/internal/util/NotificationColorUtil;->processTextAppearanceSpan(Landroid/text/style/TextAppearanceSpan;)Landroid/text/style/TextAppearanceSpan;
-
-    move-result-object v1
-
-    :cond_0
-    invoke-interface {v4, v2}, Landroid/text/Spanned;->getSpanStart(Ljava/lang/Object;)I
-
-    move-result v5
-
-    invoke-interface {v4, v2}, Landroid/text/Spanned;->getSpanEnd(Ljava/lang/Object;)I
-
-    move-result v8
-
-    invoke-interface {v4, v2}, Landroid/text/Spanned;->getSpanFlags(Ljava/lang/Object;)I
+    invoke-interface {v7}, Landroid/text/Spanned;->length()I
 
     move-result v9
 
-    invoke-virtual {v0, v1, v5, v8, v9}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V
+    const-class v10, Ljava/lang/Object;
 
-    add-int/lit8 v5, v6, 0x1
+    invoke-interface {v7, v8, v9, v10}, Landroid/text/Spanned;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
 
-    move v6, v5
+    move-result-object v6
+
+    new-instance v0, Landroid/text/SpannableStringBuilder;
+
+    invoke-interface {v7}, Landroid/text/Spanned;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-direct {v0, v9}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;)V
+
+    array-length v10, v6
+
+    move v9, v8
+
+    :goto_0
+    if-ge v9, v10, :cond_4
+
+    aget-object v5, v6, v9
+
+    move-object v4, v5
+
+    instance-of v8, v5, Landroid/text/style/CharacterStyle;
+
+    if-eqz v8, :cond_0
+
+    move-object v8, v5
+
+    check-cast v8, Landroid/text/style/CharacterStyle;
+
+    invoke-virtual {v8}, Landroid/text/style/CharacterStyle;->getUnderlying()Landroid/text/style/CharacterStyle;
+
+    move-result-object v4
+
+    :cond_0
+    instance-of v8, v4, Landroid/text/style/TextAppearanceSpan;
+
+    if-eqz v8, :cond_2
+
+    move-object v8, v5
+
+    check-cast v8, Landroid/text/style/TextAppearanceSpan;
+
+    invoke-direct {p0, v8}, Lcom/android/internal/util/NotificationColorUtil;->processTextAppearanceSpan(Landroid/text/style/TextAppearanceSpan;)Landroid/text/style/TextAppearanceSpan;
+
+    move-result-object v3
+
+    if-eq v3, v4, :cond_1
+
+    move-object v4, v3
+
+    :goto_1
+    invoke-interface {v7, v5}, Landroid/text/Spanned;->getSpanStart(Ljava/lang/Object;)I
+
+    move-result v8
+
+    invoke-interface {v7, v5}, Landroid/text/Spanned;->getSpanEnd(Ljava/lang/Object;)I
+
+    move-result v11
+
+    invoke-interface {v7, v5}, Landroid/text/Spanned;->getSpanFlags(Ljava/lang/Object;)I
+
+    move-result v12
+
+    invoke-virtual {v0, v4, v8, v11, v12}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V
+
+    add-int/lit8 v8, v9, 0x1
+
+    move v9, v8
 
     goto :goto_0
 
     :cond_1
-    return-object v0
+    move-object v4, v5
+
+    goto :goto_1
 
     :cond_2
+    instance-of v8, v4, Landroid/text/style/ForegroundColorSpan;
+
+    if-eqz v8, :cond_3
+
+    move-object v2, v4
+
+    check-cast v2, Landroid/text/style/ForegroundColorSpan;
+
+    invoke-virtual {v2}, Landroid/text/style/ForegroundColorSpan;->getForegroundColor()I
+
+    move-result v1
+
+    new-instance v4, Landroid/text/style/ForegroundColorSpan;
+
+    invoke-direct {p0, v1}, Lcom/android/internal/util/NotificationColorUtil;->processColor(I)I
+
+    move-result v8
+
+    invoke-direct {v4, v8}, Landroid/text/style/ForegroundColorSpan;-><init>(I)V
+
+    goto :goto_1
+
+    :cond_3
+    move-object v4, v5
+
+    goto :goto_1
+
+    :cond_4
+    return-object v0
+
+    :cond_5
     return-object p1
 .end method
 
@@ -876,44 +1585,70 @@
 .end method
 
 .method public isGrayscaleIcon(Landroid/graphics/drawable/Drawable;)Z
-    .locals 6
+    .locals 7
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     if-nez p1, :cond_0
 
-    return v4
+    return v5
 
     :cond_0
-    instance-of v5, p1, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;
+    instance-of v6, p1, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;
 
-    if-eqz v5, :cond_2
+    if-eqz v6, :cond_2
 
-    move-object v3, p1
+    move-object v4, p1
 
-    check-cast v3, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;
+    check-cast v4, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;
 
-    invoke-virtual {v3}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->getBitmap()Landroid/graphics/Bitmap;
+    invoke-virtual {v4}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->getBitmap()Landroid/graphics/Bitmap;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_1
+
+    invoke-virtual {v4}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v5
 
-    if-eqz v5, :cond_1
+    invoke-virtual {p0, v5}, Lcom/android/internal/util/NotificationColorUtil;->isGrayscaleIcon(Landroid/graphics/Bitmap;)Z
 
-    invoke-virtual {v3}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->getBitmap()Landroid/graphics/Bitmap;
-
-    move-result-object v4
-
-    invoke-virtual {p0, v4}, Lcom/android/internal/util/NotificationColorUtil;->isGrayscaleIcon(Landroid/graphics/Bitmap;)Z
-
-    move-result v4
+    move-result v5
 
     :cond_1
-    return v4
+    return v5
 
     :cond_2
-    instance-of v5, p1, Landroid/graphics/drawable/BitmapDrawable;
+    instance-of v6, p1, Landroid/graphics/drawable/LayerDrawable;
 
-    if-eqz v5, :cond_4
+    if-eqz v6, :cond_4
+
+    move-object v3, p1
+
+    check-cast v3, Landroid/graphics/drawable/LayerDrawable;
+
+    invoke-virtual {v3}, Landroid/graphics/drawable/LayerDrawable;->getNumberOfLayers()I
+
+    move-result v2
+
+    if-lez v2, :cond_3
+
+    invoke-virtual {v3, v5}, Landroid/graphics/drawable/LayerDrawable;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v5
+
+    invoke-virtual {p0, v5}, Lcom/android/internal/util/NotificationColorUtil;->isGrayscaleIcon(Landroid/graphics/drawable/Drawable;)Z
+
+    move-result v5
+
+    :cond_3
+    return v5
+
+    :cond_4
+    instance-of v6, p1, Landroid/graphics/drawable/BitmapDrawable;
+
+    if-eqz v6, :cond_6
 
     move-object v1, p1
 
@@ -921,25 +1656,25 @@
 
     invoke-virtual {v1}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
 
-    move-result-object v5
+    move-result-object v6
 
-    if-eqz v5, :cond_3
+    if-eqz v6, :cond_5
 
     invoke-virtual {v1}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {p0, v4}, Lcom/android/internal/util/NotificationColorUtil;->isGrayscaleIcon(Landroid/graphics/Bitmap;)Z
+    invoke-virtual {p0, v5}, Lcom/android/internal/util/NotificationColorUtil;->isGrayscaleIcon(Landroid/graphics/Bitmap;)Z
 
-    move-result v4
+    move-result v5
 
-    :cond_3
-    return v4
+    :cond_5
+    return v5
 
-    :cond_4
-    instance-of v5, p1, Landroid/graphics/drawable/AnimationDrawable;
+    :cond_6
+    instance-of v6, p1, Landroid/graphics/drawable/AnimationDrawable;
 
-    if-eqz v5, :cond_6
+    if-eqz v6, :cond_8
 
     move-object v0, p1
 
@@ -949,46 +1684,28 @@
 
     move-result v2
 
-    if-lez v2, :cond_5
+    if-lez v2, :cond_7
 
-    invoke-virtual {v0, v4}, Landroid/graphics/drawable/AnimationDrawable;->getFrame(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0, v5}, Landroid/graphics/drawable/AnimationDrawable;->getFrame(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {p0, v4}, Lcom/android/internal/util/NotificationColorUtil;->isGrayscaleIcon(Landroid/graphics/drawable/Drawable;)Z
+    invoke-virtual {p0, v5}, Lcom/android/internal/util/NotificationColorUtil;->isGrayscaleIcon(Landroid/graphics/drawable/Drawable;)Z
 
-    move-result v4
-
-    :cond_5
-    return v4
-
-    :cond_6
-    instance-of v5, p1, Landroid/graphics/drawable/VectorDrawable;
-
-    if-eqz v5, :cond_7
-
-    const/4 v4, 0x1
-
-    return v4
+    move-result v5
 
     :cond_7
-    return v4
-.end method
+    return v5
 
-.method public updateGrayScaleIconMaxSize(Landroid/content/Context;)V
-    .locals 2
+    :cond_8
+    instance-of v6, p1, Landroid/graphics/drawable/VectorDrawable;
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    if-eqz v6, :cond_9
 
-    move-result-object v0
+    const/4 v5, 0x1
 
-    const v1, 0x1050005
+    return v5
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/internal/util/NotificationColorUtil;->mGrayscaleIconMaxSize:I
-
-    return-void
+    :cond_9
+    return v5
 .end method

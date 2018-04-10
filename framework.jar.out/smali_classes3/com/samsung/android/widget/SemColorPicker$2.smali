@@ -45,7 +45,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemColorPicker$2;->this$0:Lcom/samsung/android/widget/SemColorPicker;
 
-    invoke-static {v0}, Lcom/samsung/android/widget/SemColorPicker;->-get2(Lcom/samsung/android/widget/SemColorPicker;)Lcom/samsung/android/widget/SemColorPicker$PickedColor;
+    invoke-static {v0}, Lcom/samsung/android/widget/SemColorPicker;->-get3(Lcom/samsung/android/widget/SemColorPicker;)Lcom/samsung/android/widget/SemColorPicker$PickedColor;
 
     move-result-object v0
 

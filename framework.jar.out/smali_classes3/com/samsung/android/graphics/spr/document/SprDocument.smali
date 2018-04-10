@@ -1315,8 +1315,6 @@
 
     move-result v9
 
-    if-eqz v9, :cond_3
-
     goto :goto_1
 
     :cond_7

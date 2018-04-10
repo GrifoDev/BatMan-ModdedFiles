@@ -228,6 +228,16 @@
     return-object v0
 .end method
 
+.method public replaceFlags(I)Landroid/media/AudioAttributes$Builder;
+    .locals 1
+
+    and-int/lit16 v0, p1, 0x3ff
+
+    iput v0, p0, Landroid/media/AudioAttributes$Builder;->mFlags:I
+
+    return-object p0
+.end method
+
 .method public semAddAudioTag(Ljava/lang/String;)Landroid/media/AudioAttributes$Builder;
     .locals 1
 
@@ -337,7 +347,7 @@
 .method public setFlags(I)Landroid/media/AudioAttributes$Builder;
     .locals 1
 
-    and-int/lit16 p1, p1, 0x1ff
+    and-int/lit16 p1, p1, 0x3ff
 
     iget v0, p0, Landroid/media/AudioAttributes$Builder;->mFlags:I
 
@@ -380,9 +390,9 @@
 
     const/4 v2, 0x2
 
-    const/4 v1, 0x4
-
     const/4 v0, 0x1
+
+    const/4 v1, 0x4
 
     packed-switch p1, :pswitch_data_0
 
@@ -416,7 +426,7 @@
 
     :cond_0
     :goto_0
-    invoke-static {p1}, Landroid/media/AudioAttributes;->usageForLegacyStreamType(I)I
+    invoke-static {p1}, Landroid/media/AudioAttributes;->-wrap0(I)I
 
     move-result v0
 
@@ -478,16 +488,21 @@
     goto :goto_0
 
     :pswitch_9
-    iput v0, p0, Landroid/media/AudioAttributes$Builder;->mContentType:I
+    iput v1, p0, Landroid/media/AudioAttributes$Builder;->mContentType:I
 
     goto :goto_0
 
     :pswitch_a
-    iput v2, p0, Landroid/media/AudioAttributes$Builder;->mContentType:I
+    iput v0, p0, Landroid/media/AudioAttributes$Builder;->mContentType:I
 
     goto :goto_0
 
     :pswitch_b
+    iput v2, p0, Landroid/media/AudioAttributes$Builder;->mContentType:I
+
+    goto :goto_0
+
+    :pswitch_c
     iput v0, p0, Landroid/media/AudioAttributes$Builder;->mContentType:I
 
     iget-object v0, p0, Landroid/media/AudioAttributes$Builder;->mTags:Ljava/util/HashSet;
@@ -498,7 +513,7 @@
 
     goto :goto_0
 
-    :pswitch_c
+    :pswitch_d
     iput v0, p0, Landroid/media/AudioAttributes$Builder;->mContentType:I
 
     iget-object v0, p0, Landroid/media/AudioAttributes$Builder;->mTags:Ljava/util/HashSet;
@@ -509,7 +524,7 @@
 
     goto :goto_0
 
-    :pswitch_d
+    :pswitch_e
     iput v2, p0, Landroid/media/AudioAttributes$Builder;->mContentType:I
 
     iget-object v0, p0, Landroid/media/AudioAttributes$Builder;->mTags:Ljava/util/HashSet;
@@ -530,6 +545,8 @@
 
     goto :goto_0
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -546,12 +563,26 @@
         :pswitch_b
         :pswitch_c
         :pswitch_d
+        :pswitch_e
     .end packed-switch
 .end method
 
 .method public setLegacyStreamType(I)Landroid/media/AudioAttributes$Builder;
-    .locals 1
+    .locals 2
 
+    const/16 v0, 0xa
+
+    if-ne p1, v0, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v1, "STREAM_ACCESSIBILITY is not a legacy stream type that was used for audio playback"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
     invoke-virtual {p0, p1}, Landroid/media/AudioAttributes$Builder;->setInternalLegacyStreamType(I)Landroid/media/AudioAttributes$Builder;
 
     move-result-object v0
@@ -578,6 +609,7 @@
 
     :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_0
         :pswitch_0
         :pswitch_0
         :pswitch_0

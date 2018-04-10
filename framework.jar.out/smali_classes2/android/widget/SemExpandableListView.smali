@@ -302,7 +302,7 @@
 .method static synthetic -get17(Landroid/widget/SemExpandableListView;)Landroid/content/Context;
     .locals 1
 
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/widget/SemExpandableListView;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -470,7 +470,7 @@
 .method static synthetic -get36(Landroid/widget/SemExpandableListView;)I
     .locals 1
 
-    iget v0, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v0, p0, Landroid/widget/SemExpandableListView;->mPaddingLeft:I
 
     return v0
 .end method
@@ -478,7 +478,7 @@
 .method static synthetic -get37(Landroid/widget/SemExpandableListView;)I
     .locals 1
 
-    iget v0, p0, Landroid/view/View;->mPaddingRight:I
+    iget v0, p0, Landroid/widget/SemExpandableListView;->mPaddingRight:I
 
     return v0
 .end method
@@ -542,7 +542,7 @@
 .method static synthetic -get9(Landroid/widget/SemExpandableListView;)I
     .locals 1
 
-    iget v0, p0, Landroid/view/View;->mBottom:I
+    iget v0, p0, Landroid/widget/SemExpandableListView;->mBottom:I
 
     return v0
 .end method
@@ -1049,7 +1049,7 @@
     iput-object v1, p0, Landroid/widget/SemExpandableListView;->mExpListDividerHeight:[I
 
     :cond_2
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/SemExpandableListView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -1057,13 +1057,13 @@
 
     new-array v2, v6, [Ljava/lang/Object;
 
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/widget/SemExpandableListView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x104090f
+    const v4, 0x1040316
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1071,7 +1071,7 @@
 
     aput-object v3, v2, v5
 
-    const v3, 0x1040911
+    const v3, 0x1040317
 
     invoke-virtual {v1, v3, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1079,7 +1079,7 @@
 
     iput-object v1, p0, Landroid/widget/SemExpandableListView;->EXPAND_CONTENT_DESCRIPTION:Ljava/lang/String;
 
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/SemExpandableListView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -1087,13 +1087,13 @@
 
     new-array v2, v6, [Ljava/lang/Object;
 
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/widget/SemExpandableListView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x1040910
+    const v4, 0x1040315
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1101,7 +1101,7 @@
 
     aput-object v3, v2, v5
 
-    const v3, 0x1040911
+    const v3, 0x1040317
 
     invoke-virtual {v1, v3, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1109,13 +1109,13 @@
 
     iput-object v1, p0, Landroid/widget/SemExpandableListView;->COLLAPSE_CONTENT_DESCRIPTION:Ljava/lang/String;
 
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/SemExpandableListView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x10503b1
+    const v2, 0x1050092
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1125,13 +1125,13 @@
 
     iput v1, p0, Landroid/widget/SemExpandableListView;->mGroupIndicatorWidth:I
 
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/SemExpandableListView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x10503b2
+    const v2, 0x1050090
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1141,13 +1141,13 @@
 
     iput v1, p0, Landroid/widget/SemExpandableListView;->mGroupIndicatorHeight:I
 
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/SemExpandableListView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x10503b3
+    const v2, 0x1050091
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1161,11 +1161,11 @@
 .method private captureViewsPriorAnimation()V
     .locals 8
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->getChildCount()I
 
     move-result v1
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->getFirstVisiblePosition()I
 
     move-result v2
 
@@ -1174,7 +1174,7 @@
     :goto_0
     if-ge v3, v1, :cond_2
 
-    invoke-virtual {p0, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/widget/SemExpandableListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -1642,7 +1642,7 @@
 .method private getAbsoluteFlatPosition(I)I
     .locals 1
 
-    invoke-virtual {p0}, Landroid/widget/ListView;->getHeaderViewsCount()I
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->getHeaderViewsCount()I
 
     move-result v0
 
@@ -1700,7 +1700,7 @@
     return-object v0
 
     :cond_0
-    iget-object v0, p0, Landroid/widget/ListView;->mDivider:Landroid/graphics/drawable/Drawable;
+    iget-object v0, p0, Landroid/widget/SemExpandableListView;->mDivider:Landroid/graphics/drawable/Drawable;
 
     return-object v0
 .end method
@@ -1748,7 +1748,7 @@
 .method private getFlatPositionForConnector(I)I
     .locals 1
 
-    invoke-virtual {p0}, Landroid/widget/ListView;->getHeaderViewsCount()I
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->getHeaderViewsCount()I
 
     move-result v0
 
@@ -1760,7 +1760,7 @@
 .method private getHeaderFooterPackedPosition(I)J
     .locals 8
 
-    invoke-virtual {p0}, Landroid/widget/ListView;->getHeaderViewsCount()I
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->getHeaderViewsCount()I
 
     move-result v3
 
@@ -1777,9 +1777,9 @@
     return-wide v4
 
     :cond_0
-    iget v3, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v3, p0, Landroid/widget/SemExpandableListView;->mItemCount:I
 
-    invoke-virtual {p0}, Landroid/widget/ListView;->getFooterViewsCount()I
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->getFooterViewsCount()I
 
     move-result v4
 
@@ -1917,13 +1917,13 @@
 .method private getLastNonFooterPosition()I
     .locals 4
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getLastVisiblePosition()I
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->getLastVisiblePosition()I
 
     move-result v1
 
     move v2, v1
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->getFirstVisiblePosition()I
 
     move-result v0
 
@@ -2100,7 +2100,7 @@
 
     new-instance v1, Landroid/graphics/Rect;
 
-    iget-object v3, p0, Landroid/widget/AbsListView;->mSelectorRect:Landroid/graphics/Rect;
+    iget-object v3, p0, Landroid/widget/SemExpandableListView;->mSelectorRect:Landroid/graphics/Rect;
 
     invoke-direct {v1, v3}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
@@ -2110,7 +2110,7 @@
 
     invoke-virtual {v2, v7, p1}, Landroid/graphics/Rect;->offset(II)V
 
-    iget-object v3, p0, Landroid/widget/AbsListView;->mSelectorRect:Landroid/graphics/Rect;
+    iget-object v3, p0, Landroid/widget/SemExpandableListView;->mSelectorRect:Landroid/graphics/Rect;
 
     const-string/jumbo v4, ""
 
@@ -2136,7 +2136,7 @@
 .method private hasRtlSupport()Z
     .locals 1
 
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/widget/SemExpandableListView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
@@ -2154,15 +2154,15 @@
 
     const/4 v1, 0x1
 
-    iget v2, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v2, p0, Landroid/widget/SemExpandableListView;->mItemCount:I
 
-    invoke-virtual {p0}, Landroid/widget/ListView;->getFooterViewsCount()I
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->getFooterViewsCount()I
 
     move-result v3
 
     sub-int v0, v2, v3
 
-    invoke-virtual {p0}, Landroid/widget/ListView;->getHeaderViewsCount()I
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->getHeaderViewsCount()I
 
     move-result v2
 
@@ -2183,7 +2183,7 @@
 .method private isHoverable()Z
     .locals 1
 
-    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->isEnabled()Z
 
     move-result v0
 
@@ -2194,13 +2194,13 @@
     return v0
 
     :cond_0
-    invoke-virtual {p0}, Landroid/view/View;->isClickable()Z
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->isClickable()Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    invoke-virtual {p0}, Landroid/view/View;->isLongClickable()Z
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->isLongClickable()Z
 
     move-result v0
 
@@ -2214,32 +2214,33 @@
 .end method
 
 .method private isRtlCompatibilityMode()Z
-    .locals 3
+    .locals 2
 
-    const/4 v1, 0x1
+    iget-object v1, p0, Landroid/widget/SemExpandableListView;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
-    invoke-virtual {v2}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+    move-result-object v1
 
-    move-result-object v2
+    iget v0, v1, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
-    iget v0, v2, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+    const/16 v1, 0x11
 
-    const/16 v2, 0x11
-
-    if-lt v0, v2, :cond_0
+    if-lt v0, v1, :cond_0
 
     invoke-direct {p0}, Landroid/widget/SemExpandableListView;->hasRtlSupport()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
-    const/4 v1, 0x0
+    :goto_0
+    return v1
 
     :cond_0
-    return v1
+    const/4 v1, 0x1
+
+    goto :goto_0
 .end method
 
 .method private printArrays([I)Ljava/lang/String;
@@ -2266,7 +2267,7 @@
     goto :goto_0
 
     :cond_0
-    iget-object v4, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Landroid/widget/SemExpandableListView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -2353,7 +2354,7 @@
 
     iput-boolean v3, p0, Landroid/widget/SemExpandableListView;->mBlockTouchEvent:Z
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->getChildCount()I
 
     move-result v0
 
@@ -2362,7 +2363,7 @@
     :goto_0
     if-ge v1, v0, :cond_0
 
-    invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/widget/SemExpandableListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -2383,7 +2384,7 @@
 
     const/4 v2, -0x1
 
-    invoke-virtual {p0}, Landroid/view/View;->isLayoutRtl()Z
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->isLayoutRtl()Z
 
     move-result v0
 
@@ -2434,7 +2435,7 @@
 .method private resolveIndicator()V
     .locals 3
 
-    invoke-virtual {p0}, Landroid/view/View;->isLayoutRtl()Z
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->isLayoutRtl()Z
 
     move-result v0
 
@@ -2506,7 +2507,7 @@
 .method private startCollapseAllAnimation([ZLjava/lang/Runnable;)V
     .locals 33
 
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemExpandableListView;->getFirstVisiblePosition()I
 
     move-result v16
 
@@ -2539,7 +2540,7 @@
 
     move/from16 v1, v28
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemExpandableListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v4
 
@@ -2569,7 +2570,7 @@
 
     iput-object v4, v0, Landroid/widget/SemExpandableListView;->mCollapsingRects:[Landroid/widget/SemExpandableListView$CollapsingRect;
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemExpandableListView;->getChildCount()I
 
     move-result v12
 
@@ -2583,7 +2584,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v13}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v13}, Landroid/widget/SemExpandableListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v25
 
@@ -2614,7 +2615,7 @@
 
     move/from16 v1, v29
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemExpandableListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v19
 
@@ -2711,7 +2712,7 @@
 
     move/from16 v1, v28
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemExpandableListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v24
 
@@ -2876,7 +2877,7 @@
 
     iput-boolean v4, v0, Landroid/widget/SemExpandableListView;->mBlockTouchEvent:Z
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemExpandableListView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v32
 
@@ -2924,7 +2925,7 @@
 
     move-result v18
 
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemExpandableListView;->getFirstVisiblePosition()I
 
     move-result v10
 
@@ -2932,7 +2933,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v4}, Landroid/widget/SemExpandableListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v13
 
@@ -2997,17 +2998,17 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v4}, Landroid/widget/SemExpandableListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v17
 
     if-nez v17, :cond_1
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getHeight()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemExpandableListView;->getHeight()I
 
     move-result v4
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemExpandableListView;->getChildCount()I
 
     move-result v5
 
@@ -3015,7 +3016,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v5}, Landroid/widget/SemExpandableListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v5
 
@@ -3046,7 +3047,7 @@
 
     move-result v9
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemExpandableListView;->getChildCount()I
 
     move-result v11
 
@@ -3062,7 +3063,7 @@
 
     iget-object v4, v0, Landroid/widget/SemExpandableListView;->mGhostViewsVisibleArea:Landroid/graphics/RectF;
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemExpandableListView;->getWidth()I
 
     move-result v5
 
@@ -3084,7 +3085,7 @@
 
     iput-boolean v4, v0, Landroid/widget/SemExpandableListView;->mBlockTouchEvent:Z
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemExpandableListView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v19
 
@@ -3129,7 +3130,7 @@
 
     iput-boolean v0, p0, Landroid/widget/SemExpandableListView;->mBlockTouchEvent:Z
 
-    invoke-virtual {p0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v0
 
@@ -3149,7 +3150,7 @@
 
     iput-boolean v0, p0, Landroid/widget/SemExpandableListView;->mBlockTouchEvent:Z
 
-    invoke-virtual {p0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v0
 
@@ -3227,9 +3228,9 @@
 
     int-to-float v3, v2
 
-    invoke-virtual {v1, v3}, Landroid/view/View;->setRotation(F)V
+    invoke-virtual {v1, v3}, Landroid/widget/SemExpandableListView$IndicatorImageView;->setRotation(F)V
 
-    invoke-virtual {v1}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {v1}, Landroid/widget/SemExpandableListView$IndicatorImageView;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v3
 
@@ -3259,7 +3260,7 @@
     iget-object v3, p0, Landroid/widget/SemExpandableListView;->COLLAPSE_CONTENT_DESCRIPTION:Ljava/lang/String;
 
     :goto_2
-    invoke-virtual {v1, v3}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v3}, Landroid/widget/SemExpandableListView$IndicatorImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
     return-void
 
@@ -3310,7 +3311,7 @@
     invoke-direct {p0}, Landroid/widget/SemExpandableListView;->collapseAllGroups()V
 
     :cond_2
-    invoke-virtual {p0}, Landroid/widget/AbsListView;->triggerJumpScrollToTop()V
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->triggerJumpScrollToTop()V
 
     return-void
 .end method
@@ -3428,7 +3429,7 @@
 .method drawDivider(Landroid/graphics/Canvas;Landroid/graphics/Rect;I)V
     .locals 6
 
-    iget v4, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v4, p0, Landroid/widget/SemExpandableListView;->mFirstPosition:I
 
     add-int v2, p3, v4
 
@@ -3522,7 +3523,7 @@
     return-void
 
     :cond_2
-    invoke-virtual {p0}, Landroid/widget/AbsListView;->triggerJumpScrollToTop()V
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->triggerJumpScrollToTop()V
 
     return-void
 .end method
@@ -3596,7 +3597,7 @@
 
     iget v1, v5, Landroid/widget/SemExpandableListPosition;->flatListPos:I
 
-    invoke-virtual {p0}, Landroid/widget/ListView;->getHeaderViewsCount()I
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->getHeaderViewsCount()I
 
     move-result v5
 
@@ -3610,7 +3611,7 @@
 
     add-int/2addr v5, v4
 
-    invoke-virtual {p0, v5, v4}, Landroid/widget/AbsListView;->smoothScrollToPosition(II)V
+    invoke-virtual {p0, v5, v4}, Landroid/widget/SemExpandableListView;->smoothScrollToPosition(II)V
 
     :cond_2
     invoke-virtual {v2}, Landroid/widget/SemExpandableListConnector$PositionMetadata;->recycle()V
@@ -3635,7 +3636,7 @@
 
     int-to-float v1, v1
 
-    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->getHeight()I
 
     move-result v2
 
@@ -3803,7 +3804,7 @@
 .method public getSelectedPosition()J
     .locals 4
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getSelectedItemPosition()I
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->getSelectedItemPosition()I
 
     move-result v0
 
@@ -3918,11 +3919,11 @@
 
     invoke-direct {v0, p0}, Landroid/widget/SemExpandableListView$4;-><init>(Landroid/widget/SemExpandableListView;)V
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v0}, Landroid/widget/SemExpandableListView;->post(Ljava/lang/Runnable;)Z
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->playSoundEffect(I)V
+    invoke-virtual {p0, v0}, Landroid/widget/SemExpandableListView;->playSoundEffect(I)V
 
     iget-boolean v0, p0, Landroid/widget/SemExpandableListView;->mAnimationEnabled:Z
 
@@ -3946,13 +3947,13 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->playSoundEffect(I)V
+    invoke-virtual {p0, v0}, Landroid/widget/SemExpandableListView;->playSoundEffect(I)V
 
     iget-object v0, v10, Landroid/widget/SemExpandableListConnector$PositionMetadata;->position:Landroid/widget/SemExpandableListPosition;
 
     iget v0, v0, Landroid/widget/SemExpandableListPosition;->flatListPos:I
 
-    invoke-virtual {p0}, Landroid/widget/ListView;->getHeaderViewsCount()I
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->getHeaderViewsCount()I
 
     move-result v1
 
@@ -3982,7 +3983,7 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->playSoundEffect(I)V
+    invoke-virtual {p0, v0}, Landroid/widget/SemExpandableListView;->playSoundEffect(I)V
 
     iget-object v1, p0, Landroid/widget/SemExpandableListView;->mOnChildClickListener:Landroid/widget/SemExpandableListView$OnChildClickListener;
 
@@ -4035,13 +4036,13 @@
 
     if-ne v1, v2, :cond_0
 
-    iget-object v1, p0, Landroid/widget/AbsListView;->mSelectorRect:Landroid/graphics/Rect;
+    iget-object v1, p0, Landroid/widget/SemExpandableListView;->mSelectorRect:Landroid/graphics/Rect;
 
     if-eqz v1, :cond_0
 
     new-instance v0, Landroid/graphics/Rect;
 
-    iget-object v1, p0, Landroid/widget/AbsListView;->mSelectorRect:Landroid/graphics/Rect;
+    iget-object v1, p0, Landroid/widget/SemExpandableListView;->mSelectorRect:Landroid/graphics/Rect;
 
     invoke-direct {v0, v1}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
@@ -4054,7 +4055,7 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v1, p0, Landroid/widget/AbsListView;->mSelectorRect:Landroid/graphics/Rect;
+    iget-object v1, p0, Landroid/widget/SemExpandableListView;->mSelectorRect:Landroid/graphics/Rect;
 
     invoke-virtual {v1, v0}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
@@ -4097,9 +4098,9 @@
 .end method
 
 .method public onHoverEvent(Landroid/view/MotionEvent;)Z
-    .locals 4
+    .locals 3
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
@@ -4109,34 +4110,23 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
-    invoke-virtual {p0}, Landroid/view/View;->isHovered()Z
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListView;->isHovered()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     const/16 v1, 0xa
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_0
 
-    invoke-virtual {p1, v3}, Landroid/view/MotionEvent;->getToolType(I)I
+    invoke-virtual {p0, v2}, Landroid/widget/SemExpandableListView;->setHovered(Z)V
 
-    move-result v1
-
-    const/4 v2, 0x1
-
-    if-ne v1, v2, :cond_0
-
-    invoke-virtual {p0, v3}, Landroid/view/View;->setFingerHovered(Z)V
+    return v2
 
     :cond_0
-    invoke-virtual {p0, v3}, Landroid/view/View;->setHovered(Z)V
-
-    return v3
-
-    :cond_1
     invoke-super {p0, p1}, Landroid/widget/ListView;->onHoverEvent(Landroid/view/MotionEvent;)Z
 
     move-result v1
@@ -4155,7 +4145,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityRecord;->setClassName(Ljava/lang/CharSequence;)V
+    invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityEvent;->setClassName(Ljava/lang/CharSequence;)V
 
     return-void
 .end method
@@ -4277,11 +4267,9 @@
     :cond_0
     move-object v0, p1
 
-    nop
+    check-cast v0, Landroid/widget/SemExpandableListView$SavedState;
 
-    nop
-
-    invoke-virtual {v0}, Landroid/view/AbsSavedState;->getSuperState()Landroid/os/Parcelable;
+    invoke-virtual {v0}, Landroid/widget/SemExpandableListView$SavedState;->getSuperState()Landroid/os/Parcelable;
 
     move-result-object v1
 
@@ -4521,7 +4509,7 @@
 
     invoke-super {p0, p1}, Landroid/widget/ListView;->setDivider(Landroid/graphics/drawable/Drawable;)V
 
-    iput v3, p0, Landroid/widget/ListView;->mDividerHeight:I
+    iput v3, p0, Landroid/widget/SemExpandableListView;->mDividerHeight:I
 
     if-eqz p1, :cond_1
 
@@ -4581,7 +4569,7 @@
 
     invoke-super {p0, p1}, Landroid/widget/ListView;->setDividerHeight(I)V
 
-    iput v1, p0, Landroid/widget/ListView;->mDividerHeight:I
+    iput v1, p0, Landroid/widget/SemExpandableListView;->mDividerHeight:I
 
     iget-object v0, p0, Landroid/widget/SemExpandableListView;->mExpListDividerHeight:[I
 

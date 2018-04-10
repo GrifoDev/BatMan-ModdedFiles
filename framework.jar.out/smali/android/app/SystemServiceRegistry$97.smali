@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Lcom/samsung/android/desktopmode/SemDesktopModeManager;",
+        "Landroid/view/autofill/AutofillManager;",
         ">;"
     }
 .end annotation
@@ -34,43 +34,44 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/desktopmode/SemDesktopModeManager;
-    .locals 5
+.method public createService(Landroid/app/ContextImpl;)Landroid/view/autofill/AutofillManager;
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    const/4 v4, 0x0
-
-    const-string/jumbo v2, "desktopmode"
+    const-string/jumbo v2, "autofill"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/desktopmode/IDesktopMode;
+    invoke-static {v0}, Landroid/view/autofill/IAutoFillManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/view/autofill/IAutoFillManager;
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    new-instance v2, Landroid/view/autofill/AutofillManager;
 
-    const-string/jumbo v2, "SystemServiceRegistry"
+    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
 
-    const-string/jumbo v3, "SemDesktopModeManager is not supported"
+    move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-object v4
-
-    :cond_0
-    new-instance v2, Lcom/samsung/android/desktopmode/SemDesktopModeManager;
-
-    invoke-direct {v2, v1}, Lcom/samsung/android/desktopmode/SemDesktopModeManager;-><init>(Lcom/samsung/android/desktopmode/IDesktopMode;)V
+    invoke-direct {v2, v3, v1}, Landroid/view/autofill/AutofillManager;-><init>(Landroid/content/Context;Landroid/view/autofill/IAutoFillManager;)V
 
     return-object v2
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$97;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/desktopmode/SemDesktopModeManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$97;->createService(Landroid/app/ContextImpl;)Landroid/view/autofill/AutofillManager;
 
     move-result-object v0
 

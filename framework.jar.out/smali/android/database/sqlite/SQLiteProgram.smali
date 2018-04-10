@@ -35,11 +35,13 @@
 .end method
 
 .method constructor <init>(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;[Ljava/lang/Object;Landroid/os/CancellationSignal;)V
-    .locals 9
+    .locals 10
+
+    const/4 v9, 0x7
 
     const/4 v8, 0x0
 
-    const/4 v7, 0x0
+    const/4 v5, 0x0
 
     invoke-direct {p0}, Landroid/database/sqlite/SQLiteClosable;-><init>()V
 
@@ -75,16 +77,19 @@
 
     move-result-object v4
 
-    iget-object v5, p0, Landroid/database/sqlite/SQLiteProgram;->mSql:Ljava/lang/String;
+    iget-object v6, p0, Landroid/database/sqlite/SQLiteProgram;->mSql:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/database/sqlite/SQLiteDatabase;->getThreadDefaultConnectionFlags(Z)I
 
-    move-result v6
+    move-result v7
 
-    invoke-virtual {v4, v5, v6, p4, v2}, Landroid/database/sqlite/SQLiteSession;->prepare(Ljava/lang/String;ILandroid/os/CancellationSignal;Landroid/database/sqlite/SQLiteStatementInfo;)V
+    invoke-virtual {v4, v6, v7, p4, v2}, Landroid/database/sqlite/SQLiteSession;->prepare(Ljava/lang/String;ILandroid/os/CancellationSignal;Landroid/database/sqlite/SQLiteStatementInfo;)V
 
-    iget-boolean v4, v2, Landroid/database/sqlite/SQLiteStatementInfo;->readOnly:Z
+    if-ne v3, v9, :cond_1
 
+    move v4, v5
+
+    :goto_1
     iput-boolean v4, p0, Landroid/database/sqlite/SQLiteProgram;->mReadOnly:Z
 
     iget-object v4, v2, Landroid/database/sqlite/SQLiteStatementInfo;->columnNames:[Ljava/lang/String;
@@ -97,14 +102,14 @@
     :try_end_0
     .catch Landroid/database/sqlite/SQLiteDatabaseCorruptException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_1
-    if-eqz p3, :cond_1
+    :goto_2
+    if-eqz p3, :cond_2
 
     array-length v4, p3
 
-    iget v5, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
+    iget v6, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
 
-    if-le v4, v5, :cond_1
+    if-le v4, v6, :cond_2
 
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
@@ -151,20 +156,28 @@
     throw v4
 
     :pswitch_0
-    iput-boolean v7, p0, Landroid/database/sqlite/SQLiteProgram;->mReadOnly:Z
+    iput-boolean v5, p0, Landroid/database/sqlite/SQLiteProgram;->mReadOnly:Z
 
     sget-object v4, Landroid/database/sqlite/SQLiteProgram;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
 
     iput-object v4, p0, Landroid/database/sqlite/SQLiteProgram;->mColumnNames:[Ljava/lang/String;
 
-    iput v7, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
+    iput v5, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
+
+    :cond_1
+    :try_start_1
+    iget-boolean v4, v2, Landroid/database/sqlite/SQLiteStatementInfo;->readOnly:Z
+    :try_end_1
+    .catch Landroid/database/sqlite/SQLiteDatabaseCorruptException; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_1
 
     :catch_0
     move-exception v1
@@ -177,10 +190,10 @@
 
     throw v1
 
-    :cond_1
+    :cond_2
     iget v4, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_5
 
     iget v4, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
 
@@ -188,22 +201,31 @@
 
     iput-object v4, p0, Landroid/database/sqlite/SQLiteProgram;->mBindArgs:[Ljava/lang/Object;
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_3
 
     iget-object v4, p0, Landroid/database/sqlite/SQLiteProgram;->mBindArgs:[Ljava/lang/Object;
 
-    array-length v5, p3
+    array-length v6, p3
 
-    invoke-static {p3, v7, v4, v7, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    :cond_2
-    :goto_2
-    return-void
+    invoke-static {p3, v5, v4, v5, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     :cond_3
+    :goto_3
+    if-ne v3, v9, :cond_4
+
+    iget-object v4, p0, Landroid/database/sqlite/SQLiteProgram;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
+
+    iget-object v5, p0, Landroid/database/sqlite/SQLiteProgram;->mSql:Ljava/lang/String;
+
+    invoke-static {v4, v5, p4}, Landroid/database/sqlite/SQLitePragma;->checkAndSetSpecialPragma(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Landroid/os/CancellationSignal;)V
+
+    :cond_4
+    return-void
+
+    :cond_5
     iput-object v8, p0, Landroid/database/sqlite/SQLiteProgram;->mBindArgs:[Ljava/lang/Object;
 
-    goto :goto_2
+    goto :goto_3
 
     :pswitch_data_0
     .packed-switch 0x4

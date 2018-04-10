@@ -407,6 +407,94 @@
 
     goto/16 :goto_0
 
+    :pswitch_f
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/internal/app/AppLockPolicy$SettingsObserver;->this$0:Lcom/android/internal/app/AppLockPolicy;
+
+    const-string/jumbo v14, "face_type"
+
+    invoke-static {v13, v14}, Lcom/android/internal/app/AppLockPolicy;->-set2(Lcom/android/internal/app/AppLockPolicy;Ljava/lang/String;)Ljava/lang/String;
+
+    goto/16 :goto_0
+
+    :pswitch_10
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/internal/app/AppLockPolicy$SettingsObserver;->this$0:Lcom/android/internal/app/AppLockPolicy;
+
+    const-string/jumbo v14, "face_pattern_type"
+
+    invoke-static {v13, v14}, Lcom/android/internal/app/AppLockPolicy;->-set2(Lcom/android/internal/app/AppLockPolicy;Ljava/lang/String;)Ljava/lang/String;
+
+    goto/16 :goto_0
+
+    :pswitch_11
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/internal/app/AppLockPolicy$SettingsObserver;->this$0:Lcom/android/internal/app/AppLockPolicy;
+
+    const-string/jumbo v14, "face_pincode_type"
+
+    invoke-static {v13, v14}, Lcom/android/internal/app/AppLockPolicy;->-set2(Lcom/android/internal/app/AppLockPolicy;Ljava/lang/String;)Ljava/lang/String;
+
+    goto/16 :goto_0
+
+    :pswitch_12
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/internal/app/AppLockPolicy$SettingsObserver;->this$0:Lcom/android/internal/app/AppLockPolicy;
+
+    const-string/jumbo v14, "face_password_type"
+
+    invoke-static {v13, v14}, Lcom/android/internal/app/AppLockPolicy;->-set2(Lcom/android/internal/app/AppLockPolicy;Ljava/lang/String;)Ljava/lang/String;
+
+    goto/16 :goto_0
+
+    :pswitch_13
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/internal/app/AppLockPolicy$SettingsObserver;->this$0:Lcom/android/internal/app/AppLockPolicy;
+
+    const-string/jumbo v14, "face_spass_type"
+
+    invoke-static {v13, v14}, Lcom/android/internal/app/AppLockPolicy;->-set2(Lcom/android/internal/app/AppLockPolicy;Ljava/lang/String;)Ljava/lang/String;
+
+    goto/16 :goto_0
+
+    :pswitch_14
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/internal/app/AppLockPolicy$SettingsObserver;->this$0:Lcom/android/internal/app/AppLockPolicy;
+
+    const-string/jumbo v14, "face_spass_pattern_type"
+
+    invoke-static {v13, v14}, Lcom/android/internal/app/AppLockPolicy;->-set2(Lcom/android/internal/app/AppLockPolicy;Ljava/lang/String;)Ljava/lang/String;
+
+    goto/16 :goto_0
+
+    :pswitch_15
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/internal/app/AppLockPolicy$SettingsObserver;->this$0:Lcom/android/internal/app/AppLockPolicy;
+
+    const-string/jumbo v14, "face_spass_pincode_type"
+
+    invoke-static {v13, v14}, Lcom/android/internal/app/AppLockPolicy;->-set2(Lcom/android/internal/app/AppLockPolicy;Ljava/lang/String;)Ljava/lang/String;
+
+    goto/16 :goto_0
+
+    :pswitch_16
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/internal/app/AppLockPolicy$SettingsObserver;->this$0:Lcom/android/internal/app/AppLockPolicy;
+
+    const-string/jumbo v14, "face_spass_password_type"
+
+    invoke-static {v13, v14}, Lcom/android/internal/app/AppLockPolicy;->-set2(Lcom/android/internal/app/AppLockPolicy;Ljava/lang/String;)Ljava/lang/String;
+
+    goto/16 :goto_0
+
     :cond_1
     add-int/lit8 v13, v13, 0x1
 
@@ -544,142 +632,30 @@
         :pswitch_c
         :pswitch_d
         :pswitch_e
+        :pswitch_f
+        :pswitch_10
+        :pswitch_11
+        :pswitch_12
+        :pswitch_13
+        :pswitch_14
+        :pswitch_15
+        :pswitch_16
     .end packed-switch
 .end method
 
 .method private getRelatedApps()V
-    .locals 15
+    .locals 4
 
-    const/4 v10, 0x0
+    iget-object v3, p0, Lcom/android/internal/app/AppLockPolicy$SettingsObserver;->mSettingsObserverContext:Landroid/content/Context;
 
-    iget-object v11, p0, Lcom/android/internal/app/AppLockPolicy$SettingsObserver;->mSettingsObserverContext:Landroid/content/Context;
-
-    invoke-virtual {v11}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    const v11, 0x1070094
-
-    invoke-virtual {v9, v11}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
-
-    move-result-object v6
-
-    if-eqz v6, :cond_1
-
-    array-length v11, v6
-
-    if-lez v11, :cond_1
-
-    array-length v12, v6
-
-    move v11, v10
-
-    :goto_0
-    if-ge v11, v12, :cond_1
-
-    aget-object v8, v6, v11
-
-    const-string/jumbo v13, ","
-
-    invoke-virtual {v8, v13}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    new-instance v7, Ljava/util/ArrayList;
-
-    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
-
     const/4 v1, 0x0
 
-    :goto_1
-    array-length v13, v2
+    const/4 v0, 0x0
 
-    if-ge v1, v13, :cond_0
-
-    aget-object v13, v2, v1
-
-    invoke-virtual {v7, v13}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    iget-object v13, p0, Lcom/android/internal/app/AppLockPolicy$SettingsObserver;->this$0:Lcom/android/internal/app/AppLockPolicy;
-
-    invoke-static {v13}, Lcom/android/internal/app/AppLockPolicy;->-get3(Lcom/android/internal/app/AppLockPolicy;)Ljava/util/HashMap;
-
-    move-result-object v13
-
-    aget-object v14, v2, v1
-
-    invoke-virtual {v13, v14, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_1
-
-    :cond_0
-    add-int/lit8 v11, v11, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const v11, 0x1070095
-
-    invoke-virtual {v9, v11}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_3
-
-    array-length v11, v3
-
-    if-lez v11, :cond_3
-
-    array-length v11, v3
-
-    :goto_2
-    if-ge v10, v11, :cond_3
-
-    aget-object v5, v3, v10
-
-    const-string/jumbo v12, ","
-
-    invoke-virtual {v5, v12}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v0
-
-    new-instance v4, Ljava/util/ArrayList;
-
-    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
-
-    const/4 v1, 0x0
-
-    :goto_3
-    array-length v12, v0
-
-    if-ge v1, v12, :cond_2
-
-    aget-object v12, v0, v1
-
-    invoke-virtual {v4, v12}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    iget-object v12, p0, Lcom/android/internal/app/AppLockPolicy$SettingsObserver;->this$0:Lcom/android/internal/app/AppLockPolicy;
-
-    invoke-static {v12}, Lcom/android/internal/app/AppLockPolicy;->-get2(Lcom/android/internal/app/AppLockPolicy;)Ljava/util/HashMap;
-
-    move-result-object v12
-
-    aget-object v13, v0, v1
-
-    invoke-virtual {v12, v13, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_3
-
-    :cond_2
-    add-int/lit8 v10, v10, 0x1
-
-    goto :goto_2
-
-    :cond_3
     return-void
 .end method
 
@@ -733,7 +709,13 @@
 
     invoke-direct {v2, p0}, Lcom/android/internal/app/AppLockPolicy$SettingsObserver$1;-><init>(Lcom/android/internal/app/AppLockPolicy$SettingsObserver;)V
 
-    invoke-interface {v1, v2}, Landroid/app/IActivityManager;->registerUserSwitchObserver(Landroid/app/IUserSwitchObserver;)V
+    const-class v3, Lcom/android/internal/app/AppLockPolicy;
+
+    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-interface {v1, v2, v3}, Landroid/app/IActivityManager;->registerUserSwitchObserver(Landroid/app/IUserSwitchObserver;Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 

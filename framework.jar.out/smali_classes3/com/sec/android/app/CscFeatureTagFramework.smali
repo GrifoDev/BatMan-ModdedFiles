@@ -28,6 +28,8 @@
 
 .field public static final TAG_CSCFEATURE_FRAMEWORK_CONFIGAPPICONSTYLE:Ljava/lang/String; = "CscFeature_Framework_ConfigAppIconStyle"
 
+.field public static final TAG_CSCFEATURE_FRAMEWORK_CONFIGAPPLISTTOBLOCKFLOATINGMULTIWINDOWS:Ljava/lang/String; = "CscFeature_Framework_ConfigAppListToBlockFloatingMultiWindows"
+
 .field public static final TAG_CSCFEATURE_FRAMEWORK_CONFIGBLOCKNOTIOPERATION:Ljava/lang/String; = "CscFeature_Framework_ConfigBlockNotiOperation"
 
 .field public static final TAG_CSCFEATURE_FRAMEWORK_CONFIGDEFAULTAPPFORTASKEDGE:Ljava/lang/String; = "CscFeature_Framework_ConfigDefaultAppForTaskEdge"
@@ -48,9 +50,13 @@
 
 .field public static final TAG_CSCFEATURE_FRAMEWORK_CONFIGEXCLUDEPACKAGEFROMNOTIFICATIONGROUP:Ljava/lang/String; = "CscFeature_Framework_ConfigExcludePackageFromNotificationGroup"
 
+.field public static final TAG_CSCFEATURE_FRAMEWORK_CONFIGICONFRAMES:Ljava/lang/String; = "CscFeature_Framework_ConfigIconFrames"
+
 .field public static final TAG_CSCFEATURE_FRAMEWORK_CONFIGLABELFORDEFTHEME:Ljava/lang/String; = "CscFeature_Framework_ConfigLabelForDefTheme"
 
 .field public static final TAG_CSCFEATURE_FRAMEWORK_CONFIGLINKIFYDIGIT:Ljava/lang/String; = "CscFeature_Framework_ConfigLinkifyDigit"
+
+.field public static final TAG_CSCFEATURE_FRAMEWORK_CONFIGLIVEMSGQUALITYLEVEL:Ljava/lang/String; = "CscFeature_Framework_ConfigLiveMsgQualityLevel"
 
 .field public static final TAG_CSCFEATURE_FRAMEWORK_CONFIGMAXMULTIUSERS:Ljava/lang/String; = "CscFeature_Framework_ConfigMaxMultiUsers"
 
@@ -68,6 +74,8 @@
 
 .field public static final TAG_CSCFEATURE_FRAMEWORK_CONFIGRESOLVERACTIVITYBUTTON:Ljava/lang/String; = "CscFeature_Framework_ConfigResolverActivityButton"
 
+.field public static final TAG_CSCFEATURE_FRAMEWORK_CONFIGSPENITEM:Ljava/lang/String; = "CscFeature_Framework_ConfigSpenItem"
+
 .field public static final TAG_CSCFEATURE_FRAMEWORK_CONFIGSPENKEEPER:Ljava/lang/String; = "CscFeature_Framework_ConfigSpenKeeper"
 
 .field public static final TAG_CSCFEATURE_FRAMEWORK_CONFIGSTATUSMULTIUSER:Ljava/lang/String; = "CscFeature_Framework_ConfigStatusMultiUser"
@@ -82,9 +90,9 @@
 
 .field public static final TAG_CSCFEATURE_FRAMEWORK_DISABLECOMPENSATIONTOUCHAREAINSCROLLBAR:Ljava/lang/String; = "CscFeature_Framework_DisableCompensationTouchAreaInScrollBar"
 
-.field public static final TAG_CSCFEATURE_FRAMEWORK_DISABLECONFIRMGLOBALACTION:Ljava/lang/String; = "CscFeature_Framework_DisableConfirmGlobalAction"
-
 .field public static final TAG_CSCFEATURE_FRAMEWORK_DISABLEDOUBLETAPTEXTSELECTION:Ljava/lang/String; = "CscFeature_Framework_DisableDoubleTapTextSelection"
+
+.field public static final TAG_CSCFEATURE_FRAMEWORK_DISABLEEDGEHANDLERHAPTIC:Ljava/lang/String; = "CscFeature_Framework_DisableEdgeHandlerHaptic"
 
 .field public static final TAG_CSCFEATURE_FRAMEWORK_DISABLEFORCECLOSEPOPUP:Ljava/lang/String; = "CscFeature_Framework_DisableForceClosePopup"
 
@@ -109,8 +117,6 @@
 .field public static final TAG_CSCFEATURE_FRAMEWORK_LINKIFYTYPE:Ljava/lang/String; = "CscFeature_Framework_LinkifyType"
 
 .field public static final TAG_CSCFEATURE_FRAMEWORK_REPLACECOUNTRYNAME:Ljava/lang/String; = "CscFeature_Framework_ReplaceCountryName"
-
-.field public static final TAG_CSCFEATURE_FRAMEWORK_REPLACEDATATYPEICONASOPBRAND:Ljava/lang/String; = "CscFeature_Framework_ReplaceDataTypeIconAsOpBrand"
 
 .field public static final TAG_CSCFEATURE_FRAMEWORK_REPLACELABELFORPINWINDOW:Ljava/lang/String; = "CscFeature_Framework_ReplaceLabelForPinWindow"
 

@@ -39,6 +39,14 @@
 
 
 # direct methods
+.method static synthetic -android_print_PrintManager$PrintServicesChangeListenerWrapper-mthref-0(Landroid/print/PrintManager$PrintServicesChangeListener;)V
+    .locals 0
+
+    invoke-interface {p0}, Landroid/print/PrintManager$PrintServicesChangeListener;->onPrintServicesChanged()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/print/PrintManager$PrintServicesChangeListener;Landroid/os/Handler;)V
     .locals 1
 
@@ -71,20 +79,6 @@
     return-void
 .end method
 
-.method public getListener()Landroid/print/PrintManager$PrintServicesChangeListener;
-    .locals 1
-
-    iget-object v0, p0, Landroid/print/PrintManager$PrintServicesChangeListenerWrapper;->mWeakListener:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/print/PrintManager$PrintServicesChangeListener;
-
-    return-object v0
-.end method
-
 .method public onPrintServicesChanged()V
     .locals 3
 
@@ -108,13 +102,13 @@
 
     if-eqz v1, :cond_0
 
-    const/4 v2, 0x2
+    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-virtual {v0, v2, p0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    new-instance v2, Landroid/print/-$Lambda$h7xjKnKsfVuRdZMcjh_0GBiXV30$1;
 
-    move-result-object v2
+    invoke-direct {v2, v1}, Landroid/print/-$Lambda$h7xjKnKsfVuRdZMcjh_0GBiXV30$1;-><init>(Ljava/lang/Object;)V
 
-    invoke-virtual {v2}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {v0, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     :cond_0
     return-void

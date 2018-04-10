@@ -30,6 +30,8 @@
 # instance fields
 .field final mContext:Landroid/content/Context;
 
+.field mDisableHWAcceleration:Z
+
 .field mDuration:I
 
 .field mNextView:Landroid/view/View;
@@ -67,15 +69,33 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, v0}, Landroid/widget/Toast;-><init>(Landroid/content/Context;Landroid/os/Looper;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/os/Looper;)V
     .locals 5
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v2, 0x1
+
+    iput-boolean v2, p0, Landroid/widget/Toast;->mDisableHWAcceleration:Z
 
     iput-object p1, p0, Landroid/widget/Toast;->mContext:Landroid/content/Context;
 
     new-instance v2, Landroid/widget/Toast$TN;
 
-    invoke-direct {v2}, Landroid/widget/Toast$TN;-><init>()V
+    invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {v2, v3, p2}, Landroid/widget/Toast$TN;-><init>(Ljava/lang/String;Landroid/os/Looper;)V
 
     iput-object v2, p0, Landroid/widget/Toast;->mTN:Landroid/widget/Toast$TN;
 
@@ -85,7 +105,7 @@
 
     move-result-object v3
 
-    const v4, 0x1050016
+    const v4, 0x10502e4
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -99,7 +119,7 @@
 
     move-result-object v3
 
-    const v4, 0x10e008d
+    const v4, 0x10e00b0
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -107,13 +127,29 @@
 
     iput v3, v2, Landroid/widget/Toast$TN;->mGravity:I
 
-    invoke-static {}, Lcom/sec/enterprise/knoxcustom/CustomDeviceManagerProxy;->getInstance()Lcom/sec/enterprise/knoxcustom/CustomDeviceManagerProxy;
+    iget-object v2, p0, Landroid/widget/Toast;->mTN:Landroid/widget/Toast$TN;
+
+    iget-object v3, p0, Landroid/widget/Toast;->mTN:Landroid/widget/Toast$TN;
+
+    iget v3, v3, Landroid/widget/Toast$TN;->mY:I
+
+    iput v3, v2, Landroid/widget/Toast$TN;->mDefaultOffsetY:I
+
+    iget-object v2, p0, Landroid/widget/Toast;->mTN:Landroid/widget/Toast$TN;
+
+    iget-object v3, p0, Landroid/widget/Toast;->mTN:Landroid/widget/Toast$TN;
+
+    iget v3, v3, Landroid/widget/Toast$TN;->mGravity:I
+
+    iput v3, v2, Landroid/widget/Toast$TN;->mDefaultGravity:I
+
+    invoke-static {}, Lcom/samsung/android/knox/custom/CustomDeviceManagerProxy;->getInstance()Lcom/samsung/android/knox/custom/CustomDeviceManagerProxy;
 
     move-result-object v1
 
     if-eqz v1, :cond_1
 
-    invoke-virtual {v1}, Lcom/sec/enterprise/knoxcustom/CustomDeviceManagerProxy;->getToastGravityEnabledState()Z
+    invoke-virtual {v1}, Lcom/samsung/android/knox/custom/CustomDeviceManagerProxy;->getToastGravityEnabledState()Z
 
     move-result v2
 
@@ -125,7 +161,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v1}, Lcom/sec/enterprise/knoxcustom/CustomDeviceManagerProxy;->getToastGravity()I
+    invoke-virtual {v1}, Lcom/samsung/android/knox/custom/CustomDeviceManagerProxy;->getToastGravity()I
 
     move-result v0
 
@@ -138,7 +174,7 @@
     :cond_0
     iget-object v2, p0, Landroid/widget/Toast;->mTN:Landroid/widget/Toast$TN;
 
-    invoke-virtual {v1}, Lcom/sec/enterprise/knoxcustom/CustomDeviceManagerProxy;->getToastGravityXOffset()I
+    invoke-virtual {v1}, Lcom/samsung/android/knox/custom/CustomDeviceManagerProxy;->getToastGravityXOffset()I
 
     move-result v3
 
@@ -146,7 +182,7 @@
 
     iget-object v2, p0, Landroid/widget/Toast;->mTN:Landroid/widget/Toast$TN;
 
-    invoke-virtual {v1}, Lcom/sec/enterprise/knoxcustom/CustomDeviceManagerProxy;->getToastGravityYOffset()I
+    invoke-virtual {v1}, Lcom/samsung/android/knox/custom/CustomDeviceManagerProxy;->getToastGravityYOffset()I
 
     move-result v3
 
@@ -599,22 +635,20 @@
     return-object v0
 .end method
 
-.method public static makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+.method public static makeText(Landroid/content/Context;Landroid/os/Looper;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
     .locals 10
 
     const/4 v9, 0x0
 
-    const/4 v1, 0x1
-
-    const/4 v6, 0x0
+    const/4 v8, 0x1
 
     new-instance v3, Landroid/widget/Toast;
 
-    invoke-direct {v3, p0}, Landroid/widget/Toast;-><init>(Landroid/content/Context;)V
+    invoke-direct {v3, p0, p1}, Landroid/widget/Toast;-><init>(Landroid/content/Context;Landroid/os/Looper;)V
 
-    const-string/jumbo v7, "layout_inflater"
+    const-string/jumbo v6, "layout_inflater"
 
-    invoke-virtual {p0, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -628,33 +662,35 @@
 
     invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
-    move-result-object v7
+    move-result-object v6
 
-    const v8, 0x11600cb
+    const v7, 0x1110082
 
-    invoke-virtual {v7, v8, v2, v1}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
+    invoke-virtual {v6, v7, v2, v8}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_0
+    if-eqz v6, :cond_1
 
-    iget v7, v2, Landroid/util/TypedValue;->data:I
+    iget v6, v2, Landroid/util/TypedValue;->data:I
 
-    if-eqz v7, :cond_0
+    if-eqz v6, :cond_0
+
+    const/4 v1, 0x1
 
     :goto_0
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
-    const v6, 0x109011c
+    const v6, 0x1090119
 
     invoke-virtual {v0, v6, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v5
 
     :goto_1
-    new-instance v6, Landroid/widget/Toast$2;
+    new-instance v6, Landroid/widget/Toast$3;
 
-    invoke-direct {v6, v3}, Landroid/widget/Toast$2;-><init>(Landroid/widget/Toast;)V
+    invoke-direct {v6, v3}, Landroid/widget/Toast$3;-><init>(Landroid/widget/Toast;)V
 
     invoke-virtual {v5, v6}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
@@ -666,27 +702,46 @@
 
     check-cast v4, Landroid/widget/TextView;
 
-    invoke-virtual {v4, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v4, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     iput-object v5, v3, Landroid/widget/Toast;->mNextView:Landroid/view/View;
 
-    iput p2, v3, Landroid/widget/Toast;->mDuration:I
+    iput p3, v3, Landroid/widget/Toast;->mDuration:I
+
+    iput-boolean v8, v3, Landroid/widget/Toast;->mDisableHWAcceleration:Z
 
     return-object v3
 
     :cond_0
-    move v1, v6
+    const/4 v1, 0x0
 
     goto :goto_0
 
     :cond_1
-    const v6, 0x109013b
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :cond_2
+    const v6, 0x109013a
 
     invoke-virtual {v0, v6, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v5
 
     goto :goto_1
+.end method
+
+.method public static makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-static {p0, v0, p1, p2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Landroid/os/Looper;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public static twMakeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
@@ -706,7 +761,7 @@
 
     const/4 v3, 0x0
 
-    const v4, 0x109011d
+    const v4, 0x109011a
 
     const/4 v5, 0x0
 
@@ -714,9 +769,9 @@
 
     move-result-object v3
 
-    new-instance v4, Landroid/widget/Toast$3;
+    new-instance v4, Landroid/widget/Toast$2;
 
-    invoke-direct {v4, v1}, Landroid/widget/Toast$3;-><init>(Landroid/widget/Toast;)V
+    invoke-direct {v4, v1}, Landroid/widget/Toast$2;-><init>(Landroid/widget/Toast;)V
 
     invoke-virtual {v3, v4}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
@@ -734,123 +789,23 @@
 
     iput p2, v1, Landroid/widget/Toast;->mDuration:I
 
+    const/4 v4, 0x0
+
+    iput-boolean v4, v1, Landroid/widget/Toast;->mDisableHWAcceleration:Z
+
     return-object v1
 .end method
 
 
 # virtual methods
 .method public cancel()V
-    .locals 4
+    .locals 1
 
-    sget-boolean v1, Landroid/widget/Toast;->localLOGV:Z
+    iget-object v0, p0, Landroid/widget/Toast;->mTN:Landroid/widget/Toast$TN;
 
-    if-eqz v1, :cond_0
+    invoke-virtual {v0}, Landroid/widget/Toast$TN;->cancel()V
 
-    const-string/jumbo v1, "Toast"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "cancel: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    iget-object v1, p0, Landroid/widget/Toast;->mTN:Landroid/widget/Toast$TN;
-
-    invoke-virtual {v1}, Landroid/widget/Toast$TN;->hide()V
-
-    :try_start_0
-    sget-boolean v1, Landroid/widget/Toast;->localLOGV:Z
-
-    if-eqz v1, :cond_1
-
-    const-string/jumbo v1, "Toast"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "cancelToast: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    invoke-static {}, Landroid/widget/Toast;->getService()Landroid/app/INotificationManager;
-
-    move-result-object v1
-
-    iget-object v2, p0, Landroid/widget/Toast;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
-
-    move-result-object v2
-
-    iget-object v3, p0, Landroid/widget/Toast;->mTN:Landroid/widget/Toast$TN;
-
-    invoke-interface {v1, v2, v3}, Landroid/app/INotificationManager;->cancelToast(Ljava/lang/String;Landroid/app/ITransientNotification;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_2
-    :goto_0
     return-void
-
-    :catch_0
-    move-exception v0
-
-    sget-boolean v1, Landroid/widget/Toast;->localLOGV:Z
-
-    if-eqz v1, :cond_2
-
-    const-string/jumbo v1, "Toast"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "RemoteException: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
 .end method
 
 .method public getDuration()I
@@ -961,16 +916,6 @@
     return-void
 .end method
 
-.method public setIgnoreMultiWindowLayout()V
-    .locals 1
-
-    iget-object v0, p0, Landroid/widget/Toast;->mTN:Landroid/widget/Toast$TN;
-
-    invoke-virtual {v0}, Landroid/widget/Toast$TN;->setIgnoreMultiWindowLayout()V
-
-    return-void
-.end method
-
 .method public setMargin(FF)V
     .locals 1
 
@@ -1064,6 +1009,10 @@
 
     iput-object p1, p0, Landroid/widget/Toast;->mNextView:Landroid/view/View;
 
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Landroid/widget/Toast;->mDisableHWAcceleration:Z
+
     return-void
 .end method
 
@@ -1072,24 +1021,34 @@
 
     const/4 v8, 0x0
 
-    invoke-static {}, Lcom/sec/enterprise/knoxcustom/CustomDeviceManagerProxy;->getInstance()Lcom/sec/enterprise/knoxcustom/CustomDeviceManagerProxy;
+    invoke-static {}, Lcom/samsung/android/knox/custom/CustomDeviceManagerProxy;->getInstance()Lcom/samsung/android/knox/custom/CustomDeviceManagerProxy;
 
     move-result-object v8
 
     if-eqz v8, :cond_0
 
-    invoke-virtual {v8}, Lcom/sec/enterprise/knoxcustom/CustomDeviceManagerProxy;->getToastEnabledState()Z
+    invoke-virtual {v8}, Lcom/samsung/android/knox/custom/CustomDeviceManagerProxy;->getToastEnabledState()Z
 
     move-result v16
 
-    if-eqz v16, :cond_2
+    xor-int/lit8 v16, v16, 0x1
+
+    if-eqz v16, :cond_0
+
+    const-string/jumbo v16, "Toast"
+
+    const-string/jumbo v17, "Knox Customization: Not showing toast"
+
+    invoke-static/range {v16 .. v17}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
 
     :cond_0
     invoke-direct/range {p0 .. p0}, Landroid/widget/Toast;->checkShowingCondition()Z
 
     move-result v16
 
-    if-nez v16, :cond_3
+    if-nez v16, :cond_2
 
     sget-boolean v16, Landroid/widget/Toast;->DEBUG:Z
 
@@ -1105,18 +1064,9 @@
     return-void
 
     :cond_2
-    const-string/jumbo v16, "Toast"
-
-    const-string/jumbo v17, "Knox Customization: Not showing toast"
-
-    invoke-static/range {v16 .. v17}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_3
     sget-boolean v16, Landroid/widget/Toast;->DEBUG:Z
 
-    if-eqz v16, :cond_4
+    if-eqz v16, :cond_3
 
     const-string/jumbo v16, "Toast"
 
@@ -1124,23 +1074,23 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_4
+    :cond_3
     invoke-direct/range {p0 .. p0}, Landroid/widget/Toast;->checkGameHomeWhiteList()Z
 
     move-result v16
 
-    if-eqz v16, :cond_5
+    if-eqz v16, :cond_4
 
     return-void
 
-    :cond_5
+    :cond_4
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/Toast;->mNextView:Landroid/view/View;
 
     move-object/from16 v16, v0
 
-    if-nez v16, :cond_6
+    if-nez v16, :cond_5
 
     new-instance v16, Ljava/lang/RuntimeException;
 
@@ -1150,14 +1100,14 @@
 
     throw v16
 
-    :cond_6
-    if-eqz v8, :cond_7
+    :cond_5
+    if-eqz v8, :cond_6
 
-    invoke-virtual {v8}, Lcom/sec/enterprise/knoxcustom/CustomDeviceManagerProxy;->getToastShowPackageNameState()Z
+    invoke-virtual {v8}, Lcom/samsung/android/knox/custom/CustomDeviceManagerProxy;->getToastShowPackageNameState()Z
 
     move-result v16
 
-    if-eqz v16, :cond_7
+    if-eqz v16, :cond_6
 
     move-object/from16 v0, p0
 
@@ -1165,7 +1115,7 @@
 
     move-object/from16 v16, v0
 
-    if-eqz v16, :cond_7
+    if-eqz v16, :cond_6
 
     move-object/from16 v0, p0
 
@@ -1209,9 +1159,9 @@
 
     check-cast v15, Landroid/widget/TextView;
 
-    if-eqz v15, :cond_7
+    if-eqz v15, :cond_6
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_6
 
     invoke-virtual {v15}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
@@ -1227,57 +1177,11 @@
 
     move-result v16
 
-    if-eqz v16, :cond_9
+    xor-int/lit8 v16, v16, 0x1
 
-    :cond_7
-    :goto_0
-    invoke-static {}, Landroid/widget/Toast;->getService()Landroid/app/INotificationManager;
-
-    move-result-object v12
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/Toast;->mContext:Landroid/content/Context;
-
-    move-object/from16 v16, v0
-
-    invoke-virtual/range {v16 .. v16}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
-
-    move-result-object v10
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/widget/Toast;->mTN:Landroid/widget/Toast$TN;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/Toast;->mNextView:Landroid/view/View;
-
-    move-object/from16 v16, v0
-
-    move-object/from16 v0, v16
-
-    iput-object v0, v14, Landroid/widget/Toast$TN;->mNextView:Landroid/view/View;
+    if-eqz v16, :cond_6
 
     :try_start_0
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/Toast;->mDuration:I
-
-    move/from16 v16, v0
-
-    move/from16 v0, v16
-
-    invoke-interface {v12, v10, v14, v0}, Landroid/app/INotificationManager;->enqueueToast(Ljava/lang/String;Landroid/app/ITransientNotification;I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
-
-    :cond_8
-    :goto_1
-    return-void
-
-    :cond_9
-    :try_start_1
     new-instance v13, Landroid/text/SpannableString;
 
     invoke-virtual {v15}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
@@ -1343,10 +1247,65 @@
     move-result-object v16
 
     invoke-virtual/range {v15 .. v16}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    :cond_6
+    :goto_0
+    invoke-static {}, Landroid/widget/Toast;->getService()Landroid/app/INotificationManager;
+
+    move-result-object v12
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/widget/Toast;->mContext:Landroid/content/Context;
+
+    move-object/from16 v16, v0
+
+    invoke-virtual/range {v16 .. v16}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+
+    move-result-object v10
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/widget/Toast;->mTN:Landroid/widget/Toast$TN;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/widget/Toast;->mNextView:Landroid/view/View;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, v16
+
+    iput-object v0, v14, Landroid/widget/Toast$TN;->mNextView:Landroid/view/View;
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Landroid/widget/Toast;->mDisableHWAcceleration:Z
+
+    move/from16 v16, v0
+
+    move/from16 v0, v16
+
+    iput-boolean v0, v14, Landroid/widget/Toast$TN;->mDisableHWAcceleration:Z
+
+    :try_start_1
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/Toast;->mDuration:I
+
+    move/from16 v16, v0
+
+    move/from16 v0, v16
+
+    invoke-interface {v12, v10, v14, v0}, Landroid/app/INotificationManager;->enqueueToast(Ljava/lang/String;Landroid/app/ITransientNotification;I)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
+
+    :cond_7
+    :goto_1
+    return-void
 
     :catch_0
     move-exception v4
@@ -1393,14 +1352,14 @@
 
     invoke-virtual/range {v15 .. v16}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :catch_1
     move-exception v3
 
     sget-boolean v16, Landroid/widget/Toast;->localLOGV:Z
 
-    if-eqz v16, :cond_8
+    if-eqz v16, :cond_7
 
     const-string/jumbo v16, "Toast"
 
@@ -1428,5 +1387,5 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_1
+    goto :goto_1
 .end method

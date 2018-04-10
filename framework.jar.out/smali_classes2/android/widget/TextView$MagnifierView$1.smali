@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Landroid/widget/TextView$MagnifierView$1;->this$1:Landroid/widget/TextView$MagnifierView;
 
-    invoke-virtual {v0}, Landroid/widget/TextView$MagnifierView;->stopMagnifierByForce()V
+    invoke-virtual {v0}, Landroid/widget/TextView$MagnifierView;->stopMagnifier()V
 
     return-void
 .end method

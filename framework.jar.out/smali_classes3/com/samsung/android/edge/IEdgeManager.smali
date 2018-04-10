@@ -23,6 +23,14 @@
     .end annotation
 .end method
 
+.method public abstract cancelNotification(Ljava/lang/String;Ljava/lang/String;II)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract disable(ILjava/lang/String;Landroid/os/IBinder;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

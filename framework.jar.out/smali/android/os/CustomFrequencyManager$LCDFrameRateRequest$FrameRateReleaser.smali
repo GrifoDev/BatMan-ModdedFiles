@@ -52,7 +52,7 @@
     :cond_0
     iget-object v0, p0, Landroid/os/CustomFrequencyManager$LCDFrameRateRequest$FrameRateReleaser;->this$1:Landroid/os/CustomFrequencyManager$LCDFrameRateRequest;
 
-    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->cancelFrequencyRequest()V
+    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$LCDFrameRateRequest;->cancelFrequencyRequest()V
 
     return-void
 .end method

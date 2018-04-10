@@ -22,6 +22,8 @@
 
 .field private static final NORMAL_STATE:Ljava/lang/String; = "Normal"
 
+.field private static final PRENORMAL_STATE:Ljava/lang/String; = "Prenormal"
+
 .field private static final RLC_AES256_IV_SIZE:I = 0x10
 
 .field private static final RLC_AES256_KEY_SIZE:I = 0x20
@@ -61,6 +63,8 @@
 .field private static final RLC_NONCE_SIZE:I = 0x20
 
 .field private static final RLC_SHA256_SIZE:I = 0x20
+
+.field private static final RLC_SUCCESS:I = 0x0
 
 .field private static final TAG:Ljava/lang/String; = "RlcManager"
 
@@ -366,7 +370,7 @@
 
     :goto_3
     :try_start_5
-    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
 
     const-string/jumbo v7, "Error deserialize"
 
@@ -744,7 +748,7 @@
     :catch_0
     move-exception v8
 
-    invoke-virtual {v8}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v8}, Ljava/lang/Exception;->printStackTrace()V
 
     const-string/jumbo v0, "Exception"
 
@@ -994,7 +998,7 @@
 
     :goto_3
     :try_start_5
-    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
 
     const-string/jumbo v7, "Error serialize"
 
@@ -1237,7 +1241,7 @@
     :catch_1
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     const-string/jumbo v4, "Runtime Exception from Lockscreen"
 
@@ -1353,7 +1357,7 @@
     :catch_1
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     const-string/jumbo v3, "Runtime Exception from Lockscreen"
 
@@ -1586,6 +1590,111 @@
     :cond_2
     invoke-direct {p0}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->setRemoteLockToLockscreen()V
 
+    invoke-direct {p0}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->makeResultDev()[B
+    :try_end_0
+    .catch Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v1
+
+    invoke-direct {p0}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->clearRlcData()V
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    :try_start_1
+    throw v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :catchall_0
+    move-exception v3
+
+    invoke-direct {p0}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->clearRlcData()V
+
+    throw v3
+.end method
+
+.method public completeDestroying(Z[B)[B
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlException;
+        }
+    .end annotation
+
+    const/4 v5, -0x5
+
+    const-string/jumbo v3, "RlcManager"
+
+    const-string/jumbo v4, "completeDestroying"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, 0x0
+
+    sget-object v3, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->mVkm:Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;
+
+    if-nez v3, :cond_0
+
+    const-string/jumbo v3, "Error from VaultKeeper Manager is null object"
+
+    invoke-direct {p0, v5, v3}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->throwException(ILjava/lang/String;)V
+
+    :cond_0
+    if-nez p1, :cond_1
+
+    :try_start_0
+    const-string/jumbo v3, "resultSvr is fail"
+
+    const/4 v4, -0x6
+
+    invoke-direct {p0, v4, v3}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->throwException(ILjava/lang/String;)V
+
+    :cond_1
+    sget-object v3, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->mVkm:Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;
+
+    sget-object v4, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->mServerCert:[B
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v3, v4, p2, v5}, Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;->destroy([B[BLjava/lang/String;)I
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Error from VaultKeeper (destroy/"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ")"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    const/4 v4, -0x5
+
+    invoke-direct {p0, v4, v3}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->throwException(ILjava/lang/String;)V
+
+    :cond_2
     invoke-direct {p0}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->makeResultDev()[B
     :try_end_0
     .catch Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlException; {:try_start_0 .. :try_end_0} :catch_0
@@ -2985,6 +3094,91 @@
     throw v8
 .end method
 
+.method public prepareDestroying([B[B[B)[B
+    .locals 10
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlException;
+        }
+    .end annotation
+
+    const/4 v2, -0x5
+
+    const-string/jumbo v0, "RlcManager"
+
+    const-string/jumbo v1, "requestDestroying"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v7, 0x0
+
+    sget-object v0, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->mVkm:Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "Error from VaultKeeper Manager is null object"
+
+    invoke-direct {p0, v2, v0}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->throwException(ILjava/lang/String;)V
+
+    :cond_0
+    :try_start_0
+    invoke-direct {p0, p1, p2, p3}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->parameterChecking([B[B[B)V
+
+    sget-object v0, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->mVkm:Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;
+
+    invoke-virtual {v0}, Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;->getNonce()[B
+
+    move-result-object v9
+
+    if-nez v9, :cond_1
+
+    const-string/jumbo v0, "Error from VaultKeeper (getNonce)"
+
+    const/4 v1, -0x5
+
+    invoke-direct {p0, v1, v0}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->throwException(ILjava/lang/String;)V
+
+    :cond_1
+    sget-object v0, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->mNonceDev:[B
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
+    const/16 v3, 0x20
+
+    invoke-static {v9, v1, v0, v2, v3}, Ljava/lang/System;->arraycopy([BI[BII)V
+
+    sget-object v5, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->mNonceDev:[B
+
+    const/4 v2, 0x0
+
+    const/4 v6, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v3, p3
+
+    move-object v4, p2
+
+    invoke-direct/range {v0 .. v6}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->makeDeviceMsg([B[B[B[B[B[B)[B
+    :try_end_0
+    .catch Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v7
+
+    return-object v7
+
+    :catch_0
+    move-exception v8
+
+    invoke-direct {p0}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->clearRlcData()V
+
+    throw v8
+.end method
+
 .method public prepareLocking([B[B[B)[B
     .locals 10
     .annotation system Ldalvik/annotation/Throws;
@@ -3838,6 +4032,140 @@
     throw v7
 .end method
 
+.method public setRmmTargetDevice()I
+    .locals 9
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlException;
+        }
+    .end annotation
+
+    const/4 v8, 0x0
+
+    const/4 v6, -0x5
+
+    const-string/jumbo v4, "RlcManager"
+
+    const-string/jumbo v5, "setRmmtargetdevice"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, 0x0
+
+    sget-object v4, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->mVkm:Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;
+
+    if-nez v4, :cond_0
+
+    const-string/jumbo v4, "Error from VaultKeeper Manager is null object"
+
+    invoke-direct {p0, v6, v4}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->throwException(ILjava/lang/String;)V
+
+    :cond_0
+    :try_start_0
+    invoke-virtual {p0}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->query()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v4, ""
+
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    const-string/jumbo v4, "Completed"
+
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_1
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Cannot set RMM Prenormal state in current state("
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ")"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, -0x1
+
+    invoke-direct {p0, v5, v4}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->throwException(ILjava/lang/String;)V
+
+    :cond_1
+    sget-object v4, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->mVkm:Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;
+
+    const-string/jumbo v5, "Prenormal"
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v4, v5, v6, v7}, Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;->write(Ljava/lang/String;[B[B)I
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Error from VaultKeeper (write prenormal/"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ")"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, -0x5
+
+    invoke-direct {p0, v5, v4}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->throwException(ILjava/lang/String;)V
+    :try_end_0
+    .catch Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_2
+    return v8
+
+    :catch_0
+    move-exception v0
+
+    throw v0
+.end method
+
 .method public unbindFromLockScreen()V
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
@@ -3896,7 +4224,7 @@
     :catch_1
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     const-string/jumbo v3, "Runtime Exception from Lockscreen"
 

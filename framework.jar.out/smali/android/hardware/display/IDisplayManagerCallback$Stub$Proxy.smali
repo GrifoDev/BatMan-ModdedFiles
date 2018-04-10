@@ -82,7 +82,7 @@
 
     iget-object v1, p0, Landroid/hardware/display/IDisplayManagerCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v2, 0x2
+    const/4 v2, 0x4
 
     const/4 v3, 0x0
 
@@ -159,7 +159,7 @@
     throw v1
 .end method
 
-.method public onDisplayVolumeEvent(Landroid/os/Bundle;I)V
+.method public onDisplayVolumeEvent(ILandroid/os/Bundle;)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -176,7 +176,9 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    if-eqz p1, :cond_0
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    if-eqz p2, :cond_0
 
     const/4 v1, 0x1
 
@@ -184,14 +186,12 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-virtual {p2, v0, v1}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_0
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
-
     iget-object v1, p0, Landroid/hardware/display/IDisplayManagerCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v2, 0x3
+    const/4 v2, 0x2
 
     const/4 v3, 0x0
 
@@ -223,7 +223,7 @@
     throw v1
 .end method
 
-.method public onDisplayVolumeKeyEvent(Landroid/os/Bundle;I)V
+.method public onDisplayVolumeKeyEvent(I)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -240,22 +240,11 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    if-eqz p1, :cond_0
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
-
-    :goto_0
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-object v1, p0, Landroid/hardware/display/IDisplayManagerCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v2, 0x4
+    const/4 v2, 0x3
 
     const/4 v3, 0x0
 
@@ -268,16 +257,6 @@
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
-
-    :cond_0
-    const/4 v1, 0x0
-
-    :try_start_1
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
 
     :catchall_0
     move-exception v1

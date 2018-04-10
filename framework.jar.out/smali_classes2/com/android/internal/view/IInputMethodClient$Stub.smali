@@ -30,6 +30,8 @@
 
 .field static final TRANSACTION_onUnbindMethod:I = 0x3
 
+.field static final TRANSACTION_reportFullscreenMode:I = 0x6
+
 .field static final TRANSACTION_setActive:I = 0x4
 
 .field static final TRANSACTION_setUserActionNotificationSequenceNumber:I = 0x5
@@ -93,31 +95,29 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v2, 0x0
-
-    const/4 v4, 0x1
+    const/4 v6, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v4
+    move-result v5
 
-    return v4
+    return v5
 
     :sswitch_0
     const-string/jumbo v5, "com.android.internal.view.IInputMethodClient"
 
     invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v4
+    return v6
 
     :sswitch_1
     const-string/jumbo v5, "com.android.internal.view.IInputMethodClient"
@@ -130,12 +130,17 @@
 
     if-eqz v5, :cond_0
 
-    move v2, v4
+    const/4 v2, 0x1
 
-    :cond_0
+    :goto_0
     invoke-virtual {p0, v2}, Lcom/android/internal/view/IInputMethodClient$Stub;->setUsingInputMethod(Z)V
 
-    return v4
+    return v6
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
 
     :sswitch_2
     const-string/jumbo v5, "com.android.internal.view.IInputMethodClient"
@@ -156,15 +161,15 @@
 
     check-cast v1, Lcom/android/internal/view/InputBindResult;
 
-    :goto_0
+    :goto_1
     invoke-virtual {p0, v1}, Lcom/android/internal/view/IInputMethodClient$Stub;->onBindMethod(Lcom/android/internal/view/InputBindResult;)V
 
-    return v4
+    return v6
 
     :cond_1
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_3
     const-string/jumbo v5, "com.android.internal.view.IInputMethodClient"
@@ -181,7 +186,7 @@
 
     invoke-virtual {p0, v0, v3}, Lcom/android/internal/view/IInputMethodClient$Stub;->onUnbindMethod(II)V
 
-    return v4
+    return v6
 
     :sswitch_4
     const-string/jumbo v5, "com.android.internal.view.IInputMethodClient"
@@ -194,12 +199,31 @@
 
     if-eqz v5, :cond_2
 
-    move v2, v4
+    const/4 v2, 0x1
+
+    :goto_2
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    const/4 v4, 0x1
+
+    :goto_3
+    invoke-virtual {p0, v2, v4}, Lcom/android/internal/view/IInputMethodClient$Stub;->setActive(ZZ)V
+
+    return v6
 
     :cond_2
-    invoke-virtual {p0, v2}, Lcom/android/internal/view/IInputMethodClient$Stub;->setActive(Z)V
+    const/4 v2, 0x0
 
-    return v4
+    goto :goto_2
+
+    :cond_3
+    const/4 v4, 0x0
+
+    goto :goto_3
 
     :sswitch_5
     const-string/jumbo v5, "com.android.internal.view.IInputMethodClient"
@@ -212,9 +236,30 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/view/IInputMethodClient$Stub;->setUserActionNotificationSequenceNumber(I)V
 
-    return v4
+    return v6
 
-    nop
+    :sswitch_6
+    const-string/jumbo v5, "com.android.internal.view.IInputMethodClient"
+
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+
+    const/4 v2, 0x1
+
+    :goto_4
+    invoke-virtual {p0, v2}, Lcom/android/internal/view/IInputMethodClient$Stub;->reportFullscreenMode(Z)V
+
+    return v6
+
+    :cond_4
+    const/4 v2, 0x0
+
+    goto :goto_4
 
     :sswitch_data_0
     .sparse-switch
@@ -223,6 +268,7 @@
         0x3 -> :sswitch_3
         0x4 -> :sswitch_4
         0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

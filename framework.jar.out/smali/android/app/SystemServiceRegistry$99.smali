@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Lcom/samsung/android/displaysolution/SemDisplaySolutionManager;",
+        "Lcom/samsung/android/desktopmode/SemDesktopModeManager;",
         ">;"
     }
 .end annotation
@@ -34,30 +34,52 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/displaysolution/SemDisplaySolutionManager;
-    .locals 3
+.method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/desktopmode/SemDesktopModeManager;
+    .locals 5
 
-    const-string/jumbo v2, "DisplaySolution"
+    const/4 v4, 0x0
+
+    const-string/jumbo v2, "desktopmode"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager;
+    invoke-static {v0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/desktopmode/IDesktopMode;
 
     move-result-object v1
 
-    new-instance v2, Lcom/samsung/android/displaysolution/SemDisplaySolutionManager;
+    if-nez v1, :cond_0
 
-    invoke-direct {v2, v1}, Lcom/samsung/android/displaysolution/SemDisplaySolutionManager;-><init>(Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager;)V
+    const-string/jumbo v2, "SystemServiceRegistry"
+
+    const-string/jumbo v3, "SemDesktopModeManager is not supported"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v4
+
+    :cond_0
+    new-instance v2, Lcom/samsung/android/desktopmode/SemDesktopModeManager;
+
+    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-direct {v2, v3, v1}, Lcom/samsung/android/desktopmode/SemDesktopModeManager;-><init>(Landroid/content/Context;Lcom/samsung/android/desktopmode/IDesktopMode;)V
 
     return-object v2
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$99;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/displaysolution/SemDisplaySolutionManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$99;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/desktopmode/SemDesktopModeManager;
 
     move-result-object v0
 

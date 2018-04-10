@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
@@ -83,7 +83,7 @@
 
     const/4 v8, 0x0
 
-    invoke-virtual {p0}, Landroid/app/Fragment;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverGuideDialogFragment;->getContext()Landroid/content/Context;
 
     move-result-object v5
 
@@ -107,7 +107,7 @@
 
     move-result-object v5
 
-    const v6, 0x104084b
+    const v6, 0x104089b
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -121,7 +121,7 @@
 
     move-result-object v5
 
-    const v6, 0x1040399
+    const v6, 0x10401c3
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -171,7 +171,7 @@
 
     move-result-object v5
 
-    const v6, 0x1040853
+    const v6, 0x1040913
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -188,7 +188,7 @@
 
     move-result-object v5
 
-    const v6, 0x1040851
+    const v6, 0x10401c6
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -275,7 +275,7 @@
 
     invoke-super {p0}, Landroid/app/DialogFragment;->onPause()V
 
-    invoke-virtual {p0}, Landroid/app/DialogFragment;->dismiss()V
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverGuideDialogFragment;->dismiss()V
 
     return-void
 .end method

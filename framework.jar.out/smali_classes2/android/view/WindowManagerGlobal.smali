@@ -30,8 +30,6 @@
 
 .field public static final ADD_PERMISSION_DENIED:I = -0x8
 
-.field public static final ADD_RES_CONVENTIONAL_MODE:I = 0x10000
-
 .field public static final ADD_RES_DEXCOMPAT_MODE:I = 0x20000
 
 .field public static final ADD_STARTING_NOT_NEEDED:I = -0x6
@@ -41,8 +39,6 @@
 .field public static final RELAYOUT_INSETS_PENDING:I = 0x1
 
 .field public static final RELAYOUT_RES_CONSUME_ALWAYS_NAV_BAR:I = 0x40
-
-.field public static final RELAYOUT_RES_CONVENTIONAL_MODE:I = 0x10000
 
 .field public static final RELAYOUT_RES_DEXCOMPAT_MODE:I = 0x20000
 
@@ -213,7 +209,7 @@
 
     iget-object v3, v2, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
 
-    iget-object v3, v3, Landroid/view/View$AttachInfo;->mHardwareRenderer:Landroid/view/ThreadedRenderer;
+    iget-object v3, v3, Landroid/view/View$AttachInfo;->mThreadedRenderer:Landroid/view/ThreadedRenderer;
 
     if-eqz v3, :cond_0
 
@@ -360,11 +356,9 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    invoke-static {}, Landroid/view/WindowManagerGlobal;->getWindowManagerService()Landroid/view/IWindowManager;
+    sget-object v1, Landroid/view/WindowManagerGlobal;->sWindowManagerService:Landroid/view/IWindowManager;
 
-    move-result-object v1
-
-    sput-object v1, Landroid/view/WindowManagerGlobal;->sWindowManagerService:Landroid/view/IWindowManager;
+    if-eqz v1, :cond_0
 
     sget-object v1, Landroid/view/WindowManagerGlobal;->sWindowManagerService:Landroid/view/IWindowManager;
 
@@ -651,15 +645,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    return v1
 
     :cond_1
     const/4 v0, 0x0
 
     return v0
-
-    :cond_2
-    return v1
 .end method
 
 .method public static trimForeground()V
@@ -944,8 +939,6 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    monitor-exit v10
-
     if-eqz p4, :cond_a
 
     if-eqz v6, :cond_b
@@ -958,13 +951,20 @@
 
     :cond_a
     invoke-virtual {v7, p1, v8, v6}, Landroid/view/ViewRootImpl;->setView(Landroid/view/View;Landroid/view/WindowManager$LayoutParams;Landroid/view/View;)V
+    :try_end_3
+    .catch Ljava/lang/RuntimeException; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    monitor-exit v10
 
     return-void
 
     :cond_b
+    :try_start_4
     invoke-virtual/range {p4 .. p4}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-    :try_end_3
-    .catch Ljava/lang/RuntimeException; {:try_start_3 .. :try_end_3} :catch_0
+    :try_end_4
+    .catch Ljava/lang/RuntimeException; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     move-result-object v9
 
@@ -973,36 +973,17 @@
     :catch_0
     move-exception v3
 
-    iget-object v10, p0, Landroid/view/WindowManagerGlobal;->mLock:Ljava/lang/Object;
-
-    monitor-enter v10
-
-    const/4 v9, 0x0
-
-    :try_start_4
-    invoke-direct {p0, p1, v9}, Landroid/view/WindowManagerGlobal;->findViewLocked(Landroid/view/View;Z)I
-
-    move-result v5
-
     if-ltz v5, :cond_c
 
     const/4 v9, 0x1
 
+    :try_start_5
     invoke-direct {p0, v5, v9}, Landroid/view/WindowManagerGlobal;->removeViewLocked(IZ)V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     :cond_c
-    monitor-exit v10
-
     throw v3
-
-    :catchall_1
-    move-exception v9
-
-    monitor-exit v10
-
-    throw v9
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 .end method
 
 .method public changeCanvasOpacity(Landroid/os/IBinder;Z)V
@@ -1292,7 +1273,7 @@
 .end method
 
 .method public dumpGfxInfo(Ljava/io/FileDescriptor;[Ljava/lang/String;)V
-    .locals 17
+    .locals 18
 
     new-instance v4, Ljava/io/FileOutputStream;
 
@@ -1307,24 +1288,24 @@
     :try_start_0
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Landroid/view/WindowManagerGlobal;->mLock:Ljava/lang/Object;
+    iget-object v14, v0, Landroid/view/WindowManagerGlobal;->mLock:Ljava/lang/Object;
 
-    monitor-enter v13
+    monitor-enter v14
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/view/WindowManagerGlobal;->mViews:Ljava/util/ArrayList;
+    iget-object v13, v0, Landroid/view/WindowManagerGlobal;->mViews:Ljava/util/ArrayList;
 
-    invoke-virtual {v12}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v13}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    const-string/jumbo v12, "Profile data in ms:"
+    const-string/jumbo v13, "Profile data in ms:"
 
-    invoke-virtual {v8, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v8, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     const/4 v5, 0x0
 
@@ -1333,9 +1314,9 @@
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/view/WindowManagerGlobal;->mRoots:Ljava/util/ArrayList;
+    iget-object v13, v0, Landroid/view/WindowManagerGlobal;->mRoots:Ljava/util/ArrayList;
 
-    invoke-virtual {v12, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v13, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v10
 
@@ -1345,37 +1326,37 @@
 
     move-result-object v7
 
-    const-string/jumbo v12, "\n\t%s (visibility=%d)"
+    const-string/jumbo v13, "\n\t%s (visibility=%d)"
 
-    const/4 v14, 0x2
+    const/4 v15, 0x2
 
-    new-array v14, v14, [Ljava/lang/Object;
+    new-array v15, v15, [Ljava/lang/Object;
 
-    const/4 v15, 0x0
+    const/16 v16, 0x0
 
-    aput-object v7, v14, v15
+    aput-object v7, v15, v16
 
     invoke-virtual {v10}, Landroid/view/ViewRootImpl;->getHostVisibility()I
 
-    move-result v15
+    move-result v16
 
-    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v15
+    move-result-object v16
 
-    const/16 v16, 0x1
+    const/16 v17, 0x1
 
-    aput-object v15, v14, v16
+    aput-object v16, v15, v17
 
-    invoke-virtual {v8, v12, v14}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+    invoke-virtual {v8, v13, v15}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
 
     invoke-virtual {v10}, Landroid/view/ViewRootImpl;->getView()Landroid/view/View;
 
-    move-result-object v12
+    move-result-object v13
 
-    iget-object v12, v12, Landroid/view/View;->mAttachInfo:Landroid/view/View$AttachInfo;
+    iget-object v13, v13, Landroid/view/View;->mAttachInfo:Landroid/view/View$AttachInfo;
 
-    iget-object v9, v12, Landroid/view/View$AttachInfo;->mHardwareRenderer:Landroid/view/ThreadedRenderer;
+    iget-object v9, v13, Landroid/view/View$AttachInfo;->mThreadedRenderer:Landroid/view/ThreadedRenderer;
 
     if-eqz v9, :cond_0
 
@@ -1391,17 +1372,17 @@
     goto :goto_0
 
     :cond_1
-    const-string/jumbo v12, "\nView hierarchy:\n"
+    const-string/jumbo v13, "\nView hierarchy:\n"
 
-    invoke-virtual {v8, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v8, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const/4 v11, 0x0
+    const/4 v12, 0x0
 
     const/4 v3, 0x0
 
-    const/4 v12, 0x2
+    const/4 v13, 0x2
 
-    new-array v6, v12, [I
+    new-array v6, v13, [I
 
     const/4 v5, 0x0
 
@@ -1410,9 +1391,9 @@
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/view/WindowManagerGlobal;->mRoots:Ljava/util/ArrayList;
+    iget-object v13, v0, Landroid/view/WindowManagerGlobal;->mRoots:Ljava/util/ArrayList;
 
-    invoke-virtual {v12, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v13, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v10
 
@@ -1424,131 +1405,168 @@
 
     move-result-object v7
 
-    const-string/jumbo v12, "  %s\n  %d views, %.2f kB of display lists"
+    const-string/jumbo v13, "  %s\n  %d views, %.2f kB of display lists"
 
-    const/4 v14, 0x3
+    const/4 v15, 0x3
 
-    new-array v14, v14, [Ljava/lang/Object;
+    new-array v15, v15, [Ljava/lang/Object;
 
-    const/4 v15, 0x0
+    const/16 v16, 0x0
 
-    aput-object v7, v14, v15
+    aput-object v7, v15, v16
 
-    const/4 v15, 0x0
+    const/16 v16, 0x0
 
-    aget v15, v6, v15
+    aget v16, v6, v16
 
-    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v15
+    move-result-object v16
+
+    const/16 v17, 0x1
+
+    aput-object v16, v15, v17
 
     const/16 v16, 0x1
 
-    aput-object v15, v14, v16
+    aget v16, v6, v16
 
-    const/4 v15, 0x1
+    move/from16 v0, v16
 
-    aget v15, v6, v15
+    int-to-float v0, v0
 
-    int-to-float v15, v15
+    move/from16 v16, v0
 
-    const/high16 v16, 0x44800000    # 1024.0f
+    const/high16 v17, 0x44800000    # 1024.0f
 
-    div-float v15, v15, v16
+    div-float v16, v16, v17
 
-    invoke-static {v15}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static/range {v16 .. v16}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v15
+    move-result-object v16
 
-    const/16 v16, 0x2
+    const/16 v17, 0x2
 
-    aput-object v15, v14, v16
+    aput-object v16, v15, v17
 
-    invoke-virtual {v8, v12, v14}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+    invoke-virtual {v8, v13, v15}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
 
-    const-string/jumbo v12, "\n\n"
+    const-string/jumbo v13, "\n\n"
 
-    const/4 v14, 0x0
+    const/4 v15, 0x0
 
-    new-array v14, v14, [Ljava/lang/Object;
+    new-array v15, v15, [Ljava/lang/Object;
 
-    invoke-virtual {v8, v12, v14}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+    invoke-virtual {v8, v13, v15}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
 
-    const/4 v12, 0x0
+    const/4 v13, 0x0
 
-    aget v12, v6, v12
+    aget v13, v6, v13
 
-    add-int/2addr v11, v12
+    add-int/2addr v12, v13
 
-    const/4 v12, 0x1
+    const/4 v13, 0x1
 
-    aget v12, v6, v12
+    aget v13, v6, v13
 
-    add-int/2addr v3, v12
+    add-int/2addr v3, v13
 
     add-int/lit8 v5, v5, 0x1
 
     goto :goto_1
 
     :cond_2
-    const-string/jumbo v12, "\nTotal ViewRootImpl: %d\n"
+    const-string/jumbo v13, "\nTotal ViewRootImpl: %d\n"
 
-    const/4 v14, 0x1
+    const/4 v15, 0x1
 
-    new-array v14, v14, [Ljava/lang/Object;
+    new-array v15, v15, [Ljava/lang/Object;
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
+    move-result-object v16
+
+    const/16 v17, 0x0
+
+    aput-object v16, v15, v17
+
+    invoke-virtual {v8, v13, v15}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+
+    const-string/jumbo v13, "Total Views:        %d\n"
+
+    const/4 v15, 0x1
+
+    new-array v15, v15, [Ljava/lang/Object;
+
+    invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v16
+
+    const/16 v17, 0x0
+
+    aput-object v16, v15, v17
+
+    invoke-virtual {v8, v13, v15}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+
+    const-string/jumbo v13, "Total DisplayList:  %.2f kB\n\n"
+
+    const/4 v15, 0x1
+
+    new-array v15, v15, [Ljava/lang/Object;
+
+    int-to-float v0, v3
+
+    move/from16 v16, v0
+
+    const/high16 v17, 0x44800000    # 1024.0f
+
+    div-float v16, v16, v17
+
+    invoke-static/range {v16 .. v16}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v16
+
+    const/16 v17, 0x0
+
+    aput-object v16, v15, v17
+
+    invoke-virtual {v8, v13, v15}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+
+    invoke-static {}, Landroid/app/ActivityThread;->currentActivityThread()Landroid/app/ActivityThread;
+
+    move-result-object v11
+
+    if-eqz v11, :cond_3
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v15, "threadConfig: "
+
+    invoke-virtual {v13, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v11}, Landroid/app/ActivityThread;->getConfiguration()Landroid/content/res/Configuration;
+
     move-result-object v15
 
-    const/16 v16, 0x0
+    invoke-virtual {v13, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    aput-object v15, v14, v16
+    move-result-object v13
 
-    invoke-virtual {v8, v12, v14}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string/jumbo v12, "Total Views:        %d\n"
+    move-result-object v13
 
-    const/4 v14, 0x1
-
-    new-array v14, v14, [Ljava/lang/Object;
-
-    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v15
-
-    const/16 v16, 0x0
-
-    aput-object v15, v14, v16
-
-    invoke-virtual {v8, v12, v14}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
-
-    const-string/jumbo v12, "Total DisplayList:  %.2f kB\n\n"
-
-    const/4 v14, 0x1
-
-    new-array v14, v14, [Ljava/lang/Object;
-
-    int-to-float v15, v3
-
-    const/high16 v16, 0x44800000    # 1024.0f
-
-    div-float v15, v15, v16
-
-    invoke-static {v15}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v15
-
-    const/16 v16, 0x0
-
-    aput-object v15, v14, v16
-
-    invoke-virtual {v8, v12, v14}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+    invoke-virtual {v8, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    :cond_3
     :try_start_2
-    monitor-exit v13
+    monitor-exit v14
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
@@ -1557,21 +1575,21 @@
     return-void
 
     :catchall_0
-    move-exception v12
+    move-exception v13
 
     :try_start_3
-    monitor-exit v13
+    monitor-exit v14
 
-    throw v12
+    throw v13
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     :catchall_1
-    move-exception v12
+    move-exception v13
 
     invoke-virtual {v8}, Ljava/io/PrintWriter;->flush()V
 
-    throw v12
+    throw v13
 .end method
 
 .method public getRootView(Ljava/lang/String;)Landroid/view/View;
@@ -1837,6 +1855,65 @@
     throw v3
 .end method
 
+.method public getWindowView(Landroid/os/IBinder;)Landroid/view/View;
+    .locals 5
+
+    iget-object v4, p0, Landroid/view/WindowManagerGlobal;->mLock:Ljava/lang/Object;
+
+    monitor-enter v4
+
+    :try_start_0
+    iget-object v3, p0, Landroid/view/WindowManagerGlobal;->mViews:Ljava/util/ArrayList;
+
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    const/4 v0, 0x0
+
+    :goto_0
+    if-ge v0, v1, :cond_1
+
+    iget-object v3, p0, Landroid/view/WindowManagerGlobal;->mViews:Ljava/util/ArrayList;
+
+    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/view/View;
+
+    invoke-virtual {v2}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v3
+
+    if-ne v3, p1, :cond_0
+
+    monitor-exit v4
+
+    return-object v2
+
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    monitor-exit v4
+
+    const/4 v3, 0x0
+
+    return-object v3
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v4
+
+    throw v3
+.end method
+
 .method public removeView(Landroid/view/View;Z)V
     .locals 6
 
@@ -2055,33 +2132,6 @@
     monitor-exit v4
 
     throw v3
-.end method
-
-.method public startSurfaceAnimation(Landroid/os/IBinder;[I)V
-    .locals 4
-
-    invoke-static {}, Landroid/view/WindowManagerGlobal;->getWindowManagerService()Landroid/view/IWindowManager;
-
-    move-result-object v1
-
-    :try_start_0
-    invoke-interface {v1, p1, p2}, Landroid/view/IWindowManager;->startSurfaceAnimation(Landroid/os/IBinder;[I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v2, "WindowManager"
-
-    const-string/jumbo v3, "Failed to start SF Animaion"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
 .end method
 
 .method public trimMemory(I)V

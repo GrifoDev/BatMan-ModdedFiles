@@ -40,10 +40,6 @@
 
 .field private static final MSG_NOTIFY_PRINT_JOB_STATE_CHANGED:I = 0x1
 
-.field private static final MSG_NOTIFY_PRINT_SERVICES_CHANGED:I = 0x2
-
-.field private static final MSG_NOTIFY_PRINT_SERVICE_RECOMMENDATIONS_CHANGED:I = 0x3
-
 .field public static final PRINT_SPOOLER_PACKAGE_NAME:Ljava/lang/String; = "com.android.printspooler"
 
 
@@ -188,14 +184,19 @@
     throw v2
 .end method
 
-.method addPrintServiceRecommendationsChangeListener(Landroid/print/PrintManager$PrintServiceRecommendationsChangeListener;)V
+.method public addPrintServiceRecommendationsChangeListener(Landroid/print/PrintManager$PrintServiceRecommendationsChangeListener;Landroid/os/Handler;)V
     .locals 4
 
     invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    if-nez p2, :cond_0
+
+    iget-object p2, p0, Landroid/print/PrintManager;->mHandler:Landroid/os/Handler;
+
+    :cond_0
     iget-object v2, p0, Landroid/print/PrintManager;->mService:Landroid/print/IPrintManager;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1
 
     const-string/jumbo v2, "PrintManager"
 
@@ -205,10 +206,10 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     iget-object v2, p0, Landroid/print/PrintManager;->mPrintServiceRecommendationsChangeListeners:Ljava/util/Map;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2
 
     new-instance v2, Landroid/util/ArrayMap;
 
@@ -216,12 +217,10 @@
 
     iput-object v2, p0, Landroid/print/PrintManager;->mPrintServiceRecommendationsChangeListeners:Ljava/util/Map;
 
-    :cond_1
+    :cond_2
     new-instance v1, Landroid/print/PrintManager$PrintServiceRecommendationsChangeListenerWrapper;
 
-    iget-object v2, p0, Landroid/print/PrintManager;->mHandler:Landroid/os/Handler;
-
-    invoke-direct {v1, p1, v2}, Landroid/print/PrintManager$PrintServiceRecommendationsChangeListenerWrapper;-><init>(Landroid/print/PrintManager$PrintServiceRecommendationsChangeListener;Landroid/os/Handler;)V
+    invoke-direct {v1, p1, p2}, Landroid/print/PrintManager$PrintServiceRecommendationsChangeListenerWrapper;-><init>(Landroid/print/PrintManager$PrintServiceRecommendationsChangeListener;Landroid/os/Handler;)V
 
     :try_start_0
     iget-object v2, p0, Landroid/print/PrintManager;->mService:Landroid/print/IPrintManager;
@@ -248,14 +247,19 @@
     throw v2
 .end method
 
-.method addPrintServicesChangeListener(Landroid/print/PrintManager$PrintServicesChangeListener;)V
+.method public addPrintServicesChangeListener(Landroid/print/PrintManager$PrintServicesChangeListener;Landroid/os/Handler;)V
     .locals 4
 
     invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    if-nez p2, :cond_0
+
+    iget-object p2, p0, Landroid/print/PrintManager;->mHandler:Landroid/os/Handler;
+
+    :cond_0
     iget-object v2, p0, Landroid/print/PrintManager;->mService:Landroid/print/IPrintManager;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1
 
     const-string/jumbo v2, "PrintManager"
 
@@ -265,10 +269,10 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     iget-object v2, p0, Landroid/print/PrintManager;->mPrintServicesChangeListeners:Ljava/util/Map;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2
 
     new-instance v2, Landroid/util/ArrayMap;
 
@@ -276,12 +280,10 @@
 
     iput-object v2, p0, Landroid/print/PrintManager;->mPrintServicesChangeListeners:Ljava/util/Map;
 
-    :cond_1
+    :cond_2
     new-instance v1, Landroid/print/PrintManager$PrintServicesChangeListenerWrapper;
 
-    iget-object v2, p0, Landroid/print/PrintManager;->mHandler:Landroid/os/Handler;
-
-    invoke-direct {v1, p1, v2}, Landroid/print/PrintManager$PrintServicesChangeListenerWrapper;-><init>(Landroid/print/PrintManager$PrintServicesChangeListener;Landroid/os/Handler;)V
+    invoke-direct {v1, p1, p2}, Landroid/print/PrintManager$PrintServicesChangeListenerWrapper;-><init>(Landroid/print/PrintManager$PrintServicesChangeListener;Landroid/os/Handler;)V
 
     :try_start_0
     iget-object v2, p0, Landroid/print/PrintManager;->mService:Landroid/print/IPrintManager;
@@ -954,7 +956,7 @@
     throw v2
 .end method
 
-.method removePrintServiceRecommendationsChangeListener(Landroid/print/PrintManager$PrintServiceRecommendationsChangeListener;)V
+.method public removePrintServiceRecommendationsChangeListener(Landroid/print/PrintManager$PrintServiceRecommendationsChangeListener;)V
     .locals 4
 
     const/4 v3, 0x0
@@ -1028,7 +1030,7 @@
     throw v2
 .end method
 
-.method removePrintServicesChangeListener(Landroid/print/PrintManager$PrintServicesChangeListener;)V
+.method public removePrintServicesChangeListener(Landroid/print/PrintManager$PrintServicesChangeListener;)V
     .locals 4
 
     const/4 v3, 0x0
@@ -1089,6 +1091,7 @@
     invoke-interface {v2, v1, v3}, Landroid/print/IPrintManager;->removePrintServicesChangeListener(Landroid/print/IPrintServicesChangeListener;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
     return-void

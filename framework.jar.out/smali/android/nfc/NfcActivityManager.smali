@@ -384,7 +384,7 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_4
+    if-eqz v9, :cond_3
 
     const-string/jumbo v17, "file"
 
@@ -394,7 +394,7 @@
 
     move-result v17
 
-    if-nez v17, :cond_3
+    if-nez v17, :cond_4
 
     const-string/jumbo v17, "content"
 
@@ -404,20 +404,16 @@
 
     move-result v17
 
+    xor-int/lit8 v17, v17, 0x1
+
     if-eqz v17, :cond_4
 
     :cond_3
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+    const-string/jumbo v17, "NFC"
 
-    move-result v17
+    const-string/jumbo v18, "Uri needs to have either scheme file or scheme content"
 
-    move/from16 v0, v17
-
-    invoke-static {v11, v0}, Landroid/content/ContentProvider;->maybeAddUserId(Landroid/net/Uri;I)Landroid/net/Uri;
-
-    move-result-object v11
-
-    invoke-virtual {v14, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
@@ -432,11 +428,17 @@
 
     :cond_4
     :try_start_4
-    const-string/jumbo v17, "NFC"
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    const-string/jumbo v18, "Uri needs to have either scheme file or scheme content"
+    move-result v17
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    move/from16 v0, v17
+
+    invoke-static {v11, v0}, Landroid/content/ContentProvider;->maybeAddUserId(Landroid/net/Uri;I)Landroid/net/Uri;
+
+    move-result-object v11
+
+    invoke-virtual {v14, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 

@@ -4,9 +4,6 @@
 
 
 # virtual methods
-.method public abstract applyAspectRatio(Landroid/graphics/Rect;)Z
-.end method
-
 .method public abstract applyBlurEffect()V
 .end method
 
@@ -16,22 +13,34 @@
 .method public abstract configureReducedScreenSpec()V
 .end method
 
+.method public abstract createSurfaceLocked()I
+.end method
+
 .method public abstract disableHideSViewCoverOnce(Z)V
 .end method
 
 .method public abstract dump(Ljava/lang/String;Ljava/io/PrintWriter;)V
 .end method
 
-.method public abstract getAspectRatio()F
-.end method
-
-.method public abstract getAspectRatioFrame()Landroid/graphics/Rect;
-.end method
-
 .method public abstract getCoverMode()I
 .end method
 
+.method public abstract getCustomAspectRatioFrame(Landroid/graphics/Rect;)V
+.end method
+
+.method public abstract getDefaultTspDeadzone()Ljava/lang/String;
+.end method
+
+.method public abstract getDexCompatUiMode()I
+.end method
+
 .method public abstract getDisplayId()I
+.end method
+
+.method public abstract getMainWindowFlags()I
+.end method
+
+.method public abstract getMainWindowSystemUiVisibility()I
 .end method
 
 .method public abstract getReducedScreenScaleSpecLocked()Landroid/view/MagnificationSpec;
@@ -40,25 +49,19 @@
 .method public abstract getReducedSideTouchArea()I
 .end method
 
-.method public abstract getSystemUiVisibility()I
+.method public abstract getTspDeadzone()Landroid/os/Bundle;
 .end method
 
-.method public abstract hasFixedOrientation()Z
-.end method
-
-.method public abstract hasMoved()Z
+.method public abstract hasAppTokenBounds()Z
 .end method
 
 .method public abstract initPackageConfigurations()V
 .end method
 
-.method public abstract isAspectRatioWindow()Z
+.method public abstract isCustomAspectRatioWindow()Z
 .end method
 
-.method public abstract isBackgroundSurfaceNeeded()Z
-.end method
-
-.method public abstract isConventionalMode()Z
+.method public abstract isDeviceDefaultTheme()Z
 .end method
 
 .method public abstract isDexCompatMode()Z
@@ -73,13 +76,34 @@
 .method public abstract isHomeTask()Z
 .end method
 
-.method public abstract isNonImmersiveWindow()Z
-.end method
-
 .method public abstract isOnScreen()Z
 .end method
 
+.method public abstract isShowWhenLockedAppWindow()Z
+.end method
+
+.method public abstract isSurfaceShowing()Z
+.end method
+
+.method public abstract needDelayedExitAnimation()Z
+.end method
+
+.method public abstract needForceImmersiveMode()Z
+.end method
+
+.method public abstract needReverseFrame(Landroid/graphics/Rect;)Z
+.end method
+
+.method public abstract needToShowChangeRatioButton()Z
+.end method
+
 .method public abstract resetEffects()V
+.end method
+
+.method public abstract reverseFrame(Landroid/graphics/Rect;)V
+.end method
+
+.method public abstract reverseFrames(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
 .end method
 
 .method public abstract setHideBySViewCover(Z)V
@@ -91,7 +115,7 @@
 .method public abstract setOwner(Ljava/lang/Object;)V
 .end method
 
-.method public abstract setSystemUiVisibility(I)V
+.method public abstract setTspDeadzone(Landroid/os/Bundle;)V
 .end method
 
 .method public abstract willBeHideSViewCoverOnce()Z

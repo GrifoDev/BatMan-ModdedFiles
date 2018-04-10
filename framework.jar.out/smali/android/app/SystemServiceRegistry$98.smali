@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Lcom/samsung/android/desktop/DesktopManager;",
+        "Landroid/app/VrManager;",
         ">;"
     }
 .end annotation
@@ -34,43 +34,40 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/desktop/DesktopManager;
-    .locals 5
+.method public createService(Landroid/app/ContextImpl;)Landroid/app/VrManager;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    const/4 v4, 0x0
+    const-string/jumbo v1, "vrmanager"
 
-    const-string/jumbo v2, "desktopmode"
-
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v1}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/desktopmode/IDesktopMode;
+    new-instance v1, Landroid/app/VrManager;
 
-    move-result-object v1
+    invoke-static {v0}, Landroid/service/vr/IVrManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/vr/IVrManager;
 
-    if-nez v1, :cond_0
+    move-result-object v2
 
-    const-string/jumbo v2, "SystemServiceRegistry"
+    invoke-direct {v1, v2}, Landroid/app/VrManager;-><init>(Landroid/service/vr/IVrManager;)V
 
-    const-string/jumbo v3, "DesktopManager is not supported"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-object v4
-
-    :cond_0
-    new-instance v2, Lcom/samsung/android/desktop/DesktopManager;
-
-    invoke-direct {v2, p1, v1}, Lcom/samsung/android/desktop/DesktopManager;-><init>(Landroid/content/Context;Lcom/samsung/android/desktopmode/IDesktopMode;)V
-
-    return-object v2
+    return-object v1
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$98;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/desktop/DesktopManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$98;->createService(Landroid/app/ContextImpl;)Landroid/app/VrManager;
 
     move-result-object v0
 

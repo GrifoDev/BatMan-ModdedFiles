@@ -153,6 +153,8 @@
 
     const/16 v0, 0x1f
 
+    const/4 v1, 0x1
+
     iget-object v2, p0, Landroid/print/PrintJobId;->mValue:Ljava/lang/String;
 
     invoke-virtual {v2}, Ljava/lang/String;->hashCode()I

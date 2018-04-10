@@ -45,7 +45,7 @@
 
     iget-object v0, p0, Landroid/os/CustomFrequencyManager$SysBusFrequencyRequest$SysBusReleaser;->this$1:Landroid/os/CustomFrequencyManager$SysBusFrequencyRequest;
 
-    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->cancelFrequencyRequest()V
+    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$SysBusFrequencyRequest;->cancelFrequencyRequest()V
 
     :cond_0
     return-void

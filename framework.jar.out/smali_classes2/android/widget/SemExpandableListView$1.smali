@@ -86,7 +86,7 @@
 
     iget-object v5, p1, Landroid/widget/SemExpandableListView$DecoratedItemViewHolder;->indicatorImgView:Landroid/widget/SemExpandableListView$IndicatorImageView;
 
-    invoke-virtual {v5}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v5}, Landroid/widget/SemExpandableListView$IndicatorImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v4
 
@@ -94,7 +94,7 @@
 
     div-int/lit8 v5, v0, 0x2
 
-    iput v5, v4, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+    iput v5, v4, Landroid/widget/FrameLayout$LayoutParams;->bottomMargin:I
 
     :cond_1
     return-void
@@ -129,7 +129,7 @@
 
     move-result v0
 
-    iput v0, p1, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+    iput v0, p1, Landroid/widget/FrameLayout$LayoutParams;->leftMargin:I
 
     iget-object v0, p0, Landroid/widget/SemExpandableListView$1;->this$0:Landroid/widget/SemExpandableListView;
 
@@ -137,7 +137,7 @@
 
     move-result v0
 
-    iput v0, p1, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
+    iput v0, p1, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
 
     return-void
 .end method
@@ -179,7 +179,7 @@
 
     move/from16 v1, v21
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_1
 
     const/4 v12, 0x1
 
@@ -198,7 +198,7 @@
 
     aget v4, v20, v21
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_9
 
     move-object/from16 v20, p1
 
@@ -214,7 +214,7 @@
 
     move-object/from16 v1, p2
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_9
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getId()I
 
@@ -226,7 +226,7 @@
 
     move/from16 v1, v21
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_0
 
     move-object/from16 v0, p1
 
@@ -234,8 +234,25 @@
 
     move/from16 v20, v0
 
-    if-eqz v20, :cond_3
+    xor-int/lit8 v20, v20, 0x1
 
+    if-eqz v20, :cond_2
+
+    :cond_0
+    new-instance v20, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v21, "convertView is neither null nor the wrapping FrameLayout"
+
+    invoke-direct/range {v20 .. v21}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v20
+
+    :cond_1
+    const/4 v12, 0x0
+
+    goto :goto_0
+
+    :cond_2
     const v20, 0x7a0a1eff
 
     move-object/from16 v0, p1
@@ -262,13 +279,13 @@
 
     move-result-object v8
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_4
 
     iget-object v0, v7, Landroid/widget/SemExpandableListView$DecoratedItemViewHolder;->indicatorImgView:Landroid/widget/SemExpandableListView$IndicatorImageView;
 
     move-object/from16 v20, v0
 
-    if-eqz v20, :cond_6
+    if-eqz v20, :cond_7
 
     iget-object v0, v7, Landroid/widget/SemExpandableListView$DecoratedItemViewHolder;->indicatorImgView:Landroid/widget/SemExpandableListView$IndicatorImageView;
 
@@ -292,7 +309,7 @@
 
     move-result-object v20
 
-    if-nez v20, :cond_4
+    if-nez v20, :cond_5
 
     move-object/from16 v0, p0
 
@@ -304,7 +321,7 @@
 
     move-result-object v20
 
-    if-nez v20, :cond_4
+    if-nez v20, :cond_5
 
     iget-object v0, v7, Landroid/widget/SemExpandableListView$DecoratedItemViewHolder;->indicatorImgView:Landroid/widget/SemExpandableListView$IndicatorImageView;
 
@@ -312,14 +329,14 @@
 
     const/16 v21, 0x8
 
-    invoke-virtual/range {v20 .. v21}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual/range {v20 .. v21}, Landroid/widget/SemExpandableListView$IndicatorImageView;->setVisibility(I)V
 
     :goto_1
     iget-object v0, v7, Landroid/widget/SemExpandableListView$DecoratedItemViewHolder;->indicatorImgView:Landroid/widget/SemExpandableListView$IndicatorImageView;
 
     move-object/from16 v20, v0
 
-    invoke-virtual/range {v20 .. v20}, Landroid/view/View;->refreshDrawableState()V
+    invoke-virtual/range {v20 .. v20}, Landroid/widget/SemExpandableListView$IndicatorImageView;->refreshDrawableState()V
 
     iget-object v0, v7, Landroid/widget/SemExpandableListView$DecoratedItemViewHolder;->indicatorImgView:Landroid/widget/SemExpandableListView$IndicatorImageView;
 
@@ -329,7 +346,7 @@
 
     move-result v20
 
-    if-eqz v20, :cond_5
+    if-eqz v20, :cond_6
 
     move-object/from16 v0, p0
 
@@ -346,13 +363,13 @@
 
     move-object/from16 v1, v20
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/widget/SemExpandableListView$IndicatorImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
     iget-object v0, v7, Landroid/widget/SemExpandableListView$DecoratedItemViewHolder;->indicatorImgView:Landroid/widget/SemExpandableListView$IndicatorImageView;
 
     move-object/from16 v20, v0
 
-    invoke-virtual/range {v20 .. v20}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual/range {v20 .. v20}, Landroid/widget/SemExpandableListView$IndicatorImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v14
 
@@ -362,41 +379,27 @@
 
     invoke-direct {v0, v14}, Landroid/widget/SemExpandableListView$1;->initIndicatorImageLayoutParams(Landroid/widget/FrameLayout$LayoutParams;)V
 
-    :cond_0
+    :cond_3
     :goto_3
     move-object/from16 v0, p0
 
     invoke-direct {v0, v7, v12}, Landroid/widget/SemExpandableListView$1;->adjustDivider(Landroid/widget/SemExpandableListView$DecoratedItemViewHolder;Z)V
 
-    :cond_1
+    :cond_4
     return-object p1
 
-    :cond_2
-    const/4 v12, 0x0
-
-    goto/16 :goto_0
-
-    :cond_3
-    new-instance v20, Ljava/lang/IllegalStateException;
-
-    const-string/jumbo v21, "convertView is neither null nor the wrapping FrameLayout"
-
-    invoke-direct/range {v20 .. v21}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v20
-
-    :cond_4
+    :cond_5
     iget-object v0, v7, Landroid/widget/SemExpandableListView$DecoratedItemViewHolder;->indicatorImgView:Landroid/widget/SemExpandableListView$IndicatorImageView;
 
     move-object/from16 v20, v0
 
     const/16 v21, 0x0
 
-    invoke-virtual/range {v20 .. v21}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual/range {v20 .. v21}, Landroid/widget/SemExpandableListView$IndicatorImageView;->setVisibility(I)V
 
     goto :goto_1
 
-    :cond_5
+    :cond_6
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemExpandableListView$1;->this$0:Landroid/widget/SemExpandableListView;
@@ -409,8 +412,8 @@
 
     goto :goto_2
 
-    :cond_6
-    if-eqz v8, :cond_0
+    :cond_7
+    if-eqz v8, :cond_3
 
     const/4 v9, 0x0
 
@@ -458,9 +461,9 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v9, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v9, v0}, Landroid/widget/SemExpandableListView$IndicatorImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    invoke-virtual {v9}, Landroid/view/View;->refreshDrawableState()V
+    invoke-virtual {v9}, Landroid/widget/SemExpandableListView$IndicatorImageView;->refreshDrawableState()V
 
     new-instance v14, Landroid/widget/FrameLayout$LayoutParams;
 
@@ -478,7 +481,7 @@
 
     invoke-direct {v0, v14}, Landroid/widget/SemExpandableListView$1;->initIndicatorImageLayoutParams(Landroid/widget/FrameLayout$LayoutParams;)V
 
-    invoke-virtual {v9, v14}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v9, v14}, Landroid/widget/SemExpandableListView$IndicatorImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     move-object/from16 v20, p1
 
@@ -486,7 +489,7 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v0, v9}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {v0, v9}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
 
     iput-object v9, v7, Landroid/widget/SemExpandableListView$DecoratedItemViewHolder;->indicatorImgView:Landroid/widget/SemExpandableListView$IndicatorImageView;
 
@@ -498,7 +501,7 @@
 
     move-result v20
 
-    if-eqz v20, :cond_7
+    if-eqz v20, :cond_8
 
     move-object/from16 v0, p0
 
@@ -515,11 +518,11 @@
 
     move-object/from16 v1, v20
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/widget/SemExpandableListView$IndicatorImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_3
 
-    :cond_7
+    :cond_8
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemExpandableListView$1;->this$0:Landroid/widget/SemExpandableListView;
@@ -532,7 +535,7 @@
 
     goto :goto_4
 
-    :cond_8
+    :cond_9
     new-instance v6, Landroid/widget/FrameLayout;
 
     move-object/from16 v0, p0
@@ -561,17 +564,17 @@
 
     move/from16 v0, v20
 
-    invoke-virtual {v6, v0, v7}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
+    invoke-virtual {v6, v0, v7}, Landroid/widget/FrameLayout;->setTag(ILjava/lang/Object;)V
 
     const v20, 0x7ffffc17
 
     move/from16 v0, v20
 
-    invoke-virtual {v6, v0}, Landroid/view/View;->setId(I)V
+    invoke-virtual {v6, v0}, Landroid/widget/FrameLayout;->setId(I)V
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
 
     move-object/from16 v0, p2
 
@@ -601,23 +604,23 @@
 
     const/4 v11, 0x0
 
-    if-ltz v2, :cond_9
+    if-ltz v2, :cond_a
 
     move/from16 v0, v17
 
-    if-le v0, v15, :cond_a
-
-    :cond_9
-    return-object v6
+    if-le v0, v15, :cond_b
 
     :cond_a
+    return-object v6
+
+    :cond_b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemExpandableListView$1;->this$0:Landroid/widget/SemExpandableListView;
 
     move-object/from16 v20, v0
 
-    invoke-virtual/range {v20 .. v20}, Landroid/view/View;->isLayoutRtl()Z
+    invoke-virtual/range {v20 .. v20}, Landroid/widget/SemExpandableListView;->isLayoutRtl()Z
 
     move-result v13
 
@@ -627,7 +630,7 @@
 
     move-object/from16 v20, v0
 
-    invoke-virtual/range {v20 .. v20}, Landroid/view/View;->getWidth()I
+    invoke-virtual/range {v20 .. v20}, Landroid/widget/SemExpandableListView;->getWidth()I
 
     move-result v19
 
@@ -649,7 +652,7 @@
 
     move/from16 v1, v21
 
-    if-ne v0, v1, :cond_f
+    if-ne v0, v1, :cond_10
 
     move-object/from16 v0, p0
 
@@ -667,7 +670,7 @@
 
     move/from16 v1, v21
 
-    if-ne v0, v1, :cond_d
+    if-ne v0, v1, :cond_e
 
     move-object/from16 v0, p0
 
@@ -696,7 +699,7 @@
 
     move/from16 v1, v21
 
-    if-ne v0, v1, :cond_e
+    if-ne v0, v1, :cond_f
 
     move-object/from16 v0, p0
 
@@ -709,7 +712,7 @@
     move-result v11
 
     :goto_6
-    if-eqz v13, :cond_10
+    if-eqz v13, :cond_11
 
     move/from16 v18, v10
 
@@ -742,7 +745,7 @@
     sub-int v11, v11, v20
 
     :goto_7
-    if-eq v10, v11, :cond_b
+    if-eq v10, v11, :cond_c
 
     move-object/from16 v0, p0
 
@@ -758,7 +761,7 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_b
+    if-eqz v8, :cond_c
 
     new-instance v9, Landroid/widget/SemExpandableListView$IndicatorImageView;
 
@@ -804,9 +807,9 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v9, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v9, v0}, Landroid/widget/SemExpandableListView$IndicatorImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    invoke-virtual {v9}, Landroid/view/View;->refreshDrawableState()V
+    invoke-virtual {v9}, Landroid/widget/SemExpandableListView$IndicatorImageView;->refreshDrawableState()V
 
     move-object/from16 v0, p0
 
@@ -824,7 +827,7 @@
 
     move/from16 v1, v21
 
-    if-ne v0, v1, :cond_11
+    if-ne v0, v1, :cond_12
 
     new-instance v14, Landroid/widget/FrameLayout$LayoutParams;
 
@@ -843,9 +846,9 @@
 
     invoke-direct {v0, v14}, Landroid/widget/SemExpandableListView$1;->initIndicatorImageLayoutParams(Landroid/widget/FrameLayout$LayoutParams;)V
 
-    invoke-virtual {v9, v14}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v9, v14}, Landroid/widget/SemExpandableListView$IndicatorImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    invoke-virtual {v6, v9}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v9}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
 
     iput-object v9, v7, Landroid/widget/SemExpandableListView$DecoratedItemViewHolder;->indicatorImgView:Landroid/widget/SemExpandableListView$IndicatorImageView;
 
@@ -857,7 +860,7 @@
 
     move-result v20
 
-    if-eqz v20, :cond_13
+    if-eqz v20, :cond_14
 
     move-object/from16 v0, p0
 
@@ -874,10 +877,10 @@
 
     move-object/from16 v1, v20
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/widget/SemExpandableListView$IndicatorImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    :cond_b
-    if-lez v4, :cond_c
+    :cond_c
+    if-lez v4, :cond_d
 
     new-instance v5, Landroid/view/View;
 
@@ -933,7 +936,7 @@
 
     invoke-virtual {v5, v3}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    invoke-virtual {v6, v5}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v5}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
 
     iput-object v5, v7, Landroid/widget/SemExpandableListView$DecoratedItemViewHolder;->dividerView:Landroid/view/View;
 
@@ -941,10 +944,10 @@
 
     invoke-direct {v0, v7, v12}, Landroid/widget/SemExpandableListView$1;->adjustDivider(Landroid/widget/SemExpandableListView$DecoratedItemViewHolder;Z)V
 
-    :cond_c
+    :cond_d
     return-object v6
 
-    :cond_d
+    :cond_e
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemExpandableListView$1;->this$0:Landroid/widget/SemExpandableListView;
@@ -957,7 +960,7 @@
 
     goto/16 :goto_5
 
-    :cond_e
+    :cond_f
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemExpandableListView$1;->this$0:Landroid/widget/SemExpandableListView;
@@ -970,7 +973,7 @@
 
     goto/16 :goto_6
 
-    :cond_f
+    :cond_10
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemExpandableListView$1;->this$0:Landroid/widget/SemExpandableListView;
@@ -993,7 +996,7 @@
 
     goto/16 :goto_6
 
-    :cond_10
+    :cond_11
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemExpandableListView$1;->this$0:Landroid/widget/SemExpandableListView;
@@ -1020,7 +1023,7 @@
 
     goto/16 :goto_7
 
-    :cond_11
+    :cond_12
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemExpandableListView$1;->this$0:Landroid/widget/SemExpandableListView;
@@ -1045,7 +1048,7 @@
 
     move-result v20
 
-    if-eqz v20, :cond_12
+    if-eqz v20, :cond_13
 
     invoke-static {}, Landroid/widget/SemExpandableListView;->-get5()Ljava/lang/String;
 
@@ -1129,7 +1132,7 @@
 
     invoke-static/range {v20 .. v21}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_12
+    :cond_13
     new-instance v14, Landroid/widget/FrameLayout$LayoutParams;
 
     move-object/from16 v0, p0
@@ -1162,7 +1165,7 @@
 
     goto/16 :goto_8
 
-    :cond_13
+    :cond_14
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemExpandableListView$1;->this$0:Landroid/widget/SemExpandableListView;
@@ -1198,13 +1201,11 @@
 
     if-eqz v0, :cond_1
 
-    nop
-
-    nop
+    check-cast p1, Landroid/widget/FrameLayout;
 
     const/4 v0, 0x0
 
-    invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p1, v0}, Landroid/widget/FrameLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 

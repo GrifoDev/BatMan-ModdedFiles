@@ -69,8 +69,6 @@
 .method public static getDisplayLocaleList(Landroid/os/LocaleList;Ljava/util/Locale;I)Ljava/lang/String;
     .locals 9
 
-    const/4 v7, 0x0
-
     if-nez p1, :cond_0
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
@@ -80,9 +78,9 @@
     :goto_0
     invoke-virtual {p0}, Landroid/os/LocaleList;->size()I
 
-    move-result v8
+    move-result v7
 
-    if-le v8, p2, :cond_1
+    if-le v7, p2, :cond_1
 
     const/4 v1, 0x1
 
@@ -103,13 +101,15 @@
 
     invoke-virtual {p0, v2}, Landroid/os/LocaleList;->get(I)Ljava/util/Locale;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-static {v8, v0, v7}, Lcom/android/internal/app/LocaleHelper;->getDisplayName(Ljava/util/Locale;Ljava/util/Locale;Z)Ljava/lang/String;
+    const/4 v8, 0x0
 
-    move-result-object v8
+    invoke-static {v7, v0, v8}, Lcom/android/internal/app/LocaleHelper;->getDisplayName(Ljava/util/Locale;Ljava/util/Locale;Z)Ljava/lang/String;
 
-    aput-object v8, v6, v2
+    move-result-object v7
+
+    aput-object v7, v6, v2
 
     add-int/lit8 v2, v2, 0x1
 
@@ -121,7 +121,7 @@
     goto :goto_0
 
     :cond_1
-    move v1, v7
+    const/4 v1, 0x0
 
     goto :goto_1
 

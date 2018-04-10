@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/widget/TextView;->initTextStrikeThroughAnim(Landroid/content/Context;)V
+    value = Landroid/widget/TextView;->initTextStrikeThroughAnim()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

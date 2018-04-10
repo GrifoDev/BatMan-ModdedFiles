@@ -697,6 +697,15 @@
 
     move-result-object v1
 
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    return p2
+
+    :cond_0
     :try_start_0
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
     :try_end_0
@@ -822,6 +831,15 @@
 
     move-result-object v1
 
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    return-wide p2
+
+    :cond_0
     :try_start_0
     invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
     :try_end_0
@@ -1130,11 +1148,7 @@
 
     move-result-object v6
 
-    invoke-static {v6}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-static {v6}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
     move-result v6
 
@@ -1328,6 +1342,265 @@
     invoke-direct {v6, v7}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
     throw v6
+.end method
+
+.method public static final readThisByteArrayXml(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[B
+    .locals 14
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/xmlpull/v1/XmlPullParserException;,
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    :try_start_0
+    const-string/jumbo v11, "num"
+
+    const/4 v12, 0x0
+
+    invoke-interface {p0, v12, v11}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v11}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v9
+
+    new-array v0, v9, [B
+
+    invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
+
+    move-result v3
+
+    :cond_0
+    const/4 v11, 0x4
+
+    if-ne v3, v11, :cond_5
+
+    if-lez v9, :cond_7
+
+    invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getText()Ljava/lang/String;
+
+    move-result-object v10
+
+    if-eqz v10, :cond_1
+
+    invoke-virtual {v10}, Ljava/lang/String;->length()I
+
+    move-result v11
+
+    mul-int/lit8 v12, v9, 0x2
+
+    if-eq v11, v12, :cond_2
+
+    :cond_1
+    new-instance v11, Lorg/xmlpull/v1/XmlPullParserException;
+
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v13, "Invalid value found in byte-array: "
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-direct {v11, v12}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw v11
+
+    :catch_0
+    move-exception v2
+
+    new-instance v11, Lorg/xmlpull/v1/XmlPullParserException;
+
+    const-string/jumbo v12, "Not a number in num attribute in byte-array"
+
+    invoke-direct {v11, v12}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw v11
+
+    :catch_1
+    move-exception v1
+
+    new-instance v11, Lorg/xmlpull/v1/XmlPullParserException;
+
+    const-string/jumbo v12, "Need num attribute in byte-array"
+
+    invoke-direct {v11, v12}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw v11
+
+    :cond_2
+    const/4 v4, 0x0
+
+    :goto_0
+    if-ge v4, v9, :cond_7
+
+    mul-int/lit8 v11, v4, 0x2
+
+    invoke-virtual {v10, v11}, Ljava/lang/String;->charAt(I)C
+
+    move-result v6
+
+    mul-int/lit8 v11, v4, 0x2
+
+    add-int/lit8 v11, v11, 0x1
+
+    invoke-virtual {v10, v11}, Ljava/lang/String;->charAt(I)C
+
+    move-result v8
+
+    const/16 v11, 0x61
+
+    if-le v6, v11, :cond_3
+
+    add-int/lit8 v11, v6, -0x61
+
+    add-int/lit8 v5, v11, 0xa
+
+    :goto_1
+    const/16 v11, 0x61
+
+    if-le v8, v11, :cond_4
+
+    add-int/lit8 v11, v8, -0x61
+
+    add-int/lit8 v7, v11, 0xa
+
+    :goto_2
+    and-int/lit8 v11, v5, 0xf
+
+    shl-int/lit8 v11, v11, 0x4
+
+    and-int/lit8 v12, v7, 0xf
+
+    or-int/2addr v11, v12
+
+    int-to-byte v11, v11
+
+    aput-byte v11, v0, v4
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    add-int/lit8 v5, v6, -0x30
+
+    goto :goto_1
+
+    :cond_4
+    add-int/lit8 v7, v8, -0x30
+
+    goto :goto_2
+
+    :cond_5
+    const/4 v11, 0x3
+
+    if-ne v3, v11, :cond_7
+
+    invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v11, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_6
+
+    return-object v0
+
+    :cond_6
+    new-instance v11, Lorg/xmlpull/v1/XmlPullParserException;
+
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v13, "Expected "
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    const-string/jumbo v13, " end tag at: "
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-direct {v11, v12}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw v11
+
+    :cond_7
+    invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->next()I
+
+    move-result v3
+
+    const/4 v11, 0x1
+
+    if-ne v3, v11, :cond_0
+
+    new-instance v11, Lorg/xmlpull/v1/XmlPullParserException;
+
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v13, "Document ended before "
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    const-string/jumbo v13, " end tag"
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-direct {v11, v12}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw v11
 .end method
 
 .method public static final readThisDoubleArrayXml(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[D
@@ -1702,7 +1975,7 @@
 
     new-instance v6, Lorg/xmlpull/v1/XmlPullParserException;
 
-    const-string/jumbo v7, "Not a number in num attribute in byte-array"
+    const-string/jumbo v7, "Not a number in num attribute in int-array"
 
     invoke-direct {v6, v7}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
@@ -1713,7 +1986,7 @@
 
     new-instance v6, Lorg/xmlpull/v1/XmlPullParserException;
 
-    const-string/jumbo v7, "Need num attribute in byte-array"
+    const-string/jumbo v7, "Need num attribute in int-array"
 
     invoke-direct {v6, v7}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
@@ -3066,9 +3339,9 @@
 
     move-result v0
 
-    if-eq v0, v8, :cond_15
+    if-eq v0, v8, :cond_16
 
-    if-ne v0, v10, :cond_13
+    if-ne v0, v10, :cond_14
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
@@ -3078,7 +3351,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_12
+    if-eqz v5, :cond_13
 
     aput-object v4, p1, v7
 
@@ -3224,13 +3497,32 @@
 
     if-nez v1, :cond_0
 
-    const-string/jumbo v5, "int-array"
+    const-string/jumbo v5, "byte-array"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
     if-eqz v5, :cond_8
+
+    const-string/jumbo v5, "byte-array"
+
+    invoke-static {p0, v5, p1}, Lcom/android/internal/util/XmlUtils;->readThisByteArrayXml(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[B
+
+    move-result-object v1
+
+    aput-object v4, p1, v7
+
+    return-object v1
+
+    :cond_8
+    const-string/jumbo v5, "int-array"
+
+    invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_9
 
     const-string/jumbo v5, "int-array"
 
@@ -3242,14 +3534,14 @@
 
     return-object v1
 
-    :cond_8
+    :cond_9
     const-string/jumbo v5, "long-array"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_a
 
     const-string/jumbo v5, "long-array"
 
@@ -3261,14 +3553,14 @@
 
     return-object v1
 
-    :cond_9
+    :cond_a
     const-string/jumbo v5, "double-array"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_b
 
     const-string/jumbo v5, "double-array"
 
@@ -3280,14 +3572,14 @@
 
     return-object v1
 
-    :cond_a
+    :cond_b
     const-string/jumbo v5, "string-array"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_c
 
     const-string/jumbo v5, "string-array"
 
@@ -3299,14 +3591,14 @@
 
     return-object v1
 
-    :cond_b
+    :cond_c
     const-string/jumbo v5, "boolean-array"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_d
 
     const-string/jumbo v5, "boolean-array"
 
@@ -3318,18 +3610,18 @@
 
     return-object v1
 
-    :cond_c
+    :cond_d
     const-string/jumbo v5, "map"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_e
+    if-eqz v5, :cond_f
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
-    if-eqz p3, :cond_d
+    if-eqz p3, :cond_e
 
     const-string/jumbo v5, "map"
 
@@ -3342,7 +3634,7 @@
 
     return-object v1
 
-    :cond_d
+    :cond_e
     const-string/jumbo v5, "map"
 
     invoke-static {p0, v5, p1, p2}, Lcom/android/internal/util/XmlUtils;->readThisMapXml(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;[Ljava/lang/String;Lcom/android/internal/util/XmlUtils$ReadMapCallback;)Ljava/util/HashMap;
@@ -3351,14 +3643,14 @@
 
     goto :goto_1
 
-    :cond_e
+    :cond_f
     const-string/jumbo v5, "list"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_f
+    if-eqz v5, :cond_10
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
@@ -3372,14 +3664,14 @@
 
     return-object v1
 
-    :cond_f
+    :cond_10
     const-string/jumbo v5, "set"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_10
+    if-eqz v5, :cond_11
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
@@ -3393,8 +3685,8 @@
 
     return-object v1
 
-    :cond_10
-    if-eqz p2, :cond_11
+    :cond_11
+    if-eqz p2, :cond_12
 
     invoke-interface {p2, p0, v2}, Lcom/android/internal/util/XmlUtils$ReadMapCallback;->readThisUnknownObjectXml(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/Object;
 
@@ -3404,7 +3696,7 @@
 
     return-object v1
 
-    :cond_11
+    :cond_12
     new-instance v5, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -3429,7 +3721,7 @@
 
     throw v5
 
-    :cond_12
+    :cond_13
     new-instance v5, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -3468,10 +3760,10 @@
 
     throw v5
 
-    :cond_13
+    :cond_14
     const/4 v5, 0x4
 
-    if-ne v0, v5, :cond_14
+    if-ne v0, v5, :cond_15
 
     new-instance v5, Lorg/xmlpull/v1/XmlPullParserException;
 
@@ -3511,7 +3803,7 @@
 
     throw v5
 
-    :cond_14
+    :cond_15
     if-ne v0, v9, :cond_0
 
     new-instance v5, Lorg/xmlpull/v1/XmlPullParserException;
@@ -3552,7 +3844,7 @@
 
     throw v5
 
-    :cond_15
+    :cond_16
     new-instance v5, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -3969,7 +4261,9 @@
 
     aget-byte v1, p0, v3
 
-    shr-int/lit8 v2, v1, 0x4
+    shr-int/lit8 v5, v1, 0x4
+
+    and-int/lit8 v2, v5, 0xf
 
     if-lt v2, v8, :cond_2
 
@@ -3978,9 +4272,11 @@
     add-int/lit8 v5, v5, -0xa
 
     :goto_1
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    int-to-char v5, v5
 
-    and-int/lit16 v2, v1, 0xff
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    and-int/lit8 v2, v1, 0xf
 
     if-lt v2, v8, :cond_3
 
@@ -3989,7 +4285,9 @@
     add-int/lit8 v5, v5, -0xa
 
     :goto_2
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    int-to-char v5, v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     add-int/lit8 v3, v3, 0x1
 

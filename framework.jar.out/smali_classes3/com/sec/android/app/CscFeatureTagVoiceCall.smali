@@ -56,8 +56,6 @@
 
 .field public static final TAG_CSCFEATURE_VOICECALL_CONFIGNETWORKLIST:Ljava/lang/String; = "CscFeature_VoiceCall_ConfigNetworkList"
 
-.field public static final TAG_CSCFEATURE_VOICECALL_CONFIGNOTICESOUNDFORVOICERECORDING:Ljava/lang/String; = "CscFeature_VoiceCall_ConfigNoticeSoundForVoiceRecording"
-
 .field public static final TAG_CSCFEATURE_VOICECALL_CONFIGOPERATOR:Ljava/lang/String; = "CscFeature_VoiceCall_ConfigOperator"
 
 .field public static final TAG_CSCFEATURE_VOICECALL_CONFIGOPLABELVOLTEMENU:Ljava/lang/String; = "CscFeature_VoiceCall_ConfigOpLabelVolteMenu"
@@ -154,6 +152,8 @@
 
 .field public static final TAG_CSCFEATURE_VOICECALL_CONFIGOPTSTYLEFORMORESETTING:Ljava/lang/String; = "CscFeature_VoiceCall_ConfigOptStyleForMoreSetting"
 
+.field public static final TAG_CSCFEATURE_VOICECALL_CONFIGPHASE:Ljava/lang/String; = "CscFeature_VoiceCall_ConfigPhase"
+
 .field public static final TAG_CSCFEATURE_VOICECALL_CONFIGPOLICYFORAUDIO:Ljava/lang/String; = "CscFeature_VoiceCall_ConfigPolicyForAudio"
 
 .field public static final TAG_CSCFEATURE_VOICECALL_CONFIGPOLICYFOREMERGENCYCALL:Ljava/lang/String; = "CscFeature_VoiceCall_ConfigPolicyForEmergencyCall"
@@ -178,6 +178,8 @@
 
 .field public static final TAG_CSCFEATURE_VOICECALL_CONFIGVOLTEUSERMSG:Ljava/lang/String; = "CscFeature_VoiceCall_ConfigVolteUserMsg"
 
+.field public static final TAG_CSCFEATURE_VOICECALL_CONFIGVOWIFIDISPLAYOPTION:Ljava/lang/String; = "CscFeature_VoiceCall_ConfigVoWifiDisplayOption"
+
 .field public static final TAG_CSCFEATURE_VOICECALL_CONFIGVVM:Ljava/lang/String; = "CscFeature_VoiceCall_ConfigVvm"
 
 .field public static final TAG_CSCFEATURE_VOICECALL_DIALEMERGNUMASNORMALCALL:Ljava/lang/String; = "CscFeature_VoiceCall_DialEmergNumAsNormalCall"
@@ -187,6 +189,8 @@
 .field public static final TAG_CSCFEATURE_VOICECALL_DISABLEADDCALLBUTTON:Ljava/lang/String; = "CscFeature_VoiceCall_DisableAddcallButton"
 
 .field public static final TAG_CSCFEATURE_VOICECALL_DISABLEALERTTONESIGNAL:Ljava/lang/String; = "CscFeature_VoiceCall_DisableAlertToneSignal"
+
+.field public static final TAG_CSCFEATURE_VOICECALL_DISABLEANIMATEDGIFCALLSERVICE:Ljava/lang/String; = "CscFeature_VoiceCall_DisableAnimatedGifCallService"
 
 .field public static final TAG_CSCFEATURE_VOICECALL_DISABLEAUTOANSWERINSILENTNEARJACTMODE:Ljava/lang/String; = "CscFeature_VoiceCall_DisableAutoAnswerInSilentNEarjactMode"
 
@@ -298,6 +302,8 @@
 
 .field public static final TAG_CSCFEATURE_VOICECALL_SUPPORTAUTOREJECT:Ljava/lang/String; = "CscFeature_VoiceCall_SupportAutoReject"
 
+.field public static final TAG_CSCFEATURE_VOICECALL_SUPPORTAUTOREJECTDISABLENOTI:Ljava/lang/String; = "CscFeature_VoiceCall_SupportAutoRejectDisableNoti"
+
 .field public static final TAG_CSCFEATURE_VOICECALL_SUPPORTAUTOREJECTNOTIFICATION:Ljava/lang/String; = "CscFeature_VoiceCall_SupportAutoRejectNotification"
 
 .field public static final TAG_CSCFEATURE_VOICECALL_SUPPORTAUTORETRY:Ljava/lang/String; = "CscFeature_VoiceCall_SupportAutoRetry"
@@ -401,6 +407,8 @@
 .field public static final TAG_CSCFEATURE_VOICECALL_SUPPORTPROVISIONSTATE:Ljava/lang/String; = "CscFeature_VoiceCall_SupportProvisionState"
 
 .field public static final TAG_CSCFEATURE_VOICECALL_SUPPORTREMAININGTIMEFOREMERGENCYCALLBACK:Ljava/lang/String; = "CscFeature_VoiceCall_SupportRemainingTimeForEmergencyCallback"
+
+.field public static final TAG_CSCFEATURE_VOICECALL_SUPPORTRTT:Ljava/lang/String; = "CscFeature_VoiceCall_SupportRTT"
 
 .field public static final TAG_CSCFEATURE_VOICECALL_SUPPORTSETTINGVOWIFIREGIDURINGAIRPLANEMODE:Ljava/lang/String; = "CscFeature_VoiceCall_SupportSettingVoWifiRegiDuringAirplaneMode"
 

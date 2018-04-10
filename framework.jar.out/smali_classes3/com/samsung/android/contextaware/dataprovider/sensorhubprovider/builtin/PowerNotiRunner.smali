@@ -19,7 +19,7 @@
 .method public final clear()V
     .locals 1
 
-    invoke-virtual {p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->checkFaultDetectionResult()Z
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/PowerNotiRunner;->checkFaultDetectionResult()Z
 
     move-result v0
 

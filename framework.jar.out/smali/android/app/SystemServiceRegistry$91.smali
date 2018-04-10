@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Lcom/samsung/android/knox/SemPersonaManager;",
+        "Lcom/samsung/android/knox/SemRemoteContentManager;",
         ">;"
     }
 .end annotation
@@ -34,30 +34,35 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/knox/SemPersonaManager;
+.method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/knox/SemRemoteContentManager;
     .locals 3
 
-    const-string/jumbo v2, "persona"
+    const-string/jumbo v1, "rcp"
 
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/samsung/android/knox/ISemPersonaManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/knox/ISemPersonaManager;
+    new-instance v1, Lcom/samsung/android/knox/SemRemoteContentManager;
 
-    move-result-object v1
+    invoke-static {v0}, Lcom/samsung/android/knox/ISemRemoteContentManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/knox/ISemRemoteContentManager;
 
-    new-instance v2, Lcom/samsung/android/knox/SemPersonaManager;
+    move-result-object v2
 
-    invoke-direct {v2, p1, v1}, Lcom/samsung/android/knox/SemPersonaManager;-><init>(Landroid/content/Context;Lcom/samsung/android/knox/ISemPersonaManager;)V
+    invoke-direct {v1, v2}, Lcom/samsung/android/knox/SemRemoteContentManager;-><init>(Lcom/samsung/android/knox/ISemRemoteContentManager;)V
 
-    return-object v2
+    return-object v1
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$91;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$91;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/knox/SemRemoteContentManager;
 
     move-result-object v0
 

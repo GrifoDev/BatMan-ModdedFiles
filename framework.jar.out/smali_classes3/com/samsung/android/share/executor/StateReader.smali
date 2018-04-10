@@ -441,7 +441,7 @@
 
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual/range {v17 .. v17}, Lorg/json/JSONException;->toString()Ljava/lang/String;
 
     move-result-object v24
 

@@ -44,9 +44,9 @@
     monitor-enter p0
 
     :try_start_0
-    invoke-virtual {p0}, Ljava/util/Observable;->setChanged()V
+    invoke-virtual {p0}, Lcom/samsung/android/share/executor/CommandObserver;->setChanged()V
 
-    invoke-virtual {p0, p1}, Ljava/util/Observable;->notifyObservers(Ljava/lang/Object;)V
+    invoke-virtual {p0, p1}, Lcom/samsung/android/share/executor/CommandObserver;->notifyObservers(Ljava/lang/Object;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

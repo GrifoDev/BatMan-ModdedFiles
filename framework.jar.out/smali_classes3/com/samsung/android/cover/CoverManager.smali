@@ -178,6 +178,60 @@
     return-void
 .end method
 
+.method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/cover/ICoverManager;)V
+    .locals 1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/cover/CoverManager;->mListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/cover/CoverManager;->mCoverStateListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/cover/CoverManager;->mNfcLedCoverTouchListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/cover/CoverManager;->mLedSystemEventListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/cover/CoverManager;->mCoverPowerKeyListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/cover/CoverManager;->mLcdOffDisableDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    new-instance v0, Landroid/os/Binder;
+
+    invoke-direct {v0}, Landroid/os/Binder;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/cover/CoverManager;->mToken:Landroid/os/IBinder;
+
+    iput-object p1, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
+
+    iput-object p2, p0, Lcom/samsung/android/cover/CoverManager;->mService:Lcom/samsung/android/cover/ICoverManager;
+
+    return-void
+.end method
+
 .method private declared-synchronized getService()Lcom/samsung/android/cover/ICoverManager;
     .locals 2
 
@@ -467,7 +521,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v6, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, p1}, Lcom/samsung/android/cover/CoverManager$StateListener;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
@@ -500,7 +554,7 @@
 
     move-result-object v6
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->getClass()Ljava/lang/Class;
 
     move-result-object v7
 
@@ -601,7 +655,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v6, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, p1}, Lcom/samsung/android/cover/CoverManager$StateListener;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
@@ -636,7 +690,7 @@
 
     move-result-object v6
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->getClass()Ljava/lang/Class;
 
     move-result-object v7
 
@@ -980,7 +1034,7 @@
 
     move-result-object v7
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->getClass()Ljava/lang/Class;
 
     move-result-object v8
 
@@ -1136,7 +1190,7 @@
 
     move-result-object v7
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->getClass()Ljava/lang/Class;
 
     move-result-object v8
 
@@ -1259,7 +1313,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v7, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, p1}, Lcom/samsung/android/cover/CoverManager$CoverStateListener;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
@@ -1294,7 +1348,7 @@
 
     move-result-object v7
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->getClass()Ljava/lang/Class;
 
     move-result-object v8
 
@@ -1417,7 +1471,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v7, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, p1}, Lcom/samsung/android/cover/CoverManager$StateListener;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
@@ -1452,7 +1506,7 @@
 
     move-result-object v7
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->getClass()Ljava/lang/Class;
 
     move-result-object v8
 
@@ -1608,7 +1662,7 @@
 
     move-result-object v7
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->getClass()Ljava/lang/Class;
 
     move-result-object v8
 
@@ -2268,7 +2322,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v5, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, p1}, Lcom/samsung/android/cover/CoverManager$CoverStateListener;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
@@ -2394,7 +2448,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v5, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, p1}, Lcom/samsung/android/cover/CoverManager$StateListener;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 

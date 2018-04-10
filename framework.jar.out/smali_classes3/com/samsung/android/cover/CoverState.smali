@@ -100,6 +100,12 @@
 
 .field public static final FOTA_MODE_NONE:I = 0x0
 
+.field public static final FRIENDS_TYPE_BACK_COVER:I = 0x1
+
+.field public static final FRIENDS_TYPE_FLIP_COVER:I = 0x2
+
+.field public static final FRIENDS_TYPE_NONE:I = 0x0
+
 .field public static final MODEL_DEFAULT:I = 0x0
 
 .field public static final MODEL_TB:I = 0x3
@@ -151,6 +157,8 @@
 .field public fakeCover:Z
 
 .field public fotaMode:I
+
+.field public friendsType:I
 
 .field public heightPixel:I
 
@@ -473,6 +481,12 @@
 
     iput v1, p0, Lcom/samsung/android/cover/CoverState;->fotaMode:I
 
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    iput v1, p0, Lcom/samsung/android/cover/CoverState;->friendsType:I
+
     return-void
 
     :cond_3
@@ -544,6 +558,10 @@
 
     iput v0, p0, Lcom/samsung/android/cover/CoverState;->fotaMode:I
 
+    iget v0, p1, Lcom/samsung/android/cover/CoverState;->friendsType:I
+
+    iput v0, p0, Lcom/samsung/android/cover/CoverState;->friendsType:I
+
     return-void
 .end method
 
@@ -577,6 +595,14 @@
     .locals 1
 
     iget v0, p0, Lcom/samsung/android/cover/CoverState;->fotaMode:I
+
+    return v0
+.end method
+
+.method public getFriendsType()I
+    .locals 1
+
+    iget v0, p0, Lcom/samsung/android/cover/CoverState;->friendsType:I
 
     return v0
 .end method
@@ -685,6 +711,14 @@
     return-void
 .end method
 
+.method public setFriendsType(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/samsung/android/cover/CoverState;->friendsType:I
+
+    return-void
+.end method
+
 .method public setModel(I)V
     .locals 0
 
@@ -752,9 +786,9 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    const-string/jumbo v0, "CoverState(switchState=%b type=%d color=%d widthPixel=%d heightPixel=%d model=%d attached=%b fotaMode=%d)"
+    const-string/jumbo v0, "CoverState(switchState=%b type=%d color=%d widthPixel=%d heightPixel=%d model=%d attached=%b fotaMode=%d friendsType=%d)"
 
-    const/16 v1, 0x8
+    const/16 v1, 0x9
 
     new-array v1, v1, [Ljava/lang/Object;
 
@@ -835,6 +869,16 @@
     move-result-object v2
 
     const/4 v3, 0x7
+
+    aput-object v2, v1, v3
+
+    iget v2, p0, Lcom/samsung/android/cover/CoverState;->friendsType:I
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/16 v3, 0x8
 
     aput-object v2, v1, v3
 
@@ -1013,6 +1057,10 @@
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     iget v0, p0, Lcom/samsung/android/cover/CoverState;->fotaMode:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v0, p0, Lcom/samsung/android/cover/CoverState;->friendsType:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 

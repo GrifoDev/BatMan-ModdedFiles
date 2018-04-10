@@ -149,7 +149,7 @@
     .end annotation
 .end method
 
-.method public abstract doNciLogDump()V
+.method public abstract doNciLogDump(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -182,6 +182,14 @@
 .end method
 
 .method public abstract enableNdefPush()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getBigDataNciLog()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -309,6 +317,14 @@
     .end annotation
 .end method
 
+.method public abstract isNFCAllowed(I)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isNdefPushEnabled()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -318,6 +334,14 @@
 .end method
 
 .method public abstract isSimLocked()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isSupportFastBootMode()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -22,13 +22,11 @@
 
 .field public static final TAG_CSCFEATURE_AUDIO_SUPPORTFACTORYLF:Ljava/lang/String; = "CscFeature_Audio_SupportFactoryLF"
 
+.field public static final TAG_CSCFEATURE_AUDIO_SUPPORTFORBIDDENGAMESETSPEAKERINCALL:Ljava/lang/String; = "CscFeature_Audio_SupportForbiddenGameSetSpeakerInCall"
+
 .field public static final TAG_CSCFEATURE_AUDIO_SUPPORTSEPARATECALLGAINWB:Ljava/lang/String; = "CscFeature_Audio_SupportSeparateCallGainWB"
 
-.field public static final TAG_CSCFEATURE_AUDIO_SUPPORTSEPARATERINGBACKTONEGAIN:Ljava/lang/String; = "CscFeature_Audio_SupportSeparateRingBackToneGain"
-
 .field public static final TAG_CSCFEATURE_AUDIO_SUPPORTSYNCBOOTSOUND:Ljava/lang/String; = "CscFeature_Audio_SupportSyncBootSound"
-
-.field public static final TAG_CSCFEATURE_AUDIO_SUPPORTUSBCALL:Ljava/lang/String; = "CscFeature_Audio_SupportUsbCall"
 
 
 # direct methods

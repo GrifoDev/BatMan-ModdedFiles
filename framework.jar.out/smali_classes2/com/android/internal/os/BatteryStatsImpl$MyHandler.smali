@@ -64,7 +64,9 @@
     :try_start_0
     iget-object v4, p0, Lcom/android/internal/os/BatteryStatsImpl$MyHandler;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
 
-    invoke-virtual {v4}, Lcom/android/internal/os/BatteryStatsImpl;->updateCpuTimeLocked()V
+    const/4 v6, 0x0
+
+    invoke-virtual {v4, v6}, Lcom/android/internal/os/BatteryStatsImpl;->updateCpuTimeLocked(Z)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -170,6 +172,8 @@
     invoke-virtual {v3, v4}, Lcom/android/internal/os/BatteryStatsImpl$Uid;->noteGpuUpdateLocked(Z)V
 
     goto :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

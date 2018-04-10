@@ -9,8 +9,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/print/PrinterCapabilitiesInfo$-void__init__android_os_Parcel_parcel_LambdaImpl0;,
-        Landroid/print/PrinterCapabilitiesInfo$-void__init__android_os_Parcel_parcel_LambdaImpl1;,
         Landroid/print/PrinterCapabilitiesInfo$1;,
         Landroid/print/PrinterCapabilitiesInfo$Builder;
     }
@@ -77,22 +75,6 @@
 
 
 # direct methods
-.method static synthetic -android_print_PrinterCapabilitiesInfo_lambda$3(I)V
-    .locals 0
-
-    invoke-static {p0}, Landroid/print/PrintAttributes;->enforceValidColorMode(I)V
-
-    return-void
-.end method
-
-.method static synthetic -android_print_PrinterCapabilitiesInfo_lambda$4(I)V
-    .locals 0
-
-    invoke-static {p0}, Landroid/print/PrintAttributes;->enforceValidDuplexMode(I)V
-
-    return-void
-.end method
-
 .method static synthetic -get0(Landroid/print/PrinterCapabilitiesInfo;)I
     .locals 1
 
@@ -276,9 +258,9 @@
 
     iget v0, p0, Landroid/print/PrinterCapabilitiesInfo;->mColorModes:I
 
-    new-instance v3, Landroid/print/PrinterCapabilitiesInfo$-void__init__android_os_Parcel_parcel_LambdaImpl0;
+    new-instance v3, Landroid/print/-$Lambda$nZCUMFnU8HXNMZ1DQrWBqUtcQbo$2;
 
-    invoke-direct {v3}, Landroid/print/PrinterCapabilitiesInfo$-void__init__android_os_Parcel_parcel_LambdaImpl0;-><init>()V
+    invoke-direct {v3}, Landroid/print/-$Lambda$nZCUMFnU8HXNMZ1DQrWBqUtcQbo$2;-><init>()V
 
     invoke-static {v0, v3}, Landroid/print/PrinterCapabilitiesInfo;->enforceValidMask(ILjava/util/function/IntConsumer;)V
 
@@ -290,9 +272,9 @@
 
     iget v0, p0, Landroid/print/PrinterCapabilitiesInfo;->mDuplexModes:I
 
-    new-instance v3, Landroid/print/PrinterCapabilitiesInfo$-void__init__android_os_Parcel_parcel_LambdaImpl1;
+    new-instance v3, Landroid/print/-$Lambda$nZCUMFnU8HXNMZ1DQrWBqUtcQbo$3;
 
-    invoke-direct {v3}, Landroid/print/PrinterCapabilitiesInfo$-void__init__android_os_Parcel_parcel_LambdaImpl1;-><init>()V
+    invoke-direct {v3}, Landroid/print/-$Lambda$nZCUMFnU8HXNMZ1DQrWBqUtcQbo$3;-><init>()V
 
     invoke-static {v0, v3}, Landroid/print/PrinterCapabilitiesInfo;->enforceValidMask(ILjava/util/function/IntConsumer;)V
 
@@ -514,6 +496,22 @@
     goto :goto_0
 
     :cond_0
+    return-void
+.end method
+
+.method static synthetic lambda$-android_print_PrinterCapabilitiesInfo_6870(I)V
+    .locals 0
+
+    invoke-static {p0}, Landroid/print/PrintAttributes;->enforceValidColorMode(I)V
+
+    return-void
+.end method
+
+.method static synthetic lambda$-android_print_PrinterCapabilitiesInfo_7037(I)V
+    .locals 0
+
+    invoke-static {p0}, Landroid/print/PrintAttributes;->enforceValidDuplexMode(I)V
+
     return-void
 .end method
 
@@ -935,7 +933,7 @@
     return v3
 
     :cond_1
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Landroid/print/PrinterCapabilitiesInfo;->getClass()Ljava/lang/Class;
 
     move-result-object v1
 
@@ -1208,6 +1206,8 @@
     const/4 v3, 0x0
 
     const/16 v0, 0x1f
+
+    const/4 v1, 0x1
 
     iget-object v2, p0, Landroid/print/PrinterCapabilitiesInfo;->mMinMargins:Landroid/print/PrintAttributes$Margins;
 

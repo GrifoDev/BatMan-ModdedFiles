@@ -48,6 +48,14 @@
     return-object v0
 .end method
 
+.method static synthetic -get1(Lcom/android/internal/util/StateMachine$LogRecords;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mMaxSize:I
+
+    return v0
+.end method
+
 .method private constructor <init>()V
     .locals 2
 

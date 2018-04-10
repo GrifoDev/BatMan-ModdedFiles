@@ -750,6 +750,21 @@
     return-object p0
 .end method
 
+.method public bridge synthetic append(Ljava/lang/CharSequence;II)Ljava/io/Writer;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/internal/util/FastPrintWriter;->append(Ljava/lang/CharSequence;II)Ljava/io/PrintWriter;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public bridge synthetic append(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;
     .locals 1
     .annotation system Ldalvik/annotation/Throws;

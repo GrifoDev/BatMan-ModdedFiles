@@ -63,6 +63,14 @@
     .end annotation
 .end method
 
+.method public abstract getCoverSwitchState()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getVersion()I
     .annotation system Ldalvik/annotation/Throws;
         value = {

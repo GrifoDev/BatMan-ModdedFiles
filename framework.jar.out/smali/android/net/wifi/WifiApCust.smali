@@ -12,6 +12,8 @@
 
 .field private static final LOGFILE:Ljava/lang/String; = "/data/misc/wifi_hostapd/mhs.log"
 
+.field public static SPF_Config5GRegionList:Ljava/lang/String; = null
+
 .field public static SPF_SupportMobileApDataLimit:Z = false
 
 .field public static SPF_SupportMobileApQRCode:Z = false
@@ -120,7 +122,7 @@
 
     const-string/jumbo v1, "CscFeature_Wifi_ConfigMobileApDefaultSSID"
 
-    const-string/jumbo v2, "Default"
+    const-string/jumbo v2, "Default,Mac4Digits"
 
     invoke-virtual {v0, v1, v2}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -274,6 +276,10 @@
 
     sput-boolean v3, Landroid/net/wifi/WifiApCust;->SPF_SupportMobileApQRCode:Z
 
+    const-string/jumbo v0, "default"
+
+    sput-object v0, Landroid/net/wifi/WifiApCust;->SPF_Config5GRegionList:Ljava/lang/String;
+
     sput-object v4, Landroid/net/wifi/WifiApCust;->mParser:Landroid/net/wifi/CscParser;
 
     const-string/jumbo v0, ""
@@ -332,22 +338,140 @@
     return-void
 .end method
 
-.method public static addMHSClientHistoryLog(Ljava/lang/String;)V
-    .locals 7
+.method public static declared-synchronized addMHSClientHistoryLog(Ljava/lang/String;)V
+    .locals 8
 
-    const/4 v6, 0x0
+    const-class v2, Landroid/net/wifi/WifiApCust;
 
+    monitor-enter v2
+
+    :try_start_0
     new-instance v0, Ljava/lang/StringBuffer;
 
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     const-string/jumbo v1, "WifiApCust"
 
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "addMHSClientHistoryLog:"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v1, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v1, "%s: %s%n"
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const-string/jumbo v4, "yy/MM/dd kk:mm:ss"
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v6
+
+    invoke-static {v4, v6, v7}, Landroid/text/format/DateFormat;->format(Ljava/lang/CharSequence;J)Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    aput-object v4, v3, v5
+
+    const/4 v4, 0x1
+
+    aput-object p0, v3, v4
+
+    invoke-static {v1, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    sget-object v1, Landroid/net/wifi/WifiApCust;->mMHSClientHistoryLogs:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    const/16 v3, 0x64
+
+    if-le v1, v3, :cond_0
+
+    sget-object v1, Landroid/net/wifi/WifiApCust;->mMHSClientHistoryLogs:Ljava/util/List;
+
+    const/4 v3, 0x0
+
+    invoke-interface {v1, v3}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    :cond_0
+    sget-object v1, Landroid/net/wifi/WifiApCust;->mMHSClientHistoryLogs:Ljava/util/List;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v2
+
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
+.end method
+
+.method public static declared-synchronized addMHSHistoryLog(Ljava/lang/String;)V
+    .locals 4
+
+    const-class v1, Landroid/net/wifi/WifiApCust;
+
+    monitor-enter v1
+
+    :try_start_0
+    const-string/jumbo v0, "WifiApCust"
+
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "addMHSClientHistoryLog:"
+    const-string/jumbo v3, "size:"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    sget-object v3, Landroid/net/wifi/WifiApCust;->mMHSHistoryLogs:Ljava/util/List;
+
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "addMHSHistoryLog:"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -361,60 +485,41 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v1, "%s: %s%n"
+    sget-object v0, Landroid/net/wifi/WifiApCust;->mMHSHistoryLogs:Ljava/util/List;
 
-    const/4 v2, 0x2
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-result v0
 
-    const-string/jumbo v3, "yy/MM/dd kk:mm:ss"
+    const/16 v2, 0x14
 
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+    if-le v0, v2, :cond_0
 
-    move-result-wide v4
+    sget-object v0, Landroid/net/wifi/WifiApCust;->mMHSHistoryLogs:Ljava/util/List;
 
-    invoke-static {v3, v4, v5}, Landroid/text/format/DateFormat;->format(Ljava/lang/CharSequence;J)Ljava/lang/CharSequence;
+    const/4 v2, 0x0
 
-    move-result-object v3
-
-    aput-object v3, v2, v6
-
-    const/4 v3, 0x1
-
-    aput-object p0, v2, v3
-
-    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    sget-object v1, Landroid/net/wifi/WifiApCust;->mMHSClientHistoryLogs:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    const/16 v2, 0x64
-
-    if-le v1, v2, :cond_0
-
-    sget-object v1, Landroid/net/wifi/WifiApCust;->mMHSClientHistoryLogs:Ljava/util/List;
-
-    invoke-interface {v1, v6}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     :cond_0
-    sget-object v1, Landroid/net/wifi/WifiApCust;->mMHSClientHistoryLogs:Ljava/util/List;
+    sget-object v0, Landroid/net/wifi/WifiApCust;->mMHSHistoryLogs:Ljava/util/List;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-interface {v0, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object v2
-
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    monitor-exit v1
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public static getCSC()V
@@ -442,7 +547,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/text/Format;->format(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/text/SimpleDateFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -517,6 +622,14 @@
     return-object v0
 .end method
 
+.method public static getRegion()Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Landroid/net/wifi/WifiApCust;->mRegion:Ljava/lang/String;
+
+    return-object v0
+.end method
+
 .method public static getTestProp()I
     .locals 5
 
@@ -527,6 +640,10 @@
     invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
+
+    sget-boolean v2, Landroid/net/wifi/WifiApCust;->DBG:Z
+
+    if-eqz v2, :cond_0
 
     const-string/jumbo v2, "WifiApCust"
 
@@ -550,27 +667,28 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-nez v1, :cond_0
+    :cond_0
+    if-nez v1, :cond_1
 
     const/4 v0, -0x1
 
     :goto_0
     return v0
 
-    :cond_0
+    :cond_1
     const-string/jumbo v2, ""
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     const/4 v0, -0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v0
@@ -578,7 +696,7 @@
     goto :goto_0
 .end method
 
-.method public static isRegionFor5GBased()Z
+.method public static isRegionFor5G()Z
     .locals 3
 
     const/4 v2, 0x0
@@ -587,7 +705,7 @@
 
     if-nez v0, :cond_0
 
-    const-string/jumbo v0, "isRegionFor5GBased() false: Null"
+    const-string/jumbo v0, "isRegionFor5G() false: Null"
 
     invoke-static {v0}, Landroid/net/wifi/WifiApCust;->logToFile(Ljava/lang/String;)V
 
@@ -619,7 +737,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "isRegionFor5GBased() true: "
+    const-string/jumbo v1, "isRegionFor5G() true: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -646,7 +764,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "isRegionFor5GBased() false: "
+    const-string/jumbo v1, "isRegionFor5G() false: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -665,6 +783,85 @@
     invoke-static {v0}, Landroid/net/wifi/WifiApCust;->logToFile(Ljava/lang/String;)V
 
     return v2
+.end method
+
+.method public static isRegionFor5GCountry()Z
+    .locals 6
+
+    const/4 v3, 0x0
+
+    const/4 v1, 0x0
+
+    sget-object v4, Landroid/net/wifi/WifiApCust;->mRegion:Ljava/lang/String;
+
+    if-nez v4, :cond_0
+
+    const-string/jumbo v4, "isRegionFor5GCountry() false: Null"
+
+    invoke-static {v4}, Landroid/net/wifi/WifiApCust;->logToFile(Ljava/lang/String;)V
+
+    return v3
+
+    :cond_0
+    sget-object v4, Landroid/net/wifi/WifiApCust;->mRegion:Ljava/lang/String;
+
+    const-string/jumbo v5, "NA"
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    sget-object v4, Landroid/net/wifi/WifiApCust;->mRegion:Ljava/lang/String;
+
+    const-string/jumbo v5, "KOR"
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    :cond_1
+    const/4 v1, 0x1
+
+    :cond_2
+    :goto_0
+    return v1
+
+    :cond_3
+    sget-object v4, Landroid/net/wifi/WifiApCust;->SPF_Config5GRegionList:Ljava/lang/String;
+
+    const-string/jumbo v5, ","
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v0
+
+    array-length v4, v0
+
+    :goto_1
+    if-ge v3, v4, :cond_2
+
+    aget-object v2, v0, v3
+
+    sget-object v5, Landroid/net/wifi/WifiApCust;->mRegion:Ljava/lang/String;
+
+    invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    :cond_4
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_1
 .end method
 
 .method public static loadLogFile(Ljava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/String;
@@ -778,7 +975,7 @@
 
     :goto_4
     :try_start_5
-    invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
@@ -3293,6 +3490,34 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "SPF_5G_RegionList="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    sget-object v2, Landroid/net/wifi/WifiApCust;->SPF_Config5GRegionList:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "\n"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -3302,71 +3527,6 @@
 
 
 # virtual methods
-.method public addMHSHistoryLog(Ljava/lang/String;)V
-    .locals 3
-
-    const-string/jumbo v0, "WifiApCust"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "size:"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    sget-object v2, Landroid/net/wifi/WifiApCust;->mMHSHistoryLogs:Ljava/util/List;
-
-    invoke-interface {v2}, Ljava/util/List;->size()I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "addMHSHistoryLog:"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    sget-object v0, Landroid/net/wifi/WifiApCust;->mMHSHistoryLogs:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    const/16 v1, 0x14
-
-    if-le v0, v1, :cond_0
-
-    sget-object v0, Landroid/net/wifi/WifiApCust;->mMHSHistoryLogs:Ljava/util/List;
-
-    const/4 v1, 0x0
-
-    invoke-interface {v0, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    :cond_0
-    sget-object v0, Landroid/net/wifi/WifiApCust;->mMHSHistoryLogs:Ljava/util/List;
-
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
 .method public dump(Ljava/io/PrintWriter;)V
     .locals 3
 
@@ -3396,13 +3556,89 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, " "
+    const-string/jumbo v1, " RegionList:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-static {}, Landroid/net/wifi/WifiApCust;->isRegionFor5GBased()Z
+    sget-object v1, Landroid/net/wifi/WifiApCust;->SPF_Config5GRegionList:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " isRegionFor5GCountry:"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/net/wifi/WifiApCust;->isRegionFor5GCountry()Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " isRegionFor5G:"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/net/wifi/WifiApCust;->isRegionFor5G()Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "mRegion:"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    sget-object v1, Landroid/net/wifi/WifiApCust;->mRegion:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " isRegionFor5GCountry:"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/net/wifi/WifiApCust;->isRegionFor5GCountry()Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " isRegionFor5G:"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/net/wifi/WifiApCust;->isRegionFor5G()Z
 
     move-result v1
 

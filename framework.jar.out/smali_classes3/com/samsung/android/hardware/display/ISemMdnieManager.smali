@@ -111,6 +111,14 @@
     .end annotation
 .end method
 
+.method public abstract setColorVision(ZII)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setContentMode(I)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {

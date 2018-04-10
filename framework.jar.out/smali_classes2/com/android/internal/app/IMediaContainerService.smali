@@ -15,6 +15,14 @@
 
 
 # virtual methods
+.method public abstract backupShortcut(Ljava/lang/String;)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract calculateDirectorySize(Ljava/lang/String;)J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -72,6 +80,14 @@
 .end method
 
 .method public abstract getObbInfo(Ljava/lang/String;)Landroid/content/res/ObbInfo;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract restoreShortcut(Ljava/lang/String;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

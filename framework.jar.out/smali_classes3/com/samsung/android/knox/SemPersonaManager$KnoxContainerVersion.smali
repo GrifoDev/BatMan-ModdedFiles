@@ -60,6 +60,12 @@
 
 .field public static final enum KNOX_CONTAINER_VERSION_2_8_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
+.field public static final enum KNOX_CONTAINER_VERSION_2_9_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
+
+.field public static final enum KNOX_CONTAINER_VERSION_3_0_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
+
+.field public static final enum KNOX_CONTAINER_VERSION_3_1_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
+
 .field public static final enum KNOX_CONTAINER_VERSION_NONE:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
 
@@ -87,7 +93,7 @@
     :try_start_0
     sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_1_0_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
 
     move-result v1
 
@@ -95,13 +101,13 @@
 
     aput v2, v0, v1
     :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_10
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_13
 
     :goto_0
     :try_start_1
     sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_0_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
 
     move-result v1
 
@@ -109,13 +115,13 @@
 
     aput v2, v0, v1
     :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_f
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_12
 
     :goto_1
     :try_start_2
     sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_1_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
 
     move-result v1
 
@@ -123,13 +129,13 @@
 
     aput v2, v0, v1
     :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_e
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_11
 
     :goto_2
     :try_start_3
     sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_2_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
 
     move-result v1
 
@@ -137,13 +143,13 @@
 
     aput v2, v0, v1
     :try_end_3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_d
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_10
 
     :goto_3
     :try_start_4
     sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_3_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
 
     move-result v1
 
@@ -151,13 +157,13 @@
 
     aput v2, v0, v1
     :try_end_4
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_c
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_f
 
     :goto_4
     :try_start_5
     sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_3_1:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
 
     move-result v1
 
@@ -165,13 +171,13 @@
 
     aput v2, v0, v1
     :try_end_5
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_e
 
     :goto_5
     :try_start_6
     sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_4_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
 
     move-result v1
 
@@ -179,13 +185,13 @@
 
     aput v2, v0, v1
     :try_end_6
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_d
 
     :goto_6
     :try_start_7
     sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_4_1:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
 
     move-result v1
 
@@ -193,13 +199,13 @@
 
     aput v2, v0, v1
     :try_end_7
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_9
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_c
 
     :goto_7
     :try_start_8
     sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_5_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
 
     move-result v1
 
@@ -207,13 +213,13 @@
 
     aput v2, v0, v1
     :try_end_8
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_8
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_b
 
     :goto_8
     :try_start_9
     sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_5_1:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
 
     move-result v1
 
@@ -221,13 +227,13 @@
 
     aput v2, v0, v1
     :try_end_9
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_7
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_a
 
     :goto_9
     :try_start_a
     sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_5_2:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
 
     move-result v1
 
@@ -235,13 +241,13 @@
 
     aput v2, v0, v1
     :try_end_a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_a} :catch_6
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_a} :catch_9
 
     :goto_a
     :try_start_b
     sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_6_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
 
     move-result v1
 
@@ -249,13 +255,13 @@
 
     aput v2, v0, v1
     :try_end_b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_b .. :try_end_b} :catch_5
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_b .. :try_end_b} :catch_8
 
     :goto_b
     :try_start_c
     sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_6_1:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
 
     move-result v1
 
@@ -263,13 +269,13 @@
 
     aput v2, v0, v1
     :try_end_c
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_c .. :try_end_c} :catch_4
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_c .. :try_end_c} :catch_7
 
     :goto_c
     :try_start_d
     sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_7_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
 
     move-result v1
 
@@ -277,13 +283,13 @@
 
     aput v2, v0, v1
     :try_end_d
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_d .. :try_end_d} :catch_3
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_d .. :try_end_d} :catch_6
 
     :goto_d
     :try_start_e
     sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_7_1:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
 
     move-result v1
 
@@ -291,13 +297,13 @@
 
     aput v2, v0, v1
     :try_end_e
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_e .. :try_end_e} :catch_2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_e .. :try_end_e} :catch_5
 
     :goto_e
     :try_start_f
     sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_8_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
 
     move-result v1
 
@@ -305,13 +311,13 @@
 
     aput v2, v0, v1
     :try_end_f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_f .. :try_end_f} :catch_1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_f .. :try_end_f} :catch_4
 
     :goto_f
     :try_start_10
-    sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_NONE:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
+    sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_9_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
 
     move-result v1
 
@@ -319,9 +325,51 @@
 
     aput v2, v0, v1
     :try_end_10
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_10 .. :try_end_10} :catch_0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_10 .. :try_end_10} :catch_3
 
     :goto_10
+    :try_start_11
+    sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_3_0_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
+
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
+
+    move-result v1
+
+    const/16 v2, 0x12
+
+    aput v2, v0, v1
+    :try_end_11
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_11 .. :try_end_11} :catch_2
+
+    :goto_11
+    :try_start_12
+    sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_3_1_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
+
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
+
+    move-result v1
+
+    const/16 v2, 0x13
+
+    aput v2, v0, v1
+    :try_end_12
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_12 .. :try_end_12} :catch_1
+
+    :goto_12
+    :try_start_13
+    sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_NONE:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
+
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
+
+    move-result v1
+
+    const/16 v2, 0x14
+
+    aput v2, v0, v1
+    :try_end_13
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_13 .. :try_end_13} :catch_0
+
+    :goto_13
     sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->-com-samsung-android-knox-SemPersonaManager$KnoxContainerVersionSwitchesValues:[I
 
     return-object v0
@@ -329,84 +377,99 @@
     :catch_0
     move-exception v1
 
-    goto :goto_10
+    goto :goto_13
 
     :catch_1
     move-exception v1
 
-    goto :goto_f
+    goto :goto_12
 
     :catch_2
     move-exception v1
 
-    goto :goto_e
+    goto :goto_11
 
     :catch_3
     move-exception v1
 
-    goto :goto_d
+    goto :goto_10
 
     :catch_4
     move-exception v1
 
-    goto :goto_c
+    goto :goto_f
 
     :catch_5
     move-exception v1
 
-    goto :goto_b
+    goto :goto_e
 
     :catch_6
     move-exception v1
 
-    goto :goto_a
+    goto :goto_d
 
     :catch_7
     move-exception v1
 
-    goto :goto_9
+    goto :goto_c
 
     :catch_8
     move-exception v1
 
-    goto :goto_8
+    goto :goto_b
 
     :catch_9
     move-exception v1
 
-    goto :goto_7
+    goto :goto_a
 
     :catch_a
     move-exception v1
 
-    goto :goto_6
+    goto :goto_9
 
     :catch_b
     move-exception v1
 
-    goto/16 :goto_5
+    goto/16 :goto_8
 
     :catch_c
     move-exception v1
 
-    goto/16 :goto_4
+    goto/16 :goto_7
 
     :catch_d
     move-exception v1
 
-    goto/16 :goto_3
+    goto/16 :goto_6
 
     :catch_e
     move-exception v1
 
-    goto/16 :goto_2
+    goto/16 :goto_5
 
     :catch_f
     move-exception v1
 
-    goto/16 :goto_1
+    goto/16 :goto_4
 
     :catch_10
+    move-exception v1
+
+    goto/16 :goto_3
+
+    :catch_11
+    move-exception v1
+
+    goto/16 :goto_2
+
+    :catch_12
+    move-exception v1
+
+    goto/16 :goto_1
+
+    :catch_13
     move-exception v1
 
     goto/16 :goto_0
@@ -585,7 +648,37 @@
 
     sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_8_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    const/16 v0, 0x11
+    new-instance v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
+
+    const-string/jumbo v1, "KNOX_CONTAINER_VERSION_2_9_0"
+
+    const/16 v2, 0x11
+
+    invoke-direct {v0, v1, v2}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_9_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
+
+    new-instance v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
+
+    const-string/jumbo v1, "KNOX_CONTAINER_VERSION_3_0_0"
+
+    const/16 v2, 0x12
+
+    invoke-direct {v0, v1, v2}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_3_0_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
+
+    new-instance v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
+
+    const-string/jumbo v1, "KNOX_CONTAINER_VERSION_3_1_0"
+
+    const/16 v2, 0x13
+
+    invoke-direct {v0, v1, v2}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_3_1_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
+
+    const/16 v0, 0x14
 
     new-array v0, v0, [Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
@@ -681,6 +774,24 @@
 
     aput-object v1, v0, v2
 
+    sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_9_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
+
+    const/16 v2, 0x11
+
+    aput-object v1, v0, v2
+
+    sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_3_0_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
+
+    const/16 v2, 0x12
+
+    aput-object v1, v0, v2
+
+    sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_3_1_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
+
+    const/16 v2, 0x13
+
+    aput-object v1, v0, v2
+
     sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->$VALUES:[Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     return-void
@@ -725,7 +836,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {p0}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
 
     move-result v1
 
@@ -817,7 +928,20 @@
 
     return v0
 
-    nop
+    :pswitch_10
+    const/16 v0, 0x122
+
+    return v0
+
+    :pswitch_11
+    const/16 v0, 0x12c
+
+    return v0
+
+    :pswitch_12
+    const/16 v0, 0x136
+
+    return v0
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -837,6 +961,9 @@
         :pswitch_d
         :pswitch_e
         :pswitch_f
+        :pswitch_10
+        :pswitch_11
+        :pswitch_12
     .end packed-switch
 .end method
 
@@ -847,7 +974,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {p0}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->ordinal()I
 
     move-result v1
 
@@ -939,6 +1066,21 @@
 
     return-object v0
 
+    :pswitch_10
+    const-string/jumbo v0, "2.9.0"
+
+    return-object v0
+
+    :pswitch_11
+    const-string/jumbo v0, "3.0.0"
+
+    return-object v0
+
+    :pswitch_12
+    const-string/jumbo v0, "3.1.0"
+
+    return-object v0
+
     nop
 
     :pswitch_data_0
@@ -959,5 +1101,8 @@
         :pswitch_d
         :pswitch_e
         :pswitch_f
+        :pswitch_10
+        :pswitch_11
+        :pswitch_12
     .end packed-switch
 .end method

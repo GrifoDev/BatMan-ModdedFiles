@@ -13,35 +13,12 @@
     name = "Builder"
 .end annotation
 
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroid/print/PrinterCapabilitiesInfo$Builder$-android_print_PrinterCapabilitiesInfo$Builder_setColorModes_int_colorModes_int_defaultColorMode_LambdaImpl0;,
-        Landroid/print/PrinterCapabilitiesInfo$Builder$-android_print_PrinterCapabilitiesInfo$Builder_setDuplexModes_int_duplexModes_int_defaultDuplexMode_LambdaImpl0;
-    }
-.end annotation
-
 
 # instance fields
 .field private final mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
 
 # direct methods
-.method static synthetic -android_print_PrinterCapabilitiesInfo$Builder_lambda$1(I)V
-    .locals 0
-
-    invoke-static {p0}, Landroid/print/PrintAttributes;->enforceValidColorMode(I)V
-
-    return-void
-.end method
-
-.method static synthetic -android_print_PrinterCapabilitiesInfo$Builder_lambda$2(I)V
-    .locals 0
-
-    invoke-static {p0}, Landroid/print/PrintAttributes;->enforceValidDuplexMode(I)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/print/PrinterId;)V
     .locals 2
 
@@ -63,6 +40,22 @@
     invoke-direct {v0}, Landroid/print/PrinterCapabilitiesInfo;-><init>()V
 
     iput-object v0, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
+
+    return-void
+.end method
+
+.method static synthetic lambda$-android_print_PrinterCapabilitiesInfo$Builder_18342(I)V
+    .locals 0
+
+    invoke-static {p0}, Landroid/print/PrintAttributes;->enforceValidColorMode(I)V
+
+    return-void
+.end method
+
+.method static synthetic lambda$-android_print_PrinterCapabilitiesInfo$Builder_19452(I)V
+    .locals 0
+
+    invoke-static {p0}, Landroid/print/PrintAttributes;->enforceValidDuplexMode(I)V
 
     return-void
 .end method
@@ -389,9 +382,9 @@
 .method public setColorModes(II)Landroid/print/PrinterCapabilitiesInfo$Builder;
     .locals 2
 
-    new-instance v0, Landroid/print/PrinterCapabilitiesInfo$Builder$-android_print_PrinterCapabilitiesInfo$Builder_setColorModes_int_colorModes_int_defaultColorMode_LambdaImpl0;
+    new-instance v0, Landroid/print/-$Lambda$nZCUMFnU8HXNMZ1DQrWBqUtcQbo;
 
-    invoke-direct {v0}, Landroid/print/PrinterCapabilitiesInfo$Builder$-android_print_PrinterCapabilitiesInfo$Builder_setColorModes_int_colorModes_int_defaultColorMode_LambdaImpl0;-><init>()V
+    invoke-direct {v0}, Landroid/print/-$Lambda$nZCUMFnU8HXNMZ1DQrWBqUtcQbo;-><init>()V
 
     invoke-static {p1, v0}, Landroid/print/PrinterCapabilitiesInfo;->-wrap0(ILjava/util/function/IntConsumer;)V
 
@@ -417,9 +410,9 @@
 .method public setDuplexModes(II)Landroid/print/PrinterCapabilitiesInfo$Builder;
     .locals 2
 
-    new-instance v0, Landroid/print/PrinterCapabilitiesInfo$Builder$-android_print_PrinterCapabilitiesInfo$Builder_setDuplexModes_int_duplexModes_int_defaultDuplexMode_LambdaImpl0;
+    new-instance v0, Landroid/print/-$Lambda$nZCUMFnU8HXNMZ1DQrWBqUtcQbo$1;
 
-    invoke-direct {v0}, Landroid/print/PrinterCapabilitiesInfo$Builder$-android_print_PrinterCapabilitiesInfo$Builder_setDuplexModes_int_duplexModes_int_defaultDuplexMode_LambdaImpl0;-><init>()V
+    invoke-direct {v0}, Landroid/print/-$Lambda$nZCUMFnU8HXNMZ1DQrWBqUtcQbo$1;-><init>()V
 
     invoke-static {p1, v0}, Landroid/print/PrinterCapabilitiesInfo;->-wrap0(ILjava/util/function/IntConsumer;)V
 

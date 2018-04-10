@@ -387,7 +387,7 @@
     return v3
 
     :cond_1
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Landroid/print/PrinterInfo;->getClass()Ljava/lang/Class;
 
     move-result-object v1
 
@@ -565,6 +565,14 @@
     return-object v0
 .end method
 
+.method public getHasCustomPrinterIcon()Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/print/PrinterInfo;->mHasCustomPrinterIcon:Z
+
+    return v0
+.end method
+
 .method public getId()Landroid/print/PrinterId;
     .locals 1
 
@@ -603,6 +611,8 @@
     const/4 v3, 0x0
 
     const/16 v0, 0x1f
+
+    const/4 v1, 0x1
 
     iget-object v2, p0, Landroid/print/PrinterInfo;->mId:Landroid/print/PrinterId;
 
@@ -782,7 +792,7 @@
     :cond_1
     if-nez v1, :cond_2
 
-    invoke-virtual {v0, v5}, Landroid/content/pm/PackageItemInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0, v5}, Landroid/content/pm/ApplicationInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 

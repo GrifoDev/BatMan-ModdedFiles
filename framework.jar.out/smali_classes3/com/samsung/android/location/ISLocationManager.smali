@@ -95,7 +95,7 @@
     .end annotation
 .end method
 
-.method public abstract removeSingleLocation(Landroid/app/PendingIntent;)I
+.method public abstract removeSingleLocation(Landroid/app/PendingIntent;Lcom/samsung/android/location/ISLocationListener;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -215,7 +215,7 @@
     .end annotation
 .end method
 
-.method public abstract requestSingleLocation(IIZLandroid/app/PendingIntent;)I
+.method public abstract requestSingleLocation(IIZLandroid/app/PendingIntent;Lcom/samsung/android/location/ISLocationListener;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

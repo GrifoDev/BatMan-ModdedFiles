@@ -23,7 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract disable(Z)Z
+.method public abstract disable(Ljava/lang/String;Z)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -39,7 +39,7 @@
     .end annotation
 .end method
 
-.method public abstract enable()Z
+.method public abstract enable(Ljava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -47,7 +47,7 @@
     .end annotation
 .end method
 
-.method public abstract enableBle()Z
+.method public abstract enableBle(Ljava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -55,7 +55,7 @@
     .end annotation
 .end method
 
-.method public abstract enableNoAutoConnect()Z
+.method public abstract enableNoAutoConnect(Ljava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -104,6 +104,14 @@
 .end method
 
 .method public abstract getSettingsName()Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getState()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -239,7 +247,7 @@
     .end annotation
 .end method
 
-.method public abstract updateBleAppCount(Landroid/os/IBinder;Z)I
+.method public abstract updateBleAppCount(Landroid/os/IBinder;ZLjava/lang/String;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -247,7 +255,7 @@
     .end annotation
 .end method
 
-.method public abstract updateSBleAppCount(Landroid/os/IBinder;Z)I
+.method public abstract updateSBleAppCount(Landroid/os/IBinder;ZLjava/lang/String;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -39,6 +39,14 @@
 
     iget-object v0, p0, Lcom/android/internal/view/FloatingActionMode$2;->this$0:Lcom/android/internal/view/FloatingActionMode;
 
+    invoke-static {v0}, Lcom/android/internal/view/FloatingActionMode;->-wrap0(Lcom/android/internal/view/FloatingActionMode;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/internal/view/FloatingActionMode$2;->this$0:Lcom/android/internal/view/FloatingActionMode;
+
     invoke-static {v0}, Lcom/android/internal/view/FloatingActionMode;->-get1(Lcom/android/internal/view/FloatingActionMode;)Lcom/android/internal/view/FloatingActionMode$FloatingToolbarVisibilityHelper;
 
     move-result-object v0
@@ -55,5 +63,6 @@
 
     invoke-virtual {v0}, Lcom/android/internal/view/FloatingActionMode$FloatingToolbarVisibilityHelper;->updateToolbarVisibility()V
 
+    :cond_0
     return-void
 .end method

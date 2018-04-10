@@ -163,20 +163,18 @@
 
     iget-object v0, p0, Landroid/widget/AbsListView$MultiChoiceModeWrapper;->this$0:Landroid/widget/AbsListView;
 
-    invoke-static {v0}, Landroid/widget/AbsListView;->-get36(Landroid/widget/AbsListView;)Z
+    invoke-static {v0}, Landroid/widget/AbsListView;->-get28(Landroid/widget/AbsListView;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     invoke-virtual {p1}, Landroid/view/ActionMode;->finish()V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public onPrepareActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z

@@ -39,9 +39,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/view/PointerIcon;
-    .locals 9
-
-    const/16 v8, 0x4e20
+    .locals 8
 
     :try_start_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -90,7 +88,9 @@
 
     move-result v3
 
-    if-ne v6, v8, :cond_2
+    const/16 v7, 0x4e20
+
+    if-ne v6, v7, :cond_2
 
     invoke-static {v0, v2, v3}, Landroid/view/PointerIcon;->-wrap1(Landroid/graphics/Bitmap;FF)Landroid/view/PointerIcon;
 
@@ -101,18 +101,15 @@
     :cond_2
     const/4 v7, -0x1
 
-    if-eq v6, v7, :cond_3
+    if-ne v6, v7, :cond_3
 
-    if-ne v6, v8, :cond_4
-
-    :cond_3
     invoke-static {v0, v2, v3, v6}, Landroid/view/PointerIcon;->-wrap0(Landroid/graphics/Bitmap;FFI)Landroid/view/PointerIcon;
 
     move-result-object v7
 
     return-object v7
 
-    :cond_4
+    :cond_3
     invoke-static {v0, v2, v3}, Landroid/view/PointerIcon;->create(Landroid/graphics/Bitmap;FF)Landroid/view/PointerIcon;
     :try_end_0
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0

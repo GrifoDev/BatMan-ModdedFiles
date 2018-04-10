@@ -167,7 +167,7 @@
 
     invoke-virtual {v1, v3}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v1}, Ljava/nio/Buffer;->clear()Ljava/nio/Buffer;
+    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
 
     const/4 v0, 0x0
 

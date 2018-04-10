@@ -6,6 +6,8 @@
 # static fields
 .field public static final CA_CERTIFICATE:Ljava/lang/String; = "CACERT_"
 
+.field public static final DELETE_ALL:Ljava/lang/String; = "DELETEALL_"
+
 .field public static final EXTENSION_CER:Ljava/lang/String; = ".cer"
 
 .field public static final EXTENSION_CRT:Ljava/lang/String; = ".crt"
@@ -51,6 +53,8 @@
 .field public static final UNLOCK_ACTION:Ljava/lang/String; = "com.android.credentials.UNLOCK"
 
 .field public static final USER_CERTIFICATE:Ljava/lang/String; = "USRCERT_"
+
+.field public static final USER_CSR:Ljava/lang/String; = "USRCSR_"
 
 .field public static final USER_PRIVATE_KEY:Ljava/lang/String; = "USRPKEY_"
 
@@ -281,21 +285,67 @@
 .method public static deleteAllTypesForAlias(Landroid/security/KeyStore;Ljava/lang/String;I)Z
     .locals 2
 
-    invoke-static {p0, p1, p2}, Landroid/security/Credentials;->deletePrivateKeyTypeForAlias(Landroid/security/KeyStore;Ljava/lang/String;I)Z
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "DELETEALL_"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0, p2}, Landroid/security/KeyStore;->delete(Ljava/lang/String;I)Z
 
     move-result v0
 
-    invoke-static {p0, p1, p2}, Landroid/security/Credentials;->deleteSecretKeyTypeForAlias(Landroid/security/KeyStore;Ljava/lang/String;I)Z
+    return v0
+.end method
 
-    move-result v1
+.method public static deleteCSRTypeForAlias(Landroid/security/KeyStore;Ljava/lang/String;)Z
+    .locals 1
 
-    and-int/2addr v0, v1
+    const/4 v0, -0x1
 
-    invoke-static {p0, p1, p2}, Landroid/security/Credentials;->deleteCertificateTypesForAlias(Landroid/security/KeyStore;Ljava/lang/String;I)Z
+    invoke-static {p0, p1, v0}, Landroid/security/Credentials;->deleteCSRTypeForAlias(Landroid/security/KeyStore;Ljava/lang/String;I)Z
 
-    move-result v1
+    move-result v0
 
-    and-int/2addr v0, v1
+    return v0
+.end method
+
+.method public static deleteCSRTypeForAlias(Landroid/security/KeyStore;Ljava/lang/String;I)Z
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "USRCSR_"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0, p2}, Landroid/security/KeyStore;->delete(Ljava/lang/String;I)Z
+
+    move-result v0
 
     return v0
 .end method

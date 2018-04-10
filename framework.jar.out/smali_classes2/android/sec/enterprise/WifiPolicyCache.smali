@@ -1040,7 +1040,7 @@
 
     if-eqz p2, :cond_1
 
-    const v0, 0x104094f
+    const v0, 0x10402ce
 
     invoke-direct {p0, v0}, Landroid/sec/enterprise/WifiPolicyCache;->showMessage(I)V
     :try_end_0
@@ -1071,7 +1071,7 @@
 
     if-eqz p2, :cond_3
 
-    const v0, 0x1040951
+    const v0, 0x10402cf
 
     invoke-direct {p0, v0}, Landroid/sec/enterprise/WifiPolicyCache;->showMessage(I)V
     :try_end_1
@@ -1133,7 +1133,7 @@
     :cond_6
     if-eqz p2, :cond_7
 
-    const v0, 0x104094f
+    const v0, 0x10402ce
 
     invoke-direct {p0, v0}, Landroid/sec/enterprise/WifiPolicyCache;->showMessage(I)V
     :try_end_3
@@ -1252,7 +1252,9 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_2
 
     iget-object v3, p1, Landroid/net/wifi/WifiConfiguration;->preSharedKey:Ljava/lang/String;
 

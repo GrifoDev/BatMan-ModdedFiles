@@ -72,7 +72,7 @@
     const/4 v0, 0x0
 
     :goto_0
-    if-ge v0, v2, :cond_4
+    if-ge v0, v2, :cond_3
 
     invoke-interface {v3, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -98,22 +98,20 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_2
+
+    iget-object v5, v1, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    invoke-interface {v4, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_2
-    :goto_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_3
-    iget-object v5, v1, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
-
-    invoke-interface {v4, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_1
-
-    :cond_4
     return-object v4
 .end method
 
@@ -146,7 +144,7 @@
 
     move-result-object v0
 
-    invoke-static {p0}, Landroid/telecom/DefaultDialerManager;->getInstalledDialerApplications(Landroid/content/Context;)Ljava/util/List;
+    invoke-static {p0, p1}, Landroid/telecom/DefaultDialerManager;->getInstalledDialerApplications(Landroid/content/Context;I)Ljava/util/List;
 
     move-result-object v1
 
@@ -316,7 +314,9 @@
 
     move-result v8
 
-    if-nez v8, :cond_0
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_0
 
     iget-object v8, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 

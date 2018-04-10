@@ -101,6 +101,8 @@
 
     const/4 v2, -0x1
 
+    const/4 v3, 0x0
+
     iget v0, p0, Lcom/android/internal/app/UnlaunchableAppActivity;->mReason:I
 
     const/4 v1, 0x1
@@ -121,11 +123,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/internal/app/UnlaunchableAppActivity;->mTarget:Landroid/content/IntentSender;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/app/UnlaunchableAppActivity;->mTarget:Landroid/content/IntentSender;
@@ -150,6 +152,21 @@
     :goto_0
     return-void
 
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/internal/app/UnlaunchableAppActivity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "Please wait until work mode off complete"
+
+    invoke-static {v0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+
+    goto :goto_0
+
     :catch_0
     move-exception v7
 
@@ -157,15 +174,19 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 12
+    .locals 14
+
+    const v13, 0x104000a
+
+    const/16 v9, -0x2710
+
+    const/4 v12, 0x0
 
     const/4 v11, 0x1
 
-    const/16 v10, -0x2710
-
-    const/4 v9, 0x0
-
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
+
+    invoke-virtual {p0, v11}, Lcom/android/internal/app/UnlaunchableAppActivity;->requestWindowFeature(I)Z
 
     invoke-virtual {p0}, Lcom/android/internal/app/UnlaunchableAppActivity;->getIntent()Landroid/content/Intent;
 
@@ -183,7 +204,7 @@
 
     const-string/jumbo v7, "android.intent.extra.user_handle"
 
-    invoke-virtual {v3, v7, v10}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {v3, v7, v9}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v7
 
@@ -201,7 +222,7 @@
 
     iget v7, p0, Lcom/android/internal/app/UnlaunchableAppActivity;->mUserId:I
 
-    if-ne v7, v10, :cond_0
+    if-ne v7, v9, :cond_0
 
     const-string/jumbo v7, "UnlaunchableAppActivity"
 
@@ -248,19 +269,31 @@
 
     move-result-object v7
 
-    const v8, 0x1040608
+    const v8, 0x1040baa
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {p0}, Lcom/android/internal/app/UnlaunchableAppActivity;->getResources()Landroid/content/res/Resources;
+    const v7, 0x1040ba9
+
+    invoke-virtual {p0, v7}, Lcom/android/internal/app/UnlaunchableAppActivity;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    const v8, 0x1040609
+    new-array v8, v11, [Ljava/lang/Object;
 
-    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    iget v9, p0, Lcom/android/internal/app/UnlaunchableAppActivity;->mUserId:I
+
+    invoke-static {p0, v9}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonaName(Landroid/content/Context;I)Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x0
+
+    aput-object v9, v8, v10
+
+    invoke-static {v7, v8}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -268,13 +301,13 @@
 
     move-result-object v7
 
-    const v8, 0x1090177
+    const v8, 0x1090172
 
-    invoke-virtual {v7, v8, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v7, v8, v12}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v5
 
-    const v7, 0x102053b
+    const v7, 0x102056d
 
     invoke-virtual {v5, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -282,7 +315,7 @@
 
     check-cast v6, Landroid/widget/TextView;
 
-    const v7, 0x102053c
+    const v7, 0x102056c
 
     invoke-virtual {v5, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -310,15 +343,13 @@
 
     if-ne v7, v11, :cond_2
 
-    const v7, 0x104060a
-
-    invoke-virtual {v0, v7, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v13, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v7
 
     const/high16 v8, 0x1040000
 
-    invoke-virtual {v7, v8, v9}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v7, v8, v12}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     :goto_0
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
@@ -355,9 +386,7 @@
     return-void
 
     :cond_2
-    const v7, 0x104000a
-
-    invoke-virtual {v0, v7, v9}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v13, v12}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     goto :goto_0
 .end method

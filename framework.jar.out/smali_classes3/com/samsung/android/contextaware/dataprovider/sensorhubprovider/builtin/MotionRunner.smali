@@ -77,7 +77,7 @@
 .method public getFaultDetectionResult()Landroid/os/Bundle;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->checkFaultDetectionResult()Z
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/MotionRunner;->checkFaultDetectionResult()Z
 
     move-result v0
 

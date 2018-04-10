@@ -20,6 +20,8 @@
 
 .field private mRotation:I
 
+.field private mTiltSetting:I
+
 .field private mTop:I
 
 .field private mUserId:I
@@ -54,6 +56,8 @@
     iput-object p5, p0, Landroid/app/wallpaperbackup/WallpaperUser;->mImagePath:Ljava/lang/String;
 
     iput p6, p0, Landroid/app/wallpaperbackup/WallpaperUser;->mUserId:I
+
+    iput v0, p0, Landroid/app/wallpaperbackup/WallpaperUser;->mTiltSetting:I
 
     iput v0, p0, Landroid/app/wallpaperbackup/WallpaperUser;->mLeft:I
 
@@ -130,6 +134,14 @@
     .locals 1
 
     iget v0, p0, Landroid/app/wallpaperbackup/WallpaperUser;->mRotation:I
+
+    return v0
+.end method
+
+.method public getTiltSettingValue()I
+    .locals 1
+
+    iget v0, p0, Landroid/app/wallpaperbackup/WallpaperUser;->mTiltSetting:I
 
     return v0
 .end method
@@ -218,6 +230,14 @@
     .locals 0
 
     iput p1, p0, Landroid/app/wallpaperbackup/WallpaperUser;->mRotation:I
+
+    return-void
+.end method
+
+.method public setTiltSettingValue(I)V
+    .locals 0
+
+    iput p1, p0, Landroid/app/wallpaperbackup/WallpaperUser;->mTiltSetting:I
 
     return-void
 .end method

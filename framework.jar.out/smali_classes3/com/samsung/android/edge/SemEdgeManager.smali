@@ -320,7 +320,7 @@
 
     move-result-object v6
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/edge/SemEdgeManager;->getClass()Ljava/lang/Class;
 
     move-result-object v8
 
@@ -388,6 +388,45 @@
     move-object v2, v1
 
     goto :goto_0
+.end method
+
+.method public cancelNotification(Ljava/lang/String;Ljava/lang/String;II)V
+    .locals 3
+
+    invoke-direct {p0}, Lcom/samsung/android/edge/SemEdgeManager;->getService()Lcom/samsung/android/edge/IEdgeManager;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    sget-object v1, Lcom/samsung/android/edge/SemEdgeManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, " cancelNotification : service is null"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/edge/SemEdgeManager;->mService:Lcom/samsung/android/edge/IEdgeManager;
+
+    invoke-interface {v1, p1, p2, p3, p4}, Lcom/samsung/android/edge/IEdgeManager;->cancelNotification(Ljava/lang/String;Ljava/lang/String;II)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v2, "EdgeService dead?"
+
+    invoke-direct {v1, v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v1
 .end method
 
 .method public disable(I)V
@@ -685,7 +724,7 @@
 
     move-result-object v6
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/edge/SemEdgeManager;->getClass()Ljava/lang/Class;
 
     move-result-object v8
 

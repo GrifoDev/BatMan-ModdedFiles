@@ -791,7 +791,7 @@
 
     const/16 v10, 0x46
 
-    if-ne v9, v10, :cond_13
+    if-ne v9, v10, :cond_12
 
     if-eq v3, v11, :cond_e
 
@@ -819,7 +819,7 @@
 
     const/4 v10, 0x4
 
-    if-ne v9, v10, :cond_12
+    if-ne v9, v10, :cond_11
 
     invoke-static {v4, v5}, Ljava/lang/Math;->abs(D)D
 
@@ -829,22 +829,44 @@
 
     cmpl-double v9, v0, v10
 
-    if-eqz v9, :cond_f
+    if-eqz v9, :cond_10
 
     invoke-static {v4, v5}, Ljava/lang/Double;->isInfinite(D)Z
 
     move-result v9
 
+    xor-int/lit8 v9, v9, 0x1
+
     if-eqz v9, :cond_10
 
+    invoke-static {v4, v5}, Ljava/lang/Double;->isNaN(D)Z
+
+    move-result v9
+
+    xor-int/lit8 v9, v9, 0x1
+
+    if-eqz v9, :cond_10
+
+    const-wide/high16 v10, 0x36a0000000000000L    # 1.401298464324817E-45
+
+    cmpg-double v9, v0, v10
+
+    if-ltz v9, :cond_f
+
+    const-wide v10, 0x47efffffe0000000L    # 3.4028234663852886E38
+
+    cmpl-double v9, v0, v10
+
+    if-lez v9, :cond_10
+
     :cond_f
-    new-instance v9, Ljava/lang/Float;
+    new-instance v9, Lcom/android/internal/util/TypedProperties$ParseException;
 
-    double-to-float v10, v4
+    const-string/jumbo v10, "32-bit float constant"
 
-    invoke-direct {v9, v10}, Ljava/lang/Float;-><init>(F)V
+    invoke-direct {v9, p0, v10}, Lcom/android/internal/util/TypedProperties$ParseException;-><init>(Ljava/io/StreamTokenizer;Ljava/lang/String;)V
 
-    return-object v9
+    throw v9
 
     :catch_1
     move-exception v2
@@ -858,55 +880,36 @@
     throw v9
 
     :cond_10
-    invoke-static {v4, v5}, Ljava/lang/Double;->isNaN(D)Z
+    new-instance v9, Ljava/lang/Float;
 
-    move-result v9
+    double-to-float v10, v4
 
-    if-nez v9, :cond_f
+    invoke-direct {v9, v10}, Ljava/lang/Float;-><init>(F)V
 
-    const-wide/high16 v10, 0x36a0000000000000L    # 1.401298464324817E-45
-
-    cmpg-double v9, v0, v10
-
-    if-ltz v9, :cond_11
-
-    const-wide v10, 0x47efffffe0000000L    # 3.4028234663852886E38
-
-    cmpl-double v9, v0, v10
-
-    if-lez v9, :cond_f
+    return-object v9
 
     :cond_11
-    new-instance v9, Lcom/android/internal/util/TypedProperties$ParseException;
-
-    const-string/jumbo v10, "32-bit float constant"
-
-    invoke-direct {v9, p0, v10}, Lcom/android/internal/util/TypedProperties$ParseException;-><init>(Ljava/io/StreamTokenizer;Ljava/lang/String;)V
-
-    throw v9
-
-    :cond_12
     new-instance v9, Ljava/lang/Double;
 
     invoke-direct {v9, v4, v5}, Ljava/lang/Double;-><init>(D)V
 
     return-object v9
 
-    :cond_13
+    :cond_12
     const/16 v9, 0x734c
 
-    if-ne p1, v9, :cond_16
+    if-ne p1, v9, :cond_15
 
     const/16 v9, 0x22
 
-    if-ne v3, v9, :cond_14
+    if-ne v3, v9, :cond_13
 
     iget-object v9, p0, Ljava/io/StreamTokenizer;->sval:Ljava/lang/String;
 
     return-object v9
 
-    :cond_14
-    if-ne v3, v11, :cond_15
+    :cond_13
+    if-ne v3, v11, :cond_14
 
     const-string/jumbo v9, "null"
 
@@ -916,13 +919,13 @@
 
     move-result v9
 
-    if-eqz v9, :cond_15
+    if-eqz v9, :cond_14
 
     sget-object v9, Lcom/android/internal/util/TypedProperties;->NULL_STRING:Ljava/lang/String;
 
     return-object v9
 
-    :cond_15
+    :cond_14
     new-instance v9, Lcom/android/internal/util/TypedProperties$ParseException;
 
     const-string/jumbo v10, "double-quoted string or \'null\'"
@@ -931,7 +934,7 @@
 
     throw v9
 
-    :cond_16
+    :cond_15
     new-instance v9, Ljava/lang/IllegalStateException;
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -1018,9 +1021,7 @@
 
     if-eqz v1, :cond_1
 
-    nop
-
-    nop
+    check-cast v0, Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
@@ -1066,9 +1067,7 @@
 
     if-eqz v1, :cond_1
 
-    nop
-
-    nop
+    check-cast v0, Ljava/lang/Byte;
 
     invoke-virtual {v0}, Ljava/lang/Byte;->byteValue()B
 
@@ -1114,9 +1113,7 @@
 
     if-eqz v1, :cond_1
 
-    nop
-
-    nop
+    check-cast v0, Ljava/lang/Double;
 
     invoke-virtual {v0}, Ljava/lang/Double;->doubleValue()D
 
@@ -1162,9 +1159,7 @@
 
     if-eqz v1, :cond_1
 
-    nop
-
-    nop
+    check-cast v0, Ljava/lang/Float;
 
     invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
 
@@ -1210,9 +1205,7 @@
 
     if-eqz v1, :cond_1
 
-    nop
-
-    nop
+    check-cast v0, Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -1258,9 +1251,7 @@
 
     if-eqz v1, :cond_1
 
-    nop
-
-    nop
+    check-cast v0, Ljava/lang/Long;
 
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
@@ -1306,9 +1297,7 @@
 
     if-eqz v1, :cond_1
 
-    nop
-
-    nop
+    check-cast v0, Ljava/lang/Short;
 
     invoke-virtual {v0}, Ljava/lang/Short;->shortValue()S
 
@@ -1363,9 +1352,7 @@
 
     if-eqz v1, :cond_2
 
-    nop
-
-    nop
+    check-cast v0, Ljava/lang/String;
 
     return-object v0
 

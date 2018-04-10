@@ -36,6 +36,8 @@
 
 .field public batteryCurrentNow:I
 
+.field public batteryFullCharge:I
+
 .field public batteryHealth:I
 
 .field public batteryHighVoltageCharger:Z
@@ -203,6 +205,12 @@
 
     move-result v0
 
+    iput v0, p0, Landroid/os/BatteryProperties;->batteryFullCharge:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
     iput v0, p0, Landroid/os/BatteryProperties;->batteryChargeCounter:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -314,7 +322,7 @@
     :cond_3
     move v0, v2
 
-    goto :goto_3
+    goto/16 :goto_3
 
     :cond_4
     move v0, v2
@@ -410,6 +418,14 @@
     iget v0, p1, Landroid/os/BatteryProperties;->batteryTemperature:I
 
     iput v0, p0, Landroid/os/BatteryProperties;->batteryTemperature:I
+
+    iget v0, p1, Landroid/os/BatteryProperties;->batteryFullCharge:I
+
+    iput v0, p0, Landroid/os/BatteryProperties;->batteryFullCharge:I
+
+    iget v0, p1, Landroid/os/BatteryProperties;->batteryChargeCounter:I
+
+    iput v0, p0, Landroid/os/BatteryProperties;->batteryChargeCounter:I
 
     iget-object v0, p1, Landroid/os/BatteryProperties;->batteryTechnology:Ljava/lang/String;
 
@@ -526,6 +542,10 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     iget v0, p0, Landroid/os/BatteryProperties;->batteryTemperature:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v0, p0, Landroid/os/BatteryProperties;->batteryFullCharge:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 

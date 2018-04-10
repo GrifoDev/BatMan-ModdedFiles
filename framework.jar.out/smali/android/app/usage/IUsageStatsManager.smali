@@ -90,6 +90,14 @@
     .end annotation
 .end method
 
+.method public abstract reportChooserSelection(Ljava/lang/String;ILjava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setAppInactive(Ljava/lang/String;ZI)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

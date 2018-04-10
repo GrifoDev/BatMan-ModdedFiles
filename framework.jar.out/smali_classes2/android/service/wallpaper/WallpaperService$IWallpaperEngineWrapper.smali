@@ -291,12 +291,6 @@
     invoke-virtual {v9, v6}, Landroid/service/wallpaper/WallpaperService$Engine;->doDisplayPaddingChanged(Landroid/graphics/Rect;)V
 
     :sswitch_5
-    const-string/jumbo v6, "WallpaperService"
-
-    const-string/jumbo v9, "MSG_UPDATE_SURFACE"
-
-    invoke-static {v6, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     iget-object v6, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mEngine:Landroid/service/wallpaper/WallpaperService$Engine;
 
     invoke-virtual {v6, v7, v8, v8}, Landroid/service/wallpaper/WallpaperService$Engine;->updateSurface(ZZZ)V
@@ -341,12 +335,6 @@
     goto :goto_0
 
     :sswitch_9
-    const-string/jumbo v6, "WallpaperService"
-
-    const-string/jumbo v9, "MSG_WINDOW_RESIZED"
-
-    invoke-static {v6, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     iget v6, p1, Landroid/os/Message;->arg1:I
 
     if-eqz v6, :cond_1

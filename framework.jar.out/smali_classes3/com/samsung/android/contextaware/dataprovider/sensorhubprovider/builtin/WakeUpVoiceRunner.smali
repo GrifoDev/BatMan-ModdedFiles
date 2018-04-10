@@ -105,7 +105,7 @@
 .method public getFaultDetectionResult()Landroid/os/Bundle;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->checkFaultDetectionResult()Z
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/WakeUpVoiceRunner;->checkFaultDetectionResult()Z
 
     move-result v0
 
@@ -281,7 +281,7 @@
 
     invoke-static {v4}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->info(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v6, v6, v0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->sendPropertyValueToSensorHub(BB[B)Z
+    invoke-virtual {p0, v6, v6, v0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/WakeUpVoiceRunner;->sendPropertyValueToSensorHub(BB[B)Z
 
     move-result v2
 
@@ -365,7 +365,7 @@
 
     const/4 v4, 0x2
 
-    invoke-virtual {p0, v6, v4, v0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->sendPropertyValueToSensorHub(BB[B)Z
+    invoke-virtual {p0, v6, v4, v0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/WakeUpVoiceRunner;->sendPropertyValueToSensorHub(BB[B)Z
 
     move-result v2
 

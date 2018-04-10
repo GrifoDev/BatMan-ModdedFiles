@@ -16,13 +16,21 @@
 
 .field public static final ACTION_SCREEN_SHARING:I = 0x67
 
+.field public static final ACTION_SHARE_TO_DEVICE_SC:I = 0x6a
+
+.field public static final ACTION_SHARE_TO_DEVICE_SM:I = 0x6b
+
+.field public static final APP_INDEX_SHARE_TO_DEVICE:I = -0x4
+
 .field public static final APP_INDEX_SIMPLE_SHARING:I = -0x1
 
 .field public static final APP_INDEX_SMART_VIEW:I = -0x3
 
 .field public static final APP_INDEX_TRANSFER_FILE:I = -0x2
 
-.field public static final APP_TYPE_NORMAL:I = 0x3
+.field public static final APP_TYPE_NORMAL:I = 0x4
+
+.field public static final APP_TYPE_SHARE_TO_DEVICE:I = 0x3
 
 .field public static final APP_TYPE_SIMPLE_SHARING:I = 0x0
 
@@ -30,9 +38,11 @@
 
 .field public static final APP_TYPE_TRANSFER_FILE:I = 0x1
 
-.field public static final DEV_TYPE_MOBILE:I = 0x1
+.field public static final BIXBY_SAMSUNG_CONNECT_APPNAME:Ljava/lang/String; = "Samsung Connect"
 
-.field public static final DEV_TYPE_TABLET:I = 0x2
+.field public static final BIXBY_SMART_VIEW_APPNAME:Ljava/lang/String; = "Smart View"
+
+.field public static final DIRECT_SHARE_SETTINGS_KEY:Ljava/lang/String; = "direct_share"
 
 .field public static final DISABLE:I = 0x0
 
@@ -45,6 +55,8 @@
 .field public static final ENABLE:I = 0x1
 
 .field public static final ENABLE_BIXBY:Z
+
+.field public static final ENABLE_QUICKCONNECT_D2D:Z
 
 .field public static final ENABLE_SURVEY_MODE:Z
 
@@ -60,18 +72,6 @@
 
 .field public static final EXTRA_CHOOSER_EM_SELECTED_PKG:Ljava/lang/String; = "selectedPackage"
 
-.field public static final EXTRA_KEY_RECENT_GROUP_CONTACTID:Ljava/lang/String; = "recentgroupcontactids"
-
-.field public static final EXTRA_KEY_RECENT_GROUP_COUNT:Ljava/lang/String; = "recentgroupcount"
-
-.field public static final EXTRA_KEY_RECENT_GROUP_DATAIDS:Ljava/lang/String; = "recentgroupdataids"
-
-.field public static final EXTRA_KEY_RECENT_GROUP_NAMES:Ljava/lang/String; = "recentgroupnames"
-
-.field public static final EXTRA_KEY_RECENT_GROUP_NAME_LIST:Ljava/lang/String; = "recentgroupnamelist"
-
-.field public static final EXTRA_KEY_RECENT_GROUP_THUMBNAILS:Ljava/lang/String; = "recentgroupthumbnail"
-
 .field public static final EXTRA_SAFE_FORWARD:Ljava/lang/String; = "extra_safe_forward"
 
 .field public static final INTENT_ACTION_EM_COMMAND:Ljava/lang/String; = "com.samsung.android.chooser.ACTION_EM_COMMAND"
@@ -79,8 +79,6 @@
 .field public static final INTENT_ACTION_EM_GETDATA:Ljava/lang/String; = "com.samsung.android.share.ACTION_EM_GETDATA"
 
 .field public static final INTENT_ACTION_LAUNCHER_CHANGED:Ljava/lang/String; = "com.sec.android.intent.action.LAUNCHER_CHANGED"
-
-.field public static final INTENT_ACTION_REQUESTSEND:Ljava/lang/String; = "com.samsung.android.coreapps.rshare.action.REQUESTSEND"
 
 .field public static final INTENT_ACTION_SHARELINK_SEND:Ljava/lang/String; = "com.samsung.android.app.simplesharing.action.REQUEST_LINK_SEND"
 
@@ -90,49 +88,17 @@
 
 .field public static final INTENT_MOBILE_PRINT:Ljava/lang/String; = "android.intent.action.MOBILE_PRINT_VIA_EASY_SHARE"
 
-.field public static final INTENT_REQUEST_RECENT_GROUP:Ljava/lang/String; = "com.samsung.android.coreapps.rshare.requestrecentgroupcontacts"
-
 .field public static final LIMITED_ENABLE:I = 0x2
 
 .field public static final MAX_FONT_SCALE:F = 1.2f
 
-.field public static final MAX_PAGE_LINE_NUM:I = 0x2
-
 .field public static final MIME_TYPE_MEMO:Ljava/lang/String; = "application/vnd.samsung.android.memo"
-
-.field public static final MORE_ACTIONS_CHANGE_PLAYER:Ljava/lang/String; = "more_actions_change_player"
-
-.field public static final MORE_ACTIONS_KNOX_STATE:Ljava/lang/String; = "more_actions_knox_state"
-
-.field public static final MORE_ACTIONS_PACKAGE_NAME:Ljava/lang/String; = "more_actions_package_name"
-
-.field public static final MORE_ACTIONS_PRINT:Ljava/lang/String; = "more_actions_print"
-
-.field public static final MORE_ACTIONS_QUICK_CONNECT:Ljava/lang/String; = "more_actions_quick_connect"
-
-.field public static final MORE_ACTIONS_SCREEN_MIRRORING:Ljava/lang/String; = "more_actions_screen_mirroring"
-
-.field public static final MORE_ACTIONS_SCREEN_SHARING:Ljava/lang/String; = "more_actions_screen_sharing"
-
-.field public static final MORE_ACTIONS_SCREEN_SHARING_MODE:Ljava/lang/String; = "more_actions_screen_sharing_mode"
-
-.field public static final MSG_GETDATA_APP_SELECTION:I = 0xbb8
-
-.field public static final MSG_INIT_RECENTLIST:I = 0x7d0
-
-.field public static final MSG_LIST_UPDATE:I = 0x3e8
 
 .field public static final NLG_APPNAME_DUPLICATE:I = 0x2
 
 .field public static final NLG_APPNAME_NOT_EXIST:I = 0x0
 
 .field public static final NLG_APPNAME_NOT_MATCH:I = 0x1
-
-.field public static final OTHER_TARGET_PANEL_INDEX:I = 0x1
-
-.field public static final PAGER_KEY:Ljava/lang/String; = "pagerkey_%1$d_%2$d"
-
-.field public static final PANEL_KEY:Ljava/lang/String; = "panelkey_%1$d_%2$d"
 
 .field public static final PARAM_ID_APPNAME:Ljava/lang/String; = "AppName"
 
@@ -142,29 +108,13 @@
 
 .field public static final QUICK_CONNECT_PKG:Ljava/lang/String; = "com.samsung.android.oneconnect"
 
-.field public static final RECENT_CONTACTS_LIST_MAX_COUNT:I = 0x5
-
-.field public static final RECENT_TYPE_CONTACT_GROUP:I = 0x2
-
-.field public static final RECENT_TYPE_CONTACT_PHOTO:I = 0x3
-
-.field public static final RECENT_TYPE_CONTACT_PRIV:I = 0x1
-
-.field public static final RECENT_TYPE_DEFAULT:I = 0x0
-
-.field public static final RECENT_TYPE_DEVICE_MOBILE:I = 0x4
-
-.field public static final RECENT_TYPE_DEVICE_TABLET:I = 0x5
-
 .field public static final REMOTE_SHARE_SERVICE_ID:I = 0x2
 
-.field public static final REQUEST_CODE_SIGNUP_REQ_AUTH:I = 0x1
+.field public static final SAMSUNG_CONNECT_COMP:Ljava/lang/String; = "com.samsung.android.oneconnect/com.samsung.android.oneconnect.ui.contentssharing.ContentsSharingActivity"
 
-.field public static final RESOLVER_GUIDE_ACTIVITY_CLASS:Ljava/lang/String; = "com.android.internal.app.ResolverGuideActivity"
+.field public static final SAMSUNG_CONNECT_VERSION_SUPPORTING_SHARE_TO_DEVICE:I = 0x8f0d180
 
-.field public static final RESOLVER_GUIDE_ACTIVITY_PKG:Ljava/lang/String; = "android"
-
-.field public static final RESPONSE_RECENT_GROUP_CONTACTS:Ljava/lang/String; = "com.samsung.android.coreapps.rshare.responserecentgroupcontacts"
+.field public static final SAMSUNG_CONNECT_VERSION_SUPPORTING_SHARE_TO_DEVICE_SMART_THING:I = 0xa21fe80
 
 .field public static final SCREEN_MIRRORING_CLASS:Ljava/lang/String; = "com.samsung.wfd.LAUNCH_WFD_PICKER_DLG"
 
@@ -180,7 +130,7 @@
 
 .field public static final SECUX_VERSION:Ljava/lang/String;
 
-.field public static final SERVICE_TARGET_PANEL_INDEX:I = 0x0
+.field public static final SEP_VERSION_8_5:I = 0x13a74
 
 .field public static final SIMPLE_SHARING_FORCE_DISABLE:Ljava/lang/String; = "simple_sharing_force_disable"
 
@@ -189,6 +139,28 @@
 .field public static final SIMPLE_SHARING_PKG:Ljava/lang/String; = "com.samsung.android.app.simplesharing"
 
 .field public static final SMART_MIRRING_DIALOG_SUPPORT:Z
+
+.field public static final SMART_VIEW_COMP:Ljava/lang/String; = "com.samsung.android.smartmirroring/com.samsung.android.smartmirroring.CastingDialog"
+
+.field public static final SUPPORT_BIXBY:I
+
+.field public static final SUPPORT_BUTTONS:I
+
+.field public static final SUPPORT_DEVICE_SHARE:I
+
+.field public static final SUPPORT_DIRECT_SHARE:I
+
+.field public static final SUPPORT_FEATURE_BASE:I = 0x1
+
+.field public static final SUPPORT_LOGGING:I
+
+.field public static final SUPPORT_RESOLVER_GUIDE:I
+
+.field public static final SUPPORT_SHARE_LINK:I
+
+.field private static SUPPORT_SHIFT:I = 0x0
+
+.field public static final SUPPORT_SHOW_BUTTON_SHAPES:I
 
 .field public static final SURVERY_ACTION:Ljava/lang/String; = "com.samsung.android.providers.context.log.action.USE_APP_FEATURE_SURVEY"
 
@@ -205,10 +177,6 @@
 .field public static final SURVEY_CONTENT_FEATURE:Ljava/lang/String; = "feature"
 
 .field public static final SURVEY_DETAIL_FEATURE_CHANGEPLAYER:Ljava/lang/String; = "Change Player"
-
-.field public static final SURVEY_DETAIL_FEATURE_CONTACTGROUP:Ljava/lang/String; = "group"
-
-.field public static final SURVEY_DETAIL_FEATURE_CONTACTPRIV:Ljava/lang/String; = "personal"
 
 .field public static final SURVEY_DETAIL_FEATURE_MIRRORING:Ljava/lang/String; = "Screen Mirroring"
 
@@ -238,8 +206,6 @@
 
 .field public static final SYSTEM_UI_PACKAGE:Ljava/lang/String; = "com.android.systemui"
 
-.field public static final TAG_RECIPIENT_DATAIDS:Ljava/lang/String; = "recipientdataids"
-
 .field public static final TRANSITION_ENTER_TYPE:I = 0x0
 
 .field public static final TRANSITION_EXIT_TYPE:I = 0x1
@@ -248,6 +214,8 @@
 # direct methods
 .method static constructor <clinit>()V
     .locals 4
+
+    const/4 v2, 0x1
 
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
@@ -260,6 +228,88 @@
     move-result v0
 
     sput-boolean v0, Lcom/samsung/android/share/SShareConstants;->ENABLE_BIXBY:Z
+
+    sput v2, Lcom/samsung/android/share/SShareConstants;->SUPPORT_SHIFT:I
+
+    sget v0, Lcom/samsung/android/share/SShareConstants;->SUPPORT_SHIFT:I
+
+    add-int/lit8 v1, v0, 0x1
+
+    sput v1, Lcom/samsung/android/share/SShareConstants;->SUPPORT_SHIFT:I
+
+    shl-int v0, v2, v0
+
+    sput v0, Lcom/samsung/android/share/SShareConstants;->SUPPORT_BUTTONS:I
+
+    sget v0, Lcom/samsung/android/share/SShareConstants;->SUPPORT_SHIFT:I
+
+    add-int/lit8 v1, v0, 0x1
+
+    sput v1, Lcom/samsung/android/share/SShareConstants;->SUPPORT_SHIFT:I
+
+    shl-int v0, v2, v0
+
+    sput v0, Lcom/samsung/android/share/SShareConstants;->SUPPORT_SHOW_BUTTON_SHAPES:I
+
+    sget v0, Lcom/samsung/android/share/SShareConstants;->SUPPORT_SHIFT:I
+
+    add-int/lit8 v1, v0, 0x1
+
+    sput v1, Lcom/samsung/android/share/SShareConstants;->SUPPORT_SHIFT:I
+
+    shl-int v0, v2, v0
+
+    sput v0, Lcom/samsung/android/share/SShareConstants;->SUPPORT_RESOLVER_GUIDE:I
+
+    sget v0, Lcom/samsung/android/share/SShareConstants;->SUPPORT_SHIFT:I
+
+    add-int/lit8 v1, v0, 0x1
+
+    sput v1, Lcom/samsung/android/share/SShareConstants;->SUPPORT_SHIFT:I
+
+    shl-int v0, v2, v0
+
+    sput v0, Lcom/samsung/android/share/SShareConstants;->SUPPORT_LOGGING:I
+
+    sget v0, Lcom/samsung/android/share/SShareConstants;->SUPPORT_SHIFT:I
+
+    add-int/lit8 v1, v0, 0x1
+
+    sput v1, Lcom/samsung/android/share/SShareConstants;->SUPPORT_SHIFT:I
+
+    shl-int v0, v2, v0
+
+    sput v0, Lcom/samsung/android/share/SShareConstants;->SUPPORT_SHARE_LINK:I
+
+    sget v0, Lcom/samsung/android/share/SShareConstants;->SUPPORT_SHIFT:I
+
+    add-int/lit8 v1, v0, 0x1
+
+    sput v1, Lcom/samsung/android/share/SShareConstants;->SUPPORT_SHIFT:I
+
+    shl-int v0, v2, v0
+
+    sput v0, Lcom/samsung/android/share/SShareConstants;->SUPPORT_BIXBY:I
+
+    sget v0, Lcom/samsung/android/share/SShareConstants;->SUPPORT_SHIFT:I
+
+    add-int/lit8 v1, v0, 0x1
+
+    sput v1, Lcom/samsung/android/share/SShareConstants;->SUPPORT_SHIFT:I
+
+    shl-int v0, v2, v0
+
+    sput v0, Lcom/samsung/android/share/SShareConstants;->SUPPORT_DEVICE_SHARE:I
+
+    sget v0, Lcom/samsung/android/share/SShareConstants;->SUPPORT_SHIFT:I
+
+    add-int/lit8 v1, v0, 0x1
+
+    sput v1, Lcom/samsung/android/share/SShareConstants;->SUPPORT_SHIFT:I
+
+    shl-int v0, v2, v0
+
+    sput v0, Lcom/samsung/android/share/SShareConstants;->SUPPORT_DIRECT_SHARE:I
 
     const-string/jumbo v0, "ro.build.scafe.version"
 
@@ -280,6 +330,20 @@
     move-result v0
 
     sput-boolean v0, Lcom/samsung/android/share/SShareConstants;->ENABLE_SURVEY_MODE:Z
+
+    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "SEC_FLOATING_FEATURE_QUICKCONNECT_SUPPORT_D2D"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/samsung/android/share/SShareConstants;->ENABLE_QUICKCONNECT_D2D:Z
 
     const-string/jumbo v0, "com.samsung.android.smartmirroring"
 

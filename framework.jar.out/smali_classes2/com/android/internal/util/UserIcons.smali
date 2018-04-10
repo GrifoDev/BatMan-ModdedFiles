@@ -21,11 +21,11 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    const v0, 0x106005c
+    const v0, 0x1060295
 
-    const v1, 0x106005d
+    const v1, 0x1060296
 
-    const v2, 0x106005e
+    const v2, 0x1060297
 
     filled-new-array {v0, v1, v2}, [I
 
@@ -33,15 +33,15 @@
 
     sput-object v0, Lcom/android/internal/util/UserIcons;->USER_ICON_COLORS:[I
 
-    const v0, 0x10800f4
+    const v0, 0x1080102
 
-    const v1, 0x10800f5
+    const v1, 0x1080103
 
-    const v2, 0x10800f6
+    const v2, 0x1080104
 
-    const v3, 0x10800f7
+    const v3, 0x1080105
 
-    const v4, 0x10800f8
+    const v4, 0x1080106
 
     filled-new-array {v0, v1, v2, v3, v4}, [I
 
@@ -211,7 +211,7 @@
 
     move-result-object v2
 
-    const v3, 0x10800f8
+    const v3, 0x1080106
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -232,7 +232,7 @@
     :cond_3
     if-eqz p1, :cond_4
 
-    const v0, 0x1060065
+    const v0, 0x106029e
 
     :goto_0
     if-eq p0, v7, :cond_5
@@ -252,7 +252,7 @@
 
     move-result-object v2
 
-    const v3, 0x108058f
+    const v3, 0x10805d1
 
     invoke-virtual {v2, v3, v6}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -283,12 +283,12 @@
     return-object v1
 
     :cond_4
-    const v0, 0x1060064
+    const v0, 0x106029d
 
     goto :goto_0
 
     :cond_5
-    const v0, 0x106005f
+    const v0, 0x1060298
 
     goto :goto_1
 .end method
@@ -332,7 +332,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x1060065
+    const v0, 0x106029e
 
     :goto_0
     const/16 v2, -0x2710
@@ -358,7 +358,7 @@
 
     move-result-object v2
 
-    const v3, 0x1080591
+    const v3, 0x10805d3
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -390,12 +390,12 @@
     return-object v1
 
     :cond_0
-    const v0, 0x1060064
+    const v0, 0x106029d
 
     goto :goto_0
 
     :cond_1
-    const v0, 0x106005f
+    const v0, 0x1060298
 
     goto :goto_1
 
@@ -404,7 +404,7 @@
 
     move-result-object v2
 
-    const v3, 0x1080590
+    const v3, 0x10805d2
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

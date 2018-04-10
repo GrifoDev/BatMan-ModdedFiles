@@ -41,13 +41,21 @@
 
     iget-object v0, p0, Lcom/android/internal/view/FloatingActionMode$1;->this$0:Lcom/android/internal/view/FloatingActionMode;
 
-    invoke-static {v0}, Lcom/android/internal/view/FloatingActionMode;->-get3(Lcom/android/internal/view/FloatingActionMode;)Landroid/view/View;
+    invoke-static {v0}, Lcom/android/internal/view/FloatingActionMode;->-wrap0(Lcom/android/internal/view/FloatingActionMode;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/internal/view/FloatingActionMode$1;->this$0:Lcom/android/internal/view/FloatingActionMode;
+
+    invoke-static {v0}, Lcom/android/internal/view/FloatingActionMode;->-get2(Lcom/android/internal/view/FloatingActionMode;)Landroid/view/View;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/internal/view/FloatingActionMode$1;->this$0:Lcom/android/internal/view/FloatingActionMode;
 
-    invoke-static {v1}, Lcom/android/internal/view/FloatingActionMode;->-get7(Lcom/android/internal/view/FloatingActionMode;)[I
+    invoke-static {v1}, Lcom/android/internal/view/FloatingActionMode;->-get6(Lcom/android/internal/view/FloatingActionMode;)[I
 
     move-result-object v1
 
@@ -55,7 +63,7 @@
 
     iget-object v0, p0, Lcom/android/internal/view/FloatingActionMode$1;->this$0:Lcom/android/internal/view/FloatingActionMode;
 
-    invoke-static {v0}, Lcom/android/internal/view/FloatingActionMode;->-get3(Lcom/android/internal/view/FloatingActionMode;)Landroid/view/View;
+    invoke-static {v0}, Lcom/android/internal/view/FloatingActionMode;->-get2(Lcom/android/internal/view/FloatingActionMode;)Landroid/view/View;
 
     move-result-object v0
 
@@ -65,7 +73,7 @@
 
     iget-object v1, p0, Lcom/android/internal/view/FloatingActionMode$1;->this$0:Lcom/android/internal/view/FloatingActionMode;
 
-    invoke-static {v1}, Lcom/android/internal/view/FloatingActionMode;->-get6(Lcom/android/internal/view/FloatingActionMode;)[I
+    invoke-static {v1}, Lcom/android/internal/view/FloatingActionMode;->-get5(Lcom/android/internal/view/FloatingActionMode;)[I
 
     move-result-object v1
 
@@ -73,13 +81,13 @@
 
     iget-object v0, p0, Lcom/android/internal/view/FloatingActionMode$1;->this$0:Lcom/android/internal/view/FloatingActionMode;
 
-    invoke-static {v0}, Lcom/android/internal/view/FloatingActionMode;->-get3(Lcom/android/internal/view/FloatingActionMode;)Landroid/view/View;
+    invoke-static {v0}, Lcom/android/internal/view/FloatingActionMode;->-get2(Lcom/android/internal/view/FloatingActionMode;)Landroid/view/View;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/internal/view/FloatingActionMode$1;->this$0:Lcom/android/internal/view/FloatingActionMode;
 
-    invoke-static {v1}, Lcom/android/internal/view/FloatingActionMode;->-get8(Lcom/android/internal/view/FloatingActionMode;)Landroid/graphics/Rect;
+    invoke-static {v1}, Lcom/android/internal/view/FloatingActionMode;->-get7(Lcom/android/internal/view/FloatingActionMode;)Landroid/graphics/Rect;
 
     move-result-object v1
 
@@ -87,13 +95,13 @@
 
     iget-object v0, p0, Lcom/android/internal/view/FloatingActionMode$1;->this$0:Lcom/android/internal/view/FloatingActionMode;
 
-    invoke-static {v0}, Lcom/android/internal/view/FloatingActionMode;->-get8(Lcom/android/internal/view/FloatingActionMode;)Landroid/graphics/Rect;
+    invoke-static {v0}, Lcom/android/internal/view/FloatingActionMode;->-get7(Lcom/android/internal/view/FloatingActionMode;)Landroid/graphics/Rect;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/internal/view/FloatingActionMode$1;->this$0:Lcom/android/internal/view/FloatingActionMode;
 
-    invoke-static {v1}, Lcom/android/internal/view/FloatingActionMode;->-get6(Lcom/android/internal/view/FloatingActionMode;)[I
+    invoke-static {v1}, Lcom/android/internal/view/FloatingActionMode;->-get5(Lcom/android/internal/view/FloatingActionMode;)[I
 
     move-result-object v1
 
@@ -101,7 +109,7 @@
 
     iget-object v2, p0, Lcom/android/internal/view/FloatingActionMode$1;->this$0:Lcom/android/internal/view/FloatingActionMode;
 
-    invoke-static {v2}, Lcom/android/internal/view/FloatingActionMode;->-get6(Lcom/android/internal/view/FloatingActionMode;)[I
+    invoke-static {v2}, Lcom/android/internal/view/FloatingActionMode;->-get5(Lcom/android/internal/view/FloatingActionMode;)[I
 
     move-result-object v2
 
@@ -113,13 +121,13 @@
 
     iget-object v0, p0, Lcom/android/internal/view/FloatingActionMode$1;->this$0:Lcom/android/internal/view/FloatingActionMode;
 
-    invoke-static {v0}, Lcom/android/internal/view/FloatingActionMode;->-get7(Lcom/android/internal/view/FloatingActionMode;)[I
+    invoke-static {v0}, Lcom/android/internal/view/FloatingActionMode;->-get6(Lcom/android/internal/view/FloatingActionMode;)[I
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/internal/view/FloatingActionMode$1;->this$0:Lcom/android/internal/view/FloatingActionMode;
 
-    invoke-static {v1}, Lcom/android/internal/view/FloatingActionMode;->-get4(Lcom/android/internal/view/FloatingActionMode;)[I
+    invoke-static {v1}, Lcom/android/internal/view/FloatingActionMode;->-get3(Lcom/android/internal/view/FloatingActionMode;)[I
 
     move-result-object v1
 
@@ -131,13 +139,13 @@
 
     iget-object v0, p0, Lcom/android/internal/view/FloatingActionMode$1;->this$0:Lcom/android/internal/view/FloatingActionMode;
 
-    invoke-static {v0}, Lcom/android/internal/view/FloatingActionMode;->-get8(Lcom/android/internal/view/FloatingActionMode;)Landroid/graphics/Rect;
+    invoke-static {v0}, Lcom/android/internal/view/FloatingActionMode;->-get7(Lcom/android/internal/view/FloatingActionMode;)Landroid/graphics/Rect;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/internal/view/FloatingActionMode$1;->this$0:Lcom/android/internal/view/FloatingActionMode;
 
-    invoke-static {v1}, Lcom/android/internal/view/FloatingActionMode;->-get5(Lcom/android/internal/view/FloatingActionMode;)Landroid/graphics/Rect;
+    invoke-static {v1}, Lcom/android/internal/view/FloatingActionMode;->-get4(Lcom/android/internal/view/FloatingActionMode;)Landroid/graphics/Rect;
 
     move-result-object v1
 
@@ -145,8 +153,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
+    if-eqz v0, :cond_1
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/internal/view/FloatingActionMode$1;->this$0:Lcom/android/internal/view/FloatingActionMode;
+
+    invoke-virtual {v0}, Lcom/android/internal/view/FloatingActionMode;->updateViewLocationInWindow()V
+
+    return-void
+
+    :cond_1
     iget-object v0, p0, Lcom/android/internal/view/FloatingActionMode$1;->this$0:Lcom/android/internal/view/FloatingActionMode;
 
     invoke-static {v0}, Lcom/android/internal/view/FloatingActionMode;->-get1(Lcom/android/internal/view/FloatingActionMode;)Lcom/android/internal/view/FloatingActionMode$FloatingToolbarVisibilityHelper;
@@ -163,12 +181,6 @@
 
     invoke-virtual {v0}, Lcom/android/internal/view/FloatingActionMode$FloatingToolbarVisibilityHelper;->updateToolbarVisibility()V
 
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/internal/view/FloatingActionMode$1;->this$0:Lcom/android/internal/view/FloatingActionMode;
-
-    invoke-virtual {v0}, Lcom/android/internal/view/FloatingActionMode;->updateViewLocationInWindow()V
-
+    :cond_2
     return-void
 .end method

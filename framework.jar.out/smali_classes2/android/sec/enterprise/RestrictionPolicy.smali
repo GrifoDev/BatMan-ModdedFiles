@@ -417,6 +417,66 @@
     return v2
 .end method
 
+.method public isFactoryResetAllowed()Z
+    .locals 4
+
+    :try_start_0
+    invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager$EDMProxyServiceHelper;->getService()Landroid/sec/enterprise/IEDMProxy;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1}, Landroid/sec/enterprise/IEDMProxy;->isFactoryResetAllowed()Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    sget-object v2, Landroid/sec/enterprise/RestrictionPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "PXY-isFactoryResetAllowed returning default value"
+
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_0
+    const/4 v2, 0x1
+
+    return v2
+.end method
+
+.method public isGoogleAccountsAutoSyncAllowedAsUser(I)Z
+    .locals 3
+
+    :try_start_0
+    invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager$EDMProxyServiceHelper;->getService()Landroid/sec/enterprise/IEDMProxy;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1, p1}, Landroid/sec/enterprise/IEDMProxy;->isGoogleAccountsAutoSyncAllowedAsUser(I)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    :cond_0
+    const/4 v2, 0x1
+
+    return v2
+.end method
+
 .method public isGoogleCrashReportAllowed()Z
     .locals 4
 
@@ -488,6 +548,33 @@
     if-eqz v1, :cond_0
 
     invoke-interface {v1, p1}, Landroid/sec/enterprise/IEDMProxy;->isMicrophoneEnabled(Z)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    :cond_0
+    const/4 v2, 0x1
+
+    return v2
+.end method
+
+.method public isMockLocationEnabled()Z
+    .locals 3
+
+    :try_start_0
+    invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager$EDMProxyServiceHelper;->getService()Landroid/sec/enterprise/IEDMProxy;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1}, Landroid/sec/enterprise/IEDMProxy;->isMockLocationEnabled()Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 

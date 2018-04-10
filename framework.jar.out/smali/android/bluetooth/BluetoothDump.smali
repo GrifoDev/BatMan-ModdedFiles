@@ -6,27 +6,13 @@
 # static fields
 .field private static final DBG:Z = true
 
-.field private static final TAG:Ljava/lang/String; = "BluetoothDump"
+.field private static FORMAT:Ljava/text/SimpleDateFormat; = null
 
-.field private static final VDBG:Z
+.field private static final TAG:Ljava/lang/String; = "BluetoothDump"
 
 .field private static bdump:Landroid/bluetooth/BluetoothDump;
 
-.field static day:Ljava/lang/String;
-
-.field static hour:Ljava/lang/String;
-
 .field private static lineFeed:Ljava/lang/String;
-
-.field static milisec:Ljava/lang/String;
-
-.field static min:Ljava/lang/String;
-
-.field static month:Ljava/lang/String;
-
-.field static sec:Ljava/lang/String;
-
-.field private static sysdump_time:Ljava/lang/String;
 
 
 # instance fields
@@ -35,7 +21,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 3
 
     const-string/jumbo v0, "\n"
 
@@ -46,6 +32,16 @@
     invoke-direct {v0}, Landroid/bluetooth/BluetoothDump;-><init>()V
 
     sput-object v0, Landroid/bluetooth/BluetoothDump;->bdump:Landroid/bluetooth/BluetoothDump;
+
+    new-instance v0, Ljava/text/SimpleDateFormat;
+
+    const-string/jumbo v1, "MM-dd HH:mm:ss.SSS"
+
+    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
+
+    invoke-direct {v0, v1, v2}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
+
+    sput-object v0, Landroid/bluetooth/BluetoothDump;->FORMAT:Ljava/text/SimpleDateFormat;
 
     return-void
 .end method
@@ -97,228 +93,76 @@
 .end method
 
 .method private static getTimeToString()Ljava/lang/String;
-    .locals 6
+    .locals 8
+
+    sget-object v5, Landroid/bluetooth/BluetoothDump;->FORMAT:Ljava/text/SimpleDateFormat;
+
+    monitor-enter v5
 
     :try_start_0
-    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
+    const-string/jumbo v1, "Unknown"
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object v0
+    :try_start_1
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    sget-object v3, Ljava/util/Locale;->US:Ljava/util/Locale;
+    move-result-wide v2
 
-    invoke-static {v3}, Ljava/text/DecimalFormat;->getInstance(Ljava/util/Locale;)Ljava/text/NumberFormat;
+    sget-object v4, Landroid/bluetooth/BluetoothDump;->FORMAT:Ljava/text/SimpleDateFormat;
+
+    new-instance v6, Ljava/util/Date;
+
+    invoke-direct {v6, v2, v3}, Ljava/util/Date;-><init>(J)V
+
+    invoke-virtual {v4, v6}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v1
 
-    check-cast v1, Ljava/text/DecimalFormat;
-
-    const-string/jumbo v3, "00"
-
-    invoke-virtual {v1, v3}, Ljava/text/DecimalFormat;->applyPattern(Ljava/lang/String;)V
-
-    const/4 v3, 0x2
-
-    invoke-virtual {v0, v3}, Ljava/util/Calendar;->get(I)I
-
-    move-result v3
-
-    add-int/lit8 v3, v3, 0x1
-
-    int-to-long v4, v3
-
-    invoke-virtual {v1, v4, v5}, Ljava/text/NumberFormat;->format(J)Ljava/lang/String;
-
-    move-result-object v3
-
-    sput-object v3, Landroid/bluetooth/BluetoothDump;->month:Ljava/lang/String;
-
-    const/4 v3, 0x5
-
-    invoke-virtual {v0, v3}, Ljava/util/Calendar;->get(I)I
-
-    move-result v3
-
-    int-to-long v4, v3
-
-    invoke-virtual {v1, v4, v5}, Ljava/text/NumberFormat;->format(J)Ljava/lang/String;
-
-    move-result-object v3
-
-    sput-object v3, Landroid/bluetooth/BluetoothDump;->day:Ljava/lang/String;
-
-    const/16 v3, 0xb
-
-    invoke-virtual {v0, v3}, Ljava/util/Calendar;->get(I)I
-
-    move-result v3
-
-    int-to-long v4, v3
-
-    invoke-virtual {v1, v4, v5}, Ljava/text/NumberFormat;->format(J)Ljava/lang/String;
-
-    move-result-object v3
-
-    sput-object v3, Landroid/bluetooth/BluetoothDump;->hour:Ljava/lang/String;
-
-    const/16 v3, 0xc
-
-    invoke-virtual {v0, v3}, Ljava/util/Calendar;->get(I)I
-
-    move-result v3
-
-    int-to-long v4, v3
-
-    invoke-virtual {v1, v4, v5}, Ljava/text/NumberFormat;->format(J)Ljava/lang/String;
-
-    move-result-object v3
-
-    sput-object v3, Landroid/bluetooth/BluetoothDump;->min:Ljava/lang/String;
-
-    const/16 v3, 0xd
-
-    invoke-virtual {v0, v3}, Ljava/util/Calendar;->get(I)I
-
-    move-result v3
-
-    int-to-long v4, v3
-
-    invoke-virtual {v1, v4, v5}, Ljava/text/NumberFormat;->format(J)Ljava/lang/String;
-
-    move-result-object v3
-
-    sput-object v3, Landroid/bluetooth/BluetoothDump;->sec:Ljava/lang/String;
-
-    const-string/jumbo v3, "000"
-
-    invoke-virtual {v1, v3}, Ljava/text/DecimalFormat;->applyPattern(Ljava/lang/String;)V
-
-    const/16 v3, 0xe
-
-    invoke-virtual {v0, v3}, Ljava/util/Calendar;->get(I)I
-
-    move-result v3
-
-    int-to-long v4, v3
-
-    invoke-virtual {v1, v4, v5}, Ljava/text/NumberFormat;->format(J)Ljava/lang/String;
-
-    move-result-object v3
-
-    sput-object v3, Landroid/bluetooth/BluetoothDump;->milisec:Ljava/lang/String;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    sget-object v4, Landroid/bluetooth/BluetoothDump;->month:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "-"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    sget-object v4, Landroid/bluetooth/BluetoothDump;->day:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, " "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    sget-object v4, Landroid/bluetooth/BluetoothDump;->hour:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, ":"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    sget-object v4, Landroid/bluetooth/BluetoothDump;->min:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, ":"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    sget-object v4, Landroid/bluetooth/BluetoothDump;->sec:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "."
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    sget-object v4, Landroid/bluetooth/BluetoothDump;->milisec:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    sput-object v3, Landroid/bluetooth/BluetoothDump;->sysdump_time:Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
     :goto_0
-    sget-object v3, Landroid/bluetooth/BluetoothDump;->sysdump_time:Ljava/lang/String;
+    monitor-exit v5
 
-    return-object v3
+    return-object v1
 
     :catch_0
-    move-exception v2
+    move-exception v0
 
-    const-string/jumbo v3, "BluetoothDump"
+    :try_start_2
+    const-string/jumbo v4, "BluetoothDump"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "Exception : "
+    const-string/jumbo v7, "Exception : "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v3, "Unknown"
-
-    sput-object v3, Landroid/bluetooth/BluetoothDump;->sysdump_time:Ljava/lang/String;
+    invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_0
+
+    :catchall_0
+    move-exception v4
+
+    monitor-exit v5
+
+    throw v4
 .end method
 
 

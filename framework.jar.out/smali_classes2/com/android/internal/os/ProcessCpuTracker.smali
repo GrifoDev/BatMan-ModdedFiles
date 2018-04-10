@@ -7,6 +7,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/internal/os/ProcessCpuTracker$1;,
+        Lcom/android/internal/os/ProcessCpuTracker$FilterStats;,
         Lcom/android/internal/os/ProcessCpuTracker$Stats;
     }
 .end annotation
@@ -456,11 +457,9 @@
 
     invoke-virtual {v0, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v22
 
-    check-cast v4, Lcom/android/internal/os/ProcessCpuTracker$Stats;
-
-    move-object/from16 v22, v4
+    check-cast v22, Lcom/android/internal/os/ProcessCpuTracker$Stats;
 
     :goto_3
     if-eqz v22, :cond_9
@@ -527,7 +526,7 @@
     :goto_4
     add-int/lit8 v13, v13, 0x1
 
-    goto/16 :goto_1
+    goto :goto_1
 
     :cond_4
     const/16 v22, 0x0
@@ -1161,6 +1160,26 @@
 
     iget-object v3, p1, Lcom/android/internal/os/ProcessCpuTracker$Stats;->name:Ljava/lang/String;
 
+    const-string/jumbo v4, "app_process32"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    iget-object v3, p1, Lcom/android/internal/os/ProcessCpuTracker$Stats;->name:Ljava/lang/String;
+
+    const-string/jumbo v4, "app_process64"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    iget-object v3, p1, Lcom/android/internal/os/ProcessCpuTracker$Stats;->name:Ljava/lang/String;
+
     const-string/jumbo v4, "<pre-initialized>"
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1224,10 +1243,9 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    xor-int/lit8 v3, v3, 0x1
 
-    :goto_0
-    return-void
+    if-eqz v3, :cond_4
 
     :cond_3
     iput-object v2, p1, Lcom/android/internal/os/ProcessCpuTracker$Stats;->name:Ljava/lang/String;
@@ -1240,7 +1258,8 @@
 
     iput v3, p1, Lcom/android/internal/os/ProcessCpuTracker$Stats;->nameWidth:I
 
-    goto :goto_0
+    :cond_4
+    return-void
 .end method
 
 .method private printProcessCPU(Ljava/io/PrintWriter;Ljava/lang/String;ILjava/lang/String;IIIIIIII)V
@@ -1880,6 +1899,66 @@
     check-cast v0, Lcom/android/internal/os/ProcessCpuTracker$Stats;
 
     return-object v0
+.end method
+
+.method public final getStats(Lcom/android/internal/os/ProcessCpuTracker$FilterStats;)Ljava/util/List;
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/internal/os/ProcessCpuTracker$FilterStats;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Lcom/android/internal/os/ProcessCpuTracker$Stats;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance v3, Ljava/util/ArrayList;
+
+    iget-object v4, p0, Lcom/android/internal/os/ProcessCpuTracker;->mProcStats:Ljava/util/ArrayList;
+
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+
+    move-result v4
+
+    invoke-direct {v3, v4}, Ljava/util/ArrayList;-><init>(I)V
+
+    iget-object v4, p0, Lcom/android/internal/os/ProcessCpuTracker;->mProcStats:Ljava/util/ArrayList;
+
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v0, :cond_1
+
+    iget-object v4, p0, Lcom/android/internal/os/ProcessCpuTracker;->mProcStats:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/internal/os/ProcessCpuTracker$Stats;
+
+    invoke-interface {p1, v2}, Lcom/android/internal/os/ProcessCpuTracker$FilterStats;->needed(Lcom/android/internal/os/ProcessCpuTracker$Stats;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_0
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return-object v3
 .end method
 
 .method public final getTotalCpuPercent()F

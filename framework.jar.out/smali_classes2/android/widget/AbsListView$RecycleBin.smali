@@ -115,18 +115,6 @@
     return-void
 .end method
 
-.method private clearAccessibilityFromScrap(Landroid/view/View;)V
-    .locals 1
-
-    invoke-virtual {p1}, Landroid/view/View;->clearAccessibilityFocus()V
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
-
-    return-void
-.end method
-
 .method private clearScrap(Ljava/util/ArrayList;)V
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
@@ -170,6 +158,18 @@
     return-void
 .end method
 
+.method private clearScrapForRebind(Landroid/view/View;)V
+    .locals 1
+
+    invoke-virtual {p1}, Landroid/view/View;->clearAccessibilityFocus()V
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
+
+    return-void
+.end method
+
 .method private getSkippedScrap()Ljava/util/ArrayList;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -199,132 +199,114 @@
 .end method
 
 .method private pruneScrapViews()V
-    .locals 14
+    .locals 11
 
-    const/4 v13, 0x0
+    const/4 v10, 0x0
 
-    iget-object v12, p0, Landroid/widget/AbsListView$RecycleBin;->mActiveViews:[Landroid/view/View;
+    iget-object v9, p0, Landroid/widget/AbsListView$RecycleBin;->mActiveViews:[Landroid/view/View;
 
-    array-length v3, v12
+    array-length v1, v9
 
-    iget v11, p0, Landroid/widget/AbsListView$RecycleBin;->mViewTypeCount:I
+    iget v8, p0, Landroid/widget/AbsListView$RecycleBin;->mViewTypeCount:I
 
-    iget-object v5, p0, Landroid/widget/AbsListView$RecycleBin;->mScrapViews:[Ljava/util/ArrayList;
+    iget-object v3, p0, Landroid/widget/AbsListView$RecycleBin;->mScrapViews:[Ljava/util/ArrayList;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    if-ge v1, v11, :cond_1
+    if-ge v0, v8, :cond_1
 
-    aget-object v4, v5, v1
+    aget-object v2, v3, v0
 
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
-    move-result v6
-
-    sub-int v0, v6, v3
-
-    add-int/lit8 v6, v6, -0x1
-
-    const/4 v2, 0x0
-
-    move v7, v6
+    move-result v4
 
     :goto_1
-    if-ge v2, v0, :cond_0
+    if-le v4, v1, :cond_0
 
-    add-int/lit8 v6, v7, -0x1
+    add-int/lit8 v4, v4, -0x1
 
-    invoke-virtual {v4, v7}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Landroid/view/View;
-
-    invoke-direct {p0, v12, v13}, Landroid/widget/AbsListView$RecycleBin;->removeDetachedView(Landroid/view/View;Z)V
-
-    add-int/lit8 v2, v2, 0x1
-
-    move v7, v6
+    invoke-virtual {v2, v4}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
     goto :goto_1
 
     :cond_0
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_1
-    iget-object v9, p0, Landroid/widget/AbsListView$RecycleBin;->mTransientStateViews:Landroid/util/SparseArray;
+    iget-object v6, p0, Landroid/widget/AbsListView$RecycleBin;->mTransientStateViews:Landroid/util/SparseArray;
 
-    if-eqz v9, :cond_3
+    if-eqz v6, :cond_3
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_2
-    invoke-virtual {v9}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {v6}, Landroid/util/SparseArray;->size()I
 
-    move-result v12
+    move-result v9
 
-    if-ge v1, v12, :cond_3
+    if-ge v0, v9, :cond_3
 
-    invoke-virtual {v9, v1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v6, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v10
+    move-result-object v7
 
-    check-cast v10, Landroid/view/View;
+    check-cast v7, Landroid/view/View;
 
-    invoke-virtual {v10}, Landroid/view/View;->hasTransientState()Z
+    invoke-virtual {v7}, Landroid/view/View;->hasTransientState()Z
 
-    move-result v12
+    move-result v9
 
-    if-nez v12, :cond_2
+    if-nez v9, :cond_2
 
-    invoke-direct {p0, v10, v13}, Landroid/widget/AbsListView$RecycleBin;->removeDetachedView(Landroid/view/View;Z)V
+    invoke-direct {p0, v7, v10}, Landroid/widget/AbsListView$RecycleBin;->removeDetachedView(Landroid/view/View;Z)V
 
-    invoke-virtual {v9, v1}, Landroid/util/SparseArray;->removeAt(I)V
+    invoke-virtual {v6, v0}, Landroid/util/SparseArray;->removeAt(I)V
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
     :cond_2
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_2
 
     :cond_3
-    iget-object v8, p0, Landroid/widget/AbsListView$RecycleBin;->mTransientStateViewsById:Landroid/util/LongSparseArray;
+    iget-object v5, p0, Landroid/widget/AbsListView$RecycleBin;->mTransientStateViewsById:Landroid/util/LongSparseArray;
 
-    if-eqz v8, :cond_5
+    if-eqz v5, :cond_5
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_3
-    invoke-virtual {v8}, Landroid/util/LongSparseArray;->size()I
+    invoke-virtual {v5}, Landroid/util/LongSparseArray;->size()I
 
-    move-result v12
+    move-result v9
 
-    if-ge v1, v12, :cond_5
+    if-ge v0, v9, :cond_5
 
-    invoke-virtual {v8, v1}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v5, v0}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v10
+    move-result-object v7
 
-    check-cast v10, Landroid/view/View;
+    check-cast v7, Landroid/view/View;
 
-    invoke-virtual {v10}, Landroid/view/View;->hasTransientState()Z
+    invoke-virtual {v7}, Landroid/view/View;->hasTransientState()Z
 
-    move-result v12
+    move-result v9
 
-    if-nez v12, :cond_4
+    if-nez v9, :cond_4
 
-    invoke-direct {p0, v10, v13}, Landroid/widget/AbsListView$RecycleBin;->removeDetachedView(Landroid/view/View;Z)V
+    invoke-direct {p0, v7, v10}, Landroid/widget/AbsListView$RecycleBin;->removeDetachedView(Landroid/view/View;Z)V
 
-    invoke-virtual {v8, v1}, Landroid/util/LongSparseArray;->removeAt(I)V
+    invoke-virtual {v5, v0}, Landroid/util/LongSparseArray;->removeAt(I)V
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
     :cond_4
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_3
 
@@ -343,7 +325,7 @@
 
     iget-object v0, p0, Landroid/widget/AbsListView$RecycleBin;->this$0:Landroid/widget/AbsListView;
 
-    invoke-static {v0, p1, p2}, Landroid/widget/AbsListView;->-wrap13(Landroid/widget/AbsListView;Landroid/view/View;Z)V
+    invoke-static {v0, p1, p2}, Landroid/widget/AbsListView;->-wrap11(Landroid/widget/AbsListView;Landroid/view/View;Z)V
 
     :goto_0
     return-void
@@ -433,7 +415,7 @@
 
     check-cast v4, Landroid/view/View;
 
-    invoke-direct {p0, v4}, Landroid/widget/AbsListView$RecycleBin;->clearAccessibilityFromScrap(Landroid/view/View;)V
+    invoke-direct {p0, v4}, Landroid/widget/AbsListView$RecycleBin;->clearScrapForRebind(Landroid/view/View;)V
 
     return-object v4
 
@@ -451,7 +433,7 @@
 
     check-cast v4, Landroid/view/View;
 
-    invoke-direct {p0, v4}, Landroid/widget/AbsListView$RecycleBin;->clearAccessibilityFromScrap(Landroid/view/View;)V
+    invoke-direct {p0, v4}, Landroid/widget/AbsListView$RecycleBin;->clearScrapForRebind(Landroid/view/View;)V
 
     return-object v4
 

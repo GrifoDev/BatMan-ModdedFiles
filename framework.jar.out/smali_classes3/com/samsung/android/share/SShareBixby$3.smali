@@ -118,12 +118,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_1
-    return v4
+    if-eqz v1, :cond_1
 
-    :cond_2
     iget-object v1, p0, Lcom/samsung/android/share/SShareBixby$3;->this$0:Lcom/samsung/android/share/SShareBixby;
 
     iget-object v2, p0, Lcom/samsung/android/share/SShareBixby$3;->this$0:Lcom/samsung/android/share/SShareBixby;
@@ -176,6 +174,9 @@
 
     invoke-virtual {v1}, Landroid/app/Activity;->finish()V
 
+    return v4
+
+    :cond_1
     return v4
 .end method
 
@@ -282,7 +283,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_a
 
     iget-object v1, p0, Lcom/samsung/android/share/SShareBixby$3;->this$0:Lcom/samsung/android/share/SShareBixby;
 
@@ -516,30 +517,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_7
-    iget-object v1, p0, Lcom/samsung/android/share/SShareBixby$3;->this$0:Lcom/samsung/android/share/SShareBixby;
+    if-eqz v1, :cond_7
 
-    invoke-static {v1}, Lcom/samsung/android/share/SShareBixby;->-get2(Lcom/samsung/android/share/SShareBixby;)Ljava/util/ArrayList;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
-
-    move-result v1
-
-    if-le v1, v5, :cond_9
-
-    iget-object v1, p0, Lcom/samsung/android/share/SShareBixby$3;->this$0:Lcom/samsung/android/share/SShareBixby;
-
-    const/4 v2, 0x2
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/share/SShareBixby;->sendNlgRequest(I)V
-
-    goto/16 :goto_0
-
-    :cond_8
     iget-object v1, p0, Lcom/samsung/android/share/SShareBixby$3;->this$0:Lcom/samsung/android/share/SShareBixby;
 
     iget-object v2, p0, Lcom/samsung/android/share/SShareBixby$3;->this$0:Lcom/samsung/android/share/SShareBixby;
@@ -594,14 +575,35 @@
 
     return-void
 
-    :cond_9
+    :cond_7
+    iget-object v1, p0, Lcom/samsung/android/share/SShareBixby$3;->this$0:Lcom/samsung/android/share/SShareBixby;
+
+    invoke-static {v1}, Lcom/samsung/android/share/SShareBixby;->-get2(Lcom/samsung/android/share/SShareBixby;)Ljava/util/ArrayList;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    if-le v1, v5, :cond_8
+
+    iget-object v1, p0, Lcom/samsung/android/share/SShareBixby$3;->this$0:Lcom/samsung/android/share/SShareBixby;
+
+    const/4 v2, 0x2
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/share/SShareBixby;->sendNlgRequest(I)V
+
+    goto/16 :goto_0
+
+    :cond_8
     iget-object v1, p0, Lcom/samsung/android/share/SShareBixby$3;->this$0:Lcom/samsung/android/share/SShareBixby;
 
     invoke-static {v1}, Lcom/samsung/android/share/SShareBixby;->-get8(Lcom/samsung/android/share/SShareBixby;)Ljava/lang/String;
 
     move-result-object v1
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_9
 
     iget-object v1, p0, Lcom/samsung/android/share/SShareBixby$3;->this$0:Lcom/samsung/android/share/SShareBixby;
 
@@ -613,23 +615,24 @@
 
     move-result v1
 
-    if-eqz v1, :cond_b
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_a
-    iget-object v1, p0, Lcom/samsung/android/share/SShareBixby$3;->this$0:Lcom/samsung/android/share/SShareBixby;
+    if-eqz v1, :cond_9
 
-    invoke-virtual {v1, v4}, Lcom/samsung/android/share/SShareBixby;->sendNlgRequest(I)V
-
-    goto/16 :goto_0
-
-    :cond_b
     iget-object v1, p0, Lcom/samsung/android/share/SShareBixby$3;->this$0:Lcom/samsung/android/share/SShareBixby;
 
     invoke-virtual {v1, v5}, Lcom/samsung/android/share/SShareBixby;->sendNlgRequest(I)V
 
     goto/16 :goto_0
 
-    :cond_c
+    :cond_9
+    iget-object v1, p0, Lcom/samsung/android/share/SShareBixby$3;->this$0:Lcom/samsung/android/share/SShareBixby;
+
+    invoke-virtual {v1, v4}, Lcom/samsung/android/share/SShareBixby;->sendNlgRequest(I)V
+
+    goto/16 :goto_0
+
+    :cond_a
     const-string/jumbo v1, "SShareBixby"
 
     const-string/jumbo v2, "Invalid State Command"

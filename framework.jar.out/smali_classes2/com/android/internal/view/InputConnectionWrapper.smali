@@ -21,18 +21,58 @@
 # instance fields
 .field private final mIInputContext:Lcom/android/internal/view/IInputContext;
 
+.field private final mInputMethodService:Ljava/lang/ref/WeakReference;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/lang/ref/WeakReference",
+            "<",
+            "Landroid/inputmethodservice/AbstractInputMethodService;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final mMissingMethods:I
 
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/view/IInputContext;I)V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/internal/view/InputConnectionWrapper;->mInputMethodService:Ljava/lang/ref/WeakReference;
 
     iput-object p1, p0, Lcom/android/internal/view/InputConnectionWrapper;->mIInputContext:Lcom/android/internal/view/IInputContext;
 
     iput p2, p0, Lcom/android/internal/view/InputConnectionWrapper;->mMissingMethods:I
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/lang/ref/WeakReference;Lcom/android/internal/view/IInputContext;I)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/ref/WeakReference",
+            "<",
+            "Landroid/inputmethodservice/AbstractInputMethodService;",
+            ">;",
+            "Lcom/android/internal/view/IInputContext;",
+            "I)V"
+        }
+    .end annotation
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/internal/view/InputConnectionWrapper;->mInputMethodService:Ljava/lang/ref/WeakReference;
+
+    iput-object p2, p0, Lcom/android/internal/view/InputConnectionWrapper;->mIInputContext:Lcom/android/internal/view/IInputContext;
+
+    iput p3, p0, Lcom/android/internal/view/InputConnectionWrapper;->mMissingMethods:I
 
     return-void
 .end method
@@ -140,6 +180,110 @@
     move-exception v0
 
     return v2
+.end method
+
+.method public commitContent(Landroid/view/inputmethod/InputContentInfo;ILandroid/os/Bundle;)Z
+    .locals 10
+
+    const/4 v9, 0x0
+
+    const/4 v8, 0x0
+
+    const/16 v0, 0x80
+
+    invoke-direct {p0, v0}, Lcom/android/internal/view/InputConnectionWrapper;->isMethodMissing(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return v9
+
+    :cond_0
+    :try_start_0
+    iget-object v0, p0, Lcom/android/internal/view/InputConnectionWrapper;->mInputMethodService:Ljava/lang/ref/WeakReference;
+
+    if-eqz v0, :cond_1
+
+    const-string/jumbo v0, "InputConnectionWrapper"
+
+    const-string/jumbo v1, "commitContent - mIMS is not null"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    and-int/lit8 v0, p2, 0x1
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/internal/view/InputConnectionWrapper;->mInputMethodService:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/inputmethodservice/AbstractInputMethodService;
+
+    if-nez v7, :cond_3
+
+    :cond_1
+    :goto_0
+    invoke-static {}, Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;->-wrap0()Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;
+
+    move-result-object v5
+
+    iget-object v0, p0, Lcom/android/internal/view/InputConnectionWrapper;->mIInputContext:Lcom/android/internal/view/IInputContext;
+
+    iget v4, v5, Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;->mSeq:I
+
+    move-object v1, p1
+
+    move v2, p2
+
+    move-object v3, p3
+
+    invoke-interface/range {v0 .. v5}, Lcom/android/internal/view/IInputContext;->commitContent(Landroid/view/inputmethod/InputContentInfo;ILandroid/os/Bundle;ILcom/android/internal/view/IInputContextCallback;)V
+
+    monitor-enter v5
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :try_start_1
+    invoke-virtual {v5}, Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;->waitForResultLocked()V
+
+    iget-boolean v0, v5, Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;->mHaveValue:Z
+
+    if-eqz v0, :cond_2
+
+    iget-boolean v8, v5, Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;->mCommitContentResult:Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :cond_2
+    :try_start_2
+    monitor-exit v5
+
+    invoke-static {v5}, Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;->-wrap1(Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;)V
+
+    return v8
+
+    :cond_3
+    invoke-virtual {v7, p1, p0}, Landroid/inputmethodservice/AbstractInputMethodService;->exposeContent(Landroid/view/inputmethod/InputContentInfo;Landroid/view/inputmethod/InputConnection;)V
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v6
+
+    return v9
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v5
+
+    throw v0
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 .end method
 
 .method public commitCorrection(Landroid/view/inputmethod/CorrectionInfo;)Z
@@ -651,25 +795,11 @@
 .end method
 
 .method public reportFullscreenMode(Z)Z
-    .locals 2
+    .locals 1
 
-    :try_start_0
-    iget-object v1, p0, Lcom/android/internal/view/InputConnectionWrapper;->mIInputContext:Lcom/android/internal/view/IInputContext;
+    const/4 v0, 0x0
 
-    invoke-interface {v1, p1}, Lcom/android/internal/view/IInputContext;->reportFullscreenMode(Z)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    const/4 v1, 0x1
-
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    const/4 v1, 0x0
-
-    return v1
+    return v0
 .end method
 
 .method public requestCursorUpdates(I)Z

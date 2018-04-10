@@ -26,15 +26,15 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.nfc.INfcAdapter"
 
-.field static final TRANSACTION_NetworkResetAtt:I = 0x38
+.field static final TRANSACTION_NetworkResetAtt:I = 0x39
 
-.field static final TRANSACTION_SetWirelessChargeEnabled:I = 0x34
+.field static final TRANSACTION_SetWirelessChargeEnabled:I = 0x35
 
-.field static final TRANSACTION_StartLedCover:I = 0x32
+.field static final TRANSACTION_StartLedCover:I = 0x33
 
-.field static final TRANSACTION_StopLedCover:I = 0x33
+.field static final TRANSACTION_StopLedCover:I = 0x34
 
-.field static final TRANSACTION_TransceiveLedCover:I = 0x31
+.field static final TRANSACTION_TransceiveLedCover:I = 0x32
 
 .field static final TRANSACTION_addAsyncFunctionCallback:I = 0x1a
 
@@ -42,7 +42,7 @@
 
 .field static final TRANSACTION_addNfcUnlockHandler:I = 0x23
 
-.field static final TRANSACTION_apcCommand:I = 0x40
+.field static final TRANSACTION_apcCommand:I = 0x41
 
 .field static final TRANSACTION_changeDiscoveryTech:I = 0x18
 
@@ -56,7 +56,7 @@
 
 .field static final TRANSACTION_dispatch:I = 0x15
 
-.field static final TRANSACTION_doNciLogDump:I = 0x41
+.field static final TRANSACTION_doNciLogDump:I = 0x42
 
 .field static final TRANSACTION_enable:I = 0x7
 
@@ -66,13 +66,15 @@
 
 .field static final TRANSACTION_enableNdefPush:I = 0x8
 
-.field static final TRANSACTION_getCoverVersion:I = 0x35
+.field static final TRANSACTION_getBigDataNciLog:I = 0x43
+
+.field static final TRANSACTION_getCoverVersion:I = 0x36
 
 .field static final TRANSACTION_getDefaultRoutingDestination:I = 0x28
 
-.field static final TRANSACTION_getIdm:I = 0x37
+.field static final TRANSACTION_getIdm:I = 0x38
 
-.field static final TRANSACTION_getListenMode:I = 0x30
+.field static final TRANSACTION_getListenMode:I = 0x31
 
 .field static final TRANSACTION_getNfcAdapterExtrasInterface:I = 0x4
 
@@ -82,11 +84,11 @@
 
 .field static final TRANSACTION_getNfcTagInterface:I = 0x1
 
-.field static final TRANSACTION_getPreferredSimSlot:I = 0x3a
+.field static final TRANSACTION_getPreferredSimSlot:I = 0x3b
 
 .field static final TRANSACTION_getRwP2pState:I = 0x1d
 
-.field static final TRANSACTION_getSeSupportedTech:I = 0x36
+.field static final TRANSACTION_getSeSupportedTech:I = 0x37
 
 .field static final TRANSACTION_getState:I = 0x5
 
@@ -96,19 +98,23 @@
 
 .field static final TRANSACTION_invokeBeamInternal:I = 0x13
 
+.field static final TRANSACTION_isNFCAllowed:I = 0x44
+
 .field static final TRANSACTION_isNdefPushEnabled:I = 0xa
 
 .field static final TRANSACTION_isSimLocked:I = 0xd
 
+.field static final TRANSACTION_isSupportFastBootMode:I = 0x2f
+
 .field static final TRANSACTION_isTrustedPkg:I = 0x2b
 
-.field static final TRANSACTION_loadBanner:I = 0x3b
+.field static final TRANSACTION_loadBanner:I = 0x3c
 
 .field static final TRANSACTION_pausePolling:I = 0xb
 
 .field static final TRANSACTION_prepareSwitchedOffState:I = 0x1f
 
-.field static final TRANSACTION_readEdc:I = 0x3c
+.field static final TRANSACTION_readEdc:I = 0x3d
 
 .field static final TRANSACTION_readerDisable:I = 0x29
 
@@ -118,7 +124,7 @@
 
 .field static final TRANSACTION_resumePolling:I = 0xc
 
-.field static final TRANSACTION_rfUpdateImage:I = 0x3f
+.field static final TRANSACTION_rfUpdateImage:I = 0x40
 
 .field static final TRANSACTION_setAppCallback:I = 0x10
 
@@ -130,11 +136,11 @@
 
 .field static final TRANSACTION_setLedCoverCallback:I = 0x11
 
-.field static final TRANSACTION_setListenMode:I = 0x2f
+.field static final TRANSACTION_setListenMode:I = 0x30
 
 .field static final TRANSACTION_setP2pModes:I = 0x17
 
-.field static final TRANSACTION_setPreferredSimSlot:I = 0x39
+.field static final TRANSACTION_setPreferredSimSlot:I = 0x3a
 
 .field static final TRANSACTION_setReaderMode:I = 0x16
 
@@ -142,7 +148,7 @@
 
 .field static final TRANSACTION_setSimLocked:I = 0xe
 
-.field static final TRANSACTION_startApc:I = 0x3e
+.field static final TRANSACTION_startApc:I = 0x3f
 
 .field static final TRANSACTION_startCoverAuth:I = 0x2c
 
@@ -154,7 +160,7 @@
 
 .field static final TRANSACTION_verifyNfcPermission:I = 0x25
 
-.field static final TRANSACTION_writeEdc:I = 0x3d
+.field static final TRANSACTION_writeEdc:I = 0x3e
 
 
 # direct methods
@@ -1736,6 +1742,37 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    invoke-virtual/range {p0 .. p0}, Landroid/nfc/INfcAdapter$Stub;->isSupportFastBootMode()Z
+
+    move-result v39
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v39, :cond_1c
+
+    const/4 v4, 0x1
+
+    :goto_1c
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_1c
+    const/4 v4, 0x0
+
+    goto :goto_1c
+
+    :sswitch_30
+    const-string/jumbo v4, "android.nfc.INfcAdapter"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v11
@@ -1758,7 +1795,7 @@
 
     return v4
 
-    :sswitch_30
+    :sswitch_31
     const-string/jumbo v4, "android.nfc.INfcAdapter"
 
     move-object/from16 v0, p2
@@ -1781,7 +1818,7 @@
 
     return v4
 
-    :sswitch_31
+    :sswitch_32
     const-string/jumbo v4, "android.nfc.INfcAdapter"
 
     move-object/from16 v0, p2
@@ -1812,7 +1849,7 @@
 
     return v4
 
-    :sswitch_32
+    :sswitch_33
     const-string/jumbo v4, "android.nfc.INfcAdapter"
 
     move-object/from16 v0, p2
@@ -1835,7 +1872,7 @@
 
     return v4
 
-    :sswitch_33
+    :sswitch_34
     const-string/jumbo v4, "android.nfc.INfcAdapter"
 
     move-object/from16 v0, p2
@@ -1848,11 +1885,11 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v39, :cond_1c
+    if-eqz v39, :cond_1d
 
     const/4 v4, 0x1
 
-    :goto_1c
+    :goto_1d
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
@@ -1861,12 +1898,12 @@
 
     return v4
 
-    :cond_1c
+    :cond_1d
     const/4 v4, 0x0
 
-    goto :goto_1c
+    goto :goto_1d
 
-    :sswitch_34
+    :sswitch_35
     const-string/jumbo v4, "android.nfc.INfcAdapter"
 
     move-object/from16 v0, p2
@@ -1877,11 +1914,11 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1d
+    if-eqz v4, :cond_1e
 
     const/16 v20, 0x1
 
-    :goto_1d
+    :goto_1e
     move-object/from16 v0, p0
 
     move/from16 v1, v20
@@ -1892,11 +1929,11 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v39, :cond_1e
+    if-eqz v39, :cond_1f
 
     const/4 v4, 0x1
 
-    :goto_1e
+    :goto_1f
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
@@ -1905,17 +1942,17 @@
 
     return v4
 
-    :cond_1d
-    const/16 v20, 0x0
-
-    goto :goto_1d
-
     :cond_1e
-    const/4 v4, 0x0
+    const/16 v20, 0x0
 
     goto :goto_1e
 
-    :sswitch_35
+    :cond_1f
+    const/4 v4, 0x0
+
+    goto :goto_1f
+
+    :sswitch_36
     const-string/jumbo v4, "android.nfc.INfcAdapter"
 
     move-object/from16 v0, p2
@@ -1938,7 +1975,7 @@
 
     return v4
 
-    :sswitch_36
+    :sswitch_37
     const-string/jumbo v4, "android.nfc.INfcAdapter"
 
     move-object/from16 v0, p2
@@ -1961,7 +1998,7 @@
 
     return v4
 
-    :sswitch_37
+    :sswitch_38
     const-string/jumbo v4, "android.nfc.INfcAdapter"
 
     move-object/from16 v0, p2
@@ -1984,7 +2021,7 @@
 
     return v4
 
-    :sswitch_38
+    :sswitch_39
     const-string/jumbo v4, "android.nfc.INfcAdapter"
 
     move-object/from16 v0, p2
@@ -1999,7 +2036,7 @@
 
     return v4
 
-    :sswitch_39
+    :sswitch_3a
     const-string/jumbo v4, "android.nfc.INfcAdapter"
 
     move-object/from16 v0, p2
@@ -2018,11 +2055,11 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v39, :cond_1f
+    if-eqz v39, :cond_20
 
     const/4 v4, 0x1
 
-    :goto_1f
+    :goto_20
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
@@ -2031,12 +2068,12 @@
 
     return v4
 
-    :cond_1f
+    :cond_20
     const/4 v4, 0x0
 
-    goto :goto_1f
+    goto :goto_20
 
-    :sswitch_3a
+    :sswitch_3b
     const-string/jumbo v4, "android.nfc.INfcAdapter"
 
     move-object/from16 v0, p2
@@ -2059,7 +2096,7 @@
 
     return v4
 
-    :sswitch_3b
+    :sswitch_3c
     const-string/jumbo v4, "android.nfc.INfcAdapter"
 
     move-object/from16 v0, p2
@@ -2080,7 +2117,7 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v33, :cond_20
+    if-eqz v33, :cond_21
 
     const/4 v4, 0x1
 
@@ -2096,21 +2133,21 @@
 
     invoke-virtual {v0, v1, v4}, Landroid/graphics/Bitmap;->writeToParcel(Landroid/os/Parcel;I)V
 
-    :goto_20
+    :goto_21
     const/4 v4, 0x1
 
     return v4
 
-    :cond_20
+    :cond_21
     const/4 v4, 0x0
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_20
+    goto :goto_21
 
-    :sswitch_3c
+    :sswitch_3d
     const-string/jumbo v4, "android.nfc.INfcAdapter"
 
     move-object/from16 v0, p2
@@ -2133,7 +2170,7 @@
 
     return v4
 
-    :sswitch_3d
+    :sswitch_3e
     const-string/jumbo v4, "android.nfc.INfcAdapter"
 
     move-object/from16 v0, p2
@@ -2152,11 +2189,11 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v39, :cond_21
+    if-eqz v39, :cond_22
 
     const/4 v4, 0x1
 
-    :goto_21
+    :goto_22
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
@@ -2165,12 +2202,12 @@
 
     return v4
 
-    :cond_21
+    :cond_22
     const/4 v4, 0x0
 
-    goto :goto_21
+    goto :goto_22
 
-    :sswitch_3e
+    :sswitch_3f
     const-string/jumbo v4, "android.nfc.INfcAdapter"
 
     move-object/from16 v0, p2
@@ -2193,7 +2230,7 @@
 
     return v4
 
-    :sswitch_3f
+    :sswitch_40
     const-string/jumbo v4, "android.nfc.INfcAdapter"
 
     move-object/from16 v0, p2
@@ -2216,7 +2253,7 @@
 
     return v4
 
-    :sswitch_40
+    :sswitch_41
     const-string/jumbo v4, "android.nfc.INfcAdapter"
 
     move-object/from16 v0, p2
@@ -2251,20 +2288,78 @@
 
     return v4
 
-    :sswitch_41
+    :sswitch_42
     const-string/jumbo v4, "android.nfc.INfcAdapter"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p0 .. p0}, Landroid/nfc/INfcAdapter$Stub;->doNciLogDump()V
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v11
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v11}, Landroid/nfc/INfcAdapter$Stub;->doNciLogDump(I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     const/4 v4, 0x1
 
     return v4
+
+    :sswitch_43
+    const-string/jumbo v4, "android.nfc.INfcAdapter"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Landroid/nfc/INfcAdapter$Stub;->getBigDataNciLog()V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :sswitch_44
+    const-string/jumbo v4, "android.nfc.INfcAdapter"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v11
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v11}, Landroid/nfc/INfcAdapter$Stub;->isNFCAllowed(I)Z
+
+    move-result v39
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v39, :cond_23
+
+    const/4 v4, 0x1
+
+    :goto_23
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_23
+    const/4 v4, 0x0
+
+    goto :goto_23
 
     nop
 
@@ -2335,6 +2430,9 @@
         0x3f -> :sswitch_3f
         0x40 -> :sswitch_40
         0x41 -> :sswitch_41
+        0x42 -> :sswitch_42
+        0x43 -> :sswitch_43
+        0x44 -> :sswitch_44
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

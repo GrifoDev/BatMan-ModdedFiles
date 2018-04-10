@@ -29,6 +29,8 @@
 
 .field public static final ESEM_STATE_RESULT:Ljava/lang/String; = "esem_state_result"
 
+.field private static final PACKAGE_EXECUTOR_MANAGER:Ljava/lang/String; = "com.samsung.android.bixby.agent"
+
 .field public static final RESULT_FAILURE:Ljava/lang/String; = "failure"
 
 .field public static final RESULT_SUCCESS:Ljava/lang/String; = "success"
@@ -281,7 +283,7 @@
 
     if-eqz v3, :cond_1
 
-    invoke-virtual {v3}, Ljava/util/HashSet;->size()I
+    invoke-virtual {v3}, Ljava/util/LinkedHashSet;->size()I
 
     move-result v5
 
@@ -409,7 +411,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Lorg/json/JSONException;->printStackTrace()V
 
     const-string/jumbo v4, "failure"
 
@@ -479,7 +481,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Lorg/json/JSONException;->printStackTrace()V
 
     const-string/jumbo v3, "failure"
 
@@ -565,7 +567,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/util/Observable;->deleteObservers()V
+    invoke-virtual {v0}, Lcom/samsung/android/share/executor/CommandObserver;->deleteObservers()V
 
     invoke-static {}, Lcom/samsung/android/share/executor/CommandObserver;->getInstance()Lcom/samsung/android/share/executor/CommandObserver;
 
@@ -573,7 +575,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/share/executor/ExecutorCommandHandler;->mCmdObserver:Ljava/util/Observer;
 
-    invoke-virtual {v0, v1}, Ljava/util/Observable;->addObserver(Ljava/util/Observer;)V
+    invoke-virtual {v0, v1}, Lcom/samsung/android/share/executor/CommandObserver;->addObserver(Ljava/util/Observer;)V
 
     return-void
 .end method
@@ -593,6 +595,10 @@
     const-string/jumbo v3, "state_request"
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v2, "com.samsung.android.bixby.agent"
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
     :try_end_0
@@ -632,11 +638,23 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
-
-    iget-object v6, p0, Lcom/samsung/android/share/executor/ExecutorCommandHandler;->mListener:Lcom/samsung/android/share/executor/IExecutorCommandListener;
+    xor-int/lit8 v6, v6, 0x1
 
     if-eqz v6, :cond_1
+
+    :cond_0
+    sget-object v6, Lcom/samsung/android/share/executor/ExecutorCommandHandler;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v7, "No Received Command."
+
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_1
+    iget-object v6, p0, Lcom/samsung/android/share/executor/ExecutorCommandHandler;->mListener:Lcom/samsung/android/share/executor/IExecutorCommandListener;
+
+    if-eqz v6, :cond_2
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -767,16 +785,7 @@
 
     return-void
 
-    :cond_0
-    sget-object v6, Lcom/samsung/android/share/executor/ExecutorCommandHandler;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v7, "No Received Command."
-
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_1
+    :cond_2
     sget-object v6, Lcom/samsung/android/share/executor/ExecutorCommandHandler;->TAG:Ljava/lang/String;
 
     const-string/jumbo v7, "Executor Commnad Listener is not set."
@@ -908,8 +917,20 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    xor-int/lit8 v2, v2, 0x1
 
+    if-eqz v2, :cond_1
+
+    :cond_0
+    sget-object v2, Lcom/samsung/android/share/executor/ExecutorCommandHandler;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "No Received Parameter Filling Command."
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_1
     new-instance v0, Lcom/samsung/android/share/executor/Command;
 
     invoke-direct {v0}, Lcom/samsung/android/share/executor/Command;-><init>()V
@@ -963,15 +984,6 @@
     invoke-direct {p0, v0}, Lcom/samsung/android/share/executor/ExecutorCommandHandler;->sendResponseToEm(Lcom/samsung/android/share/executor/Command;)V
 
     return-void
-
-    :cond_0
-    sget-object v2, Lcom/samsung/android/share/executor/ExecutorCommandHandler;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v3, "No Received Parameter Filling Command."
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
 .end method
 
 .method private sendResponseToEm(Lcom/samsung/android/share/executor/Command;)V
@@ -993,6 +1005,10 @@
     move-result-object v3
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v2, "com.samsung.android.bixby.agent"
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
     sget-object v2, Lcom/samsung/android/share/executor/ExecutorCommandHandler;->TAG:Ljava/lang/String;
 
@@ -1447,7 +1463,7 @@
     move-exception v2
 
     :goto_1
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Lorg/json/JSONException;->printStackTrace()V
 
     goto :goto_0
 

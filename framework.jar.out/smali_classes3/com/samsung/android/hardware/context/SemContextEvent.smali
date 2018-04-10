@@ -115,7 +115,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/hardware/context/SemContextEvent;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
@@ -482,16 +482,6 @@
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
 
     check-cast v0, Lcom/samsung/android/hardware/context/SemContextPutDownMotion;
-
-    return-object v0
-.end method
-
-.method public getSLocationCoreContext()Lcom/samsung/android/hardware/context/SemContextSLocationCore;
-    .locals 1
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    check-cast v0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;
 
     return-object v0
 .end method
@@ -909,9 +899,9 @@
     goto/16 :goto_0
 
     :pswitch_18
-    new-instance v0, Lcom/samsung/android/hardware/context/SemContextActivityNotificationEx;
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextActivityNotificationForLocation;
 
-    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextActivityNotificationEx;-><init>()V
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextActivityNotificationForLocation;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
 
@@ -1065,9 +1055,9 @@
     goto/16 :goto_0
 
     :pswitch_24
-    new-instance v0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextLocationCore;
 
-    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextSLocationCore;-><init>()V
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextLocationCore;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
 

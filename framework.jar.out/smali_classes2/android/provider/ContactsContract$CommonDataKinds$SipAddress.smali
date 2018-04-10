@@ -49,7 +49,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
+    return-object p2
 
     :cond_0
     invoke-static {p1}, Landroid/provider/ContactsContract$CommonDataKinds$SipAddress;->getTypeLabelResource(I)I
@@ -61,9 +65,6 @@
     move-result-object v1
 
     return-object v1
-
-    :cond_1
-    return-object p2
 .end method
 
 .method public static final getTypeLabelResource(I)I
@@ -71,22 +72,22 @@
 
     packed-switch p0, :pswitch_data_0
 
-    const v0, 0x104028c
+    const v0, 0x1040999
 
     return v0
 
     :pswitch_0
-    const v0, 0x104028d
+    const v0, 0x104099a
 
     return v0
 
     :pswitch_1
-    const v0, 0x104028e
+    const v0, 0x104099c
 
     return v0
 
     :pswitch_2
-    const v0, 0x104028f
+    const v0, 0x104099b
 
     return v0
 

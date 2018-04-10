@@ -248,24 +248,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     instance-of v0, p0, Landroid/inputmethodservice/ExtractEditText;
 
+    xor-int/lit8 v0, v0, 0x1
+
     if-eqz v0, :cond_1
 
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
     invoke-virtual {p0}, Landroid/widget/EditText;->isFocused()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_3
 
     invoke-virtual {p0}, Landroid/widget/EditText;->getSemClipboardManager()Lcom/samsung/android/content/clipboard/SemClipboardManager;
 
@@ -275,7 +272,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_0
 
     invoke-virtual {p0}, Landroid/widget/EditText;->getSemClipboardManager()Lcom/samsung/android/content/clipboard/SemClipboardManager;
 
@@ -285,9 +282,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    :cond_2
+    :cond_0
     invoke-virtual {p0}, Landroid/widget/EditText;->getSemClipboardManager()Lcom/samsung/android/content/clipboard/SemClipboardManager;
 
     move-result-object v0
@@ -316,18 +313,20 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     invoke-virtual {p0, v3}, Landroid/widget/EditText;->setCanPaste(Z)V
 
-    goto :goto_0
+    :cond_1
+    :goto_0
+    return-void
 
-    :cond_3
+    :cond_2
     invoke-virtual {p0, v4}, Landroid/widget/EditText;->setCanPaste(Z)V
 
     goto :goto_0
 
-    :cond_4
+    :cond_3
     invoke-virtual {p0}, Landroid/widget/EditText;->getSemClipboardManager()Lcom/samsung/android/content/clipboard/SemClipboardManager;
 
     move-result-object v0
@@ -668,4 +667,12 @@
     invoke-super {p0, p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V
 
     return-void
+.end method
+
+.method protected supportsAutoSizeText()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
 .end method

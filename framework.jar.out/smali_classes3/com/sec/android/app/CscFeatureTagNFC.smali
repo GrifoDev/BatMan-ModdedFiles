@@ -22,6 +22,8 @@
 
 .field public static final TAG_CSCFEATURE_NFC_CONFIGCONTOLEVENTTYPEWITHGPAC:Ljava/lang/String; = "CscFeature_NFC_ConfigContolEventTypeWithGpac"
 
+.field public static final TAG_CSCFEATURE_NFC_CONFIGDEFAULTAIDROUTE:Ljava/lang/String; = "CscFeature_NFC_ConfigDefaultAidRoute"
+
 .field public static final TAG_CSCFEATURE_NFC_CONFIGDYNAMICFIRMWARELOADING:Ljava/lang/String; = "CscFeature_NFC_ConfigDynamicFirmwareLoading"
 
 .field public static final TAG_CSCFEATURE_NFC_CONFIGFELICALOCKFORCEPWRESET:Ljava/lang/String; = "CscFeature_NFC_ConfigFeliCaLockForcePwReset"

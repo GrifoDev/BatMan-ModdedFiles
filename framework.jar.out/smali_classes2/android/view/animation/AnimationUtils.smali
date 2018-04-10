@@ -3,13 +3,45 @@
 .source "AnimationUtils.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/view/animation/AnimationUtils$1;,
+        Landroid/view/animation/AnimationUtils$AnimationState;
+    }
+.end annotation
+
+
 # static fields
 .field private static final SEQUENTIALLY:I = 0x1
 
 .field private static final TOGETHER:I
 
+.field private static sAnimationState:Ljava/lang/ThreadLocal;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/lang/ThreadLocal",
+            "<",
+            "Landroid/view/animation/AnimationUtils$AnimationState;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Landroid/view/animation/AnimationUtils$1;
+
+    invoke-direct {v0}, Landroid/view/animation/AnimationUtils$1;-><init>()V
+
+    sput-object v0, Landroid/view/animation/AnimationUtils;->sAnimationState:Ljava/lang/ThreadLocal;
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -640,13 +672,40 @@
 .end method
 
 .method public static currentAnimationTimeMillis()J
-    .locals 2
+    .locals 6
 
+    sget-object v1, Landroid/view/animation/AnimationUtils;->sAnimationState:Ljava/lang/ThreadLocal;
+
+    invoke-virtual {v1}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/animation/AnimationUtils$AnimationState;
+
+    iget-boolean v1, v0, Landroid/view/animation/AnimationUtils$AnimationState;->animationClockLocked:Z
+
+    if-eqz v1, :cond_0
+
+    iget-wide v2, v0, Landroid/view/animation/AnimationUtils$AnimationState;->currentVsyncTimeMillis:J
+
+    iget-wide v4, v0, Landroid/view/animation/AnimationUtils$AnimationState;->lastReportedTimeMillis:J
+
+    invoke-static {v2, v3, v4, v5}, Ljava/lang/Math;->max(JJ)J
+
+    move-result-wide v2
+
+    return-wide v2
+
+    :cond_0
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v0
+    move-result-wide v2
 
-    return-wide v0
+    iput-wide v2, v0, Landroid/view/animation/AnimationUtils$AnimationState;->lastReportedTimeMillis:J
+
+    iget-wide v2, v0, Landroid/view/animation/AnimationUtils$AnimationState;->lastReportedTimeMillis:J
+
+    return-wide v2
 .end method
 
 .method public static loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
@@ -1279,6 +1338,26 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 .end method
 
+.method public static lockAnimationClock(J)V
+    .locals 2
+
+    sget-object v1, Landroid/view/animation/AnimationUtils;->sAnimationState:Ljava/lang/ThreadLocal;
+
+    invoke-virtual {v1}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/animation/AnimationUtils$AnimationState;
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, v0, Landroid/view/animation/AnimationUtils$AnimationState;->animationClockLocked:Z
+
+    iput-wide p0, v0, Landroid/view/animation/AnimationUtils$AnimationState;->currentVsyncTimeMillis:J
+
+    return-void
+.end method
+
 .method public static makeInAnimation(Landroid/content/Context;Z)Landroid/view/animation/Animation;
     .locals 4
 
@@ -1306,7 +1385,7 @@
     return-object v0
 
     :cond_0
-    const v1, 0x10a00bf
+    const v1, 0x10a00bb
 
     invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -1318,7 +1397,7 @@
 .method public static makeInChildBottomAnimation(Landroid/content/Context;)Landroid/view/animation/Animation;
     .locals 4
 
-    const v1, 0x10a00bc
+    const v1, 0x10a00b8
 
     invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -1366,11 +1445,29 @@
     return-object v0
 
     :cond_0
-    const v1, 0x10a00c2
+    const v1, 0x10a00be
 
     invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
     move-result-object v0
 
     goto :goto_0
+.end method
+
+.method public static unlockAnimationClock()V
+    .locals 2
+
+    sget-object v0, Landroid/view/animation/AnimationUtils;->sAnimationState:Ljava/lang/ThreadLocal;
+
+    invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/animation/AnimationUtils$AnimationState;
+
+    const/4 v1, 0x0
+
+    iput-boolean v1, v0, Landroid/view/animation/AnimationUtils$AnimationState;->animationClockLocked:Z
+
+    return-void
 .end method

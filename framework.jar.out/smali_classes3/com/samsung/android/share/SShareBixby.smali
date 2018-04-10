@@ -84,6 +84,8 @@
 
 .field private mPkgsWithRule:[Ljava/lang/String;
 
+.field private mReceiverRegistered:Z
+
 .field private mSlotAppName:Ljava/lang/String;
 
 
@@ -233,7 +235,19 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 v0, 0x3
+    new-instance v0, Landroid/os/Handler;
+
+    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/share/SShareBixby;->mHandler:Landroid/os/Handler;
+
+    new-instance v0, Lcom/samsung/android/share/SShareBixby$1;
+
+    invoke-direct {v0, p0}, Lcom/samsung/android/share/SShareBixby$1;-><init>(Lcom/samsung/android/share/SShareBixby;)V
+
+    iput-object v0, p0, Lcom/samsung/android/share/SShareBixby;->mBixbyGetDataReceiver:Landroid/content/BroadcastReceiver;
+
+    const/4 v0, 0x4
 
     iput v0, p0, Lcom/samsung/android/share/SShareBixby;->mMatchedAppType:I
 
@@ -249,23 +263,11 @@
 
     iput-object v0, p0, Lcom/samsung/android/share/SShareBixby;->mDuplicateLabelIndex:Ljava/util/ArrayList;
 
-    new-instance v0, Lcom/samsung/android/share/SShareBixby$1;
-
-    invoke-direct {v0, p0}, Lcom/samsung/android/share/SShareBixby$1;-><init>(Lcom/samsung/android/share/SShareBixby;)V
-
-    iput-object v0, p0, Lcom/samsung/android/share/SShareBixby;->mBixbyGetDataReceiver:Landroid/content/BroadcastReceiver;
-
     new-instance v0, Lcom/samsung/android/share/SShareBixby$2;
 
     invoke-direct {v0, p0}, Lcom/samsung/android/share/SShareBixby$2;-><init>(Lcom/samsung/android/share/SShareBixby;)V
 
     iput-object v0, p0, Lcom/samsung/android/share/SShareBixby;->mDebugAppNameReceiver:Landroid/content/BroadcastReceiver;
-
-    new-instance v0, Landroid/os/Handler;
-
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/share/SShareBixby;->mHandler:Landroid/os/Handler;
 
     iput-object p1, p0, Lcom/samsung/android/share/SShareBixby;->mActivity:Landroid/app/Activity;
 
@@ -345,6 +347,19 @@
 .method private addReceiverForBixby()V
     .locals 3
 
+    iget-boolean v1, p0, Lcom/samsung/android/share/SShareBixby;->mReceiverRegistered:Z
+
+    if-eqz v1, :cond_0
+
+    const-string/jumbo v1, "SShareBixby"
+
+    const-string/jumbo v2, "already registerReceiver!!"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
@@ -358,6 +373,16 @@
     iget-object v2, p0, Lcom/samsung/android/share/SShareBixby;->mBixbyGetDataReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lcom/samsung/android/share/SShareBixby;->mReceiverRegistered:Z
+
+    const-string/jumbo v1, "SShareBixby"
+
+    const-string/jumbo v2, "registerReceiver"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
@@ -717,13 +742,21 @@
 
     move-result-object v8
 
+    if-eqz v8, :cond_2
+
+    iget-object v8, p0, Lcom/samsung/android/share/SShareBixby;->mAdapter:Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;
+
+    invoke-virtual {v8, v3}, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->getItem(I)Lcom/android/internal/app/ResolverActivity$TargetInfo;
+
+    move-result-object v8
+
     invoke-interface {v8}, Lcom/android/internal/app/ResolverActivity$TargetInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
 
     move-result-object v8
 
     iget-object v0, v8, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v8, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v8, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {v8, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1037,7 +1070,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/share/SShareBixby;->mSlotAppName:Ljava/lang/String;
 
-    const/4 v0, 0x3
+    const/4 v0, 0x4
 
     iput v0, p0, Lcom/samsung/android/share/SShareBixby;->mMatchedAppType:I
 
@@ -1061,28 +1094,26 @@
 .end method
 
 .method private isValidDistance(I)Z
-    .locals 3
+    .locals 2
 
     const/4 v0, 0x3
 
-    const/4 v1, 0x3
+    if-le p1, v0, :cond_0
 
-    if-le p1, v1, :cond_0
+    const-string/jumbo v0, "SShareBixby"
 
-    const-string/jumbo v1, "SShareBixby"
+    const-string/jumbo v1, "no valid"
 
-    const-string/jumbo v2, "no valid"
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
-
-    return v1
+    return v0
 
     :cond_0
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    return v1
+    return v0
 .end method
 
 .method private parsingTargetInfoByPackageName(Ljava/lang/String;)Z
@@ -1221,13 +1252,21 @@
 
     move-result-object v10
 
+    if-eqz v10, :cond_6
+
+    iget-object v10, p0, Lcom/samsung/android/share/SShareBixby;->mAdapter:Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;
+
+    invoke-virtual {v10, v3}, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->getItem(I)Lcom/android/internal/app/ResolverActivity$TargetInfo;
+
+    move-result-object v10
+
     invoke-interface {v10}, Lcom/android/internal/app/ResolverActivity$TargetInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
 
     move-result-object v10
 
     iget-object v0, v10, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v10, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v10, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {v10, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1319,7 +1358,9 @@
 
     move-result v10
 
-    if-nez v10, :cond_1
+    xor-int/lit8 v10, v10, 0x1
+
+    if-eqz v10, :cond_1
 
     iget-object v10, p0, Lcom/samsung/android/share/SShareBixby;->mCandidatesByPkg:Ljava/util/Map;
 
@@ -1377,15 +1418,23 @@
 
     move-result-object v10
 
+    if-eqz v10, :cond_a
+
+    iget-object v10, p0, Lcom/samsung/android/share/SShareBixby;->mAdapter:Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;
+
+    invoke-virtual {v10, v4}, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->getItem(I)Lcom/android/internal/app/ResolverActivity$TargetInfo;
+
+    move-result-object v10
+
     invoke-interface {v10}, Lcom/android/internal/app/ResolverActivity$TargetInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
 
     move-result-object v10
 
     iget-object v0, v10, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v10, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v10, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
-    iget-object v11, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v11, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
     invoke-virtual {p0, v10, v11}, Lcom/samsung/android/share/SShareBixby;->getShortClassName(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -1421,12 +1470,31 @@
 .method private removeReceiverForBixby()V
     .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/share/SShareBixby;->mBixbyGetDataReceiver:Landroid/content/BroadcastReceiver;
+
+    if-eqz v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/samsung/android/share/SShareBixby;->mReceiverRegistered:Z
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "SShareBixby"
+
+    const-string/jumbo v1, "unregisterReceiver"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     iget-object v0, p0, Lcom/samsung/android/share/SShareBixby;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/samsung/android/share/SShareBixby;->mBixbyGetDataReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/samsung/android/share/SShareBixby;->mReceiverRegistered:Z
+
+    :cond_0
     return-void
 .end method
 
@@ -1478,7 +1546,7 @@
 
     const/4 v5, -0x1
 
-    if-eqz p1, :cond_c
+    if-eqz p1, :cond_e
 
     iget-object v7, p0, Lcom/samsung/android/share/SShareBixby;->mCandidatesByPkg:Ljava/util/Map;
 
@@ -1504,7 +1572,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_9
+    if-eqz v7, :cond_b
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1559,7 +1627,7 @@
     :goto_1
     iget-object v7, p0, Lcom/samsung/android/share/SShareBixby;->mAdapter:Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_a
 
     iget-object v7, p0, Lcom/samsung/android/share/SShareBixby;->mAdapter:Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;
 
@@ -1570,13 +1638,13 @@
     const/4 v1, 0x0
 
     :goto_2
-    if-ge v1, v0, :cond_8
+    if-ge v1, v0, :cond_a
 
     invoke-direct {p0, v1}, Lcom/samsung/android/share/SShareBixby;->checkDirectShareItem(I)Z
 
     move-result v7
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_9
 
     :cond_3
     :goto_3
@@ -1634,7 +1702,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_7
 
     :cond_6
     iget-object v7, p0, Lcom/samsung/android/share/SShareBixby;->mDuplicateLabelIndex:Ljava/util/ArrayList;
@@ -1650,6 +1718,60 @@
     goto :goto_1
 
     :cond_7
+    iget-object v7, p0, Lcom/samsung/android/share/SShareBixby;->mFeature:Lcom/samsung/android/share/SShareCommon;
+
+    const/4 v8, 0x3
+
+    invoke-virtual {v7, v8}, Lcom/samsung/android/share/SShareCommon;->getMenuName(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-direct {p0, v7, p1}, Lcom/samsung/android/share/SShareBixby;->checkExactMatch(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_8
+
+    iget-object v7, p0, Lcom/samsung/android/share/SShareBixby;->mFeature:Lcom/samsung/android/share/SShareCommon;
+
+    sget v8, Lcom/samsung/android/share/SShareConstants;->SUPPORT_DEVICE_SHARE:I
+
+    invoke-virtual {v7, v8}, Lcom/samsung/android/share/SShareCommon;->isFeatureSupported(I)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_2
+
+    const-string/jumbo v7, "Samsung Connect"
+
+    invoke-direct {p0, v7, p1}, Lcom/samsung/android/share/SShareBixby;->checkExactMatch(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_2
+
+    :cond_8
+    iget-object v7, p0, Lcom/samsung/android/share/SShareBixby;->mDuplicateLabelIndex:Ljava/util/ArrayList;
+
+    const/4 v8, -0x4
+
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1
+
+    :cond_9
+    iget-object v7, p0, Lcom/samsung/android/share/SShareBixby;->mAdapter:Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;
+
+    invoke-virtual {v7, v1}, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->getItem(I)Lcom/android/internal/app/ResolverActivity$TargetInfo;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_3
+
     iget-object v7, p0, Lcom/samsung/android/share/SShareBixby;->mAdapter:Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;
 
     invoke-virtual {v7, v1}, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->getItem(I)Lcom/android/internal/app/ResolverActivity$TargetInfo;
@@ -1678,16 +1800,16 @@
 
     invoke-virtual {v7, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    goto/16 :goto_3
 
-    :cond_8
+    :cond_a
     iget-object v7, p0, Lcom/samsung/android/share/SShareBixby;->mDuplicateLabelIndex:Ljava/util/ArrayList;
 
     invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
 
     move-result v7
 
-    if-ne v7, v10, :cond_b
+    if-ne v7, v10, :cond_d
 
     iget-object v7, p0, Lcom/samsung/android/share/SShareBixby;->mDuplicateLabelIndex:Ljava/util/ArrayList;
 
@@ -1705,9 +1827,9 @@
 
     const/4 v6, 0x1
 
-    :cond_9
+    :cond_b
     :goto_4
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_c
 
     const-string/jumbo v7, "SShareBixby"
 
@@ -1757,22 +1879,22 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_a
+    :cond_c
     return v6
 
-    :cond_b
+    :cond_d
     const/4 v6, 0x0
 
     goto :goto_4
 
-    :cond_c
+    :cond_e
     iget-object v7, p0, Lcom/samsung/android/share/SShareBixby;->mCandidatesByPkg:Ljava/util/Map;
 
     invoke-interface {v7}, Ljava/util/Map;->size()I
 
     move-result v7
 
-    if-ne v7, v10, :cond_9
+    if-ne v7, v10, :cond_b
 
     const-string/jumbo v7, "SShareBixby"
 
@@ -1794,7 +1916,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_9
+    if-eqz v7, :cond_b
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2184,6 +2306,10 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    const-string/jumbo v1, "com.samsung.android.bixby.agent"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
     const-string/jumbo v1, "command"
 
     const-string/jumbo v2, "app_selection"
@@ -2368,7 +2494,18 @@
     goto :goto_0
 
     :cond_2
+    const/4 v0, -0x4
+
+    if-ne p2, v0, :cond_3
+
     const/4 v0, 0x3
+
+    iput v0, p0, Lcom/samsung/android/share/SShareBixby;->mMatchedAppType:I
+
+    goto :goto_0
+
+    :cond_3
+    const/4 v0, 0x4
 
     iput v0, p0, Lcom/samsung/android/share/SShareBixby;->mMatchedAppType:I
 

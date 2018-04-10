@@ -1,11 +1,14 @@
 .class Landroid/widget/Editor$HandleView$6;
-.super Landroid/animation/AnimatorListenerAdapter;
+.super Ljava/lang/Object;
 .source "Editor.java"
+
+# interfaces
+.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/widget/Editor$HandleView;->magnifyHandleView()V
+    value = Landroid/widget/Editor$HandleView;->getShowAnimator()Landroid/animation/ObjectAnimator;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,47 +20,34 @@
 # instance fields
 .field final synthetic this$1:Landroid/widget/Editor$HandleView;
 
-.field final synthetic val$drawableTargetHeight:I
-
-.field final synthetic val$drawableTargetWidth:I
-
 
 # direct methods
-.method constructor <init>(Landroid/widget/Editor$HandleView;II)V
+.method constructor <init>(Landroid/widget/Editor$HandleView;)V
     .locals 0
 
     iput-object p1, p0, Landroid/widget/Editor$HandleView$6;->this$1:Landroid/widget/Editor$HandleView;
 
-    iput p2, p0, Landroid/widget/Editor$HandleView$6;->val$drawableTargetWidth:I
-
-    iput p3, p0, Landroid/widget/Editor$HandleView$6;->val$drawableTargetHeight:I
-
-    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 4
+.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+    .locals 1
 
     iget-object v0, p0, Landroid/widget/Editor$HandleView$6;->this$1:Landroid/widget/Editor$HandleView;
 
-    iget-object v0, v0, Landroid/widget/Editor$HandleView;->mDrawable:Landroid/graphics/drawable/Drawable;
+    invoke-static {v0}, Landroid/widget/Editor$HandleView;->-get3(Landroid/widget/Editor$HandleView;)Z
 
-    iget-object v1, p0, Landroid/widget/Editor$HandleView$6;->this$1:Landroid/widget/Editor$HandleView;
+    move-result v0
 
-    iget v2, p0, Landroid/widget/Editor$HandleView$6;->val$drawableTargetWidth:I
+    if-nez v0, :cond_0
 
-    iget v3, p0, Landroid/widget/Editor$HandleView$6;->val$drawableTargetHeight:I
+    return-void
 
-    invoke-virtual {v1, v2, v3}, Landroid/widget/Editor$HandleView;->getDrawableBounds(II)Landroid/graphics/Rect;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
-
+    :cond_0
     iget-object v0, p0, Landroid/widget/Editor$HandleView$6;->this$1:Landroid/widget/Editor$HandleView;
 
     invoke-virtual {v0}, Landroid/widget/Editor$HandleView;->invalidate()V

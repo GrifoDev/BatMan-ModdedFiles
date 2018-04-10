@@ -140,7 +140,7 @@
 .method static constructor <clinit>()V
     .locals 11
 
-    const v10, 0x1040235
+    const v10, 0x104085b
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -168,13 +168,13 @@
 
     const/4 v1, 0x4
 
-    const v3, 0x104023c
+    const v3, 0x104085c
 
-    const v4, 0x104023d
+    const v4, 0x1040840
 
-    const v5, 0x104023e
+    const v5, 0x104085d
 
-    const v6, 0x104023f
+    const v6, 0x1040841
 
     invoke-direct/range {v0 .. v6}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;IIII)V
 
@@ -188,9 +188,9 @@
 
     const/4 v3, 0x2
 
-    const v4, 0x1040238
+    const v4, 0x1040857
 
-    const v5, 0x1040239
+    const v5, 0x104083a
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -204,9 +204,9 @@
 
     const/4 v3, 0x0
 
-    const v4, 0x1040233
+    const v4, 0x1040854
 
-    const v5, 0x1040234
+    const v5, 0x1040837
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -220,9 +220,9 @@
 
     const/4 v1, 0x1
 
-    const v4, 0x1040236
+    const v4, 0x104083e
 
-    const v6, 0x1040237
+    const v6, 0x104083f
 
     move v3, v10
 
@@ -240,9 +240,9 @@
 
     const/4 v3, 0x3
 
-    const v4, 0x104023a
+    const v4, 0x1040853
 
-    const v5, 0x104023b
+    const v5, 0x1040836
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -256,9 +256,9 @@
 
     const/4 v3, 0x5
 
-    const v4, 0x1040240
+    const v4, 0x1040858
 
-    const v5, 0x1040241
+    const v5, 0x104083b
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -272,9 +272,9 @@
 
     const/4 v3, 0x6
 
-    const v4, 0x1040242
+    const v4, 0x1040852
 
-    const v5, 0x1040243
+    const v5, 0x1040835
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -288,9 +288,9 @@
 
     const/4 v3, 0x7
 
-    const v4, 0x1040244
+    const v4, 0x1040851
 
-    const v5, 0x1040245
+    const v5, 0x1040834
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -304,9 +304,9 @@
 
     const/16 v3, 0x8
 
-    const v4, 0x1040246
+    const v4, 0x104084e
 
-    const v5, 0x1040247
+    const v5, 0x1040831
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -320,9 +320,9 @@
 
     const/16 v3, 0x9
 
-    const v4, 0x1040248
+    const v4, 0x104084f
 
-    const v5, 0x1040249
+    const v5, 0x1040832
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -336,9 +336,9 @@
 
     const/16 v3, 0x14
 
-    const v4, 0x10406d1
+    const v4, 0x1040856
 
-    const v5, 0x10406d2
+    const v5, 0x1040839
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -352,9 +352,9 @@
 
     const/16 v3, 0xa
 
-    const v4, 0x10406af
+    const v4, 0x1040855
 
-    const v5, 0x10406b0
+    const v5, 0x1040838
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -368,9 +368,9 @@
 
     const/16 v3, 0xe
 
-    const v4, 0x10406bb
+    const v4, 0x1040848
 
-    const v5, 0x10406bc
+    const v5, 0x104082b
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -384,9 +384,9 @@
 
     const/16 v3, 0xb
 
-    const v4, 0x10406b5
+    const v4, 0x1040849
 
-    const v5, 0x10406b6
+    const v5, 0x104082c
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -400,9 +400,9 @@
 
     const/16 v3, 0xc
 
-    const v4, 0x10406b7
+    const v4, 0x104084c
 
-    const v5, 0x10406b8
+    const v5, 0x104082f
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -416,9 +416,9 @@
 
     const/16 v3, 0xd
 
-    const v4, 0x10406b9
+    const v4, 0x104084a
 
-    const v5, 0x10406ba
+    const v5, 0x104082d
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -432,9 +432,9 @@
 
     const/16 v3, 0xf
 
-    const v4, 0x10406bf
+    const v4, 0x1040843
 
-    const v5, 0x10406c0
+    const v5, 0x1040826
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -448,9 +448,9 @@
 
     const/16 v3, 0x10
 
-    const v4, 0x10406c1
+    const v4, 0x1040846
 
-    const v5, 0x10406c2
+    const v5, 0x1040829
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -464,9 +464,9 @@
 
     const/16 v3, 0x11
 
-    const v4, 0x10406c3
+    const v4, 0x1040842
 
-    const v5, 0x10406c4
+    const v5, 0x1040825
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -480,9 +480,9 @@
 
     const/16 v3, 0x12
 
-    const v4, 0x10406c5
+    const v4, 0x1040845
 
-    const v5, 0x10406c6
+    const v5, 0x1040828
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -496,9 +496,9 @@
 
     const/16 v3, 0x13
 
-    const v4, 0x10406bd
+    const v4, 0x1040847
 
-    const v5, 0x10406be
+    const v5, 0x104082a
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -512,9 +512,9 @@
 
     const/16 v3, 0x16
 
-    const v4, 0x10406c7
+    const v4, 0x104084b
 
-    const v5, 0x10406c8
+    const v5, 0x104082e
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -528,9 +528,9 @@
 
     const/16 v3, 0x17
 
-    const v4, 0x10406c9
+    const v4, 0x104084d
 
-    const v5, 0x10406ca
+    const v5, 0x1040830
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -544,9 +544,9 @@
 
     const/16 v3, 0x19
 
-    const v4, 0x10406cb
+    const v4, 0x1040859
 
-    const v5, 0x10406cc
+    const v5, 0x104083c
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -560,9 +560,9 @@
 
     const/16 v3, 0x1a
 
-    const v4, 0x10406cd
+    const v4, 0x104085a
 
-    const v5, 0x10406ce
+    const v5, 0x104083d
 
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 

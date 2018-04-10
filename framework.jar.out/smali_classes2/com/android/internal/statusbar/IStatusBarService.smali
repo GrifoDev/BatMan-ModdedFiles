@@ -119,6 +119,14 @@
     .end annotation
 .end method
 
+.method public abstract handleSystemNavigationKey(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract onClearAllNotifications(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -127,7 +135,15 @@
     .end annotation
 .end method
 
-.method public abstract onNavigationBarForceClicked(III)V
+.method public abstract onGlobalActionsHidden()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onGlobalActionsShown()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -207,6 +223,14 @@
     .end annotation
 .end method
 
+.method public abstract reboot(Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract registerStatusBar(Lcom/android/internal/statusbar/IStatusBar;Ljava/util/List;Ljava/util/List;[ILjava/util/List;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -277,6 +301,14 @@
     .end annotation
 .end method
 
+.method public abstract setForceImmersiveBtnVisibility(Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setIcon(Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -317,14 +349,6 @@
     .end annotation
 .end method
 
-.method public abstract setNavigationBarIconColor(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract setNavigationBarShortcut(Ljava/lang/String;Landroid/widget/RemoteViews;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -349,7 +373,7 @@
     .end annotation
 .end method
 
-.method public abstract showNavigationBarInFullscreen()V
+.method public abstract shutdown()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -366,14 +390,6 @@
 .end method
 
 .method public abstract toggleRecentApps()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract updateKnoxDesktopTaskBar(IIIILandroid/content/ComponentName;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

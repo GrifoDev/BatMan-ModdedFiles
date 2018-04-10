@@ -98,7 +98,7 @@
     return-void
 .end method
 
-.method private final internalLockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
+.method private final internalLockCanvas(Landroid/graphics/Rect;Z)Landroid/graphics/Canvas;
     .locals 13
 
     const/4 v12, 0x0
@@ -152,10 +152,12 @@
     iget-object p1, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mTmpDirty:Landroid/graphics/Rect;
 
     :cond_2
+    if-eqz p2, :cond_4
+
     :try_start_0
     iget-object v3, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mSurface:Landroid/view/Surface;
 
-    invoke-virtual {v3, p1}, Landroid/view/Surface;->lockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
+    invoke-virtual {v3}, Landroid/view/Surface;->lockHardwareCanvas()Landroid/graphics/Canvas;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -163,7 +165,7 @@
 
     :cond_3
     :goto_0
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
@@ -172,6 +174,18 @@
     iput-wide v8, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mLastLockTime:J
 
     return-object v0
+
+    :cond_4
+    :try_start_1
+    iget-object v3, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mSurface:Landroid/view/Surface;
+
+    invoke-virtual {v3, p1}, Landroid/view/Surface;->lockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    move-result-object v0
+
+    goto :goto_0
 
     :catch_0
     move-exception v1
@@ -184,7 +198,7 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v6
@@ -197,21 +211,21 @@
 
     cmp-long v3, v4, v6
 
-    if-lez v3, :cond_5
+    if-lez v3, :cond_6
 
     sub-long v8, v4, v6
 
-    :try_start_1
+    :try_start_2
     invoke-static {v8, v9}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_1
-    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_2
+    .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_2} :catch_1
 
     :goto_1
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v6
 
-    :cond_5
+    :cond_6
     iput-wide v6, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mLastLockTime:J
 
     iget-object v3, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mSurfaceLock:Ljava/util/concurrent/locks/ReentrantLock;
@@ -390,11 +404,13 @@
 .end method
 
 .method public lockCanvas()Landroid/graphics/Canvas;
-    .locals 1
+    .locals 2
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, v0}, Lcom/android/internal/view/BaseSurfaceHolder;->internalLockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
+    const/4 v1, 0x0
+
+    invoke-direct {p0, v0, v1}, Lcom/android/internal/view/BaseSurfaceHolder;->internalLockCanvas(Landroid/graphics/Rect;Z)Landroid/graphics/Canvas;
 
     move-result-object v0
 
@@ -404,7 +420,23 @@
 .method public lockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
     .locals 1
 
-    invoke-direct {p0, p1}, Lcom/android/internal/view/BaseSurfaceHolder;->internalLockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, v0}, Lcom/android/internal/view/BaseSurfaceHolder;->internalLockCanvas(Landroid/graphics/Rect;Z)Landroid/graphics/Canvas;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public lockHardwareCanvas()Landroid/graphics/Canvas;
+    .locals 2
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
+
+    invoke-direct {p0, v0, v1}, Lcom/android/internal/view/BaseSurfaceHolder;->internalLockCanvas(Landroid/graphics/Rect;Z)Landroid/graphics/Canvas;
 
     move-result-object v0
 

@@ -15,6 +15,17 @@
 
 
 # virtual methods
+.method public canAddInternalSystemWindow()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public abstract canAffectSystemUiFlags()Z
+.end method
+
 .method public abstract computeFrameLw(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
 .end method
 
@@ -36,7 +47,7 @@
 .method public abstract getDisplayFrameLw()Landroid/graphics/Rect;
 .end method
 
-.method public abstract getEdgeTspDeadzone()Ljava/lang/String;
+.method public abstract getDisplayId()I
 .end method
 
 .method public abstract getFrameLw()Landroid/graphics/Rect;
@@ -63,6 +74,9 @@
 .method public abstract getOwningUid()I
 .end method
 
+.method public abstract getRotationAnimationHint()I
+.end method
+
 .method public abstract getShownPositionLw()Landroid/graphics/Point;
 .end method
 
@@ -75,7 +89,10 @@
 .method public abstract getSystemUiVisibility()I
 .end method
 
-.method public abstract getTspDeadzone()Landroid/os/Bundle;
+.method public abstract getTaskId()I
+.end method
+
+.method public abstract getTransientBarShowingDelay()I
 .end method
 
 .method public abstract getVisibleFrameLw()Landroid/graphics/Rect;
@@ -87,13 +104,7 @@
 .method public abstract hasDrawnLw()Z
 .end method
 
-.method public abstract hasScreenTurnOn()Z
-.end method
-
 .method public abstract hideLw(Z)Z
-.end method
-
-.method public abstract inFreeformWorkspace()Z
 .end method
 
 .method public abstract isAlive()Z
@@ -105,7 +116,7 @@
 .method public abstract isDefaultDisplay()Z
 .end method
 
-.method public abstract isDeviceDefaultTheme()Z
+.method public abstract isDexCompatModeLw()Z
 .end method
 
 .method public abstract isDimming()Z
@@ -117,23 +128,23 @@
 .method public abstract isDrawnLw()Z
 .end method
 
+.method public abstract isFullscreenFreeformLw()Z
+.end method
+
 .method public abstract isGoneForLayoutLw()Z
 .end method
 
 .method public abstract isInMultiWindowMode()Z
 .end method
 
-.method public abstract isVisibleLw()Z
+.method public abstract isInputMethodWindow()Z
 .end method
 
-.method public abstract isVisibleOrBehindKeyguardLw()Z
+.method public abstract isVisibleLw()Z
 .end method
 
 .method public abstract isVoiceInteraction()Z
 .end method
 
 .method public abstract showLw(Z)Z
-.end method
-
-.method public abstract whichCustomStartingAnimationLw()I
 .end method

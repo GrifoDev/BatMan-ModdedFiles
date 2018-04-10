@@ -23,7 +23,7 @@
 
 .field private static final SUGGESTION_TYPE_SIM:I = 0x1
 
-.field private static final SUGGESTION_TYPE_TAG:I = 0x8
+.field private static final SUGGESTION_TYPE_XML:I = 0x8
 
 
 # instance fields
@@ -35,6 +35,8 @@
 
 .field private mIsChecked:Z
 
+.field private mIsPriorityLocale:Z
+
 .field private mIsPseudo:Z
 
 .field private mIsTranslated:Z
@@ -44,8 +46,6 @@
 .field private final mLocale:Ljava/util/Locale;
 
 .field private final mParent:Ljava/util/Locale;
-
-.field private mParentSecSuggested:Z
 
 .field private mSuggestionFlags:I
 
@@ -144,8 +144,23 @@
 
     iput-boolean v1, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mIsPseudo:Z
 
-    iput-boolean v1, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mParentSecSuggested:Z
+    iget-object v0, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mId:Ljava/lang/String;
 
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mId:Ljava/lang/String;
+
+    invoke-static {}, Lcom/android/internal/app/LocaleStore;->-get1()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mIsPriorityLocale:Z
+
+    :cond_0
     return-void
 .end method
 
@@ -155,6 +170,65 @@
     invoke-direct {p0, p1}, Lcom/android/internal/app/LocaleStore$LocaleInfo;-><init>(Ljava/util/Locale;)V
 
     return-void
+.end method
+
+.method private getFullNameFromSpecialLocale(Landroid/content/Context;)Ljava/lang/String;
+    .locals 6
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x10700b5
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x10700b6
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mLocale:Ljava/util/Locale;
+
+    invoke-virtual {v4}, Ljava/util/Locale;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/4 v0, 0x0
+
+    :goto_0
+    array-length v4, v2
+
+    if-ge v0, v4, :cond_1
+
+    aget-object v4, v2, v0
+
+    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    aget-object v4, v3, v0
+
+    return-object v4
+
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const-string/jumbo v4, ""
+
+    return-object v4
 .end method
 
 .method private getLangScriptKey()Ljava/lang/String;
@@ -340,64 +414,27 @@
 .end method
 
 .method public getFullNameInUiLanguage(Landroid/content/Context;)Ljava/lang/String;
-    .locals 6
+    .locals 2
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-direct {p0, p1}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getFullNameFromSpecialLocale(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    const v5, 0x1070009
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
 
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+    move-result v1
 
-    move-result-object v2
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    const v5, 0x107000a
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mLocale:Ljava/util/Locale;
-
-    invoke-virtual {v4}, Ljava/util/Locale;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    const/4 v0, 0x0
+    if-nez v1, :cond_0
 
     :goto_0
-    array-length v4, v2
-
-    if-ge v0, v4, :cond_1
-
-    aget-object v4, v2, v0
-
-    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    aget-object v4, v3, v0
-
-    return-object v4
+    return-object v0
 
     :cond_0
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
     invoke-virtual {p0}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getFullNameInUiLanguage()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    return-object v4
+    goto :goto_0
 .end method
 
 .method public getFullNameNative()Ljava/lang/String;
@@ -413,11 +450,9 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
-
     const-string/jumbo v1, "sr"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -450,64 +485,27 @@
 .end method
 
 .method public getFullNameNative(Landroid/content/Context;)Ljava/lang/String;
-    .locals 6
+    .locals 2
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-direct {p0, p1}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getFullNameFromSpecialLocale(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    const v5, 0x1070009
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
 
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+    move-result v1
 
-    move-result-object v2
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    const v5, 0x107000a
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mLocale:Ljava/util/Locale;
-
-    invoke-virtual {v4}, Ljava/util/Locale;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    const/4 v0, 0x0
+    if-nez v1, :cond_0
 
     :goto_0
-    array-length v4, v2
-
-    if-ge v0, v4, :cond_1
-
-    aget-object v4, v2, v0
-
-    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    aget-object v4, v3, v0
-
-    return-object v4
+    return-object v0
 
     :cond_0
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
     invoke-virtual {p0}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getFullNameNative()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    return-object v4
+    goto :goto_0
 .end method
 
 .method public getId()Ljava/lang/String;
@@ -553,142 +551,113 @@
     return-object v0
 .end method
 
-.method public getParentSecSuggested()Z
+.method isPriorityLocale()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mParentSecSuggested:Z
-
-    return v0
-.end method
-
-.method isExistCofigLocale()Z
-    .locals 2
-
-    invoke-static {}, Lcom/android/internal/app/LocaleStore;->-get0()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, ""
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mId:Ljava/lang/String;
-
-    invoke-static {}, Lcom/android/internal/app/LocaleStore;->-get0()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
+    iget-boolean v0, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mIsPriorityLocale:Z
 
     return v0
 .end method
 
 .method isSecSuggested()Z
-    .locals 1
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iget v1, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mSuggestionFlags:I
+
+    and-int/lit8 v1, v1, 0x4
+
+    if-eqz v1, :cond_0
 
     invoke-virtual {p0}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->isSuggested()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getParentSecSuggested()Z
-
-    move-result v0
-
-    :goto_0
-    return v0
+    xor-int/lit8 v0, v0, 0x1
 
     :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
+    return v0
 .end method
 
-.method isSecTagSuggested()Z
+.method isSecXmlSuggested()Z
     .locals 2
 
-    iget v0, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mSuggestionFlags:I
+    const/4 v0, 0x0
 
-    and-int/lit8 v0, v0, 0x8
+    iget v1, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mSuggestionFlags:I
 
-    const/16 v1, 0x8
+    and-int/lit8 v1, v1, 0x8
 
-    if-ne v0, v1, :cond_0
+    if-eqz v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_0
-    return v0
-
     :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
+    return v0
 .end method
 
 .method isSuggested()Z
     .locals 4
 
-    const/4 v3, 0x1
+    const/4 v0, 0x1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    iget-boolean v0, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mIsTranslated:Z
+    iget-boolean v2, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mIsTranslated:Z
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
-    return v2
+    return v1
 
     :cond_0
-    iget v0, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mSuggestionFlags:I
+    invoke-static {}, Lcom/android/internal/app/LocaleStore;->-get0()Z
 
-    if-eqz v0, :cond_4
+    move-result v2
 
-    invoke-static {}, Lcom/android/internal/app/LocaleStore;->-get1()Z
+    if-eqz v2, :cond_2
 
-    move-result v0
+    iget v2, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mSuggestionFlags:I
 
-    if-eqz v0, :cond_1
+    if-eqz v2, :cond_1
 
-    return v3
+    :goto_0
+    return v0
 
     :cond_1
-    iget v0, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mSuggestionFlags:I
+    move v0, v1
 
-    const/4 v1, 0x4
-
-    if-eq v0, v1, :cond_2
-
-    iget v0, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mSuggestionFlags:I
-
-    const/4 v1, 0x6
-
-    if-ne v0, v1, :cond_3
+    goto :goto_0
 
     :cond_2
-    return v2
+    iget v2, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mSuggestionFlags:I
+
+    if-eqz v2, :cond_4
+
+    iget v2, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mSuggestionFlags:I
+
+    const/4 v3, 0x4
+
+    if-eq v2, v3, :cond_4
+
+    iget v2, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mSuggestionFlags:I
+
+    const/4 v3, 0x6
+
+    if-eq v2, v3, :cond_3
+
+    :goto_1
+    return v0
 
     :cond_3
-    return v3
+    move v0, v1
+
+    goto :goto_1
 
     :cond_4
-    return v2
+    move v0, v1
+
+    goto :goto_1
 .end method
 
 .method public isTranslated()Z
@@ -703,14 +672,6 @@
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mIsChecked:Z
-
-    return-void
-.end method
-
-.method public setParentSecSuggested(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/internal/app/LocaleStore$LocaleInfo;->mParentSecSuggested:Z
 
     return-void
 .end method

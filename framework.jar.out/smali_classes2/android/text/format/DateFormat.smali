@@ -473,275 +473,6 @@
     return-object v1
 .end method
 
-.method public static formatForTextClock(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/util/Calendar;)Ljava/lang/CharSequence;
-    .locals 10
-
-    new-instance v7, Landroid/text/SpannableStringBuilder;
-
-    invoke-direct {v7, p1}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;)V
-
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v8
-
-    iget-object v8, v8, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
-
-    invoke-static {v8}, Llibcore/icu/LocaleData;->get(Ljava/util/Locale;)Llibcore/icu/LocaleData;
-
-    move-result-object v5
-
-    invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
-
-    move-result v4
-
-    const/4 v3, 0x0
-
-    :goto_0
-    if-ge v3, v4, :cond_4
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v7, v3}, Landroid/text/SpannableStringBuilder;->charAt(I)C
-
-    move-result v0
-
-    const/16 v8, 0x27
-
-    if-ne v0, v8, :cond_1
-
-    invoke-static {v7, v3, v4}, Landroid/text/format/DateFormat;->appendQuotedText(Landroid/text/SpannableStringBuilder;II)I
-
-    move-result v1
-
-    invoke-virtual {v7}, Landroid/text/SpannableStringBuilder;->length()I
-
-    move-result v4
-
-    :cond_0
-    :goto_1
-    add-int/2addr v3, v1
-
-    goto :goto_0
-
-    :cond_1
-    :goto_2
-    add-int v8, v3, v1
-
-    if-ge v8, v4, :cond_2
-
-    add-int v8, v3, v1
-
-    invoke-virtual {v7, v8}, Landroid/text/SpannableStringBuilder;->charAt(I)C
-
-    move-result v8
-
-    if-ne v8, v0, :cond_2
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_2
-
-    :cond_2
-    sparse-switch v0, :sswitch_data_0
-
-    const/4 v6, 0x0
-
-    :goto_3
-    if-eqz v6, :cond_0
-
-    add-int v8, v3, v1
-
-    invoke-virtual {v7, v3, v8, v6}, Landroid/text/SpannableStringBuilder;->replace(IILjava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
-
-    invoke-virtual {v6}, Ljava/lang/String;->length()I
-
-    move-result v1
-
-    invoke-virtual {v7}, Landroid/text/SpannableStringBuilder;->length()I
-
-    move-result v4
-
-    goto :goto_1
-
-    :sswitch_0
-    iget-object v8, v5, Llibcore/icu/LocaleData;->amPm:[Ljava/lang/String;
-
-    const/16 v9, 0x9
-
-    invoke-virtual {p2, v9}, Ljava/util/Calendar;->get(I)I
-
-    move-result v9
-
-    add-int/lit8 v9, v9, 0x0
-
-    aget-object v6, v8, v9
-
-    goto :goto_3
-
-    :sswitch_1
-    const/4 v8, 0x5
-
-    invoke-virtual {p2, v8}, Ljava/util/Calendar;->get(I)I
-
-    move-result v8
-
-    invoke-static {v8, v1}, Landroid/text/format/DateFormat;->zeroPad(II)Ljava/lang/String;
-
-    move-result-object v6
-
-    goto :goto_3
-
-    :sswitch_2
-    const/4 v8, 0x7
-
-    invoke-virtual {p2, v8}, Ljava/util/Calendar;->get(I)I
-
-    move-result v8
-
-    invoke-static {v5, v8, v1, v0}, Landroid/text/format/DateFormat;->getDayOfWeekString(Llibcore/icu/LocaleData;III)Ljava/lang/String;
-
-    move-result-object v6
-
-    goto :goto_3
-
-    :sswitch_3
-    const/16 v8, 0xa
-
-    invoke-virtual {p2, v8}, Ljava/util/Calendar;->get(I)I
-
-    move-result v2
-
-    const/16 v8, 0x68
-
-    if-ne v0, v8, :cond_3
-
-    if-nez v2, :cond_3
-
-    const/16 v2, 0xc
-
-    :cond_3
-    invoke-static {v2, v1}, Landroid/text/format/DateFormat;->zeroPad(II)Ljava/lang/String;
-
-    move-result-object v6
-
-    goto :goto_3
-
-    :sswitch_4
-    const/16 v8, 0xb
-
-    invoke-virtual {p2, v8}, Ljava/util/Calendar;->get(I)I
-
-    move-result v2
-
-    invoke-static {v2, v1}, Landroid/text/format/DateFormat;->zeroPad(II)Ljava/lang/String;
-
-    move-result-object v6
-
-    goto :goto_3
-
-    :sswitch_5
-    const/4 v8, 0x2
-
-    invoke-virtual {p2, v8}, Ljava/util/Calendar;->get(I)I
-
-    move-result v8
-
-    invoke-static {v5, v8, v1, v0}, Landroid/text/format/DateFormat;->getMonthString(Llibcore/icu/LocaleData;III)Ljava/lang/String;
-
-    move-result-object v6
-
-    goto :goto_3
-
-    :sswitch_6
-    const/16 v8, 0xc
-
-    invoke-virtual {p2, v8}, Ljava/util/Calendar;->get(I)I
-
-    move-result v8
-
-    invoke-static {v8, v1}, Landroid/text/format/DateFormat;->zeroPad(II)Ljava/lang/String;
-
-    move-result-object v6
-
-    goto :goto_3
-
-    :sswitch_7
-    const/16 v8, 0xd
-
-    invoke-virtual {p2, v8}, Ljava/util/Calendar;->get(I)I
-
-    move-result v8
-
-    invoke-static {v8, v1}, Landroid/text/format/DateFormat;->zeroPad(II)Ljava/lang/String;
-
-    move-result-object v6
-
-    goto :goto_3
-
-    :sswitch_8
-    const/4 v8, 0x1
-
-    invoke-virtual {p2, v8}, Ljava/util/Calendar;->get(I)I
-
-    move-result v8
-
-    invoke-static {v8, v1}, Landroid/text/format/DateFormat;->getYearString(II)Ljava/lang/String;
-
-    move-result-object v6
-
-    goto :goto_3
-
-    :sswitch_9
-    invoke-static {p2, v1}, Landroid/text/format/DateFormat;->getTimeZoneString(Ljava/util/Calendar;I)Ljava/lang/String;
-
-    move-result-object v6
-
-    goto :goto_3
-
-    :cond_4
-    instance-of v8, p1, Landroid/text/Spanned;
-
-    if-eqz v8, :cond_5
-
-    new-instance v8, Landroid/text/SpannedString;
-
-    invoke-direct {v8, v7}, Landroid/text/SpannedString;-><init>(Ljava/lang/CharSequence;)V
-
-    return-object v8
-
-    :cond_5
-    invoke-virtual {v7}, Landroid/text/SpannableStringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    return-object v8
-
-    nop
-
-    :sswitch_data_0
-    .sparse-switch
-        0x41 -> :sswitch_0
-        0x45 -> :sswitch_2
-        0x48 -> :sswitch_4
-        0x4b -> :sswitch_3
-        0x4c -> :sswitch_5
-        0x4d -> :sswitch_5
-        0x61 -> :sswitch_0
-        0x63 -> :sswitch_2
-        0x64 -> :sswitch_1
-        0x68 -> :sswitch_3
-        0x6b -> :sswitch_4
-        0x6d -> :sswitch_6
-        0x73 -> :sswitch_7
-        0x79 -> :sswitch_8
-        0x7a -> :sswitch_9
-    .end sparse-switch
-.end method
-
 .method private static formatZoneOffset(II)Ljava/lang/String;
     .locals 6
 
@@ -1115,15 +846,15 @@
 
     const/16 v4, 0x10
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     invoke-virtual {p0}, Ljava/util/Calendar;->getTimeZone()Ljava/util/TimeZone;
 
     move-result-object v1
 
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
-    if-ge p1, v3, :cond_0
+    if-ge p1, v2, :cond_0
 
     invoke-virtual {p0, v4}, Ljava/util/Calendar;->get(I)I
 
@@ -1146,21 +877,21 @@
     :cond_0
     invoke-virtual {p0, v4}, Ljava/util/Calendar;->get(I)I
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     const/4 v0, 0x1
 
     :goto_0
-    invoke-virtual {v1, v0, v2}, Ljava/util/TimeZone;->getDisplayName(ZI)Ljava/lang/String;
+    invoke-virtual {v1, v0, v3}, Ljava/util/TimeZone;->getDisplayName(ZI)Ljava/lang/String;
 
     move-result-object v2
 
     return-object v2
 
     :cond_1
-    move v0, v2
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method

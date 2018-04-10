@@ -30,7 +30,7 @@
     return v0
 
     :cond_0
-    const v0, 0x10e0091
+    const v0, 0x10e00e6
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getInteger(I)I
 

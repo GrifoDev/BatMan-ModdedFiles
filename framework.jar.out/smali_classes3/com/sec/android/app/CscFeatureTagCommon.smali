@@ -32,9 +32,13 @@
 
 .field public static final TAG_CSCFEATURE_COMMON_CONFIGCOREAPPAGENT:Ljava/lang/String; = "CscFeature_Common_ConfigCoreAppAgent"
 
+.field public static final TAG_CSCFEATURE_COMMON_CONFIGDEFSPRBRAND:Ljava/lang/String; = "CscFeature_Common_ConfigDefSprBrand"
+
 .field public static final TAG_CSCFEATURE_COMMON_CONFIGDEVBRANDNAME:Ljava/lang/String; = "CscFeature_Common_ConfigDevBrandName"
 
 .field public static final TAG_CSCFEATURE_COMMON_CONFIGDUALAPPSLIST:Ljava/lang/String; = "CscFeature_Common_ConfigDualAppsList"
+
+.field public static final TAG_CSCFEATURE_COMMON_CONFIGDUALIMS:Ljava/lang/String; = "CscFeature_Common_ConfigDualIMS"
 
 .field public static final TAG_CSCFEATURE_COMMON_CONFIGEMERGENCYMODEPACKAGES:Ljava/lang/String; = "CscFeature_Common_ConfigEmergencyModePackages"
 
@@ -45,8 +49,6 @@
 .field public static final TAG_CSCFEATURE_COMMON_CONFIGMVNOBASENET:Ljava/lang/String; = "CscFeature_Common_ConfigMvnoBaseNet"
 
 .field public static final TAG_CSCFEATURE_COMMON_CONFIGNETWORKMODEDURINGEMERGENCY:Ljava/lang/String; = "CscFeature_Common_ConfigNetworkModeDuringEmergency"
-
-.field public static final TAG_CSCFEATURE_COMMON_CONFIGONCIRCLE:Ljava/lang/String; = "CscFeature_Common_ConfigOnCircle"
 
 .field public static final TAG_CSCFEATURE_COMMON_CONFIGONESKUVARIANT:Ljava/lang/String; = "CscFeature_Common_ConfigOneSkuVariant"
 
@@ -97,6 +99,8 @@
 .field public static final TAG_CSCFEATURE_COMMON_DISABLEMANUALTIMEGUIDEPOPUP:Ljava/lang/String; = "CscFeature_Common_DisableManualTimeGuidePopup"
 
 .field public static final TAG_CSCFEATURE_COMMON_DISABLEMENU4GALSEARCH:Ljava/lang/String; = "CscFeature_Common_DisableMenu4GalSearch"
+
+.field public static final TAG_CSCFEATURE_COMMON_DISABLEMESSAGEPACKAGE:Ljava/lang/String; = "CscFeature_Common_DisableMessagePackage"
 
 .field public static final TAG_CSCFEATURE_COMMON_DISABLENFCHWKEYPAD:Ljava/lang/String; = "CscFeature_Common_DisableNfcHwKeypad"
 
@@ -158,9 +162,9 @@
 
 .field public static final TAG_CSCFEATURE_COMMON_REPLACESTRINGWIFI:Ljava/lang/String; = "CscFeature_Common_ReplaceStringWifi"
 
-.field public static final TAG_CSCFEATURE_COMMON_SUPPORTACTIVATIONDATE:Ljava/lang/String; = "CscFeature_Common_SupportActivationDate"
+.field public static final TAG_CSCFEATURE_COMMON_SUPPORTACCESSSTEERING:Ljava/lang/String; = "CscFeature_Common_SupportAccessSteering"
 
-.field public static final TAG_CSCFEATURE_COMMON_SUPPORTBATTERYCONVERSING:Ljava/lang/String; = "CscFeature_Common_SupportBatteryConversing"
+.field public static final TAG_CSCFEATURE_COMMON_SUPPORTACTIVATIONDATE:Ljava/lang/String; = "CscFeature_Common_SupportActivationDate"
 
 .field public static final TAG_CSCFEATURE_COMMON_SUPPORTCALLPLUS:Ljava/lang/String; = "CscFeature_Common_SupportCallPlus"
 
@@ -177,8 +181,6 @@
 .field public static final TAG_CSCFEATURE_COMMON_SUPPORTDUALNUMBERSERVICE:Ljava/lang/String; = "CscFeature_Common_SupportDualNumberService"
 
 .field public static final TAG_CSCFEATURE_COMMON_SUPPORTECHOLOCATE:Ljava/lang/String; = "CscFeature_Common_SupportEchoLocate"
-
-.field public static final TAG_CSCFEATURE_COMMON_SUPPORTFESTIVAL:Ljava/lang/String; = "CscFeature_Common_SupportFestival"
 
 .field public static final TAG_CSCFEATURE_COMMON_SUPPORTGMSALARMMANAGER:Ljava/lang/String; = "CscFeature_Common_SupportGmsAlarmManager"
 
@@ -228,7 +230,11 @@
 
 .field public static final TAG_CSCFEATURE_COMMON_SUPPORTSECWFC:Ljava/lang/String; = "CscFeature_Common_SupportSecWFC"
 
+.field public static final TAG_CSCFEATURE_COMMON_SUPPORTSMARTGLOW:Ljava/lang/String; = "CscFeature_Common_SupportSmartGlow"
+
 .field public static final TAG_CSCFEATURE_COMMON_SUPPORTTFNHUXPCO:Ljava/lang/String; = "CscFeature_Common_SupportTfnHuxPco"
+
+.field public static final TAG_CSCFEATURE_COMMON_SUPPORTTIANYICLOUD:Ljava/lang/String; = "CscFeature_Common_SupportTianYiCloud"
 
 .field public static final TAG_CSCFEATURE_COMMON_SUPPORTTRIBAND:Ljava/lang/String; = "CscFeature_Common_SupportTriband"
 

@@ -40,339 +40,366 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 8
+    .locals 13
 
-    const/high16 v7, 0x40000000    # 2.0f
+    const/high16 v10, 0x40000000    # 2.0f
 
-    const v6, 0x3f2b851f    # 0.67f
+    const v12, 0x3f2b851f    # 0.67f
 
-    const/4 v5, 0x1
+    const/4 v9, 0x1
 
-    const/4 v4, 0x0
+    const/4 v11, 0x0
 
-    iget-object v0, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+    iget-object v7, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
 
-    iget-object v0, v0, Landroid/widget/TextView$MagnifierView;->builder:Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;
+    iget-object v7, v7, Landroid/widget/TextView$MagnifierView;->builder:Landroid/view/SurfaceEffects$Effect$Builder;
 
-    invoke-virtual {v0}, Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;->clearAnimations()V
+    invoke-virtual {v7}, Landroid/view/SurfaceEffects$Effect$Builder;->getPixelAnimationVector()Ljava/util/Vector;
 
-    iget-object v0, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+    move-result-object v7
 
-    iget-object v0, v0, Landroid/widget/TextView$MagnifierView;->builder:Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;
+    invoke-virtual {v7}, Ljava/util/Vector;->clear()V
 
-    sget-object v1, Landroid/widget/TextView$SFEffectsAPI$AnimParam;->kAnimRegionPosX:Landroid/widget/TextView$SFEffectsAPI$AnimParam;
+    iget-object v7, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
 
-    iget-object v2, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+    invoke-static {v7}, Landroid/widget/TextView$MagnifierView;->-get6(Landroid/widget/TextView$MagnifierView;)I
 
-    invoke-static {v2}, Landroid/widget/TextView$MagnifierView;->-get12(Landroid/widget/TextView$MagnifierView;)F
+    move-result v7
 
-    move-result v2
+    int-to-float v7, v7
 
-    iget-object v3, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+    iget-object v8, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
 
-    invoke-static {v3}, Landroid/widget/TextView$MagnifierView;->-get16(Landroid/widget/TextView$MagnifierView;)[F
+    invoke-static {v8}, Landroid/widget/TextView$MagnifierView;->-get10(Landroid/widget/TextView$MagnifierView;)[F
 
-    move-result-object v3
+    move-result-object v8
 
-    aget v3, v3, v4
+    aget v8, v8, v11
 
-    sub-float/2addr v2, v3
+    sub-float/2addr v7, v8
 
-    iget-object v3, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+    iget-object v8, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
 
-    invoke-static {v3}, Landroid/widget/TextView$MagnifierView;->-get15(Landroid/widget/TextView$MagnifierView;)Landroid/graphics/PointF;
+    invoke-static {v8}, Landroid/widget/TextView$MagnifierView;->-get9(Landroid/widget/TextView$MagnifierView;)Landroid/graphics/PointF;
 
-    move-result-object v3
+    move-result-object v8
 
-    iget v3, v3, Landroid/graphics/PointF;->x:F
+    iget v8, v8, Landroid/graphics/PointF;->x:F
 
-    add-float/2addr v2, v3
+    add-float/2addr v7, v8
 
-    iget-object v3, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+    iget-object v8, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
 
-    invoke-static {v3}, Landroid/widget/TextView$MagnifierView;->-get6(Landroid/widget/TextView$MagnifierView;)F
+    invoke-static {v8}, Landroid/widget/TextView$MagnifierView;->-get4(Landroid/widget/TextView$MagnifierView;)F
 
-    move-result v3
+    move-result v8
 
-    mul-float/2addr v2, v3
+    mul-float/2addr v7, v8
 
-    iget-object v3, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+    iget-object v8, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
 
-    invoke-static {v3}, Landroid/widget/TextView$MagnifierView;->-get5(Landroid/widget/TextView$MagnifierView;)[I
+    invoke-static {v8}, Landroid/widget/TextView$MagnifierView;->-get3(Landroid/widget/TextView$MagnifierView;)[I
 
-    move-result-object v3
+    move-result-object v8
 
-    aget v3, v3, v4
+    aget v8, v8, v11
 
-    int-to-float v3, v3
+    int-to-float v8, v8
 
-    add-float/2addr v2, v3
+    add-float v4, v7, v8
 
-    sget-object v3, Landroid/widget/TextView$SFEffectsAPI$InterpMode;->kInterpHold:Landroid/widget/TextView$SFEffectsAPI$InterpMode;
+    iget-object v7, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
 
-    invoke-virtual {v0, v1, v4, v2, v3}, Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;->addPixAnimation(Landroid/widget/TextView$SFEffectsAPI$AnimParam;IFLandroid/widget/TextView$SFEffectsAPI$InterpMode;)Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;
+    invoke-static {v7}, Landroid/widget/TextView$MagnifierView;->-get7(Landroid/widget/TextView$MagnifierView;)I
+
+    move-result v7
+
+    int-to-float v7, v7
+
+    iget-object v8, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+
+    invoke-static {v8}, Landroid/widget/TextView$MagnifierView;->-get10(Landroid/widget/TextView$MagnifierView;)[F
+
+    move-result-object v8
+
+    aget v8, v8, v9
+
+    add-float/2addr v7, v8
+
+    iget-object v8, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+
+    invoke-static {v8}, Landroid/widget/TextView$MagnifierView;->-get9(Landroid/widget/TextView$MagnifierView;)Landroid/graphics/PointF;
+
+    move-result-object v8
+
+    iget v8, v8, Landroid/graphics/PointF;->y:F
+
+    add-float/2addr v7, v8
+
+    iget-object v8, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+
+    invoke-static {v8}, Landroid/widget/TextView$MagnifierView;->-get11(Landroid/widget/TextView$MagnifierView;)I
+
+    move-result v8
+
+    int-to-float v8, v8
+
+    sub-float/2addr v7, v8
+
+    iget-object v8, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+
+    invoke-static {v8}, Landroid/widget/TextView$MagnifierView;->-get5(Landroid/widget/TextView$MagnifierView;)I
+
+    move-result v8
+
+    int-to-float v8, v8
+
+    div-float/2addr v8, v10
+
+    sub-float/2addr v7, v8
+
+    iget-object v8, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+
+    invoke-static {v8}, Landroid/widget/TextView$MagnifierView;->-get4(Landroid/widget/TextView$MagnifierView;)F
+
+    move-result v8
+
+    mul-float/2addr v7, v8
+
+    iget-object v8, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+
+    invoke-static {v8}, Landroid/widget/TextView$MagnifierView;->-get3(Landroid/widget/TextView$MagnifierView;)[I
+
+    move-result-object v8
+
+    aget v8, v8, v9
+
+    int-to-float v8, v8
+
+    add-float v5, v7, v8
+
+    iget-object v7, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+
+    invoke-static {v7}, Landroid/widget/TextView$MagnifierView;->-get10(Landroid/widget/TextView$MagnifierView;)[F
+
+    move-result-object v7
+
+    aget v7, v7, v11
+
+    iget-object v8, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+
+    invoke-static {v8}, Landroid/widget/TextView$MagnifierView;->-get8(Landroid/widget/TextView$MagnifierView;)[F
+
+    move-result-object v8
+
+    aget v8, v8, v11
+
+    add-float/2addr v7, v8
+
+    iget-object v8, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+
+    invoke-static {v8}, Landroid/widget/TextView$MagnifierView;->-get4(Landroid/widget/TextView$MagnifierView;)F
+
+    move-result v8
+
+    mul-float v2, v7, v8
+
+    iget-object v7, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+
+    invoke-static {v7}, Landroid/widget/TextView$MagnifierView;->-get11(Landroid/widget/TextView$MagnifierView;)I
+
+    move-result v7
+
+    neg-int v7, v7
+
+    int-to-float v7, v7
+
+    iget-object v8, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+
+    invoke-static {v8}, Landroid/widget/TextView$MagnifierView;->-get5(Landroid/widget/TextView$MagnifierView;)I
+
+    move-result v8
+
+    int-to-float v8, v8
+
+    div-float/2addr v8, v10
+
+    sub-float/2addr v7, v8
+
+    iget-object v8, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+
+    invoke-static {v8}, Landroid/widget/TextView$MagnifierView;->-get10(Landroid/widget/TextView$MagnifierView;)[F
+
+    move-result-object v8
+
+    aget v8, v8, v9
+
+    add-float/2addr v7, v8
+
+    iget-object v8, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+
+    invoke-static {v8}, Landroid/widget/TextView$MagnifierView;->-get8(Landroid/widget/TextView$MagnifierView;)[F
+
+    move-result-object v8
+
+    aget v8, v8, v9
+
+    add-float/2addr v7, v8
+
+    iget-object v8, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+
+    invoke-static {v8}, Landroid/widget/TextView$MagnifierView;->-get4(Landroid/widget/TextView$MagnifierView;)F
+
+    move-result v8
+
+    mul-float v3, v7, v8
+
+    iget-object v7, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+
+    iget-object v7, v7, Landroid/widget/TextView$MagnifierView;->builder:Landroid/view/SurfaceEffects$Effect$Builder;
+
+    sget-object v8, Landroid/view/SurfaceEffects$AnimParam;->REGION_POS_X:Landroid/view/SurfaceEffects$AnimParam;
+
+    sget-object v9, Landroid/view/SurfaceEffects$InterpMode;->HOLD:Landroid/view/SurfaceEffects$InterpMode;
+
+    invoke-virtual {v7, v8, v11, v4, v9}, Landroid/view/SurfaceEffects$Effect$Builder;->addPixAnimation(Landroid/view/SurfaceEffects$AnimParam;IFLandroid/view/SurfaceEffects$InterpMode;)Landroid/view/SurfaceEffects$Effect$Builder;
+
+    move-result-object v7
+
+    sget-object v8, Landroid/view/SurfaceEffects$AnimParam;->REGION_POS_Y:Landroid/view/SurfaceEffects$AnimParam;
+
+    sget-object v9, Landroid/view/SurfaceEffects$InterpMode;->HOLD:Landroid/view/SurfaceEffects$InterpMode;
+
+    invoke-virtual {v7, v8, v11, v5, v9}, Landroid/view/SurfaceEffects$Effect$Builder;->addPixAnimation(Landroid/view/SurfaceEffects$AnimParam;IFLandroid/view/SurfaceEffects$InterpMode;)Landroid/view/SurfaceEffects$Effect$Builder;
+
+    move-result-object v7
+
+    sget-object v8, Landroid/view/SurfaceEffects$AnimParam;->REGION_OFFSET_X:Landroid/view/SurfaceEffects$AnimParam;
+
+    sget-object v9, Landroid/view/SurfaceEffects$InterpMode;->HOLD:Landroid/view/SurfaceEffects$InterpMode;
+
+    invoke-virtual {v7, v8, v11, v2, v9}, Landroid/view/SurfaceEffects$Effect$Builder;->addPixAnimation(Landroid/view/SurfaceEffects$AnimParam;IFLandroid/view/SurfaceEffects$InterpMode;)Landroid/view/SurfaceEffects$Effect$Builder;
+
+    move-result-object v7
+
+    sget-object v8, Landroid/view/SurfaceEffects$AnimParam;->REGION_OFFSET_Y:Landroid/view/SurfaceEffects$AnimParam;
+
+    sget-object v9, Landroid/view/SurfaceEffects$InterpMode;->HOLD:Landroid/view/SurfaceEffects$InterpMode;
+
+    invoke-virtual {v7, v8, v11, v3, v9}, Landroid/view/SurfaceEffects$Effect$Builder;->addPixAnimation(Landroid/view/SurfaceEffects$AnimParam;IFLandroid/view/SurfaceEffects$InterpMode;)Landroid/view/SurfaceEffects$Effect$Builder;
+
+    move-result-object v7
+
+    sget-object v8, Landroid/view/SurfaceEffects$AnimParam;->REGION_SIZE_X:Landroid/view/SurfaceEffects$AnimParam;
+
+    iget-object v9, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+
+    invoke-static {v9}, Landroid/widget/TextView$MagnifierView;->-get0(Landroid/widget/TextView$MagnifierView;)I
+
+    move-result v9
+
+    int-to-float v9, v9
+
+    sget-object v10, Landroid/view/SurfaceEffects$InterpMode;->HOLD:Landroid/view/SurfaceEffects$InterpMode;
+
+    invoke-virtual {v7, v8, v11, v9, v10}, Landroid/view/SurfaceEffects$Effect$Builder;->addPixAnimation(Landroid/view/SurfaceEffects$AnimParam;IFLandroid/view/SurfaceEffects$InterpMode;)Landroid/view/SurfaceEffects$Effect$Builder;
+
+    move-result-object v7
+
+    sget-object v8, Landroid/view/SurfaceEffects$AnimParam;->REGION_SIZE_Y:Landroid/view/SurfaceEffects$AnimParam;
+
+    iget-object v9, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+
+    invoke-static {v9}, Landroid/widget/TextView$MagnifierView;->-get1(Landroid/widget/TextView$MagnifierView;)I
+
+    move-result v9
+
+    int-to-float v9, v9
+
+    sget-object v10, Landroid/view/SurfaceEffects$InterpMode;->HOLD:Landroid/view/SurfaceEffects$InterpMode;
+
+    invoke-virtual {v7, v8, v11, v9, v10}, Landroid/view/SurfaceEffects$Effect$Builder;->addPixAnimation(Landroid/view/SurfaceEffects$AnimParam;IFLandroid/view/SurfaceEffects$InterpMode;)Landroid/view/SurfaceEffects$Effect$Builder;
+
+    move-result-object v7
+
+    sget-object v8, Landroid/view/SurfaceEffects$AnimParam;->REGION_FACTOR_X:Landroid/view/SurfaceEffects$AnimParam;
+
+    sget-object v9, Landroid/view/SurfaceEffects$InterpMode;->HOLD:Landroid/view/SurfaceEffects$InterpMode;
+
+    invoke-virtual {v7, v8, v11, v12, v9}, Landroid/view/SurfaceEffects$Effect$Builder;->addPixAnimation(Landroid/view/SurfaceEffects$AnimParam;IFLandroid/view/SurfaceEffects$InterpMode;)Landroid/view/SurfaceEffects$Effect$Builder;
+
+    move-result-object v7
+
+    sget-object v8, Landroid/view/SurfaceEffects$AnimParam;->REGION_FACTOR_Y:Landroid/view/SurfaceEffects$AnimParam;
+
+    sget-object v9, Landroid/view/SurfaceEffects$InterpMode;->HOLD:Landroid/view/SurfaceEffects$InterpMode;
+
+    invoke-virtual {v7, v8, v11, v12, v9}, Landroid/view/SurfaceEffects$Effect$Builder;->addPixAnimation(Landroid/view/SurfaceEffects$AnimParam;IFLandroid/view/SurfaceEffects$InterpMode;)Landroid/view/SurfaceEffects$Effect$Builder;
+
+    move-result-object v7
+
+    sget-object v8, Landroid/view/SurfaceEffects$AnimParam;->REGION_CORNER_SIZE:Landroid/view/SurfaceEffects$AnimParam;
+
+    iget-object v9, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+
+    invoke-static {v9}, Landroid/widget/TextView$MagnifierView;->-get2(Landroid/widget/TextView$MagnifierView;)I
+
+    move-result v9
+
+    int-to-float v9, v9
+
+    sget-object v10, Landroid/view/SurfaceEffects$InterpMode;->HOLD:Landroid/view/SurfaceEffects$InterpMode;
+
+    invoke-virtual {v7, v8, v11, v9, v10}, Landroid/view/SurfaceEffects$Effect$Builder;->addPixAnimation(Landroid/view/SurfaceEffects$AnimParam;IFLandroid/view/SurfaceEffects$InterpMode;)Landroid/view/SurfaceEffects$Effect$Builder;
+
+    iget-object v7, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+
+    iget-object v7, v7, Landroid/widget/TextView$MagnifierView;->builder:Landroid/view/SurfaceEffects$Effect$Builder;
+
+    invoke-virtual {v7}, Landroid/view/SurfaceEffects$Effect$Builder;->build()Landroid/view/SurfaceEffects$Effect;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Landroid/view/SurfaceEffects$Effect;->getBytes()[I
 
     move-result-object v0
 
-    sget-object v1, Landroid/widget/TextView$SFEffectsAPI$AnimParam;->kAnimRegionPosY:Landroid/widget/TextView$SFEffectsAPI$AnimParam;
+    :try_start_0
+    const-string/jumbo v7, "window"
 
-    iget-object v2, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+    invoke-static {v7}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    invoke-static {v2}, Landroid/widget/TextView$MagnifierView;->-get13(Landroid/widget/TextView$MagnifierView;)F
+    move-result-object v7
 
-    move-result v2
+    invoke-static {v7}, Landroid/view/IWindowManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/view/IWindowManager;
 
-    iget-object v3, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+    move-result-object v6
 
-    invoke-static {v3}, Landroid/widget/TextView$MagnifierView;->-get16(Landroid/widget/TextView$MagnifierView;)[F
+    iget-object v7, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
 
-    move-result-object v3
+    invoke-static {v7}, Landroid/widget/TextView$MagnifierView;->-get12(Landroid/widget/TextView$MagnifierView;)Landroid/view/View;
 
-    aget v3, v3, v5
+    move-result-object v7
 
-    add-float/2addr v2, v3
+    invoke-virtual {v7}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
 
-    iget-object v3, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
+    move-result-object v7
 
-    invoke-static {v3}, Landroid/widget/TextView$MagnifierView;->-get15(Landroid/widget/TextView$MagnifierView;)Landroid/graphics/PointF;
+    invoke-interface {v6, v7, v0}, Landroid/view/IWindowManager;->startSurfaceAnimation(Landroid/os/IBinder;[I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v3
-
-    iget v3, v3, Landroid/graphics/PointF;->y:F
-
-    add-float/2addr v2, v3
-
-    iget-object v3, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
-
-    invoke-static {v3}, Landroid/widget/TextView$MagnifierView;->-get18(Landroid/widget/TextView$MagnifierView;)I
-
-    move-result v3
-
-    int-to-float v3, v3
-
-    sub-float/2addr v2, v3
-
-    iget-object v3, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
-
-    invoke-static {v3}, Landroid/widget/TextView$MagnifierView;->-get8(Landroid/widget/TextView$MagnifierView;)I
-
-    move-result v3
-
-    int-to-float v3, v3
-
-    div-float/2addr v3, v7
-
-    sub-float/2addr v2, v3
-
-    iget-object v3, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
-
-    invoke-static {v3}, Landroid/widget/TextView$MagnifierView;->-get6(Landroid/widget/TextView$MagnifierView;)F
-
-    move-result v3
-
-    mul-float/2addr v2, v3
-
-    iget-object v3, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
-
-    invoke-static {v3}, Landroid/widget/TextView$MagnifierView;->-get5(Landroid/widget/TextView$MagnifierView;)[I
-
-    move-result-object v3
-
-    aget v3, v3, v5
-
-    int-to-float v3, v3
-
-    add-float/2addr v2, v3
-
-    sget-object v3, Landroid/widget/TextView$SFEffectsAPI$InterpMode;->kInterpHold:Landroid/widget/TextView$SFEffectsAPI$InterpMode;
-
-    invoke-virtual {v0, v1, v4, v2, v3}, Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;->addPixAnimation(Landroid/widget/TextView$SFEffectsAPI$AnimParam;IFLandroid/widget/TextView$SFEffectsAPI$InterpMode;)Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;
-
-    move-result-object v0
-
-    sget-object v1, Landroid/widget/TextView$SFEffectsAPI$AnimParam;->kAnimRegionSizeX:Landroid/widget/TextView$SFEffectsAPI$AnimParam;
-
-    iget-object v2, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
-
-    invoke-static {v2}, Landroid/widget/TextView$MagnifierView;->-get0(Landroid/widget/TextView$MagnifierView;)I
-
-    move-result v2
-
-    int-to-float v2, v2
-
-    sget-object v3, Landroid/widget/TextView$SFEffectsAPI$InterpMode;->kInterpHold:Landroid/widget/TextView$SFEffectsAPI$InterpMode;
-
-    invoke-virtual {v0, v1, v4, v2, v3}, Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;->addPixAnimation(Landroid/widget/TextView$SFEffectsAPI$AnimParam;IFLandroid/widget/TextView$SFEffectsAPI$InterpMode;)Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;
-
-    move-result-object v0
-
-    sget-object v1, Landroid/widget/TextView$SFEffectsAPI$AnimParam;->kAnimRegionSizeY:Landroid/widget/TextView$SFEffectsAPI$AnimParam;
-
-    iget-object v2, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
-
-    invoke-static {v2}, Landroid/widget/TextView$MagnifierView;->-get1(Landroid/widget/TextView$MagnifierView;)I
-
-    move-result v2
-
-    int-to-float v2, v2
-
-    sget-object v3, Landroid/widget/TextView$SFEffectsAPI$InterpMode;->kInterpHold:Landroid/widget/TextView$SFEffectsAPI$InterpMode;
-
-    invoke-virtual {v0, v1, v4, v2, v3}, Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;->addPixAnimation(Landroid/widget/TextView$SFEffectsAPI$AnimParam;IFLandroid/widget/TextView$SFEffectsAPI$InterpMode;)Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;
-
-    move-result-object v0
-
-    sget-object v1, Landroid/widget/TextView$SFEffectsAPI$AnimParam;->kAnimRegionFactorX:Landroid/widget/TextView$SFEffectsAPI$AnimParam;
-
-    sget-object v2, Landroid/widget/TextView$SFEffectsAPI$InterpMode;->kInterpHold:Landroid/widget/TextView$SFEffectsAPI$InterpMode;
-
-    invoke-virtual {v0, v1, v4, v6, v2}, Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;->addPixAnimation(Landroid/widget/TextView$SFEffectsAPI$AnimParam;IFLandroid/widget/TextView$SFEffectsAPI$InterpMode;)Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;
-
-    move-result-object v0
-
-    sget-object v1, Landroid/widget/TextView$SFEffectsAPI$AnimParam;->kAnimRegionFactorY:Landroid/widget/TextView$SFEffectsAPI$AnimParam;
-
-    sget-object v2, Landroid/widget/TextView$SFEffectsAPI$InterpMode;->kInterpHold:Landroid/widget/TextView$SFEffectsAPI$InterpMode;
-
-    invoke-virtual {v0, v1, v4, v6, v2}, Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;->addPixAnimation(Landroid/widget/TextView$SFEffectsAPI$AnimParam;IFLandroid/widget/TextView$SFEffectsAPI$InterpMode;)Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;
-
-    move-result-object v0
-
-    sget-object v1, Landroid/widget/TextView$SFEffectsAPI$AnimParam;->kAnimRegionOffsetX:Landroid/widget/TextView$SFEffectsAPI$AnimParam;
-
-    iget-object v2, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
-
-    invoke-static {v2}, Landroid/widget/TextView$MagnifierView;->-get16(Landroid/widget/TextView$MagnifierView;)[F
-
-    move-result-object v2
-
-    aget v2, v2, v4
-
-    iget-object v3, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
-
-    invoke-static {v3}, Landroid/widget/TextView$MagnifierView;->-get14(Landroid/widget/TextView$MagnifierView;)[F
-
-    move-result-object v3
-
-    aget v3, v3, v4
-
-    add-float/2addr v2, v3
-
-    iget-object v3, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
-
-    invoke-static {v3}, Landroid/widget/TextView$MagnifierView;->-get6(Landroid/widget/TextView$MagnifierView;)F
-
-    move-result v3
-
-    mul-float/2addr v2, v3
-
-    sget-object v3, Landroid/widget/TextView$SFEffectsAPI$InterpMode;->kInterpHold:Landroid/widget/TextView$SFEffectsAPI$InterpMode;
-
-    invoke-virtual {v0, v1, v4, v2, v3}, Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;->addPixAnimation(Landroid/widget/TextView$SFEffectsAPI$AnimParam;IFLandroid/widget/TextView$SFEffectsAPI$InterpMode;)Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;
-
-    move-result-object v0
-
-    sget-object v1, Landroid/widget/TextView$SFEffectsAPI$AnimParam;->kAnimRegionOffsetY:Landroid/widget/TextView$SFEffectsAPI$AnimParam;
-
-    iget-object v2, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
-
-    invoke-static {v2}, Landroid/widget/TextView$MagnifierView;->-get18(Landroid/widget/TextView$MagnifierView;)I
-
-    move-result v2
-
-    neg-int v2, v2
-
-    int-to-float v2, v2
-
-    iget-object v3, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
-
-    invoke-static {v3}, Landroid/widget/TextView$MagnifierView;->-get8(Landroid/widget/TextView$MagnifierView;)I
-
-    move-result v3
-
-    int-to-float v3, v3
-
-    div-float/2addr v3, v7
-
-    sub-float/2addr v2, v3
-
-    iget-object v3, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
-
-    invoke-static {v3}, Landroid/widget/TextView$MagnifierView;->-get16(Landroid/widget/TextView$MagnifierView;)[F
-
-    move-result-object v3
-
-    aget v3, v3, v5
-
-    add-float/2addr v2, v3
-
-    iget-object v3, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
-
-    invoke-static {v3}, Landroid/widget/TextView$MagnifierView;->-get14(Landroid/widget/TextView$MagnifierView;)[F
-
-    move-result-object v3
-
-    aget v3, v3, v5
-
-    add-float/2addr v2, v3
-
-    iget-object v3, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
-
-    invoke-static {v3}, Landroid/widget/TextView$MagnifierView;->-get6(Landroid/widget/TextView$MagnifierView;)F
-
-    move-result v3
-
-    mul-float/2addr v2, v3
-
-    sget-object v3, Landroid/widget/TextView$SFEffectsAPI$InterpMode;->kInterpHold:Landroid/widget/TextView$SFEffectsAPI$InterpMode;
-
-    invoke-virtual {v0, v1, v4, v2, v3}, Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;->addPixAnimation(Landroid/widget/TextView$SFEffectsAPI$AnimParam;IFLandroid/widget/TextView$SFEffectsAPI$InterpMode;)Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;
-
-    move-result-object v0
-
-    sget-object v1, Landroid/widget/TextView$SFEffectsAPI$AnimParam;->kAnimRegionSizeT:Landroid/widget/TextView$SFEffectsAPI$AnimParam;
-
-    iget-object v2, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
-
-    invoke-static {v2}, Landroid/widget/TextView$MagnifierView;->-get2(Landroid/widget/TextView$MagnifierView;)I
-
-    move-result v2
-
-    int-to-float v2, v2
-
-    sget-object v3, Landroid/widget/TextView$SFEffectsAPI$InterpMode;->kInterpHold:Landroid/widget/TextView$SFEffectsAPI$InterpMode;
-
-    invoke-virtual {v0, v1, v4, v2, v3}, Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;->addPixAnimation(Landroid/widget/TextView$SFEffectsAPI$AnimParam;IFLandroid/widget/TextView$SFEffectsAPI$InterpMode;)Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;
-
-    iget-object v0, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
-
-    iget-object v0, v0, Landroid/widget/TextView$MagnifierView;->builder:Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;
-
-    invoke-virtual {v0}, Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;->build()Landroid/widget/TextView$SFEffectsAPI$Effect;
-
-    move-result-object v0
-
-    iget-object v1, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
-
-    invoke-static {v1}, Landroid/widget/TextView$MagnifierView;->-get7(Landroid/widget/TextView$MagnifierView;)Landroid/content/Context;
-
-    move-result-object v1
-
-    iget-object v2, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
-
-    invoke-static {v2}, Landroid/widget/TextView$MagnifierView;->-get19(Landroid/widget/TextView$MagnifierView;)Landroid/view/View;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/widget/TextView$SFEffectsAPI$Effect;->start(Landroid/content/Context;Landroid/os/IBinder;)V
-
-    iget-object v0, p0, Landroid/widget/TextView$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/TextView$MagnifierView;
-
-    invoke-static {v0, v4}, Landroid/widget/TextView$MagnifierView;->-set0(Landroid/widget/TextView$MagnifierView;Z)Z
-
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v7, "TextView"
+
+    const-string/jumbo v8, "Unable to call startSurfaceAnimation"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method

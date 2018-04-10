@@ -74,10 +74,7 @@
     return-object v2
 .end method
 
-.method private static native setDriverPath(Ljava/lang/String;)V
-.end method
-
-.method public static setupGraphicsEnvironment(Landroid/content/Context;)V
+.method private static chooseDriver(Landroid/content/Context;)V
     .locals 10
 
     const-string/jumbo v7, "ro.gfx.driver.0"
@@ -111,6 +108,14 @@
     invoke-virtual {v1}, Landroid/content/pm/ApplicationInfo;->isSystemApp()Z
 
     move-result v7
+
+    if-eqz v7, :cond_3
+
+    invoke-virtual {v1}, Landroid/content/pm/ApplicationInfo;->isUpdatedSystemApp()Z
+
+    move-result v7
+
+    xor-int/lit8 v7, v7, 0x1
 
     if-eqz v7, :cond_3
 
@@ -173,6 +178,21 @@
     return-void
 
     :cond_4
+    iget v7, v2, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+
+    const/16 v8, 0x1a
+
+    if-ge v7, v8, :cond_5
+
+    const-string/jumbo v7, "GraphicsEnvironment"
+
+    const-string/jumbo v8, "updated driver package is not known to be compatible with O"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_5
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -206,6 +226,39 @@
     move-result-object v5
 
     invoke-static {v5}, Landroid/os/GraphicsEnvironment;->setDriverPath(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic lambda$-android_os_GraphicsEnvironment_1785()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Landroid/opengl/EGL14;->eglGetDisplay(I)Landroid/opengl/EGLDisplay;
+
+    return-void
+.end method
+
+.method private static native setDriverPath(Ljava/lang/String;)V
+.end method
+
+.method public static setupGraphicsEnvironment(Landroid/content/Context;)V
+    .locals 3
+
+    invoke-static {p0}, Landroid/os/GraphicsEnvironment;->chooseDriver(Landroid/content/Context;)V
+
+    new-instance v0, Ljava/lang/Thread;
+
+    new-instance v1, Landroid/os/-$Lambda$6x30vPJhBKUfNY8tswxuZo3DCe0;
+
+    invoke-direct {v1}, Landroid/os/-$Lambda$6x30vPJhBKUfNY8tswxuZo3DCe0;-><init>()V
+
+    const-string/jumbo v2, "EGL Init"
+
+    invoke-direct {v0, v1, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
     return-void
 .end method

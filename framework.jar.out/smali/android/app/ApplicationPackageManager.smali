@@ -17,23 +17,33 @@
 
 
 # static fields
+.field private static final CONFIG_SMART_APPICON_SCALER:I
+
+.field public static final CORP_BADGE_LABEL_RES_ID:[I
+
+.field private static final DEBUG_FIXED_SCALE:Z = true
+
 .field private static final DEBUG_ICONS:Z = false
 
 .field private static final DEFAULT_EPHEMERAL_COOKIE_MAX_SIZE_BYTES:I = 0x4000
 
 .field private static final DEFAULT_THEME_APPICON_SCALE:F = 0.72f
 
+.field private static final DISABLE_APPICON_CROP:Z
+
 .field public static final ICON_UNIFY_THEME_PKG_LIST:[Ljava/lang/String;
+
+.field private static final METADATA_FIXED_ICON_SCALE:Ljava/lang/String; = "FixedIconScale"
 
 .field private static final OPEN_THEME_APPICON_SCALE:F = 0.7f
 
-.field private static final SCafeVersion:Ljava/lang/String;
+.field private static final SUPPORT_ONEDOT_CONCEPT:I = 0x3
+
+.field private static final SUPPORT_SQUIRCLE_CONCEPT:I = 0x2
+
+.field private static final SUPPORT_THEME_APPICON_UNIFY:Z
 
 .field private static final TAG:Ljava/lang/String; = "ApplicationPackageManager"
-
-.field private static final configSmartAppIconScaler:I
-
-.field private static final disableAppIconCrop:Z
 
 .field private static final judgePoint:[[I
 
@@ -103,13 +113,13 @@
 
 .field private static final sSync:Ljava/lang/Object;
 
-.field private static final supportSmartIconUnify:Z
-
 
 # instance fields
-.field private appIconPackageName:Ljava/lang/String;
+.field private mAppIconPackageName:Ljava/lang/String;
 
-.field private applyIconUnifyFeature:I
+.field mApplicationPolicy:Landroid/sec/enterprise/ApplicationPolicy;
+
+.field private mApplyIconUnifyFeature:I
 
 .field volatile mCachedSafeMode:I
 
@@ -140,6 +150,12 @@
 
 .field private final mLock:Ljava/lang/Object;
 
+.field private mOpenThemeAppIconMask:Z
+
+.field private mOpenThemeAppIconRange:I
+
+.field private mOpenThemeAppIconScale:F
+
 .field private final mPM:Landroid/content/pm/IPackageManager;
 
 .field private mPaint:Landroid/graphics/Paint;
@@ -164,7 +180,7 @@
     .end annotation
 .end field
 
-.field private mPersona:Lcom/samsung/android/knox/SemPersonaManager;
+.field private mPkgNameForBadgeIcon:Ljava/lang/String;
 
 .field private mResources:Landroid/content/res/Resources;
 
@@ -172,24 +188,18 @@
 
 .field private mSettingStatusForIconTray:Z
 
-.field private mTargetAppIconSize:I
-
 .field private mUserManager:Landroid/os/UserManager;
     .annotation build Lcom/android/internal/annotations/GuardedBy;
         value = "mLock"
     .end annotation
 .end field
 
-.field private openThemeAppIconRange:I
-
-.field private openThemeAppIconScale:F
-
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 8
 
-    const/4 v7, 0x4
+    const/4 v7, 0x2
 
     const/4 v6, 0x5
 
@@ -198,14 +208,6 @@
     const/4 v4, 0x0
 
     const/4 v3, 0x1
-
-    const-string/jumbo v0, "ro.build.scafe.version"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Landroid/app/ApplicationPackageManager;->SCafeVersion:Ljava/lang/String;
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
@@ -217,7 +219,7 @@
 
     move-result v0
 
-    sput-boolean v0, Landroid/app/ApplicationPackageManager;->supportSmartIconUnify:Z
+    sput-boolean v0, Landroid/app/ApplicationPackageManager;->SUPPORT_THEME_APPICON_UNIFY:Z
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
@@ -229,7 +231,7 @@
 
     move-result v0
 
-    sput-boolean v0, Landroid/app/ApplicationPackageManager;->disableAppIconCrop:Z
+    sput-boolean v0, Landroid/app/ApplicationPackageManager;->DISABLE_APPICON_CROP:Z
 
     const-string/jumbo v0, "3"
 
@@ -241,7 +243,7 @@
 
     move-result v0
 
-    sput v0, Landroid/app/ApplicationPackageManager;->configSmartAppIconScaler:I
+    sput v0, Landroid/app/ApplicationPackageManager;->CONFIG_SMART_APPICON_SCALER:I
 
     new-array v0, v6, [Ljava/lang/String;
 
@@ -255,9 +257,7 @@
 
     const-string/jumbo v1, "com.samsung.tungsten_pink.appicon"
 
-    const/4 v2, 0x2
-
-    aput-object v1, v0, v2
+    aput-object v1, v0, v7
 
     const-string/jumbo v1, "com.samsung.tungsten_black.appicon"
 
@@ -267,7 +267,9 @@
 
     const-string/jumbo v1, "com.samsung.colorful_indie.appicon"
 
-    aput-object v1, v0, v7
+    const/4 v2, 0x4
+
+    aput-object v1, v0, v2
 
     sput-object v0, Landroid/app/ApplicationPackageManager;->ICON_UNIFY_THEME_PKG_LIST:[Ljava/lang/String;
 
@@ -291,7 +293,21 @@
 
     sput-object v0, Landroid/app/ApplicationPackageManager;->mCanvasPool:Landroid/app/ApplicationPackageManager$CanvasPool;
 
-    new-array v0, v7, [[I
+    const v0, 0x10404e6
+
+    const v1, 0x10404e7
+
+    const v2, 0x10404e8
+
+    filled-new-array {v0, v1, v2}, [I
+
+    move-result-object v0
+
+    sput-object v0, Landroid/app/ApplicationPackageManager;->CORP_BADGE_LABEL_RES_ID:[I
+
+    const/4 v0, 0x4
+
+    new-array v0, v0, [[I
 
     filled-new-array {v3, v4}, [I
 
@@ -311,9 +327,7 @@
 
     move-result-object v1
 
-    const/4 v2, 0x2
-
-    aput-object v1, v0, v2
+    aput-object v1, v0, v7
 
     const/4 v1, -0x1
 
@@ -327,7 +341,9 @@
 
     sput-object v0, Landroid/app/ApplicationPackageManager;->progress:[[I
 
-    new-array v0, v7, [[I
+    const/4 v0, 0x4
+
+    new-array v0, v0, [[I
 
     filled-new-array {v3, v3}, [I
 
@@ -351,9 +367,7 @@
 
     move-result-object v1
 
-    const/4 v2, 0x2
-
-    aput-object v1, v0, v2
+    aput-object v1, v0, v7
 
     const/4 v1, -0x1
 
@@ -395,9 +409,7 @@
 
     move-result-object v1
 
-    const/4 v2, 0x2
-
-    aput-object v1, v0, v2
+    aput-object v1, v0, v7
 
     const/16 v1, 0xba
 
@@ -417,7 +429,9 @@
 
     move-result-object v1
 
-    aput-object v1, v0, v7
+    const/4 v2, 0x4
+
+    aput-object v1, v0, v2
 
     const/16 v1, 0xba
 
@@ -455,7 +469,7 @@
 
     const/16 v1, 0x15
 
-    const/16 v2, 0x1e
+    const/16 v2, 0x1c
 
     filled-new-array {v1, v2}, [I
 
@@ -471,19 +485,17 @@
 
     const/16 v1, 0xab
 
-    const/16 v2, 0x1e
+    const/16 v2, 0x1c
 
     filled-new-array {v1, v2}, [I
 
     move-result-object v1
 
-    const/4 v2, 0x2
+    aput-object v1, v0, v7
 
-    aput-object v1, v0, v2
+    const/16 v1, 0xbc
 
-    const/16 v1, 0xba
-
-    const/16 v2, 0x5c
+    const/16 v2, 0x5e
 
     filled-new-array {v1, v2}, [I
 
@@ -495,15 +507,17 @@
 
     const/16 v1, 0xab
 
-    const/16 v2, 0x9c
+    const/16 v2, 0xa4
 
     filled-new-array {v1, v2}, [I
 
     move-result-object v1
 
-    aput-object v1, v0, v7
+    const/4 v2, 0x4
 
-    const/16 v1, 0xb7
+    aput-object v1, v0, v2
+
+    const/16 v1, 0xbb
 
     filled-new-array {v5, v1}, [I
 
@@ -511,9 +525,9 @@
 
     aput-object v1, v0, v6
 
-    const/16 v1, 0x14
+    const/16 v1, 0x15
 
-    const/16 v2, 0x9c
+    const/16 v2, 0xa4
 
     filled-new-array {v1, v2}, [I
 
@@ -523,9 +537,9 @@
 
     aput-object v1, v0, v2
 
-    const/4 v1, 0x6
+    const/4 v1, 0x4
 
-    const/16 v2, 0x5c
+    const/16 v2, 0x5e
 
     filled-new-array {v1, v2}, [I
 
@@ -565,9 +579,7 @@
 
     move-result-object v1
 
-    const/4 v2, 0x2
-
-    aput-object v1, v0, v2
+    aput-object v1, v0, v7
 
     const/16 v1, 0xbb
 
@@ -587,7 +599,9 @@
 
     move-result-object v1
 
-    aput-object v1, v0, v7
+    const/4 v2, 0x4
+
+    aput-object v1, v0, v2
 
     const/16 v1, 0xbb
 
@@ -640,18 +654,18 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/app/ContextImpl;Landroid/content/pm/IPackageManager;)V
+.method protected constructor <init>(Landroid/app/ContextImpl;Landroid/content/pm/IPackageManager;)V
     .locals 4
 
-    const/4 v3, 0x0
+    const/4 v3, -0x1
 
-    const/4 v2, -0x1
+    const/4 v2, 0x0
 
     const/4 v1, 0x0
 
     invoke-direct {p0}, Landroid/content/pm/PackageManager;-><init>()V
 
-    iput-object v3, p0, Landroid/app/ApplicationPackageManager;->mPersona:Lcom/samsung/android/knox/SemPersonaManager;
+    iput-object v2, p0, Landroid/app/ApplicationPackageManager;->mPkgNameForBadgeIcon:Ljava/lang/String;
 
     new-instance v0, Ljava/lang/Object;
 
@@ -665,23 +679,25 @@
 
     iput-object v0, p0, Landroid/app/ApplicationPackageManager;->mDelegates:Ljava/util/ArrayList;
 
-    const/4 v0, 0x3
-
-    iput v0, p0, Landroid/app/ApplicationPackageManager;->openThemeAppIconRange:I
-
-    iput v2, p0, Landroid/app/ApplicationPackageManager;->applyIconUnifyFeature:I
-
-    iput v1, p0, Landroid/app/ApplicationPackageManager;->mTargetAppIconSize:I
-
     const v0, 0x3f333333    # 0.7f
 
-    iput v0, p0, Landroid/app/ApplicationPackageManager;->openThemeAppIconScale:F
+    iput v0, p0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconScale:F
 
-    iput-object v3, p0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
+    const/4 v0, 0x3
+
+    iput v0, p0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconRange:I
+
+    iput v3, p0, Landroid/app/ApplicationPackageManager;->mApplyIconUnifyFeature:I
+
+    iput-object v2, p0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
+
+    iput-boolean v1, p0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconMask:Z
 
     iput-boolean v1, p0, Landroid/app/ApplicationPackageManager;->mSettingStatusForIconTray:Z
 
     iput-boolean v1, p0, Landroid/app/ApplicationPackageManager;->mSettingStatusChecked:Z
+
+    iput-object v2, p0, Landroid/app/ApplicationPackageManager;->mApplicationPolicy:Landroid/sec/enterprise/ApplicationPolicy;
 
     invoke-static {}, Landroid/content/pm/PackageIconHelper;->getInstance()Landroid/content/pm/PackageIconHelper;
 
@@ -689,7 +705,7 @@
 
     iput-object v0, p0, Landroid/app/ApplicationPackageManager;->mIconHelper:Landroid/content/pm/PackageIconHelper;
 
-    iput v2, p0, Landroid/app/ApplicationPackageManager;->mCachedSafeMode:I
+    iput v3, p0, Landroid/app/ApplicationPackageManager;->mCachedSafeMode:I
 
     new-instance v0, Landroid/util/ArrayMap;
 
@@ -734,10 +750,6 @@
     const/4 v3, 0x0
 
     :cond_0
-    const/4 v4, 0x0
-
-    iput v4, p0, Landroid/app/ApplicationPackageManager;->mTargetAppIconSize:I
-
     :try_start_0
     iget-object v4, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
 
@@ -761,10 +773,6 @@
 
     const/4 v3, 0x0
 
-    const/16 v4, 0x48
-
-    iput v4, p0, Landroid/app/ApplicationPackageManager;->mTargetAppIconSize:I
-
     const-string/jumbo v4, "ApplicationPackageManager"
 
     const-string/jumbo v5, "set theme to null for dex mode"
@@ -775,31 +783,35 @@
 
     :cond_1
     :goto_0
-    iget-object v4, p0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
+    iget-object v4, p0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
 
     if-eqz v4, :cond_2
 
-    iget-object v4, p0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
+    iget-object v4, p0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
 
     invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    xor-int/lit8 v4, v4, 0x1
+
+    if-nez v4, :cond_4
 
     :cond_2
     if-eqz v3, :cond_3
 
-    iget-object v4, p0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
+    iget-object v4, p0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    xor-int/lit8 v4, v4, 0x1
+
+    if-nez v4, :cond_4
 
     :cond_3
-    iget v4, p0, Landroid/app/ApplicationPackageManager;->openThemeAppIconRange:I
+    iget v4, p0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconRange:I
 
     const/4 v5, 0x3
 
@@ -808,7 +820,7 @@
     :cond_4
     invoke-static {}, Landroid/app/ApplicationPackageManager;->configurationChanged()V
 
-    iput-object v3, p0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
+    iput-object v3, p0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
 
     invoke-direct {p0}, Landroid/app/ApplicationPackageManager;->registerAppIconInfo()V
 
@@ -824,7 +836,7 @@
     goto :goto_0
 
     :cond_6
-    iget-object v4, p0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
+    iget-object v4, p0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
 
     if-nez v4, :cond_5
 
@@ -1133,26 +1145,68 @@
     goto :goto_1
 .end method
 
-.method private getAppIconAlphaRelativeScale(Landroid/graphics/Bitmap;IIF)Landroid/app/ApplicationPackageManager$IconScale;
-    .locals 2
+.method private getAppIconAlphaRelativeScale(Landroid/content/pm/PackageItemInfo;Landroid/graphics/Bitmap;IIF)Landroid/app/ApplicationPackageManager$IconScale;
+    .locals 4
 
-    sget-boolean v0, Landroid/app/ApplicationPackageManager;->supportSmartIconUnify:Z
+    invoke-direct {p0, p1}, Landroid/app/ApplicationPackageManager;->getIconScaleFromMetaData(Landroid/content/pm/PackageItemInfo;)Landroid/app/ApplicationPackageManager$IconScale;
+
+    move-result-object v0
 
     if-eqz v0, :cond_0
 
-    iget v0, p0, Landroid/app/ApplicationPackageManager;->applyIconUnifyFeature:I
+    const-string/jumbo v1, "ApplicationPackageManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "getIconScaleFromMetaData: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v0
+
+    :cond_0
+    invoke-direct {p0, p2, p3, p4, p5}, Landroid/app/ApplicationPackageManager;->getAppIconAlphaRelativeScale(Landroid/graphics/Bitmap;IIF)Landroid/app/ApplicationPackageManager$IconScale;
+
+    move-result-object v1
+
+    return-object v1
+.end method
+
+.method private getAppIconAlphaRelativeScale(Landroid/graphics/Bitmap;IIF)Landroid/app/ApplicationPackageManager$IconScale;
+    .locals 2
+
+    iget v0, p0, Landroid/app/ApplicationPackageManager;->mApplyIconUnifyFeature:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-eq v0, v1, :cond_0
 
+    iget-boolean v0, p0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconMask:Z
+
+    if-eqz v0, :cond_1
+
+    :cond_0
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/app/ApplicationPackageManager;->getAppIconAlphaRelativeScaleForIconUnification(Landroid/graphics/Bitmap;IIF)Landroid/app/ApplicationPackageManager$IconScale;
 
     move-result-object v0
 
     return-object v0
 
-    :cond_0
+    :cond_1
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/app/ApplicationPackageManager;->getAppIconAlphaRelativeScaleForIconTray(Landroid/graphics/Bitmap;IIF)Landroid/app/ApplicationPackageManager$IconScale;
 
     move-result-object v0
@@ -1281,7 +1335,7 @@
 
     if-lez v2, :cond_0
 
-    const/16 v23, 0x1a
+    const/16 v23, 0x66
 
     :goto_0
     const/16 v17, 0x0
@@ -1420,6 +1474,10 @@
     if-eq v10, v2, :cond_8
 
     :cond_6
+    const/4 v2, -0x1
+
+    if-ne v10, v2, :cond_1
+
     const/16 v18, 0x0
 
     :goto_4
@@ -1513,7 +1571,7 @@
 
     sget-object v19, Landroid/app/ApplicationPackageManager;->judgePoint:[[I
 
-    sget v2, Landroid/app/ApplicationPackageManager;->configSmartAppIconScaler:I
+    sget v2, Landroid/app/ApplicationPackageManager;->CONFIG_SMART_APPICON_SCALER:I
 
     const/4 v4, 0x3
 
@@ -1725,11 +1783,11 @@
     return-object v2
 
     :cond_10
-    sget-boolean v2, Landroid/app/ApplicationPackageManager;->disableAppIconCrop:Z
+    sget-boolean v2, Landroid/app/ApplicationPackageManager;->DISABLE_APPICON_CROP:Z
 
     if-nez v2, :cond_11
 
-    sget v2, Landroid/app/ApplicationPackageManager;->configSmartAppIconScaler:I
+    sget v2, Landroid/app/ApplicationPackageManager;->CONFIG_SMART_APPICON_SCALER:I
 
     const/4 v4, 0x2
 
@@ -1745,12 +1803,34 @@
 
     const/16 v17, 0x1
 
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/app/ApplicationPackageManager;->mPkgNameForBadgeIcon:Ljava/lang/String;
+
+    if-eqz v2, :cond_e
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/app/ApplicationPackageManager;->mPkgNameForBadgeIcon:Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2}, Landroid/app/ApplicationPackageManager;->hasKeaBadge(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_e
+
+    const p4, 0x3f2e147b    # 0.68f
+
+    const/16 v17, 0x0
+
     goto :goto_6
 
     :cond_11
     const p4, 0x3f2e147b    # 0.68f
 
-    goto :goto_6
+    goto/16 :goto_6
 
     :cond_12
     const v2, 0x3f8ccccd    # 1.1f
@@ -1761,16 +1841,16 @@
 
     const p4, 0x3f70a3d7    # 0.94f
 
-    goto :goto_6
+    goto/16 :goto_6
 
     :cond_13
     const p4, 0x3f3851ec    # 0.72f
 
-    goto :goto_6
+    goto/16 :goto_6
 .end method
 
 .method private getAppIconAlphaRelativeScaleForIconUnification(Landroid/graphics/Bitmap;IIF)Landroid/app/ApplicationPackageManager$IconScale;
-    .locals 25
+    .locals 26
 
     const/4 v13, 0x0
 
@@ -1780,13 +1860,13 @@
 
     move-result v2
 
-    div-int/lit8 v20, v2, 0x2
+    div-int/lit8 v21, v2, 0x2
 
     const/4 v2, 0x4
 
     new-array v0, v2, [[I
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
     const/4 v2, 0x0
 
@@ -1798,7 +1878,7 @@
 
     const/4 v4, 0x0
 
-    aput-object v2, v21, v4
+    aput-object v2, v22, v4
 
     const/4 v2, 0x2
 
@@ -1818,7 +1898,7 @@
 
     const/4 v4, 0x1
 
-    aput-object v2, v21, v4
+    aput-object v2, v22, v4
 
     const/4 v2, 0x2
 
@@ -1838,7 +1918,7 @@
 
     const/4 v4, 0x2
 
-    aput-object v2, v21, v4
+    aput-object v2, v22, v4
 
     const/4 v2, 0x2
 
@@ -1858,7 +1938,7 @@
 
     const/4 v4, 0x3
 
-    aput-object v2, v21, v4
+    aput-object v2, v22, v4
 
     mul-int v2, p2, p3
 
@@ -1884,7 +1964,7 @@
 
     check-cast v11, [[I
 
-    const/16 v22, 0x1a
+    const/16 v23, 0x1a
 
     const/16 v17, 0x0
 
@@ -1931,7 +2011,7 @@
     add-int/lit8 v13, v13, 0x1
 
     :cond_1
-    move/from16 v0, v20
+    move/from16 v0, v21
 
     if-le v0, v13, :cond_8
 
@@ -1948,17 +2028,17 @@
 
     if-ge v0, v2, :cond_5
 
-    aget-object v2, v21, v18
+    aget-object v2, v22, v18
 
     const/4 v4, 0x0
 
-    aget v23, v2, v4
+    aget v24, v2, v4
 
-    aget-object v2, v21, v18
+    aget-object v2, v22, v18
 
     const/4 v4, 0x1
 
-    aget v24, v2, v4
+    aget v25, v2, v4
 
     const/16 v16, 0x0
 
@@ -1976,19 +2056,9 @@
     :goto_2
     if-nez v12, :cond_4
 
-    aget-object v2, v21, v16
+    aget-object v2, v22, v16
 
     const/4 v4, 0x0
-
-    aget v2, v2, v4
-
-    move/from16 v0, v23
-
-    if-ne v0, v2, :cond_3
-
-    aget-object v2, v21, v16
-
-    const/4 v4, 0x1
 
     aget v2, v2, v4
 
@@ -1996,12 +2066,22 @@
 
     if-ne v0, v2, :cond_3
 
+    aget-object v2, v22, v16
+
+    const/4 v4, 0x1
+
+    aget v2, v2, v4
+
+    move/from16 v0, v25
+
+    if-ne v0, v2, :cond_3
+
     const/4 v12, 0x1
 
     :cond_3
-    aget-object v2, v11, v24
+    aget-object v2, v11, v25
 
-    aget v2, v2, v23
+    aget v2, v2, v24
 
     ushr-int/lit8 v2, v2, 0x18
 
@@ -2026,7 +2106,7 @@
 
     if-ge v0, v2, :cond_0
 
-    aget-object v2, v21, v18
+    aget-object v2, v22, v18
 
     const/4 v4, 0x0
 
@@ -2044,7 +2124,7 @@
 
     aput v5, v2, v4
 
-    aget-object v2, v21, v18
+    aget-object v2, v22, v18
 
     const/4 v4, 0x1
 
@@ -2075,7 +2155,7 @@
 
     aget v2, v2, v4
 
-    add-int v23, v23, v2
+    add-int v24, v24, v2
 
     sget-object v2, Landroid/app/ApplicationPackageManager;->progress:[[I
 
@@ -2085,7 +2165,7 @@
 
     aget v2, v2, v4
 
-    add-int v24, v24, v2
+    add-int v25, v25, v2
 
     goto :goto_2
 
@@ -2102,9 +2182,20 @@
     const/4 v10, 0x0
 
     :cond_9
+    sget-object v19, Landroid/app/ApplicationPackageManager;->judgePointForChina:[[I
+
+    move-object/from16 v0, p0
+
+    iget-boolean v2, v0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconMask:Z
+
+    if-eqz v2, :cond_a
+
+    sget-object v19, Landroid/app/ApplicationPackageManager;->judgePointForOneDot:[[I
+
+    :cond_a
     const/4 v2, 0x1
 
-    aget-object v2, v21, v2
+    aget-object v2, v22, v2
 
     const/4 v4, 0x0
 
@@ -2112,7 +2203,7 @@
 
     const/4 v4, 0x0
 
-    aget-object v4, v21, v4
+    aget-object v4, v22, v4
 
     const/4 v5, 0x0
 
@@ -2124,7 +2215,7 @@
 
     const/4 v2, 0x3
 
-    aget-object v2, v21, v2
+    aget-object v2, v22, v2
 
     const/4 v4, 0x1
 
@@ -2132,7 +2223,7 @@
 
     const/4 v4, 0x0
 
-    aget-object v4, v21, v4
+    aget-object v4, v22, v4
 
     const/4 v5, 0x1
 
@@ -2142,7 +2233,7 @@
 
     add-int/lit8 v15, v2, 0x1
 
-    const/16 v19, 0x0
+    const/16 v20, 0x0
 
     const/16 v18, 0x0
 
@@ -2151,11 +2242,9 @@
 
     move/from16 v0, v18
 
-    if-ge v0, v2, :cond_b
+    if-ge v0, v2, :cond_c
 
-    sget-object v2, Landroid/app/ApplicationPackageManager;->judgePointForChina:[[I
-
-    aget-object v2, v2, v18
+    aget-object v2, v19, v18
 
     const/4 v4, 0x0
 
@@ -2167,17 +2256,15 @@
 
     const/4 v4, 0x0
 
-    aget-object v4, v21, v4
+    aget-object v4, v22, v4
 
     const/4 v5, 0x0
 
     aget v4, v4, v5
 
-    add-int v23, v2, v4
+    add-int v24, v2, v4
 
-    sget-object v2, Landroid/app/ApplicationPackageManager;->judgePointForChina:[[I
-
-    aget-object v2, v2, v18
+    aget-object v2, v19, v18
 
     const/4 v4, 0x1
 
@@ -2189,63 +2276,63 @@
 
     const/4 v4, 0x0
 
-    aget-object v4, v21, v4
+    aget-object v4, v22, v4
 
     const/4 v5, 0x1
 
     aget v4, v4, v5
 
-    add-int v24, v2, v4
+    add-int v25, v2, v4
 
-    aget-object v2, v11, v24
+    aget-object v2, v11, v25
 
-    aget v2, v2, v23
+    aget v2, v2, v24
 
     ushr-int/lit8 v2, v2, 0x18
 
     const/16 v4, 0x1a
 
-    if-le v2, v4, :cond_a
+    if-le v2, v4, :cond_b
 
-    add-int/lit8 v19, v19, 0x1
+    add-int/lit8 v20, v20, 0x1
 
-    :cond_a
+    :cond_b
     add-int/lit8 v18, v18, 0x1
 
     goto :goto_4
 
-    :cond_b
+    :cond_c
     const/16 v2, 0x8
 
-    move/from16 v0, v19
+    move/from16 v0, v20
 
-    if-ne v0, v2, :cond_e
+    if-ne v0, v2, :cond_f
 
     const/high16 v2, 0x3f800000    # 1.0f
 
     cmpg-float v2, p4, v2
 
-    if-gtz v2, :cond_e
+    if-gtz v2, :cond_f
 
     move/from16 v0, p2
 
     move/from16 v1, p3
 
-    if-ne v0, v1, :cond_e
+    if-ne v0, v1, :cond_f
 
     const/high16 p4, 0x3f800000    # 1.0f
 
     const/16 v17, 0x1
 
-    :cond_c
+    :cond_d
     :goto_5
-    if-eqz v17, :cond_d
+    if-eqz v17, :cond_e
 
     const/high16 v2, 0x43480000    # 200.0f
 
     add-float p4, p4, v2
 
-    :cond_d
+    :cond_e
     const-string/jumbo v2, "ApplicationPackageManager"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -2294,7 +2381,7 @@
 
     move-result-object v4
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -2316,12 +2403,12 @@
 
     return-object v2
 
-    :cond_e
+    :cond_f
     const/high16 v2, 0x3f800000    # 1.0f
 
     cmpl-float v2, p4, v2
 
-    if-lez v2, :cond_c
+    if-lez v2, :cond_d
 
     const/high16 p4, 0x3f800000    # 1.0f
 
@@ -2331,114 +2418,126 @@
 .method private getBadgeResIdForUser(I)I
     .locals 3
 
+    const/4 v2, 0x0
+
     invoke-direct {p0, p1}, Landroid/app/ApplicationPackageManager;->getUserIfProfile(I)Landroid/content/pm/UserInfo;
 
     move-result-object v0
 
+    if-eqz v0, :cond_8
+
+    invoke-static {p1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_6
+
     iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
 
-    const-string/jumbo v2, "persona"
-
-    invoke-virtual {v1, v2}, Landroid/app/ContextImpl;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/samsung/android/knox/SemPersonaManager;
-
-    iput-object v1, p0, Landroid/app/ApplicationPackageManager;->mPersona:Lcom/samsung/android/knox/SemPersonaManager;
-
-    if-eqz v0, :cond_4
-
-    const/16 v1, 0x64
-
-    if-lt p1, v1, :cond_2
-
-    iget-object v1, v0, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, v0, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
-
-    const-string/jumbo v2, "KNOX"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v1}, Lcom/samsung/android/knox/SemPersonaManager;->isKioskModeEnabled(Landroid/content/Context;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    const v1, 0x10803e3
-
-    return v1
+    return v2
 
     :cond_0
-    iget-object v1, v0, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/content/pm/UserInfo;->isFirstContainer()Z
 
-    if-eqz v1, :cond_1
+    move-result v1
 
-    iget-object v1, v0, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
+    if-eqz v1, :cond_2
 
-    const-string/jumbo v2, "KNOX II"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0}, Landroid/content/pm/UserInfo;->isPremiumContainer()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    const v1, 0x10803e4
+    const v1, 0x1080415
 
     return v1
 
     :cond_1
-    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPersona:Lcom/samsung/android/knox/SemPersonaManager;
-
-    if-eqz v1, :cond_4
-
-    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPersona:Lcom/samsung/android/knox/SemPersonaManager;
-
-    invoke-static {p1}, Lcom/samsung/android/knox/SemPersonaManager;->isSecureFolderId(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_4
-
-    const v1, 0x10804ba
+    const v1, 0x108040e
 
     return v1
 
     :cond_2
-    invoke-direct {p0, p1}, Landroid/app/ApplicationPackageManager;->isManagedProfile(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_4
-
-    invoke-static {p1}, Lcom/samsung/android/app/SemDualAppManager;->isDualAppId(I)Z
+    invoke-virtual {v0}, Landroid/content/pm/UserInfo;->isSecondContainer()Z
 
     move-result v1
 
     if-eqz v1, :cond_3
 
-    const v1, 0x10803bd
+    const v1, 0x1080410
 
     return v1
 
     :cond_3
-    const v1, 0x10803b2
+    invoke-virtual {v0}, Landroid/content/pm/UserInfo;->isThirdContainer()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    invoke-virtual {v0}, Landroid/content/pm/UserInfo;->isPremiumContainer()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    const v1, 0x1080413
 
     return v1
 
     :cond_4
-    const/4 v1, 0x0
+    const v1, 0x1080411
 
     return v1
+
+    :cond_5
+    invoke-static {p1}, Lcom/samsung/android/knox/SemPersonaManager;->isSecureFolderId(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_8
+
+    const v1, 0x10804e9
+
+    return v1
+
+    :cond_6
+    invoke-direct {p0, p1}, Landroid/app/ApplicationPackageManager;->isManagedProfile(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_8
+
+    invoke-static {p1}, Lcom/samsung/android/app/SemDualAppManager;->isDualAppId(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    const v1, 0x10803e6
+
+    return v1
+
+    :cond_7
+    const v1, 0x10803c5
+
+    return v1
+
+    :cond_8
+    return v2
 .end method
 
 .method private getBadgedDrawable(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/Rect;Z)Landroid/graphics/drawable/Drawable;
     .locals 11
 
-    const/4 v8, 0x0
+    const/4 v10, 0x0
 
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
@@ -2484,7 +2583,7 @@
 
     if-nez v4, :cond_0
 
-    invoke-virtual {p1, v8, v8, v1, v0}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    invoke-virtual {p1, v10, v10, v1, v0}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     invoke-virtual {p1, v5}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
@@ -2502,31 +2601,31 @@
     :cond_1
     new-instance v7, Ljava/lang/IllegalArgumentException;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v10, "Badge location "
+    const-string/jumbo v9, "Badge location "
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v8
 
-    invoke-virtual {v9, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v8
 
-    const-string/jumbo v10, " not in badged drawable bounds "
+    const-string/jumbo v9, " not in badged drawable bounds "
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v8
 
-    new-instance v10, Landroid/graphics/Rect;
+    new-instance v9, Landroid/graphics/Rect;
 
-    invoke-direct {v10, v8, v8, v1, v0}, Landroid/graphics/Rect;-><init>(IIII)V
+    invoke-direct {v9, v10, v10, v1, v0}, Landroid/graphics/Rect;-><init>(IIII)V
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v8
 
@@ -2539,7 +2638,7 @@
     throw v7
 
     :cond_2
-    move v4, v8
+    const/4 v4, 0x0
 
     goto :goto_0
 
@@ -2571,9 +2670,9 @@
 
     invoke-virtual {p3}, Landroid/graphics/Rect;->height()I
 
-    move-result v9
+    move-result v8
 
-    invoke-virtual {p2, v8, v8, v7, v9}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    invoke-virtual {p2, v10, v10, v7, v8}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     invoke-virtual {v5}, Landroid/graphics/Canvas;->save()I
 
@@ -2628,7 +2727,7 @@
     :cond_6
     invoke-virtual {p2}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {p2, v8, v8, v1, v0}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    invoke-virtual {p2, v10, v10, v1, v0}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     invoke-virtual {p2, v5}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
@@ -2752,6 +2851,236 @@
     throw v2
 .end method
 
+.method private getCustomBadgeForCustomContainer(Landroid/content/pm/UserInfo;Landroid/os/UserHandle;I)Landroid/util/Pair;
+    .locals 11
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/pm/UserInfo;",
+            "Landroid/os/UserHandle;",
+            "I)",
+            "Landroid/util/Pair",
+            "<",
+            "Ljava/lang/Boolean;",
+            "Landroid/graphics/drawable/Drawable;",
+            ">;"
+        }
+    .end annotation
+
+    const/4 v10, 0x0
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x1
+
+    invoke-virtual {p2}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v5
+
+    const-string/jumbo v6, "custom-badge-icon"
+
+    invoke-static {v5, v6}, Lcom/samsung/android/knox/SemPersonaManager;->getCustomResource(ILjava/lang/String;)[B
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    new-instance v5, Landroid/util/Pair;
+
+    invoke-static {v8}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v6
+
+    new-instance v7, Landroid/graphics/drawable/BitmapDrawable;
+
+    iget-object v8, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v8}, Landroid/app/ContextImpl;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    array-length v9, v1
+
+    invoke-static {v1, v10, v9}, Landroid/graphics/BitmapFactory;->decodeByteArray([BII)Landroid/graphics/Bitmap;
+
+    move-result-object v9
+
+    invoke-direct {v7, v8, v9}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
+
+    invoke-direct {v5, v6, v7}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-object v5
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/content/pm/UserInfo;->isFirstContainer()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    new-instance v5, Landroid/util/Pair;
+
+    invoke-static {v8}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v6
+
+    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    const v8, 0x1080414
+
+    invoke-virtual {v7, v8, p3}, Landroid/content/res/Resources;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v7
+
+    invoke-direct {v5, v6, v7}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-object v5
+
+    :cond_1
+    invoke-virtual {p1}, Landroid/content/pm/UserInfo;->isSecondContainer()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    new-instance v5, Landroid/util/Pair;
+
+    invoke-static {v8}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v6
+
+    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    const v8, 0x108040f
+
+    invoke-virtual {v7, v8, p3}, Landroid/content/res/Resources;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v7
+
+    invoke-direct {v5, v6, v7}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-object v5
+
+    :cond_2
+    invoke-virtual {p1}, Landroid/content/pm/UserInfo;->isThirdContainer()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    new-instance v5, Landroid/util/Pair;
+
+    invoke-static {v8}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v6
+
+    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    const v8, 0x1080412
+
+    invoke-virtual {v7, v8, p3}, Landroid/content/res/Resources;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v7
+
+    invoke-direct {v5, v6, v7}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-object v5
+
+    :cond_3
+    invoke-virtual {p2}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v5
+
+    invoke-static {v5}, Lcom/samsung/android/knox/SemPersonaManager;->isSecureFolderId(I)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+
+    const-string/jumbo v0, "com.samsung.knox.securefolder"
+
+    :try_start_0
+    iget-object v5, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v5}, Landroid/app/ContextImpl;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v0}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const-string/jumbo v5, "ic_sf_badge_bottom"
+
+    const-string/jumbo v6, "drawable"
+
+    invoke-virtual {v3, v5, v6, v0}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    new-instance v5, Landroid/util/Pair;
+
+    const/4 v6, 0x1
+
+    invoke-static {v6}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v6
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v3, v4, p3, v7}, Landroid/content/res/Resources;->getDrawableForDensity(IILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v7
+
+    invoke-direct {v5, v6, v7}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v5
+
+    :catch_0
+    move-exception v2
+
+    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
+
+    new-instance v5, Landroid/util/Pair;
+
+    invoke-static {v8}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v6
+
+    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    const v8, 0x10804ea
+
+    invoke-virtual {v7, v8, p3}, Landroid/content/res/Resources;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v7
+
+    invoke-direct {v5, v6, v7}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-object v5
+
+    :cond_4
+    new-instance v5, Landroid/util/Pair;
+
+    invoke-static {v10}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v6
+
+    invoke-direct {v5, v6, v7}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-object v5
+.end method
+
 .method private getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
     .locals 1
 
@@ -2781,57 +3110,229 @@
     return-object v0
 .end method
 
-.method private getLiveIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
-    .locals 28
+.method private getFixedIconScaleMetaData(Landroid/os/Bundle;)Ljava/lang/Float;
+    .locals 4
 
-    const/16 v21, 0x0
+    const/4 v2, 0x0
 
-    const/16 v17, 0x0
+    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    :try_start_0
-    move-object/from16 v0, p0
+    move-result-object v0
 
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+    if-nez p1, :cond_0
 
-    move-object/from16 v22, v0
+    return-object v0
 
-    invoke-virtual/range {v22 .. v22}, Landroid/app/ContextImpl;->getPackageManager()Landroid/content/pm/PackageManager;
+    :cond_0
+    const-string/jumbo v1, "FixedIconScale"
 
-    move-result-object v22
+    invoke-virtual {p1, v1, v2}, Landroid/os/Bundle;->getFloat(Ljava/lang/String;F)F
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+
+    move-result v1
+
+    cmpl-float v1, v1, v2
+
+    if-lez v1, :cond_1
+
+    const-string/jumbo v1, "ApplicationPackageManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "getFixedIconScaleMetaData float: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v0
+
+    :cond_1
+    return-object v0
+.end method
+
+.method private getIconScaleFromMetaData(Landroid/content/pm/PackageItemInfo;)Landroid/app/ApplicationPackageManager$IconScale;
+    .locals 6
+
+    const/4 v5, 0x0
+
+    const/4 v4, 0x0
+
+    if-eqz p1, :cond_0
+
+    iget-object v2, p1, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p1, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
+
+    const-string/jumbo v3, "FixedIconScale"
+
+    invoke-virtual {v2, v3, v5}, Landroid/os/Bundle;->getFloat(Ljava/lang/String;F)F
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
+
+    move-result v2
+
+    cmpl-float v2, v2, v5
+
+    if-lez v2, :cond_0
+
+    const/4 v0, 0x0
+
+    const-string/jumbo v2, "ApplicationPackageManager"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Fixed icon scale from metadata scale: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v2, Landroid/app/ApplicationPackageManager$IconScale;
+
+    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
+
+    move-result v3
+
+    invoke-direct {v2, p0, v0, v3}, Landroid/app/ApplicationPackageManager$IconScale;-><init>(Landroid/app/ApplicationPackageManager;IF)V
+
+    return-object v2
+
+    :cond_0
+    return-object v4
+.end method
+
+.method private getLiveIcon(Ljava/lang/String;I)Landroid/graphics/drawable/Drawable;
+    .locals 29
+
+    const/16 v22, 0x0
+
+    const/16 v18, 0x0
 
     const/16 v23, 0x80
 
-    move-object/from16 v0, v22
+    :try_start_0
+    move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
     move/from16 v2, v23
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+    move/from16 v3, p2
 
-    move-result-object v3
+    invoke-virtual {v0, v1, v2, v3}, Landroid/app/ApplicationPackageManager;->getApplicationInfoAsUser(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
 
-    iget-object v0, v3, Landroid/content/pm/ApplicationInfo;->sourceDir:Ljava/lang/String;
+    move-result-object v4
 
-    move-object/from16 v21, v0
+    iget-object v0, v4, Landroid/content/pm/ApplicationInfo;->sourceDir:Ljava/lang/String;
 
-    iget-object v0, v3, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+    move-object/from16 v22, v0
 
-    move-object/from16 v19, v0
+    iget-object v0, v4, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
 
-    if-nez v19, :cond_0
+    move-object/from16 v20, v0
 
-    const-string/jumbo v22, "ApplicationPackageManager"
+    if-nez v20, :cond_0
+
+    const-string/jumbo v23, "ApplicationPackageManager"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "Doesn\'t have metadata for LiveIcon : ["
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    const-string/jumbo v25, "]  just show default Icon."
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v23, 0x0
+
+    return-object v23
+
+    :cond_0
+    const-string/jumbo v23, "LiveIconSupport"
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v18
+
+    if-eqz v18, :cond_4
+
+    const/4 v15, 0x0
+
+    const/4 v5, 0x0
+
+    const/16 v19, 0x0
 
     new-instance v23, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v24, "Doesn\'t have metadata for LiveIcon : ["
-
-    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v23
 
     move-object/from16 v0, v23
 
@@ -2841,7 +3342,7 @@
 
     move-result-object v23
 
-    const-string/jumbo v24, "]  just show default Icon."
+    const-string/jumbo v24, ".LiveIconLoader"
 
     invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2849,790 +3350,753 @@
 
     invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v14
 
-    invoke-static/range {v22 .. v23}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v22, 0x0
-
-    return-object v22
-
-    :cond_0
-    const-string/jumbo v22, "LiveIconSupport"
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v17
-
-    if-eqz v17, :cond_4
-
-    const/4 v14, 0x0
-
-    const/4 v4, 0x0
-
-    const/16 v18, 0x0
-
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const-string/jumbo v23, ".LiveIconLoader"
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    sget-object v23, Landroid/app/ApplicationPackageManager;->mLiveIconPackageMatchers:Landroid/util/ArrayMap;
-
-    monitor-enter v23
-
-    :try_start_1
-    sget-object v24, Landroid/app/ApplicationPackageManager;->mLiveIconLoaders:Landroid/util/ArrayMap;
+    sget-object v24, Landroid/app/ApplicationPackageManager;->mLiveIconPackageMatchers:Landroid/util/ArrayMap;
 
     monitor-enter v24
+
+    :try_start_1
+    sget-object v25, Landroid/app/ApplicationPackageManager;->mLiveIconLoaders:Landroid/util/ArrayMap;
+
+    monitor-enter v25
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     :try_start_2
-    sget-object v22, Landroid/app/ApplicationPackageManager;->mLiveIconPackageMatchers:Landroid/util/ArrayMap;
+    sget-object v23, Landroid/app/ApplicationPackageManager;->mLiveIconPackageMatchers:Landroid/util/ArrayMap;
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v22
+    move-result v23
 
-    if-eqz v22, :cond_3
+    if-eqz v23, :cond_3
 
-    if-eqz v21, :cond_2
+    if-eqz v22, :cond_2
 
-    sget-object v22, Landroid/app/ApplicationPackageManager;->mLiveIconPackageMatchers:Landroid/util/ArrayMap;
+    sget-object v23, Landroid/app/ApplicationPackageManager;->mLiveIconPackageMatchers:Landroid/util/ArrayMap;
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v22
+    move-result-object v23
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v22
+    move-result v23
 
-    if-eqz v22, :cond_2
+    if-eqz v23, :cond_2
 
-    const-string/jumbo v22, "ApplicationPackageManager"
+    const-string/jumbo v23, "ApplicationPackageManager"
 
-    new-instance v25, Ljava/lang/StringBuilder;
+    new-instance v26, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v26, "we has "
+    const-string/jumbo v27, "we has "
 
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v26
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v26
 
-    const-string/jumbo v26, " class. reuse it "
+    const-string/jumbo v27, " class. reuse it "
 
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v26
 
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v25
+    move-result-object v26
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-object v22, Landroid/app/ApplicationPackageManager;->mLiveIconLoaders:Landroid/util/ArrayMap;
+    sget-object v23, Landroid/app/ApplicationPackageManager;->mLiveIconLoaders:Landroid/util/ArrayMap;
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v22
+    move-result-object v23
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     check-cast v0, Ljava/lang/reflect/Method;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :cond_1
     :goto_0
     :try_start_3
-    monitor-exit v24
+    monitor-exit v25
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    monitor-exit v23
+    monitor-exit v24
 
-    if-eqz v18, :cond_4
+    if-eqz v19, :cond_4
 
     :try_start_4
-    new-instance v16, Landroid/app/ApplicationPackageManager$LiveIconObject;
+    new-instance v17, Landroid/app/ApplicationPackageManager$LiveIconObject;
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     move-object/from16 v1, p0
 
     invoke-direct {v0, v1}, Landroid/app/ApplicationPackageManager$LiveIconObject;-><init>(Landroid/app/ApplicationPackageManager;)V
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
 
-    move-object/from16 v23, v0
+    move-object/from16 v24, v0
+
+    const/16 v25, 0x0
+
+    aput-object v24, v23, v25
 
     const/16 v24, 0x0
 
-    aput-object v23, v22, v24
+    move-object/from16 v0, v19
 
-    const/16 v23, 0x0
+    move-object/from16 v1, v24
 
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v23
-
-    move-object/from16 v2, v22
+    move-object/from16 v2, v23
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v22
+    move-result-object v23
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v23
 
     invoke-virtual {v0, v1}, Landroid/app/ApplicationPackageManager$LiveIconObject;->setLiveIcon(Ljava/lang/Object;)V
 
-    invoke-virtual/range {v16 .. v16}, Landroid/app/ApplicationPackageManager$LiveIconObject;->clone()Ljava/lang/Object;
+    invoke-virtual/range {v17 .. v17}, Landroid/app/ApplicationPackageManager$LiveIconObject;->clone()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v6
 
-    check-cast v5, Landroid/app/ApplicationPackageManager$LiveIconObject;
+    check-cast v6, Landroid/app/ApplicationPackageManager$LiveIconObject;
 
-    invoke-virtual {v5}, Landroid/app/ApplicationPackageManager$LiveIconObject;->getLiveIcon()Ljava/lang/Object;
+    invoke-virtual {v6}, Landroid/app/ApplicationPackageManager$LiveIconObject;->getLiveIcon()Ljava/lang/Object;
 
-    move-result-object v20
+    move-result-object v21
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     instance-of v0, v0, Landroid/graphics/drawable/Drawable;
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
-    if-eqz v22, :cond_4
+    if-eqz v23, :cond_4
 
-    check-cast v20, Landroid/graphics/drawable/Drawable;
+    check-cast v21, Landroid/graphics/drawable/Drawable;
     :try_end_4
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_4 .. :try_end_4} :catch_8
     .catch Ljava/lang/IllegalAccessException; {:try_start_4 .. :try_end_4} :catch_7
     .catch Ljava/lang/CloneNotSupportedException; {:try_start_4 .. :try_end_4} :catch_6
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_5
 
-    return-object v20
+    return-object v21
 
     :catch_0
-    move-exception v6
+    move-exception v7
 
-    const-string/jumbo v22, "ApplicationPackageManager"
+    const-string/jumbo v23, "ApplicationPackageManager"
 
-    new-instance v23, Ljava/lang/StringBuilder;
+    new-instance v24, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v24, "get application info error in getLiveIcon : "
+    const-string/jumbo v25, "get application info error in getLiveIcon : "
 
-    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v23
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v23, 0x0
+
+    return-object v23
+
+    :cond_2
+    if-eqz v22, :cond_1
+
+    :try_start_5
+    sget-object v23, Landroid/app/ApplicationPackageManager;->mLiveIconPackageMatchers:Landroid/util/ArrayMap;
 
     move-object/from16 v0, v23
 
     move-object/from16 v1, p1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v23
-
-    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v23
-
-    invoke-static/range {v22 .. v23}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v22, 0x0
-
-    return-object v22
-
-    :cond_2
-    if-eqz v21, :cond_1
-
-    :try_start_5
-    sget-object v22, Landroid/app/ApplicationPackageManager;->mLiveIconPackageMatchers:Landroid/util/ArrayMap;
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, p1
-
     invoke-virtual {v0, v1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v22
+    move-result-object v23
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v22
+    move-result v23
 
-    if-nez v22, :cond_1
+    xor-int/lit8 v23, v23, 0x1
 
-    const-string/jumbo v22, "ApplicationPackageManager"
+    if-eqz v23, :cond_1
 
-    new-instance v25, Ljava/lang/StringBuilder;
+    const-string/jumbo v23, "ApplicationPackageManager"
 
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v26, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v26, "we don\'t have "
+    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v27, "we don\'t have "
 
-    move-result-object v25
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v25
+    move-result-object v26
 
-    move-object/from16 v1, v21
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    const-string/jumbo v26, " package path. load it"
-
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v25
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v25
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v15, Ldalvik/system/PathClassLoader;
-
-    invoke-static {}, Ljava/lang/ClassLoader;->getSystemClassLoader()Ljava/lang/ClassLoader;
-
-    move-result-object v22
-
-    move-object/from16 v0, v21
+    move-object/from16 v0, v26
 
     move-object/from16 v1, v22
 
-    invoke-direct {v15, v0, v1}, Ldalvik/system/PathClassLoader;-><init>(Ljava/lang/String;Ljava/lang/ClassLoader;)V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v26
+
+    const-string/jumbo v27, " package path. load it"
+
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v26
+
+    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v26
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v26
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v16, Ldalvik/system/PathClassLoader;
+
+    invoke-static {}, Ljava/lang/ClassLoader;->getSystemClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v23
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v22
+
+    move-object/from16 v2, v23
+
+    invoke-direct {v0, v1, v2}, Ldalvik/system/PathClassLoader;-><init>(Ljava/lang/String;Ljava/lang/ClassLoader;)V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
     :try_start_6
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    invoke-static {v13, v0, v15}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
+    move-object/from16 v1, v16
 
-    move-result-object v4
+    invoke-static {v14, v0, v1}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
-    const-string/jumbo v22, "getLiveIcon"
+    move-result-object v5
 
-    const/16 v25, 0x1
+    const-string/jumbo v23, "getLiveIcon"
 
-    move/from16 v0, v25
+    const/16 v26, 0x1
+
+    move/from16 v0, v26
 
     new-array v0, v0, [Ljava/lang/Class;
 
-    move-object/from16 v25, v0
+    move-object/from16 v26, v0
 
-    const-class v26, Landroid/content/Context;
+    const-class v27, Landroid/content/Context;
 
-    const/16 v27, 0x0
+    const/16 v28, 0x0
 
-    aput-object v26, v25, v27
+    aput-object v27, v26, v28
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
-    invoke-virtual {v4, v0, v1}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v5, v0, v1}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
     :try_end_6
     .catch Ljava/lang/ClassNotFoundException; {:try_start_6 .. :try_end_6} :catch_2
     .catch Ljava/lang/NoSuchMethodException; {:try_start_6 .. :try_end_6} :catch_1
     .catchall {:try_start_6 .. :try_end_6} :catchall_3
 
-    move-result-object v18
+    move-result-object v19
 
     :try_start_7
-    sget-object v22, Landroid/app/ApplicationPackageManager;->mLiveIconPackageMatchers:Landroid/util/ArrayMap;
+    sget-object v23, Landroid/app/ApplicationPackageManager;->mLiveIconPackageMatchers:Landroid/util/ArrayMap;
 
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v22, Landroid/app/ApplicationPackageManager;->mLiveIconLoaders:Landroid/util/ArrayMap;
-
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v22, Landroid/app/ApplicationPackageManager;->mLiveIconPackageMatchers:Landroid/util/ArrayMap;
+    sget-object v23, Landroid/app/ApplicationPackageManager;->mLiveIconLoaders:Landroid/util/ArrayMap;
 
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, p1
-
-    move-object/from16 v2, v21
-
-    invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v22, Landroid/app/ApplicationPackageManager;->mLiveIconLoaders:Landroid/util/ArrayMap;
-
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     move-object/from16 v1, p1
 
-    move-object/from16 v2, v18
+    invoke-virtual {v0, v1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v23, Landroid/app/ApplicationPackageManager;->mLiveIconPackageMatchers:Landroid/util/ArrayMap;
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, p1
+
+    move-object/from16 v2, v22
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object v14, v15
+    sget-object v23, Landroid/app/ApplicationPackageManager;->mLiveIconLoaders:Landroid/util/ArrayMap;
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, p1
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-object/from16 v15, v16
 
     goto/16 :goto_0
 
     :catch_1
-    move-exception v11
+    move-exception v12
 
-    const-string/jumbo v22, "ApplicationPackageManager"
+    const-string/jumbo v23, "ApplicationPackageManager"
 
-    const-string/jumbo v25, "!@call method fail getLiveIcon"
+    const-string/jumbo v26, "!@call method fail getLiveIcon"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
-    invoke-static {v0, v1, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_3
 
     :try_start_8
-    monitor-exit v24
+    monitor-exit v25
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_2
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    monitor-exit v23
+    monitor-exit v24
 
-    return-object v22
+    return-object v23
 
     :catch_2
-    move-exception v7
+    move-exception v8
 
     :try_start_9
-    const-string/jumbo v22, "ApplicationPackageManager"
+    const-string/jumbo v23, "ApplicationPackageManager"
 
-    new-instance v25, Ljava/lang/StringBuilder;
+    new-instance v26, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v26, "!@can\'t found class"
+    const-string/jumbo v27, "!@can\'t found class"
 
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v26
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v26
 
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v25
+    move-result-object v26
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_3
 
     :try_start_a
-    monitor-exit v24
+    monitor-exit v25
     :try_end_a
     .catchall {:try_start_a .. :try_end_a} :catchall_2
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    monitor-exit v23
+    monitor-exit v24
 
-    return-object v22
+    return-object v23
 
     :cond_3
     :try_start_b
-    const-string/jumbo v22, "ApplicationPackageManager"
+    const-string/jumbo v23, "ApplicationPackageManager"
 
-    new-instance v25, Ljava/lang/StringBuilder;
+    new-instance v26, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v26, "we don\'t have "
+    const-string/jumbo v27, "we don\'t have "
 
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v26
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v26
 
-    const-string/jumbo v26, " package name. load it"
+    const-string/jumbo v27, " package name. load it"
 
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v26
 
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v25
+    move-result-object v26
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v15, Ldalvik/system/PathClassLoader;
+    new-instance v16, Ldalvik/system/PathClassLoader;
 
     invoke-static {}, Ljava/lang/ClassLoader;->getSystemClassLoader()Ljava/lang/ClassLoader;
 
-    move-result-object v22
+    move-result-object v23
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v16
 
     move-object/from16 v1, v22
 
-    invoke-direct {v15, v0, v1}, Ldalvik/system/PathClassLoader;-><init>(Ljava/lang/String;Ljava/lang/ClassLoader;)V
+    move-object/from16 v2, v23
+
+    invoke-direct {v0, v1, v2}, Ldalvik/system/PathClassLoader;-><init>(Ljava/lang/String;Ljava/lang/ClassLoader;)V
     :try_end_b
     .catchall {:try_start_b .. :try_end_b} :catchall_0
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
     :try_start_c
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    invoke-static {v13, v0, v15}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
+    move-object/from16 v1, v16
 
-    move-result-object v4
+    invoke-static {v14, v0, v1}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
-    const-string/jumbo v22, "getLiveIcon"
+    move-result-object v5
 
-    const/16 v25, 0x1
+    const-string/jumbo v23, "getLiveIcon"
 
-    move/from16 v0, v25
+    const/16 v26, 0x1
+
+    move/from16 v0, v26
 
     new-array v0, v0, [Ljava/lang/Class;
 
-    move-object/from16 v25, v0
+    move-object/from16 v26, v0
 
-    const-class v26, Landroid/content/Context;
+    const-class v27, Landroid/content/Context;
 
-    const/16 v27, 0x0
+    const/16 v28, 0x0
 
-    aput-object v26, v25, v27
+    aput-object v27, v26, v28
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
-    invoke-virtual {v4, v0, v1}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v5, v0, v1}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
     :try_end_c
     .catch Ljava/lang/ClassNotFoundException; {:try_start_c .. :try_end_c} :catch_4
     .catch Ljava/lang/NoSuchMethodException; {:try_start_c .. :try_end_c} :catch_3
     .catchall {:try_start_c .. :try_end_c} :catchall_3
 
-    move-result-object v18
+    move-result-object v19
 
     :try_start_d
-    sget-object v22, Landroid/app/ApplicationPackageManager;->mLiveIconPackageMatchers:Landroid/util/ArrayMap;
+    sget-object v23, Landroid/app/ApplicationPackageManager;->mLiveIconPackageMatchers:Landroid/util/ArrayMap;
 
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, p1
-
-    move-object/from16 v2, v21
-
-    invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v22, Landroid/app/ApplicationPackageManager;->mLiveIconLoaders:Landroid/util/ArrayMap;
-
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     move-object/from16 v1, p1
 
-    move-object/from16 v2, v18
+    move-object/from16 v2, v22
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object v14, v15
+    sget-object v23, Landroid/app/ApplicationPackageManager;->mLiveIconLoaders:Landroid/util/ArrayMap;
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, p1
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-object/from16 v15, v16
 
     goto/16 :goto_0
 
     :catch_3
-    move-exception v11
+    move-exception v12
 
-    const-string/jumbo v22, "ApplicationPackageManager"
+    const-string/jumbo v23, "ApplicationPackageManager"
 
-    const-string/jumbo v25, "!@call method fail getLiveIcon"
+    const-string/jumbo v26, "!@call method fail getLiveIcon"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
-    invoke-static {v0, v1, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_d
     .catchall {:try_start_d .. :try_end_d} :catchall_3
 
     :try_start_e
-    monitor-exit v24
+    monitor-exit v25
     :try_end_e
     .catchall {:try_start_e .. :try_end_e} :catchall_2
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    monitor-exit v23
+    monitor-exit v24
 
-    return-object v22
+    return-object v23
 
     :catch_4
-    move-exception v7
+    move-exception v8
 
     :try_start_f
-    const-string/jumbo v22, "ApplicationPackageManager"
+    const-string/jumbo v23, "ApplicationPackageManager"
 
-    new-instance v25, Ljava/lang/StringBuilder;
+    new-instance v26, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v26, "!@can\'t found class"
+    const-string/jumbo v27, "!@can\'t found class"
 
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v26
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v26
 
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v25
+    move-result-object v26
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_f
     .catchall {:try_start_f .. :try_end_f} :catchall_3
 
     :try_start_10
-    monitor-exit v24
+    monitor-exit v25
     :try_end_10
     .catchall {:try_start_10 .. :try_end_10} :catchall_2
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    monitor-exit v23
+    monitor-exit v24
 
-    return-object v22
+    return-object v23
 
     :catchall_0
-    move-exception v22
+    move-exception v23
 
     :goto_1
     :try_start_11
-    monitor-exit v24
+    monitor-exit v25
 
-    throw v22
+    throw v23
     :try_end_11
     .catchall {:try_start_11 .. :try_end_11} :catchall_1
 
     :catchall_1
-    move-exception v22
+    move-exception v23
 
     :goto_2
-    monitor-exit v23
+    monitor-exit v24
 
-    throw v22
+    throw v23
 
     :catch_5
-    move-exception v9
-
-    const-string/jumbo v22, "ApplicationPackageManager"
-
-    const-string/jumbo v23, "!@clone fail getLiveIcon"
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v23
-
-    invoke-static {v0, v1, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    invoke-virtual {v9}, Ljava/lang/Exception;->printStackTrace()V
-
-    const/16 v22, 0x0
-
-    return-object v22
-
-    :catch_6
-    move-exception v8
-
-    const-string/jumbo v22, "ApplicationPackageManager"
-
-    const-string/jumbo v23, "!@clone fail getLiveIcon"
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v23
-
-    invoke-static {v0, v1, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    invoke-virtual {v8}, Ljava/lang/CloneNotSupportedException;->printStackTrace()V
-
-    const/16 v22, 0x0
-
-    return-object v22
-
-    :catch_7
     move-exception v10
 
-    const-string/jumbo v22, "ApplicationPackageManager"
+    const-string/jumbo v23, "ApplicationPackageManager"
 
-    const-string/jumbo v23, "!@call method fail getLiveIcon"
+    const-string/jumbo v24, "!@clone fail getLiveIcon"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v23
+    move-object/from16 v1, v24
 
     invoke-static {v0, v1, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-virtual {v10}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v10}, Ljava/lang/Exception;->printStackTrace()V
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    return-object v22
+    return-object v23
+
+    :catch_6
+    move-exception v9
+
+    const-string/jumbo v23, "ApplicationPackageManager"
+
+    const-string/jumbo v24, "!@clone fail getLiveIcon"
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v24
+
+    invoke-static {v0, v1, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    invoke-virtual {v9}, Ljava/lang/CloneNotSupportedException;->printStackTrace()V
+
+    const/16 v23, 0x0
+
+    return-object v23
+
+    :catch_7
+    move-exception v11
+
+    const-string/jumbo v23, "ApplicationPackageManager"
+
+    const-string/jumbo v24, "!@call method fail getLiveIcon"
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v24
+
+    invoke-static {v0, v1, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    invoke-virtual {v11}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+
+    const/16 v23, 0x0
+
+    return-object v23
 
     :catch_8
-    move-exception v12
+    move-exception v13
 
-    const-string/jumbo v22, "ApplicationPackageManager"
+    const-string/jumbo v23, "ApplicationPackageManager"
 
-    const-string/jumbo v23, "!@call method fail getLiveIcon"
+    const-string/jumbo v24, "!@call method fail getLiveIcon"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v23
+    move-object/from16 v1, v24
 
-    invoke-static {v0, v1, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-virtual {v12}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
+    invoke-virtual {v13}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    return-object v22
+    return-object v23
 
     :cond_4
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    return-object v22
+    return-object v23
 
     :catchall_2
-    move-exception v22
+    move-exception v23
 
-    move-object v14, v15
+    move-object/from16 v15, v16
 
     goto :goto_2
 
     :catchall_3
-    move-exception v22
+    move-exception v23
 
-    move-object v14, v15
+    move-object/from16 v15, v16
 
     goto :goto_1
 .end method
 
 .method private getManagedProfileIconForDensity(Landroid/os/UserHandle;II)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .locals 2
+
+    const/4 v1, 0x0
 
     invoke-virtual {p1}, Landroid/os/UserHandle;->getIdentifier()I
 
@@ -3644,13 +4108,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x10803be
-
-    invoke-direct {p0, v0, p3}, Landroid/app/ApplicationPackageManager;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    return-object v0
+    return-object v1
 
     :cond_0
     invoke-virtual {p1}, Landroid/os/UserHandle;->getIdentifier()I
@@ -3663,107 +4121,286 @@
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p1}, Landroid/os/UserHandle;->getIdentifier()I
+    invoke-direct {p0, p2, p3}, Landroid/app/ApplicationPackageManager;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
 
-    move-result v0
-
-    invoke-static {v0}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    :cond_1
-    const/4 v0, 0x0
+    move-result-object v0
 
     return-object v0
 
-    :cond_2
-    invoke-direct {p0, p2, p3}, Landroid/app/ApplicationPackageManager;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
+    :cond_1
+    return-object v1
+.end method
+
+.method private getMetaDataItemInfoForFixedScaleIconTray(Ljava/lang/String;)Landroid/content/pm/PackageItemInfo;
+    .locals 9
+
+    const/4 v8, 0x0
+
+    if-nez p1, :cond_0
+
+    return-object v8
+
+    :cond_0
+    const/4 v5, 0x1
+
+    :try_start_0
+    new-array v3, v5, [Ljava/lang/String;
+
+    const-string/jumbo v5, "FixedIconScale"
+
+    const/4 v6, 0x0
+
+    aput-object v5, v3, v6
+
+    iget-object v5, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    iget-object v6, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v6}, Landroid/app/ContextImpl;->getUserId()I
+
+    move-result v6
+
+    invoke-interface {v5, p1, v3, v6}, Landroid/content/pm/IPackageManager;->getSelectedMetadataForIconTray(Ljava/lang/String;[Ljava/lang/String;I)Landroid/os/Bundle;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    const-string/jumbo v5, "FixedIconScale"
+
+    invoke-virtual {v2, v5}, Landroid/os/Bundle;->getFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    invoke-static {v5}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/Float;->floatValue()F
+
+    move-result v5
+
+    const/4 v6, 0x0
+
+    cmpl-float v5, v5, v6
+
+    if-lez v5, :cond_1
+
+    new-instance v1, Landroid/content/pm/PackageItemInfo;
+
+    invoke-direct {v1}, Landroid/content/pm/PackageItemInfo;-><init>()V
+
+    iput-object v2, v1, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
+
+    iput-object p1, v1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+
+    const-string/jumbo v5, "ApplicationPackageManager"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "getMetaDataItemInfoForFixedScaleIconTray: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v5, "ApplicationPackageManager"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "get application info error FixedIconScale: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    return-object v8
+.end method
+
+.method private getThemeAppIcon(Landroid/content/pm/PackageItemInfo;Z)Landroid/graphics/drawable/Drawable;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, p2, v0}, Landroid/app/ApplicationPackageManager;->getThemeAppIcon(Landroid/content/pm/PackageItemInfo;ZZ)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method private getNoBadgeResizedIcon(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-    .locals 9
+.method private getThemeAppIcon(Landroid/content/pm/PackageItemInfo;ZZ)Landroid/graphics/drawable/Drawable;
+    .locals 8
 
     const/4 v7, 0x0
 
-    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+    iget-object v5, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
 
-    move-result v6
+    iget-object v5, v5, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
 
-    int-to-float v4, v6
+    invoke-virtual {v5}, Landroid/app/ActivityThread;->getThemeAppIconMap()Ljava/util/HashMap;
 
-    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+    move-result-object v1
 
-    move-result v6
+    iget-object v5, p0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
 
-    int-to-float v2, v6
+    if-eqz v5, :cond_4
 
-    iget-object v6, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+    iget-object v5, p0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
 
-    invoke-virtual {v6}, Landroid/app/ContextImpl;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v5}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v5
+
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_4
+
+    const/4 v2, 0x0
+
+    if-eqz p2, :cond_1
+
+    const-string/jumbo v5, "3rd_party_icon"
+
+    invoke-virtual {v1, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    :cond_0
+    :goto_0
+    if-eqz v2, :cond_4
+
+    :try_start_0
+    iget-object v5, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v5}, Landroid/app/ContextImpl;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v5
 
-    const/4 v1, 0x0
+    iget-object v6, p0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
 
-    const/4 v0, 0x0
+    invoke-virtual {v5, v6}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
 
-    const v6, 0x10500d9
+    move-result-object v3
 
-    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
+    const-string/jumbo v5, "drawable"
 
-    move-result v1
+    iget-object v6, p0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
 
-    const v6, 0x10500da
+    invoke-virtual {v3, v2, v5, v6}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
+    move-result v4
 
-    move-result v0
+    if-eqz v4, :cond_4
 
-    cmpg-float v6, v4, v7
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-lez v6, :cond_0
+    move-result-object v5
 
-    cmpg-float v6, v2, v7
-
-    if-gtz v6, :cond_1
-
-    :cond_0
-    return-object p1
+    return-object v5
 
     :cond_1
-    cmpl-float v6, v4, v1
+    if-eqz p3, :cond_2
 
-    if-nez v6, :cond_2
+    const-string/jumbo v5, "mask_for_crop"
 
-    cmpl-float v6, v2, v0
+    invoke-virtual {v1, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    if-eqz v6, :cond_3
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    goto :goto_0
 
     :cond_2
-    new-instance v3, Landroid/graphics/drawable/BitmapDrawable;
+    if-eqz p1, :cond_0
 
-    iget-object v6, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+    iget-object v5, p1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
-    float-to-int v7, v1
+    if-eqz v5, :cond_3
 
-    float-to-int v8, v0
+    iget-object v5, p1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
-    invoke-direct {p0, p1, v6, v7, v8}, Landroid/app/ApplicationPackageManager;->createIconBitmap(Landroid/graphics/drawable/Drawable;Landroid/app/ContextImpl;II)Landroid/graphics/Bitmap;
+    invoke-virtual {v1, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v2
 
-    invoke-direct {v3, v5, v6}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
+    check-cast v2, Ljava/lang/String;
 
-    move-object p1, v3
+    if-nez v2, :cond_0
+
+    instance-of v5, p1, Landroid/content/pm/ApplicationInfo;
+
+    if-eqz v5, :cond_0
+
+    iget-object v5, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v1, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    goto :goto_0
 
     :cond_3
-    return-object p1
+    iget-object v5, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+
+    if-eqz v5, :cond_0
+
+    iget-object v5, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v1, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    :cond_4
+    return-object v7
 .end method
 
 .method private getThemeIconWithBG(Landroid/content/pm/PackageItemInfo;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
@@ -3799,11 +4436,33 @@
 .end method
 
 .method private getThemeIconWithBG(Landroid/content/pm/PackageItemInfo;Landroid/graphics/drawable/Drawable;Ljava/lang/Boolean;Ljava/lang/Boolean;)Landroid/graphics/drawable/Drawable;
-    .locals 38
+    .locals 6
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
-    const-string/jumbo v26, "NULL"
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    move-object v4, p3
+
+    invoke-direct/range {v0 .. v5}, Landroid/app/ApplicationPackageManager;->getThemeIconWithBG(Landroid/content/pm/PackageItemInfo;Landroid/graphics/drawable/Drawable;Ljava/lang/Boolean;Ljava/lang/Boolean;I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method private getThemeIconWithBG(Landroid/content/pm/PackageItemInfo;Landroid/graphics/drawable/Drawable;Ljava/lang/Boolean;Ljava/lang/Boolean;I)Landroid/graphics/drawable/Drawable;
+    .locals 39
+
+    const/4 v10, 0x0
+
+    const-string/jumbo v29, "NULL"
 
     if-eqz p1, :cond_0
 
@@ -3811,2481 +4470,2326 @@
 
     iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    move-object/from16 v26, v0
+    move-object/from16 v29, v0
 
     :cond_0
-    if-eqz p1, :cond_3
-
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
-
-    move-object/from16 v34, v0
-
-    if-eqz v34, :cond_1
-
-    new-instance v34, Landroid/app/ApplicationPackageManager$ResourceName;
-
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
-
-    move-object/from16 v35, v0
-
-    invoke-virtual/range {p2 .. p2}, Landroid/graphics/drawable/Drawable;->hashCode()I
-
-    move-result v36
-
-    invoke-direct/range {v34 .. v36}, Landroid/app/ApplicationPackageManager$ResourceName;-><init>(Ljava/lang/String;I)V
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v34
-
-    invoke-direct {v0, v1}, Landroid/app/ApplicationPackageManager;->getCachedIcon(Landroid/app/ApplicationPackageManager$ResourceName;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v6
-
-    if-eqz v6, :cond_1
-
-    return-object v6
-
-    :cond_1
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
-
-    move-object/from16 v34, v0
-
-    if-eqz v34, :cond_2
-
-    new-instance v34, Landroid/app/ApplicationPackageManager$ResourceName;
-
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
-
-    move-object/from16 v35, v0
-
-    invoke-virtual/range {p2 .. p2}, Landroid/graphics/drawable/Drawable;->hashCode()I
-
-    move-result v36
-
-    invoke-direct/range {v34 .. v36}, Landroid/app/ApplicationPackageManager$ResourceName;-><init>(Ljava/lang/String;I)V
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v34
-
-    invoke-direct {v0, v1}, Landroid/app/ApplicationPackageManager;->getCachedIcon(Landroid/app/ApplicationPackageManager$ResourceName;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v6
-
-    if-eqz v6, :cond_3
-
-    return-object v6
-
-    :cond_2
-    return-object p2
-
-    :cond_3
-    const/4 v10, -0x1
-
-    const/4 v8, -0x1
-
-    const/4 v7, 0x0
-
     invoke-virtual/range {p3 .. p3}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v34
+    move-result v3
 
-    if-nez v34, :cond_4
+    if-eqz v3, :cond_1
 
-    move-object/from16 v0, p0
+    move-object/from16 v0, p2
 
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
+    instance-of v3, v0, Landroid/graphics/drawable/AdaptiveIconDrawable;
 
-    move-object/from16 v34, v0
+    if-eqz v3, :cond_1
 
-    if-eqz v34, :cond_9
+    const-string/jumbo v3, "ApplicationPackageManager"
 
-    move-object/from16 v0, p0
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    iget v0, v0, Landroid/app/ApplicationPackageManager;->openThemeAppIconRange:I
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    move/from16 v34, v0
+    const-string/jumbo v8, "return adaptive icon for "
 
-    const/16 v35, 0x1
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move/from16 v0, v34
+    move-result-object v4
 
-    move/from16 v1, v35
+    move-object/from16 v0, v29
 
-    if-le v0, v1, :cond_9
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_4
-    new-instance v11, Landroid/graphics/BitmapFactory$Options;
+    move-result-object v4
 
-    invoke-direct {v11}, Landroid/graphics/BitmapFactory$Options;-><init>()V
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const/16 v34, 0x1
+    move-result-object v4
 
-    move/from16 v0, v34
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput-boolean v0, v11, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z
+    return-object p2
 
-    const/16 v34, 0x0
+    :cond_1
+    if-eqz p1, :cond_4
 
-    move/from16 v0, v34
+    move-object/from16 v0, p1
 
-    iput-boolean v0, v11, Landroid/graphics/BitmapFactory$Options;->inScaled:Z
+    iget-object v3, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
-    sget v34, Landroid/app/ApplicationPackageManager;->configSmartAppIconScaler:I
+    if-eqz v3, :cond_2
 
-    const/16 v35, 0x3
+    new-instance v3, Landroid/app/ApplicationPackageManager$ResourceName;
 
-    move/from16 v0, v34
+    move-object/from16 v0, p1
 
-    move/from16 v1, v35
+    iget-object v4, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
-    if-ne v0, v1, :cond_8
-
-    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
-
-    move-result-object v34
-
-    const v35, 0x108037c
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v35
-
-    invoke-static {v0, v1, v11}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
-
-    move-result-object v7
-
-    :goto_0
-    iget v10, v11, Landroid/graphics/BitmapFactory$Options;->outWidth:I
-
-    iget v8, v11, Landroid/graphics/BitmapFactory$Options;->outHeight:I
-
-    :cond_5
-    :goto_1
-    const/16 v23, 0x0
-
-    if-gez v10, :cond_6
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
-
-    move-object/from16 v34, v0
-
-    if-eqz v34, :cond_6
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/app/ApplicationPackageManager;->openThemeAppIconRange:I
-
-    move/from16 v34, v0
-
-    const/16 v35, 0x2
-
-    move/from16 v0, v34
-
-    move/from16 v1, v35
-
-    if-ge v0, v1, :cond_6
-
-    const/16 v23, 0x1
-
-    sget v34, Landroid/app/ApplicationPackageManager;->configSmartAppIconScaler:I
-
-    const/16 v35, 0x3
-
-    move/from16 v0, v34
-
-    move/from16 v1, v35
-
-    if-ne v0, v1, :cond_b
-
-    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
-
-    move-result-object v34
-
-    const v35, 0x108037c
-
-    invoke-virtual/range {v34 .. v35}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v6
-
-    :goto_2
-    invoke-virtual {v6}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
-
-    move-result v10
-
-    invoke-virtual {v6}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+    invoke-virtual/range {p2 .. p2}, Landroid/graphics/drawable/Drawable;->hashCode()I
 
     move-result v8
 
+    invoke-direct {v3, v4, v8}, Landroid/app/ApplicationPackageManager$ResourceName;-><init>(Ljava/lang/String;I)V
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v3}, Landroid/app/ApplicationPackageManager;->getCachedIcon(Landroid/app/ApplicationPackageManager$ResourceName;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v10
+
+    if-eqz v10, :cond_2
+
+    return-object v10
+
+    :cond_2
+    move-object/from16 v0, p1
+
+    iget-object v3, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+
+    if-eqz v3, :cond_3
+
+    new-instance v3, Landroid/app/ApplicationPackageManager$ResourceName;
+
+    move-object/from16 v0, p1
+
+    iget-object v4, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual/range {p2 .. p2}, Landroid/graphics/drawable/Drawable;->hashCode()I
+
+    move-result v8
+
+    invoke-direct {v3, v4, v8}, Landroid/app/ApplicationPackageManager$ResourceName;-><init>(Ljava/lang/String;I)V
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v3}, Landroid/app/ApplicationPackageManager;->getCachedIcon(Landroid/app/ApplicationPackageManager$ResourceName;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v10
+
+    if-eqz v10, :cond_4
+
+    return-object v10
+
+    :cond_3
+    return-object p2
+
+    :cond_4
+    const/4 v14, -0x1
+
+    const/4 v12, -0x1
+
+    const/4 v11, 0x0
+
+    invoke-virtual/range {p3 .. p3}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v3
+
+    if-nez v3, :cond_5
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
+
+    if-eqz v3, :cond_a
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconRange:I
+
+    const/4 v4, 0x1
+
+    if-le v3, v4, :cond_a
+
+    :cond_5
+    new-instance v15, Landroid/graphics/BitmapFactory$Options;
+
+    invoke-direct {v15}, Landroid/graphics/BitmapFactory$Options;-><init>()V
+
+    const/4 v3, 0x1
+
+    iput-boolean v3, v15, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z
+
+    const/4 v3, 0x0
+
+    iput-boolean v3, v15, Landroid/graphics/BitmapFactory$Options;->inScaled:Z
+
+    sget v3, Landroid/app/ApplicationPackageManager;->CONFIG_SMART_APPICON_SCALER:I
+
+    const/4 v4, 0x3
+
+    if-ne v3, v4, :cond_9
+
+    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x108038d
+
+    invoke-static {v3, v4, v15}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
+
+    move-result-object v11
+
+    :goto_0
+    iget v14, v15, Landroid/graphics/BitmapFactory$Options;->outWidth:I
+
+    iget v12, v15, Landroid/graphics/BitmapFactory$Options;->outHeight:I
+
     :cond_6
-    if-lez v10, :cond_14
+    :goto_1
+    const/16 v26, 0x0
 
-    if-lez v8, :cond_14
+    if-gez v14, :cond_7
 
-    invoke-virtual/range {p2 .. p2}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+    move-object/from16 v0, p0
 
-    move-result v15
+    iget-object v3, v0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
 
-    invoke-virtual/range {p2 .. p2}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+    if-eqz v3, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconRange:I
+
+    const/4 v4, 0x2
+
+    if-ge v3, v4, :cond_7
+
+    const/16 v26, 0x1
+
+    sget v3, Landroid/app/ApplicationPackageManager;->CONFIG_SMART_APPICON_SCALER:I
+
+    const/4 v4, 0x3
+
+    if-ne v3, v4, :cond_c
+
+    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x108038d
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v10
+
+    :goto_2
+    invoke-virtual {v10}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v14
 
-    if-lez v15, :cond_7
+    invoke-virtual {v10}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
-    if-gtz v14, :cond_c
+    move-result v12
 
     :cond_7
-    return-object p2
+    if-lez v14, :cond_16
+
+    if-lez v12, :cond_16
+
+    invoke-virtual/range {p2 .. p2}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+
+    move-result v6
+
+    invoke-virtual/range {p2 .. p2}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+
+    move-result v7
+
+    if-lez v6, :cond_8
+
+    if-gtz v7, :cond_d
 
     :cond_8
+    return-object p2
+
+    :cond_9
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
-    move-result-object v34
+    move-result-object v3
 
-    const v35, 0x108037a
+    const v4, 0x108038b
 
-    move-object/from16 v0, v34
+    invoke-static {v3, v4, v15}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
-    move/from16 v1, v35
-
-    invoke-static {v0, v1, v11}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
-
-    move-result-object v7
+    move-result-object v11
 
     goto :goto_0
 
-    :cond_9
-    const/16 v34, 0x1
+    :cond_a
+    const/4 v3, 0x1
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v34
+    invoke-direct {v0, v1, v3}, Landroid/app/ApplicationPackageManager;->getThemeAppIcon(Landroid/content/pm/PackageItemInfo;Z)Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v0, v1, v2}, Landroid/app/ApplicationPackageManager;->getThemeAppIcon(Landroid/content/pm/PackageItemInfo;Z)Landroid/graphics/drawable/Drawable;
+    move-result-object v10
 
-    move-result-object v6
+    if-eqz v10, :cond_6
 
-    if-eqz v6, :cond_5
+    instance-of v3, v10, Landroid/graphics/drawable/BitmapDrawable;
 
-    instance-of v0, v6, Landroid/graphics/drawable/BitmapDrawable;
+    if-eqz v3, :cond_b
 
-    move/from16 v34, v0
+    move-object v3, v10
 
-    if-eqz v34, :cond_a
+    check-cast v3, Landroid/graphics/drawable/BitmapDrawable;
 
-    move-object/from16 v34, v6
+    invoke-virtual {v3}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
 
-    check-cast v34, Landroid/graphics/drawable/BitmapDrawable;
-
-    invoke-virtual/range {v34 .. v34}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
-
-    move-result-object v7
+    move-result-object v11
 
     :goto_3
-    const/16 v34, 0x0
+    const/4 v3, 0x0
 
-    move/from16 v0, v34
+    invoke-virtual {v11, v3}, Landroid/graphics/Bitmap;->setDensity(I)V
 
-    invoke-virtual {v7, v0}, Landroid/graphics/Bitmap;->setDensity(I)V
+    invoke-virtual {v11}, Landroid/graphics/Bitmap;->getWidth()I
 
-    invoke-virtual {v7}, Landroid/graphics/Bitmap;->getWidth()I
+    move-result v14
 
-    move-result v10
+    invoke-virtual {v11}, Landroid/graphics/Bitmap;->getHeight()I
 
-    invoke-virtual {v7}, Landroid/graphics/Bitmap;->getHeight()I
+    move-result v12
 
-    move-result v8
+    goto :goto_1
 
-    goto/16 :goto_1
+    :cond_b
+    invoke-virtual {v10}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
-    :cond_a
-    invoke-virtual {v6}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+    move-result v14
 
-    move-result v10
+    invoke-virtual {v10}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
-    invoke-virtual {v6}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+    move-result v12
 
-    move-result v8
+    sget-object v3, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    sget-object v34, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+    invoke-static {v14, v12, v3}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
-    move-object/from16 v0, v34
+    move-result-object v11
 
-    invoke-static {v10, v8, v0}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+    new-instance v16, Landroid/graphics/Canvas;
 
-    move-result-object v7
+    move-object/from16 v0, v16
 
-    new-instance v12, Landroid/graphics/Canvas;
+    invoke-direct {v0, v11}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    invoke-direct {v12, v7}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+    invoke-virtual/range {v16 .. v16}, Landroid/graphics/Canvas;->getWidth()I
 
-    invoke-virtual {v12}, Landroid/graphics/Canvas;->getWidth()I
+    move-result v3
 
-    move-result v34
+    invoke-virtual/range {v16 .. v16}, Landroid/graphics/Canvas;->getHeight()I
 
-    invoke-virtual {v12}, Landroid/graphics/Canvas;->getHeight()I
+    move-result v4
 
-    move-result v35
+    const/4 v8, 0x0
 
-    const/16 v36, 0x0
+    const/16 v38, 0x0
 
-    const/16 v37, 0x0
+    move/from16 v0, v38
 
-    move/from16 v0, v36
+    invoke-virtual {v10, v8, v0, v3, v4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    move/from16 v1, v37
+    move-object/from16 v0, v16
 
-    move/from16 v2, v34
-
-    move/from16 v3, v35
-
-    invoke-virtual {v6, v0, v1, v2, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
-
-    invoke-virtual {v6, v12}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+    invoke-virtual {v10, v0}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     goto :goto_3
 
-    :cond_b
+    :cond_c
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
-    move-result-object v34
+    move-result-object v3
 
-    const v35, 0x108037a
+    const v4, 0x108038b
 
-    invoke-virtual/range {v34 .. v35}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v6
+    move-result-object v10
 
-    goto/16 :goto_2
-
-    :cond_c
-    const-string/jumbo v34, "ApplicationPackageManager"
-
-    new-instance v35, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v36, "load="
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    move-object/from16 v0, v35
-
-    move-object/from16 v1, v26
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    const-string/jumbo v36, ", bg="
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    move-object/from16 v0, v35
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    const-string/jumbo v36, "-"
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    move-object/from16 v0, v35
-
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    const-string/jumbo v36, ", dr="
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    move-object/from16 v0, v35
-
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    const-string/jumbo v36, "-"
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    move-object/from16 v0, v35
-
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    const-string/jumbo v36, ", forDefault="
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    move-object/from16 v0, v35
-
-    move-object/from16 v1, p3
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v35
-
-    invoke-static/range {v34 .. v35}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v13, 0x0
-
-    sget-boolean v34, Landroid/app/ApplicationPackageManager;->supportSmartIconUnify:Z
-
-    if-eqz v34, :cond_e
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
-
-    move-object/from16 v34, v0
-
-    if-eqz v34, :cond_e
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/app/ApplicationPackageManager;->openThemeAppIconRange:I
-
-    move/from16 v34, v0
-
-    const/16 v35, 0x2
-
-    move/from16 v0, v34
-
-    move/from16 v1, v35
-
-    if-ge v0, v1, :cond_e
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/app/ApplicationPackageManager;->applyIconUnifyFeature:I
-
-    move/from16 v34, v0
-
-    const/16 v35, -0x1
-
-    move/from16 v0, v34
-
-    move/from16 v1, v35
-
-    if-ne v0, v1, :cond_e
-
-    const/16 v34, 0x0
-
-    move/from16 v0, v34
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Landroid/app/ApplicationPackageManager;->applyIconUnifyFeature:I
-
-    const/16 v16, 0x0
-
-    :goto_4
-    sget-object v34, Landroid/app/ApplicationPackageManager;->ICON_UNIFY_THEME_PKG_LIST:[Ljava/lang/String;
-
-    move-object/from16 v0, v34
-
-    array-length v0, v0
-
-    move/from16 v34, v0
-
-    move/from16 v0, v16
-
-    move/from16 v1, v34
-
-    if-ge v0, v1, :cond_d
-
-    sget-object v34, Landroid/app/ApplicationPackageManager;->ICON_UNIFY_THEME_PKG_LIST:[Ljava/lang/String;
-
-    aget-object v34, v34, v16
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
-
-    move-object/from16 v35, v0
-
-    invoke-virtual/range {v34 .. v35}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_15
-
-    const/16 v34, 0x1
-
-    move/from16 v0, v34
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Landroid/app/ApplicationPackageManager;->applyIconUnifyFeature:I
+    goto :goto_2
 
     :cond_d
-    const-string/jumbo v34, "ApplicationPackageManager"
+    const-string/jumbo v3, "ApplicationPackageManager"
 
-    new-instance v35, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v36, "applyIconUnifyFeature = "
+    const-string/jumbo v8, "load="
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v4
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v8, ", bg="
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v8, "-"
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v8, ", dr="
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v8, "-"
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v8, ", forDefault="
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v8, ", density="
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    move/from16 v0, p5
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v5, 0x0
+
+    sget-boolean v3, Landroid/app/ApplicationPackageManager;->SUPPORT_THEME_APPICON_UNIFY:Z
+
+    if-eqz v3, :cond_f
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/app/ApplicationPackageManager;->applyIconUnifyFeature:I
+    iget-object v3, v0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
 
-    move/from16 v36, v0
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    const-string/jumbo v36, "--appIconPackageName = "
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
+    if-eqz v3, :cond_f
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
+    iget v3, v0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconRange:I
 
-    move-object/from16 v36, v0
+    const/4 v4, 0x2
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-ge v3, v4, :cond_f
 
-    move-result-object v35
+    move-object/from16 v0, p0
 
-    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget v3, v0, Landroid/app/ApplicationPackageManager;->mApplyIconUnifyFeature:I
 
-    move-result-object v35
+    const/4 v4, -0x1
 
-    invoke-static/range {v34 .. v35}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-ne v3, v4, :cond_f
+
+    const/4 v3, 0x0
+
+    move-object/from16 v0, p0
+
+    iput v3, v0, Landroid/app/ApplicationPackageManager;->mApplyIconUnifyFeature:I
+
+    const/16 v17, 0x0
+
+    :goto_4
+    sget-object v3, Landroid/app/ApplicationPackageManager;->ICON_UNIFY_THEME_PKG_LIST:[Ljava/lang/String;
+
+    array-length v3, v3
+
+    move/from16 v0, v17
+
+    if-ge v0, v3, :cond_e
+
+    sget-object v3, Landroid/app/ApplicationPackageManager;->ICON_UNIFY_THEME_PKG_LIST:[Ljava/lang/String;
+
+    aget-object v3, v3, v17
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_17
+
+    const/4 v3, 0x1
+
+    move-object/from16 v0, p0
+
+    iput v3, v0, Landroid/app/ApplicationPackageManager;->mApplyIconUnifyFeature:I
 
     :cond_e
+    const-string/jumbo v3, "ApplicationPackageManager"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "mApplyIconUnifyFeature = "
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    move-object/from16 v0, p0
+
+    iget v8, v0, Landroid/app/ApplicationPackageManager;->mApplyIconUnifyFeature:I
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v8, "--mAppIconPackageName = "
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    move-object/from16 v0, p0
+
+    iget-object v8, v0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_f
     move-object/from16 v0, p2
 
-    instance-of v0, v0, Landroid/graphics/drawable/BitmapDrawable;
+    instance-of v3, v0, Landroid/graphics/drawable/BitmapDrawable;
 
-    move/from16 v34, v0
-
-    if-eqz v34, :cond_16
+    if-eqz v3, :cond_18
 
     check-cast p2, Landroid/graphics/drawable/BitmapDrawable;
 
     invoke-virtual/range {p2 .. p2}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
 
-    move-result-object v13
+    move-result-object v5
 
     :goto_5
-    const/16 v34, 0x0
+    const/4 v3, 0x0
 
-    move/from16 v0, v34
+    invoke-virtual {v5, v3}, Landroid/graphics/Bitmap;->setDensity(I)V
 
-    invoke-virtual {v13, v0}, Landroid/graphics/Bitmap;->setDensity(I)V
+    invoke-virtual {v5}, Landroid/graphics/Bitmap;->getWidth()I
 
-    invoke-virtual {v13}, Landroid/graphics/Bitmap;->getWidth()I
+    move-result v6
 
-    move-result v15
+    invoke-virtual {v5}, Landroid/graphics/Bitmap;->getHeight()I
 
-    invoke-virtual {v13}, Landroid/graphics/Bitmap;->getHeight()I
+    move-result v7
 
-    move-result v14
+    invoke-static {v6, v7}, Ljava/lang/Math;->max(II)I
 
-    invoke-static {v15, v14}, Ljava/lang/Math;->max(II)I
+    move-result v25
 
-    move-result v22
+    const/16 v13, 0xd8
 
-    const/16 v9, 0xd8
+    const/16 v3, 0xd8
 
-    const/16 v34, 0xd8
+    move/from16 v0, v25
 
-    move/from16 v0, v34
+    if-ge v3, v0, :cond_11
 
-    move/from16 v1, v22
+    move/from16 v0, v25
 
-    if-ge v0, v1, :cond_10
+    int-to-float v3, v0
 
-    move/from16 v0, v22
+    const/high16 v4, 0x43580000    # 216.0f
 
-    int-to-float v0, v0
+    div-float v33, v4, v3
 
-    move/from16 v34, v0
+    int-to-float v3, v6
 
-    const/high16 v35, 0x43580000    # 216.0f
+    mul-float v3, v3, v33
 
-    div-float v30, v35, v34
+    float-to-int v6, v3
 
-    int-to-float v0, v15
+    int-to-float v3, v7
 
-    move/from16 v34, v0
+    mul-float v3, v3, v33
 
-    mul-float v34, v34, v30
+    float-to-int v7, v3
 
-    move/from16 v0, v34
+    const/4 v3, 0x1
 
-    float-to-int v15, v0
-
-    int-to-float v0, v14
-
-    move/from16 v34, v0
-
-    mul-float v34, v34, v30
-
-    move/from16 v0, v34
-
-    float-to-int v14, v0
-
-    const/16 v34, 0x1
-
-    move/from16 v0, v34
-
-    invoke-static {v13, v15, v14, v0}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
-
-    move-result-object v13
-
-    invoke-static {v15, v14}, Ljava/lang/Math;->max(II)I
-
-    move-result v22
-
-    invoke-virtual/range {p3 .. p3}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v34
-
-    if-eqz v34, :cond_f
-
-    const/16 v8, 0xd8
-
-    const/16 v10, 0xd8
-
-    :cond_f
-    const-string/jumbo v34, "ApplicationPackageManager"
-
-    new-instance v35, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v36, "reset dr="
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    move-object/from16 v0, v35
-
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    const-string/jumbo v36, ","
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    move-object/from16 v0, v35
-
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    const-string/jumbo v36, ", bg="
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    move-object/from16 v0, v35
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    const-string/jumbo v36, ","
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    move-object/from16 v0, v35
-
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v35
-
-    invoke-static/range {v34 .. v35}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_10
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
-
-    move-object/from16 v34, v0
-
-    if-nez v34, :cond_11
-
-    new-instance v34, Landroid/graphics/Paint;
-
-    invoke-direct/range {v34 .. v34}, Landroid/graphics/Paint;-><init>()V
-
-    move-object/from16 v0, v34
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
-
-    move-object/from16 v34, v0
-
-    const/16 v35, 0x1
-
-    invoke-virtual/range {v34 .. v35}, Landroid/graphics/Paint;->setAntiAlias(Z)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
-
-    move-object/from16 v34, v0
-
-    const/16 v35, 0x1
-
-    invoke-virtual/range {v34 .. v35}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
-
-    move-object/from16 v34, v0
-
-    const/16 v35, 0x0
-
-    invoke-virtual/range {v34 .. v35}, Landroid/graphics/Paint;->setDither(Z)V
-
-    :cond_11
-    const/4 v5, 0x0
-
-    const/4 v12, 0x0
-
-    invoke-direct/range {p0 .. p0}, Landroid/app/ApplicationPackageManager;->checkSettingsForIconTray()Z
-
-    move-result v31
-
-    const/16 v18, 0x0
-
-    const/16 v20, 0x0
-
-    invoke-virtual/range {p3 .. p3}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v34
-
-    if-eqz v34, :cond_1e
-
-    const/16 v17, 0x0
-
-    if-eqz v31, :cond_1b
-
-    const v34, 0x3f99999a    # 1.2f
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v34
-
-    invoke-direct {v0, v13, v15, v14, v1}, Landroid/app/ApplicationPackageManager;->getAppIconAlphaRelativeScale(Landroid/graphics/Bitmap;IIF)Landroid/app/ApplicationPackageManager$IconScale;
-
-    move-result-object v17
-
-    invoke-virtual/range {v17 .. v17}, Landroid/app/ApplicationPackageManager$IconScale;->getScale()F
-
-    move-result v34
-
-    const/high16 v35, 0x42c80000    # 100.0f
-
-    cmpl-float v34, v34, v35
-
-    if-lez v34, :cond_18
-
-    const/16 v20, 0x1
-
-    const/16 v21, 0x0
-
-    new-instance v11, Landroid/graphics/BitmapFactory$Options;
-
-    invoke-direct {v11}, Landroid/graphics/BitmapFactory$Options;-><init>()V
-
-    const/16 v34, 0x0
-
-    move/from16 v0, v34
-
-    iput-boolean v0, v11, Landroid/graphics/BitmapFactory$Options;->inScaled:Z
-
-    sget v34, Landroid/app/ApplicationPackageManager;->configSmartAppIconScaler:I
-
-    const/16 v35, 0x3
-
-    move/from16 v0, v34
-
-    move/from16 v1, v35
-
-    if-ne v0, v1, :cond_17
-
-    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
-
-    move-result-object v34
-
-    const v35, 0x108037d
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v35
-
-    invoke-static {v0, v1, v11}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
-
-    move-result-object v21
-
-    :goto_6
-    const/16 v34, 0x0
-
-    move-object/from16 v0, v21
-
-    move/from16 v1, v34
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Bitmap;->setDensity(I)V
-
-    invoke-virtual/range {v17 .. v17}, Landroid/app/ApplicationPackageManager$IconScale;->getAlpha()I
-
-    move-result v34
-
-    mul-int/lit8 v34, v34, 0x2
-
-    sub-int v32, v22, v34
-
-    invoke-virtual/range {v21 .. v21}, Landroid/graphics/Bitmap;->getWidth()I
-
-    move-result v34
-
-    move/from16 v0, v32
-
-    move/from16 v1, v34
-
-    if-eq v0, v1, :cond_12
-
-    const/16 v34, 0x1
-
-    move-object/from16 v0, v21
-
-    move/from16 v1, v32
-
-    move/from16 v2, v32
-
-    move/from16 v3, v34
-
-    invoke-static {v0, v1, v2, v3}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
-
-    move-result-object v21
-
-    :cond_12
-    move/from16 v8, v32
-
-    move/from16 v10, v32
-
-    sget-object v34, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
-
-    move/from16 v0, v32
-
-    move/from16 v1, v32
-
-    move-object/from16 v2, v34
-
-    invoke-static {v0, v1, v2}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+    invoke-static {v5, v6, v7, v3}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
 
     move-result-object v5
 
-    new-instance v12, Landroid/graphics/Canvas;
+    invoke-static {v6, v7}, Ljava/lang/Math;->max(II)I
 
-    invoke-direct {v12, v5}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+    move-result v25
 
-    invoke-virtual {v12}, Landroid/graphics/Canvas;->save()I
+    invoke-virtual/range {p3 .. p3}, Ljava/lang/Boolean;->booleanValue()Z
 
-    const/16 v34, 0x0
+    move-result v3
 
-    const/16 v35, 0x0
+    if-eqz v3, :cond_10
+
+    const/16 v12, 0xd8
+
+    const/16 v14, 0xd8
+
+    :cond_10
+    const-string/jumbo v3, "ApplicationPackageManager"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "reset dr="
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v8, ","
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v8, ", bg="
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v8, ","
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_11
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
+
+    if-nez v3, :cond_12
+
+    new-instance v3, Landroid/graphics/Paint;
+
+    invoke-direct {v3}, Landroid/graphics/Paint;-><init>()V
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
-
-    move-object/from16 v36, v0
-
-    move-object/from16 v0, v21
-
-    move/from16 v1, v34
-
-    move/from16 v2, v35
-
-    move-object/from16 v3, v36
-
-    invoke-virtual {v12, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
-
-    const-string/jumbo v34, "ApplicationPackageManager"
-
-    new-instance v35, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v36, "load="
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    move-object/from16 v0, v35
-
-    move-object/from16 v1, v26
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    const-string/jumbo v36, "-crop, bg="
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    move-object/from16 v0, v35
-
-    move/from16 v1, v32
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    const-string/jumbo v36, "-"
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    move-object/from16 v0, v35
-
-    move/from16 v1, v32
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    const-string/jumbo v36, ", dr="
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    move-object/from16 v0, v35
-
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    const-string/jumbo v36, "-"
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    move-object/from16 v0, v35
-
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v35
-
-    invoke-static/range {v34 .. v35}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_7
-    int-to-float v0, v10
-
-    move/from16 v34, v0
-
-    const/high16 v35, 0x40000000    # 2.0f
-
-    div-float v34, v34, v35
-
-    int-to-float v0, v8
-
-    move/from16 v35, v0
-
-    const/high16 v36, 0x40000000    # 2.0f
-
-    div-float v35, v35, v36
-
-    int-to-float v0, v8
-
-    move/from16 v36, v0
-
-    const v37, 0x3ca3d70a    # 0.02f
-
-    mul-float v36, v36, v37
-
-    sub-float v35, v35, v36
-
-    move/from16 v0, v34
-
-    move/from16 v1, v35
-
-    invoke-virtual {v12, v0, v1}, Landroid/graphics/Canvas;->translate(FF)V
-
-    :goto_8
-    if-eqz v18, :cond_28
+    iput-object v3, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
+    iget-object v3, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
 
-    move-object/from16 v34, v0
+    const/4 v4, 0x1
 
-    if-eqz v34, :cond_28
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/app/ApplicationPackageManager;->openThemeAppIconRange:I
-
-    move/from16 v34, v0
-
-    const/16 v35, 0x2
-
-    move/from16 v0, v34
-
-    move/from16 v1, v35
-
-    if-ge v0, v1, :cond_28
-
-    const/16 v34, 0x1
-
-    move/from16 v0, v34
-
-    invoke-static {v13, v15, v14, v0}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
-
-    move-result-object v13
+    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+    iget-object v3, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
 
-    move-object/from16 v34, v0
+    const/4 v4, 0x1
 
-    if-nez v34, :cond_13
-
-    new-instance v34, Landroid/graphics/Paint;
-
-    invoke-direct/range {v34 .. v34}, Landroid/graphics/Paint;-><init>()V
-
-    move-object/from16 v0, v34
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+    iget-object v3, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
 
-    move-object/from16 v34, v0
+    const/4 v4, 0x0
 
-    const/16 v35, 0x1
+    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setDither(Z)V
 
-    invoke-virtual/range {v34 .. v35}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    :cond_12
+    const/4 v9, 0x0
 
-    move-object/from16 v0, p0
+    const/16 v16, 0x0
 
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+    invoke-direct/range {p0 .. p0}, Landroid/app/ApplicationPackageManager;->checkSettingsForIconTray()Z
 
-    move-object/from16 v34, v0
+    move-result v34
 
-    const/16 v35, 0x1
+    const/16 v19, 0x0
 
-    invoke-virtual/range {v34 .. v35}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
+    const/16 v21, 0x0
 
-    move-object/from16 v0, p0
+    invoke-virtual/range {p3 .. p3}, Ljava/lang/Boolean;->booleanValue()Z
 
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+    move-result v3
 
-    move-object/from16 v34, v0
+    if-eqz v3, :cond_1f
 
-    const/16 v35, 0x0
+    const/16 v18, 0x0
 
-    invoke-virtual/range {v34 .. v35}, Landroid/graphics/Paint;->setDither(Z)V
+    if-eqz v34, :cond_1d
 
-    move-object/from16 v0, p0
+    const v8, 0x3f99999a    # 1.2f
 
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+    move-object/from16 v3, p0
 
-    move-object/from16 v34, v0
+    move-object/from16 v4, p1
 
-    new-instance v35, Landroid/graphics/PorterDuffXfermode;
+    invoke-direct/range {v3 .. v8}, Landroid/app/ApplicationPackageManager;->getAppIconAlphaRelativeScale(Landroid/content/pm/PackageItemInfo;Landroid/graphics/Bitmap;IIF)Landroid/app/ApplicationPackageManager$IconScale;
 
-    sget-object v36, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
+    move-result-object v18
 
-    invoke-direct/range {v35 .. v36}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
+    const-string/jumbo v3, "ApplicationPackageManager"
 
-    invoke-virtual/range {v34 .. v35}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    :cond_13
-    neg-int v0, v15
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    move/from16 v34, v0
+    const-string/jumbo v8, "iconScale: getScale(): "
 
-    move/from16 v0, v34
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    int-to-float v0, v0
+    move-result-object v4
 
-    move/from16 v34, v0
+    invoke-virtual/range {v18 .. v18}, Landroid/app/ApplicationPackageManager$IconScale;->getScale()F
 
-    const/high16 v35, 0x40000000    # 2.0f
+    move-result v8
 
-    div-float v34, v34, v35
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    neg-int v0, v14
+    move-result-object v4
 
-    move/from16 v35, v0
+    const-string/jumbo v8, " getAlpha(): "
 
-    move/from16 v0, v35
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    int-to-float v0, v0
+    move-result-object v4
 
-    move/from16 v35, v0
+    invoke-virtual/range {v18 .. v18}, Landroid/app/ApplicationPackageManager$IconScale;->getAlpha()I
 
-    const/high16 v36, 0x40000000    # 2.0f
+    move-result v8
 
-    div-float v35, v35, v36
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, p0
+    move-result-object v4
 
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-object/from16 v36, v0
+    move-result-object v4
 
-    move/from16 v0, v34
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move/from16 v1, v35
+    invoke-virtual/range {v18 .. v18}, Landroid/app/ApplicationPackageManager$IconScale;->getScale()F
 
-    move-object/from16 v2, v36
+    move-result v3
 
-    invoke-virtual {v12, v13, v0, v1, v2}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+    const/high16 v4, 0x42c80000    # 100.0f
+
+    cmpl-float v3, v3, v4
+
+    if-lez v3, :cond_1a
+
+    const/16 v21, 0x1
+
+    const/16 v22, 0x0
+
+    new-instance v15, Landroid/graphics/BitmapFactory$Options;
+
+    invoke-direct {v15}, Landroid/graphics/BitmapFactory$Options;-><init>()V
+
+    const/4 v3, 0x0
+
+    iput-boolean v3, v15, Landroid/graphics/BitmapFactory$Options;->inScaled:Z
+
+    sget v3, Landroid/app/ApplicationPackageManager;->CONFIG_SMART_APPICON_SCALER:I
+
+    const/4 v4, 0x3
+
+    if-ne v3, v4, :cond_19
 
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
-    move-result-object v34
+    move-result-object v3
 
-    const v35, 0x108037e
+    const v4, 0x108038e
 
-    invoke-virtual/range {v34 .. v35}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-static {v3, v4, v15}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
-    move-result-object v24
+    move-result-object v22
 
-    check-cast v24, Landroid/graphics/drawable/BitmapDrawable;
+    :goto_6
+    const/4 v3, 0x0
 
-    invoke-virtual/range {v24 .. v24}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
+    move-object/from16 v0, v22
 
-    move-result-object v25
+    invoke-virtual {v0, v3}, Landroid/graphics/Bitmap;->setDensity(I)V
 
-    const/16 v34, 0x0
+    invoke-virtual/range {v18 .. v18}, Landroid/app/ApplicationPackageManager$IconScale;->getAlpha()I
 
-    move-object/from16 v0, v25
+    move-result v3
 
-    move/from16 v1, v34
+    mul-int/lit8 v3, v3, 0x2
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Bitmap;->setDensity(I)V
+    sub-int v36, v25, v3
 
-    const/16 v34, 0x1
+    invoke-virtual/range {v22 .. v22}, Landroid/graphics/Bitmap;->getWidth()I
 
-    move-object/from16 v0, v25
+    move-result v3
 
-    move/from16 v1, v34
+    move/from16 v0, v36
 
-    invoke-static {v0, v10, v8, v1}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
+    if-eq v0, v3, :cond_13
 
-    move-result-object v25
+    const/4 v3, 0x1
 
-    neg-int v0, v10
+    move-object/from16 v0, v22
 
-    move/from16 v34, v0
+    move/from16 v1, v36
 
-    move/from16 v0, v34
+    move/from16 v2, v36
 
-    int-to-float v0, v0
+    invoke-static {v0, v1, v2, v3}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
 
-    move/from16 v34, v0
+    move-result-object v22
 
-    const/high16 v35, 0x40000000    # 2.0f
+    :cond_13
+    move/from16 v12, v36
 
-    div-float v34, v34, v35
+    move/from16 v14, v36
 
-    neg-int v0, v8
+    sget-object v3, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    move/from16 v35, v0
+    move/from16 v0, v36
 
-    move/from16 v0, v35
+    move/from16 v1, v36
 
-    int-to-float v0, v0
+    invoke-static {v0, v1, v3}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
-    move/from16 v35, v0
+    move-result-object v9
 
-    const/high16 v36, 0x40000000    # 2.0f
+    new-instance v16, Landroid/graphics/Canvas;
 
-    div-float v35, v35, v36
+    move-object/from16 v0, v16
+
+    invoke-direct {v0, v9}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+
+    invoke-virtual/range {v16 .. v16}, Landroid/graphics/Canvas;->save()I
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
+    iget-object v8, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
 
-    move-object/from16 v36, v0
+    move-object/from16 v0, v16
 
-    move-object/from16 v0, v25
+    move-object/from16 v1, v22
 
-    move/from16 v1, v34
+    invoke-virtual {v0, v1, v3, v4, v8}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
-    move/from16 v2, v35
+    const-string/jumbo v3, "ApplicationPackageManager"
 
-    move-object/from16 v3, v36
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
+    const-string/jumbo v8, "load="
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v8, "-crop, bg="
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    move/from16 v0, v36
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v8, "-"
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    move/from16 v0, v36
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v8, ", dr="
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v8, "-"
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_7
+    int-to-float v3, v14
+
+    const/high16 v4, 0x40000000    # 2.0f
+
+    div-float/2addr v3, v4
+
+    int-to-float v4, v12
+
+    const/high16 v8, 0x40000000    # 2.0f
+
+    div-float/2addr v4, v8
+
+    int-to-float v8, v12
+
+    const v38, 0x3ca3d70a    # 0.02f
+
+    mul-float v8, v8, v38
+
+    sub-float/2addr v4, v8
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v3, v4}, Landroid/graphics/Canvas;->translate(FF)V
+
+    :goto_8
+    if-eqz v19, :cond_2b
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
+
+    if-eqz v3, :cond_2b
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconRange:I
+
+    const/4 v4, 0x2
+
+    if-ge v3, v4, :cond_2b
+
+    const/4 v3, 0x1
+
+    invoke-static {v5, v6, v7, v3}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
+
+    move-result-object v5
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+
+    if-nez v3, :cond_14
+
+    new-instance v3, Landroid/graphics/Paint;
+
+    invoke-direct {v3}, Landroid/graphics/Paint;-><init>()V
+
+    move-object/from16 v0, p0
+
+    iput-object v3, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setDither(Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+
+    new-instance v4, Landroid/graphics/PorterDuffXfermode;
+
+    sget-object v8, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-direct {v4, v8}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
+
+    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
+
+    :cond_14
+    neg-int v3, v6
+
+    int-to-float v3, v3
+
+    const/high16 v4, 0x40000000    # 2.0f
+
+    div-float/2addr v3, v4
+
+    neg-int v4, v7
+
+    int-to-float v4, v4
+
+    const/high16 v8, 0x40000000    # 2.0f
+
+    div-float/2addr v4, v8
+
+    move-object/from16 v0, p0
+
+    iget-object v8, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v5, v3, v4, v8}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+
+    move-object/from16 v0, p0
+
+    iget-boolean v3, v0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconMask:Z
+
+    if-nez v3, :cond_15
+
+    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x1080390
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v27
+
+    check-cast v27, Landroid/graphics/drawable/BitmapDrawable;
+
+    invoke-virtual/range {v27 .. v27}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
+
+    move-result-object v28
+
+    const/4 v3, 0x0
+
+    move-object/from16 v0, v28
+
+    invoke-virtual {v0, v3}, Landroid/graphics/Bitmap;->setDensity(I)V
+
+    const/4 v3, 0x1
+
+    move-object/from16 v0, v28
+
+    invoke-static {v0, v14, v12, v3}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
+
+    move-result-object v28
+
+    neg-int v3, v14
+
+    int-to-float v3, v3
+
+    const/high16 v4, 0x40000000    # 2.0f
+
+    div-float/2addr v3, v4
+
+    neg-int v4, v12
+
+    int-to-float v4, v4
+
+    const/high16 v8, 0x40000000    # 2.0f
+
+    div-float/2addr v4, v8
+
+    move-object/from16 v0, p0
+
+    iget-object v8, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v28
+
+    invoke-virtual {v0, v1, v3, v4, v8}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+
+    :cond_15
     :goto_9
-    invoke-virtual {v12}, Landroid/graphics/Canvas;->restore()V
+    invoke-virtual/range {v16 .. v16}, Landroid/graphics/Canvas;->restore()V
 
     new-instance p2, Landroid/graphics/drawable/BitmapDrawable;
 
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
-    move-result-object v34
+    move-result-object v3
 
     move-object/from16 v0, p2
 
-    move-object/from16 v1, v34
+    invoke-direct {v0, v3, v9}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
-    invoke-direct {v0, v1, v5}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
-
-    if-eqz p1, :cond_14
+    if-eqz p1, :cond_16
 
     move-object/from16 v0, p1
 
-    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v3, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
-    move-object/from16 v34, v0
+    if-eqz v3, :cond_2e
 
-    if-eqz v34, :cond_2b
-
-    new-instance v34, Landroid/app/ApplicationPackageManager$ResourceName;
+    new-instance v3, Landroid/app/ApplicationPackageManager$ResourceName;
 
     move-object/from16 v0, p1
 
-    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
-
-    move-object/from16 v35, v0
+    iget-object v4, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual/range {p2 .. p2}, Landroid/graphics/drawable/Drawable;->hashCode()I
 
-    move-result v36
+    move-result v8
 
-    invoke-direct/range {v34 .. v36}, Landroid/app/ApplicationPackageManager$ResourceName;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v4, v8}, Landroid/app/ApplicationPackageManager$ResourceName;-><init>(Ljava/lang/String;I)V
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v34
+    move-object/from16 v1, p2
 
-    move-object/from16 v2, p2
+    invoke-direct {v0, v3, v1}, Landroid/app/ApplicationPackageManager;->putCachedIcon(Landroid/app/ApplicationPackageManager$ResourceName;Landroid/graphics/drawable/Drawable;)V
 
-    invoke-direct {v0, v1, v2}, Landroid/app/ApplicationPackageManager;->putCachedIcon(Landroid/app/ApplicationPackageManager$ResourceName;Landroid/graphics/drawable/Drawable;)V
-
-    :cond_14
+    :cond_16
     :goto_a
     return-object p2
 
-    :cond_15
-    add-int/lit8 v16, v16, 0x1
+    :cond_17
+    add-int/lit8 v17, v17, 0x1
 
     goto/16 :goto_4
 
-    :cond_16
-    sget-object v34, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+    :cond_18
+    sget-object v3, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    move-object/from16 v0, v34
+    invoke-static {v6, v7, v3}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
-    invoke-static {v15, v14, v0}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+    move-result-object v5
 
-    move-result-object v13
+    new-instance v16, Landroid/graphics/Canvas;
 
-    new-instance v12, Landroid/graphics/Canvas;
+    move-object/from16 v0, v16
 
-    invoke-direct {v12, v13}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+    invoke-direct {v0, v5}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    invoke-virtual {v12}, Landroid/graphics/Canvas;->getWidth()I
+    invoke-virtual/range {v16 .. v16}, Landroid/graphics/Canvas;->getWidth()I
 
-    move-result v34
+    move-result v3
 
-    invoke-virtual {v12}, Landroid/graphics/Canvas;->getHeight()I
+    invoke-virtual/range {v16 .. v16}, Landroid/graphics/Canvas;->getHeight()I
 
-    move-result v35
+    move-result v4
 
-    const/16 v36, 0x0
+    const/4 v8, 0x0
 
-    const/16 v37, 0x0
-
-    move-object/from16 v0, p2
-
-    move/from16 v1, v36
-
-    move/from16 v2, v37
-
-    move/from16 v3, v34
-
-    move/from16 v4, v35
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    const/16 v38, 0x0
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v12}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+    move/from16 v1, v38
+
+    invoke-virtual {v0, v8, v1, v3, v4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     goto/16 :goto_5
 
-    :cond_17
+    :cond_19
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
-    move-result-object v34
+    move-result-object v3
 
-    const v35, 0x108037b
+    const v4, 0x108038c
 
-    move-object/from16 v0, v34
+    invoke-static {v3, v4, v15}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
-    move/from16 v1, v35
-
-    invoke-static {v0, v1, v11}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
-
-    move-result-object v21
+    move-result-object v22
 
     goto/16 :goto_6
 
-    :cond_18
-    invoke-virtual/range {v17 .. v17}, Landroid/app/ApplicationPackageManager$IconScale;->getAlpha()I
+    :cond_1a
+    invoke-virtual/range {v18 .. v18}, Landroid/app/ApplicationPackageManager$IconScale;->getAlpha()I
 
-    move-result v34
+    move-result v3
 
-    mul-int/lit8 v34, v34, 0x2
+    mul-int/lit8 v3, v3, 0x2
 
-    sub-int v34, v22, v34
+    sub-int v3, v25, v3
 
-    move/from16 v0, v34
+    int-to-float v3, v3
 
-    int-to-float v0, v0
+    invoke-virtual/range {v18 .. v18}, Landroid/app/ApplicationPackageManager$IconScale;->getScale()F
 
-    move/from16 v34, v0
+    move-result v4
 
-    invoke-virtual/range {v17 .. v17}, Landroid/app/ApplicationPackageManager$IconScale;->getScale()F
+    div-float/2addr v3, v4
 
-    move-result v35
+    float-to-int v0, v3
 
-    div-float v34, v34, v35
+    move/from16 v36, v0
 
-    move/from16 v0, v34
+    rem-int/lit8 v3, v36, 0x2
 
-    float-to-int v0, v0
+    if-eqz v3, :cond_1b
 
-    move/from16 v32, v0
+    add-int/lit8 v36, v36, 0x1
 
-    rem-int/lit8 v34, v32, 0x2
+    :cond_1b
+    move/from16 v12, v36
 
-    if-eqz v34, :cond_19
+    move/from16 v14, v36
 
-    add-int/lit8 v32, v32, 0x1
+    new-instance v15, Landroid/graphics/BitmapFactory$Options;
 
-    :cond_19
-    move/from16 v8, v32
+    invoke-direct {v15}, Landroid/graphics/BitmapFactory$Options;-><init>()V
 
-    move/from16 v10, v32
+    const/4 v3, 0x0
 
-    new-instance v11, Landroid/graphics/BitmapFactory$Options;
+    iput-boolean v3, v15, Landroid/graphics/BitmapFactory$Options;->inScaled:Z
 
-    invoke-direct {v11}, Landroid/graphics/BitmapFactory$Options;-><init>()V
+    sget v3, Landroid/app/ApplicationPackageManager;->CONFIG_SMART_APPICON_SCALER:I
 
-    const/16 v34, 0x0
+    const/4 v4, 0x3
 
-    move/from16 v0, v34
-
-    iput-boolean v0, v11, Landroid/graphics/BitmapFactory$Options;->inScaled:Z
-
-    sget v34, Landroid/app/ApplicationPackageManager;->configSmartAppIconScaler:I
-
-    const/16 v35, 0x3
-
-    move/from16 v0, v34
-
-    move/from16 v1, v35
-
-    if-ne v0, v1, :cond_1a
+    if-ne v3, v4, :cond_1c
 
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
-    move-result-object v34
+    move-result-object v3
 
-    const v35, 0x108037c
+    const v4, 0x108038d
 
-    move-object/from16 v0, v34
+    invoke-static {v3, v4, v15}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
-    move/from16 v1, v35
-
-    invoke-static {v0, v1, v11}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
-
-    move-result-object v7
+    move-result-object v11
 
     :goto_b
-    const/16 v34, 0x0
+    const/4 v3, 0x0
 
-    move/from16 v0, v34
+    invoke-virtual {v11, v3}, Landroid/graphics/Bitmap;->setDensity(I)V
 
-    invoke-virtual {v7, v0}, Landroid/graphics/Bitmap;->setDensity(I)V
+    const/4 v3, 0x1
 
-    const/16 v34, 0x1
+    invoke-static {v11, v14, v12, v3}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
 
-    move/from16 v0, v34
+    move-result-object v11
 
-    invoke-static {v7, v10, v8, v0}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
+    sget-object v3, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    move-result-object v7
+    invoke-static {v14, v12, v3}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
-    sget-object v34, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+    move-result-object v9
 
-    move-object/from16 v0, v34
+    new-instance v16, Landroid/graphics/Canvas;
 
-    invoke-static {v10, v8, v0}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+    move-object/from16 v0, v16
 
-    move-result-object v5
+    invoke-direct {v0, v9}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    new-instance v12, Landroid/graphics/Canvas;
+    invoke-virtual/range {v16 .. v16}, Landroid/graphics/Canvas;->save()I
 
-    invoke-direct {v12, v5}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+    const/4 v3, 0x0
 
-    invoke-virtual {v12}, Landroid/graphics/Canvas;->save()I
-
-    const/16 v34, 0x0
-
-    const/16 v35, 0x0
+    const/4 v4, 0x0
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
+    iget-object v8, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
 
-    move-object/from16 v36, v0
+    move-object/from16 v0, v16
 
-    move/from16 v0, v34
+    invoke-virtual {v0, v11, v3, v4, v8}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
-    move/from16 v1, v35
+    const-string/jumbo v3, "ApplicationPackageManager"
 
-    move-object/from16 v2, v36
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12, v7, v0, v1, v2}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v34, "ApplicationPackageManager"
+    const-string/jumbo v8, "load="
 
-    new-instance v35, Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v4
 
-    const-string/jumbo v36, "load="
+    move-object/from16 v0, v29
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v4
 
-    move-object/from16 v0, v35
+    const-string/jumbo v8, "-contain, bg="
 
-    move-object/from16 v1, v26
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v35
+    invoke-virtual {v4, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v36, "-contain, bg="
+    move-result-object v4
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v8, "-"
 
-    move-result-object v35
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v35
+    move-result-object v4
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v4
 
-    const-string/jumbo v36, "-"
+    const-string/jumbo v8, ", dr="
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v4
 
-    move-object/from16 v0, v35
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v35
+    const-string/jumbo v8, "-"
 
-    const-string/jumbo v36, ", dr="
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v35
+    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v35
+    move-result-object v4
 
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v35
+    move-result-object v4
 
-    const-string/jumbo v36, "-"
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    move-object/from16 v0, v35
-
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v35
-
-    invoke-static/range {v34 .. v35}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_7
 
-    :cond_1a
+    :cond_1c
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
-    move-result-object v34
+    move-result-object v3
 
-    const v35, 0x108037a
+    const v4, 0x108038b
 
-    move-object/from16 v0, v34
+    invoke-static {v3, v4, v15}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
-    move/from16 v1, v35
+    move-result-object v11
 
-    invoke-static {v0, v1, v11}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
+    goto :goto_b
 
-    move-result-object v7
+    :cond_1d
+    sget v3, Landroid/app/ApplicationPackageManager;->CONFIG_SMART_APPICON_SCALER:I
 
-    goto/16 :goto_b
+    const/4 v4, 0x3
 
-    :cond_1b
-    move-object/from16 v0, p0
+    if-ne v3, v4, :cond_1e
 
-    iget v0, v0, Landroid/app/ApplicationPackageManager;->mTargetAppIconSize:I
-
-    move/from16 v34, v0
-
-    if-eqz v34, :cond_1c
+    const v3, 0x108038d
 
     move-object/from16 v0, p0
 
-    iget v8, v0, Landroid/app/ApplicationPackageManager;->mTargetAppIconSize:I
+    move/from16 v1, p5
 
-    move v10, v8
+    invoke-direct {v0, v3, v1}, Landroid/app/ApplicationPackageManager;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v10
 
     :goto_c
-    const v34, 0x3f8ccccd    # 1.1f
+    invoke-virtual {v10}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+
+    move-result v14
+
+    invoke-virtual {v10}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+
+    move-result v12
+
+    const v3, 0x3f8ccccd    # 1.1f
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v34
+    invoke-direct {v0, v5, v6, v7, v3}, Landroid/app/ApplicationPackageManager;->getAppIconAlphaRelativeScale(Landroid/graphics/Bitmap;IIF)Landroid/app/ApplicationPackageManager$IconScale;
 
-    invoke-direct {v0, v13, v15, v14, v1}, Landroid/app/ApplicationPackageManager;->getAppIconAlphaRelativeScale(Landroid/graphics/Bitmap;IIF)Landroid/app/ApplicationPackageManager$IconScale;
+    move-result-object v18
 
-    move-result-object v17
+    int-to-float v3, v14
 
-    int-to-float v0, v10
+    invoke-virtual/range {v18 .. v18}, Landroid/app/ApplicationPackageManager$IconScale;->getScale()F
 
-    move/from16 v34, v0
+    move-result v4
 
-    invoke-virtual/range {v17 .. v17}, Landroid/app/ApplicationPackageManager$IconScale;->getScale()F
+    mul-float/2addr v3, v4
 
-    move-result v35
+    invoke-virtual/range {v18 .. v18}, Landroid/app/ApplicationPackageManager$IconScale;->getAlpha()I
 
-    mul-float v34, v34, v35
+    move-result v4
 
-    invoke-virtual/range {v17 .. v17}, Landroid/app/ApplicationPackageManager$IconScale;->getAlpha()I
+    mul-int/lit8 v4, v4, 0x2
 
-    move-result v35
+    sub-int v4, v25, v4
 
-    mul-int/lit8 v35, v35, 0x2
+    int-to-float v4, v4
 
-    sub-int v35, v22, v35
+    div-float v30, v3, v4
 
-    move/from16 v0, v35
+    sget-object v3, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    int-to-float v0, v0
+    invoke-static {v14, v12, v3}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
-    move/from16 v35, v0
+    move-result-object v9
 
-    div-float v27, v34, v35
+    new-instance v16, Landroid/graphics/Canvas;
 
-    sget-object v34, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+    move-object/from16 v0, v16
 
-    move-object/from16 v0, v34
+    invoke-direct {v0, v9}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    invoke-static {v10, v8, v0}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+    invoke-virtual/range {v16 .. v16}, Landroid/graphics/Canvas;->save()I
 
-    move-result-object v5
+    int-to-float v3, v14
 
-    new-instance v12, Landroid/graphics/Canvas;
+    const/high16 v4, 0x40000000    # 2.0f
 
-    invoke-direct {v12, v5}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+    div-float/2addr v3, v4
 
-    invoke-virtual {v12}, Landroid/graphics/Canvas;->save()I
+    int-to-float v4, v12
 
-    int-to-float v0, v10
+    const/high16 v8, 0x40000000    # 2.0f
 
-    move/from16 v34, v0
+    div-float/2addr v4, v8
 
-    const/high16 v35, 0x40000000    # 2.0f
+    move-object/from16 v0, v16
 
-    div-float v34, v34, v35
+    invoke-virtual {v0, v3, v4}, Landroid/graphics/Canvas;->translate(FF)V
 
-    int-to-float v0, v8
+    move-object/from16 v0, v16
 
-    move/from16 v35, v0
+    move/from16 v1, v30
 
-    const/high16 v36, 0x40000000    # 2.0f
+    move/from16 v2, v30
 
-    div-float v35, v35, v36
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->scale(FF)V
 
-    move/from16 v0, v34
+    const-string/jumbo v3, "ApplicationPackageManager"
 
-    move/from16 v1, v35
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12, v0, v1}, Landroid/graphics/Canvas;->translate(FF)V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    move/from16 v0, v27
+    const-string/jumbo v8, "load="
 
-    move/from16 v1, v27
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12, v0, v1}, Landroid/graphics/Canvas;->scale(FF)V
+    move-result-object v4
 
-    const-string/jumbo v34, "ApplicationPackageManager"
+    move-object/from16 v0, v29
 
-    new-instance v35, Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v4
 
-    const-string/jumbo v36, "load="
+    const-string/jumbo v8, "-scale, bg="
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v4
 
-    move-object/from16 v0, v35
+    invoke-virtual {v4, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-object/from16 v1, v26
+    move-result-object v4
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v8, "-"
 
-    move-result-object v35
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v36, "-scale, bg="
+    move-result-object v4
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v4
 
-    move-object/from16 v0, v35
+    const-string/jumbo v8, ", dr="
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v4
 
-    const-string/jumbo v36, "-"
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v35
+    const-string/jumbo v8, "-"
 
-    move-object/from16 v0, v35
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v35
+    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v36, ", dr="
+    move-result-object v4
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v35
+    move-result-object v4
 
-    move-object/from16 v0, v35
-
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    const-string/jumbo v36, "-"
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    move-object/from16 v0, v35
-
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v35
-
-    invoke-static/range {v34 .. v35}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_8
 
-    :cond_1c
-    sget v34, Landroid/app/ApplicationPackageManager;->configSmartAppIconScaler:I
+    :cond_1e
+    const v3, 0x108038b
 
-    const/16 v35, 0x3
+    move-object/from16 v0, p0
 
-    move/from16 v0, v34
+    move/from16 v1, p5
 
-    move/from16 v1, v35
+    invoke-direct {v0, v3, v1}, Landroid/app/ApplicationPackageManager;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
 
-    if-ne v0, v1, :cond_1d
-
-    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
-
-    move-result-object v34
-
-    const v35, 0x108037c
-
-    invoke-virtual/range {v34 .. v35}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v6
-
-    :goto_d
-    invoke-virtual {v6}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
-
-    move-result v10
-
-    invoke-virtual {v6}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
-
-    move-result v8
+    move-result-object v10
 
     goto/16 :goto_c
 
-    :cond_1d
-    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
-
-    move-result-object v34
-
-    const v35, 0x108037a
-
-    invoke-virtual/range {v34 .. v35}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v6
-
-    goto :goto_d
-
-    :cond_1e
-    sget-object v34, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
-
-    move-object/from16 v0, v34
-
-    invoke-static {v10, v8, v0}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-
-    move-result-object v5
-
-    new-instance v12, Landroid/graphics/Canvas;
-
-    invoke-direct {v12, v5}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
-
-    invoke-virtual {v12}, Landroid/graphics/Canvas;->save()I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
-
-    move-object/from16 v34, v0
-
-    if-eqz v34, :cond_1f
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/app/ApplicationPackageManager;->openThemeAppIconRange:I
-
-    move/from16 v34, v0
-
-    const/16 v35, 0x2
-
-    move/from16 v0, v34
-
-    move/from16 v1, v35
-
-    if-ge v0, v1, :cond_1f
-
-    if-eqz v23, :cond_20
-
     :cond_1f
-    :goto_e
-    int-to-float v0, v10
-
-    move/from16 v34, v0
-
-    const/high16 v35, 0x40000000    # 2.0f
-
-    div-float v34, v34, v35
-
-    int-to-float v0, v8
-
-    move/from16 v35, v0
-
-    const/high16 v36, 0x40000000    # 2.0f
-
-    div-float v35, v35, v36
-
-    move/from16 v0, v34
-
-    move/from16 v1, v35
-
-    invoke-virtual {v12, v0, v1}, Landroid/graphics/Canvas;->translate(FF)V
-
-    const/16 v19, 0x0
+    const/16 v20, 0x0
 
     invoke-virtual/range {p4 .. p4}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v34
+    move-result v3
 
-    if-eqz v34, :cond_22
+    if-eqz v3, :cond_22
 
-    int-to-float v0, v10
-
-    move/from16 v34, v0
+    int-to-float v3, v14
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/app/ApplicationPackageManager;->openThemeAppIconScale:F
+    iget v4, v0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconScale:F
 
-    move/from16 v35, v0
+    mul-float/2addr v3, v4
 
-    mul-float v34, v34, v35
+    int-to-float v4, v6
 
-    int-to-float v0, v15
+    div-float v31, v3, v4
 
-    move/from16 v35, v0
-
-    div-float v28, v34, v35
-
-    int-to-float v0, v8
-
-    move/from16 v34, v0
+    int-to-float v3, v12
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/app/ApplicationPackageManager;->openThemeAppIconScale:F
+    iget v4, v0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconScale:F
 
-    move/from16 v35, v0
+    mul-float/2addr v3, v4
 
-    mul-float v34, v34, v35
+    int-to-float v4, v7
 
-    int-to-float v0, v14
+    div-float v32, v3, v4
 
-    move/from16 v35, v0
+    const-string/jumbo v3, "ApplicationPackageManager"
 
-    div-float v29, v34, v35
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v34, "ApplicationPackageManager"
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v35, Ljava/lang/StringBuilder;
+    const-string/jumbo v8, "load="
 
-    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v36, "load="
+    move-result-object v4
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v29
 
-    move-result-object v35
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v35
+    move-result-object v4
 
-    move-object/from16 v1, v26
+    const-string/jumbo v8, "-theme1, bg="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v4
 
-    const-string/jumbo v36, "-theme1, bg="
+    invoke-virtual {v4, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v35
+    const-string/jumbo v8, "-"
 
-    move-object/from16 v0, v35
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v35
+    invoke-virtual {v4, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v36, "-"
+    move-result-object v4
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v8, ", dr="
 
-    move-result-object v35
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v35
+    move-result-object v4
 
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v4
 
-    const-string/jumbo v36, ", dr="
+    const-string/jumbo v8, "-"
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v4
 
-    move-object/from16 v0, v35
+    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v35
+    const-string/jumbo v8, ", relScale="
 
-    const-string/jumbo v36, "-"
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v35
+    move/from16 v0, v31
 
-    move-object/from16 v0, v35
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v35
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string/jumbo v36, ", relScale="
+    move-result-object v4
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v35
+    :goto_d
+    sget-object v3, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    move-object/from16 v0, v35
+    invoke-static {v14, v12, v3}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
-    move/from16 v1, v28
+    move-result-object v9
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    new-instance v16, Landroid/graphics/Canvas;
 
-    move-result-object v35
+    move-object/from16 v0, v16
 
-    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {v0, v9}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    move-result-object v35
-
-    invoke-static/range {v34 .. v35}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_f
-    sget-boolean v34, Landroid/app/ApplicationPackageManager;->supportSmartIconUnify:Z
-
-    if-eqz v34, :cond_27
+    invoke-virtual/range {v16 .. v16}, Landroid/graphics/Canvas;->save()I
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/app/ApplicationPackageManager;->applyIconUnifyFeature:I
+    iget-object v3, v0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
 
-    move/from16 v34, v0
+    if-eqz v3, :cond_20
 
-    const/16 v35, 0x1
+    move-object/from16 v0, p0
 
-    move/from16 v0, v34
+    iget v3, v0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconRange:I
 
-    move/from16 v1, v35
+    const/4 v4, 0x2
 
-    if-ne v0, v1, :cond_27
+    if-ge v3, v4, :cond_20
 
-    if-eqz v19, :cond_26
+    xor-int/lit8 v3, v26, 0x1
 
-    int-to-float v0, v15
+    if-eqz v3, :cond_20
 
-    move/from16 v34, v0
+    if-eqz v11, :cond_28
 
-    mul-float v34, v34, v28
+    const/4 v3, 0x0
 
-    move/from16 v0, v34
+    const/4 v4, 0x0
 
-    float-to-int v15, v0
+    move-object/from16 v0, p0
 
-    int-to-float v0, v14
+    iget-object v8, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
 
-    move/from16 v34, v0
+    move-object/from16 v0, v16
 
-    mul-float v34, v34, v29
-
-    move/from16 v0, v34
-
-    float-to-int v14, v0
-
-    const/16 v18, 0x1
-
-    goto/16 :goto_8
+    invoke-virtual {v0, v11, v3, v4, v8}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
     :cond_20
-    if-eqz v7, :cond_21
+    :goto_e
+    move-object/from16 v0, p0
 
-    const/16 v34, 0x0
+    iget v3, v0, Landroid/app/ApplicationPackageManager;->mApplyIconUnifyFeature:I
 
-    const/16 v35, 0x0
+    const/4 v4, 0x1
+
+    if-eq v3, v4, :cond_21
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
+    iget-boolean v3, v0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconMask:Z
 
-    move-object/from16 v36, v0
-
-    move/from16 v0, v34
-
-    move/from16 v1, v35
-
-    move-object/from16 v2, v36
-
-    invoke-virtual {v12, v7, v0, v1, v2}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
-
-    goto/16 :goto_e
+    if-eqz v3, :cond_2a
 
     :cond_21
-    const-string/jumbo v34, "ApplicationPackageManager"
+    if-eqz v20, :cond_29
 
-    const-string/jumbo v35, "bgBitmap is null, so can\'t draw bg."
+    int-to-float v3, v6
 
-    invoke-static/range {v34 .. v35}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    mul-float v3, v3, v31
 
-    goto/16 :goto_e
+    float-to-int v6, v3
+
+    int-to-float v3, v7
+
+    mul-float v3, v3, v32
+
+    float-to-int v7, v3
+
+    const/16 v19, 0x1
+
+    int-to-float v3, v14
+
+    const/high16 v4, 0x40000000    # 2.0f
+
+    div-float/2addr v3, v4
+
+    int-to-float v4, v12
+
+    const/high16 v8, 0x40000000    # 2.0f
+
+    div-float/2addr v4, v8
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v3, v4}, Landroid/graphics/Canvas;->translate(FF)V
+
+    goto/16 :goto_8
 
     :cond_22
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/app/ApplicationPackageManager;->openThemeAppIconScale:F
+    iget v0, v0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconScale:F
 
-    move/from16 v33, v0
+    move/from16 v37, v0
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/app/ApplicationPackageManager;->openThemeAppIconRange:I
+    iget v3, v0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconRange:I
 
-    move/from16 v34, v0
+    const/4 v4, 0x2
 
-    const/16 v35, 0x2
+    if-eq v3, v4, :cond_23
 
-    move/from16 v0, v34
-
-    move/from16 v1, v35
-
-    if-eq v0, v1, :cond_23
-
-    if-eqz v23, :cond_24
+    if-eqz v26, :cond_24
 
     :cond_23
-    const v33, 0x3f8ccccd    # 1.1f
+    const v37, 0x3f8ccccd    # 1.1f
 
     :cond_24
     move-object/from16 v0, p0
 
-    move/from16 v1, v33
+    move/from16 v1, v37
 
-    invoke-direct {v0, v13, v15, v14, v1}, Landroid/app/ApplicationPackageManager;->getAppIconAlphaRelativeScale(Landroid/graphics/Bitmap;IIF)Landroid/app/ApplicationPackageManager$IconScale;
+    invoke-direct {v0, v5, v6, v7, v1}, Landroid/app/ApplicationPackageManager;->getAppIconAlphaRelativeScale(Landroid/graphics/Bitmap;IIF)Landroid/app/ApplicationPackageManager$IconScale;
 
-    move-result-object v17
+    move-result-object v18
 
-    invoke-virtual/range {v17 .. v17}, Landroid/app/ApplicationPackageManager$IconScale;->getScale()F
+    invoke-virtual/range {v18 .. v18}, Landroid/app/ApplicationPackageManager$IconScale;->getScale()F
 
-    move-result v28
+    move-result v31
 
-    const/high16 v34, 0x42c80000    # 100.0f
+    const/high16 v3, 0x42c80000    # 100.0f
 
-    cmpl-float v34, v28, v34
+    cmpl-float v3, v31, v3
 
-    if-lez v34, :cond_25
+    if-lez v3, :cond_26
 
-    const/16 v19, 0x1
+    const/16 v20, 0x1
 
-    const/high16 v34, 0x43480000    # 200.0f
+    move-object/from16 v0, p0
 
-    sub-float v28, v28, v34
+    iget-boolean v3, v0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconMask:Z
+
+    if-eqz v3, :cond_25
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    invoke-direct {v0, v1, v3, v4}, Landroid/app/ApplicationPackageManager;->getThemeAppIcon(Landroid/content/pm/PackageItemInfo;ZZ)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v24
+
+    if-eqz v24, :cond_25
+
+    move-object/from16 v0, v24
+
+    instance-of v3, v0, Landroid/graphics/drawable/BitmapDrawable;
+
+    if-eqz v3, :cond_27
+
+    check-cast v24, Landroid/graphics/drawable/BitmapDrawable;
+
+    invoke-virtual/range {v24 .. v24}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
+
+    move-result-object v11
+
+    :goto_f
+    const/4 v3, 0x0
+
+    invoke-virtual {v11, v3}, Landroid/graphics/Bitmap;->setDensity(I)V
+
+    invoke-virtual {v11}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v14
+
+    invoke-virtual {v11}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v12
 
     :cond_25
-    int-to-float v0, v10
+    const/high16 v3, 0x43480000    # 200.0f
 
-    move/from16 v34, v0
+    sub-float v31, v31, v3
 
-    mul-float v34, v34, v28
+    :cond_26
+    int-to-float v3, v14
 
-    invoke-virtual/range {v17 .. v17}, Landroid/app/ApplicationPackageManager$IconScale;->getAlpha()I
+    mul-float v3, v3, v31
 
-    move-result v35
+    invoke-virtual/range {v18 .. v18}, Landroid/app/ApplicationPackageManager$IconScale;->getAlpha()I
 
-    mul-int/lit8 v35, v35, 0x2
+    move-result v4
 
-    sub-int v35, v22, v35
+    mul-int/lit8 v4, v4, 0x2
 
-    move/from16 v0, v35
+    sub-int v4, v25, v4
 
-    int-to-float v0, v0
+    int-to-float v4, v4
 
-    move/from16 v35, v0
+    div-float v31, v3, v4
 
-    div-float v28, v34, v35
+    move/from16 v32, v31
 
-    move/from16 v29, v28
+    const-string/jumbo v3, "ApplicationPackageManager"
 
-    const-string/jumbo v34, "ApplicationPackageManager"
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    new-instance v35, Ljava/lang/StringBuilder;
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v8, "load="
 
-    const-string/jumbo v36, "load="
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v35
+    move-object/from16 v0, v29
 
-    move-object/from16 v0, v35
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v1, v26
+    move-result-object v4
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v8, "-theme2, bg="
 
-    move-result-object v35
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v36, "-theme2, bg="
+    move-result-object v4
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v4
 
-    move-object/from16 v0, v35
+    const-string/jumbo v8, "-"
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v4
 
-    const-string/jumbo v36, "-"
+    invoke-virtual {v4, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v35
+    const-string/jumbo v8, ", dr="
 
-    move-object/from16 v0, v35
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v35
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v36, ", dr="
+    move-result-object v4
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v8, "-"
 
-    move-result-object v35
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v35
+    move-result-object v4
 
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v4
 
-    const-string/jumbo v36, "-"
+    const-string/jumbo v8, ", tarScale="
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v4
 
-    move-object/from16 v0, v35
+    move/from16 v0, v37
 
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v4
 
-    const-string/jumbo v36, ", tarScale="
+    const-string/jumbo v8, ", relScale="
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v4
 
-    move-object/from16 v0, v35
+    move/from16 v0, v31
 
-    move/from16 v1, v33
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v35
+    const-string/jumbo v8, ", mask="
 
-    const-string/jumbo v36, ", relScale="
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v35
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, v35
+    iget-boolean v8, v0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconMask:Z
 
-    move/from16 v1, v28
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v35
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v35
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static/range {v34 .. v35}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    goto/16 :goto_d
+
+    :cond_27
+    invoke-virtual/range {v24 .. v24}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+
+    move-result v3
+
+    invoke-virtual/range {v24 .. v24}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+
+    move-result v4
+
+    sget-object v8, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+
+    invoke-static {v3, v4, v8}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+
+    move-result-object v11
+
+    new-instance v23, Landroid/graphics/Canvas;
+
+    move-object/from16 v0, v23
+
+    invoke-direct {v0, v11}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+
+    invoke-virtual/range {v23 .. v23}, Landroid/graphics/Canvas;->getWidth()I
+
+    move-result v3
+
+    invoke-virtual/range {v23 .. v23}, Landroid/graphics/Canvas;->getHeight()I
+
+    move-result v4
+
+    const/4 v8, 0x0
+
+    const/16 v38, 0x0
+
+    move-object/from16 v0, v24
+
+    move/from16 v1, v38
+
+    invoke-virtual {v0, v8, v1, v3, v4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     goto/16 :goto_f
 
-    :cond_26
-    move/from16 v0, v28
-
-    move/from16 v1, v29
-
-    invoke-virtual {v12, v0, v1}, Landroid/graphics/Canvas;->scale(FF)V
-
-    goto/16 :goto_8
-
-    :cond_27
-    move/from16 v0, v28
-
-    move/from16 v1, v29
-
-    invoke-virtual {v12, v0, v1}, Landroid/graphics/Canvas;->scale(FF)V
-
-    goto/16 :goto_8
-
     :cond_28
-    if-eqz v20, :cond_2a
+    const-string/jumbo v3, "ApplicationPackageManager"
+
+    const-string/jumbo v4, "bgBitmap is null, so can\'t draw bg."
+
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_e
+
+    :cond_29
+    int-to-float v3, v14
+
+    const/high16 v4, 0x40000000    # 2.0f
+
+    div-float/2addr v3, v4
+
+    int-to-float v4, v12
+
+    const/high16 v8, 0x40000000    # 2.0f
+
+    div-float/2addr v4, v8
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v3, v4}, Landroid/graphics/Canvas;->translate(FF)V
+
+    move-object/from16 v0, v16
+
+    move/from16 v1, v31
+
+    move/from16 v2, v32
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->scale(FF)V
+
+    goto/16 :goto_8
+
+    :cond_2a
+    int-to-float v3, v14
+
+    const/high16 v4, 0x40000000    # 2.0f
+
+    div-float/2addr v3, v4
+
+    int-to-float v4, v12
+
+    const/high16 v8, 0x40000000    # 2.0f
+
+    div-float/2addr v4, v8
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v3, v4}, Landroid/graphics/Canvas;->translate(FF)V
+
+    move-object/from16 v0, v16
+
+    move/from16 v1, v31
+
+    move/from16 v2, v32
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->scale(FF)V
+
+    goto/16 :goto_8
+
+    :cond_2b
+    if-eqz v21, :cond_2d
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+    iget-object v3, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
 
-    move-object/from16 v34, v0
+    if-nez v3, :cond_2c
 
-    if-nez v34, :cond_29
+    new-instance v3, Landroid/graphics/Paint;
 
-    new-instance v34, Landroid/graphics/Paint;
-
-    invoke-direct/range {v34 .. v34}, Landroid/graphics/Paint;-><init>()V
-
-    move-object/from16 v0, v34
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+    invoke-direct {v3}, Landroid/graphics/Paint;-><init>()V
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
-
-    move-object/from16 v34, v0
-
-    const/16 v35, 0x1
-
-    invoke-virtual/range {v34 .. v35}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    iput-object v3, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+    iget-object v3, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
 
-    move-object/from16 v34, v0
+    const/4 v4, 0x1
 
-    const/16 v35, 0x1
-
-    invoke-virtual/range {v34 .. v35}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
+    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+    iget-object v3, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
 
-    move-object/from16 v34, v0
+    const/4 v4, 0x1
+
+    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setDither(Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+
+    new-instance v4, Landroid/graphics/PorterDuffXfermode;
+
+    sget-object v8, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-direct {v4, v8}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
+
+    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
+
+    :cond_2c
+    neg-int v3, v6
+
+    int-to-float v3, v3
+
+    const/high16 v4, 0x40000000    # 2.0f
+
+    div-float/2addr v3, v4
+
+    neg-int v4, v7
+
+    int-to-float v4, v4
+
+    const/high16 v8, 0x40000000    # 2.0f
+
+    div-float/2addr v4, v8
+
+    move-object/from16 v0, p0
+
+    iget-object v8, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v5, v3, v4, v8}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+
+    sget v3, Landroid/app/ApplicationPackageManager;->CONFIG_SMART_APPICON_SCALER:I
+
+    const/4 v4, 0x3
+
+    if-ne v3, v4, :cond_15
+
+    invoke-virtual/range {v16 .. v16}, Landroid/graphics/Canvas;->restore()V
+
+    invoke-virtual/range {v16 .. v16}, Landroid/graphics/Canvas;->save()I
 
     const/16 v35, 0x0
 
-    invoke-virtual/range {v34 .. v35}, Landroid/graphics/Paint;->setDither(Z)V
+    new-instance v15, Landroid/graphics/BitmapFactory$Options;
+
+    invoke-direct {v15}, Landroid/graphics/BitmapFactory$Options;-><init>()V
+
+    const/4 v3, 0x0
+
+    iput-boolean v3, v15, Landroid/graphics/BitmapFactory$Options;->inScaled:Z
+
+    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x108038f
+
+    invoke-static {v3, v4, v15}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
+
+    move-result-object v35
+
+    const/4 v3, 0x0
+
+    move-object/from16 v0, v35
+
+    invoke-virtual {v0, v3}, Landroid/graphics/Bitmap;->setDensity(I)V
+
+    const/4 v3, 0x1
+
+    move-object/from16 v0, v35
+
+    invoke-static {v0, v14, v12, v3}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
+
+    move-result-object v35
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
+    iget-object v8, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
 
-    move-object/from16 v34, v0
+    move-object/from16 v0, v16
 
-    new-instance v35, Landroid/graphics/PorterDuffXfermode;
+    move-object/from16 v1, v35
 
-    sget-object v36, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
-
-    invoke-direct/range {v35 .. v36}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
-
-    invoke-virtual/range {v34 .. v35}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
-
-    :cond_29
-    neg-int v0, v15
-
-    move/from16 v34, v0
-
-    move/from16 v0, v34
-
-    int-to-float v0, v0
-
-    move/from16 v34, v0
-
-    const/high16 v35, 0x40000000    # 2.0f
-
-    div-float v34, v34, v35
-
-    neg-int v0, v14
-
-    move/from16 v35, v0
-
-    move/from16 v0, v35
-
-    int-to-float v0, v0
-
-    move/from16 v35, v0
-
-    const/high16 v36, 0x40000000    # 2.0f
-
-    div-float v35, v35, v36
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaintForCrop:Landroid/graphics/Paint;
-
-    move-object/from16 v36, v0
-
-    move/from16 v0, v34
-
-    move/from16 v1, v35
-
-    move-object/from16 v2, v36
-
-    invoke-virtual {v12, v13, v0, v1, v2}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+    invoke-virtual {v0, v1, v3, v4, v8}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
     goto/16 :goto_9
 
-    :cond_2a
-    neg-int v0, v15
+    :cond_2d
+    neg-int v3, v6
 
-    move/from16 v34, v0
+    int-to-float v3, v3
 
-    move/from16 v0, v34
+    const/high16 v4, 0x40000000    # 2.0f
 
-    int-to-float v0, v0
+    div-float/2addr v3, v4
 
-    move/from16 v34, v0
+    neg-int v4, v7
 
-    const/high16 v35, 0x40000000    # 2.0f
+    int-to-float v4, v4
 
-    div-float v34, v34, v35
+    const/high16 v8, 0x40000000    # 2.0f
 
-    neg-int v0, v14
-
-    move/from16 v35, v0
-
-    move/from16 v0, v35
-
-    int-to-float v0, v0
-
-    move/from16 v35, v0
-
-    const/high16 v36, 0x40000000    # 2.0f
-
-    div-float v35, v35, v36
+    div-float/2addr v4, v8
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
+    iget-object v8, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
 
-    move-object/from16 v36, v0
+    move-object/from16 v0, v16
 
-    move/from16 v0, v34
-
-    move/from16 v1, v35
-
-    move-object/from16 v2, v36
-
-    invoke-virtual {v12, v13, v0, v1, v2}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+    invoke-virtual {v0, v5, v3, v4, v8}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
     goto/16 :goto_9
 
-    :cond_2b
-    new-instance v34, Landroid/app/ApplicationPackageManager$ResourceName;
+    :cond_2e
+    new-instance v3, Landroid/app/ApplicationPackageManager$ResourceName;
 
     move-object/from16 v0, p1
 
-    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
-
-    move-object/from16 v35, v0
+    iget-object v4, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual/range {p2 .. p2}, Landroid/graphics/drawable/Drawable;->hashCode()I
 
-    move-result v36
+    move-result v8
 
-    invoke-direct/range {v34 .. v36}, Landroid/app/ApplicationPackageManager$ResourceName;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v4, v8}, Landroid/app/ApplicationPackageManager$ResourceName;-><init>(Ljava/lang/String;I)V
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v34
+    move-object/from16 v1, p2
 
-    move-object/from16 v2, p2
-
-    invoke-direct {v0, v1, v2}, Landroid/app/ApplicationPackageManager;->putCachedIcon(Landroid/app/ApplicationPackageManager$ResourceName;Landroid/graphics/drawable/Drawable;)V
+    invoke-direct {v0, v3, v1}, Landroid/app/ApplicationPackageManager;->putCachedIcon(Landroid/app/ApplicationPackageManager$ResourceName;Landroid/graphics/drawable/Drawable;)V
 
     goto/16 :goto_a
+.end method
+
+.method private getUserBadgeColor(Landroid/os/UserHandle;)I
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/app/ApplicationPackageManager;->getUserManager()Landroid/os/UserManager;
+
+    move-result-object v0
+
+    invoke-virtual {p1}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v1
+
+    invoke-static {v0, v1}, Landroid/util/IconDrawableFactory;->getUserBadgeColor(Landroid/os/UserManager;I)I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method private getUserIfProfile(I)Landroid/content/pm/UserInfo;
@@ -6487,6 +6991,123 @@
     goto :goto_3
 .end method
 
+.method private hasKeaBadge(Ljava/lang/String;)Z
+    .locals 8
+
+    const/4 v5, 0x0
+
+    const/4 v1, 0x0
+
+    if-nez p1, :cond_0
+
+    return v5
+
+    :cond_0
+    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v3}, Landroid/app/ContextImpl;->getUserId()I
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    return v5
+
+    :cond_1
+    :try_start_0
+    invoke-static {}, Lcom/samsung/android/knox/SemPersonaManager;->getBbcEnabled()I
+
+    move-result v3
+
+    invoke-static {v3}, Lcom/samsung/android/knox/SemPersonaManager;->isBBCContainer(I)Z
+
+    move-result v3
+
+    if-nez v3, :cond_2
+
+    const-string/jumbo v3, "sys.tfk.enabled"
+
+    const-string/jumbo v4, "0"
+
+    invoke-static {v3, v4}, Landroid/os/SemSystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "1"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_2
+
+    return v5
+
+    :cond_2
+    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v3}, Landroid/app/ContextImpl;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "content://com.samsung.android.bbc.bbcagent/hasBadge?pkgName="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v4
+
+    new-instance v5, Landroid/content/ContentValues;
+
+    invoke-direct {v5}, Landroid/content/ContentValues;-><init>()V
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v3, v4, v5, v6, v7}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    const/4 v3, 0x1
+
+    if-ne v2, v3, :cond_3
+
+    const/4 v1, 0x1
+
+    :cond_3
+    :goto_0
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v3, "ApplicationPackageManager"
+
+    const-string/jumbo v4, "failed to check keaBadge"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
 .method private installCommon(Landroid/net/Uri;Landroid/app/PackageInstallObserver;ILjava/lang/String;I)V
     .locals 7
 
@@ -6542,6 +7163,72 @@
     move-result-object v0
 
     throw v0
+.end method
+
+.method private installExistingPackageAsUser(Ljava/lang/String;II)I
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/content/pm/PackageManager$NameNotFoundException;
+        }
+    .end annotation
+
+    :try_start_0
+    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    const/4 v3, 0x0
+
+    invoke-interface {v2, p1, p3, v3, p2}, Landroid/content/pm/IPackageManager;->installExistingPackageAsUser(Ljava/lang/String;III)I
+
+    move-result v1
+
+    const/4 v2, -0x3
+
+    if-ne v1, v2, :cond_0
+
+    new-instance v2, Landroid/content/pm/PackageManager$NameNotFoundException;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Package "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " doesn\'t exist"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {v2, v3}, Landroid/content/pm/PackageManager$NameNotFoundException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v2
+
+    throw v2
+
+    :cond_0
+    return v1
 .end method
 
 .method private isLiveIconPackage(Ljava/lang/String;)Z
@@ -6674,28 +7361,17 @@
     return v0
 .end method
 
-.method private isPackageCandidateVolume(Landroid/app/ContextImpl;Landroid/content/pm/ApplicationInfo;Landroid/os/storage/VolumeInfo;)Z
+.method private isPackageCandidateVolume(Landroid/app/ContextImpl;Landroid/content/pm/ApplicationInfo;Landroid/os/storage/VolumeInfo;Landroid/content/pm/IPackageManager;)Z
     .locals 6
 
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
-    invoke-virtual {p1}, Landroid/app/ContextImpl;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0, p1}, Landroid/app/ApplicationPackageManager;->isForceAllowOnExternal(Landroid/content/Context;)Z
 
-    move-result-object v4
+    move-result v1
 
-    const-string/jumbo v5, "force_allow_on_external"
-
-    invoke-static {v4, v5, v3}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    const/4 v1, 0x1
-
-    :goto_0
     const-string/jumbo v4, "private"
 
     invoke-virtual {p3}, Landroid/os/storage/VolumeInfo;->getId()Ljava/lang/String;
@@ -6708,12 +7384,18 @@
 
     if-eqz v4, :cond_1
 
-    return v2
+    invoke-virtual {p2}, Landroid/content/pm/ApplicationInfo;->isSystemApp()Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    invoke-virtual {p0, p1}, Landroid/app/ApplicationPackageManager;->isAllow3rdPartyOnInternal(Landroid/content/Context;)Z
+
+    move-result v2
 
     :cond_0
-    const/4 v1, 0x0
-
-    goto :goto_0
+    return v2
 
     :cond_1
     invoke-virtual {p2}, Landroid/content/pm/ApplicationInfo;->isSystemApp()Z
@@ -6782,11 +7464,9 @@
 
     :cond_6
     :try_start_0
-    iget-object v4, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+    iget-object v4, p2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    iget-object v5, p2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    invoke-interface {v4, v5}, Landroid/content/pm/IPackageManager;->isPackageDeviceAdminOnAnyUser(Ljava/lang/String;)Z
+    invoke-interface {p4, v4}, Landroid/content/pm/IPackageManager;->isPackageDeviceAdminOnAnyUser(Ljava/lang/String;)Z
 
     move-result v4
 
@@ -6825,13 +7505,13 @@
     if-nez v4, :cond_9
 
     :cond_8
-    :goto_1
+    :goto_0
     return v2
 
     :cond_9
     move v2, v3
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method private static isPrimaryStorageCandidateVolume(Landroid/os/storage/VolumeInfo;)Z
@@ -7024,19 +7704,21 @@
 .end method
 
 .method private registerAppIconInfo()V
-    .locals 9
+    .locals 10
 
-    const/4 v8, 0x2
+    const/4 v9, 0x2
 
-    const v7, 0x3f333333    # 0.7f
+    const v8, 0x3f333333    # 0.7f
+
+    const/4 v7, 0x0
 
     const/4 v4, -0x1
 
-    iput v4, p0, Landroid/app/ApplicationPackageManager;->applyIconUnifyFeature:I
+    iput v4, p0, Landroid/app/ApplicationPackageManager;->mApplyIconUnifyFeature:I
 
-    iget-object v4, p0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
+    iget-object v4, p0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3
 
     :try_start_0
     iget-object v4, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
@@ -7045,7 +7727,7 @@
 
     move-result-object v4
 
-    iget-object v5, p0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
+    iget-object v5, p0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
 
     invoke-virtual {v4, v5}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
 
@@ -7055,7 +7737,7 @@
 
     const-string/jumbo v5, "integer"
 
-    iget-object v6, p0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
+    iget-object v6, p0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
 
     invoke-virtual {v2, v4, v5, v6}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
@@ -7067,14 +7749,14 @@
 
     move-result v4
 
-    iput v4, p0, Landroid/app/ApplicationPackageManager;->openThemeAppIconRange:I
+    iput v4, p0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconRange:I
 
     :goto_0
     const-string/jumbo v4, "icon_scale_size"
 
     const-string/jumbo v5, "integer"
 
-    iget-object v6, p0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
+    iget-object v6, p0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
 
     invoke-virtual {v2, v4, v5, v6}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
@@ -7092,47 +7774,327 @@
 
     mul-float/2addr v4, v5
 
-    iput v4, p0, Landroid/app/ApplicationPackageManager;->openThemeAppIconScale:F
+    iput v4, p0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconScale:F
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_1
+    :try_start_1
+    const-string/jumbo v4, "mask_from_theme"
+
+    const-string/jumbo v5, "bool"
+
+    iget-object v6, p0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
+
+    invoke-virtual {v2, v4, v5, v6}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v4
+
+    iput-boolean v4, p0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconMask:Z
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+
+    :goto_2
     return-void
 
     :cond_0
     const/4 v4, 0x2
 
-    iput v4, p0, Landroid/app/ApplicationPackageManager;->openThemeAppIconRange:I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_start_2
+    iput v4, p0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconRange:I
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
     goto :goto_0
 
     :catch_0
     move-exception v0
 
-    iput v8, p0, Landroid/app/ApplicationPackageManager;->openThemeAppIconRange:I
+    iput v9, p0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconRange:I
 
-    iput v7, p0, Landroid/app/ApplicationPackageManager;->openThemeAppIconScale:F
+    iput v8, p0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconScale:F
+
+    iput-boolean v7, p0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconMask:Z
 
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_1
     const v4, 0x3f333333    # 0.7f
 
-    :try_start_1
-    iput v4, p0, Landroid/app/ApplicationPackageManager;->openThemeAppIconScale:F
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_start_3
+    iput v4, p0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconScale:F
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
 
     goto :goto_1
 
     :cond_2
-    iput v8, p0, Landroid/app/ApplicationPackageManager;->openThemeAppIconRange:I
+    const/4 v4, 0x0
 
-    iput v7, p0, Landroid/app/ApplicationPackageManager;->openThemeAppIconScale:F
+    :try_start_4
+    iput-boolean v4, p0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconMask:Z
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
 
-    goto :goto_1
+    goto :goto_2
+
+    :catch_1
+    move-exception v0
+
+    const/4 v4, 0x0
+
+    :try_start_5
+    iput-boolean v4, p0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconMask:Z
+
+    const-string/jumbo v4, "ApplicationPackageManager"
+
+    const-string/jumbo v5, "This theme doesn\'t have any mask"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
+
+    goto :goto_2
+
+    :cond_3
+    iput v9, p0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconRange:I
+
+    iput v8, p0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconScale:F
+
+    iput-boolean v7, p0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconMask:Z
+
+    goto :goto_2
+.end method
+
+.method private replacedIconFromAppPolicy(Ljava/lang/String;I)Z
+    .locals 4
+
+    const/4 v1, 0x0
+
+    if-nez p1, :cond_0
+
+    return v1
+
+    :cond_0
+    :try_start_0
+    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mApplicationPolicy:Landroid/sec/enterprise/ApplicationPolicy;
+
+    if-nez v2, :cond_1
+
+    invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getInstance()Landroid/sec/enterprise/EnterpriseDeviceManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getApplicationPolicy()Landroid/sec/enterprise/ApplicationPolicy;
+
+    move-result-object v2
+
+    iput-object v2, p0, Landroid/app/ApplicationPackageManager;->mApplicationPolicy:Landroid/sec/enterprise/ApplicationPolicy;
+
+    :cond_1
+    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mApplicationPolicy:Landroid/sec/enterprise/ApplicationPolicy;
+
+    invoke-virtual {v2, p1, p2}, Landroid/sec/enterprise/ApplicationPolicy;->getApplicationIconFromDb(Ljava/lang/String;I)[B
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v2
+
+    if-eqz v2, :cond_2
+
+    const/4 v1, 0x1
+
+    :cond_2
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "ApplicationPackageManager"
+
+    const-string/jumbo v3, "Exception occurred in EnterpriseDeviceManager"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v1
+.end method
+
+.method private updateItemMetaDataForFixedIconScale(Landroid/content/pm/PackageItemInfo;Landroid/content/pm/ApplicationInfo;)V
+    .locals 9
+
+    const/4 v8, 0x0
+
+    if-eqz p1, :cond_0
+
+    iget-object v5, p1, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
+
+    invoke-direct {p0, v5}, Landroid/app/ApplicationPackageManager;->getFixedIconScaleMetaData(Landroid/os/Bundle;)Ljava/lang/Float;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/Float;->floatValue()F
+
+    move-result v5
+
+    cmpl-float v5, v5, v8
+
+    if-lez v5, :cond_1
+
+    :cond_0
+    return-void
+
+    :cond_1
+    if-eqz p2, :cond_2
+
+    invoke-virtual {p2}, Landroid/content/pm/ApplicationInfo;->isSystemApp()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    return-void
+
+    :cond_2
+    iget-object v3, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+
+    if-nez v3, :cond_3
+
+    if-eqz p2, :cond_3
+
+    iget-object v3, p2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    :cond_3
+    if-nez v3, :cond_4
+
+    return-void
+
+    :cond_4
+    const-string/jumbo v5, "ApplicationPackageManager"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "updateItemMetaDataForFixedIconScale: package: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v5, 0x1
+
+    :try_start_0
+    new-array v2, v5, [Ljava/lang/String;
+
+    const-string/jumbo v5, "FixedIconScale"
+
+    const/4 v6, 0x0
+
+    aput-object v5, v2, v6
+
+    iget-object v5, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    iget-object v6, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v6}, Landroid/app/ContextImpl;->getUserId()I
+
+    move-result v6
+
+    invoke-interface {v5, v3, v2, v6}, Landroid/content/pm/IPackageManager;->getSelectedMetadataForIconTray(Ljava/lang/String;[Ljava/lang/String;I)Landroid/os/Bundle;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_6
+
+    const-string/jumbo v5, "FixedIconScale"
+
+    invoke-virtual {v1, v5}, Landroid/os/Bundle;->getFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    invoke-static {v5}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/Float;->floatValue()F
+
+    move-result v5
+
+    cmpl-float v5, v5, v8
+
+    if-lez v5, :cond_6
+
+    iget-object v5, p1, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
+
+    if-nez v5, :cond_5
+
+    new-instance v5, Landroid/os/Bundle;
+
+    invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
+
+    iput-object v5, p1, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
+
+    :cond_5
+    iget-object v5, p1, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
+
+    const-string/jumbo v6, "FixedIconScale"
+
+    invoke-virtual {v4}, Ljava/lang/Float;->floatValue()F
+
+    move-result v7
+
+    invoke-virtual {v5, v6, v7}, Landroid/os/Bundle;->putFloat(Ljava/lang/String;F)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_6
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v5, "ApplicationPackageManager"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "get application info error FixedIconScale: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method
 
 
@@ -7371,40 +8333,6 @@
     throw v0
 .end method
 
-.method public applyOverlays(Ljava/util/List;Ljava/util/List;Landroid/content/pm/IOverlayCallback;Z)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;",
-            "Landroid/content/pm/IOverlayCallback;",
-            "Z)V"
-        }
-    .end annotation
-
-    :try_start_0
-    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
-
-    invoke-interface {v1, p1, p2, p3, p4}, Landroid/content/pm/IPackageManager;->applyOverlays(Ljava/util/List;Ljava/util/List;Landroid/content/pm/IOverlayCallback;Z)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    goto :goto_0
-.end method
-
 .method public applyRuntimePermissions(Ljava/lang/String;Ljava/util/List;II)Z
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
@@ -7457,6 +8385,42 @@
     const/4 v1, 0x0
 
     return v1
+.end method
+
+.method public canRequestPackageInstalls()Z
+    .locals 4
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v2}, Landroid/app/ContextImpl;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v3}, Landroid/app/ContextImpl;->getUserId()I
+
+    move-result v3
+
+    invoke-interface {v1, v2, v3}, Landroid/content/pm/IPackageManager;->canRequestPackageInstalls(Ljava/lang/String;I)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowAsRuntimeException()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
 .end method
 
 .method public cancelEMPHandlerSendPendingBroadcast()V
@@ -7636,6 +8600,16 @@
     throw v1
 .end method
 
+.method public clearInstantAppCookie()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Landroid/app/ApplicationPackageManager;->updateInstantAppCookie([B)V
+
+    return-void
+.end method
+
 .method public clearPackagePreferredActivities(Ljava/lang/String;)V
     .locals 2
 
@@ -7741,12 +8715,44 @@
 .end method
 
 .method public deletePackageAsUser(Ljava/lang/String;Landroid/content/pm/IPackageDeleteObserver;II)V
-    .locals 2
+    .locals 7
+
+    :try_start_0
+    iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    const/4 v2, -0x1
+
+    move-object v1, p1
+
+    move-object v3, p2
+
+    move v4, p4
+
+    move v5, p3
+
+    invoke-interface/range {v0 .. v5}, Landroid/content/pm/IPackageManager;->deletePackageAsUser(Ljava/lang/String;ILandroid/content/pm/IPackageDeleteObserver;II)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v6
+
+    invoke-virtual {v6}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v0
+
+    throw v0
+.end method
+
+.method public extendVerificationTimeout(IIJ)V
+    .locals 3
 
     :try_start_0
     iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
 
-    invoke-interface {v1, p1, p2, p4, p3}, Landroid/content/pm/IPackageManager;->deletePackageAsUser(Ljava/lang/String;Landroid/content/pm/IPackageDeleteObserver;II)V
+    invoke-interface {v1, p1, p2, p3, p4}, Landroid/content/pm/IPackageManager;->extendVerificationTimeout(IIJ)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -7762,13 +8768,13 @@
     throw v1
 .end method
 
-.method public extendVerificationTimeout(IIJ)V
+.method public extendVerificationTimeout2(IIJ)V
     .locals 3
 
     :try_start_0
     iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
 
-    invoke-interface {v1, p1, p2, p3, p4}, Landroid/content/pm/IPackageManager;->extendVerificationTimeout(IIJ)V
+    invoke-interface {v1, p1, p2, p3, p4}, Landroid/content/pm/IPackageManager;->extendVerificationTimeout2(IIJ)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -7807,47 +8813,63 @@
 .end method
 
 .method public freeStorage(Ljava/lang/String;JLandroid/content/IntentSender;)V
-    .locals 2
+    .locals 8
 
     :try_start_0
-    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+    iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
 
-    invoke-interface {v1, p1, p2, p3, p4}, Landroid/content/pm/IPackageManager;->freeStorage(Ljava/lang/String;JLandroid/content/IntentSender;)V
+    const/4 v4, 0x0
+
+    move-object v1, p1
+
+    move-wide v2, p2
+
+    move-object v5, p4
+
+    invoke-interface/range {v0 .. v5}, Landroid/content/pm/IPackageManager;->freeStorage(Ljava/lang/String;JILandroid/content/IntentSender;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v6
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    invoke-virtual {v6}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 .end method
 
 .method public freeStorageAndNotify(Ljava/lang/String;JLandroid/content/pm/IPackageDataObserver;)V
-    .locals 2
+    .locals 8
 
     :try_start_0
-    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+    iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
 
-    invoke-interface {v1, p1, p2, p3, p4}, Landroid/content/pm/IPackageManager;->freeStorageAndNotify(Ljava/lang/String;JLandroid/content/pm/IPackageDataObserver;)V
+    const/4 v4, 0x0
+
+    move-object v1, p1
+
+    move-wide v2, p2
+
+    move-object v5, p4
+
+    invoke-interface/range {v0 .. v5}, Landroid/content/pm/IPackageManager;->freeStorageAndNotify(Ljava/lang/String;JILandroid/content/pm/IPackageDataObserver;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v6
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    invoke-virtual {v6}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 .end method
 
 .method public getActivityBanner(Landroid/content/ComponentName;)Landroid/graphics/drawable/Drawable;
@@ -8003,6 +9025,27 @@
 .end method
 
 .method public getActivityInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ActivityInfo;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/content/pm/PackageManager$NameNotFoundException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v0}, Landroid/app/ContextImpl;->getUserId()I
+
+    move-result v0
+
+    invoke-virtual {p0, p1, p2, v0}, Landroid/app/ApplicationPackageManager;->getActivityInfoAsUser(Landroid/content/ComponentName;II)Landroid/content/pm/ActivityInfo;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getActivityInfoAsUser(Landroid/content/ComponentName;II)Landroid/content/pm/ActivityInfo;
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -8013,13 +9056,7 @@
     :try_start_0
     iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
 
-    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    invoke-virtual {v3}, Landroid/app/ContextImpl;->getUserId()I
-
-    move-result v3
-
-    invoke-interface {v2, p1, p2, v3}, Landroid/content/pm/IPackageManager;->getActivityInfo(Landroid/content/ComponentName;II)Landroid/content/pm/ActivityInfo;
+    invoke-interface {v2, p1, p2, p3}, Landroid/content/pm/IPackageManager;->getActivityInfo(Landroid/content/ComponentName;II)Landroid/content/pm/ActivityInfo;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -8340,39 +9377,6 @@
     return-object v0
 .end method
 
-.method public getApplicationIconForIconTray(Landroid/content/pm/ApplicationInfo;I)Landroid/graphics/drawable/Drawable;
-    .locals 1
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p1, p0, v0, p2}, Landroid/content/pm/ApplicationInfo;->loadIcon(Landroid/content/pm/PackageManager;ZI)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getApplicationIconForIconTray(Ljava/lang/String;I)Landroid/graphics/drawable/Drawable;
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/content/pm/PackageManager$NameNotFoundException;
-        }
-    .end annotation
-
-    const/16 v0, 0x400
-
-    invoke-virtual {p0, p1, v0}, Landroid/app/ApplicationPackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0, p2}, Landroid/app/ApplicationPackageManager;->getApplicationIconForIconTray(Landroid/content/pm/ApplicationInfo;I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
@@ -8475,6 +9479,36 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public getChangedPackages(I)Landroid/content/pm/ChangedPackages;
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v2}, Landroid/app/ContextImpl;->getUserId()I
+
+    move-result v2
+
+    invoke-interface {v1, p1, v2}, Landroid/content/pm/IPackageManager;->getChangedPackages(II)Landroid/content/pm/ChangedPackages;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
 .end method
 
 .method public getComponentEnabledSetting(Landroid/content/ComponentName;)I
@@ -8901,164 +9935,6 @@
     goto :goto_0
 .end method
 
-.method public getEphemeralApplicationIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
-    .locals 5
-
-    const/4 v4, 0x0
-
-    :try_start_0
-    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
-
-    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    invoke-virtual {v3}, Landroid/app/ContextImpl;->getUserId()I
-
-    move-result v3
-
-    invoke-interface {v2, p1, v3}, Landroid/content/pm/IPackageManager;->getEphemeralApplicationIcon(Ljava/lang/String;I)Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    new-instance v2, Landroid/graphics/drawable/BitmapDrawable;
-
-    const/4 v3, 0x0
-
-    invoke-direct {v2, v3, v0}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-object v2
-
-    :cond_0
-    return-object v4
-
-    :catch_0
-    move-exception v1
-
-    invoke-virtual {v1}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
-
-    move-result-object v2
-
-    throw v2
-.end method
-
-.method public getEphemeralApplications()Ljava/util/List;
-    .locals 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Landroid/content/pm/EphemeralApplicationInfo;",
-            ">;"
-        }
-    .end annotation
-
-    :try_start_0
-    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
-
-    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    invoke-virtual {v3}, Landroid/app/ContextImpl;->getUserId()I
-
-    move-result v3
-
-    invoke-interface {v2, v3}, Landroid/content/pm/IPackageManager;->getEphemeralApplications(I)Landroid/content/pm/ParceledListSlice;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v1}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
-
-    move-result-object v2
-
-    return-object v2
-
-    :cond_0
-    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v2
-
-    return-object v2
-
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
-
-    move-result-object v2
-
-    throw v2
-.end method
-
-.method public getEphemeralCookie()[B
-    .locals 5
-
-    :try_start_0
-    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
-
-    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    invoke-virtual {v3}, Landroid/app/ContextImpl;->getPackageName()Ljava/lang/String;
-
-    move-result-object v3
-
-    iget-object v4, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    invoke-virtual {v4}, Landroid/app/ContextImpl;->getUserId()I
-
-    move-result v4
-
-    invoke-interface {v2, v3, v4}, Landroid/content/pm/IPackageManager;->getEphemeralApplicationCookie(Ljava/lang/String;I)[B
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    return-object v0
-
-    :cond_0
-    sget-object v2, Llibcore/util/EmptyArray;->BYTE:[B
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-object v2
-
-    :catch_0
-    move-exception v1
-
-    invoke-virtual {v1}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
-
-    move-result-object v2
-
-    throw v2
-.end method
-
-.method public getEphemeralCookieMaxSizeBytes()I
-    .locals 3
-
-    iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    invoke-virtual {v0}, Landroid/app/ContextImpl;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "ephemeral_cookie_max_size_bytes"
-
-    const/16 v2, 0x4000
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public getHomeActivities(Ljava/util/List;)Landroid/content/ComponentName;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
@@ -9093,8 +9969,36 @@
     throw v1
 .end method
 
+.method public getInstallReason(Ljava/lang/String;Landroid/os/UserHandle;)I
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    invoke-virtual {p2}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v2
+
+    invoke-interface {v1, p1, v2}, Landroid/content/pm/IPackageManager;->getInstallReason(Ljava/lang/String;I)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
 .method public getInstalledApplications(I)Ljava/util/List;
-    .locals 4
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -9105,16 +10009,35 @@
         }
     .end annotation
 
-    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+    iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
 
-    invoke-virtual {v3}, Landroid/app/ContextImpl;->getUserId()I
+    invoke-virtual {v0}, Landroid/app/ContextImpl;->getUserId()I
 
-    move-result v2
+    move-result v0
+
+    invoke-virtual {p0, p1, v0}, Landroid/app/ApplicationPackageManager;->getInstalledApplicationsAsUser(II)Ljava/util/List;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getInstalledApplicationsAsUser(II)Ljava/util/List;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(II)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/ApplicationInfo;",
+            ">;"
+        }
+    .end annotation
 
     :try_start_0
-    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
 
-    invoke-interface {v3, p1, v2}, Landroid/content/pm/IPackageManager;->getInstalledApplications(II)Landroid/content/pm/ParceledListSlice;
+    invoke-interface {v2, p1, p2}, Landroid/content/pm/IPackageManager;->getInstalledApplications(II)Landroid/content/pm/ParceledListSlice;
 
     move-result-object v1
 
@@ -9122,27 +10045,27 @@
 
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v3
+    move-result-object v2
 
-    return-object v3
+    return-object v2
 
     :cond_0
     invoke-virtual {v1}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v3
+    move-result-object v2
 
-    return-object v3
+    return-object v2
 
     :catch_0
     move-exception v0
 
     invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
-    move-result-object v3
+    move-result-object v2
 
-    throw v3
+    throw v2
 .end method
 
 .method public getInstalledPackages(I)Ljava/util/List;
@@ -9238,6 +10161,250 @@
     move-result-object v1
 
     throw v1
+.end method
+
+.method public getInstantAppAndroidId(Ljava/lang/String;Landroid/os/UserHandle;)Ljava/lang/String;
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    invoke-virtual {p2}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v2
+
+    invoke-interface {v1, p1, v2}, Landroid/content/pm/IPackageManager;->getInstantAppAndroidId(Ljava/lang/String;I)Ljava/lang/String;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowAsRuntimeException()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public getInstantAppCookie()[B
+    .locals 5
+
+    :try_start_0
+    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v3}, Landroid/app/ContextImpl;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    iget-object v4, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v4}, Landroid/app/ContextImpl;->getUserId()I
+
+    move-result v4
+
+    invoke-interface {v2, v3, v4}, Landroid/content/pm/IPackageManager;->getInstantAppCookie(Ljava/lang/String;I)[B
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    return-object v0
+
+    :cond_0
+    sget-object v2, Llibcore/util/EmptyArray;->BYTE:[B
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v2
+
+    :catch_0
+    move-exception v1
+
+    invoke-virtual {v1}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v2
+
+    throw v2
+.end method
+
+.method public getInstantAppCookieMaxBytes()I
+    .locals 3
+
+    iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v0}, Landroid/app/ContextImpl;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "ephemeral_cookie_max_size_bytes"
+
+    const/16 v2, 0x4000
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public getInstantAppCookieMaxSize()I
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/app/ApplicationPackageManager;->getInstantAppCookieMaxBytes()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public getInstantAppIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+    .locals 5
+
+    const/4 v4, 0x0
+
+    :try_start_0
+    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v3}, Landroid/app/ContextImpl;->getUserId()I
+
+    move-result v3
+
+    invoke-interface {v2, p1, v3}, Landroid/content/pm/IPackageManager;->getInstantAppIcon(Ljava/lang/String;I)Landroid/graphics/Bitmap;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    new-instance v2, Landroid/graphics/drawable/BitmapDrawable;
+
+    const/4 v3, 0x0
+
+    invoke-direct {v2, v3, v0}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v2
+
+    :cond_0
+    return-object v4
+
+    :catch_0
+    move-exception v1
+
+    invoke-virtual {v1}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v2
+
+    throw v2
+.end method
+
+.method public getInstantAppInstallerComponent()Landroid/content/ComponentName;
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    invoke-interface {v1}, Landroid/content/pm/IPackageManager;->getInstantAppInstallerComponent()Landroid/content/ComponentName;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowAsRuntimeException()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public getInstantAppResolverSettingsComponent()Landroid/content/ComponentName;
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    invoke-interface {v1}, Landroid/content/pm/IPackageManager;->getInstantAppResolverSettingsComponent()Landroid/content/ComponentName;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowAsRuntimeException()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public getInstantApps()Ljava/util/List;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/InstantAppInfo;",
+            ">;"
+        }
+    .end annotation
+
+    :try_start_0
+    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v3}, Landroid/app/ContextImpl;->getUserId()I
+
+    move-result v3
+
+    invoke-interface {v2, v3}, Landroid/content/pm/IPackageManager;->getInstantApps(I)Landroid/content/pm/ParceledListSlice;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
+
+    move-result-object v2
+
+    return-object v2
+
+    :cond_0
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v2
+
+    return-object v2
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v2
+
+    throw v2
 .end method
 
 .method public getInstrumentationInfo(Landroid/content/ComponentName;I)Landroid/content/pm/InstrumentationInfo;
@@ -9542,24 +10709,6 @@
     return-object v0
 .end method
 
-.method public getManagedUserBadgedDrawable(Landroid/graphics/drawable/Drawable;Landroid/graphics/Rect;I)Landroid/graphics/drawable/Drawable;
-    .locals 2
-
-    const v1, 0x10803ae
-
-    invoke-direct {p0, v1, p3}, Landroid/app/ApplicationPackageManager;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    const/4 v1, 0x1
-
-    invoke-direct {p0, p1, v0, p2, v1}, Landroid/app/ApplicationPackageManager;->getBadgedDrawable(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/Rect;Z)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v1
-
-    return-object v1
-.end method
-
 .method public getMoveStatus(I)I
     .locals 2
 
@@ -9609,7 +10758,7 @@
 .end method
 
 .method public getPackageCandidateVolumes(Landroid/content/pm/ApplicationInfo;)Ljava/util/List;
-    .locals 9
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -9622,23 +10771,48 @@
         }
     .end annotation
 
-    iget-object v6, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
 
-    const-class v7, Landroid/os/storage/StorageManager;
+    const-class v2, Landroid/os/storage/StorageManager;
 
-    invoke-virtual {v6, v7}, Landroid/app/ContextImpl;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {v1, v2}, Landroid/app/ContextImpl;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Landroid/os/storage/StorageManager;
+    check-cast v0, Landroid/os/storage/StorageManager;
 
-    invoke-virtual {p0, p1}, Landroid/app/ApplicationPackageManager;->getPackageCurrentVolume(Landroid/content/pm/ApplicationInfo;)Landroid/os/storage/VolumeInfo;
+    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    invoke-virtual {p0, p1, v0, v1}, Landroid/app/ApplicationPackageManager;->getPackageCandidateVolumes(Landroid/content/pm/ApplicationInfo;Landroid/os/storage/StorageManager;Landroid/content/pm/IPackageManager;)Ljava/util/List;
 
     move-result-object v1
 
-    invoke-virtual {v2}, Landroid/os/storage/StorageManager;->getVolumes()Ljava/util/List;
+    return-object v1
+.end method
 
-    move-result-object v5
+.method protected getPackageCandidateVolumes(Landroid/content/pm/ApplicationInfo;Landroid/os/storage/StorageManager;Landroid/content/pm/IPackageManager;)Ljava/util/List;
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/pm/ApplicationInfo;",
+            "Landroid/os/storage/StorageManager;",
+            "Landroid/content/pm/IPackageManager;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Landroid/os/storage/VolumeInfo;",
+            ">;"
+        }
+    .end annotation
+
+    invoke-virtual {p0, p1, p2}, Landroid/app/ApplicationPackageManager;->getPackageCurrentVolume(Landroid/content/pm/ApplicationInfo;Landroid/os/storage/StorageManager;)Landroid/os/storage/VolumeInfo;
+
+    move-result-object v1
+
+    invoke-virtual {p2}, Landroid/os/storage/StorageManager;->getVolumes()Ljava/util/List;
+
+    move-result-object v4
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -9646,124 +10820,124 @@
 
     if-eqz v1, :cond_2
 
-    const-string/jumbo v6, "ApplicationPackageManager"
+    const-string/jumbo v5, "ApplicationPackageManager"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "getPackageCandidateVolumes, currentVol :"
+    const-string/jumbo v7, "getPackageCandidateVolumes, currentVol :"
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    iget-object v8, v1, Landroid/os/storage/VolumeInfo;->id:Ljava/lang/String;
+    iget-object v7, v1, Landroid/os/storage/VolumeInfo;->id:Ljava/lang/String;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
-    invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
-
-    :cond_0
-    :goto_1
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_3
-
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    check-cast v3, Landroid/os/storage/VolumeInfo;
+    :cond_0
+    :goto_1
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-static {v3, v1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    move-result v5
 
-    move-result v6
+    if-eqz v5, :cond_3
 
-    if-nez v6, :cond_1
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    iget-object v6, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+    move-result-object v2
 
-    invoke-direct {p0, v6, p1, v3}, Landroid/app/ApplicationPackageManager;->isPackageCandidateVolume(Landroid/app/ContextImpl;Landroid/content/pm/ApplicationInfo;Landroid/os/storage/VolumeInfo;)Z
+    check-cast v2, Landroid/os/storage/VolumeInfo;
 
-    move-result v6
+    invoke-static {v2, v1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    if-eqz v6, :cond_0
+    move-result v5
+
+    if-nez v5, :cond_1
+
+    iget-object v5, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-direct {p0, v5, p1, v2, p3}, Landroid/app/ApplicationPackageManager;->isPackageCandidateVolume(Landroid/app/ContextImpl;Landroid/content/pm/ApplicationInfo;Landroid/os/storage/VolumeInfo;Landroid/content/pm/IPackageManager;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
 
     :cond_1
-    const-string/jumbo v6, "ApplicationPackageManager"
+    const-string/jumbo v5, "ApplicationPackageManager"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "add volume: "
+    const-string/jumbo v7, "add volume: "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    iget-object v8, v3, Landroid/os/storage/VolumeInfo;->id:Ljava/lang/String;
+    iget-object v7, v2, Landroid/os/storage/VolumeInfo;->id:Ljava/lang/String;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    const-string/jumbo v8, ", mountFlags: "
+    const-string/jumbo v7, ", mountFlags: "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    iget v8, v3, Landroid/os/storage/VolumeInfo;->mountFlags:I
+    iget v7, v2, Landroid/os/storage/VolumeInfo;->mountFlags:I
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    const-string/jumbo v8, ", Type: "
+    const-string/jumbo v7, ", Type: "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v3}, Landroid/os/storage/VolumeInfo;->getType()I
+    invoke-virtual {v2}, Landroid/os/storage/VolumeInfo;->getType()I
 
-    move-result v8
+    move-result v7
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
     :cond_2
-    const-string/jumbo v6, "ApplicationPackageManager"
+    const-string/jumbo v5, "ApplicationPackageManager"
 
-    const-string/jumbo v7, "getPackageCandidateVolumes, currentVol is null"
+    const-string/jumbo v6, "getPackageCandidateVolumes, currentVol is null"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
@@ -9784,41 +10958,51 @@
 
     check-cast v0, Landroid/os/storage/StorageManager;
 
-    invoke-virtual {p1}, Landroid/content/pm/ApplicationInfo;->isInternal()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const-string/jumbo v1, "private"
-
-    invoke-virtual {v0, v1}, Landroid/os/storage/StorageManager;->findVolumeById(Ljava/lang/String;)Landroid/os/storage/VolumeInfo;
+    invoke-virtual {p0, p1, v0}, Landroid/app/ApplicationPackageManager;->getPackageCurrentVolume(Landroid/content/pm/ApplicationInfo;Landroid/os/storage/StorageManager;)Landroid/os/storage/VolumeInfo;
 
     move-result-object v1
 
     return-object v1
+.end method
+
+.method protected getPackageCurrentVolume(Landroid/content/pm/ApplicationInfo;Landroid/os/storage/StorageManager;)Landroid/os/storage/VolumeInfo;
+    .locals 1
+
+    invoke-virtual {p1}, Landroid/content/pm/ApplicationInfo;->isInternal()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "private"
+
+    invoke-virtual {p2, v0}, Landroid/os/storage/StorageManager;->findVolumeById(Ljava/lang/String;)Landroid/os/storage/VolumeInfo;
+
+    move-result-object v0
+
+    return-object v0
 
     :cond_0
     invoke-virtual {p1}, Landroid/content/pm/ApplicationInfo;->isExternalAsec()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    invoke-virtual {v0}, Landroid/os/storage/StorageManager;->getPrimaryPhysicalVolume()Landroid/os/storage/VolumeInfo;
+    invoke-virtual {p2}, Landroid/os/storage/StorageManager;->getPrimaryPhysicalVolume()Landroid/os/storage/VolumeInfo;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 
     :cond_1
-    iget-object v1, p1, Landroid/content/pm/ApplicationInfo;->volumeUuid:Ljava/lang/String;
+    iget-object v0, p1, Landroid/content/pm/ApplicationInfo;->volumeUuid:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/os/storage/StorageManager;->findVolumeByUuid(Ljava/lang/String;)Landroid/os/storage/VolumeInfo;
+    invoke-virtual {p2, v0}, Landroid/os/storage/StorageManager;->findVolumeByUuid(Ljava/lang/String;)Landroid/os/storage/VolumeInfo;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public getPackageGids(Ljava/lang/String;)[I
@@ -9878,6 +11062,54 @@
     new-instance v2, Landroid/content/pm/PackageManager$NameNotFoundException;
 
     invoke-direct {v2, p1}, Landroid/content/pm/PackageManager$NameNotFoundException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+.end method
+
+.method public getPackageInfo(Landroid/content/pm/VersionedPackage;I)Landroid/content/pm/PackageInfo;
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/content/pm/PackageManager$NameNotFoundException;
+        }
+    .end annotation
+
+    :try_start_0
+    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v3}, Landroid/app/ContextImpl;->getUserId()I
+
+    move-result v3
+
+    invoke-interface {v2, p1, p2, v3}, Landroid/content/pm/IPackageManager;->getPackageInfoVersioned(Landroid/content/pm/VersionedPackage;II)Landroid/content/pm/PackageInfo;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v2
+
+    throw v2
+
+    :cond_0
+    new-instance v2, Landroid/content/pm/PackageManager$NameNotFoundException;
+
+    invoke-virtual {p1}, Landroid/content/pm/VersionedPackage;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {v2, v3}, Landroid/content/pm/PackageManager$NameNotFoundException;-><init>(Ljava/lang/String;)V
 
     throw v2
 .end method
@@ -9942,101 +11174,128 @@
 .end method
 
 .method public getPackageInstaller()Landroid/content/pm/PackageInstaller;
-    .locals 8
+    .locals 6
 
-    iget-object v7, p0, Landroid/app/ApplicationPackageManager;->mLock:Ljava/lang/Object;
+    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mLock:Ljava/lang/Object;
 
-    monitor-enter v7
+    monitor-enter v2
 
     :try_start_0
-    iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mInstaller:Landroid/content/pm/PackageInstaller;
+    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mInstaller:Landroid/content/pm/PackageInstaller;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     :try_start_1
-    new-instance v0, Landroid/content/pm/PackageInstaller;
+    new-instance v1, Landroid/content/pm/PackageInstaller;
 
-    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
 
-    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
-
-    invoke-interface {v2}, Landroid/content/pm/IPackageManager;->getPackageInstaller()Landroid/content/pm/IPackageInstaller;
+    invoke-interface {v3}, Landroid/content/pm/IPackageManager;->getPackageInstaller()Landroid/content/pm/IPackageInstaller;
 
     move-result-object v3
 
-    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+    iget-object v4, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
 
-    invoke-virtual {v2}, Landroid/app/ContextImpl;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v4}, Landroid/app/ContextImpl;->getPackageName()Ljava/lang/String;
 
     move-result-object v4
 
-    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+    iget-object v5, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
 
-    invoke-virtual {v2}, Landroid/app/ContextImpl;->getUserId()I
+    invoke-virtual {v5}, Landroid/app/ContextImpl;->getUserId()I
 
     move-result v5
 
-    move-object v2, p0
+    invoke-direct {v1, v3, v4, v5}, Landroid/content/pm/PackageInstaller;-><init>(Landroid/content/pm/IPackageInstaller;Ljava/lang/String;I)V
 
-    invoke-direct/range {v0 .. v5}, Landroid/content/pm/PackageInstaller;-><init>(Landroid/content/Context;Landroid/content/pm/PackageManager;Landroid/content/pm/IPackageInstaller;Ljava/lang/String;I)V
-
-    iput-object v0, p0, Landroid/app/ApplicationPackageManager;->mInstaller:Landroid/content/pm/PackageInstaller;
+    iput-object v1, p0, Landroid/app/ApplicationPackageManager;->mInstaller:Landroid/content/pm/PackageInstaller;
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :cond_0
     :try_start_2
-    iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mInstaller:Landroid/content/pm/PackageInstaller;
+    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mInstaller:Landroid/content/pm/PackageInstaller;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    monitor-exit v7
+    monitor-exit v2
 
-    return-object v0
+    return-object v1
 
     :catch_0
-    move-exception v6
+    move-exception v0
 
     :try_start_3
-    invoke-virtual {v6}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
-
-    move-result-object v0
-
-    throw v0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v7
-
-    throw v0
-.end method
-
-.method public getPackageSizeInfoAsUser(Ljava/lang/String;ILandroid/content/pm/IPackageStatsObserver;)V
-    .locals 2
-
-    :try_start_0
-    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
-
-    invoke-interface {v1, p1, p2, p3}, Landroid/content/pm/IPackageManager;->getPackageSizeInfo(Ljava/lang/String;ILandroid/content/pm/IPackageStatsObserver;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-void
-
-    :catch_0
-    move-exception v0
-
     invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
     move-result-object v1
 
     throw v1
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
+.end method
+
+.method public getPackageSizeInfoAsUser(Ljava/lang/String;ILandroid/content/pm/IPackageStatsObserver;)V
+    .locals 4
+
+    const-string/jumbo v1, "Shame on you for calling the hidden API getPackageSizeInfoAsUser(). Shame!"
+
+    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v2}, Landroid/app/ContextImpl;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v2
+
+    iget v2, v2, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+
+    const/16 v3, 0x1a
+
+    if-lt v2, v3, :cond_0
+
+    new-instance v2, Ljava/lang/UnsupportedOperationException;
+
+    const-string/jumbo v3, "Shame on you for calling the hidden API getPackageSizeInfoAsUser(). Shame!"
+
+    invoke-direct {v2, v3}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    :cond_0
+    if-eqz p3, :cond_1
+
+    const-string/jumbo v2, "ApplicationPackageManager"
+
+    const-string/jumbo v3, "Shame on you for calling the hidden API getPackageSizeInfoAsUser(). Shame!"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    :try_start_0
+    invoke-interface {p3, v2, v3}, Landroid/content/pm/IPackageStatsObserver;->onGetStatsCompleted(Landroid/content/pm/PackageStats;Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
 .end method
 
 .method public getPackageUid(Ljava/lang/String;I)I
@@ -10316,7 +11575,7 @@
 .end method
 
 .method public getPermissionInfo(Ljava/lang/String;I)Landroid/content/pm/PermissionInfo;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
@@ -10326,7 +11585,13 @@
     :try_start_0
     iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
 
-    invoke-interface {v2, p1, p2}, Landroid/content/pm/IPackageManager;->getPermissionInfo(Ljava/lang/String;I)Landroid/content/pm/PermissionInfo;
+    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v3}, Landroid/app/ContextImpl;->getOpPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-interface {v2, p1, v3, p2}, Landroid/content/pm/IPackageManager;->getPermissionInfo(Ljava/lang/String;Ljava/lang/String;I)Landroid/content/pm/PermissionInfo;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -10706,7 +11971,7 @@
 .end method
 
 .method public getResourcesForApplication(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/Resources;
-    .locals 12
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
@@ -10727,7 +11992,7 @@
 
     iget-object v0, v0, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
 
-    invoke-virtual {v0}, Landroid/app/ActivityThread;->getSystemContext()Landroid/app/ContextImpl;
+    invoke-virtual {v0}, Landroid/app/ActivityThread;->getSystemUiContext()Landroid/app/ContextImpl;
 
     move-result-object v0
 
@@ -10744,101 +12009,50 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_1
 
-    const/4 v11, 0x1
+    const/4 v9, 0x1
 
     :goto_0
     iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
 
-    iget-object v6, v0, Landroid/app/ContextImpl;->mPackageInfo:Landroid/app/LoadedApk;
-
-    iget-object v0, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    invoke-virtual {v1}, Landroid/app/ContextImpl;->getPackageName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    :try_start_0
-    iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
     iget-object v0, v0, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
 
-    iget-object v1, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v1, v2}, Landroid/app/ActivityThread;->peekPackageInfo(Ljava/lang/String;Z)Landroid/app/LoadedApk;
-
-    move-result-object v6
-
-    if-nez v6, :cond_1
-
-    iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    iget-object v0, v0, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
-
-    iget-object v1, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/app/ActivityThread;->peekPackageInfo(Ljava/lang/String;Z)Landroid/app/LoadedApk;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v6
-
-    :cond_1
-    :goto_1
-    if-nez v6, :cond_2
-
-    iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    iget-object v6, v0, Landroid/app/ContextImpl;->mPackageInfo:Landroid/app/LoadedApk;
-
-    :cond_2
-    :try_start_1
-    iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    iget-object v0, v0, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
-
-    if-eqz v11, :cond_5
+    if-eqz v9, :cond_2
 
     iget-object v1, p1, Landroid/content/pm/ApplicationInfo;->sourceDir:Ljava/lang/String;
 
-    :goto_2
-    if-eqz v11, :cond_6
+    :goto_1
+    if-eqz v9, :cond_3
 
     iget-object v2, p1, Landroid/content/pm/ApplicationInfo;->splitSourceDirs:[Ljava/lang/String;
 
-    :goto_3
+    :goto_2
     iget-object v3, p1, Landroid/content/pm/ApplicationInfo;->resourceDirs:[Ljava/lang/String;
 
     iget-object v4, p1, Landroid/content/pm/ApplicationInfo;->sharedLibraryFiles:[Ljava/lang/String;
 
+    iget-object v5, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    iget-object v6, v5, Landroid/app/ContextImpl;->mPackageInfo:Landroid/app/LoadedApk;
+
+    iget-object v7, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
     const/4 v5, 0x0
 
-    invoke-virtual/range {v0 .. v6}, Landroid/app/ActivityThread;->getTopLevelResources(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ILandroid/app/LoadedApk;)Landroid/content/res/Resources;
+    invoke-virtual/range {v0 .. v7}, Landroid/app/ActivityThread;->getTopLevelResources(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ILandroid/app/LoadedApk;Ljava/lang/String;)Landroid/content/res/Resources;
 
-    move-result-object v10
+    move-result-object v8
 
-    if-eqz v10, :cond_3
+    if-eqz v8, :cond_4
 
     iget-object v0, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    iput-object v0, v10, Landroid/content/res/Resources;->mPackageName:Ljava/lang/String;
+    iput-object v0, v8, Landroid/content/res/Resources;->mPackageName:Ljava/lang/String;
 
     iget v0, p1, Landroid/content/pm/ApplicationInfo;->icon:I
 
-    iput v0, v10, Landroid/content/res/Resources;->mAppIconResId:I
+    iput v0, v8, Landroid/content/res/Resources;->mAppIconResId:I
 
     iget v0, p1, Landroid/content/pm/ApplicationInfo;->uid:I
 
@@ -10846,52 +12060,39 @@
 
     move-result v0
 
-    iput v0, v10, Landroid/content/res/Resources;->mUserId:I
-    :try_end_1
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+    iput v0, v8, Landroid/content/res/Resources;->mUserId:I
 
-    :cond_3
-    return-object v10
+    return-object v8
 
-    :cond_4
-    const/4 v11, 0x0
+    :cond_1
+    const/4 v9, 0x0
 
     goto :goto_0
 
-    :catch_0
-    move-exception v8
+    :cond_2
+    iget-object v1, p1, Landroid/content/pm/ApplicationInfo;->publicSourceDir:Ljava/lang/String;
 
-    invoke-virtual {v8}, Ljava/lang/Exception;->printStackTrace()V
+    goto :goto_1
 
-    const-string/jumbo v0, "ApplicationPackageManager"
+    :cond_3
+    iget-object v2, p1, Landroid/content/pm/ApplicationInfo;->splitPublicSourceDirs:[Ljava/lang/String;
+
+    goto :goto_2
+
+    :cond_4
+    new-instance v0, Landroid/content/pm/PackageManager$NameNotFoundException;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "getResourcesForApplication using Info of "
+    const-string/jumbo v2, "Unable to open "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    invoke-virtual {v2}, Landroid/app/ContextImpl;->getPackageName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " instead of "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v2, p1, Landroid/content/pm/ApplicationInfo;->publicSourceDir:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -10901,53 +12102,9 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v0, v1}, Landroid/content/pm/PackageManager$NameNotFoundException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_1
-
-    :cond_5
-    :try_start_2
-    iget-object v1, p1, Landroid/content/pm/ApplicationInfo;->publicSourceDir:Ljava/lang/String;
-
-    goto :goto_2
-
-    :cond_6
-    iget-object v2, p1, Landroid/content/pm/ApplicationInfo;->splitPublicSourceDirs:[Ljava/lang/String;
-    :try_end_2
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_2 .. :try_end_2} :catch_1
-
-    goto :goto_3
-
-    :catch_1
-    move-exception v7
-
-    new-instance v9, Landroid/content/pm/PackageManager$NameNotFoundException;
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v1, "Unable to open "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-object v1, p1, Landroid/content/pm/ApplicationInfo;->publicSourceDir:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v9, v0}, Landroid/content/pm/PackageManager$NameNotFoundException;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v9, v7}, Landroid/content/pm/PackageManager$NameNotFoundException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
-
-    throw v9
+    throw v0
 .end method
 
 .method public getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
@@ -11018,7 +12175,7 @@
 
     iget-object v2, v2, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
 
-    invoke-virtual {v2}, Landroid/app/ActivityThread;->getSystemContext()Landroid/app/ContextImpl;
+    invoke-virtual {v2}, Landroid/app/ActivityThread;->getSystemUiContext()Landroid/app/ContextImpl;
 
     move-result-object v2
 
@@ -11190,6 +12347,83 @@
     move-result-object v1
 
     throw v1
+.end method
+
+.method public getSharedLibraries(I)Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/SharedLibraryInfo;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v0}, Landroid/app/ContextImpl;->getUserId()I
+
+    move-result v0
+
+    invoke-virtual {p0, p1, v0}, Landroid/app/ApplicationPackageManager;->getSharedLibrariesAsUser(II)Ljava/util/List;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getSharedLibrariesAsUser(II)Ljava/util/List;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(II)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/SharedLibraryInfo;",
+            ">;"
+        }
+    .end annotation
+
+    :try_start_0
+    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v3}, Landroid/app/ContextImpl;->getOpPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-interface {v2, v3, p1, p2}, Landroid/content/pm/IPackageManager;->getSharedLibraries(Ljava/lang/String;II)Landroid/content/pm/ParceledListSlice;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object v2
+
+    return-object v2
+
+    :cond_0
+    invoke-virtual {v1}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v2
+
+    return-object v2
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v2
+
+    throw v2
 .end method
 
 .method public getSharedSystemSharedLibraryPackageName()Ljava/lang/String;
@@ -11452,123 +12686,6 @@
     goto :goto_0
 .end method
 
-.method public getThemeAppIcon(Landroid/content/pm/PackageItemInfo;Z)Landroid/graphics/drawable/Drawable;
-    .locals 8
-
-    const/4 v7, 0x0
-
-    iget-object v5, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    iget-object v5, v5, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
-
-    invoke-virtual {v5}, Landroid/app/ActivityThread;->getThemeAppIconMap()Ljava/util/HashMap;
-
-    move-result-object v1
-
-    iget-object v5, p0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
-
-    if-eqz v5, :cond_0
-
-    iget-object v5, p0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
-
-    invoke-virtual {v5}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    :cond_0
-    :goto_0
-    return-object v7
-
-    :cond_1
-    const/4 v2, 0x0
-
-    if-eqz p2, :cond_3
-
-    const-string/jumbo v5, "3rd_party_icon"
-
-    invoke-virtual {v1, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/String;
-
-    :cond_2
-    :goto_1
-    if-eqz v2, :cond_0
-
-    :try_start_0
-    iget-object v5, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    invoke-virtual {v5}, Landroid/app/ContextImpl;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v5
-
-    iget-object v6, p0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
-
-    invoke-virtual {v5, v6}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const-string/jumbo v5, "drawable"
-
-    iget-object v6, p0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
-
-    invoke-virtual {v3, v2, v5, v6}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v5
-
-    return-object v5
-
-    :cond_3
-    if-eqz p1, :cond_2
-
-    iget-object v5, p1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
-
-    if-eqz v5, :cond_4
-
-    iget-object v5, p1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
-
-    invoke-virtual {v1, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/String;
-
-    goto :goto_1
-
-    :cond_4
-    iget-object v5, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
-
-    if-eqz v5, :cond_2
-
-    iget-object v5, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
-
-    invoke-virtual {v1, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/String;
-
-    goto :goto_1
-
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_0
-.end method
-
 .method public getUidForSharedUser(Ljava/lang/String;)I
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
@@ -11628,275 +12745,179 @@
 .end method
 
 .method public getUserBadgeForDensity(Landroid/os/UserHandle;I)Landroid/graphics/drawable/Drawable;
-    .locals 11
+    .locals 8
 
-    const/4 v10, 0x0
+    const/4 v7, 0x0
 
-    const/4 v9, 0x0
+    const/4 v6, 0x0
 
     invoke-virtual {p1}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result v7
+    move-result v5
 
-    invoke-direct {p0, v7}, Landroid/app/ApplicationPackageManager;->getUserIfProfile(I)Landroid/content/pm/UserInfo;
+    invoke-direct {p0, v5}, Landroid/app/ApplicationPackageManager;->getUserIfProfile(I)Landroid/content/pm/UserInfo;
 
-    move-result-object v6
+    move-result-object v4
 
-    iget-object v7, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    const-string/jumbo v8, "persona"
-
-    invoke-virtual {v7, v8}, Landroid/app/ContextImpl;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Lcom/samsung/android/knox/SemPersonaManager;
-
-    iput-object v7, p0, Landroid/app/ApplicationPackageManager;->mPersona:Lcom/samsung/android/knox/SemPersonaManager;
-
-    if-eqz v6, :cond_6
+    if-eqz v4, :cond_4
 
     if-gtz p2, :cond_0
 
-    iget-object v7, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+    iget-object v5, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
 
-    invoke-virtual {v7}, Landroid/app/ContextImpl;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v5}, Landroid/app/ContextImpl;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v7
+    move-result-object v5
 
-    invoke-virtual {v7}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v5}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v7
+    move-result-object v5
 
-    iget p2, v7, Landroid/util/DisplayMetrics;->densityDpi:I
+    iget p2, v5, Landroid/util/DisplayMetrics;->densityDpi:I
 
     :cond_0
     invoke-virtual {p1}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result v7
+    move-result v5
 
-    const/16 v8, 0x64
-
-    if-lt v7, v8, :cond_5
-
-    iget-object v7, p0, Landroid/app/ApplicationPackageManager;->mPersona:Lcom/samsung/android/knox/SemPersonaManager;
-
-    if-eqz v7, :cond_2
-
-    iget-object v7, p0, Landroid/app/ApplicationPackageManager;->mPersona:Lcom/samsung/android/knox/SemPersonaManager;
-
-    invoke-virtual {p1}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v8
-
-    invoke-virtual {v7, v8}, Lcom/samsung/android/knox/SemPersonaManager;->isECContainer(I)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_2
-
-    const-string/jumbo v7, "ApplicationPackageManager"
-
-    const-string/jumbo v8, "isECContainer is true "
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v7, p0, Landroid/app/ApplicationPackageManager;->mPersona:Lcom/samsung/android/knox/SemPersonaManager;
-
-    invoke-virtual {p1}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v8
-
-    invoke-virtual {v7, v8}, Lcom/samsung/android/knox/SemPersonaManager;->getECBadge(I)[B
-
-    move-result-object v1
-
-    if-nez v1, :cond_1
-
-    return-object v9
-
-    :cond_1
-    const/4 v2, 0x0
-
-    new-instance v2, Landroid/graphics/drawable/BitmapDrawable;
-
-    iget-object v7, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    invoke-virtual {v7}, Landroid/app/ContextImpl;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v7
-
-    array-length v8, v1
-
-    invoke-static {v1, v10, v8}, Landroid/graphics/BitmapFactory;->decodeByteArray([BII)Landroid/graphics/Bitmap;
-
-    move-result-object v8
-
-    invoke-direct {v2, v7, v8}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
-
-    return-object v2
-
-    :cond_2
-    iget-object v7, v6, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
-
-    if-eqz v7, :cond_3
-
-    iget-object v7, v6, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
-
-    const-string/jumbo v8, "KNOX"
-
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_3
-
-    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
-
-    move-result-object v7
-
-    const v8, 0x10803e6
-
-    invoke-virtual {v7, v8, p2}, Landroid/content/res/Resources;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v7
-
-    return-object v7
-
-    :cond_3
-    iget-object v7, v6, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
-
-    if-eqz v7, :cond_4
-
-    iget-object v7, v6, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
-
-    const-string/jumbo v8, "KNOX II"
-
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_4
-
-    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
-
-    move-result-object v7
-
-    const v8, 0x10803e5
-
-    invoke-virtual {v7, v8, p2}, Landroid/content/res/Resources;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v7
-
-    return-object v7
-
-    :cond_4
-    iget-object v7, p0, Landroid/app/ApplicationPackageManager;->mPersona:Lcom/samsung/android/knox/SemPersonaManager;
-
-    if-eqz v7, :cond_6
-
-    iget-object v7, p0, Landroid/app/ApplicationPackageManager;->mPersona:Lcom/samsung/android/knox/SemPersonaManager;
-
-    invoke-virtual {p1}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v7
-
-    invoke-static {v7}, Lcom/samsung/android/knox/SemPersonaManager;->isSecureFolderId(I)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_6
-
-    const-string/jumbo v0, "com.samsung.knox.securefolder"
-
-    :try_start_0
-    invoke-virtual {p0, v0}, Landroid/app/ApplicationPackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    const-string/jumbo v7, "ic_sf_badge_bottom"
-
-    const-string/jumbo v8, "drawable"
-
-    invoke-virtual {v4, v7, v8, v0}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
     move-result v5
 
-    const/4 v7, 0x0
+    if-eqz v5, :cond_3
 
-    invoke-virtual {v4, v5, p2, v7}, Landroid/content/res/Resources;->getDrawableForDensity(IILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    iget-object v5, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
 
-    move-result-object v7
+    invoke-static {v5}, Lcom/samsung/android/knox/SemPersonaManager;->isKioskModeEnabled(Landroid/content/Context;)Z
 
-    return-object v7
+    move-result v5
 
-    :catch_0
-    move-exception v3
+    if-eqz v5, :cond_1
 
-    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
+    return-object v6
 
-    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+    :cond_1
+    invoke-virtual {p1}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result-object v7
+    move-result v5
 
-    const v8, 0x10804bb
+    invoke-static {v5}, Lcom/samsung/android/knox/SemPersonaManager;->isBBCContainer(I)Z
 
-    invoke-virtual {v7, v8, p2}, Landroid/content/res/Resources;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
+    move-result v5
 
-    move-result-object v7
+    if-eqz v5, :cond_2
 
-    return-object v7
+    return-object v6
 
-    :cond_5
-    invoke-virtual {v6}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
+    :cond_2
+    invoke-direct {p0, v4, p1, p2}, Landroid/app/ApplicationPackageManager;->getCustomBadgeForCustomContainer(Landroid/content/pm/UserInfo;Landroid/os/UserHandle;I)Landroid/util/Pair;
 
-    move-result v7
+    move-result-object v3
 
-    if-eqz v7, :cond_6
+    iget-object v5, v3, Landroid/util/Pair;->first:Ljava/lang/Object;
+
+    check-cast v5, Ljava/lang/Boolean;
+
+    invoke-virtual {v5}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+
+    iget-object v5, v3, Landroid/util/Pair;->second:Ljava/lang/Object;
+
+    check-cast v5, Landroid/graphics/drawable/Drawable;
+
+    return-object v5
+
+    :cond_3
+    invoke-virtual {v4}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
 
     invoke-virtual {p1}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result v7
+    move-result v5
 
-    invoke-static {v7}, Lcom/samsung/android/app/SemDualAppManager;->isDualAppId(I)Z
+    invoke-static {v5}, Lcom/samsung/android/app/SemDualAppManager;->isDualAppId(I)Z
 
-    move-result v7
+    move-result v5
 
-    if-eqz v7, :cond_6
+    if-eqz v5, :cond_4
 
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
-    move-result-object v7
+    move-result-object v5
 
-    const v8, 0x10803e3
+    const v6, 0x10803e7
 
-    invoke-virtual {v7, v8, p2}, Landroid/content/res/Resources;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v5, v6, p2}, Landroid/content/res/Resources;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v7
+    move-result-object v5
 
-    return-object v7
+    return-object v5
 
-    :cond_6
-    const v7, 0x10803ae
+    :cond_4
+    const v5, 0x10803c1
 
-    invoke-direct {p0, p1, v7, p2}, Landroid/app/ApplicationPackageManager;->getManagedProfileIconForDensity(Landroid/os/UserHandle;II)Landroid/graphics/drawable/Drawable;
+    invoke-direct {p0, p1, v5, p2}, Landroid/app/ApplicationPackageManager;->getManagedProfileIconForDensity(Landroid/os/UserHandle;II)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v7
+    move-result-object v1
 
-    return-object v7
+    if-nez v1, :cond_5
+
+    return-object v6
+
+    :cond_5
+    invoke-direct {p0, p1}, Landroid/app/ApplicationPackageManager;->getUserBadgeColor(Landroid/os/UserHandle;)I
+
+    move-result v5
+
+    invoke-virtual {v1, v5}, Landroid/graphics/drawable/Drawable;->setTint(I)V
+
+    const v5, 0x10803c0
+
+    invoke-direct {p0, v5, p2}, Landroid/app/ApplicationPackageManager;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v2
+
+    new-instance v0, Landroid/graphics/drawable/LayerDrawable;
+
+    const/4 v5, 0x2
+
+    new-array v5, v5, [Landroid/graphics/drawable/Drawable;
+
+    aput-object v1, v5, v7
+
+    const/4 v6, 0x1
+
+    aput-object v2, v5, v6
+
+    invoke-direct {v0, v5}, Landroid/graphics/drawable/LayerDrawable;-><init>([Landroid/graphics/drawable/Drawable;)V
+
+    return-object v0
 .end method
 
 .method public getUserBadgeForDensityNoBackground(Landroid/os/UserHandle;I)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .locals 2
 
-    const v0, 0x10803af
+    const v1, 0x10803c2
 
-    invoke-direct {p0, p1, v0, p2}, Landroid/app/ApplicationPackageManager;->getManagedProfileIconForDensity(Landroid/os/UserHandle;II)Landroid/graphics/drawable/Drawable;
+    invoke-direct {p0, p1, v1, p2}, Landroid/app/ApplicationPackageManager;->getManagedProfileIconForDensity(Landroid/os/UserHandle;II)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0, p1}, Landroid/app/ApplicationPackageManager;->getUserBadgeColor(Landroid/os/UserHandle;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setTint(I)V
+
+    :cond_0
     return-object v0
 .end method
 
@@ -11922,563 +12943,521 @@
 .end method
 
 .method public getUserBadgedIcon(Landroid/graphics/drawable/Drawable;Landroid/os/UserHandle;)Landroid/graphics/drawable/Drawable;
-    .locals 27
+    .locals 23
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result v22
+    move-result v18
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v18
 
-    invoke-direct {v0, v1}, Landroid/app/ApplicationPackageManager;->getBadgeResIdForUser(I)I
+    invoke-direct {v0, v1}, Landroid/app/ApplicationPackageManager;->isManagedProfile(I)Z
 
-    move-result v11
+    move-result v18
 
-    if-nez v11, :cond_0
+    if-nez v18, :cond_0
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v18
+
+    invoke-static/range {v18 .. v18}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v18
+
+    xor-int/lit8 v18, v18, 0x1
+
+    if-eqz v18, :cond_0
 
     return-object p1
 
     :cond_0
+    invoke-virtual/range {p2 .. p2}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v18
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v18
+
+    invoke-direct {v0, v1}, Landroid/app/ApplicationPackageManager;->getBadgeResIdForUser(I)I
+
+    move-result v8
+
+    const/4 v6, 0x0
+
+    if-nez v8, :cond_1
+
+    return-object p1
+
+    :cond_1
+    invoke-virtual/range {p2 .. p2}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v18
+
+    invoke-static/range {v18 .. v18}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_6
+
+    invoke-virtual/range {p1 .. p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+
+    move-result v18
+
+    move/from16 v0, v18
+
+    int-to-float v14, v0
+
+    invoke-virtual/range {p1 .. p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+
+    move-result v18
+
+    move/from16 v0, v18
+
+    int-to-float v13, v0
+
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    const-string/jumbo v23, "persona"
+    invoke-virtual/range {v18 .. v18}, Landroid/app/ContextImpl;->getResources()Landroid/content/res/Resources;
 
-    invoke-virtual/range {v22 .. v23}, Landroid/app/ContextImpl;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object v15
 
-    move-result-object v18
+    const-string/jumbo v18, "system"
 
-    check-cast v18, Lcom/samsung/android/knox/SemPersonaManager;
+    const/16 v19, 0x0
 
-    const/4 v9, 0x0
+    move-object/from16 v0, p0
 
-    if-eqz v18, :cond_1
+    move-object/from16 v1, v18
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v8, v2}, Landroid/app/ApplicationPackageManager;->getDrawable(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v6
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result v22
+    move-result v18
 
-    invoke-static/range {v22 .. v22}, Lcom/samsung/android/knox/SemPersonaManager;->isSecureFolderId(I)Z
+    invoke-static/range {v18 .. v18}, Lcom/samsung/android/knox/SemPersonaManager;->isSecureFolderId(I)Z
 
-    move-result v22
+    move-result v18
 
-    if-eqz v22, :cond_1
+    if-eqz v18, :cond_2
 
-    const-string/jumbo v5, "com.samsung.knox.securefolder"
+    const-string/jumbo v4, "com.samsung.knox.securefolder"
 
     :try_start_0
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Landroid/app/ApplicationPackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
+    invoke-virtual {v0, v4}, Landroid/app/ApplicationPackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
 
-    move-result-object v20
+    move-result-object v16
 
-    const-string/jumbo v22, "ic_sf_badge"
+    const-string/jumbo v18, "ic_sf_badge"
 
-    const-string/jumbo v23, "drawable"
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v22
-
-    move-object/from16 v2, v23
-
-    invoke-virtual {v0, v1, v2, v5}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v21
-
-    invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v9
-
-    :cond_1
-    :goto_0
-    if-nez v9, :cond_2
-
-    const-string/jumbo v22, "system"
-
-    const/16 v23, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v22
-
-    move-object/from16 v2, v23
-
-    invoke-virtual {v0, v1, v11, v2}, Landroid/app/ApplicationPackageManager;->getDrawable(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v9
-
-    :cond_2
-    invoke-virtual/range {p2 .. p2}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v22
-
-    const/16 v23, 0x64
-
-    move/from16 v0, v22
-
-    move/from16 v1, v23
-
-    if-lt v0, v1, :cond_b
-
-    if-eqz v18, :cond_3
-
-    invoke-virtual/range {v18 .. v18}, Lcom/samsung/android/knox/SemPersonaManager;->isKioskContainerExistOnDevice()Z
-
-    move-result v22
-
-    if-eqz v22, :cond_3
-
-    return-object p1
-
-    :catch_0
-    move-exception v14
-
-    invoke-virtual {v14}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_0
-
-    :cond_3
-    invoke-virtual/range {p1 .. p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
-
-    move-result v22
-
-    move/from16 v0, v22
-
-    int-to-float v0, v0
-
-    move/from16 v17, v0
-
-    invoke-virtual/range {p1 .. p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
-
-    move-result v22
-
-    move/from16 v0, v22
-
-    int-to-float v15, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    move-object/from16 v22, v0
-
-    invoke-virtual/range {v22 .. v22}, Landroid/app/ContextImpl;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v19
-
-    const/4 v7, 0x0
-
-    const/4 v6, 0x0
-
-    const-string/jumbo v22, "com.google.android.packageinstaller"
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    move-object/from16 v23, v0
-
-    invoke-virtual/range {v23 .. v23}, Landroid/app/ContextImpl;->getPackageName()Ljava/lang/String;
-
-    move-result-object v23
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v22
-
-    if-nez v22, :cond_5
-
-    const v22, 0x10500d9
-
-    move-object/from16 v0, v19
-
-    move/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v7
-
-    const v22, 0x10500da
-
-    move-object/from16 v0, v19
-
-    move/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v6
-
-    :goto_1
-    const/16 v22, 0x0
-
-    cmpg-float v22, v17, v22
-
-    if-lez v22, :cond_4
-
-    const/16 v22, 0x0
-
-    cmpg-float v22, v15, v22
-
-    if-gtz v22, :cond_6
-
-    :cond_4
-    return-object p1
-
-    :cond_5
-    move/from16 v7, v17
-
-    move v6, v15
-
-    goto :goto_1
-
-    :cond_6
-    if-eqz v18, :cond_8
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v22
-
-    move-object/from16 v0, v18
-
-    move/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/knox/SemPersonaManager;->isECContainer(I)Z
-
-    move-result v22
-
-    if-eqz v22, :cond_7
-
-    const-string/jumbo v22, "ApplicationPackageManager"
-
-    const-string/jumbo v23, "isECContainer is true in getUserBadgedIcon"
-
-    invoke-static/range {v22 .. v23}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v22
-
-    move-object/from16 v0, v18
-
-    move/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/knox/SemPersonaManager;->getECBadge(I)[B
-
-    move-result-object v8
-
-    if-eqz v8, :cond_7
-
-    new-instance v9, Landroid/graphics/drawable/BitmapDrawable;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    move-object/from16 v22, v0
-
-    invoke-virtual/range {v22 .. v22}, Landroid/app/ContextImpl;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v22
-
-    array-length v0, v8
-
-    move/from16 v23, v0
-
-    const/16 v24, 0x0
-
-    move/from16 v0, v24
-
-    move/from16 v1, v23
-
-    invoke-static {v8, v0, v1}, Landroid/graphics/BitmapFactory;->decodeByteArray([BII)Landroid/graphics/Bitmap;
-
-    move-result-object v23
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v23
-
-    invoke-direct {v9, v0, v1}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
-
-    :cond_7
-    new-instance v10, Landroid/graphics/drawable/BitmapDrawable;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    move-object/from16 v22, v0
-
-    const/high16 v23, 0x40000000    # 2.0f
-
-    div-float v23, v7, v23
-
-    move/from16 v0, v23
-
-    float-to-int v0, v0
-
-    move/from16 v23, v0
-
-    const/high16 v24, 0x40000000    # 2.0f
-
-    div-float v24, v6, v24
-
-    move/from16 v0, v24
-
-    float-to-int v0, v0
-
-    move/from16 v24, v0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v22
-
-    move/from16 v2, v23
-
-    move/from16 v3, v24
-
-    invoke-direct {v0, v9, v1, v2, v3}, Landroid/app/ApplicationPackageManager;->createIconBitmap(Landroid/graphics/drawable/Drawable;Landroid/app/ContextImpl;II)Landroid/graphics/Bitmap;
-
-    move-result-object v22
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v22
-
-    invoke-direct {v10, v0, v1}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
-
-    move-object v9, v10
-
-    :cond_8
-    invoke-virtual {v9}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
-
-    move-result v13
-
-    invoke-virtual {v9}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
-
-    move-result v12
-
-    cmpl-float v22, v17, v7
-
-    if-nez v22, :cond_9
-
-    cmpl-float v22, v15, v6
-
-    if-eqz v22, :cond_a
-
-    :cond_9
-    new-instance v16, Landroid/graphics/drawable/BitmapDrawable;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    move-object/from16 v22, v0
-
-    float-to-int v0, v7
-
-    move/from16 v23, v0
-
-    float-to-int v0, v6
-
-    move/from16 v24, v0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p1
-
-    move-object/from16 v2, v22
-
-    move/from16 v3, v23
-
-    move/from16 v4, v24
-
-    invoke-direct {v0, v1, v2, v3, v4}, Landroid/app/ApplicationPackageManager;->createIconBitmap(Landroid/graphics/drawable/Drawable;Landroid/app/ContextImpl;II)Landroid/graphics/Bitmap;
-
-    move-result-object v22
+    const-string/jumbo v19, "drawable"
 
     move-object/from16 v0, v16
 
+    move-object/from16 v1, v18
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2, v4}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v17
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual/range {v18 .. v18}, Landroid/app/ContextImpl;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    iget v11, v0, Landroid/util/DisplayMetrics;->densityDpi:I
+
+    const/16 v18, 0x0
+
+    move-object/from16 v0, v16
+
+    move/from16 v1, v17
+
+    move-object/from16 v2, v18
+
+    invoke-virtual {v0, v1, v11, v2}, Landroid/content/res/Resources;->getDrawableForDensity(IILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v6
+
+    :cond_2
+    :goto_0
+    const/16 v18, 0x0
+
+    cmpg-float v18, v14, v18
+
+    if-lez v18, :cond_3
+
+    const/16 v18, 0x0
+
+    cmpg-float v18, v13, v18
+
+    if-gtz v18, :cond_4
+
+    :cond_3
+    return-object p1
+
+    :catch_0
+    move-exception v12
+
+    invoke-virtual {v12}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_0
+
+    :cond_4
+    invoke-virtual/range {p2 .. p2}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v18
+
+    const-string/jumbo v19, "custom-badge-icon"
+
+    invoke-static/range {v18 .. v19}, Lcom/samsung/android/knox/SemPersonaManager;->getCustomResource(ILjava/lang/String;)[B
+
+    move-result-object v5
+
+    if-eqz v5, :cond_5
+
+    new-instance v6, Landroid/graphics/drawable/BitmapDrawable;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual/range {v18 .. v18}, Landroid/app/ContextImpl;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v18
+
+    array-length v0, v5
+
+    move/from16 v19, v0
+
+    const/16 v20, 0x0
+
+    move/from16 v0, v20
+
+    move/from16 v1, v19
+
+    invoke-static {v5, v0, v1}, Landroid/graphics/BitmapFactory;->decodeByteArray([BII)Landroid/graphics/Bitmap;
+
+    move-result-object v19
+
+    move-object/from16 v0, v18
+
     move-object/from16 v1, v19
 
-    move-object/from16 v2, v22
+    invoke-direct {v6, v0, v1}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
-    invoke-direct {v0, v1, v2}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
-
-    new-instance v22, Landroid/graphics/Rect;
-
-    float-to-int v0, v7
-
-    move/from16 v23, v0
-
-    sub-int v23, v23, v13
-
-    float-to-int v0, v6
-
-    move/from16 v24, v0
-
-    sub-int v24, v24, v12
-
-    float-to-int v0, v7
-
-    move/from16 v25, v0
-
-    float-to-int v0, v6
-
-    move/from16 v26, v0
-
-    invoke-direct/range {v22 .. v26}, Landroid/graphics/Rect;-><init>(IIII)V
-
-    const/16 v23, 0x1
+    :cond_5
+    new-instance v7, Landroid/graphics/drawable/BitmapDrawable;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v16
+    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
 
-    move-object/from16 v2, v22
+    move-object/from16 v18, v0
 
-    move/from16 v3, v23
+    const/high16 v19, 0x40000000    # 2.0f
 
-    invoke-direct {v0, v1, v9, v2, v3}, Landroid/app/ApplicationPackageManager;->getBadgedDrawable(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/Rect;Z)Landroid/graphics/drawable/Drawable;
+    div-float v19, v14, v19
 
-    move-result-object v22
-
-    return-object v22
-
-    :cond_a
-    new-instance v22, Landroid/graphics/Rect;
-
-    move/from16 v0, v17
+    move/from16 v0, v19
 
     float-to-int v0, v0
 
-    move/from16 v23, v0
+    move/from16 v19, v0
 
-    sub-int v23, v23, v13
+    const/high16 v20, 0x40000000    # 2.0f
 
-    float-to-int v0, v15
+    div-float v20, v13, v20
 
-    move/from16 v24, v0
-
-    sub-int v24, v24, v12
-
-    move/from16 v0, v17
+    move/from16 v0, v20
 
     float-to-int v0, v0
 
-    move/from16 v25, v0
+    move/from16 v20, v0
 
-    float-to-int v0, v15
+    move-object/from16 v0, p0
 
-    move/from16 v26, v0
+    move-object/from16 v1, v18
 
-    invoke-direct/range {v22 .. v26}, Landroid/graphics/Rect;-><init>(IIII)V
+    move/from16 v2, v19
 
-    const/16 v23, 0x1
+    move/from16 v3, v20
+
+    invoke-direct {v0, v6, v1, v2, v3}, Landroid/app/ApplicationPackageManager;->createIconBitmap(Landroid/graphics/drawable/Drawable;Landroid/app/ContextImpl;II)Landroid/graphics/Bitmap;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    invoke-direct {v7, v15, v0}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
+
+    invoke-virtual {v7}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+
+    move-result v10
+
+    invoke-virtual {v7}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+
+    move-result v9
+
+    int-to-float v0, v10
+
+    move/from16 v18, v0
+
+    cmpl-float v18, v14, v18
+
+    if-lez v18, :cond_8
+
+    int-to-float v0, v9
+
+    move/from16 v18, v0
+
+    cmpl-float v18, v13, v18
+
+    if-lez v18, :cond_8
+
+    new-instance v18, Landroid/graphics/Rect;
+
+    float-to-int v0, v14
+
+    move/from16 v19, v0
+
+    sub-int v19, v19, v10
+
+    float-to-int v0, v13
+
+    move/from16 v20, v0
+
+    sub-int v20, v20, v9
+
+    float-to-int v0, v14
+
+    move/from16 v21, v0
+
+    float-to-int v0, v13
+
+    move/from16 v22, v0
+
+    invoke-direct/range {v18 .. v22}, Landroid/graphics/Rect;-><init>(IIII)V
+
+    const/16 v19, 0x1
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move-object/from16 v2, v22
+    move-object/from16 v2, v18
 
-    move/from16 v3, v23
+    move/from16 v3, v19
 
-    invoke-direct {v0, v1, v9, v2, v3}, Landroid/app/ApplicationPackageManager;->getBadgedDrawable(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/Rect;Z)Landroid/graphics/drawable/Drawable;
+    invoke-direct {v0, v1, v7, v2, v3}, Landroid/app/ApplicationPackageManager;->getBadgedDrawable(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/Rect;Z)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v22
+    move-result-object v18
 
-    return-object v22
+    return-object v18
 
-    :cond_b
-    const/16 v22, 0x0
+    :cond_6
+    invoke-virtual/range {p2 .. p2}, Landroid/os/UserHandle;->getIdentifier()I
 
-    const/16 v23, 0x1
+    move-result v18
+
+    invoke-static/range {v18 .. v18}, Lcom/samsung/android/app/SemDualAppManager;->isDualAppId(I)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_7
+
+    const-string/jumbo v18, "system"
+
+    const/16 v19, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v18
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v8, v2}, Landroid/app/ApplicationPackageManager;->getDrawable(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v6
+
+    :goto_1
+    const/16 v18, 0x0
+
+    const/16 v19, 0x1
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move-object/from16 v2, v22
+    move-object/from16 v2, v18
 
-    move/from16 v3, v23
+    move/from16 v3, v19
 
-    invoke-direct {v0, v1, v9, v2, v3}, Landroid/app/ApplicationPackageManager;->getBadgedDrawable(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/Rect;Z)Landroid/graphics/drawable/Drawable;
+    invoke-direct {v0, v1, v6, v2, v3}, Landroid/app/ApplicationPackageManager;->getBadgedDrawable(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/Rect;Z)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v22
+    move-result-object v18
 
-    return-object v22
+    return-object v18
+
+    :cond_7
+    new-instance v18, Landroid/util/LauncherIcons;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    move-object/from16 v19, v0
+
+    invoke-direct/range {v18 .. v19}, Landroid/util/LauncherIcons;-><init>(Landroid/content/Context;)V
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    invoke-direct {v0, v1}, Landroid/app/ApplicationPackageManager;->getUserBadgeColor(Landroid/os/UserHandle;)I
+
+    move-result v19
+
+    const v20, 0x10803c5
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v20
+
+    move/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/LauncherIcons;->getBadgeDrawable(II)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v6
+
+    goto :goto_1
+
+    :cond_8
+    return-object p1
 .end method
 
 .method public getUserBadgedLabel(Ljava/lang/CharSequence;Landroid/os/UserHandle;)Ljava/lang/CharSequence;
-    .locals 3
+    .locals 5
 
     invoke-virtual {p2}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result v0
+    move-result v2
 
-    invoke-direct {p0, v0}, Landroid/app/ApplicationPackageManager;->isManagedProfile(I)Z
+    invoke-direct {p0, v2}, Landroid/app/ApplicationPackageManager;->isManagedProfile(I)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_2
+    if-eqz v2, :cond_3
+
+    invoke-virtual {p0}, Landroid/app/ApplicationPackageManager;->getUserManager()Landroid/os/UserManager;
+
+    move-result-object v2
 
     invoke-virtual {p2}, Landroid/os/UserHandle;->getIdentifier()I
 
+    move-result v3
+
+    invoke-virtual {v2, v3}, Landroid/os/UserManager;->getManagedProfileBadge(I)I
+
     move-result v0
 
-    invoke-static {v0}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+    sget-object v2, Landroid/app/ApplicationPackageManager;->CORP_BADGE_LABEL_RES_ID:[I
 
-    move-result v0
+    sget-object v3, Landroid/app/ApplicationPackageManager;->CORP_BADGE_LABEL_RES_ID:[I
 
-    if-eqz v0, :cond_0
+    array-length v3, v3
 
-    return-object p1
+    rem-int v3, v0, v3
+
+    aget v1, v2, v3
+
+    invoke-virtual {p2}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v2
+
+    invoke-static {v2}, Lcom/samsung/android/knox/SemPersonaManager;->isSecureFolderId(I)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-virtual {p2}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v2
+
+    invoke-static {v2}, Lcom/samsung/android/knox/SemPersonaManager;->isBBCContainer(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
 
     :cond_0
-    invoke-virtual {p2}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v0
-
-    invoke-static {v0}, Lcom/samsung/android/app/SemDualAppManager;->isDualAppId(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
     return-object p1
 
     :cond_1
-    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+    invoke-virtual {p2}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result-object v0
+    move-result v2
 
-    const/4 v1, 0x1
+    invoke-static {v2}, Lcom/samsung/android/app/SemDualAppManager;->isDualAppId(I)Z
 
-    new-array v1, v1, [Ljava/lang/Object;
+    move-result v2
 
-    const/4 v2, 0x0
+    if-eqz v2, :cond_2
 
-    aput-object p1, v1, v2
-
-    const v2, 0x10405c6
-
-    invoke-virtual {v0, v2, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 
     :cond_2
+    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const/4 v3, 0x1
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    aput-object p1, v3, v4
+
+    invoke-virtual {v2, v1, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    return-object v2
+
+    :cond_3
     return-object p1
 .end method
 
@@ -12721,13 +13700,30 @@
         }
     .end annotation
 
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, v0}, Landroid/app/ApplicationPackageManager;->installExistingPackage(Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public installExistingPackage(Ljava/lang/String;I)I
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/content/pm/PackageManager$NameNotFoundException;
+        }
+    .end annotation
+
     iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
 
     invoke-virtual {v0}, Landroid/app/ContextImpl;->getUserId()I
 
     move-result v0
 
-    invoke-virtual {p0, p1, v0}, Landroid/app/ApplicationPackageManager;->installExistingPackageAsUser(Ljava/lang/String;I)I
+    invoke-direct {p0, p1, p2, v0}, Landroid/app/ApplicationPackageManager;->installExistingPackageAsUser(Ljava/lang/String;II)I
 
     move-result v0
 
@@ -12735,67 +13731,20 @@
 .end method
 
 .method public installExistingPackageAsUser(Ljava/lang/String;I)I
-    .locals 5
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
         }
     .end annotation
 
-    :try_start_0
-    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+    const/4 v0, 0x0
 
-    invoke-interface {v2, p1, p2}, Landroid/content/pm/IPackageManager;->installExistingPackageAsUser(Ljava/lang/String;I)I
+    invoke-direct {p0, p1, v0, p2}, Landroid/app/ApplicationPackageManager;->installExistingPackageAsUser(Ljava/lang/String;II)I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, -0x3
-
-    if-ne v1, v2, :cond_0
-
-    new-instance v2, Landroid/content/pm/PackageManager$NameNotFoundException;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "Package "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, " doesn\'t exist"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3}, Landroid/content/pm/PackageManager$NameNotFoundException;-><init>(Ljava/lang/String;)V
-
-    throw v2
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
-
-    move-result-object v2
-
-    throw v2
-
-    :cond_0
-    return v1
+    return v0
 .end method
 
 .method public installPackage(Landroid/net/Uri;Landroid/app/PackageInstallObserver;ILjava/lang/String;)V
@@ -12848,25 +13797,107 @@
     return-void
 .end method
 
-.method public isEphemeralApplication()Z
-    .locals 4
+.method public installPackageForMDM(Ljava/lang/String;Landroid/content/pm/IPackageInstallObserver2;IILjava/lang/String;Landroid/content/pm/VerificationParams;Ljava/lang/String;)V
+    .locals 9
+
+    :try_start_0
+    iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move v3, p3
+
+    move v4, p4
+
+    move-object v5, p5
+
+    move-object v6, p6
+
+    move-object/from16 v7, p7
+
+    invoke-interface/range {v0 .. v7}, Landroid/content/pm/IPackageManager;->installPackageForMDM(Ljava/lang/String;Landroid/content/pm/IPackageInstallObserver2;IILjava/lang/String;Landroid/content/pm/VerificationParams;Ljava/lang/String;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v8
+
+    goto :goto_0
+.end method
+
+.method protected isAllow3rdPartyOnInternal(Landroid/content/Context;)Z
+    .locals 2
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x112000b
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method protected isForceAllowOnExternal(Landroid/content/Context;)Z
+    .locals 3
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "force_allow_on_external"
+
+    invoke-static {v1, v2, v0}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
+.method public isInstantApp()Z
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v0}, Landroid/app/ContextImpl;->getPackageName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroid/app/ApplicationPackageManager;->isInstantApp(Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public isInstantApp(Ljava/lang/String;)Z
+    .locals 3
 
     :try_start_0
     iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
 
     iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
 
-    invoke-virtual {v2}, Landroid/app/ContextImpl;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/app/ContextImpl;->getUserId()I
 
-    move-result-object v2
+    move-result v2
 
-    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    invoke-virtual {v3}, Landroid/app/ContextImpl;->getUserId()I
-
-    move-result v3
-
-    invoke-interface {v1, v2, v3}, Landroid/content/pm/IPackageManager;->isEphemeralApplication(Ljava/lang/String;I)Z
+    invoke-interface {v1, p1, v2}, Landroid/content/pm/IPackageManager;->isInstantApp(Ljava/lang/String;I)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -12938,6 +13969,24 @@
     throw v1
 .end method
 
+.method public isPermissionReviewModeEnabled()Z
+    .locals 2
+
+    iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v0}, Landroid/app/ContextImpl;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x1120084
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public isPermissionRevokedByPolicy(Ljava/lang/String;Ljava/lang/String;)Z
     .locals 3
 
@@ -12964,6 +14013,38 @@
     invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
     move-result-object v1
+
+    throw v1
+.end method
+
+.method public isPermissionRevokedByUserFixed(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v2}, Landroid/app/ContextImpl;->getUserId()I
+
+    move-result v2
+
+    invoke-interface {v1, p1, p2, v2}, Landroid/content/pm/IPackageManager;->isPermissionRevokedByUserFixed(Ljava/lang/String;Ljava/lang/String;I)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v2, "Package manager has died"
+
+    invoke-direct {v1, v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v1
 .end method
@@ -13122,7 +14203,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "com.sec.knox.switcher.B2CShareViaActivity"
+    const-string/jumbo v1, "com.samsung.android.knox.containeragent.switcher.fileshare.B2CShareViaActivity"
 
     iget-object v2, p1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
@@ -13140,14 +14221,30 @@
 
     move-result v1
 
+    if-nez v1, :cond_0
+
+    const-string/jumbo v1, "com.samsung.android.knox.containeragent.switcher.PhoneIcon"
+
+    iget-object v2, p1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string/jumbo v1, "com.samsung.android.knox.containeragent.switcher.SMSIcon"
+
+    iget-object v2, p1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
     if-eqz v1, :cond_1
 
     :cond_0
-    invoke-direct {p0, v0}, Landroid/app/ApplicationPackageManager;->getNoBadgeResizedIcon(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v1
-
-    return-object v1
+    return-object v0
 
     :cond_1
     iget v1, p1, Landroid/content/pm/PackageItemInfo;->showUserIcon:I
@@ -13214,494 +14311,921 @@
 .end method
 
 .method public loadUnbadgedItemIcon(Landroid/content/pm/PackageItemInfo;Landroid/content/pm/ApplicationInfo;ZI)Landroid/graphics/drawable/Drawable;
-    .locals 14
+    .locals 21
 
     if-eqz p2, :cond_0
 
-    const/4 v11, 0x1
+    const/16 v17, 0x1
 
     move/from16 v0, p4
 
-    if-ne v0, v11, :cond_0
+    move/from16 v1, v17
 
-    iget-object v11, p0, Landroid/app/ApplicationPackageManager;->mIconHelper:Landroid/content/pm/PackageIconHelper;
+    if-ne v0, v1, :cond_0
 
-    move-object/from16 v0, p2
+    move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mIconHelper:Landroid/content/pm/PackageIconHelper;
 
-    iget-object v13, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+    move-object/from16 v17, v0
 
-    invoke-virtual {v11, v12, v13}, Landroid/content/pm/PackageIconHelper;->shouldReplaceIcon(Ljava/lang/String;Landroid/content/Context;)Z
+    move-object/from16 v0, p0
 
-    move-result v11
+    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
 
-    if-eqz v11, :cond_0
+    move-object/from16 v18, v0
 
-    iget-object v11, p0, Landroid/app/ApplicationPackageManager;->mIconHelper:Landroid/content/pm/PackageIconHelper;
+    move-object/from16 v0, v17
 
-    move-object/from16 v0, p2
+    move-object/from16 v1, p2
 
-    iget-object v12, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    move-object/from16 v2, v18
 
-    invoke-virtual {v11, v12}, Landroid/content/pm/PackageIconHelper;->getReplacementIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0, v1, v2}, Landroid/content/pm/PackageIconHelper;->shouldReplaceIcon(Landroid/content/pm/ApplicationInfo;Landroid/content/Context;)Z
 
-    move-result-object v8
+    move-result v17
 
-    if-eqz v8, :cond_0
+    if-eqz v17, :cond_0
 
-    const-string/jumbo v11, "ApplicationPackageManager"
+    move-object/from16 v0, p0
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mIconHelper:Landroid/content/pm/PackageIconHelper;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v13, "Load replacement icon for "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
+    move-object/from16 v17, v0
 
     move-object/from16 v0, p2
 
-    iget-object v13, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v18, v0
 
-    move-result-object v12
+    invoke-virtual/range {v17 .. v18}, Landroid/content/pm/PackageIconHelper;->getReplacementIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v14
 
-    move-result-object v12
+    if-eqz v14, :cond_0
 
-    invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v17, "ApplicationPackageManager"
 
-    return-object v8
+    new-instance v18, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v19, "Load replacement icon for "
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    move-object/from16 v0, p2
+
+    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v18
+
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v14
 
     :cond_0
-    const/4 v10, 0x0
+    const/16 v16, 0x0
 
     if-eqz p2, :cond_1
 
     move-object/from16 v0, p2
 
-    iget v11, v0, Landroid/content/pm/ApplicationInfo;->uid:I
+    iget v0, v0, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    invoke-static {v11}, Landroid/os/UserHandle;->getUserId(I)I
+    move/from16 v17, v0
 
-    move-result v10
+    invoke-static/range {v17 .. v17}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v16
 
     :cond_1
-    invoke-direct {p0}, Landroid/app/ApplicationPackageManager;->checkAppIconThemePackage()V
+    move-object/from16 v0, p1
 
-    const/4 v2, 0x0
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    const/16 v11, 0x64
+    move-object/from16 v17, v0
 
-    if-ge v10, v11, :cond_5
+    move-object/from16 v0, p1
 
-    iget-object v11, p0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
-    if-eqz v11, :cond_5
+    move-object/from16 v18, v0
 
-    const/4 v11, 0x0
+    invoke-static/range {v17 .. v18}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxIcon(Ljava/lang/String;Ljava/lang/String;)Z
 
-    invoke-virtual {p0, p1, v11}, Landroid/app/ApplicationPackageManager;->getThemeAppIcon(Landroid/content/pm/PackageItemInfo;Z)Landroid/graphics/drawable/Drawable;
+    move-result v17
 
-    move-result-object v2
+    if-eqz v17, :cond_2
 
-    if-eqz v2, :cond_3
+    move-object/from16 v0, p1
 
-    iget v11, p0, Landroid/app/ApplicationPackageManager;->openThemeAppIconRange:I
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    if-nez v11, :cond_3
+    move-object/from16 v17, v0
 
-    const/4 v11, 0x0
+    move-object/from16 v0, p1
 
-    invoke-static {v11}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
-    move-result-object v11
+    move-object/from16 v18, v0
 
-    const/4 v12, 0x1
+    move-object/from16 v0, v17
 
-    invoke-static {v12}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    move-object/from16 v1, v18
+
+    move/from16 v2, v16
+
+    invoke-static {v0, v1, v2}, Lcom/samsung/android/knox/SemPersonaManager;->getKnoxIcon(Ljava/lang/String;Ljava/lang/String;I)[B
 
     move-result-object v12
 
-    invoke-direct {p0, p1, v2, v11, v12}, Landroid/app/ApplicationPackageManager;->getThemeIconWithBG(Landroid/content/pm/PackageItemInfo;Landroid/graphics/drawable/Drawable;Ljava/lang/Boolean;Ljava/lang/Boolean;)Landroid/graphics/drawable/Drawable;
+    if-eqz v12, :cond_2
 
-    move-result-object v2
+    new-instance v17, Landroid/graphics/drawable/BitmapDrawable;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual/range {v18 .. v18}, Landroid/app/ContextImpl;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v18
+
+    array-length v0, v12
+
+    move/from16 v19, v0
+
+    const/16 v20, 0x0
+
+    move/from16 v0, v20
+
+    move/from16 v1, v19
+
+    invoke-static {v12, v0, v1}, Landroid/graphics/BitmapFactory;->decodeByteArray([BII)Landroid/graphics/Bitmap;
+
+    move-result-object v19
+
+    invoke-direct/range {v17 .. v19}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
+
+    return-object v17
 
     :cond_2
-    :goto_0
-    if-eqz v2, :cond_5
+    invoke-direct/range {p0 .. p0}, Landroid/app/ApplicationPackageManager;->checkAppIconThemePackage()V
 
-    return-object v2
+    const/4 v5, 0x0
+
+    const/16 v17, 0x0
+
+    invoke-static/range {v17 .. v17}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v11
+
+    invoke-static/range {v16 .. v16}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v17
+
+    if-nez v17, :cond_6
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
+
+    move-object/from16 v17, v0
+
+    if-eqz v17, :cond_6
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v17
+
+    move/from16 v2, v16
+
+    invoke-direct {v0, v1, v2}, Landroid/app/ApplicationPackageManager;->replacedIconFromAppPolicy(Ljava/lang/String;I)Z
+
+    move-result v17
+
+    invoke-static/range {v17 .. v17}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v11
+
+    xor-int/lit8 v17, v17, 0x1
+
+    if-eqz v17, :cond_6
+
+    const/16 v17, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    move/from16 v2, v17
+
+    invoke-direct {v0, v1, v2}, Landroid/app/ApplicationPackageManager;->getThemeAppIcon(Landroid/content/pm/PackageItemInfo;Z)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_4
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconRange:I
+
+    move/from16 v17, v0
+
+    if-nez v17, :cond_4
+
+    const/16 v17, 0x0
+
+    invoke-static/range {v17 .. v17}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v17
+
+    const/16 v18, 0x1
+
+    invoke-static/range {v18 .. v18}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v18
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    move-object/from16 v2, v17
+
+    move-object/from16 v3, v18
+
+    invoke-direct {v0, v1, v5, v2, v3}, Landroid/app/ApplicationPackageManager;->getThemeIconWithBG(Landroid/content/pm/PackageItemInfo;Landroid/graphics/drawable/Drawable;Ljava/lang/Boolean;Ljava/lang/Boolean;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v5
 
     :cond_3
-    if-eqz v2, :cond_2
+    :goto_0
+    if-eqz v5, :cond_6
 
-    iget-object v11, p1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
-
-    if-eqz v11, :cond_4
-
-    new-instance v11, Landroid/app/ApplicationPackageManager$ResourceName;
-
-    iget-object v12, p1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
-
-    invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->hashCode()I
-
-    move-result v13
-
-    invoke-direct {v11, v12, v13}, Landroid/app/ApplicationPackageManager$ResourceName;-><init>(Ljava/lang/String;I)V
-
-    invoke-direct {p0, v11, v2}, Landroid/app/ApplicationPackageManager;->putCachedIcon(Landroid/app/ApplicationPackageManager$ResourceName;Landroid/graphics/drawable/Drawable;)V
-
-    goto :goto_0
+    return-object v5
 
     :cond_4
-    new-instance v11, Landroid/app/ApplicationPackageManager$ResourceName;
+    if-eqz v5, :cond_3
 
-    iget-object v12, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    move-object/from16 v0, p1
 
-    invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->hashCode()I
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
-    move-result v13
+    move-object/from16 v17, v0
 
-    invoke-direct {v11, v12, v13}, Landroid/app/ApplicationPackageManager$ResourceName;-><init>(Ljava/lang/String;I)V
+    if-eqz v17, :cond_5
 
-    invoke-direct {p0, v11, v2}, Landroid/app/ApplicationPackageManager;->putCachedIcon(Landroid/app/ApplicationPackageManager$ResourceName;Landroid/graphics/drawable/Drawable;)V
+    new-instance v17, Landroid/app/ApplicationPackageManager$ResourceName;
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual {v5}, Landroid/graphics/drawable/Drawable;->hashCode()I
+
+    move-result v19
+
+    invoke-direct/range {v17 .. v19}, Landroid/app/ApplicationPackageManager$ResourceName;-><init>(Ljava/lang/String;I)V
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v17
+
+    invoke-direct {v0, v1, v5}, Landroid/app/ApplicationPackageManager;->putCachedIcon(Landroid/app/ApplicationPackageManager$ResourceName;Landroid/graphics/drawable/Drawable;)V
 
     goto :goto_0
 
     :cond_5
-    iget v11, p1, Landroid/content/pm/PackageItemInfo;->showUserIcon:I
+    new-instance v17, Landroid/app/ApplicationPackageManager$ResourceName;
 
-    const/16 v12, -0x2710
+    move-object/from16 v0, p1
 
-    if-eq v11, v12, :cond_7
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    invoke-virtual {p0}, Landroid/app/ApplicationPackageManager;->getUserManager()Landroid/os/UserManager;
+    move-object/from16 v18, v0
 
-    move-result-object v11
+    invoke-virtual {v5}, Landroid/graphics/drawable/Drawable;->hashCode()I
 
-    iget v12, p1, Landroid/content/pm/PackageItemInfo;->showUserIcon:I
+    move-result v19
 
-    invoke-virtual {v11, v12}, Landroid/os/UserManager;->getUserIcon(I)Landroid/graphics/Bitmap;
+    invoke-direct/range {v17 .. v19}, Landroid/app/ApplicationPackageManager$ResourceName;-><init>(Ljava/lang/String;I)V
 
-    move-result-object v1
+    move-object/from16 v0, p0
 
-    if-nez v1, :cond_6
+    move-object/from16 v1, v17
 
-    iget v11, p1, Landroid/content/pm/PackageItemInfo;->showUserIcon:I
+    invoke-direct {v0, v1, v5}, Landroid/app/ApplicationPackageManager;->putCachedIcon(Landroid/app/ApplicationPackageManager$ResourceName;Landroid/graphics/drawable/Drawable;)V
 
-    const/4 v12, 0x0
-
-    invoke-static {v11, v12}, Lcom/android/internal/util/UserIcons;->getDefaultUserIcon(IZ)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v11
-
-    return-object v11
+    goto :goto_0
 
     :cond_6
-    new-instance v11, Landroid/graphics/drawable/BitmapDrawable;
+    move-object/from16 v0, p1
 
-    invoke-direct {v11, v1}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/graphics/Bitmap;)V
+    iget v0, v0, Landroid/content/pm/PackageItemInfo;->showUserIcon:I
 
-    return-object v11
+    move/from16 v17, v0
+
+    const/16 v18, -0x2710
+
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    if-eq v0, v1, :cond_8
+
+    invoke-virtual/range {p0 .. p0}, Landroid/app/ApplicationPackageManager;->getUserManager()Landroid/os/UserManager;
+
+    move-result-object v17
+
+    move-object/from16 v0, p1
+
+    iget v0, v0, Landroid/content/pm/PackageItemInfo;->showUserIcon:I
+
+    move/from16 v18, v0
+
+    invoke-virtual/range {v17 .. v18}, Landroid/os/UserManager;->getUserIcon(I)Landroid/graphics/Bitmap;
+
+    move-result-object v4
+
+    if-nez v4, :cond_7
+
+    move-object/from16 v0, p1
+
+    iget v0, v0, Landroid/content/pm/PackageItemInfo;->showUserIcon:I
+
+    move/from16 v17, v0
+
+    const/16 v18, 0x0
+
+    invoke-static/range {v17 .. v18}, Lcom/android/internal/util/UserIcons;->getDefaultUserIcon(IZ)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v17
+
+    return-object v17
 
     :cond_7
-    iget-object v11, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    new-instance v17, Landroid/graphics/drawable/BitmapDrawable;
 
-    if-eqz v11, :cond_8
+    move-object/from16 v0, v17
 
-    iget-object v11, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    invoke-direct {v0, v4}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/graphics/Bitmap;)V
 
-    iget v12, p1, Landroid/content/pm/PackageItemInfo;->icon:I
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {p0, v11, v12, v0}, Landroid/app/ApplicationPackageManager;->getDrawable(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v2
+    return-object v17
 
     :cond_8
-    if-nez v2, :cond_9
+    move-object/from16 v0, p1
 
-    invoke-virtual {p1, p0}, Landroid/content/pm/PackageItemInfo;->loadDefaultIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    move-result-object v2
+    move-object/from16 v17, v0
+
+    if-eqz v17, :cond_9
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, p1
+
+    iget v0, v0, Landroid/content/pm/PackageItemInfo;->icon:I
+
+    move/from16 v18, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v17
+
+    move/from16 v2, v18
+
+    move-object/from16 v3, p2
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/app/ApplicationPackageManager;->getDrawable(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v5
 
     :cond_9
-    if-eqz p3, :cond_b
+    const/4 v10, 0x0
 
-    iget-object v11, p0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
+    if-nez v5, :cond_a
 
-    if-nez v11, :cond_b
+    move-object/from16 v0, p1
 
-    if-eqz v2, :cond_b
+    move-object/from16 v1, p0
 
-    sget v11, Landroid/app/ApplicationPackageManager;->configSmartAppIconScaler:I
+    invoke-virtual {v0, v1}, Landroid/content/pm/PackageItemInfo;->loadDefaultIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
-    if-gtz v11, :cond_a
+    move-result-object v5
 
-    sget-object v11, Landroid/app/ApplicationPackageManager;->SCafeVersion:Ljava/lang/String;
+    if-eqz v5, :cond_a
 
-    if-eqz v11, :cond_b
+    move-object/from16 v0, p1
 
-    sget-object v11, Landroid/app/ApplicationPackageManager;->SCafeVersion:Ljava/lang/String;
+    instance-of v0, v0, Landroid/content/pm/ComponentInfo;
 
-    const-string/jumbo v12, "2016"
+    move/from16 v17, v0
 
-    invoke-virtual {v11, v12}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    if-eqz v17, :cond_a
 
-    move-result v11
-
-    if-eqz v11, :cond_b
+    const/4 v10, 0x1
 
     :cond_a
-    const/4 v4, 0x0
+    if-eqz p3, :cond_b
 
-    iget-object v11, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    iget-object v12, p1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
 
-    invoke-virtual {p0, v11, v12}, Landroid/app/ApplicationPackageManager;->checkComponentMetadataForIconTray(Ljava/lang/String;Ljava/lang/String;)Z
+    move-object/from16 v17, v0
 
-    move-result v4
+    if-nez v17, :cond_b
 
-    if-eqz v4, :cond_f
+    if-eqz v5, :cond_b
+
+    const/4 v7, 0x0
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v17
+
+    move-object/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/ApplicationPackageManager;->semCheckComponentMetadataForIconTray(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_f
 
     packed-switch p4, :pswitch_data_0
 
     :cond_b
     :goto_1
     :pswitch_0
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
-    if-eqz v2, :cond_c
+    if-eqz v5, :cond_c
 
     if-eqz p2, :cond_c
 
     invoke-virtual/range {p2 .. p2}, Landroid/content/pm/ApplicationInfo;->isSystemApp()Z
 
-    move-result v11
+    move-result v17
 
-    if-eqz v11, :cond_c
+    if-eqz v17, :cond_c
 
-    iget-object v11, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    move-object/from16 v0, p1
 
-    invoke-direct {p0, v11}, Landroid/app/ApplicationPackageManager;->isLiveIconPackage(Ljava/lang/String;)Z
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    move-result v11
+    move-object/from16 v17, v0
 
-    if-eqz v11, :cond_c
+    move-object/from16 v0, p0
 
-    iget-object v11, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    move-object/from16 v1, v17
 
-    invoke-direct {p0, v11}, Landroid/app/ApplicationPackageManager;->getLiveIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+    invoke-direct {v0, v1}, Landroid/app/ApplicationPackageManager;->isLiveIconPackage(Ljava/lang/String;)Z
 
-    move-result-object v3
+    move-result v17
+
+    if-eqz v17, :cond_c
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mIconHelper:Landroid/content/pm/PackageIconHelper;
+
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual/range {v17 .. v18}, Landroid/content/pm/PackageIconHelper;->isDesktopMode(Landroid/content/Context;)Z
+
+    move-result v17
+
+    xor-int/lit8 v17, v17, 0x1
+
+    if-eqz v17, :cond_c
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, p2
+
+    iget v0, v0, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    move/from16 v18, v0
+
+    invoke-static/range {v18 .. v18}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v18
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v17
+
+    move/from16 v2, v18
+
+    invoke-direct {v0, v1, v2}, Landroid/app/ApplicationPackageManager;->getLiveIcon(Ljava/lang/String;I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v6
 
     :cond_c
-    const/16 v11, 0x64
+    invoke-static/range {v16 .. v16}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
-    if-ge v10, v11, :cond_e
+    move-result v17
 
-    if-eqz v3, :cond_e
+    if-nez v17, :cond_e
 
-    const/4 v6, 0x0
+    if-eqz v6, :cond_e
+
+    invoke-virtual {v11}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v17
+
+    xor-int/lit8 v17, v17, 0x1
+
+    if-eqz v17, :cond_e
+
+    const/4 v9, 0x0
 
     :try_start_0
-    iget-object v11, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v11}, Landroid/app/ContextImpl;->getPackageManager()Landroid/content/pm/PackageManager;
+    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
 
-    move-result-object v11
+    move-object/from16 v17, v0
 
-    iget-object v12, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    invoke-virtual/range {v17 .. v17}, Landroid/app/ContextImpl;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    invoke-virtual {v11, v12}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
+    move-result-object v17
 
-    move-result-object v7
+    move-object/from16 v0, p1
 
-    const-string/jumbo v11, "liveicon_from_theme"
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    const-string/jumbo v12, "bool"
+    move-object/from16 v18, v0
 
-    iget-object v13, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    invoke-virtual/range {v17 .. v18}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
 
-    invoke-virtual {v7, v11, v12, v13}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v13
 
-    move-result v9
+    const-string/jumbo v17, "liveicon_from_theme"
 
-    invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getBoolean(I)Z
+    const-string/jumbo v18, "bool"
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v18
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v13, v0, v1, v2}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v15
+
+    invoke-virtual {v13, v15}, Landroid/content/res/Resources;->getBoolean(I)Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v6
+    move-result v9
 
     :goto_2
-    const-string/jumbo v11, "ApplicationPackageManager"
+    const-string/jumbo v17, "ApplicationPackageManager"
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v13, "load= live icon for "
+    const-string/jumbo v19, "load= live icon for "
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v18
 
-    iget-object v13, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    move-object/from16 v0, p1
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    move-result-object v12
+    move-object/from16 v19, v0
 
-    const-string/jumbo v13, ", from overlay = "
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v18
 
-    move-result-object v12
+    const-string/jumbo v19, ", from overlay = "
 
-    invoke-virtual {v12, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v18
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-object/from16 v0, v18
 
-    move-result-object v12
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-static {v11, v12}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v18
 
-    iget v11, p0, Landroid/app/ApplicationPackageManager;->openThemeAppIconRange:I
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    if-eqz v11, :cond_d
+    move-result-object v18
 
-    if-nez v6, :cond_e
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget v11, p0, Landroid/app/ApplicationPackageManager;->openThemeAppIconRange:I
+    move-object/from16 v0, p0
 
-    const/4 v12, 0x1
+    iget v0, v0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconRange:I
 
-    if-gt v11, v12, :cond_e
+    move/from16 v17, v0
+
+    if-eqz v17, :cond_d
+
+    if-nez v9, :cond_e
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/app/ApplicationPackageManager;->mOpenThemeAppIconRange:I
+
+    move/from16 v17, v0
+
+    const/16 v18, 0x1
+
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    if-gt v0, v1, :cond_e
 
     :cond_d
-    invoke-direct {p0, p1, v3}, Landroid/app/ApplicationPackageManager;->getThemeIconWithBG(Landroid/content/pm/PackageItemInfo;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+    move-object/from16 v0, p0
 
-    move-result-object v3
+    move-object/from16 v1, p1
+
+    invoke-direct {v0, v1, v6}, Landroid/app/ApplicationPackageManager;->getThemeIconWithBG(Landroid/content/pm/PackageItemInfo;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v6
 
     :cond_e
-    if-eqz v3, :cond_10
+    if-eqz v6, :cond_11
 
-    return-object v3
+    return-object v6
 
     :pswitch_1
-    const/4 v11, 0x1
+    invoke-direct/range {p0 .. p2}, Landroid/app/ApplicationPackageManager;->updateItemMetaDataForFixedIconScale(Landroid/content/pm/PackageItemInfo;Landroid/content/pm/ApplicationInfo;)V
 
-    invoke-static {v11}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    const/16 v17, 0x1
 
-    move-result-object v11
+    invoke-static/range {v17 .. v17}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    invoke-direct {p0, p1, v2, v11}, Landroid/app/ApplicationPackageManager;->getThemeIconWithBG(Landroid/content/pm/PackageItemInfo;Landroid/graphics/drawable/Drawable;Ljava/lang/Boolean;)Landroid/graphics/drawable/Drawable;
+    move-result-object v17
 
-    move-result-object v11
+    move-object/from16 v0, p0
 
-    return-object v11
+    move-object/from16 v1, p1
+
+    move-object/from16 v2, v17
+
+    invoke-direct {v0, v1, v5, v2}, Landroid/app/ApplicationPackageManager;->getThemeIconWithBG(Landroid/content/pm/PackageItemInfo;Landroid/graphics/drawable/Drawable;Ljava/lang/Boolean;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v17
+
+    return-object v17
 
     :cond_f
-    iget-object v11, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    move-object/from16 v0, p1
 
-    invoke-virtual {p0, v11}, Landroid/app/ApplicationPackageManager;->shouldPackIntoIconTray(Ljava/lang/String;)Z
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    move-result v4
+    move-object/from16 v17, v0
 
-    if-eqz v4, :cond_b
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/app/ApplicationPackageManager;->semShouldPackIntoIconTray(Ljava/lang/String;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_b
 
     packed-switch p4, :pswitch_data_1
 
     goto/16 :goto_1
 
     :pswitch_2
-    const/4 v11, 0x1
+    invoke-direct/range {p0 .. p2}, Landroid/app/ApplicationPackageManager;->updateItemMetaDataForFixedIconScale(Landroid/content/pm/PackageItemInfo;Landroid/content/pm/ApplicationInfo;)V
 
-    invoke-static {v11}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    if-nez v16, :cond_10
 
-    move-result-object v11
+    if-eqz p2, :cond_10
 
-    invoke-direct {p0, p1, v2, v11}, Landroid/app/ApplicationPackageManager;->getThemeIconWithBG(Landroid/content/pm/PackageItemInfo;Landroid/graphics/drawable/Drawable;Ljava/lang/Boolean;)Landroid/graphics/drawable/Drawable;
+    move-object/from16 v0, p2
 
-    move-result-object v11
+    iget v0, v0, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    return-object v11
+    move/from16 v17, v0
 
-    :catch_0
-    move-exception v5
+    and-int/lit8 v17, v17, 0x1
 
-    invoke-virtual {v5}, Ljava/lang/Exception;->printStackTrace()V
+    if-nez v17, :cond_10
 
-    goto :goto_2
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Landroid/app/ApplicationPackageManager;->mPkgNameForBadgeIcon:Ljava/lang/String;
 
     :cond_10
-    iget-object v11, p1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    const/16 v17, 0x1
 
-    if-eqz v11, :cond_13
+    invoke-static/range {v17 .. v17}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    iget-object v11, p1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    move-result-object v17
 
-    const-string/jumbo v12, "android.permission-group"
+    move-object/from16 v0, p0
 
-    invoke-virtual {v11, v12}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    move-object/from16 v1, p1
 
-    move-result v11
+    move-object/from16 v2, v17
 
-    if-eqz v11, :cond_13
+    invoke-direct {v0, v1, v5, v2}, Landroid/app/ApplicationPackageManager;->getThemeIconWithBG(Landroid/content/pm/PackageItemInfo;Landroid/graphics/drawable/Drawable;Ljava/lang/Boolean;)Landroid/graphics/drawable/Drawable;
 
-    iget-object v11, p0, Landroid/app/ApplicationPackageManager;->mResources:Landroid/content/res/Resources;
+    move-result-object v5
 
-    if-nez v11, :cond_11
+    const/16 v17, 0x0
 
-    iget-object v11, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+    move-object/from16 v0, v17
 
-    invoke-virtual {v11}, Landroid/app/ContextImpl;->getResources()Landroid/content/res/Resources;
+    move-object/from16 v1, p0
 
-    move-result-object v11
+    iput-object v0, v1, Landroid/app/ApplicationPackageManager;->mPkgNameForBadgeIcon:Ljava/lang/String;
 
-    iput-object v11, p0, Landroid/app/ApplicationPackageManager;->mResources:Landroid/content/res/Resources;
+    return-object v5
+
+    :catch_0
+    move-exception v8
+
+    invoke-virtual {v8}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto/16 :goto_2
 
     :cond_11
-    if-eqz v2, :cond_12
+    move-object/from16 v0, p1
 
-    iget-object v11, p0, Landroid/app/ApplicationPackageManager;->mResources:Landroid/content/res/Resources;
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
-    const v12, 0x10600e0
+    move-object/from16 v17, v0
 
-    invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getColor(I)I
+    if-eqz v17, :cond_14
 
-    move-result v11
+    move-object/from16 v0, p1
 
-    invoke-virtual {v2, v11}, Landroid/graphics/drawable/Drawable;->setTint(I)V
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+
+    move-object/from16 v17, v0
+
+    const-string/jumbo v18, "android.permission-group"
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v17
+
+    if-eqz v17, :cond_14
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mResources:Landroid/content/res/Resources;
+
+    move-object/from16 v17, v0
+
+    if-nez v17, :cond_12
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    move-object/from16 v17, v0
+
+    invoke-virtual/range {v17 .. v17}, Landroid/app/ContextImpl;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v17
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Landroid/app/ApplicationPackageManager;->mResources:Landroid/content/res/Resources;
 
     :cond_12
-    :goto_3
-    return-object v2
+    if-eqz v5, :cond_13
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mResources:Landroid/content/res/Resources;
+
+    move-object/from16 v17, v0
+
+    const v18, 0x106015e
+
+    invoke-virtual/range {v17 .. v18}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v17
+
+    move/from16 v0, v17
+
+    invoke-virtual {v5, v0}, Landroid/graphics/drawable/Drawable;->setTint(I)V
 
     :cond_13
-    const/16 v11, 0x64
+    :goto_3
+    return-object v5
 
-    if-ge v10, v11, :cond_12
+    :cond_14
+    invoke-static/range {v16 .. v16}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
-    if-eqz v2, :cond_12
+    move-result v17
 
-    iget-object v11, p0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
+    if-nez v17, :cond_13
 
-    if-eqz v11, :cond_12
+    if-eqz v5, :cond_13
 
-    invoke-direct {p0, p1, v2}, Landroid/app/ApplicationPackageManager;->getThemeIconWithBG(Landroid/content/pm/PackageItemInfo;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+    move-object/from16 v0, p0
 
-    move-result-object v2
+    iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
+
+    move-object/from16 v17, v0
+
+    if-eqz v17, :cond_13
+
+    xor-int/lit8 v17, v10, 0x1
+
+    if-eqz v17, :cond_13
+
+    invoke-virtual {v11}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v17
+
+    xor-int/lit8 v17, v17, 0x1
+
+    if-eqz v17, :cond_13
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    invoke-direct {v0, v1, v5}, Landroid/app/ApplicationPackageManager;->getThemeIconWithBG(Landroid/content/pm/PackageItemInfo;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v5
 
     goto :goto_3
 
@@ -13922,7 +15446,7 @@
 .end method
 
 .method public queryContentProviders(Ljava/lang/String;II)Ljava/util/List;
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -13935,10 +15459,35 @@
         }
     .end annotation
 
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, p2, p3, v0}, Landroid/app/ApplicationPackageManager;->queryContentProviders(Ljava/lang/String;IILjava/lang/String;)Ljava/util/List;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public queryContentProviders(Ljava/lang/String;IILjava/lang/String;)Ljava/util/List;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "II",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/ProviderInfo;",
+            ">;"
+        }
+    .end annotation
+
     :try_start_0
     iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
 
-    invoke-interface {v2, p1, p2, p3}, Landroid/content/pm/IPackageManager;->queryContentProviders(Ljava/lang/String;II)Landroid/content/pm/ParceledListSlice;
+    invoke-interface {v2, p1, p2, p3, p4}, Landroid/content/pm/IPackageManager;->queryContentProviders(Ljava/lang/String;IILjava/lang/String;)Landroid/content/pm/ParceledListSlice;
 
     move-result-object v1
 
@@ -14046,7 +15595,7 @@
 .end method
 
 .method public queryIntentActivitiesAsUser(Landroid/content/Intent;II)Ljava/util/List;
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -14060,64 +15609,47 @@
     .end annotation
 
     :try_start_0
-    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
-
-    iget-object v4, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    invoke-virtual {v4}, Landroid/app/ContextImpl;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v4
-
-    invoke-virtual {p1, v4}, Landroid/content/Intent;->resolveTypeIfNeeded(Landroid/content/ContentResolver;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-interface {v3, p1, v4, p2, p3}, Landroid/content/pm/IPackageManager;->queryIntentActivities(Landroid/content/Intent;Ljava/lang/String;II)Landroid/content/pm/ParceledListSlice;
-
-    move-result-object v2
-
-    if-nez v2, :cond_0
-
-    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
-
-    move-result-object v3
-
-    return-object v3
-
-    :cond_0
-    invoke-virtual {v2}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
-
-    move-result-object v1
-
-    sget-boolean v3, Landroid/os/Build;->IS_SYSTEM_SECURE:Z
-
-    if-eqz v3, :cond_1
-
-    if-eqz v1, :cond_1
+    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
 
     iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
 
-    invoke-virtual {v3}, Landroid/app/ContextImpl;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v3}, Landroid/app/ContextImpl;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
-    iget-object v4, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+    invoke-virtual {p1, v3}, Landroid/content/Intent;->resolveTypeIfNeeded(Landroid/content/ContentResolver;)Ljava/lang/String;
 
-    invoke-virtual {v3, v4, p0, v1}, Landroid/content/res/Resources;->addAppsNames(Landroid/content/Context;Landroid/content/pm/PackageManager;Ljava/util/List;)V
+    move-result-object v3
+
+    invoke-interface {v2, p1, v3, p2, p3}, Landroid/content/pm/IPackageManager;->queryIntentActivities(Landroid/content/Intent;Ljava/lang/String;II)Landroid/content/pm/ParceledListSlice;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object v2
+
+    return-object v2
+
+    :cond_0
+    invoke-virtual {v1}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_1
-    return-object v1
+    move-result-object v2
+
+    return-object v2
 
     :catch_0
     move-exception v0
 
     invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
-    move-result-object v3
+    move-result-object v2
 
-    throw v3
+    throw v2
 .end method
 
 .method public queryIntentActivityOptions(Landroid/content/ComponentName;[Landroid/content/Intent;Landroid/content/Intent;I)Ljava/util/List;
@@ -14390,7 +15922,7 @@
 .end method
 
 .method public queryIntentServicesAsUser(Landroid/content/Intent;II)Ljava/util/List;
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -14404,64 +15936,47 @@
     .end annotation
 
     :try_start_0
-    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
-
-    iget-object v4, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
-
-    invoke-virtual {v4}, Landroid/app/ContextImpl;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v4
-
-    invoke-virtual {p1, v4}, Landroid/content/Intent;->resolveTypeIfNeeded(Landroid/content/ContentResolver;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-interface {v3, p1, v4, p2, p3}, Landroid/content/pm/IPackageManager;->queryIntentServices(Landroid/content/Intent;Ljava/lang/String;II)Landroid/content/pm/ParceledListSlice;
-
-    move-result-object v2
-
-    if-nez v2, :cond_0
-
-    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
-
-    move-result-object v3
-
-    return-object v3
-
-    :cond_0
-    invoke-virtual {v2}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
-
-    move-result-object v1
-
-    sget-boolean v3, Landroid/os/Build;->IS_SYSTEM_SECURE:Z
-
-    if-eqz v3, :cond_1
-
-    if-eqz v1, :cond_1
+    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
 
     iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
 
-    invoke-virtual {v3}, Landroid/app/ContextImpl;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v3}, Landroid/app/ContextImpl;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
-    iget-object v4, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+    invoke-virtual {p1, v3}, Landroid/content/Intent;->resolveTypeIfNeeded(Landroid/content/ContentResolver;)Ljava/lang/String;
 
-    invoke-virtual {v3, v4, p0, v1}, Landroid/content/res/Resources;->addAppsNames(Landroid/content/Context;Landroid/content/pm/PackageManager;Ljava/util/List;)V
+    move-result-object v3
+
+    invoke-interface {v2, p1, v3, p2, p3}, Landroid/content/pm/IPackageManager;->queryIntentServices(Landroid/content/Intent;Ljava/lang/String;II)Landroid/content/pm/ParceledListSlice;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object v2
+
+    return-object v2
+
+    :cond_0
+    invoke-virtual {v1}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_1
-    return-object v1
+    move-result-object v2
+
+    return-object v2
 
     :catch_0
     move-exception v0
 
     invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
-    move-result-object v3
+    move-result-object v2
 
-    throw v3
+    throw v2
 .end method
 
 .method public queryPermissionsByGroup(Ljava/lang/String;I)Ljava/util/List;
@@ -15060,7 +16575,9 @@
 .method public semGetApplicationIconForIconTray(Landroid/content/pm/ApplicationInfo;I)Landroid/graphics/drawable/Drawable;
     .locals 1
 
-    invoke-virtual {p0, p1, p2}, Landroid/app/ApplicationPackageManager;->getApplicationIconForIconTray(Landroid/content/pm/ApplicationInfo;I)Landroid/graphics/drawable/Drawable;
+    const/4 v0, 0x1
+
+    invoke-virtual {p1, p0, v0, p2}, Landroid/content/pm/ApplicationInfo;->loadIcon(Landroid/content/pm/PackageManager;ZI)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -15075,7 +16592,13 @@
         }
     .end annotation
 
-    invoke-virtual {p0, p1, p2}, Landroid/app/ApplicationPackageManager;->getApplicationIconForIconTray(Ljava/lang/String;I)Landroid/graphics/drawable/Drawable;
+    const/16 v0, 0x400
+
+    invoke-virtual {p0, p1, v0}, Landroid/app/ApplicationPackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0, p2}, Landroid/app/ApplicationPackageManager;->semGetApplicationIconForIconTray(Landroid/content/pm/ApplicationInfo;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -15761,7 +17284,23 @@
 .method public semGetDrawableForIconTray(Landroid/graphics/drawable/Drawable;I)Landroid/graphics/drawable/Drawable;
     .locals 2
 
+    const/4 v0, 0x0
+
     const/4 v1, 0x0
+
+    invoke-virtual {p0, p1, p2, v0, v1}, Landroid/app/ApplicationPackageManager;->semGetDrawableForIconTray(Landroid/graphics/drawable/Drawable;ILjava/lang/String;I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public semGetDrawableForIconTray(Landroid/graphics/drawable/Drawable;ILjava/lang/String;I)Landroid/graphics/drawable/Drawable;
+    .locals 7
+
+    const/4 v6, 0x0
+
+    const/4 v2, 0x0
 
     packed-switch p2, :pswitch_data_0
 
@@ -15772,7 +17311,13 @@
     :pswitch_1
     invoke-direct {p0}, Landroid/app/ApplicationPackageManager;->checkAppIconThemePackage()V
 
-    iget-object v0, p0, Landroid/app/ApplicationPackageManager;->appIconPackageName:Ljava/lang/String;
+    iput-object p3, p0, Landroid/app/ApplicationPackageManager;->mPkgNameForBadgeIcon:Ljava/lang/String;
+
+    invoke-direct {p0, p3}, Landroid/app/ApplicationPackageManager;->getMetaDataItemInfoForFixedScaleIconTray(Ljava/lang/String;)Landroid/content/pm/PackageItemInfo;
+
+    move-result-object v1
+
+    iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mAppIconPackageName:Ljava/lang/String;
 
     if-nez v0, :cond_0
 
@@ -15781,16 +17326,28 @@
     :goto_1
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-direct {p0, v1, p1, v0}, Landroid/app/ApplicationPackageManager;->getThemeIconWithBG(Landroid/content/pm/PackageItemInfo;Landroid/graphics/drawable/Drawable;Ljava/lang/Boolean;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v4
+
+    move-object v0, p0
+
+    move-object v2, p1
+
+    move v5, p4
+
+    invoke-direct/range {v0 .. v5}, Landroid/app/ApplicationPackageManager;->getThemeIconWithBG(Landroid/content/pm/PackageItemInfo;Landroid/graphics/drawable/Drawable;Ljava/lang/Boolean;Ljava/lang/Boolean;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
+
+    iput-object v6, p0, Landroid/app/ApplicationPackageManager;->mPkgNameForBadgeIcon:Ljava/lang/String;
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v2
 
     goto :goto_1
 
@@ -15807,7 +17364,7 @@
     :try_start_0
     iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
 
-    invoke-interface {v1, p1}, Landroid/content/pm/IPackageManager;->getSystemFeatureLevel(Ljava/lang/String;)I
+    invoke-interface {v1, p1}, Landroid/content/pm/IPackageManager;->semGetSystemFeatureLevel(Ljava/lang/String;)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -15839,7 +17396,7 @@
 
     move-result v2
 
-    invoke-interface {v1, p1, p2, v2}, Landroid/content/pm/IPackageManager;->isPermissionRevokedByUserFixed(Ljava/lang/String;Ljava/lang/String;I)Z
+    invoke-interface {v1, p1, p2, v2}, Landroid/content/pm/IPackageManager;->semIsPermissionRevokedByUserFixed(Ljava/lang/String;Ljava/lang/String;I)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -15860,41 +17417,63 @@
 .end method
 
 .method public semShouldPackIntoIconTray(Ljava/lang/String;)Z
-    .locals 5
-
-    const/4 v1, 0x0
+    .locals 4
 
     :try_start_0
-    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
 
-    const-string/jumbo v3, "com.samsung.android.icon_container.has_icon_container"
+    const-string/jumbo v2, "com.samsung.android.icon_container.has_icon_container"
 
-    iget-object v4, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
 
-    invoke-virtual {v4}, Landroid/app/ContextImpl;->getUserId()I
+    invoke-virtual {v3}, Landroid/app/ContextImpl;->getUserId()I
 
-    move-result v4
+    move-result v3
 
-    invoke-interface {v2, p1, v3, v4}, Landroid/content/pm/IPackageManager;->getMetadataForIconTray(Ljava/lang/String;Ljava/lang/String;I)Z
+    invoke-interface {v1, p1, v2, v3}, Landroid/content/pm/IPackageManager;->getMetadataForIconTray(Ljava/lang/String;Ljava/lang/String;I)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
-    :goto_0
     return v1
-
-    :cond_0
-    const/4 v1, 0x1
-
-    goto :goto_0
 
     :catch_0
     move-exception v0
 
+    const/4 v1, 0x0
+
     return v1
+.end method
+
+.method public setApplicationCategoryHint(Ljava/lang/String;I)V
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v2}, Landroid/app/ContextImpl;->getOpPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, p1, p2, v2}, Landroid/content/pm/IPackageManager;->setApplicationCategoryHint(Ljava/lang/String;ILjava/lang/String;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
 .end method
 
 .method public setApplicationEnabledSetting(Ljava/lang/String;II)V
@@ -16067,7 +17646,29 @@
     throw v1
 .end method
 
-.method public setEphemeralCookie([B)Z
+.method public setInstallerPackageName(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/content/pm/IPackageManager;->setInstallerPackageName(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public setInstantAppCookie([B)Z
     .locals 4
 
     :try_start_0
@@ -16085,35 +17686,13 @@
 
     move-result v3
 
-    invoke-interface {v1, v2, p1, v3}, Landroid/content/pm/IPackageManager;->setEphemeralApplicationCookie(Ljava/lang/String;[BI)Z
+    invoke-interface {v1, v2, p1, v3}, Landroid/content/pm/IPackageManager;->setInstantAppCookie(Ljava/lang/String;[BI)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     return v1
-
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
-
-    move-result-object v1
-
-    throw v1
-.end method
-
-.method public setInstallerPackageName(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
-
-    :try_start_0
-    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
-
-    invoke-interface {v1, p1, p2}, Landroid/content/pm/IPackageManager;->setInstallerPackageName(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-void
 
     :catch_0
     move-exception v0
@@ -16138,6 +17717,28 @@
     move-result-object v1
 
     return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public setUpdateAvailable(Ljava/lang/String;Z)V
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/content/pm/IPackageManager;->setUpdateAvailable(Ljava/lang/String;Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
 
     :catch_0
     move-exception v0
@@ -16259,6 +17860,79 @@
     return-void
 .end method
 
+.method public updateInstantAppCookie([B)V
+    .locals 4
+
+    if-eqz p1, :cond_0
+
+    array-length v1, p1
+
+    invoke-virtual {p0}, Landroid/app/ApplicationPackageManager;->getInstantAppCookieMaxBytes()I
+
+    move-result v2
+
+    if-le v1, v2, :cond_0
+
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "instant cookie longer than "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {p0}, Landroid/app/ApplicationPackageManager;->getInstantAppCookieMaxBytes()I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_0
+    :try_start_0
+    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    iget-object v2, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v2}, Landroid/app/ContextImpl;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    iget-object v3, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+
+    invoke-virtual {v3}, Landroid/app/ContextImpl;->getUserId()I
+
+    move-result v3
+
+    invoke-interface {v1, v2, p1, v3}, Landroid/content/pm/IPackageManager;->setInstantAppCookie(Ljava/lang/String;[BI)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
 .method public updateIntentVerificationStatusAsUser(Ljava/lang/String;II)Z
     .locals 2
 
@@ -16355,6 +18029,28 @@
     iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
 
     invoke-interface {v1, p1, p2}, Landroid/content/pm/IPackageManager;->verifyPendingInstall(II)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public verifyPendingInstall2(II)V
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/ApplicationPackageManager;->mPM:Landroid/content/pm/IPackageManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/content/pm/IPackageManager;->verifyPendingInstall2(II)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 

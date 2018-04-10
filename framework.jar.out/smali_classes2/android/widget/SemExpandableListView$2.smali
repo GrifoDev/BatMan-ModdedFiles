@@ -312,7 +312,7 @@
 
     iget-object v8, v6, Landroid/widget/SemExpandableListView$ViewInfo;->snapshot:Landroid/graphics/drawable/BitmapDrawable;
 
-    invoke-virtual {v8}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
+    invoke-virtual {v8}, Landroid/graphics/drawable/BitmapDrawable;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v8
 
@@ -348,7 +348,7 @@
 
     iget-object v8, v6, Landroid/widget/SemExpandableListView$ViewInfo;->snapshot:Landroid/graphics/drawable/BitmapDrawable;
 
-    invoke-virtual {v8}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
+    invoke-virtual {v8}, Landroid/graphics/drawable/BitmapDrawable;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v8
 
@@ -367,7 +367,7 @@
 
     move-result-object v8
 
-    invoke-virtual {v7, v8}, Landroid/view/View;->invalidate(Landroid/graphics/Rect;)V
+    invoke-virtual {v7, v8}, Landroid/widget/SemExpandableListView;->invalidate(Landroid/graphics/Rect;)V
 
     return-void
 .end method

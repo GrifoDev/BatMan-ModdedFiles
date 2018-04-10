@@ -49,17 +49,25 @@
 
 .field public description:Ljava/lang/CharSequence;
 
+.field public displayId:I
+
+.field public dockedRecentTaskInfo:Landroid/app/ActivityManager$RecentTaskInfo;
+
 .field public firstActiveTime:J
+
+.field public fullRecentTaskInfo:Landroid/app/ActivityManager$RecentTaskInfo;
 
 .field public id:I
 
-.field public isDockable:Z
-
 .field public isFullscreen:Z
+
+.field public isPairedTask:Z
 
 .field public isPrivateMode:Z
 
 .field public isVisible:Z
+
+.field public lastActiveElapsedTime:J
 
 .field public lastActiveTime:J
 
@@ -74,6 +82,8 @@
 .field public resizeMode:I
 
 .field public stackId:I
+
+.field public supportsSplitScreenMultiWindow:Z
 
 .field public taskDescription:Landroid/app/ActivityManager$TaskDescription;
 
@@ -131,14 +141,30 @@
     return v0
 .end method
 
+.method public getDockedRecentTaskInfo()Landroid/app/ActivityManager$RecentTaskInfo;
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/ActivityManager$RecentTaskInfo;->dockedRecentTaskInfo:Landroid/app/ActivityManager$RecentTaskInfo;
+
+    return-object v0
+.end method
+
+.method public getFullRecentTaskInfo()Landroid/app/ActivityManager$RecentTaskInfo;
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/ActivityManager$RecentTaskInfo;->fullRecentTaskInfo:Landroid/app/ActivityManager$RecentTaskInfo;
+
+    return-object v0
+.end method
+
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 6
 
     const/4 v1, 0x0
 
-    const/4 v3, 0x0
-
     const/4 v2, 0x1
+
+    const/4 v3, 0x0
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -288,7 +314,7 @@
     move v0, v2
 
     :goto_3
-    iput-boolean v0, p0, Landroid/app/ActivityManager$RecentTaskInfo;->isDockable:Z
+    iput-boolean v0, p0, Landroid/app/ActivityManager$RecentTaskInfo;->supportsSplitScreenMultiWindow:Z
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -324,8 +350,65 @@
 
     if-ne v0, v2, :cond_6
 
+    move v0, v2
+
     :goto_6
-    iput-boolean v2, p0, Landroid/app/ActivityManager$RecentTaskInfo;->isFullscreen:Z
+    iput-boolean v0, p0, Landroid/app/ActivityManager$RecentTaskInfo;->isFullscreen:Z
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v4
+
+    iput-wide v4, p0, Landroid/app/ActivityManager$RecentTaskInfo;->lastActiveElapsedTime:J
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/app/ActivityManager$RecentTaskInfo;->displayId:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    if-ne v0, v2, :cond_7
+
+    :goto_7
+    iput-boolean v2, p0, Landroid/app/ActivityManager$RecentTaskInfo;->isPairedTask:Z
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    if-lez v0, :cond_8
+
+    sget-object v0, Landroid/app/ActivityManager$RecentTaskInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v0, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/ActivityManager$RecentTaskInfo;
+
+    :goto_8
+    iput-object v0, p0, Landroid/app/ActivityManager$RecentTaskInfo;->dockedRecentTaskInfo:Landroid/app/ActivityManager$RecentTaskInfo;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    if-lez v0, :cond_9
+
+    sget-object v0, Landroid/app/ActivityManager$RecentTaskInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v0, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/ActivityManager$RecentTaskInfo;
+
+    :goto_9
+    iput-object v0, p0, Landroid/app/ActivityManager$RecentTaskInfo;->fullRecentTaskInfo:Landroid/app/ActivityManager$RecentTaskInfo;
 
     return-void
 
@@ -337,7 +420,7 @@
     :cond_1
     move-object v0, v1
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_2
     move-object v0, v1
@@ -360,9 +443,40 @@
     goto :goto_5
 
     :cond_6
-    move v2, v3
+    move v0, v3
 
     goto :goto_6
+
+    :cond_7
+    move v2, v3
+
+    goto :goto_7
+
+    :cond_8
+    move-object v0, v1
+
+    goto :goto_8
+
+    :cond_9
+    move-object v0, v1
+
+    goto :goto_9
+.end method
+
+.method public setDockedRecentTaskInfo(Landroid/app/ActivityManager$RecentTaskInfo;)V
+    .locals 0
+
+    iput-object p1, p0, Landroid/app/ActivityManager$RecentTaskInfo;->dockedRecentTaskInfo:Landroid/app/ActivityManager$RecentTaskInfo;
+
+    return-void
+.end method
+
+.method public setFullRecentTaskInfo(Landroid/app/ActivityManager$RecentTaskInfo;)V
+    .locals 0
+
+    iput-object p1, p0, Landroid/app/ActivityManager$RecentTaskInfo;->fullRecentTaskInfo:Landroid/app/ActivityManager$RecentTaskInfo;
+
+    return-void
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
@@ -461,7 +575,7 @@
     invoke-virtual {v0, p1, v2}, Landroid/graphics/Rect;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_2
-    iget-boolean v0, p0, Landroid/app/ActivityManager$RecentTaskInfo;->isDockable:Z
+    iget-boolean v0, p0, Landroid/app/ActivityManager$RecentTaskInfo;->supportsSplitScreenMultiWindow:Z
 
     if-eqz v0, :cond_3
 
@@ -496,20 +610,61 @@
 
     if-eqz v0, :cond_6
 
+    move v0, v1
+
     :goto_6
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-wide v4, p0, Landroid/app/ActivityManager$RecentTaskInfo;->lastActiveElapsedTime:J
+
+    invoke-virtual {p1, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
+
+    iget v0, p0, Landroid/app/ActivityManager$RecentTaskInfo;->displayId:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-boolean v0, p0, Landroid/app/ActivityManager$RecentTaskInfo;->isPairedTask:Z
+
+    if-eqz v0, :cond_7
+
+    move v0, v1
+
+    :goto_7
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v0, p0, Landroid/app/ActivityManager$RecentTaskInfo;->dockedRecentTaskInfo:Landroid/app/ActivityManager$RecentTaskInfo;
+
+    if-eqz v0, :cond_8
+
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
+    iget-object v0, p0, Landroid/app/ActivityManager$RecentTaskInfo;->dockedRecentTaskInfo:Landroid/app/ActivityManager$RecentTaskInfo;
+
+    invoke-virtual {v0, p1, v2}, Landroid/app/ActivityManager$RecentTaskInfo;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :goto_8
+    iget-object v0, p0, Landroid/app/ActivityManager$RecentTaskInfo;->fullRecentTaskInfo:Landroid/app/ActivityManager$RecentTaskInfo;
+
+    if-eqz v0, :cond_9
+
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v0, p0, Landroid/app/ActivityManager$RecentTaskInfo;->fullRecentTaskInfo:Landroid/app/ActivityManager$RecentTaskInfo;
+
+    invoke-virtual {v0, p1, v2}, Landroid/app/ActivityManager$RecentTaskInfo;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :goto_9
     return-void
 
     :cond_0
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_1
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_2
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
@@ -532,7 +687,22 @@
     goto :goto_5
 
     :cond_6
-    move v1, v2
+    move v0, v2
 
     goto :goto_6
+
+    :cond_7
+    move v0, v2
+
+    goto :goto_7
+
+    :cond_8
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto :goto_8
+
+    :cond_9
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto :goto_9
 .end method

@@ -79,7 +79,7 @@
 
     :cond_1
     :goto_1
-    iget-object v1, p0, Landroid/os/HWParamData;->compID:Ljava/lang/String;
+    iget-object v1, p0, Landroid/os/HWParamResultData;->compID:Ljava/lang/String;
 
     if-eqz v1, :cond_2
 
@@ -87,12 +87,12 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Landroid/os/HWParamData;->compID:Ljava/lang/String;
+    iget-object v1, p0, Landroid/os/HWParamResultData;->compID:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_2
-    iget-object v1, p0, Landroid/os/HWParamData;->feature:Ljava/lang/String;
+    iget-object v1, p0, Landroid/os/HWParamResultData;->feature:Ljava/lang/String;
 
     if-eqz v1, :cond_3
 
@@ -100,12 +100,12 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Landroid/os/HWParamData;->feature:Ljava/lang/String;
+    iget-object v1, p0, Landroid/os/HWParamResultData;->feature:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_3
-    iget-object v1, p0, Landroid/os/HWParamData;->hitType:Ljava/lang/String;
+    iget-object v1, p0, Landroid/os/HWParamResultData;->hitType:Ljava/lang/String;
 
     if-eqz v1, :cond_4
 
@@ -113,12 +113,12 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Landroid/os/HWParamData;->hitType:Ljava/lang/String;
+    iget-object v1, p0, Landroid/os/HWParamResultData;->hitType:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_4
-    iget-object v1, p0, Landroid/os/HWParamData;->compVer:Ljava/lang/String;
+    iget-object v1, p0, Landroid/os/HWParamResultData;->compVer:Ljava/lang/String;
 
     if-eqz v1, :cond_5
 
@@ -126,12 +126,12 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Landroid/os/HWParamData;->compVer:Ljava/lang/String;
+    iget-object v1, p0, Landroid/os/HWParamResultData;->compVer:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_5
-    iget-object v1, p0, Landroid/os/HWParamData;->compManufacture:Ljava/lang/String;
+    iget-object v1, p0, Landroid/os/HWParamResultData;->compManufacture:Ljava/lang/String;
 
     if-eqz v1, :cond_6
 
@@ -139,7 +139,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Landroid/os/HWParamData;->compManufacture:Ljava/lang/String;
+    iget-object v1, p0, Landroid/os/HWParamResultData;->compManufacture:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -257,61 +257,61 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/os/HWParamData;->compID:Ljava/lang/String;
+    iput-object v0, p0, Landroid/os/HWParamResultData;->compID:Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/os/HWParamData;->compVer:Ljava/lang/String;
+    iput-object v0, p0, Landroid/os/HWParamResultData;->compVer:Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/os/HWParamData;->compManufacture:Ljava/lang/String;
+    iput-object v0, p0, Landroid/os/HWParamResultData;->compManufacture:Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/os/HWParamData;->hitType:Ljava/lang/String;
+    iput-object v0, p0, Landroid/os/HWParamResultData;->hitType:Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/os/HWParamData;->feature:Ljava/lang/String;
+    iput-object v0, p0, Landroid/os/HWParamResultData;->feature:Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/os/HWParamData;->HWRev:Ljava/lang/String;
+    iput-object v0, p0, Landroid/os/HWParamResultData;->HWRev:Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/os/HWParamData;->IMEI:Ljava/lang/String;
+    iput-object v0, p0, Landroid/os/HWParamResultData;->IMEI:Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/os/HWParamData;->UN:Ljava/lang/String;
+    iput-object v0, p0, Landroid/os/HWParamResultData;->UN:Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/os/HWParamData;->logMaps:Ljava/lang/String;
+    iput-object v0, p0, Landroid/os/HWParamResultData;->logMaps:Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/os/HWParamData;->envlogMaps:Ljava/lang/String;
+    iput-object v0, p0, Landroid/os/HWParamResultData;->envlogMaps:Ljava/lang/String;
 
     return-void
 .end method
@@ -319,15 +319,15 @@
 .method public setBasicParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
 
-    iput-object p1, p0, Landroid/os/HWParamData;->compID:Ljava/lang/String;
+    iput-object p1, p0, Landroid/os/HWParamResultData;->compID:Ljava/lang/String;
 
-    iput-object p2, p0, Landroid/os/HWParamData;->compVer:Ljava/lang/String;
+    iput-object p2, p0, Landroid/os/HWParamResultData;->compVer:Ljava/lang/String;
 
-    iput-object p3, p0, Landroid/os/HWParamData;->compManufacture:Ljava/lang/String;
+    iput-object p3, p0, Landroid/os/HWParamResultData;->compManufacture:Ljava/lang/String;
 
-    iput-object p4, p0, Landroid/os/HWParamData;->hitType:Ljava/lang/String;
+    iput-object p4, p0, Landroid/os/HWParamResultData;->hitType:Ljava/lang/String;
 
-    iput-object p5, p0, Landroid/os/HWParamData;->feature:Ljava/lang/String;
+    iput-object p5, p0, Landroid/os/HWParamResultData;->feature:Ljava/lang/String;
 
     return-void
 .end method
@@ -335,9 +335,9 @@
 .method public setLog(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
 
-    iput-object p1, p0, Landroid/os/HWParamData;->logMaps:Ljava/lang/String;
+    iput-object p1, p0, Landroid/os/HWParamResultData;->logMaps:Ljava/lang/String;
 
-    iput-object p2, p0, Landroid/os/HWParamData;->envlogMaps:Ljava/lang/String;
+    iput-object p2, p0, Landroid/os/HWParamResultData;->envlogMaps:Ljava/lang/String;
 
     return-void
 .end method
@@ -345,11 +345,11 @@
 .method public setParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
 
-    iput-object p1, p0, Landroid/os/HWParamData;->HWRev:Ljava/lang/String;
+    iput-object p1, p0, Landroid/os/HWParamResultData;->HWRev:Ljava/lang/String;
 
-    iput-object p2, p0, Landroid/os/HWParamData;->IMEI:Ljava/lang/String;
+    iput-object p2, p0, Landroid/os/HWParamResultData;->IMEI:Ljava/lang/String;
 
-    iput-object p3, p0, Landroid/os/HWParamData;->UN:Ljava/lang/String;
+    iput-object p3, p0, Landroid/os/HWParamResultData;->UN:Ljava/lang/String;
 
     return-void
 .end method
@@ -405,7 +405,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v2}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+    invoke-virtual {v0, v2}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -436,7 +436,7 @@
 
     :cond_1
     :goto_2
-    iget-object v2, p0, Landroid/os/HWParamData;->compID:Ljava/lang/String;
+    iget-object v2, p0, Landroid/os/HWParamResultData;->compID:Ljava/lang/String;
 
     if-eqz v2, :cond_2
 
@@ -444,12 +444,12 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Landroid/os/HWParamData;->compID:Ljava/lang/String;
+    iget-object v2, p0, Landroid/os/HWParamResultData;->compID:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_2
-    iget-object v2, p0, Landroid/os/HWParamData;->compVer:Ljava/lang/String;
+    iget-object v2, p0, Landroid/os/HWParamResultData;->compVer:Ljava/lang/String;
 
     if-eqz v2, :cond_3
 
@@ -457,12 +457,12 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Landroid/os/HWParamData;->compVer:Ljava/lang/String;
+    iget-object v2, p0, Landroid/os/HWParamResultData;->compVer:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_3
-    iget-object v2, p0, Landroid/os/HWParamData;->feature:Ljava/lang/String;
+    iget-object v2, p0, Landroid/os/HWParamResultData;->feature:Ljava/lang/String;
 
     if-eqz v2, :cond_4
 
@@ -470,12 +470,12 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Landroid/os/HWParamData;->feature:Ljava/lang/String;
+    iget-object v2, p0, Landroid/os/HWParamResultData;->feature:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_4
-    iget-object v2, p0, Landroid/os/HWParamData;->hitType:Ljava/lang/String;
+    iget-object v2, p0, Landroid/os/HWParamResultData;->hitType:Ljava/lang/String;
 
     if-eqz v2, :cond_5
 
@@ -483,12 +483,12 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Landroid/os/HWParamData;->hitType:Ljava/lang/String;
+    iget-object v2, p0, Landroid/os/HWParamResultData;->hitType:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_5
-    iget-object v2, p0, Landroid/os/HWParamData;->compVer:Ljava/lang/String;
+    iget-object v2, p0, Landroid/os/HWParamResultData;->compVer:Ljava/lang/String;
 
     if-eqz v2, :cond_6
 
@@ -496,12 +496,12 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Landroid/os/HWParamData;->compVer:Ljava/lang/String;
+    iget-object v2, p0, Landroid/os/HWParamResultData;->compVer:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_6
-    iget-object v2, p0, Landroid/os/HWParamData;->compManufacture:Ljava/lang/String;
+    iget-object v2, p0, Landroid/os/HWParamResultData;->compManufacture:Ljava/lang/String;
 
     if-eqz v2, :cond_7
 
@@ -509,7 +509,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Landroid/os/HWParamData;->compManufacture:Ljava/lang/String;
+    iget-object v2, p0, Landroid/os/HWParamResultData;->compManufacture:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -518,7 +518,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Landroid/os/HWParamData;->logMaps:Ljava/lang/String;
+    iget-object v2, p0, Landroid/os/HWParamResultData;->logMaps:Ljava/lang/String;
 
     const-string/jumbo v3, ""
 
@@ -532,7 +532,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Landroid/os/HWParamData;->logMaps:Ljava/lang/String;
+    iget-object v2, p0, Landroid/os/HWParamResultData;->logMaps:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -541,7 +541,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Landroid/os/HWParamData;->envlogMaps:Ljava/lang/String;
+    iget-object v2, p0, Landroid/os/HWParamResultData;->envlogMaps:Ljava/lang/String;
 
     const-string/jumbo v3, ""
 
@@ -555,7 +555,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Landroid/os/HWParamData;->envlogMaps:Ljava/lang/String;
+    iget-object v2, p0, Landroid/os/HWParamResultData;->envlogMaps:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -646,43 +646,43 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v0, p0, Landroid/os/HWParamData;->compID:Ljava/lang/String;
+    iget-object v0, p0, Landroid/os/HWParamResultData;->compID:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-object v0, p0, Landroid/os/HWParamData;->compVer:Ljava/lang/String;
+    iget-object v0, p0, Landroid/os/HWParamResultData;->compVer:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-object v0, p0, Landroid/os/HWParamData;->compManufacture:Ljava/lang/String;
+    iget-object v0, p0, Landroid/os/HWParamResultData;->compManufacture:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-object v0, p0, Landroid/os/HWParamData;->hitType:Ljava/lang/String;
+    iget-object v0, p0, Landroid/os/HWParamResultData;->hitType:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-object v0, p0, Landroid/os/HWParamData;->feature:Ljava/lang/String;
+    iget-object v0, p0, Landroid/os/HWParamResultData;->feature:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-object v0, p0, Landroid/os/HWParamData;->HWRev:Ljava/lang/String;
+    iget-object v0, p0, Landroid/os/HWParamResultData;->HWRev:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-object v0, p0, Landroid/os/HWParamData;->IMEI:Ljava/lang/String;
+    iget-object v0, p0, Landroid/os/HWParamResultData;->IMEI:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-object v0, p0, Landroid/os/HWParamData;->UN:Ljava/lang/String;
+    iget-object v0, p0, Landroid/os/HWParamResultData;->UN:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-object v0, p0, Landroid/os/HWParamData;->logMaps:Ljava/lang/String;
+    iget-object v0, p0, Landroid/os/HWParamResultData;->logMaps:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-object v0, p0, Landroid/os/HWParamData;->envlogMaps:Ljava/lang/String;
+    iget-object v0, p0, Landroid/os/HWParamResultData;->envlogMaps:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 

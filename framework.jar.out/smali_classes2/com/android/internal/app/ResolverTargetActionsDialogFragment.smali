@@ -60,9 +60,9 @@
 
     const-string/jumbo v1, "pinned"
 
-    invoke-virtual {v0, v1, p3}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {v0, v1, p3}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    invoke-virtual {p0, v0}, Landroid/app/Fragment;->setArguments(Landroid/os/Bundle;)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->setArguments(Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -90,13 +90,13 @@
 
     const-string/jumbo v1, "pinned"
 
-    invoke-virtual {v0, v1, p3}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {v0, v1, p3}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     const-string/jumbo v1, "hide_pinned"
 
-    invoke-virtual {v0, v1, p4}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {v0, v1, p4}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    invoke-virtual {p0, v0}, Landroid/app/Fragment;->setArguments(Landroid/os/Bundle;)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->setArguments(Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -106,7 +106,7 @@
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 10
 
-    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -128,12 +128,12 @@
     packed-switch p2, :pswitch_data_0
 
     :goto_0
-    invoke-virtual {p0}, Landroid/app/DialogFragment;->dismiss()V
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->dismiss()V
 
     return-void
 
     :pswitch_0
-    invoke-virtual {p0}, Landroid/app/Fragment;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->getContext()Landroid/content/Context;
 
     move-result-object v6
 
@@ -168,7 +168,7 @@
     invoke-interface {v6}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     :goto_1
-    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
@@ -224,7 +224,7 @@
 
     move-result-object v2
 
-    invoke-virtual {p0, v2}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v2}, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 
@@ -240,13 +240,13 @@
 
     const/4 v3, 0x0
 
-    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
     const-string/jumbo v2, "hide_pinned"
 
-    invoke-virtual {v0, v2, v3}, Landroid/os/BaseBundle;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v2
 
@@ -256,12 +256,12 @@
 
     if-eqz v2, :cond_0
 
-    const v1, 0x10700a2
+    const v1, 0x10700b2
 
     :goto_0
     new-instance v2, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Landroid/app/Fragment;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
@@ -296,18 +296,18 @@
     :cond_0
     const-string/jumbo v2, "pinned"
 
-    invoke-virtual {v0, v2, v3}, Landroid/os/BaseBundle;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
-    const v1, 0x107000d
+    const v1, 0x10700b1
 
     goto :goto_0
 
     :cond_1
-    const v1, 0x107000c
+    const v1, 0x10700b0
 
     goto :goto_0
 .end method

@@ -13,7 +13,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/widget/SemHorizontalAbsListView$1;,
         Landroid/widget/SemHorizontalAbsListView$AbsPositionScroller;,
         Landroid/widget/SemHorizontalAbsListView$AdapterDataSetObserver;,
         Landroid/widget/SemHorizontalAbsListView$CheckForKeyLongPress;,
@@ -73,8 +72,6 @@
 
 .field private static final HOVERSCROLL_RIGHT:I = 0x2
 
-.field private static final HOVERSCROLL_SPEED_FASTER:F = 30.0f
-
 .field private static final HOVERSCROLL_WIDTH_LEFT_DP:I = 0x19
 
 .field private static final HOVERSCROLL_WIDTH_RIGHT_DP:I = 0x19
@@ -103,29 +100,11 @@
 
 .field private static final MSG_HOVERSCROLL_MOVE:I = 0x1
 
-.field private static final MSG_HOVERSCROLL_MOVE_FASTER:I = 0x2
-
-.field private static final MSG_HOVERSCROLL_MOVE_TO_END:I = 0x3
-
 .field static final OVERSCROLL_LIMIT_DIVISOR:I = 0x3
 
 .field private static final PROFILE_FLINGING:Z = false
 
 .field private static final PROFILE_SCROLLING:Z = false
-
-.field private static final QC_BOTTOM:I = 0x4
-
-.field private static final QC_LEFT:I = 0x1
-
-.field private static final QC_RIGHT:I = 0x3
-
-.field private static final QC_STATE_NONE:I = 0x0
-
-.field private static final QC_STATE_PRESSED:I = 0x2
-
-.field private static final QC_STATE_SHOWN:I = 0x1
-
-.field private static final QC_TOP:I = 0x2
 
 .field private static final SAVED_STATE_KEY_FOR_BUNDLE:Ljava/lang/String; = "android.widget.SemHorizontalAbsListView.SavedState"
 
@@ -168,8 +147,6 @@
 .field private HOVERSCROLL_DELAY:I
 
 .field private HOVERSCROLL_SPEED:F
-
-.field private USE_SET_INTEGRATOR_HAPTIC:Z
 
 .field private mAccessibilityDelegate:Landroid/widget/SemHorizontalAbsListView$ListItemAccessibilityDelegate;
 
@@ -268,8 +245,6 @@
 
 .field private mHapticOverScroll:Z
 
-.field private mHapticPreDrawListener:Landroid/view/HapticPreDrawListener;
-
 .field private mHasWindowFocusForMotion:Z
 
 .field mHeightMeasureSpec:I
@@ -336,8 +311,6 @@
 
 .field private mIsPenSelectPointerSetted:Z
 
-.field private mIsQCShown:Z
-
 .field mIsRTL:Z
 
 .field final mIsScrap:[Z
@@ -379,8 +352,6 @@
 .field mMotionCorrection:I
 
 .field mMotionPosition:I
-
-.field private mMotionRecognitionManager:Lcom/samsung/android/gesture/SemMotionRecognitionManager;
 
 .field mMotionViewNewLeft:I
 
@@ -444,28 +415,6 @@
 
 .field private mPublicInputConnection:Landroid/widget/SemHorizontalAbsListView$InputConnectionWrapper;
 
-.field private mQCBtnDrawable:Landroid/graphics/drawable/Drawable;
-
-.field private mQCBtnPressedDrawable:Landroid/graphics/drawable/Drawable;
-
-.field private mQCLocation:I
-
-.field private mQCRect:Landroid/graphics/Rect;
-
-.field private mQCScrollDirection:I
-
-.field private mQCScrollFrom:I
-
-.field private mQCScrollNext:I
-
-.field private mQCScrollRunnable:Ljava/lang/Runnable;
-
-.field private mQCScrollTo:I
-
-.field private mQCScrollingCount:I
-
-.field private mQCstate:I
-
 .field final mRecycler:Landroid/widget/SemHorizontalAbsListView$RecycleBin;
 
 .field private mRemoteAdapter:Landroid/widget/RemoteViewsAdapter;
@@ -473,8 +422,6 @@
 .field mResurrectToPosition:I
 
 .field private final mScrollConsumed:[I
-
-.field private mScrollInterpolator:Landroid/view/animation/DecelerateInterpolator;
 
 .field mScrollLeft:Landroid/view/View;
 
@@ -704,7 +651,7 @@
 .method static synthetic -get19(Landroid/widget/SemHorizontalAbsListView;)I
     .locals 1
 
-    iget v0, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPaddingLeft:I
 
     return v0
 .end method
@@ -720,7 +667,7 @@
 .method static synthetic -get20(Landroid/widget/SemHorizontalAbsListView;)I
     .locals 1
 
-    iget v0, p0, Landroid/view/View;->mPaddingRight:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPaddingRight:I
 
     return v0
 .end method
@@ -736,7 +683,7 @@
 .method static synthetic -get22(Landroid/widget/SemHorizontalAbsListView;)I
     .locals 1
 
-    iget v0, p0, Landroid/view/ViewGroup;->mPersistentDrawingCache:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPersistentDrawingCache:I
 
     return v0
 .end method
@@ -744,55 +691,31 @@
 .method static synthetic -get23(Landroid/widget/SemHorizontalAbsListView;)I
     .locals 1
 
-    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollDirection:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollX:I
 
     return v0
 .end method
 
-.method static synthetic -get24(Landroid/widget/SemHorizontalAbsListView;)I
+.method static synthetic -get24(Landroid/widget/SemHorizontalAbsListView;)Z
     .locals 1
 
-    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollFrom:I
+    iget-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCustomMultiChoiceMode:Z
 
     return v0
 .end method
 
-.method static synthetic -get25(Landroid/widget/SemHorizontalAbsListView;)I
+.method static synthetic -get25(Landroid/widget/SemHorizontalAbsListView;)Ljava/util/LinkedList;
     .locals 1
 
-    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollNext:I
-
-    return v0
-.end method
-
-.method static synthetic -get26(Landroid/widget/SemHorizontalAbsListView;)Ljava/lang/Runnable;
-    .locals 1
-
-    iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollRunnable:Ljava/lang/Runnable;
+    iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mSemScrollRemains:Ljava/util/LinkedList;
 
     return-object v0
 .end method
 
-.method static synthetic -get27(Landroid/widget/SemHorizontalAbsListView;)I
+.method static synthetic -get26(Landroid/widget/SemHorizontalAbsListView;)Landroid/view/VelocityTracker;
     .locals 1
 
-    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollTo:I
-
-    return v0
-.end method
-
-.method static synthetic -get28(Landroid/widget/SemHorizontalAbsListView;)I
-    .locals 1
-
-    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollingCount:I
-
-    return v0
-.end method
-
-.method static synthetic -get29(Landroid/widget/SemHorizontalAbsListView;)Landroid/view/animation/DecelerateInterpolator;
-    .locals 1
-
-    iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollInterpolator:Landroid/view/animation/DecelerateInterpolator;
+    iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     return-object v0
 .end method
@@ -805,42 +728,10 @@
     return v0
 .end method
 
-.method static synthetic -get30(Landroid/widget/SemHorizontalAbsListView;)I
-    .locals 1
-
-    iget v0, p0, Landroid/view/View;->mScrollX:I
-
-    return v0
-.end method
-
-.method static synthetic -get31(Landroid/widget/SemHorizontalAbsListView;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCustomMultiChoiceMode:Z
-
-    return v0
-.end method
-
-.method static synthetic -get32(Landroid/widget/SemHorizontalAbsListView;)Ljava/util/LinkedList;
-    .locals 1
-
-    iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mSemScrollRemains:Ljava/util/LinkedList;
-
-    return-object v0
-.end method
-
-.method static synthetic -get33(Landroid/widget/SemHorizontalAbsListView;)Landroid/view/VelocityTracker;
-    .locals 1
-
-    iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mVelocityTracker:Landroid/view/VelocityTracker;
-
-    return-object v0
-.end method
-
 .method static synthetic -get4(Landroid/widget/SemHorizontalAbsListView;)Landroid/content/Context;
     .locals 1
 
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -925,23 +816,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set5(Landroid/widget/SemHorizontalAbsListView;I)I
-    .locals 0
-
-    iput p1, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollNext:I
-
-    return p1
-.end method
-
-.method static synthetic -set6(Landroid/widget/SemHorizontalAbsListView;I)I
-    .locals 0
-
-    iput p1, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollingCount:I
-
-    return p1
-.end method
-
-.method static synthetic -set7(Landroid/widget/SemHorizontalAbsListView;Ljava/lang/Runnable;)Ljava/lang/Runnable;
+.method static synthetic -set5(Landroid/widget/SemHorizontalAbsListView;Ljava/lang/Runnable;)Ljava/lang/Runnable;
     .locals 0
 
     iput-object p1, p0, Landroid/widget/SemHorizontalAbsListView;->mTouchModeReset:Ljava/lang/Runnable;
@@ -972,7 +847,7 @@
 .method static synthetic -wrap10(Landroid/widget/SemHorizontalAbsListView;Z)V
     .locals 0
 
-    invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->setChildrenDrawnWithCacheEnabled(Z)V
+    invoke-virtual {p0, p1}, Landroid/widget/SemHorizontalAbsListView;->setChildrenDrawnWithCacheEnabled(Z)V
 
     return-void
 .end method
@@ -996,7 +871,7 @@
 .method static synthetic -wrap2(Landroid/widget/SemHorizontalAbsListView;IIIIIIIIZ)Z
     .locals 1
 
-    invoke-virtual/range {p0 .. p9}, Landroid/view/View;->overScrollBy(IIIIIIIIZ)Z
+    invoke-virtual/range {p0 .. p9}, Landroid/widget/SemHorizontalAbsListView;->overScrollBy(IIIIIIIIZ)Z
 
     move-result v0
 
@@ -1006,7 +881,7 @@
 .method static synthetic -wrap3(Landroid/widget/SemHorizontalAbsListView;)I
     .locals 1
 
-    invoke-virtual {p0}, Landroid/view/View;->getWindowAttachCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWindowAttachCount()I
 
     move-result v0
 
@@ -1048,7 +923,7 @@
 .method static synthetic -wrap8(Landroid/widget/SemHorizontalAbsListView;Landroid/view/View;Z)V
     .locals 0
 
-    invoke-virtual {p0, p1, p2}, Landroid/view/ViewGroup;->removeDetachedView(Landroid/view/View;Z)V
+    invoke-virtual {p0, p1, p2}, Landroid/widget/SemHorizontalAbsListView;->removeDetachedView(Landroid/view/View;Z)V
 
     return-void
 .end method
@@ -1056,7 +931,7 @@
 .method static synthetic -wrap9(Landroid/widget/SemHorizontalAbsListView;Z)V
     .locals 0
 
-    invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->setChildrenDrawingCacheEnabled(Z)V
+    invoke-virtual {p0, p1}, Landroid/widget/SemHorizontalAbsListView;->setChildrenDrawingCacheEnabled(Z)V
 
     return-void
 .end method
@@ -1096,9 +971,9 @@
 
     const-wide/16 v8, 0x0
 
-    const/4 v7, 0x1
+    const/4 v7, 0x0
 
-    const/4 v6, 0x0
+    const/4 v6, 0x1
 
     const/4 v5, -0x1
 
@@ -1106,21 +981,7 @@
 
     invoke-direct {p0, p1}, Landroid/widget/AdapterView;-><init>(Landroid/content/Context;)V
 
-    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "SEC_FLOATING_FEATURE_FRAMEWORK_ENABLE_INTEGRATOR_HAPTIC"
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v1
-
-    iput-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->USE_SET_INTEGRATOR_HAPTIC:Z
-
     iput-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mHasWindowFocusForMotion:Z
-
-    iput-object v6, p0, Landroid/widget/SemHorizontalAbsListView;->mMotionRecognitionManager:Lcom/samsung/android/gesture/SemMotionRecognitionManager;
 
     iput v4, p0, Landroid/widget/SemHorizontalAbsListView;->mChoiceMode:I
 
@@ -1164,11 +1025,11 @@
 
     iput v4, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedLeft:I
 
-    iput-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSmoothScrollbarEnabled:Z
+    iput-boolean v6, p0, Landroid/widget/SemHorizontalAbsListView;->mSmoothScrollbarEnabled:Z
 
     iput v5, p0, Landroid/widget/SemHorizontalAbsListView;->mResurrectToPosition:I
 
-    iput-object v6, p0, Landroid/widget/SemHorizontalAbsListView;->mContextMenuInfo:Landroid/view/ContextMenu$ContextMenuInfo;
+    iput-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mContextMenuInfo:Landroid/view/ContextMenu$ContextMenuInfo;
 
     iput v5, p0, Landroid/widget/SemHorizontalAbsListView;->mLastTouchMode:I
 
@@ -1176,9 +1037,9 @@
 
     iput-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mFlingProfilingStarted:Z
 
-    iput-object v6, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollStrictSpan:Landroid/os/StrictMode$Span;
+    iput-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollStrictSpan:Landroid/os/StrictMode$Span;
 
-    iput-object v6, p0, Landroid/widget/SemHorizontalAbsListView;->mFlingStrictSpan:Landroid/os/StrictMode$Span;
+    iput-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mFlingStrictSpan:Landroid/os/StrictMode$Span;
 
     iput v4, p0, Landroid/widget/SemHorizontalAbsListView;->mLastScrollState:I
 
@@ -1186,7 +1047,7 @@
 
     iput v1, p0, Landroid/widget/SemHorizontalAbsListView;->mVelocityScale:F
 
-    new-array v1, v7, [Z
+    new-array v1, v6, [Z
 
     iput-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mIsScrap:[Z
 
@@ -1236,7 +1097,7 @@
 
     iput-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
 
-    iput-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollEnable:Z
+    iput-boolean v6, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollEnable:Z
 
     iput-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
 
@@ -1254,13 +1115,13 @@
 
     iput-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mIsEnabledPaddingInHoverScroll:Z
 
-    iput-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoveringEnabled:Z
+    iput-boolean v6, p0, Landroid/widget/SemHorizontalAbsListView;->mHoveringEnabled:Z
 
     iput v4, p0, Landroid/widget/SemHorizontalAbsListView;->mExtraPaddingInLeftHoverArea:I
 
     iput v4, p0, Landroid/widget/SemHorizontalAbsListView;->mExtraPaddingInRightHoverArea:I
 
-    iput-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEnableVibrationAtLongPress:Z
+    iput-boolean v6, p0, Landroid/widget/SemHorizontalAbsListView;->mEnableVibrationAtLongPress:Z
 
     iput-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCustomMultiChoiceMode:Z
 
@@ -1272,7 +1133,7 @@
 
     iput-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mIsPenPressed:Z
 
-    iput-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mIsfirstMoveEvent:Z
+    iput-boolean v6, p0, Landroid/widget/SemHorizontalAbsListView;->mIsfirstMoveEvent:Z
 
     iput-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mIsMultiFocusEnabled:Z
 
@@ -1324,7 +1185,7 @@
 
     iput v4, p0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockBottom:I
 
-    iput-object v6, p0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChild:Landroid/view/View;
+    iput-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChild:Landroid/view/View;
 
     iput v5, p0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChildPosition:I
 
@@ -1334,13 +1195,13 @@
 
     iput v5, p0, Landroid/widget/SemHorizontalAbsListView;->mOldHoverScrollDirection:I
 
-    iput-object v6, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildByLeft:Landroid/view/View;
+    iput-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildByLeft:Landroid/view/View;
 
     iput v5, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByLeft:I
 
     iput v4, p0, Landroid/widget/SemHorizontalAbsListView;->mSemDistanceFromCloseChildLeft:I
 
-    iput-object v6, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildByRight:Landroid/view/View;
+    iput-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildByRight:Landroid/view/View;
 
     iput v5, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByRight:I
 
@@ -1352,7 +1213,7 @@
 
     iput-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockRect:Landroid/graphics/Rect;
 
-    iput-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemIsOnClickEnabled:Z
+    iput-boolean v6, p0, Landroid/widget/SemHorizontalAbsListView;->mSemIsOnClickEnabled:Z
 
     iput-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
 
@@ -1374,25 +1235,11 @@
 
     iput-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoveredByMouse:Z
 
-    iput-object v6, p0, Landroid/widget/SemHorizontalAbsListView;->mSemSmoothScrollByMove:Landroid/widget/SemHorizontalAbsListView$SemSmoothScrollByMove;
+    iput-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemSmoothScrollByMove:Landroid/widget/SemHorizontalAbsListView$SemSmoothScrollByMove;
 
-    iput-object v6, p0, Landroid/widget/SemHorizontalAbsListView;->mSemScrollRemains:Ljava/util/LinkedList;
+    iput-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemScrollRemains:Ljava/util/LinkedList;
 
     iput v4, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
-
-    iput v5, p0, Landroid/widget/SemHorizontalAbsListView;->mQCLocation:I
-
-    iput v4, p0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    iput-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mIsQCShown:Z
-
-    iput v7, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollingCount:I
-
-    new-instance v1, Landroid/widget/SemHorizontalAbsListView$1;
-
-    invoke-direct {v1, p0}, Landroid/widget/SemHorizontalAbsListView$1;-><init>(Landroid/widget/SemHorizontalAbsListView;)V
-
-    iput-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollRunnable:Ljava/lang/Runnable;
 
     invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->initAbsListView()V
 
@@ -1402,7 +1249,7 @@
 
     iput-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mOwnerThread:Ljava/lang/Thread;
 
-    invoke-virtual {p0, v7}, Landroid/view/View;->setHorizontalScrollBarEnabled(Z)V
+    invoke-virtual {p0, v6}, Landroid/widget/SemHorizontalAbsListView;->setHorizontalScrollBarEnabled(Z)V
 
     sget-object v1, Lcom/android/internal/R$styleable;->View:[I
 
@@ -1410,31 +1257,10 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->initializeScrollbarsInternal(Landroid/content/res/TypedArray;)V
+    invoke-virtual {p0, v0}, Landroid/widget/SemHorizontalAbsListView;->initializeScrollbarsInternal(Landroid/content/res/TypedArray;)V
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mMotionRecognitionManager:Lcom/samsung/android/gesture/SemMotionRecognitionManager;
-
-    if-nez v1, :cond_0
-
-    const-string/jumbo v1, "SemHorizontalAbsListView"
-
-    const-string/jumbo v2, "Get MotionRecognitionManager"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v1, "motion_recognition"
-
-    invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/samsung/android/gesture/SemMotionRecognitionManager;
-
-    iput-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mMotionRecognitionManager:Lcom/samsung/android/gesture/SemMotionRecognitionManager;
-
-    :cond_0
     return-void
 .end method
 
@@ -1463,255 +1289,235 @@
 
     invoke-direct/range {p0 .. p4}, Landroid/widget/AdapterView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
-
-    move-result-object v14
-
-    const-string/jumbo v15, "SEC_FLOATING_FEATURE_FRAMEWORK_ENABLE_INTEGRATOR_HAPTIC"
-
-    invoke-virtual {v14, v15}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v14
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->USE_SET_INTEGRATOR_HAPTIC:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHasWindowFocusForMotion:Z
 
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHasWindowFocusForMotion:Z
-
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mMotionRecognitionManager:Lcom/samsung/android/gesture/SemMotionRecognitionManager;
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mChoiceMode:I
 
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mChoiceMode:I
-
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mLayoutMode:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mLayoutMode:I
 
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mDeferNotifyDataSetChanged:Z
-
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mDrawSelectorOnTop:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mDeferNotifyDataSetChanged:Z
 
-    const/4 v14, -0x1
-
-    move-object/from16 v0, p0
-
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectorPosition:I
-
-    new-instance v14, Landroid/graphics/Rect;
-
-    invoke-direct {v14}, Landroid/graphics/Rect;-><init>()V
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectorRect:Landroid/graphics/Rect;
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mDrawSelectorOnTop:Z
 
-    new-instance v14, Landroid/widget/SemHorizontalAbsListView$RecycleBin;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v14, v0}, Landroid/widget/SemHorizontalAbsListView$RecycleBin;-><init>(Landroid/widget/SemHorizontalAbsListView;)V
+    const/4 v13, -0x1
 
     move-object/from16 v0, p0
 
-    iput-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mRecycler:Landroid/widget/SemHorizontalAbsListView$RecycleBin;
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectorPosition:I
 
-    const/4 v14, 0x0
+    new-instance v13, Landroid/graphics/Rect;
 
-    move-object/from16 v0, p0
-
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectionLeftPadding:I
-
-    const/4 v14, 0x0
+    invoke-direct {v13}, Landroid/graphics/Rect;-><init>()V
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectionTopPadding:I
+    iput-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectorRect:Landroid/graphics/Rect;
 
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectionRightPadding:I
-
-    const/4 v14, 0x0
+    new-instance v13, Landroid/widget/SemHorizontalAbsListView$RecycleBin;
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectionBottomPadding:I
-
-    new-instance v14, Landroid/graphics/Rect;
-
-    invoke-direct {v14}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v13, v0}, Landroid/widget/SemHorizontalAbsListView$RecycleBin;-><init>(Landroid/widget/SemHorizontalAbsListView;)V
 
     move-object/from16 v0, p0
 
-    iput-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
+    iput-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mRecycler:Landroid/widget/SemHorizontalAbsListView$RecycleBin;
 
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHeightMeasureSpec:I
-
-    const/4 v14, -0x1
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mTouchMode:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectionLeftPadding:I
 
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectedLeft:I
-
-    const/4 v14, 0x1
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSmoothScrollbarEnabled:Z
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectionTopPadding:I
 
-    const/4 v14, -0x1
-
-    move-object/from16 v0, p0
-
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mResurrectToPosition:I
-
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mContextMenuInfo:Landroid/view/ContextMenu$ContextMenuInfo;
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectionRightPadding:I
 
-    const/4 v14, -0x1
-
-    move-object/from16 v0, p0
-
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mLastTouchMode:I
-
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mScrollProfilingStarted:Z
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectionBottomPadding:I
 
-    const/4 v14, 0x0
+    new-instance v13, Landroid/graphics/Rect;
 
-    move-object/from16 v0, p0
-
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mFlingProfilingStarted:Z
-
-    const/4 v14, 0x0
+    invoke-direct {v13}, Landroid/graphics/Rect;-><init>()V
 
     move-object/from16 v0, p0
 
-    iput-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mScrollStrictSpan:Landroid/os/StrictMode$Span;
+    iput-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
 
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mFlingStrictSpan:Landroid/os/StrictMode$Span;
-
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mLastScrollState:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHeightMeasureSpec:I
 
-    const/high16 v14, 0x3f800000    # 1.0f
-
-    move-object/from16 v0, p0
-
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mVelocityScale:F
-
-    const/4 v14, 0x1
-
-    new-array v14, v14, [Z
+    const/4 v13, -0x1
 
     move-object/from16 v0, p0
 
-    iput-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsScrap:[Z
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mTouchMode:I
 
-    const/4 v14, 0x2
-
-    new-array v14, v14, [I
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mScrollOffset:[I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectedLeft:I
 
-    const/4 v14, 0x2
-
-    new-array v14, v14, [I
+    const/4 v13, 0x1
 
     move-object/from16 v0, p0
 
-    iput-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mScrollConsumed:[I
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSmoothScrollbarEnabled:Z
 
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mNestedXOffset:I
-
-    const/4 v14, -0x1
+    const/4 v13, -0x1
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mActivePointerId:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mResurrectToPosition:I
 
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mPointerCount:I
-
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHapticOverScroll:Z
+    iput-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mContextMenuInfo:Landroid/view/ContextMenu$ContextMenuInfo;
 
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mDirection:I
-
-    const/4 v14, 0x0
+    const/4 v13, -0x1
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverLeftAreaWidth:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mLastTouchMode:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverRightAreaWidth:I
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mScrollProfilingStarted:Z
+
+    const/4 v13, 0x0
+
+    move-object/from16 v0, p0
+
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mFlingProfilingStarted:Z
+
+    const/4 v13, 0x0
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mScrollStrictSpan:Landroid/os/StrictMode$Span;
+
+    const/4 v13, 0x0
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mFlingStrictSpan:Landroid/os/StrictMode$Span;
+
+    const/4 v13, 0x0
+
+    move-object/from16 v0, p0
+
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mLastScrollState:I
+
+    const/high16 v13, 0x3f800000    # 1.0f
+
+    move-object/from16 v0, p0
+
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mVelocityScale:F
+
+    const/4 v13, 0x1
+
+    new-array v13, v13, [Z
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsScrap:[Z
+
+    const/4 v13, 0x2
+
+    new-array v13, v13, [I
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mScrollOffset:[I
+
+    const/4 v13, 0x2
+
+    new-array v13, v13, [I
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mScrollConsumed:[I
+
+    const/4 v13, 0x0
+
+    move-object/from16 v0, p0
+
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mNestedXOffset:I
+
+    const/4 v13, -0x1
+
+    move-object/from16 v0, p0
+
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mActivePointerId:I
+
+    const/4 v13, 0x0
+
+    move-object/from16 v0, p0
+
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mPointerCount:I
+
+    const/4 v13, 0x0
+
+    move-object/from16 v0, p0
+
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHapticOverScroll:Z
+
+    const/4 v13, 0x0
+
+    move-object/from16 v0, p0
+
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mDirection:I
+
+    const/4 v13, 0x0
+
+    move-object/from16 v0, p0
+
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverLeftAreaWidth:I
+
+    const/4 v13, 0x0
+
+    move-object/from16 v0, p0
+
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverRightAreaWidth:I
 
     const-wide/16 v14, 0x0
 
@@ -1749,473 +1555,439 @@
 
     iput-wide v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
 
-    const/4 v14, -0x1
+    const/4 v13, -0x1
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
 
-    const/4 v14, 0x1
+    const/4 v13, 0x1
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollEnable:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollEnable:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsSendHoverScrollState:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsSendHoverScrollState:Z
 
-    const/high16 v14, 0x40c00000    # 6.0f
+    const/high16 v13, 0x40c00000    # 6.0f
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->HOVERSCROLL_SPEED:F
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->HOVERSCROLL_SPEED:F
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->HOVERSCROLL_DELAY:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->HOVERSCROLL_DELAY:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mNeedsHoverScroll:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mNeedsHoverScroll:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStateForListener:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStateForListener:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsEnabledPaddingInHoverScroll:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsEnabledPaddingInHoverScroll:Z
 
-    const/4 v14, 0x1
+    const/4 v13, 0x1
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoveringEnabled:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoveringEnabled:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mExtraPaddingInLeftHoverArea:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mExtraPaddingInLeftHoverArea:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mExtraPaddingInRightHoverArea:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mExtraPaddingInRightHoverArea:I
 
-    const/4 v14, 0x1
+    const/4 v13, 0x1
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mEnableVibrationAtLongPress:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mEnableVibrationAtLongPress:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemCustomMultiChoiceMode:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemCustomMultiChoiceMode:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsCtrlkeyPressed:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsCtrlkeyPressed:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsShiftkeyPressed:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsShiftkeyPressed:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsPenHovered:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsPenHovered:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsPenPressed:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsPenPressed:Z
 
-    const/4 v14, 0x1
+    const/4 v13, 0x1
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsfirstMoveEvent:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsfirstMoveEvent:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsMultiFocusEnabled:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsMultiFocusEnabled:Z
 
-    const/4 v14, -0x1
+    const/4 v13, -0x1
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPressedPoint:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPressedPoint:I
 
-    const/4 v14, -0x1
+    const/4 v13, -0x1
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSecondPressedPoint:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSecondPressedPoint:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mOldAdapterItemCount:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mOldAdapterItemCount:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mOldKeyCode:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mOldKeyCode:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mCurrentKeyCode:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mCurrentKeyCode:I
 
-    const/4 v14, -0x1
+    const/4 v13, -0x1
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemCurrentFocusPosition:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemCurrentFocusPosition:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsTextSelectionStarted:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsTextSelectionStarted:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsNeedPenSelection:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsNeedPenSelection:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedItemSize:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedItemSize:I
 
-    const/4 v14, -0x1
+    const/4 v13, -0x1
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsPenSelectPointerSetted:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsPenSelectPointerSetted:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsNeedPenSelectIconSet:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsNeedPenSelectIconSet:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mOldTextViewHoverState:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mOldTextViewHoverState:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mNewTextViewHoverState:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mNewTextViewHoverState:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mPreviousTextViewScroll:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mPreviousTextViewScroll:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsDragBlockEnabled:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsDragBlockEnabled:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartY:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartY:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndX:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndX:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndY:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndY:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockLeft:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockLeft:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockTop:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockTop:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockRight:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockRight:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockBottom:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockBottom:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChild:Landroid/view/View;
+    iput-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChild:Landroid/view/View;
 
-    const/4 v14, -0x1
+    const/4 v13, -0x1
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChildPosition:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChildPosition:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDistanceFromTrackedChildLeft:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDistanceFromTrackedChildLeft:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsCloseChildSetted:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsCloseChildSetted:Z
 
-    const/4 v14, -0x1
+    const/4 v13, -0x1
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mOldHoverScrollDirection:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mOldHoverScrollDirection:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildByLeft:Landroid/view/View;
+    iput-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildByLeft:Landroid/view/View;
 
-    const/4 v14, -0x1
+    const/4 v13, -0x1
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByLeft:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByLeft:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDistanceFromCloseChildLeft:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDistanceFromCloseChildLeft:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildByRight:Landroid/view/View;
+    iput-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildByRight:Landroid/view/View;
 
-    const/4 v14, -0x1
+    const/4 v13, -0x1
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByRight:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByRight:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDistanceFromCloseChildRight:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDistanceFromCloseChildRight:I
 
-    new-instance v14, Landroid/graphics/Rect;
+    new-instance v13, Landroid/graphics/Rect;
 
-    invoke-direct {v14}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v13}, Landroid/graphics/Rect;-><init>()V
 
     move-object/from16 v0, p0
 
-    iput-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockRect:Landroid/graphics/Rect;
+    iput-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockRect:Landroid/graphics/Rect;
 
-    const/4 v14, 0x1
+    const/4 v13, 0x1
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemIsOnClickEnabled:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemIsOnClickEnabled:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mDVFSLockAcquired:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mDVFSLockAcquired:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mForcedClick:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mForcedClick:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mDragScrollWorkingZonePx:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mDragScrollWorkingZonePx:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsDragScrolled:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsDragScrolled:Z
 
-    sget v14, Landroid/widget/SemHorizontalAbsListView;->JUMP_SCROLL_TO_TOP_IDLE:I
+    sget v13, Landroid/widget/SemHorizontalAbsListView;->JUMP_SCROLL_TO_TOP_IDLE:I
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mJumpScrollToTopState:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mJumpScrollToTopState:I
 
-    const/4 v14, -0x1
+    const/4 v13, -0x1
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverPosition:I
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverPosition:I
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoveredOnEllipsizedText:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoveredOnEllipsizedText:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsHoveredByMouse:Z
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsHoveredByMouse:Z
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemSmoothScrollByMove:Landroid/widget/SemHorizontalAbsListView$SemSmoothScrollByMove;
+    iput-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemSmoothScrollByMove:Landroid/widget/SemHorizontalAbsListView$SemSmoothScrollByMove;
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSemScrollRemains:Ljava/util/LinkedList;
+    iput-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemScrollRemains:Ljava/util/LinkedList;
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
-
-    const/4 v14, -0x1
-
-    move-object/from16 v0, p0
-
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mQCLocation:I
-
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsQCShown:Z
-
-    const/4 v14, 0x1
-
-    move-object/from16 v0, p0
-
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollingCount:I
-
-    new-instance v14, Landroid/widget/SemHorizontalAbsListView$1;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v14, v0}, Landroid/widget/SemHorizontalAbsListView$1;-><init>(Landroid/widget/SemHorizontalAbsListView;)V
-
-    move-object/from16 v0, p0
-
-    iput-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollRunnable:Ljava/lang/Runnable;
+    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
 
     invoke-direct/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->initAbsListView()V
 
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
-    move-result-object v14
+    move-result-object v13
 
     move-object/from16 v0, p0
 
-    iput-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mOwnerThread:Ljava/lang/Thread;
+    iput-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mOwnerThread:Ljava/lang/Thread;
 
-    sget-object v14, Lcom/android/internal/R$styleable;->AbsListView:[I
+    sget-object v13, Lcom/android/internal/R$styleable;->AbsListView:[I
 
     move-object/from16 v0, p1
 
@@ -2225,168 +1997,133 @@
 
     move/from16 v3, p4
 
-    invoke-virtual {v0, v1, v14, v2, v3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+    invoke-virtual {v0, v1, v13, v2, v3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v4
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
-    invoke-virtual {v4, v14}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v4, v13}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v6
+    move-result-object v5
 
-    if-eqz v6, :cond_0
+    if-eqz v5, :cond_0
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6}, Landroid/widget/SemHorizontalAbsListView;->setSelector(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, v5}, Landroid/widget/SemHorizontalAbsListView;->setSelector(Landroid/graphics/drawable/Drawable;)V
 
     :cond_0
-    const/4 v14, 0x1
+    const/4 v13, 0x1
 
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
-    invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
-
-    move-result v14
-
-    move-object/from16 v0, p0
-
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mDrawSelectorOnTop:Z
-
-    const/4 v14, 0x2
-
-    const/4 v15, 0x0
-
-    invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
-
-    move-result v11
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v11}, Landroid/widget/SemHorizontalAbsListView;->setStackFromBottom(Z)V
-
-    const/4 v14, 0x3
-
-    const/4 v15, 0x1
-
-    invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
-
-    move-result v9
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v9}, Landroid/widget/SemHorizontalAbsListView;->setScrollingCacheEnabled(Z)V
-
-    const/4 v14, 0x4
-
-    const/4 v15, 0x0
-
-    invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    invoke-virtual {v4, v13, v14}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v13
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v13}, Landroid/widget/SemHorizontalAbsListView;->setTextFilterEnabled(Z)V
+    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mDrawSelectorOnTop:Z
 
-    const/4 v14, 0x5
+    const/4 v13, 0x2
 
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
-    invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getInt(II)I
-
-    move-result v12
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v12}, Landroid/widget/SemHorizontalAbsListView;->setTranscriptMode(I)V
-
-    const/4 v14, 0x6
-
-    const/4 v15, 0x0
-
-    invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getColor(II)I
-
-    move-result v5
-
-    const/16 v14, 0x8
-
-    const/4 v15, 0x0
-
-    invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
-
-    move-result v7
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v7}, Landroid/widget/SemHorizontalAbsListView;->setFastScrollEnabled(Z)V
-
-    const/16 v14, 0xb
-
-    const/4 v15, 0x0
-
-    invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getResourceId(II)I
-
-    move-result v8
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v8}, Landroid/widget/SemHorizontalAbsListView;->setFastScrollStyle(I)V
-
-    const/16 v14, 0x9
-
-    const/4 v15, 0x1
-
-    invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    invoke-virtual {v4, v13, v14}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v10
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v10}, Landroid/widget/SemHorizontalAbsListView;->setSmoothScrollbarEnabled(Z)V
+    invoke-virtual {v0, v10}, Landroid/widget/SemHorizontalAbsListView;->setStackFromBottom(Z)V
 
-    const/16 v14, 0xa
+    const/4 v13, 0x3
 
-    const/4 v15, 0x0
+    const/4 v14, 0x1
 
-    invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    invoke-virtual {v4, v13, v14}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
-    move-result v14
+    move-result v8
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v14}, Landroid/widget/SemHorizontalAbsListView;->setFastScrollAlwaysVisible(Z)V
+    invoke-virtual {v0, v8}, Landroid/widget/SemHorizontalAbsListView;->setScrollingCacheEnabled(Z)V
+
+    const/4 v13, 0x4
+
+    const/4 v14, 0x0
+
+    invoke-virtual {v4, v13, v14}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+
+    move-result v12
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v12}, Landroid/widget/SemHorizontalAbsListView;->setTextFilterEnabled(Z)V
+
+    const/4 v13, 0x5
+
+    const/4 v14, 0x0
+
+    invoke-virtual {v4, v13, v14}, Landroid/content/res/TypedArray;->getInt(II)I
+
+    move-result v11
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v11}, Landroid/widget/SemHorizontalAbsListView;->setTranscriptMode(I)V
+
+    const/16 v13, 0x8
+
+    const/4 v14, 0x0
+
+    invoke-virtual {v4, v13, v14}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+
+    move-result v6
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v6}, Landroid/widget/SemHorizontalAbsListView;->setFastScrollEnabled(Z)V
+
+    const/16 v13, 0xb
+
+    const/4 v14, 0x0
+
+    invoke-virtual {v4, v13, v14}, Landroid/content/res/TypedArray;->getResourceId(II)I
+
+    move-result v7
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v7}, Landroid/widget/SemHorizontalAbsListView;->setFastScrollStyle(I)V
+
+    const/16 v13, 0x9
+
+    const/4 v14, 0x1
+
+    invoke-virtual {v4, v13, v14}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+
+    move-result v9
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v9}, Landroid/widget/SemHorizontalAbsListView;->setSmoothScrollbarEnabled(Z)V
+
+    const/16 v13, 0xa
+
+    const/4 v14, 0x0
+
+    invoke-virtual {v4, v13, v14}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+
+    move-result v13
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v13}, Landroid/widget/SemHorizontalAbsListView;->setFastScrollAlwaysVisible(Z)V
 
     invoke-virtual {v4}, Landroid/content/res/TypedArray;->recycle()V
 
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mMotionRecognitionManager:Lcom/samsung/android/gesture/SemMotionRecognitionManager;
-
-    if-nez v14, :cond_1
-
-    const-string/jumbo v14, "SemHorizontalAbsListView"
-
-    const-string/jumbo v15, "Get MotionRecognitionManager"
-
-    invoke-static {v14, v15}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v14, "motion_recognition"
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v14}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v14
-
-    check-cast v14, Lcom/samsung/android/gesture/SemMotionRecognitionManager;
-
-    move-object/from16 v0, p0
-
-    iput-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mMotionRecognitionManager:Lcom/samsung/android/gesture/SemMotionRecognitionManager;
-
-    :cond_1
     return-void
 .end method
 
@@ -2399,7 +2136,7 @@
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getAdapter()Landroid/widget/Adapter;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getAdapter()Landroid/widget/Adapter;
 
     move-result-object v0
 
@@ -2407,7 +2144,7 @@
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getAdapter()Landroid/widget/Adapter;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getAdapter()Landroid/widget/Adapter;
 
     move-result-object v0
 
@@ -2438,8 +2175,6 @@
 .method private addToPressItemListArray(II)V
     .locals 4
 
-    const/4 v0, 0x0
-
     iget-boolean v2, p0, Landroid/widget/SemHorizontalAbsListView;->mIsMultiFocusEnabled:Z
 
     if-nez v2, :cond_0
@@ -2465,15 +2200,15 @@
 
     iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSemPressItemListArray:Ljava/util/ArrayList;
 
-    new-instance v3, Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-direct {v3, p1}, Ljava/lang/Integer;-><init>(I)V
+    move-result-object v3
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     :cond_1
     :goto_0
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->invalidate()V
 
     return-void
 
@@ -2514,9 +2249,9 @@
 
     iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSemPressItemListArray:Ljava/util/ArrayList;
 
-    new-instance v3, Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-direct {v3, p1}, Ljava/lang/Integer;-><init>(I)V
+    move-result-object v3
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
@@ -2564,9 +2299,9 @@
 
     iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSemPressItemListArray:Ljava/util/ArrayList;
 
-    new-instance v3, Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-direct {v3, p1}, Ljava/lang/Integer;-><init>(I)V
+    move-result-object v3
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
@@ -2603,9 +2338,9 @@
 
     iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSemPressItemListArray:Ljava/util/ArrayList;
 
-    new-instance v3, Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-direct {v3, p1}, Ljava/lang/Integer;-><init>(I)V
+    move-result-object v3
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
@@ -2626,7 +2361,7 @@
 .method private clearScrollingCache()V
     .locals 1
 
-    invoke-virtual {p0}, Landroid/view/View;->isHardwareAccelerated()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isHardwareAccelerated()Z
 
     move-result v0
 
@@ -2636,16 +2371,16 @@
 
     if-nez v0, :cond_0
 
-    new-instance v0, Landroid/widget/SemHorizontalAbsListView$6;
+    new-instance v0, Landroid/widget/SemHorizontalAbsListView$5;
 
-    invoke-direct {v0, p0}, Landroid/widget/SemHorizontalAbsListView$6;-><init>(Landroid/widget/SemHorizontalAbsListView;)V
+    invoke-direct {v0, p0}, Landroid/widget/SemHorizontalAbsListView$5;-><init>(Landroid/widget/SemHorizontalAbsListView;)V
 
     iput-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mClearScrollingCache:Ljava/lang/Runnable;
 
     :cond_0
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mClearScrollingCache:Ljava/lang/Runnable;
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v0}, Landroid/widget/SemHorizontalAbsListView;->post(Ljava/lang/Runnable;)Z
 
     :cond_1
     return-void
@@ -2658,7 +2393,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v0
 
@@ -2667,7 +2402,7 @@
     return v1
 
     :cond_0
-    iget v3, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     if-eq v0, v3, :cond_1
 
@@ -2678,7 +2413,7 @@
 
     if-eqz v3, :cond_4
 
-    invoke-virtual {p0, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -2686,7 +2421,7 @@
 
     move-result v3
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v4
 
@@ -2700,7 +2435,7 @@
 
     add-int/lit8 v3, v0, -0x1
 
-    invoke-virtual {p0, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -2728,7 +2463,7 @@
     goto :goto_0
 
     :cond_4
-    invoke-virtual {p0, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -2744,7 +2479,7 @@
 
     add-int/lit8 v3, v0, -0x1
 
-    invoke-virtual {p0, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -2752,7 +2487,7 @@
 
     move-result v3
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v4
 
@@ -2781,28 +2516,28 @@
 
     iget-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mCachingStarted:Z
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
-    invoke-virtual {p0}, Landroid/view/View;->isHardwareAccelerated()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isHardwareAccelerated()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->setChildrenDrawnWithCacheEnabled(Z)V
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->setChildrenDrawingCacheEnabled(Z)V
+    invoke-virtual {p0, v1}, Landroid/widget/SemHorizontalAbsListView;->setChildrenDrawnWithCacheEnabled(Z)V
+
+    invoke-virtual {p0, v1}, Landroid/widget/SemHorizontalAbsListView;->setChildrenDrawingCacheEnabled(Z)V
 
     iput-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCachingActive:Z
 
     iput-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCachingStarted:Z
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method private createTextFilter(Z)V
@@ -2820,7 +2555,7 @@
 
     new-instance v0, Landroid/widget/PopupWindow;
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -2848,7 +2583,7 @@
 
     iput-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPopup:Landroid/widget/PopupWindow;
 
-    invoke-virtual {p0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v1
 
@@ -2863,7 +2598,7 @@
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mPopup:Landroid/widget/PopupWindow;
 
-    const v2, 0x10302e9
+    const v2, 0x1030309
 
     invoke-virtual {v1, v2}, Landroid/widget/PopupWindow;->setAnimationStyle(I)V
 
@@ -2873,7 +2608,7 @@
     :cond_1
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mPopup:Landroid/widget/PopupWindow;
 
-    const v2, 0x10302ea
+    const v2, 0x103030a
 
     invoke-virtual {v1, v2}, Landroid/widget/PopupWindow;->setAnimationStyle(I)V
 
@@ -2895,174 +2630,12 @@
     return-void
 .end method
 
-.method private doScrollToLeftEnd()V
-    .locals 2
-
-    const/4 v1, 0x1
-
-    iput v1, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollDirection:I
-
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
-
-    move-result v0
-
-    iput v0, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollFrom:I
-
-    const/4 v0, 0x0
-
-    iput v0, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollTo:I
-
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
-
-    move-result v0
-
-    iput v0, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollNext:I
-
-    iput v1, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollingCount:I
-
-    iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollInterpolator:Landroid/view/animation/DecelerateInterpolator;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroid/view/animation/DecelerateInterpolator;
-
-    invoke-direct {v0}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
-
-    iput-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollInterpolator:Landroid/view/animation/DecelerateInterpolator;
-
-    :cond_0
-    iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {p0, v0}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method private doScrollToRightEnd()V
-    .locals 1
-
-    const/4 v0, 0x3
-
-    iput v0, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollDirection:I
-
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
-
-    move-result v0
-
-    iput v0, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollFrom:I
-
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getAdapter()Landroid/widget/Adapter;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/ListAdapter;
-
-    invoke-interface {v0}, Landroid/widget/ListAdapter;->getCount()I
-
-    move-result v0
-
-    iput v0, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollTo:I
-
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
-
-    move-result v0
-
-    iput v0, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollNext:I
-
-    const/4 v0, 0x1
-
-    iput v0, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollingCount:I
-
-    iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollInterpolator:Landroid/view/animation/DecelerateInterpolator;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroid/view/animation/DecelerateInterpolator;
-
-    invoke-direct {v0}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
-
-    iput-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollInterpolator:Landroid/view/animation/DecelerateInterpolator;
-
-    :cond_0
-    iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mQCScrollRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {p0, v0}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method private drawQuickController(Landroid/graphics/Canvas;)V
-    .locals 6
-
-    const/4 v5, 0x2
-
-    const/4 v4, 0x1
-
-    iget v2, p0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    if-eq v2, v4, :cond_0
-
-    iget v2, p0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    if-ne v2, v5, :cond_3
-
-    :cond_0
-    iget v1, p0, Landroid/view/View;->mScrollX:I
-
-    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
-
-    move-result v0
-
-    int-to-float v2, v1
-
-    const/4 v3, 0x0
-
-    invoke-virtual {p1, v2, v3}, Landroid/graphics/Canvas;->translate(FF)V
-
-    iget v2, p0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    if-ne v2, v4, :cond_2
-
-    iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mQCBtnDrawable:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {v2, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
-
-    :cond_1
-    :goto_0
-    invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->restoreToCount(I)V
-
-    iput-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mIsQCShown:Z
-
-    :goto_1
-    return-void
-
-    :cond_2
-    iget v2, p0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    if-ne v2, v5, :cond_1
-
-    iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mQCBtnPressedDrawable:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {v2, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
-
-    goto :goto_0
-
-    :cond_3
-    const/4 v2, 0x0
-
-    iput-boolean v2, p0, Landroid/widget/SemHorizontalAbsListView;->mIsQCShown:Z
-
-    goto :goto_1
-.end method
-
 .method private drawSelector(Landroid/graphics/Canvas;)V
     .locals 9
 
     new-instance v4, Landroid/graphics/Rect;
 
     invoke-direct {v4}, Landroid/graphics/Rect;-><init>()V
-
-    const/4 v0, 0x0
 
     iget-object v5, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectorRect:Landroid/graphics/Rect;
 
@@ -3109,11 +2682,11 @@
 
     move-result v5
 
-    iget v6, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v6, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     sub-int/2addr v5, v6
 
-    invoke-virtual {p0, v5}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v5}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -3365,7 +2938,7 @@
 
     if-nez v1, :cond_0
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -3373,7 +2946,7 @@
 
     move-result-object v0
 
-    const v1, 0x1090176
+    const v1, 0x1090171
 
     invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -3387,17 +2960,17 @@
 
     const/16 v2, 0xb1
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setRawInputType(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/EditText;->setRawInputType(I)V
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mTextFilter:Landroid/widget/EditText;
 
     const/high16 v2, 0x10000000
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setImeOptions(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/EditText;->setImeOptions(I)V
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mTextFilter:Landroid/widget/EditText;
 
-    invoke-virtual {v1, p0}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
+    invoke-virtual {v1, p0}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
     :cond_0
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mTextFilter:Landroid/widget/EditText;
@@ -3408,1183 +2981,568 @@
 .method private handleMessage(Landroid/os/Message;)V
     .locals 12
 
-    iget v7, p1, Landroid/os/Message;->what:I
+    const/4 v11, 0x2
 
-    packed-switch v7, :pswitch_data_0
+    const v10, 0x3ecccccd    # 0.4f
+
+    const/4 v9, 0x1
+
+    const/4 v8, 0x0
+
+    iget v3, p1, Landroid/os/Message;->what:I
+
+    packed-switch v3, :pswitch_data_0
 
     :cond_0
     :goto_0
     return-void
 
     :pswitch_0
-    const/4 v5, 0x0
-
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v8
+    move-result-wide v4
 
-    iput-wide v8, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionCurrentTime:J
+    iput-wide v4, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionCurrentTime:J
 
-    iget-wide v8, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionCurrentTime:J
+    iget-wide v4, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionCurrentTime:J
 
-    iget-wide v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
+    iget-wide v6, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
 
-    sub-long/2addr v8, v10
+    sub-long/2addr v4, v6
 
-    const-wide/16 v10, 0x3e8
+    const-wide/16 v6, 0x3e8
 
-    div-long/2addr v8, v10
+    div-long/2addr v4, v6
 
-    iput-wide v8, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionDurationTime:J
+    iput-wide v4, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionDurationTime:J
 
-    iget-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mIsPenHovered:Z
+    iget-boolean v3, p0, Landroid/widget/SemHorizontalAbsListView;->mIsPenHovered:Z
 
-    if-eqz v7, :cond_1
+    if-eqz v3, :cond_1
 
-    iget-wide v8, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionCurrentTime:J
+    iget-wide v4, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionCurrentTime:J
 
-    iget-wide v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
+    iget-wide v6, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
 
-    sub-long/2addr v8, v10
+    sub-long/2addr v4, v6
 
-    iget-wide v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollTimeInterval:J
+    iget-wide v6, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollTimeInterval:J
 
-    cmp-long v7, v8, v10
+    cmp-long v3, v4, v6
 
-    if-ltz v7, :cond_0
+    if-ltz v3, :cond_0
 
     :cond_1
-    iget-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mIsPenPressed:Z
+    iget-boolean v3, p0, Landroid/widget/SemHorizontalAbsListView;->mIsPenPressed:Z
 
-    if-eqz v7, :cond_2
+    if-eqz v3, :cond_2
 
-    iget-wide v8, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionCurrentTime:J
+    iget-wide v4, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionCurrentTime:J
 
-    iget-wide v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
+    iget-wide v6, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
 
-    sub-long/2addr v8, v10
+    sub-long/2addr v4, v6
 
-    iget-wide v10, p0, Landroid/widget/SemHorizontalAbsListView;->mPenDragScrollTimeInterval:J
+    iget-wide v6, p0, Landroid/widget/SemHorizontalAbsListView;->mPenDragScrollTimeInterval:J
 
-    cmp-long v7, v8, v10
+    cmp-long v3, v4, v6
 
-    if-ltz v7, :cond_0
+    if-ltz v3, :cond_0
 
     :cond_2
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->HOVERSCROLL_SPEED:F
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->HOVERSCROLL_SPEED:F
 
-    iget-object v8, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v8
+    move-result-object v4
 
-    invoke-virtual {v8}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v4}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v8
+    move-result-object v4
 
-    const/4 v9, 0x1
+    invoke-static {v9, v3, v4}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
 
-    invoke-static {v9, v7, v8}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
+    move-result v3
 
-    move-result v7
+    const/high16 v4, 0x3f000000    # 0.5f
 
-    const/high16 v8, 0x3f000000    # 0.5f
+    add-float/2addr v3, v4
 
-    add-float/2addr v7, v8
+    float-to-int v3, v3
 
-    float-to-int v7, v7
+    iput v3, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
 
-    iput v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
+    iget-wide v4, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionDurationTime:J
 
-    iget-wide v8, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionDurationTime:J
+    const-wide/16 v6, 0x3
 
-    const-wide/16 v10, 0x2
+    cmp-long v3, v4, v6
 
-    cmp-long v7, v8, v10
+    if-nez v3, :cond_6
 
-    if-lez v7, :cond_6
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
 
-    iget-wide v8, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionDurationTime:J
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
 
-    const-wide/16 v10, 0x4
+    int-to-double v4, v4
 
-    cmp-long v7, v8, v10
+    const-wide v6, 0x3fb999999999999aL    # 0.1
 
-    if-gez v7, :cond_6
+    mul-double/2addr v4, v6
 
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
+    double-to-int v4, v4
 
-    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
+    add-int/2addr v3, v4
 
-    int-to-double v8, v8
-
-    const-wide v10, 0x3fb999999999999aL    # 0.1
-
-    mul-double/2addr v8, v10
-
-    double-to-int v8, v8
-
-    add-int/2addr v7, v8
-
-    iput v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
+    iput v3, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
 
     :cond_3
     :goto_1
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
 
-    const/4 v8, 0x2
+    if-ne v3, v11, :cond_8
 
-    if-ne v7, v8, :cond_9
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
 
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
-
-    mul-int/lit8 v5, v7, -0x1
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChild:Landroid/view/View;
-
-    if-nez v7, :cond_8
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildByRight:Landroid/view/View;
-
-    if-eqz v7, :cond_8
+    neg-int v1, v3
 
     :goto_2
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildByRight:Landroid/view/View;
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChild:Landroid/view/View;
 
-    iput-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChild:Landroid/view/View;
+    if-nez v3, :cond_9
 
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemDistanceFromCloseChildRight:I
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildByRight:Landroid/view/View;
 
-    iput v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemDistanceFromTrackedChildLeft:I
+    if-eqz v3, :cond_9
 
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByRight:I
+    :goto_3
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildByRight:Landroid/view/View;
 
-    iput v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChildPosition:I
+    iput-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChild:Landroid/view/View;
 
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSemDistanceFromCloseChildRight:I
 
-    iput v7, p0, Landroid/widget/SemHorizontalAbsListView;->mOldHoverScrollDirection:I
+    iput v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSemDistanceFromTrackedChildLeft:I
 
-    const/4 v7, 0x1
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByRight:I
 
-    iput-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mIsCloseChildSetted:Z
+    iput v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChildPosition:I
+
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
+
+    iput v3, p0, Landroid/widget/SemHorizontalAbsListView;->mOldHoverScrollDirection:I
+
+    iput-boolean v9, p0, Landroid/widget/SemHorizontalAbsListView;->mIsCloseChildSetted:Z
 
     :cond_4
-    :goto_3
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
-    move-result v7
+    move-result v3
 
-    add-int/lit8 v7, v7, -0x1
+    add-int/lit8 v3, v3, -0x1
 
-    invoke-virtual {p0, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v7
+    move-result-object v3
 
-    if-eqz v7, :cond_0
+    if-eqz v3, :cond_0
 
-    iget-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
+    iget-boolean v3, p0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
 
-    if-eqz v7, :cond_17
+    if-eqz v3, :cond_a
 
-    if-gez v5, :cond_b
+    if-gez v1, :cond_a
 
-    iget v7, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
-    move-result v8
+    move-result v4
 
-    add-int/2addr v7, v8
+    add-int/2addr v3, v4
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getCount()I
 
-    move-result v8
+    move-result v4
 
-    if-ne v7, v8, :cond_5
+    if-ne v3, v4, :cond_5
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getPaddingLeft()I
 
-    move-result v7
+    move-result v3
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
-    move-result v8
+    move-result v4
 
-    add-int/lit8 v8, v8, -0x1
+    add-int/lit8 v4, v4, -0x1
 
-    invoke-virtual {p0, v8}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v4}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v8
+    move-result-object v4
 
-    invoke-virtual {v8}, Landroid/view/View;->getLeft()I
+    invoke-virtual {v4}, Landroid/view/View;->getLeft()I
 
-    move-result v8
+    move-result v4
 
-    if-eq v7, v8, :cond_b
+    if-eq v3, v4, :cond_a
 
     :cond_5
-    const/4 v7, 0x0
+    invoke-virtual {p0, v1, v8}, Landroid/widget/SemHorizontalAbsListView;->smoothScrollBy(II)V
 
-    invoke-virtual {p0, v5, v7}, Landroid/widget/SemHorizontalAbsListView;->smoothScrollBy(II)V
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->HOVERSCROLL_DELAY:I
 
-    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->HOVERSCROLL_DELAY:I
+    int-to-long v4, v4
 
-    int-to-long v8, v8
-
-    const/4 v10, 0x1
-
-    invoke-virtual {v7, v10, v8, v9}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {v3, v9, v4, v5}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->sendEmptyMessageDelayed(IJ)Z
 
     goto/16 :goto_0
 
     :cond_6
-    iget-wide v8, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionDurationTime:J
+    iget-wide v4, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionDurationTime:J
 
-    const-wide/16 v10, 0x4
+    const-wide/16 v6, 0x4
 
-    cmp-long v7, v8, v10
+    cmp-long v3, v4, v6
 
-    if-ltz v7, :cond_7
+    if-nez v3, :cond_7
 
-    iget-wide v8, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionDurationTime:J
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
 
-    const-wide/16 v10, 0x5
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
 
-    cmp-long v7, v8, v10
+    int-to-double v4, v4
 
-    if-gez v7, :cond_7
+    const-wide v6, 0x3fc999999999999aL    # 0.2
 
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
+    mul-double/2addr v4, v6
 
-    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
+    double-to-int v4, v4
 
-    int-to-double v8, v8
+    add-int/2addr v3, v4
 
-    const-wide v10, 0x3fc999999999999aL    # 0.2
+    iput v3, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
 
-    mul-double/2addr v8, v10
-
-    double-to-int v8, v8
-
-    add-int/2addr v7, v8
-
-    iput v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
-
-    goto/16 :goto_1
+    goto :goto_1
 
     :cond_7
-    iget-wide v8, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionDurationTime:J
+    iget-wide v4, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionDurationTime:J
 
-    const-wide/16 v10, 0x5
+    const-wide/16 v6, 0x5
 
-    cmp-long v7, v8, v10
+    cmp-long v3, v4, v6
 
-    if-ltz v7, :cond_3
+    if-ltz v3, :cond_3
 
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
 
-    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
 
-    int-to-double v8, v8
+    int-to-double v4, v4
 
-    const-wide v10, 0x3fd3333333333333L    # 0.3
+    const-wide v6, 0x3fd3333333333333L    # 0.3
 
-    mul-double/2addr v8, v10
+    mul-double/2addr v4, v6
 
-    double-to-int v8, v8
+    double-to-int v4, v4
 
-    add-int/2addr v7, v8
+    add-int/2addr v3, v4
 
-    iput v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
+    iput v3, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
 
     goto/16 :goto_1
 
     :cond_8
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mOldHoverScrollDirection:I
-
-    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
-
-    if-eq v7, v8, :cond_4
-
-    iget-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mIsCloseChildSetted:Z
-
-    if-eqz v7, :cond_4
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
 
     goto/16 :goto_2
 
     :cond_9
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mOldHoverScrollDirection:I
 
-    mul-int/lit8 v5, v7, 0x1
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
 
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChild:Landroid/view/View;
+    if-eq v3, v4, :cond_4
 
-    if-nez v7, :cond_a
+    iget-boolean v3, p0, Landroid/widget/SemHorizontalAbsListView;->mIsCloseChildSetted:Z
 
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildByRight:Landroid/view/View;
-
-    if-eqz v7, :cond_a
-
-    :goto_4
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildByRight:Landroid/view/View;
-
-    iput-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChild:Landroid/view/View;
-
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemDistanceFromCloseChildRight:I
-
-    iput v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemDistanceFromTrackedChildLeft:I
-
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByRight:I
-
-    iput v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChildPosition:I
-
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
-
-    iput v7, p0, Landroid/widget/SemHorizontalAbsListView;->mOldHoverScrollDirection:I
-
-    const/4 v7, 0x1
-
-    iput-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mIsCloseChildSetted:Z
+    if-eqz v3, :cond_4
 
     goto/16 :goto_3
 
     :cond_a
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mOldHoverScrollDirection:I
+    iget-boolean v3, p0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
 
-    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
+    if-eqz v3, :cond_c
 
-    if-eq v7, v8, :cond_4
+    if-lez v1, :cond_c
 
-    iget-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mIsCloseChildSetted:Z
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
-    if-eqz v7, :cond_4
+    if-nez v3, :cond_b
 
-    goto :goto_4
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
+
+    move-result v3
+
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getPaddingRight()I
+
+    move-result v4
+
+    sub-int/2addr v3, v4
+
+    invoke-virtual {p0, v8}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/view/View;->getRight()I
+
+    move-result v4
+
+    if-eq v3, v4, :cond_c
 
     :cond_b
-    if-lez v5, :cond_d
+    invoke-virtual {p0, v1, v8}, Landroid/widget/SemHorizontalAbsListView;->smoothScrollBy(II)V
 
-    iget v7, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    if-nez v7, :cond_c
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->HOVERSCROLL_DELAY:I
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    int-to-long v4, v4
 
-    move-result v7
-
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
-
-    move-result v8
-
-    sub-int/2addr v7, v8
-
-    const/4 v8, 0x0
-
-    invoke-virtual {p0, v8}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Landroid/view/View;->getRight()I
-
-    move-result v8
-
-    if-eq v7, v8, :cond_d
-
-    :cond_c
-    const/4 v7, 0x0
-
-    invoke-virtual {p0, v5, v7}, Landroid/widget/SemHorizontalAbsListView;->smoothScrollBy(II)V
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->HOVERSCROLL_DELAY:I
-
-    int-to-long v8, v8
-
-    const/4 v10, 0x1
-
-    invoke-virtual {v7, v10, v8, v9}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {v3, v9, v4, v5}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->sendEmptyMessageDelayed(IJ)Z
 
     goto/16 :goto_0
 
+    :cond_c
+    iget-boolean v3, p0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
+
+    if-nez v3, :cond_e
+
+    if-gez v1, :cond_e
+
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
+
+    if-nez v3, :cond_d
+
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getPaddingLeft()I
+
+    move-result v3
+
+    invoke-virtual {p0, v8}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/view/View;->getLeft()I
+
+    move-result v4
+
+    if-eq v3, v4, :cond_e
+
     :cond_d
-    invoke-virtual {p0}, Landroid/view/View;->getOverScrollMode()I
+    invoke-virtual {p0, v1, v8}, Landroid/widget/SemHorizontalAbsListView;->smoothScrollBy(II)V
 
-    move-result v6
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    if-eqz v6, :cond_10
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->HOVERSCROLL_DELAY:I
 
-    const/4 v7, 0x1
+    int-to-long v4, v4
 
-    if-ne v6, v7, :cond_e
+    invoke-virtual {v3, v9, v4, v5}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->sendEmptyMessageDelayed(IJ)Z
 
-    invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->contentFits()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_11
+    goto/16 :goto_0
 
     :cond_e
-    const/4 v0, 0x0
+    iget-boolean v3, p0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
 
-    :goto_5
-    if-eqz v0, :cond_f
+    if-nez v3, :cond_10
 
-    iget-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
+    if-gez v1, :cond_10
 
-    if-eqz v7, :cond_12
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
+
+    if-nez v3, :cond_f
+
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getPaddingLeft()I
+
+    move-result v3
+
+    invoke-virtual {p0, v8}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/view/View;->getLeft()I
+
+    move-result v4
+
+    if-eq v3, v4, :cond_10
 
     :cond_f
-    :goto_6
-    if-nez v0, :cond_0
+    invoke-virtual {p0, v1, v8}, Landroid/widget/SemHorizontalAbsListView;->smoothScrollBy(II)V
 
-    iget-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    if-nez v7, :cond_0
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->HOVERSCROLL_DELAY:I
 
-    const/4 v7, 0x1
+    int-to-long v4, v4
 
-    iput-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
+    invoke-virtual {v3, v9, v4, v5}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->sendEmptyMessageDelayed(IJ)Z
 
     goto/16 :goto_0
 
     :cond_10
-    const/4 v0, 0x1
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getOverScrollMode()I
 
-    goto :goto_5
+    move-result v2
 
-    :cond_11
-    const/4 v0, 0x1
+    if-eqz v2, :cond_15
 
-    goto :goto_5
-
-    :cond_12
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
-
-    const/4 v8, 0x2
-
-    if-ne v7, v8, :cond_15
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
-
-    move-result v8
-
-    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
-
-    move-result v9
-
-    invoke-virtual {v7, v8, v9}, Landroid/widget/EdgeEffect;->setSize(II)V
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
-
-    const v8, 0x3ecccccd    # 0.4f
-
-    invoke-virtual {v7, v8}, Landroid/widget/EdgeEffect;->onPull(F)V
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v7}, Landroid/widget/EdgeEffect;->isFinished()Z
-
-    move-result v7
-
-    if-nez v7, :cond_13
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v7}, Landroid/widget/EdgeEffect;->onRelease()V
-
-    :cond_13
-    :goto_7
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
-
-    if-eqz v7, :cond_14
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v7}, Landroid/widget/EdgeEffect;->isFinished()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_16
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v7}, Landroid/widget/EdgeEffect;->isFinished()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_16
-
-    :cond_14
-    :goto_8
-    const/4 v7, 0x1
-
-    iput-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
-
-    goto :goto_6
-
-    :cond_15
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
-
-    const/4 v8, 0x1
-
-    if-ne v7, v8, :cond_13
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
-
-    move-result v8
-
-    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
-
-    move-result v9
-
-    invoke-virtual {v7, v8, v9}, Landroid/widget/EdgeEffect;->setSize(II)V
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
-
-    const v8, 0x3ecccccd    # 0.4f
-
-    invoke-virtual {v7, v8}, Landroid/widget/EdgeEffect;->onPull(F)V
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v7}, Landroid/widget/EdgeEffect;->isFinished()Z
-
-    move-result v7
-
-    if-nez v7, :cond_13
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v7}, Landroid/widget/EdgeEffect;->onRelease()V
-
-    goto :goto_7
-
-    :cond_16
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
-
-    goto :goto_8
-
-    :cond_17
-    if-gez v5, :cond_19
-
-    iget v7, p0, Landroid/widget/AdapterView;->mFirstPosition:I
-
-    if-nez v7, :cond_18
-
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
-
-    move-result v7
-
-    const/4 v8, 0x0
-
-    invoke-virtual {p0, v8}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Landroid/view/View;->getLeft()I
-
-    move-result v8
-
-    if-eq v7, v8, :cond_19
-
-    :cond_18
-    const/4 v7, 0x0
-
-    invoke-virtual {p0, v5, v7}, Landroid/widget/SemHorizontalAbsListView;->smoothScrollBy(II)V
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->HOVERSCROLL_DELAY:I
-
-    int-to-long v8, v8
-
-    const/4 v10, 0x1
-
-    invoke-virtual {v7, v10, v8, v9}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
-
-    goto/16 :goto_0
-
-    :cond_19
-    if-lez v5, :cond_1b
-
-    iget v7, p0, Landroid/widget/AdapterView;->mFirstPosition:I
-
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
-
-    move-result v8
-
-    add-int/2addr v7, v8
-
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getCount()I
-
-    move-result v8
-
-    if-ne v7, v8, :cond_1a
-
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
-
-    move-result v7
-
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
-
-    move-result v8
-
-    sub-int/2addr v7, v8
-
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
-
-    move-result v8
-
-    add-int/lit8 v8, v8, -0x1
-
-    invoke-virtual {p0, v8}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Landroid/view/View;->getRight()I
-
-    move-result v8
-
-    if-eq v7, v8, :cond_1b
-
-    :cond_1a
-    const/4 v7, 0x0
-
-    invoke-virtual {p0, v5, v7}, Landroid/widget/SemHorizontalAbsListView;->smoothScrollBy(II)V
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->HOVERSCROLL_DELAY:I
-
-    int-to-long v8, v8
-
-    const/4 v10, 0x1
-
-    invoke-virtual {v7, v10, v8, v9}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
-
-    goto/16 :goto_0
-
-    :cond_1b
-    invoke-virtual {p0}, Landroid/view/View;->getOverScrollMode()I
-
-    move-result v6
-
-    if-eqz v6, :cond_1e
-
-    const/4 v7, 0x1
-
-    if-ne v6, v7, :cond_1c
+    if-ne v2, v9, :cond_16
 
     invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->contentFits()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_1f
-
-    :cond_1c
-    const/4 v0, 0x0
-
-    :goto_9
-    if-eqz v0, :cond_1d
-
-    iget-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
-
-    if-eqz v7, :cond_20
-
-    :cond_1d
-    :goto_a
-    if-nez v0, :cond_0
-
-    iget-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
-
-    if-nez v7, :cond_0
-
-    const/4 v7, 0x1
-
-    iput-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
-
-    goto/16 :goto_0
-
-    :cond_1e
-    const/4 v0, 0x1
-
-    goto :goto_9
-
-    :cond_1f
-    const/4 v0, 0x1
-
-    goto :goto_9
-
-    :cond_20
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
-
-    const/4 v8, 0x2
-
-    if-ne v7, v8, :cond_23
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
-
-    move-result v8
-
-    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
-
-    move-result v9
-
-    invoke-virtual {v7, v8, v9}, Landroid/widget/EdgeEffect;->setSize(II)V
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
-
-    const v8, 0x3ecccccd    # 0.4f
-
-    invoke-virtual {v7, v8}, Landroid/widget/EdgeEffect;->onPull(F)V
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v7}, Landroid/widget/EdgeEffect;->isFinished()Z
-
-    move-result v7
-
-    if-nez v7, :cond_21
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v7}, Landroid/widget/EdgeEffect;->onRelease()V
-
-    :cond_21
-    :goto_b
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
-
-    if-eqz v7, :cond_22
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v7}, Landroid/widget/EdgeEffect;->isFinished()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_24
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v7}, Landroid/widget/EdgeEffect;->isFinished()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_24
-
-    :cond_22
-    :goto_c
-    const/4 v7, 0x1
-
-    iput-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
-
-    goto :goto_a
-
-    :cond_23
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
-
-    const/4 v8, 0x1
-
-    if-ne v7, v8, :cond_21
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
-
-    move-result v8
-
-    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
-
-    move-result v9
-
-    invoke-virtual {v7, v8, v9}, Landroid/widget/EdgeEffect;->setSize(II)V
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
-
-    const v8, 0x3ecccccd    # 0.4f
-
-    invoke-virtual {v7, v8}, Landroid/widget/EdgeEffect;->onPull(F)V
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v7}, Landroid/widget/EdgeEffect;->isFinished()Z
-
-    move-result v7
-
-    if-nez v7, :cond_21
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v7}, Landroid/widget/EdgeEffect;->onRelease()V
-
-    goto :goto_b
-
-    :cond_24
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
-
-    goto :goto_c
-
-    :pswitch_1
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v3
 
-    add-int/lit8 v7, v3, -0x1
+    xor-int/lit8 v0, v3, 0x1
 
-    invoke-virtual {p0, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    :goto_4
+    if-eqz v0, :cond_14
 
-    move-result-object v7
+    iget-boolean v3, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
 
-    if-eqz v7, :cond_0
+    xor-int/lit8 v3, v3, 0x1
 
-    iget v7, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    if-eqz v3, :cond_14
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
 
-    move-result v8
+    if-ne v3, v11, :cond_17
 
-    add-int/2addr v7, v8
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
-    move-result v8
+    move-result v4
 
-    if-ne v7, v8, :cond_28
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getHeight()I
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    move-result v5
 
-    move-result v7
+    invoke-virtual {v3, v4, v5}, Landroid/widget/EdgeEffect;->setSize(II)V
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
 
-    move-result v8
+    invoke-virtual {v3, v10}, Landroid/widget/EdgeEffect;->onPull(F)V
 
-    sub-int/2addr v7, v8
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
 
-    add-int/lit8 v8, v3, -0x1
+    invoke-virtual {v3}, Landroid/widget/EdgeEffect;->isFinished()Z
 
-    invoke-virtual {p0, v8}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    move-result v3
 
-    move-result-object v8
+    if-nez v3, :cond_11
 
-    invoke-virtual {v8}, Landroid/view/View;->getRight()I
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
 
-    move-result v8
+    invoke-virtual {v3}, Landroid/widget/EdgeEffect;->onRelease()V
 
-    if-eq v7, v8, :cond_29
+    :cond_11
+    :goto_5
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
 
-    const/4 v2, 0x1
+    if-eqz v3, :cond_13
 
-    :goto_d
-    iget v7, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
 
-    if-nez v7, :cond_25
+    invoke-virtual {v3}, Landroid/widget/EdgeEffect;->isFinished()Z
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
+    move-result v3
 
-    move-result v7
+    if-eqz v3, :cond_12
 
-    const/4 v8, 0x0
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
 
-    invoke-virtual {p0, v8}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v3}, Landroid/widget/EdgeEffect;->isFinished()Z
 
-    move-result-object v8
+    move-result v3
 
-    invoke-virtual {v8}, Landroid/view/View;->getLeft()I
+    xor-int/lit8 v3, v3, 0x1
 
-    move-result v8
+    if-eqz v3, :cond_13
 
-    if-eq v7, v8, :cond_2a
+    :cond_12
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->invalidate()V
 
-    :cond_25
-    const/4 v1, 0x1
+    :cond_13
+    iput-boolean v9, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
 
-    :goto_e
-    iget-object v7, p0, Landroid/view/View;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object v7
-
-    const/4 v8, 0x1
-
-    const/high16 v9, 0x41f00000    # 30.0f
-
-    invoke-static {v8, v9, v7}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
-
-    move-result v7
-
-    const/high16 v8, 0x3f000000    # 0.5f
-
-    add-float/2addr v7, v8
-
-    float-to-int v7, v7
-
-    iput v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
-
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mQCLocation:I
-
-    const/4 v8, 0x1
-
-    if-ne v7, v8, :cond_2b
-
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
-
-    neg-int v4, v7
-
-    :goto_f
-    if-gez v4, :cond_26
-
-    if-nez v1, :cond_27
-
-    :cond_26
-    if-lez v4, :cond_2c
-
-    if-eqz v2, :cond_2c
-
-    :cond_27
-    const/4 v7, 0x0
-
-    invoke-virtual {p0, v4, v7}, Landroid/widget/SemHorizontalAbsListView;->smoothScrollBy(II)V
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->HOVERSCROLL_DELAY:I
-
-    int-to-long v8, v8
-
-    const/4 v10, 0x2
-
-    invoke-virtual {v7, v10, v8, v9}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
-
-    goto/16 :goto_0
-
-    :cond_28
-    const/4 v2, 0x1
-
-    goto :goto_d
-
-    :cond_29
-    const/4 v2, 0x0
-
-    goto :goto_d
-
-    :cond_2a
-    const/4 v1, 0x0
-
-    goto :goto_e
-
-    :cond_2b
-    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollSpeed:I
-
-    goto :goto_f
-
-    :cond_2c
-    invoke-virtual {p0}, Landroid/view/View;->getOverScrollMode()I
-
-    move-result v6
-
-    if-eqz v6, :cond_2f
-
-    const/4 v7, 0x1
-
-    if-ne v6, v7, :cond_2d
-
-    invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->contentFits()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_30
-
-    :cond_2d
-    const/4 v0, 0x0
-
-    :goto_10
-    if-eqz v0, :cond_2e
-
-    iget-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
-
-    if-eqz v7, :cond_31
-
-    :cond_2e
-    :goto_11
+    :cond_14
     if-nez v0, :cond_0
 
-    iget-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
+    iget-boolean v3, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
 
-    if-nez v7, :cond_0
+    xor-int/lit8 v3, v3, 0x1
 
-    const/4 v7, 0x1
+    if-eqz v3, :cond_0
 
-    iput-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
+    iput-boolean v9, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
 
     goto/16 :goto_0
 
-    :cond_2f
+    :cond_15
     const/4 v0, 0x1
 
-    goto :goto_10
+    goto :goto_4
 
-    :cond_30
-    const/4 v0, 0x1
+    :cond_16
+    const/4 v0, 0x0
 
-    goto :goto_10
+    goto :goto_4
 
-    :cond_31
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mQCLocation:I
+    :cond_17
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
 
-    const/4 v8, 0x1
+    if-ne v3, v9, :cond_11
 
-    if-ne v7, v8, :cond_34
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
 
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    move-result v4
 
-    move-result v8
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getHeight()I
 
-    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
+    move-result v5
 
-    move-result v9
+    invoke-virtual {v3, v4, v5}, Landroid/widget/EdgeEffect;->setSize(II)V
 
-    invoke-virtual {v7, v8, v9}, Landroid/widget/EdgeEffect;->setSize(II)V
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
 
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
+    invoke-virtual {v3, v10}, Landroid/widget/EdgeEffect;->onPull(F)V
 
-    const v8, 0x3ecccccd    # 0.4f
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
 
-    invoke-virtual {v7, v8}, Landroid/widget/EdgeEffect;->onPull(F)V
+    invoke-virtual {v3}, Landroid/widget/EdgeEffect;->isFinished()Z
 
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
+    move-result v3
 
-    invoke-virtual {v7}, Landroid/widget/EdgeEffect;->isFinished()Z
+    if-nez v3, :cond_11
 
-    move-result v7
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
 
-    if-nez v7, :cond_32
+    invoke-virtual {v3}, Landroid/widget/EdgeEffect;->onRelease()V
 
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v7}, Landroid/widget/EdgeEffect;->onRelease()V
-
-    :cond_32
-    :goto_12
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
-
-    if-eqz v7, :cond_33
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v7}, Landroid/widget/EdgeEffect;->isFinished()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_35
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v7}, Landroid/widget/EdgeEffect;->isFinished()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_35
-
-    :cond_33
-    :goto_13
-    const/4 v7, 0x1
-
-    iput-boolean v7, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
-
-    goto :goto_11
-
-    :cond_34
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mQCLocation:I
-
-    const/4 v8, 0x3
-
-    if-ne v7, v8, :cond_32
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
-
-    move-result v8
-
-    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
-
-    move-result v9
-
-    invoke-virtual {v7, v8, v9}, Landroid/widget/EdgeEffect;->setSize(II)V
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
-
-    const v8, 0x3ecccccd    # 0.4f
-
-    invoke-virtual {v7, v8}, Landroid/widget/EdgeEffect;->onPull(F)V
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v7}, Landroid/widget/EdgeEffect;->isFinished()Z
-
-    move-result v7
-
-    if-nez v7, :cond_32
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v7}, Landroid/widget/EdgeEffect;->onRelease()V
-
-    goto :goto_12
-
-    :cond_35
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
-
-    goto :goto_13
-
-    :pswitch_2
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mQCLocation:I
-
-    const/4 v8, 0x1
-
-    if-ne v7, v8, :cond_36
-
-    invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->doScrollToLeftEnd()V
-
-    goto/16 :goto_0
-
-    :cond_36
-    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mQCLocation:I
-
-    const/4 v8, 0x3
-
-    if-ne v7, v8, :cond_0
-
-    invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->doScrollToRightEnd()V
-
-    goto/16 :goto_0
+    goto :goto_5
 
     nop
 
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
-        :pswitch_1
-        :pswitch_2
     .end packed-switch
 .end method
 
@@ -4595,23 +3553,23 @@
 
     const/4 v5, 0x1
 
-    invoke-virtual {p0, v5}, Landroid/view/View;->setClickable(Z)V
+    invoke-virtual {p0, v5}, Landroid/widget/SemHorizontalAbsListView;->setClickable(Z)V
 
-    invoke-virtual {p0, v5}, Landroid/widget/AdapterView;->setFocusableInTouchMode(Z)V
+    invoke-virtual {p0, v5}, Landroid/widget/SemHorizontalAbsListView;->setFocusableInTouchMode(Z)V
 
-    invoke-virtual {p0, v3}, Landroid/view/View;->setWillNotDraw(Z)V
+    invoke-virtual {p0, v3}, Landroid/widget/SemHorizontalAbsListView;->setWillNotDraw(Z)V
 
-    invoke-virtual {p0, v3}, Landroid/view/ViewGroup;->setAlwaysDrawnWithCacheEnabled(Z)V
+    invoke-virtual {p0, v3}, Landroid/widget/SemHorizontalAbsListView;->setAlwaysDrawnWithCacheEnabled(Z)V
 
     invoke-virtual {p0, v5}, Landroid/widget/SemHorizontalAbsListView;->setScrollingCacheEnabled(Z)V
 
-    invoke-virtual {p0}, Landroid/view/View;->semEnableHorizontalScrollbar()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->semEnableHorizontalScrollbar()V
 
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
 
     if-eqz v3, :cond_1
 
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
 
     invoke-static {v3}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
 
@@ -4647,7 +3605,7 @@
 
     iput v3, p0, Landroid/widget/SemHorizontalAbsListView;->mOverflingDistance:I
 
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -4665,17 +3623,17 @@
 
     invoke-direct {v2}, Landroid/util/TypedValue;-><init>()V
 
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
 
     if-eqz v3, :cond_1
 
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v3
 
-    const v4, 0x11600dd
+    const v4, 0x111013a
 
     invoke-virtual {v3, v4, v2, v5}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
@@ -4683,7 +3641,7 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -4698,13 +3656,13 @@
     iput-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mMultiFocusImage:Landroid/graphics/drawable/Drawable;
 
     :cond_0
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v3
 
-    const v4, 0x11600de
+    const v4, 0x1110133
 
     invoke-virtual {v3, v4, v2, v5}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
@@ -4712,7 +3670,7 @@
 
     if-eqz v1, :cond_1
 
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -4727,12 +3685,6 @@
     iput-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockImage:Landroid/graphics/drawable/Drawable;
 
     :cond_1
-    new-instance v3, Landroid/view/HapticPreDrawListener;
-
-    invoke-direct {v3}, Landroid/view/HapticPreDrawListener;-><init>()V
-
-    iput-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mHapticPreDrawListener:Landroid/view/HapticPreDrawListener;
-
     return-void
 .end method
 
@@ -4778,53 +3730,23 @@
 .end method
 
 .method private isLockScreenMode()Z
-    .locals 8
+    .locals 2
 
-    const/4 v5, 0x1
+    iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
 
-    iget-object v6, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    const-string/jumbo v1, "keyguard"
 
-    const-string/jumbo v7, "keyguard"
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v3
+    check-cast v0, Landroid/app/KeyguardManager;
 
-    check-cast v3, Landroid/app/KeyguardManager;
+    invoke-virtual {v0}, Landroid/app/KeyguardManager;->inKeyguardRestrictedInputMode()Z
 
-    const/4 v2, 0x0
+    move-result v0
 
-    invoke-virtual {v3}, Landroid/app/KeyguardManager;->inKeyguardRestrictedInputMode()Z
-
-    move-result v2
-
-    const-string/jumbo v6, "window"
-
-    invoke-static {v6}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v6
-
-    invoke-static {v6}, Landroid/view/IWindowManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/view/IWindowManager;
-
-    move-result-object v4
-
-    const/4 v0, 0x1
-
-    const/4 v1, 0x0
-
-    if-nez v2, :cond_0
-
-    if-eqz v0, :cond_0
-
-    const/4 v1, 0x0
-
-    :goto_0
-    return v1
-
-    :cond_0
-    move v1, v5
-
-    goto :goto_0
+    return v0
 .end method
 
 .method private isOwnerThread()Z
@@ -4849,23 +3771,6 @@
     goto :goto_0
 .end method
 
-.method private isQCSupported()Z
-    .locals 1
-
-    sget-boolean v0, Landroid/widget/SemHorizontalAbsListView;->sIsSpenUspLevel3:Z
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
 .method private static log(Ljava/lang/String;)V
     .locals 1
 
@@ -4877,497 +3782,125 @@
 .end method
 
 .method private onHoverDrawableState(Landroid/view/MotionEvent;)V
-    .locals 17
+    .locals 6
 
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getAction()I
-
-    move-result v1
-
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v14}, Landroid/view/MotionEvent;->getToolType(I)I
-
-    move-result v11
-
-    const/4 v14, 0x7
-
-    if-eq v1, v14, :cond_0
-
-    const/16 v14, 0x9
-
-    if-ne v1, v14, :cond_2
-
-    :cond_0
-    const/4 v14, 0x2
-
-    if-ne v11, v14, :cond_2
-
-    const/4 v14, 0x1
-
-    move-object/from16 v0, p0
-
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsPenHovered:Z
-
-    :cond_1
-    :goto_0
-    const/4 v14, 0x1
-
-    if-eq v11, v14, :cond_4
-
-    const/4 v14, 0x3
-
-    if-ne v11, v14, :cond_3
-
-    const/4 v14, 0x1
-
-    :goto_1
-    move-object/from16 v0, p0
-
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsHoveredByMouse:Z
-
-    return-void
-
-    :cond_2
-    const/16 v14, 0xa
-
-    if-ne v1, v14, :cond_1
-
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsPenHovered:Z
-
-    goto :goto_0
-
-    :cond_3
-    const/4 v14, 0x0
-
-    goto :goto_1
-
-    :cond_4
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsHoveredByMouse:Z
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v14, :cond_5
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {v14}, Landroid/graphics/drawable/Drawable;->isStateful()Z
-
-    move-result v14
-
-    if-eqz v14, :cond_5
-
-    move-object/from16 v0, p0
-
-    iget-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
-
-    if-eqz v14, :cond_6
-
-    :cond_5
-    return-void
-
-    :cond_6
-    const/16 v14, 0x9
-
-    if-ne v1, v14, :cond_8
-
-    move-object/from16 v0, p0
-
-    iget-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsPenHovered:Z
-
-    if-nez v14, :cond_7
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectorRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v14}, Landroid/graphics/Rect;->setEmpty()V
-
-    :cond_7
-    return-void
-
-    :cond_8
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->isMultiWindows()Z
-
-    move-result v14
-
-    if-eqz v14, :cond_9
-
-    return-void
-
-    :cond_9
-    move-object/from16 v0, p0
-
-    iget-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mIsPenHovered:Z
-
-    if-nez v14, :cond_a
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->isInDialog()Z
-
-    move-result v14
-
-    if-eqz v14, :cond_a
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
-
-    sget-object v15, Landroid/util/StateSet;->NOTHING:[I
-
-    invoke-virtual {v14, v15}, Landroid/graphics/drawable/Drawable;->setState([I)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectorRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v14}, Landroid/graphics/Rect;->setEmpty()V
-
-    return-void
-
-    :cond_a
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/view/View;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v14}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v14
-
-    const-string/jumbo v15, "finger_air_view"
-
-    const/16 v16, 0x0
-
-    invoke-static/range {v14 .. v16}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v14
-
-    const/4 v15, 0x1
-
-    if-ne v14, v15, :cond_f
-
-    const/4 v6, 0x1
-
-    :goto_2
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/view/View;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v14}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v14
-
-    const-string/jumbo v15, "finger_air_view_information_preview"
-
-    const/16 v16, 0x0
-
-    invoke-static/range {v14 .. v16}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v14
-
-    const/4 v15, 0x1
-
-    if-ne v14, v15, :cond_10
-
-    const/4 v7, 0x1
-
-    :goto_3
-    if-eqz v6, :cond_15
-
-    if-eqz v7, :cond_15
-
-    :try_start_0
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->isHovered()Z
-
-    move-result v14
-
-    if-nez v14, :cond_c
-
-    const/4 v14, 0x1
-
-    if-ne v11, v14, :cond_b
-
-    const/4 v14, 0x1
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v14}, Landroid/view/View;->setFingerHovered(Z)V
-
-    :cond_b
-    const/4 v14, 0x1
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v14}, Landroid/view/View;->setHovered(Z)V
-
-    :cond_c
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getX()F
-
-    move-result v14
-
-    float-to-int v12, v14
-
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getY()F
-
-    move-result v14
-
-    float-to-int v13, v14
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v12, v13}, Landroid/widget/SemHorizontalAbsListView;->pointToPosition(II)I
-
-    move-result v9
-
-    move-object/from16 v0, p0
-
-    iget v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverPosition:I
-
-    if-eq v14, v9, :cond_11
+    const/16 v5, 0x9
 
     const/4 v2, 0x1
-
-    :goto_4
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->shouldShowSelectorDefault()Z
-
-    move-result v10
-
-    const/4 v3, 0x0
-
-    if-gez v9, :cond_12
-
-    if-nez v10, :cond_d
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectorRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v14}, Landroid/graphics/Rect;->setEmpty()V
-
-    :cond_d
-    move-object/from16 v0, p0
-
-    iget-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoveredOnEllipsizedText:Z
-
-    if-eqz v14, :cond_e
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
-
-    sget-object v15, Landroid/util/StateSet;->NOTHING:[I
-
-    invoke-virtual {v14, v15}, Landroid/graphics/drawable/Drawable;->setState([I)Z
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->postInvalidateOnAnimation()V
-
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoveredOnEllipsizedText:Z
-
-    :cond_e
-    const/4 v14, -0x1
-
-    move-object/from16 v0, p0
-
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverPosition:I
-
-    return-void
-
-    :cond_f
-    const/4 v6, 0x0
-
-    goto :goto_2
-
-    :cond_10
-    const/4 v7, 0x0
-
-    goto :goto_3
-
-    :cond_11
-    const/4 v2, 0x0
-
-    goto :goto_4
-
-    :cond_12
-    move-object/from16 v0, p0
-
-    iput v9, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverPosition:I
-
-    move-object/from16 v0, p0
-
-    iget v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverPosition:I
-
-    move-object/from16 v0, p0
-
-    iget v15, v0, Landroid/widget/AdapterView;->mFirstPosition:I
-
-    sub-int/2addr v14, v15
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v14}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v3
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v3}, Landroid/view/View;->findEllipsizedTextView(Landroid/view/View;)Z
-
-    move-result v5
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v3}, Landroid/view/View;->findSetFingerHovedInAppWidget(Landroid/view/View;)Z
-
-    move-result v8
-
-    invoke-virtual {v3}, Landroid/view/View;->isEnabled()Z
-
-    move-result v14
-
-    if-eqz v14, :cond_16
-
-    if-eqz v5, :cond_16
-
-    if-eqz v8, :cond_16
-
-    move-object/from16 v0, p0
-
-    iget v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverPosition:I
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v14, v3}, Landroid/widget/SemHorizontalAbsListView;->positionSelector(ILandroid/view/View;)V
-
-    const/4 v14, 0x1
-
-    move-object/from16 v0, p0
-
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoveredOnEllipsizedText:Z
-
-    :cond_13
-    :goto_5
-    if-eqz v2, :cond_14
-
-    move-object/from16 v0, p0
-
-    iget-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoveredOnEllipsizedText:Z
-
-    if-eqz v14, :cond_14
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->refreshDrawableState()V
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->postInvalidateOnAnimation()V
-
-    :cond_14
-    const/16 v14, 0xa
-
-    if-ne v1, v14, :cond_15
-
-    if-eqz v10, :cond_17
-
-    :cond_15
-    :goto_6
-    return-void
-
-    :cond_16
-    if-nez v10, :cond_13
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectorRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v14}, Landroid/graphics/Rect;->setEmpty()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_5
-
-    :catch_0
-    move-exception v4
-
-    invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
-
-    goto :goto_6
-
-    :cond_17
-    const/4 v14, 0x0
-
-    :try_start_1
-    move-object/from16 v0, p0
-
-    iput-boolean v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoveredOnEllipsizedText:Z
-
-    const/4 v14, -0x1
-
-    move-object/from16 v0, p0
-
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverPosition:I
-
-    const/4 v14, -0x1
-
-    move-object/from16 v0, p0
-
-    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectorPosition:I
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
-
-    sget-object v15, Landroid/util/StateSet;->NOTHING:[I
-
-    invoke-virtual {v14, v15}, Landroid/graphics/drawable/Drawable;->setState([I)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectorRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v14}, Landroid/graphics/Rect;->setEmpty()V
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->postInvalidateOnAnimation()V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-
-    goto :goto_6
-.end method
-
-.method private onSecondaryPointerUp(Landroid/view/MotionEvent;)V
-    .locals 6
 
     const/4 v3, 0x0
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
-    move-result v4
+    move-result v0
 
-    const v5, 0xff00
+    invoke-virtual {p1, v3}, Landroid/view/MotionEvent;->getToolType(I)I
 
-    and-int/2addr v4, v5
+    move-result v1
 
-    shr-int/lit8 v2, v4, 0x8
+    const/4 v4, 0x7
+
+    if-eq v0, v4, :cond_0
+
+    if-ne v0, v5, :cond_2
+
+    :cond_0
+    const/4 v4, 0x2
+
+    if-ne v1, v4, :cond_2
+
+    iput-boolean v2, p0, Landroid/widget/SemHorizontalAbsListView;->mIsPenHovered:Z
+
+    :cond_1
+    :goto_0
+    if-eq v1, v2, :cond_4
+
+    const/4 v4, 0x3
+
+    if-ne v1, v4, :cond_3
+
+    :goto_1
+    iput-boolean v2, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoveredByMouse:Z
+
+    return-void
+
+    :cond_2
+    const/16 v4, 0xa
+
+    if-ne v0, v4, :cond_1
+
+    iput-boolean v3, p0, Landroid/widget/SemHorizontalAbsListView;->mIsPenHovered:Z
+
+    goto :goto_0
+
+    :cond_3
+    move v2, v3
+
+    goto :goto_1
+
+    :cond_4
+    iput-boolean v3, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoveredByMouse:Z
+
+    iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v2, :cond_5
+
+    iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->isStateful()Z
+
+    move-result v2
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-nez v2, :cond_5
+
+    iget-boolean v2, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
+
+    if-eqz v2, :cond_6
+
+    :cond_5
+    return-void
+
+    :cond_6
+    if-ne v0, v5, :cond_7
+
+    iget-boolean v2, p0, Landroid/widget/SemHorizontalAbsListView;->mIsPenHovered:Z
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_7
+
+    iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectorRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v2}, Landroid/graphics/Rect;->setEmpty()V
+
+    :cond_7
+    return-void
+.end method
+
+.method private onSecondaryPointerUp(Landroid/view/MotionEvent;)V
+    .locals 6
+
+    const/4 v5, 0x0
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v3
+
+    const v4, 0xff00
+
+    and-int/2addr v3, v4
+
+    shr-int/lit8 v2, v3, 0x8
 
     invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v1
 
-    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mActivePointerId:I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mActivePointerId:I
 
-    if-ne v1, v4, :cond_0
+    if-ne v1, v3, :cond_0
 
     if-nez v2, :cond_1
 
@@ -5376,21 +3909,21 @@
     :goto_0
     invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->getX(I)F
 
-    move-result v4
+    move-result v3
 
-    float-to-int v4, v4
+    float-to-int v3, v3
 
-    iput v4, p0, Landroid/widget/SemHorizontalAbsListView;->mMotionX:I
+    iput v3, p0, Landroid/widget/SemHorizontalAbsListView;->mMotionX:I
 
     invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->getY(I)F
 
-    move-result v4
+    move-result v3
 
-    float-to-int v4, v4
+    float-to-int v3, v3
 
-    iput v4, p0, Landroid/widget/SemHorizontalAbsListView;->mMotionY:I
+    iput v3, p0, Landroid/widget/SemHorizontalAbsListView;->mMotionY:I
 
-    iput v3, p0, Landroid/widget/SemHorizontalAbsListView;->mMotionCorrection:I
+    iput v5, p0, Landroid/widget/SemHorizontalAbsListView;->mMotionCorrection:I
 
     invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->getPointerId(I)I
 
@@ -5406,7 +3939,7 @@
     return-void
 
     :cond_1
-    move v0, v3
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -5424,15 +3957,15 @@
 
     iput v4, p0, Landroid/widget/SemHorizontalAbsListView;->mTouchMode:I
 
-    invoke-virtual {p0, v3}, Landroid/view/View;->setPressed(Z)V
+    invoke-virtual {p0, v3}, Landroid/widget/SemHorizontalAbsListView;->setPressed(Z)V
 
     iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mMotionPosition:I
 
-    iget v2, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v2, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     sub-int/2addr v1, v2
 
-    invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -5445,7 +3978,7 @@
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingCheckForLongPress:Landroid/widget/SemHorizontalAbsListView$CheckForLongPress;
 
-    invoke-virtual {p0, v1}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v1}, Landroid/widget/SemHorizontalAbsListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->recycleVelocityTracker()V
 
@@ -5532,7 +4065,7 @@
 
     move-result v0
 
-    iget-boolean v4, p0, Landroid/widget/AdapterView;->mDataChanged:Z
+    iget-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
     if-nez v4, :cond_1
 
@@ -5542,7 +4075,7 @@
 
     if-ltz v0, :cond_5
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getAdapter()Landroid/widget/Adapter;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getAdapter()Landroid/widget/Adapter;
 
     move-result-object v4
 
@@ -5575,17 +4108,17 @@
 
     int-to-long v6, v5
 
-    invoke-virtual {p0, v4, v6, v7}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {p0, v4, v6, v7}, Landroid/widget/SemHorizontalAbsListView;->postDelayed(Ljava/lang/Runnable;J)Z
 
     :cond_1
     :goto_0
     if-ltz v0, :cond_2
 
-    iget v4, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     sub-int v4, v0, v4
 
-    invoke-virtual {p0, v4}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v4}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -5607,7 +4140,7 @@
     iput v4, p0, Landroid/widget/SemHorizontalAbsListView;->mLastX:I
 
     :goto_1
-    invoke-virtual {p0, p1}, Landroid/view/View;->performButtonActionOnTouchDown(Landroid/view/MotionEvent;)Z
+    invoke-virtual {p0, p1}, Landroid/widget/SemHorizontalAbsListView;->performButtonActionOnTouchDown(Landroid/view/MotionEvent;)Z
 
     move-result v4
 
@@ -5619,7 +4152,7 @@
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingCheckForTap:Landroid/widget/SemHorizontalAbsListView$CheckForTap;
 
-    invoke-virtual {p0, v4}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v4}, Landroid/widget/SemHorizontalAbsListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     :cond_3
     return-void
@@ -5727,7 +4260,7 @@
     iput v4, p0, Landroid/widget/SemHorizontalAbsListView;->mActivePointerId:I
 
     :cond_0
-    iget-boolean v4, p0, Landroid/widget/AdapterView;->mDataChanged:Z
+    iget-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
     if-eqz v4, :cond_1
 
@@ -5772,21 +4305,21 @@
 
     int-to-float v5, v5
 
-    invoke-virtual {p0, v4, v3, v5}, Landroid/view/View;->pointInView(FFF)Z
+    invoke-virtual {p0, v4, v3, v5}, Landroid/widget/SemHorizontalAbsListView;->pointInView(FFF)Z
 
     move-result v4
 
     if-nez v4, :cond_2
 
-    invoke-virtual {p0, v6}, Landroid/view/View;->setPressed(Z)V
+    invoke-virtual {p0, v6}, Landroid/widget/SemHorizontalAbsListView;->setPressed(Z)V
 
     iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mMotionPosition:I
 
-    iget v5, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v5, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     sub-int/2addr v4, v5
 
-    invoke-virtual {p0, v4}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v4}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -5802,7 +4335,7 @@
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingCheckForTap:Landroid/widget/SemHorizontalAbsListView$CheckForTap;
 
     :goto_1
-    invoke-virtual {p0, v4}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v4}, Landroid/widget/SemHorizontalAbsListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     const/4 v4, 0x2
 
@@ -5861,7 +4394,7 @@
 
     move/from16 v1, v17
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setPressed(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->setPressed(Z)V
 
     move-object/from16 v0, p0
 
@@ -5888,7 +4421,7 @@
     invoke-virtual/range {v17 .. v17}, Landroid/widget/EdgeEffect;->onRelease()V
 
     :cond_1
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->invalidate()V
 
     move-object/from16 v0, p0
 
@@ -5900,7 +4433,7 @@
 
     move-object/from16 v1, v17
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     invoke-direct/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->recycleVelocityTracker()V
 
@@ -5954,7 +4487,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     move/from16 v17, v0
 
@@ -5964,11 +4497,11 @@
 
     move/from16 v1, v17
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_f
 
     move-object/from16 v0, p0
 
@@ -6009,9 +4542,9 @@
 
     cmpl-float v17, v16, v17
 
-    if-lez v17, :cond_5
+    if-lez v17, :cond_a
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getHeight()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getHeight()I
 
     move-result v17
 
@@ -6037,46 +4570,28 @@
 
     cmpg-float v17, v16, v17
 
-    if-gez v17, :cond_5
+    if-gez v17, :cond_a
 
     const/4 v10, 0x1
 
     :goto_1
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_f
 
     invoke-virtual {v4}, Landroid/view/View;->hasFocusable()Z
 
     move-result v17
 
-    if-eqz v17, :cond_6
+    xor-int/lit8 v17, v17, 0x1
 
-    :cond_4
-    :goto_2
-    const/16 v17, -0x1
+    if-eqz v17, :cond_f
 
-    move/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mTouchMode:I
-
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->updateSelectorState()V
-
-    goto/16 :goto_0
-
-    :cond_5
-    const/4 v10, 0x0
-
-    goto :goto_1
-
-    :cond_6
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mPerformClick:Landroid/widget/SemHorizontalAbsListView$PerformClick;
 
     move-object/from16 v17, v0
 
-    if-nez v17, :cond_7
+    if-nez v17, :cond_4
 
     new-instance v17, Landroid/widget/SemHorizontalAbsListView$PerformClick;
 
@@ -6096,14 +4611,14 @@
 
     iput-object v0, v1, Landroid/widget/SemHorizontalAbsListView;->mPerformClick:Landroid/widget/SemHorizontalAbsListView$PerformClick;
 
-    :cond_7
+    :cond_4
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mPerformClick:Landroid/widget/SemHorizontalAbsListView$PerformClick;
 
     iput v13, v14, Landroid/widget/SemHorizontalAbsListView$PerformClick;->mClickMotionPosition:I
 
-    invoke-virtual {v14}, Landroid/widget/SemHorizontalAbsListView$WindowRunnnable;->rememberWindowAttachCount()V
+    invoke-virtual {v14}, Landroid/widget/SemHorizontalAbsListView$PerformClick;->rememberWindowAttachCount()V
 
     move-object/from16 v0, p0
 
@@ -6115,7 +4630,7 @@
 
     move/from16 v17, v0
 
-    if-eqz v17, :cond_8
+    if-eqz v17, :cond_5
 
     move-object/from16 v0, p0
 
@@ -6129,16 +4644,16 @@
 
     move/from16 v1, v18
 
-    if-ne v0, v1, :cond_f
+    if-ne v0, v1, :cond_d
 
-    :cond_8
+    :cond_5
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mTouchMode:I
 
     move/from16 v17, v0
 
-    if-nez v17, :cond_d
+    if-nez v17, :cond_b
 
     move-object/from16 v0, p0
 
@@ -6146,12 +4661,12 @@
 
     move-object/from16 v17, v0
 
-    :goto_3
+    :goto_2
     move-object/from16 v0, p0
 
     move-object/from16 v1, v17
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     const/16 v17, 0x0
 
@@ -6163,11 +4678,11 @@
 
     move-object/from16 v0, p0
 
-    iget-boolean v0, v0, Landroid/widget/AdapterView;->mDataChanged:Z
+    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
     move/from16 v17, v0
 
-    if-nez v17, :cond_e
+    if-nez v17, :cond_c
 
     move-object/from16 v0, p0
 
@@ -6181,7 +4696,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_e
+    if-eqz v17, :cond_c
 
     const/16 v17, 0x1
 
@@ -6201,7 +4716,7 @@
 
     move/from16 v1, v17
 
-    invoke-virtual {v0, v1}, Landroid/widget/AdapterView;->setSelectedPositionInt(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->setSelectedPositionInt(I)V
 
     invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->layoutChildren()V
 
@@ -6229,7 +4744,7 @@
 
     move/from16 v1, v17
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setPressed(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->setPressed(Z)V
 
     move-object/from16 v0, p0
 
@@ -6237,7 +4752,7 @@
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_a
+    if-eqz v17, :cond_7
 
     move-object/from16 v0, p0
 
@@ -6253,13 +4768,13 @@
 
     move/from16 v17, v0
 
-    if-eqz v17, :cond_9
+    if-eqz v17, :cond_6
 
     check-cast v8, Landroid/graphics/drawable/TransitionDrawable;
 
     invoke-virtual {v8}, Landroid/graphics/drawable/TransitionDrawable;->resetTransition()V
 
-    :cond_9
+    :cond_6
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
@@ -6278,14 +4793,14 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/graphics/drawable/Drawable;->setHotspot(FF)V
 
-    :cond_a
+    :cond_7
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mTouchModeReset:Ljava/lang/Runnable;
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_b
+    if-eqz v17, :cond_8
 
     move-object/from16 v0, p0
 
@@ -6297,16 +4812,16 @@
 
     move-object/from16 v1, v17
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    :cond_b
-    new-instance v17, Landroid/widget/SemHorizontalAbsListView$4;
+    :cond_8
+    new-instance v17, Landroid/widget/SemHorizontalAbsListView$3;
 
     move-object/from16 v0, v17
 
     move-object/from16 v1, p0
 
-    invoke-direct {v0, v1, v4, v14}, Landroid/widget/SemHorizontalAbsListView$4;-><init>(Landroid/widget/SemHorizontalAbsListView;Landroid/view/View;Landroid/widget/SemHorizontalAbsListView$PerformClick;)V
+    invoke-direct {v0, v1, v4, v14}, Landroid/widget/SemHorizontalAbsListView$3;-><init>(Landroid/widget/SemHorizontalAbsListView;Landroid/view/View;Landroid/widget/SemHorizontalAbsListView$PerformClick;)V
 
     move-object/from16 v0, v17
 
@@ -6336,22 +4851,27 @@
 
     move-wide/from16 v2, v18
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v0, v1, v2, v3}, Landroid/widget/SemHorizontalAbsListView;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    :cond_c
-    :goto_4
+    :cond_9
+    :goto_3
     return-void
 
-    :cond_d
+    :cond_a
+    const/4 v10, 0x0
+
+    goto/16 :goto_1
+
+    :cond_b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mPendingCheckForLongPress:Landroid/widget/SemHorizontalAbsListView$CheckForLongPress;
 
     move-object/from16 v17, v0
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
-    :cond_e
+    :cond_c
     const/16 v17, -0x1
 
     move/from16 v0, v17
@@ -6368,7 +4888,7 @@
 
     move/from16 v17, v0
 
-    if-eqz v17, :cond_c
+    if-eqz v17, :cond_9
 
     move-object/from16 v0, p0
 
@@ -6382,30 +4902,32 @@
 
     move-result v17
 
-    if-eqz v17, :cond_c
+    if-eqz v17, :cond_9
 
     invoke-virtual {v14}, Landroid/widget/SemHorizontalAbsListView$PerformClick;->run()V
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_f
+    :cond_d
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mForcedClick:Z
 
     move/from16 v17, v0
 
-    if-nez v17, :cond_10
+    if-nez v17, :cond_e
 
     move-object/from16 v0, p0
 
-    iget-boolean v0, v0, Landroid/widget/AdapterView;->mDataChanged:Z
+    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
     move/from16 v17, v0
 
-    if-nez v17, :cond_4
+    xor-int/lit8 v17, v17, 0x1
 
-    :cond_10
+    if-eqz v17, :cond_f
+
+    :cond_e
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
@@ -6418,18 +4940,29 @@
 
     move-result v17
 
-    if-eqz v17, :cond_4
+    if-eqz v17, :cond_f
 
     invoke-virtual {v14}, Landroid/widget/SemHorizontalAbsListView$PerformClick;->run()V
 
-    goto/16 :goto_2
+    :cond_f
+    const/16 v17, -0x1
+
+    move/from16 v0, v17
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mTouchMode:I
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->updateSelectorState()V
+
+    goto/16 :goto_0
 
     :pswitch_2
-    invoke-virtual/range {p0 .. p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v5
 
-    if-lez v5, :cond_18
+    if-lez v5, :cond_17
 
     move-object/from16 v0, p0
 
@@ -6437,7 +4970,7 @@
 
     move/from16 v17, v0
 
-    if-eqz v17, :cond_11
+    if-eqz v17, :cond_10
 
     add-int/lit8 v17, v5, -0x1
 
@@ -6445,7 +4978,7 @@
 
     move/from16 v1, v17
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v17
 
@@ -6459,7 +4992,7 @@
 
     move/from16 v1, v17
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v17
 
@@ -6467,7 +5000,7 @@
 
     move-result v12
 
-    :goto_5
+    :goto_4
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
@@ -6478,7 +5011,7 @@
 
     iget v6, v0, Landroid/graphics/Rect;->left:I
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v17
 
@@ -6498,17 +5031,17 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     move/from16 v17, v0
 
-    if-nez v17, :cond_12
+    if-nez v17, :cond_11
 
-    if-lt v9, v6, :cond_12
+    if-lt v9, v6, :cond_11
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     move/from16 v17, v0
 
@@ -6516,7 +5049,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     move/from16 v18, v0
 
@@ -6524,9 +5057,9 @@
 
     move/from16 v1, v18
 
-    if-ge v0, v1, :cond_12
+    if-ge v0, v1, :cond_11
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v17
 
@@ -6534,7 +5067,7 @@
 
     move/from16 v0, v17
 
-    if-gt v12, v0, :cond_12
+    if-gt v12, v0, :cond_11
 
     const/16 v17, -0x1
 
@@ -6554,14 +5087,14 @@
 
     goto/16 :goto_0
 
-    :cond_11
+    :cond_10
     const/16 v17, 0x0
 
     move-object/from16 v0, p0
 
     move/from16 v1, v17
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v17
 
@@ -6575,7 +5108,7 @@
 
     move/from16 v1, v17
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v17
 
@@ -6583,9 +5116,9 @@
 
     move-result v12
 
-    goto :goto_5
+    goto :goto_4
 
-    :cond_12
+    :cond_11
     move-object/from16 v0, p0
 
     iget-object v15, v0, Landroid/widget/SemHorizontalAbsListView;->mVelocityTracker:Landroid/view/VelocityTracker;
@@ -6648,15 +5181,15 @@
 
     move/from16 v1, v18
 
-    if-le v0, v1, :cond_16
+    if-le v0, v1, :cond_15
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     move/from16 v17, v0
 
-    if-nez v17, :cond_13
+    if-nez v17, :cond_12
 
     move-object/from16 v0, p0
 
@@ -6668,12 +5201,12 @@
 
     move/from16 v0, v17
 
-    if-eq v9, v0, :cond_16
+    if-eq v9, v0, :cond_15
 
-    :cond_13
+    :cond_12
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     move/from16 v17, v0
 
@@ -6681,7 +5214,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     move/from16 v18, v0
 
@@ -6689,7 +5222,7 @@
 
     move/from16 v1, v18
 
-    if-ne v0, v1, :cond_14
+    if-ne v0, v1, :cond_13
 
     move-object/from16 v0, p0
 
@@ -6701,16 +5234,16 @@
 
     move/from16 v0, v17
 
-    if-eq v12, v0, :cond_16
+    if-eq v12, v0, :cond_15
 
-    :cond_14
+    :cond_13
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mFlingRunnable:Landroid/widget/SemHorizontalAbsListView$FlingRunnable;
 
     move-object/from16 v17, v0
 
-    if-nez v17, :cond_15
+    if-nez v17, :cond_14
 
     new-instance v17, Landroid/widget/SemHorizontalAbsListView$FlingRunnable;
 
@@ -6726,7 +5259,7 @@
 
     iput-object v0, v1, Landroid/widget/SemHorizontalAbsListView;->mFlingRunnable:Landroid/widget/SemHorizontalAbsListView$FlingRunnable;
 
-    :cond_15
+    :cond_14
     const/16 v17, 0x2
 
     move-object/from16 v0, p0
@@ -6749,7 +5282,7 @@
 
     goto/16 :goto_0
 
-    :cond_16
+    :cond_15
     const/16 v17, -0x1
 
     move/from16 v0, v17
@@ -6772,7 +5305,7 @@
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_17
+    if-eqz v17, :cond_16
 
     move-object/from16 v0, p0
 
@@ -6782,7 +5315,7 @@
 
     invoke-virtual/range {v17 .. v17}, Landroid/widget/SemHorizontalAbsListView$FlingRunnable;->endFling()V
 
-    :cond_17
+    :cond_16
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mPositionScroller:Landroid/widget/SemHorizontalAbsListView$AbsPositionScroller;
@@ -6801,7 +5334,7 @@
 
     goto/16 :goto_0
 
-    :cond_18
+    :cond_17
     const/16 v17, -0x1
 
     move/from16 v0, v17
@@ -6827,7 +5360,7 @@
 
     move-object/from16 v17, v0
 
-    if-nez v17, :cond_19
+    if-nez v17, :cond_18
 
     new-instance v17, Landroid/widget/SemHorizontalAbsListView$FlingRunnable;
 
@@ -6843,7 +5376,7 @@
 
     iput-object v0, v1, Landroid/widget/SemHorizontalAbsListView;->mFlingRunnable:Landroid/widget/SemHorizontalAbsListView$FlingRunnable;
 
-    :cond_19
+    :cond_18
     move-object/from16 v0, p0
 
     iget-object v15, v0, Landroid/widget/SemHorizontalAbsListView;->mVelocityTracker:Landroid/view/VelocityTracker;
@@ -6906,7 +5439,7 @@
 
     move/from16 v1, v18
 
-    if-le v0, v1, :cond_1a
+    if-le v0, v1, :cond_19
 
     move-object/from16 v0, p0
 
@@ -6922,7 +5455,7 @@
 
     goto/16 :goto_0
 
-    :cond_1a
+    :cond_19
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mFlingRunnable:Landroid/widget/SemHorizontalAbsListView$FlingRunnable;
@@ -6932,6 +5465,8 @@
     invoke-virtual/range {v17 .. v17}, Landroid/widget/SemHorizontalAbsListView$FlingRunnable;->startSpringback()V
 
     goto/16 :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -6951,7 +5486,7 @@
 
     const/4 v6, -0x1
 
-    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
@@ -6965,7 +5500,7 @@
 
     new-array v2, v3, [I
 
-    invoke-virtual {p0, v2}, Landroid/view/View;->getLocationOnScreen([I)V
+    invoke-virtual {p0, v2}, Landroid/widget/SemHorizontalAbsListView;->getLocationOnScreen([I)V
 
     const/4 v3, 0x1
 
@@ -6973,7 +5508,7 @@
 
     sub-int v3, v1, v3
 
-    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getHeight()I
 
     move-result v4
 
@@ -7019,7 +5554,11 @@
 .end method
 
 .method private positionSelector(ILandroid/view/View;ZFF)V
-    .locals 8
+    .locals 10
+
+    const/4 v9, -0x1
+
+    const/4 v8, 0x0
 
     iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectorPosition:I
 
@@ -7028,9 +5567,7 @@
     const/4 v1, 0x1
 
     :goto_0
-    const/4 v4, -0x1
-
-    if-eq p1, v4, :cond_0
+    if-eq p1, v9, :cond_0
 
     iput p1, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectorPosition:I
 
@@ -7093,11 +5630,7 @@
 
     if-eqz v1, :cond_1
 
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
-
-    invoke-virtual {v2, v4, v5}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
+    invoke-virtual {v2, v8, v8}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
 
     sget-object v4, Landroid/util/StateSet;->NOTHING:[I
 
@@ -7108,7 +5641,7 @@
 
     if-eqz v1, :cond_3
 
-    invoke-virtual {p0}, Landroid/view/View;->getVisibility()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getVisibility()I
 
     move-result v4
 
@@ -7116,9 +5649,7 @@
 
     const/4 v4, 0x1
 
-    const/4 v5, 0x0
-
-    invoke-virtual {v2, v4, v5}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
+    invoke-virtual {v2, v4, v8}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
 
     :cond_2
     invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->updateSelectorState()V
@@ -7137,22 +5668,17 @@
 
     if-eq v4, v0, :cond_5
 
-    if-eqz v0, :cond_7
+    xor-int/lit8 v4, v0, 0x1
 
-    const/4 v4, 0x0
-
-    :goto_1
     iput-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mIsChildViewEnabled:Z
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getSelectedItemPosition()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getSelectedItemPosition()I
 
     move-result v4
 
-    const/4 v5, -0x1
+    if-eq v4, v9, :cond_5
 
-    if-eq v4, v5, :cond_5
-
-    invoke-virtual {p0}, Landroid/view/View;->refreshDrawableState()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->refreshDrawableState()V
 
     :cond_5
     return-void
@@ -7161,21 +5687,16 @@
     const/4 v1, 0x0
 
     goto :goto_0
-
-    :cond_7
-    const/4 v4, 0x1
-
-    goto :goto_1
 .end method
 
 .method private postOnJumpScrollToFinished()V
     .locals 1
 
-    new-instance v0, Landroid/widget/SemHorizontalAbsListView$5;
+    new-instance v0, Landroid/widget/SemHorizontalAbsListView$4;
 
-    invoke-direct {v0, p0}, Landroid/widget/SemHorizontalAbsListView$5;-><init>(Landroid/widget/SemHorizontalAbsListView;)V
+    invoke-direct {v0, p0}, Landroid/widget/SemHorizontalAbsListView$4;-><init>(Landroid/widget/SemHorizontalAbsListView;)V
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->postOnAnimation(Ljava/lang/Runnable;)V
+    invoke-virtual {p0, v0}, Landroid/widget/SemHorizontalAbsListView;->postOnAnimation(Ljava/lang/Runnable;)V
 
     return-void
 .end method
@@ -7271,7 +5792,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v3, v4, v5}, Landroid/view/View;->dispatchNestedPreScroll(II[I[I)Z
+    invoke-virtual {v0, v6, v3, v4, v5}, Landroid/widget/SemHorizontalAbsListView;->dispatchNestedPreScroll(II[I[I)Z
 
     move-result v3
 
@@ -7400,7 +5921,7 @@
 
     move-object/from16 v0, p0
 
-    iget v3, v0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iget v3, v0, Landroid/widget/SemHorizontalAbsListView;->mGroupFlags:I
 
     const/high16 v4, 0x80000
 
@@ -7418,7 +5939,7 @@
 
     if-le v3, v4, :cond_3
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getParent()Landroid/view/ViewParent;
 
     move-result-object v32
 
@@ -7443,7 +5964,7 @@
 
     move-object/from16 v0, p0
 
-    iget v4, v0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v4, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     sub-int v23, v3, v4
 
@@ -7454,7 +5975,7 @@
 
     move/from16 v1, v23
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v25
 
@@ -7484,7 +6005,7 @@
 
     move/from16 v1, v23
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v25
 
@@ -7516,7 +6037,7 @@
 
     move-object/from16 v3, p0
 
-    invoke-virtual/range {v3 .. v8}, Landroid/view/View;->dispatchNestedScroll(IIII[I)Z
+    invoke-virtual/range {v3 .. v8}, Landroid/widget/SemHorizontalAbsListView;->dispatchNestedScroll(IIII[I)Z
 
     move-result v3
 
@@ -7604,7 +6125,7 @@
     goto/16 :goto_1
 
     :cond_b
-    invoke-virtual/range {p0 .. p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v3
 
@@ -7615,7 +6136,7 @@
     :cond_c
     move-object/from16 v0, p0
 
-    iget v9, v0, Landroid/view/View;->mScrollX:I
+    iget v9, v0, Landroid/widget/SemHorizontalAbsListView;->mScrollX:I
 
     move-object/from16 v0, p0
 
@@ -7635,7 +6156,7 @@
 
     move-object/from16 v6, p0
 
-    invoke-virtual/range {v6 .. v15}, Landroid/view/View;->overScrollBy(IIIIIIIIZ)Z
+    invoke-virtual/range {v6 .. v15}, Landroid/widget/SemHorizontalAbsListView;->overScrollBy(IIIIIIIIZ)Z
 
     move-result v19
 
@@ -7654,7 +6175,7 @@
     invoke-virtual {v3}, Landroid/view/VelocityTracker;->clear()V
 
     :cond_d
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getOverScrollMode()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getOverScrollMode()I
 
     move-result v31
 
@@ -7670,7 +6191,9 @@
 
     move-result v3
 
-    if-nez v3, :cond_6
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_6
 
     :cond_e
     if-nez v19, :cond_f
@@ -7698,7 +6221,7 @@
 
     int-to-float v4, v4
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v5
 
@@ -7710,7 +6233,7 @@
 
     int-to-float v5, v0
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getHeight()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getHeight()I
 
     move-result v6
 
@@ -7749,13 +6272,13 @@
 
     move-result v3
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getPaddingLeft()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getPaddingLeft()I
 
     move-result v4
 
     add-int/2addr v3, v4
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getHeight()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getHeight()I
 
     move-result v4
 
@@ -7765,7 +6288,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5, v6, v3, v4}, Landroid/view/View;->invalidate(IIII)V
+    invoke-virtual {v0, v5, v6, v3, v4}, Landroid/widget/SemHorizontalAbsListView;->invalidate(IIII)V
 
     goto/16 :goto_3
 
@@ -7778,7 +6301,7 @@
 
     int-to-float v4, v7
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v5
 
@@ -7790,7 +6313,7 @@
 
     int-to-float v5, v0
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getHeight()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getHeight()I
 
     move-result v6
 
@@ -7817,11 +6340,11 @@
     invoke-virtual {v3}, Landroid/widget/EdgeEffect;->onRelease()V
 
     :cond_12
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v3
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getPaddingRight()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getPaddingRight()I
 
     move-result v4
 
@@ -7837,11 +6360,11 @@
 
     sub-int/2addr v3, v4
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v4
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getHeight()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getHeight()I
 
     move-result v5
 
@@ -7849,7 +6372,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v3, v6, v4, v5}, Landroid/view/View;->invalidate(IIII)V
+    invoke-virtual {v0, v3, v6, v4, v5}, Landroid/widget/SemHorizontalAbsListView;->invalidate(IIII)V
 
     goto/16 :goto_3
 
@@ -7872,7 +6395,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mScrollX:I
 
     move/from16 v30, v0
 
@@ -7884,7 +6407,7 @@
 
     move/from16 v0, p1
 
-    if-le v0, v3, :cond_19
+    if-le v0, v3, :cond_1b
 
     const/16 v28, 0x1
 
@@ -7906,9 +6429,9 @@
 
     neg-int v9, v0
 
-    if-gez v29, :cond_1a
+    if-gez v29, :cond_1c
 
-    if-ltz v30, :cond_1a
+    if-ltz v30, :cond_1c
 
     :cond_15
     move/from16 v0, v30
@@ -7918,11 +6441,11 @@
     add-int v21, v21, v9
 
     :goto_6
-    if-eqz v9, :cond_16
+    if-eqz v9, :cond_18
 
     move-object/from16 v0, p0
 
-    iget v11, v0, Landroid/view/View;->mScrollX:I
+    iget v11, v0, Landroid/widget/SemHorizontalAbsListView;->mScrollX:I
 
     move-object/from16 v0, p0
 
@@ -7942,45 +6465,125 @@
 
     move-object/from16 v8, p0
 
-    invoke-virtual/range {v8 .. v17}, Landroid/view/View;->overScrollBy(IIIIIIIIZ)Z
+    invoke-virtual/range {v8 .. v17}, Landroid/widget/SemHorizontalAbsListView;->overScrollBy(IIIIIIIIZ)Z
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getOverScrollMode()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getOverScrollMode()I
 
     move-result v31
 
-    if-eqz v31, :cond_1c
+    if-eqz v31, :cond_16
 
     const/4 v3, 0x1
 
     move/from16 v0, v31
 
-    if-ne v0, v3, :cond_16
+    if-ne v0, v3, :cond_18
 
     invoke-direct/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->contentFits()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1c
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_18
 
     :cond_16
-    :goto_7
-    if-eqz v21, :cond_18
+    if-lez v33, :cond_1e
 
     move-object/from16 v0, p0
 
-    iget v3, v0, Landroid/view/View;->mScrollX:I
+    iget-object v3, v0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
 
-    if-eqz v3, :cond_17
+    int-to-float v4, v9
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
+
+    move-result v5
+
+    int-to-float v5, v5
+
+    div-float/2addr v4, v5
+
+    move/from16 v0, p2
+
+    int-to-float v5, v0
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getHeight()I
+
+    move-result v6
+
+    int-to-float v6, v6
+
+    div-float/2addr v5, v6
+
+    const/high16 v6, 0x3f800000    # 1.0f
+
+    sub-float v5, v6, v5
+
+    invoke-virtual {v3, v4, v5}, Landroid/widget/EdgeEffect;->onPull(FF)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
+
+    invoke-virtual {v3}, Landroid/widget/EdgeEffect;->isFinished()Z
+
+    move-result v3
+
+    if-nez v3, :cond_17
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
+
+    invoke-virtual {v3}, Landroid/widget/EdgeEffect;->onRelease()V
+
+    :cond_17
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
+
+    invoke-virtual {v3}, Landroid/widget/EdgeEffect;->getMaxHeight()I
+
+    move-result v3
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getPaddingLeft()I
+
+    move-result v4
+
+    add-int/2addr v3, v4
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getHeight()I
+
+    move-result v4
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v5, v6, v3, v4}, Landroid/widget/SemHorizontalAbsListView;->invalidate(IIII)V
+
+    :cond_18
+    :goto_7
+    if-eqz v21, :cond_1a
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Landroid/widget/SemHorizontalAbsListView;->mScrollX:I
+
+    if-eqz v3, :cond_19
 
     const/4 v3, 0x0
 
     move-object/from16 v0, p0
 
-    iput v3, v0, Landroid/view/View;->mScrollX:I
+    iput v3, v0, Landroid/widget/SemHorizontalAbsListView;->mScrollX:I
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->invalidateParentIfNeeded()V
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->invalidateParentIfNeeded()V
 
-    :cond_17
+    :cond_19
     move-object/from16 v0, p0
 
     move/from16 v1, v21
@@ -8007,13 +6610,13 @@
 
     move-object/from16 v0, p0
 
-    iget v3, v0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v3, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     sub-int v3, v24, v3
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v3}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v25
 
@@ -8040,7 +6643,7 @@
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mMotionPosition:I
 
-    :cond_18
+    :cond_1a
     add-int/lit8 v3, p1, 0x0
 
     add-int v3, v3, v35
@@ -8057,103 +6660,23 @@
 
     goto/16 :goto_4
 
-    :cond_19
+    :cond_1b
     const/16 v28, -0x1
 
     goto/16 :goto_5
 
-    :cond_1a
-    if-lez v29, :cond_1b
+    :cond_1c
+    if-lez v29, :cond_1d
 
     if-lez v30, :cond_15
 
-    :cond_1b
+    :cond_1d
     const/16 v21, 0x0
 
     goto/16 :goto_6
 
-    :cond_1c
-    if-lez v33, :cond_1e
-
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
-
-    int-to-float v4, v9
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
-
-    move-result v5
-
-    int-to-float v5, v5
-
-    div-float/2addr v4, v5
-
-    move/from16 v0, p2
-
-    int-to-float v5, v0
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getHeight()I
-
-    move-result v6
-
-    int-to-float v6, v6
-
-    div-float/2addr v5, v6
-
-    const/high16 v6, 0x3f800000    # 1.0f
-
-    sub-float v5, v6, v5
-
-    invoke-virtual {v3, v4, v5}, Landroid/widget/EdgeEffect;->onPull(FF)V
-
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v3}, Landroid/widget/EdgeEffect;->isFinished()Z
-
-    move-result v3
-
-    if-nez v3, :cond_1d
-
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v3}, Landroid/widget/EdgeEffect;->onRelease()V
-
-    :cond_1d
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v3}, Landroid/widget/EdgeEffect;->getMaxHeight()I
-
-    move-result v3
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getPaddingLeft()I
-
-    move-result v4
-
-    add-int/2addr v3, v4
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getHeight()I
-
-    move-result v4
-
-    const/4 v5, 0x0
-
-    const/4 v6, 0x0
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v5, v6, v3, v4}, Landroid/view/View;->invalidate(IIII)V
-
-    goto/16 :goto_7
-
     :cond_1e
-    if-gez v33, :cond_16
+    if-gez v33, :cond_18
 
     move-object/from16 v0, p0
 
@@ -8161,7 +6684,7 @@
 
     int-to-float v4, v9
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v5
 
@@ -8173,7 +6696,7 @@
 
     int-to-float v5, v0
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getHeight()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getHeight()I
 
     move-result v6
 
@@ -8200,11 +6723,11 @@
     invoke-virtual {v3}, Landroid/widget/EdgeEffect;->onRelease()V
 
     :cond_1f
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v3
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getPaddingRight()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getPaddingRight()I
 
     move-result v4
 
@@ -8220,11 +6743,11 @@
 
     sub-int/2addr v3, v4
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v4
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getHeight()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getHeight()I
 
     move-result v5
 
@@ -8232,14 +6755,14 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v3, v6, v4, v5}, Landroid/view/View;->invalidate(IIII)V
+    invoke-virtual {v0, v3, v6, v4, v5}, Landroid/widget/SemHorizontalAbsListView;->invalidate(IIII)V
 
     goto/16 :goto_7
 
     :cond_20
     const/4 v3, 0x0
 
-    goto/16 :goto_8
+    goto :goto_8
 .end method
 
 .method private semGetEnableVibrationAtLongPress()Z
@@ -8252,8 +6775,6 @@
 
 .method private semNotifyMultiSelectState(Landroid/view/View;IJ)Z
     .locals 9
-
-    const/4 v0, 0x0
 
     iget-boolean v6, p0, Landroid/widget/SemHorizontalAbsListView;->mIsShiftkeyPressed:Z
 
@@ -8304,7 +6825,7 @@
 
     :cond_0
     :goto_0
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->resolvePadding()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->resolvePadding()V
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mFastScroll:Lcom/samsung/android/widget/SemHorizontalFastScroller;
 
@@ -8401,506 +6922,10 @@
     goto :goto_0
 .end method
 
-.method private setupQuickController(I)V
-    .locals 21
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
-
-    move-result v15
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getHeight()I
-
-    move-result v9
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/view/View;->mPaddingTop:I
-
-    move/from16 v16, v0
-
-    sub-int v16, v9, v16
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/view/View;->mPaddingBottom:I
-
-    move/from16 v17, v0
-
-    sub-int v7, v16, v17
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/view/View;->mPaddingTop:I
-
-    move/from16 v16, v0
-
-    div-int/lit8 v17, v7, 0x2
-
-    add-int v5, v16, v17
-
-    const/4 v4, 0x0
-
-    const/4 v3, 0x0
-
-    const/4 v13, 0x0
-
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    iget v11, v0, Landroid/widget/SemHorizontalAbsListView;->mQCLocation:I
-
-    move/from16 v0, p1
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mQCLocation:I
-
-    const/4 v6, 0x1
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/view/View;->mContext:Landroid/content/Context;
-
-    move-object/from16 v16, v0
-
-    invoke-virtual/range {v16 .. v16}, Landroid/content/Context;->getBasePackageName()Ljava/lang/String;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_0
-
-    const-string/jumbo v16, "cocktailbarservice"
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v2, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v16
-
-    if-eqz v16, :cond_0
-
-    const/4 v6, 0x0
-
-    :cond_0
-    if-eqz v6, :cond_2
-
-    const/16 v16, 0x0
-
-    const/16 v17, 0x0
-
-    filled-new-array/range {v16 .. v17}, [I
-
-    move-result-object v10
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v10}, Landroid/view/View;->getLocationOnScreen([I)V
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v16
-
-    invoke-virtual/range {v16 .. v16}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object v8
-
-    const/16 v16, 0x1
-
-    aget v16, v10, v16
-
-    if-gez v16, :cond_1
-
-    const/16 v16, 0x1
-
-    aget v16, v10, v16
-
-    move/from16 v0, v16
-
-    neg-int v12, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/view/View;->mPaddingTop:I
-
-    move/from16 v16, v0
-
-    move/from16 v0, v16
-
-    if-le v12, v0, :cond_1
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/view/View;->mPaddingTop:I
-
-    move/from16 v16, v0
-
-    sub-int v16, v12, v16
-
-    div-int/lit8 v16, v16, 0x2
-
-    add-int v5, v5, v16
-
-    :cond_1
-    const/16 v16, 0x1
-
-    aget v16, v10, v16
-
-    add-int v16, v16, v9
-
-    iget v0, v8, Landroid/util/DisplayMetrics;->heightPixels:I
-
-    move/from16 v17, v0
-
-    move/from16 v0, v16
-
-    move/from16 v1, v17
-
-    if-le v0, v1, :cond_2
-
-    const/16 v16, 0x1
-
-    aget v16, v10, v16
-
-    add-int v16, v16, v9
-
-    iget v0, v8, Landroid/util/DisplayMetrics;->heightPixels:I
-
-    move/from16 v17, v0
-
-    sub-int v12, v16, v17
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/view/View;->mPaddingBottom:I
-
-    move/from16 v16, v0
-
-    move/from16 v0, v16
-
-    if-le v12, v0, :cond_2
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/view/View;->mPaddingBottom:I
-
-    move/from16 v16, v0
-
-    sub-int v16, v12, v16
-
-    div-int/lit8 v16, v16, 0x2
-
-    sub-int v5, v5, v16
-
-    :cond_2
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsEnabledPaddingInHoverScroll:Z
-
-    move/from16 v16, v0
-
-    if-eqz v16, :cond_3
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
-
-    move-object/from16 v16, v0
-
-    move-object/from16 v0, v16
-
-    iget v13, v0, Landroid/graphics/Rect;->left:I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
-
-    move-object/from16 v16, v0
-
-    move-object/from16 v0, v16
-
-    iget v14, v0, Landroid/graphics/Rect;->right:I
-
-    :goto_0
-    packed-switch p1, :pswitch_data_0
-
-    :goto_1
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mQCBtnDrawable:Landroid/graphics/drawable/Drawable;
-
-    move-object/from16 v16, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mQCRect:Landroid/graphics/Rect;
-
-    move-object/from16 v17, v0
-
-    invoke-virtual/range {v16 .. v17}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mQCBtnPressedDrawable:Landroid/graphics/drawable/Drawable;
-
-    move-object/from16 v16, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mQCRect:Landroid/graphics/Rect;
-
-    move-object/from16 v17, v0
-
-    invoke-virtual/range {v16 .. v17}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
-
-    return-void
-
-    :cond_3
-    move-object/from16 v0, p0
-
-    iget v13, v0, Landroid/widget/SemHorizontalAbsListView;->mExtraPaddingInLeftHoverArea:I
-
-    move-object/from16 v0, p0
-
-    iget v14, v0, Landroid/widget/SemHorizontalAbsListView;->mExtraPaddingInRightHoverArea:I
-
-    goto :goto_0
-
-    :pswitch_0
-    new-instance v16, Landroid/graphics/Rect;
-
-    const/16 v17, 0x0
-
-    const/16 v18, 0x0
-
-    const/16 v19, 0x0
-
-    const/16 v20, 0x0
-
-    invoke-direct/range {v16 .. v20}, Landroid/graphics/Rect;-><init>(IIII)V
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Landroid/widget/SemHorizontalAbsListView;->mQCRect:Landroid/graphics/Rect;
-
-    goto :goto_1
-
-    :pswitch_1
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mQCLocation:I
-
-    move/from16 v16, v0
-
-    move/from16 v0, v16
-
-    if-eq v0, v11, :cond_4
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v16
-
-    const v17, 0x108053b
-
-    invoke-virtual/range {v16 .. v17}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Landroid/widget/SemHorizontalAbsListView;->mQCBtnDrawable:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v16
-
-    const v17, 0x108053c
-
-    invoke-virtual/range {v16 .. v17}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Landroid/widget/SemHorizontalAbsListView;->mQCBtnPressedDrawable:Landroid/graphics/drawable/Drawable;
-
-    :cond_4
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mQCBtnDrawable:Landroid/graphics/drawable/Drawable;
-
-    move-object/from16 v16, v0
-
-    invoke-virtual/range {v16 .. v16}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
-
-    move-result v4
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mQCBtnDrawable:Landroid/graphics/drawable/Drawable;
-
-    move-object/from16 v16, v0
-
-    invoke-virtual/range {v16 .. v16}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
-
-    move-result v3
-
-    new-instance v16, Landroid/graphics/Rect;
-
-    add-int/lit8 v17, v13, 0x0
-
-    div-int/lit8 v18, v3, 0x2
-
-    sub-int v18, v5, v18
-
-    add-int v19, v4, v13
-
-    div-int/lit8 v20, v3, 0x2
-
-    add-int v20, v20, v5
-
-    invoke-direct/range {v16 .. v20}, Landroid/graphics/Rect;-><init>(IIII)V
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Landroid/widget/SemHorizontalAbsListView;->mQCRect:Landroid/graphics/Rect;
-
-    goto/16 :goto_1
-
-    :pswitch_2
-    new-instance v16, Landroid/graphics/Rect;
-
-    const/16 v17, 0x0
-
-    const/16 v18, 0x0
-
-    const/16 v19, 0x0
-
-    const/16 v20, 0x0
-
-    invoke-direct/range {v16 .. v20}, Landroid/graphics/Rect;-><init>(IIII)V
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Landroid/widget/SemHorizontalAbsListView;->mQCRect:Landroid/graphics/Rect;
-
-    goto/16 :goto_1
-
-    :pswitch_3
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mQCLocation:I
-
-    move/from16 v16, v0
-
-    move/from16 v0, v16
-
-    if-eq v0, v11, :cond_5
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v16
-
-    const v17, 0x1080539
-
-    invoke-virtual/range {v16 .. v17}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Landroid/widget/SemHorizontalAbsListView;->mQCBtnDrawable:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v16
-
-    const v17, 0x108053a
-
-    invoke-virtual/range {v16 .. v17}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Landroid/widget/SemHorizontalAbsListView;->mQCBtnPressedDrawable:Landroid/graphics/drawable/Drawable;
-
-    :cond_5
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mQCBtnDrawable:Landroid/graphics/drawable/Drawable;
-
-    move-object/from16 v16, v0
-
-    invoke-virtual/range {v16 .. v16}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
-
-    move-result v4
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mQCBtnDrawable:Landroid/graphics/drawable/Drawable;
-
-    move-object/from16 v16, v0
-
-    invoke-virtual/range {v16 .. v16}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
-
-    move-result v3
-
-    new-instance v16, Landroid/graphics/Rect;
-
-    sub-int v17, v15, v3
-
-    sub-int v17, v17, v14
-
-    div-int/lit8 v18, v3, 0x2
-
-    sub-int v18, v5, v18
-
-    sub-int v19, v15, v14
-
-    div-int/lit8 v20, v3, 0x2
-
-    add-int v20, v20, v5
-
-    invoke-direct/range {v16 .. v20}, Landroid/graphics/Rect;-><init>(IIII)V
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Landroid/widget/SemHorizontalAbsListView;->mQCRect:Landroid/graphics/Rect;
-
-    goto/16 :goto_1
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_3
-        :pswitch_2
-    .end packed-switch
-.end method
-
 .method private showPointerIcon(Landroid/view/MotionEvent;I)V
     .locals 4
 
-    invoke-virtual {p1}, Landroid/view/InputEvent;->getDevice()Landroid/view/InputDevice;
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getDevice()Landroid/view/InputDevice;
 
     move-result-object v0
 
@@ -8940,7 +6965,7 @@
 .method private showPopup()V
     .locals 1
 
-    invoke-virtual {p0}, Landroid/view/View;->getWindowVisibility()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWindowVisibility()I
 
     move-result v0
 
@@ -8952,7 +6977,7 @@
 
     invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->positionPopup()V
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->checkFocus()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->checkFocus()V
 
     :cond_0
     return-void
@@ -8961,7 +6986,7 @@
 .method private startScrollIfNeeded(IILandroid/view/MotionEvent;)Z
     .locals 11
 
-    const/4 v8, 0x1
+    const/4 v10, 0x1
 
     const/4 v9, 0x0
 
@@ -8973,11 +6998,11 @@
 
     move-result v2
 
-    iget v7, p0, Landroid/view/View;->mScrollX:I
+    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollX:I
 
     if-eqz v7, :cond_2
 
-    move v5, v8
+    const/4 v5, 0x1
 
     :goto_0
     if-nez v5, :cond_0
@@ -8987,7 +7012,7 @@
     if-le v2, v7, :cond_7
 
     :cond_0
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getNestedScrollAxes()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getNestedScrollAxes()I
 
     move-result v7
 
@@ -9008,17 +7033,17 @@
     :goto_1
     iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingCheckForLongPress:Landroid/widget/SemHorizontalAbsListView$CheckForLongPress;
 
-    invoke-virtual {p0, v7}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v7}, Landroid/widget/SemHorizontalAbsListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    invoke-virtual {p0, v9}, Landroid/view/View;->setPressed(Z)V
+    invoke-virtual {p0, v9}, Landroid/widget/SemHorizontalAbsListView;->setPressed(Z)V
 
     iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mMotionPosition:I
 
-    iget v10, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
-    sub-int/2addr v7, v10
+    sub-int/2addr v7, v8
 
-    invoke-virtual {p0, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v7}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v4
 
@@ -9029,9 +7054,9 @@
     :cond_1
     iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mPointerCount:I
 
-    if-le v7, v8, :cond_5
+    if-le v7, v10, :cond_5
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v0
 
@@ -9040,7 +7065,7 @@
     :goto_2
     if-ge v3, v0, :cond_5
 
-    invoke-virtual {p0, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v7
 
@@ -9051,7 +7076,7 @@
     goto :goto_2
 
     :cond_2
-    move v5, v9
+    const/4 v5, 0x0
 
     goto :goto_0
 
@@ -9077,20 +7102,20 @@
     goto :goto_3
 
     :cond_5
-    invoke-virtual {p0, v8}, Landroid/widget/SemHorizontalAbsListView;->reportScrollStateChange(I)V
+    invoke-virtual {p0, v10}, Landroid/widget/SemHorizontalAbsListView;->reportScrollStateChange(I)V
 
-    invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getParent()Landroid/view/ViewParent;
 
     move-result-object v6
 
     if-eqz v6, :cond_6
 
-    invoke-interface {v6, v8}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
+    invoke-interface {v6, v10}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
 
     :cond_6
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/SemHorizontalAbsListView;->scrollIfNeeded(IILandroid/view/MotionEvent;)V
 
-    return v8
+    return v10
 
     :cond_7
     return v9
@@ -9099,13 +7124,13 @@
 .method private updateOnScreenCheckedViews()V
     .locals 8
 
-    iget v2, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v2, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v1
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getContext()Landroid/content/Context;
 
     move-result-object v6
 
@@ -9127,7 +7152,7 @@
     :goto_1
     if-ge v3, v1, :cond_3
 
-    invoke-virtual {p0, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -9178,7 +7203,7 @@
 .method private useDefaultSelector()V
     .locals 2
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -9200,7 +7225,7 @@
 
     int-to-float v0, p1
 
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -9232,7 +7257,7 @@
 
     int-to-float v0, p1
 
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -9271,11 +7296,11 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v2
 
-    iget v3, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
 
@@ -9289,7 +7314,7 @@
     :goto_0
     if-ge v4, v2, :cond_2
 
-    invoke-virtual {p0, v4}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v4}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -9333,7 +7358,7 @@
 
     const/4 v7, 0x0
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v0
 
@@ -9342,7 +7367,7 @@
     return v7
 
     :cond_0
-    iget v2, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v2, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     iget-object v5, p0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
 
@@ -9352,7 +7377,7 @@
 
     if-eqz v8, :cond_2
 
-    invoke-virtual {p0, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v7}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v8
 
@@ -9376,7 +7401,7 @@
     :cond_2
     add-int/lit8 v8, v0, -0x1
 
-    invoke-virtual {p0, v8}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v8}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v8
 
@@ -9392,11 +7417,11 @@
     goto :goto_1
 
     :cond_4
-    iget v8, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     if-lt v3, v8, :cond_1
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v8
 
@@ -9415,7 +7440,7 @@
 
     add-int/lit8 v8, v0, -0x1
 
-    invoke-virtual {p0, v8}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v8}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v8
 
@@ -9430,7 +7455,7 @@
 
     if-eqz v8, :cond_9
 
-    iget v8, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     if-ge v3, v8, :cond_8
 
@@ -9439,7 +7464,7 @@
     return v6
 
     :cond_7
-    invoke-virtual {p0, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v7}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v8
 
@@ -9531,7 +7556,7 @@
 
     const-string/jumbo v1, ""
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
     const/4 v0, 0x0
 
@@ -9560,7 +7585,7 @@
 
     const/4 v8, 0x0
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v0
 
@@ -9578,7 +7603,7 @@
 
     add-int/lit8 v7, v0, -0x1
 
-    invoke-virtual {p0, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v7}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v5
 
@@ -9599,7 +7624,7 @@
     add-int/2addr v1, v7
 
     :cond_0
-    invoke-virtual {p0, v8}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v8}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v4
 
@@ -9613,7 +7638,7 @@
 
     if-lez v6, :cond_1
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v7
 
@@ -9629,7 +7654,7 @@
     return v1
 
     :cond_2
-    invoke-virtual {p0, v8}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v8}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v4
 
@@ -9652,7 +7677,7 @@
     :cond_3
     add-int/lit8 v7, v0, -0x1
 
-    invoke-virtual {p0, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v7}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v4
 
@@ -9666,7 +7691,7 @@
 
     if-lez v6, :cond_4
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v7
 
@@ -9697,15 +7722,15 @@
 
     const/4 v11, 0x0
 
-    iget v2, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v2, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v0
 
-    iget v8, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v9
 
@@ -9727,7 +7752,7 @@
 
     add-int/lit8 v8, v0, -0x1
 
-    invoke-virtual {p0, v8}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v8}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v6
 
@@ -9741,7 +7766,7 @@
 
     if-lez v7, :cond_4
 
-    iget v8, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     sub-int/2addr v8, v4
 
@@ -9753,11 +7778,11 @@
 
     sub-int/2addr v8, v9
 
-    iget v9, p0, Landroid/view/View;->mScrollX:I
+    iget v9, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollX:I
 
     int-to-float v9, v9
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v10
 
@@ -9765,7 +7790,7 @@
 
     div-float/2addr v9, v10
 
-    iget v10, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v10, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     int-to-float v10, v10
 
@@ -9784,7 +7809,7 @@
     return v8
 
     :cond_0
-    invoke-virtual {p0, v11}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v11}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v6
 
@@ -9806,11 +7831,11 @@
 
     sub-int/2addr v8, v9
 
-    iget v9, p0, Landroid/view/View;->mScrollX:I
+    iget v9, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollX:I
 
     int-to-float v9, v9
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v10
 
@@ -9818,7 +7843,7 @@
 
     div-float/2addr v9, v10
 
-    iget v10, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v10, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     int-to-float v10, v10
 
@@ -9837,7 +7862,7 @@
     return v8
 
     :cond_1
-    iget v1, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     if-nez v2, :cond_2
 
@@ -9891,7 +7916,7 @@
 
     if-eqz v1, :cond_1
 
-    iget v1, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     mul-int/lit8 v1, v1, 0x64
 
@@ -9899,15 +7924,15 @@
 
     move-result v0
 
-    iget v1, p0, Landroid/view/View;->mScrollX:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollX:I
 
     if-eqz v1, :cond_0
 
-    iget v1, p0, Landroid/view/View;->mScrollX:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollX:I
 
     int-to-float v1, v1
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v2
 
@@ -9915,7 +7940,7 @@
 
     div-float/2addr v1, v2
 
-    iget v2, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v2, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     int-to-float v2, v2
 
@@ -9938,7 +7963,7 @@
     return v0
 
     :cond_1
-    iget v0, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     goto :goto_0
 .end method
@@ -10013,7 +8038,7 @@
 
     move-object/from16 v0, p0
 
-    iget v4, v0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v4, v0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     invoke-static {v3, v4}, Ljava/lang/Math;->min(II)I
 
@@ -10183,715 +8208,593 @@
 .end method
 
 .method public dispatchDragEvent(Landroid/view/DragEvent;)Z
-    .locals 18
+    .locals 14
 
-    invoke-virtual/range {p1 .. p1}, Landroid/view/DragEvent;->getAction()I
+    invoke-virtual {p1}, Landroid/view/DragEvent;->getAction()I
 
-    move-result v2
+    move-result v0
 
-    invoke-virtual/range {p1 .. p1}, Landroid/view/DragEvent;->getClipDescription()Landroid/content/ClipDescription;
+    invoke-virtual {p1}, Landroid/view/DragEvent;->getClipDescription()Landroid/content/ClipDescription;
 
-    move-result-object v5
+    move-result-object v3
 
-    if-eqz v5, :cond_2
+    if-eqz v3, :cond_0
 
-    const-string/jumbo v13, "cropUri"
+    const-string/jumbo v10, "cropUri"
 
-    invoke-virtual {v5}, Landroid/content/ClipDescription;->getLabel()Ljava/lang/CharSequence;
+    invoke-virtual {v3}, Landroid/content/ClipDescription;->getLabel()Ljava/lang/CharSequence;
 
-    move-result-object v14
+    move-result-object v11
 
-    invoke-virtual {v13, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v13
+    move-result v10
 
-    if-eqz v13, :cond_2
+    xor-int/lit8 v10, v10, 0x1
 
-    const/4 v13, 0x1
-
-    if-ne v2, v13, :cond_3
-
-    move-object/from16 v0, p0
-
-    iget v13, v0, Landroid/widget/SemHorizontalAbsListView;->mDragScrollWorkingZonePx:I
-
-    if-gtz v13, :cond_0
-
-    const/high16 v13, 0x41c80000    # 25.0f
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/view/View;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v14}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object v14
-
-    const/4 v15, 0x1
-
-    invoke-static {v15, v13, v14}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
-
-    move-result v13
-
-    const/high16 v14, 0x3f000000    # 0.5f
-
-    add-float/2addr v13, v14
-
-    float-to-int v13, v13
-
-    move-object/from16 v0, p0
-
-    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mDragScrollWorkingZonePx:I
+    if-eqz v10, :cond_1
 
     :cond_0
-    invoke-super/range {p0 .. p1}, Landroid/widget/AdapterView;->dispatchDragEvent(Landroid/view/DragEvent;)Z
+    invoke-super {p0, p1}, Landroid/widget/AdapterView;->dispatchDragEvent(Landroid/view/DragEvent;)Z
 
-    move-result v13
+    move-result v10
 
-    if-nez v13, :cond_1
+    return v10
 
     :cond_1
-    const/4 v13, 0x1
+    const/4 v10, 0x1
 
-    return v13
+    if-ne v0, v10, :cond_4
+
+    iget v10, p0, Landroid/widget/SemHorizontalAbsListView;->mDragScrollWorkingZonePx:I
+
+    if-gtz v10, :cond_2
+
+    const/high16 v10, 0x41c80000    # 25.0f
+
+    iget-object v11, p0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v11}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v11
+
+    const/4 v12, 0x1
+
+    invoke-static {v12, v10, v11}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
+
+    move-result v10
+
+    const/high16 v11, 0x3f000000    # 0.5f
+
+    add-float/2addr v10, v11
+
+    float-to-int v10, v10
+
+    iput v10, p0, Landroid/widget/SemHorizontalAbsListView;->mDragScrollWorkingZonePx:I
 
     :cond_2
-    invoke-super/range {p0 .. p1}, Landroid/widget/AdapterView;->dispatchDragEvent(Landroid/view/DragEvent;)Z
+    invoke-super {p0, p1}, Landroid/widget/AdapterView;->dispatchDragEvent(Landroid/view/DragEvent;)Z
 
-    move-result v13
+    move-result v10
 
-    return v13
+    if-nez v10, :cond_3
 
     :cond_3
-    invoke-virtual/range {p1 .. p1}, Landroid/view/DragEvent;->getX()F
+    const/4 v10, 0x1
 
-    move-result v13
+    return v10
 
-    float-to-int v11, v13
+    :cond_4
+    invoke-virtual {p1}, Landroid/view/DragEvent;->getX()F
 
-    invoke-virtual/range {p1 .. p1}, Landroid/view/DragEvent;->getY()F
+    move-result v10
 
-    move-result v13
+    float-to-int v8, v10
 
-    float-to-int v12, v13
+    invoke-virtual {p1}, Landroid/view/DragEvent;->getY()F
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/ViewGroup;->getChildCount()I
+    move-result v10
+
+    float-to-int v9, v10
+
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
+
+    move-result v5
+
+    const/4 v6, 0x0
+
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v7
 
-    const/4 v8, 0x0
+    if-eqz v5, :cond_5
+
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
+
+    move-result v6
+
+    :cond_5
+    iget v10, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
+
+    add-int/2addr v10, v7
+
+    iget v11, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
+
+    if-ge v10, v11, :cond_d
+
+    const/4 v2, 0x1
+
+    :goto_0
+    if-nez v2, :cond_6
+
+    if-lez v7, :cond_6
+
+    add-int/lit8 v10, v7, -0x1
+
+    invoke-virtual {p0, v10}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/view/View;->getRight()I
+
+    move-result v10
+
+    iget v11, p0, Landroid/widget/SemHorizontalAbsListView;->mRight:I
+
+    iget-object v12, p0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
+
+    iget v12, v12, Landroid/graphics/Rect;->right:I
+
+    sub-int/2addr v11, v12
+
+    if-gt v10, v11, :cond_e
+
+    invoke-virtual {v4}, Landroid/view/View;->getRight()I
+
+    move-result v10
+
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
+
+    move-result v11
+
+    iget-object v12, p0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
+
+    iget v12, v12, Landroid/graphics/Rect;->right:I
+
+    sub-int/2addr v11, v12
+
+    if-le v10, v11, :cond_f
+
+    const/4 v2, 0x1
+
+    :cond_6
+    :goto_1
+    iget v10, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
+
+    if-lez v10, :cond_10
+
+    const/4 v1, 0x1
+
+    :goto_2
+    if-nez v1, :cond_7
+
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
+
+    move-result v10
+
+    if-lez v10, :cond_7
 
     const/4 v10, 0x0
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0, v10}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
-    move-result v9
+    move-result-object v4
 
-    if-eqz v7, :cond_4
+    invoke-virtual {v4}, Landroid/view/View;->getLeft()I
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
+    move-result v10
 
-    move-result v8
+    iget-object v11, p0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
 
-    :cond_4
-    move-object/from16 v0, p0
+    iget v11, v11, Landroid/graphics/Rect;->left:I
 
-    iget v13, v0, Landroid/widget/AdapterView;->mFirstPosition:I
+    if-ge v10, v11, :cond_11
 
-    add-int/2addr v13, v9
-
-    move-object/from16 v0, p0
-
-    iget v14, v0, Landroid/widget/AdapterView;->mItemCount:I
-
-    if-ge v13, v14, :cond_c
-
-    const/4 v4, 0x1
-
-    :goto_0
-    if-nez v4, :cond_5
-
-    if-lez v9, :cond_5
-
-    add-int/lit8 v13, v9, -0x1
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v13}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/view/View;->getRight()I
-
-    move-result v13
-
-    move-object/from16 v0, p0
-
-    iget v14, v0, Landroid/view/View;->mRight:I
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
-
-    iget v15, v15, Landroid/graphics/Rect;->right:I
-
-    sub-int/2addr v14, v15
-
-    if-gt v13, v14, :cond_d
-
-    invoke-virtual {v6}, Landroid/view/View;->getRight()I
-
-    move-result v13
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
-
-    move-result v14
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
-
-    iget v15, v15, Landroid/graphics/Rect;->right:I
-
-    sub-int/2addr v14, v15
-
-    if-le v13, v14, :cond_e
-
-    const/4 v4, 0x1
-
-    :cond_5
-    :goto_1
-    move-object/from16 v0, p0
-
-    iget v13, v0, Landroid/widget/AdapterView;->mFirstPosition:I
-
-    if-lez v13, :cond_f
-
-    const/4 v3, 0x1
-
-    :goto_2
-    if-nez v3, :cond_6
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/ViewGroup;->getChildCount()I
-
-    move-result v13
-
-    if-lez v13, :cond_6
-
-    const/4 v13, 0x0
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v13}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/view/View;->getLeft()I
-
-    move-result v13
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
-
-    iget v14, v14, Landroid/graphics/Rect;->left:I
-
-    if-ge v13, v14, :cond_10
-
-    const/4 v3, 0x1
-
-    :cond_6
-    :goto_3
-    move-object/from16 v0, p0
-
-    iget v13, v0, Landroid/widget/SemHorizontalAbsListView;->mDragScrollWorkingZonePx:I
-
-    if-le v11, v13, :cond_11
-
-    move-object/from16 v0, p0
-
-    iget v13, v0, Landroid/widget/SemHorizontalAbsListView;->mDragScrollWorkingZonePx:I
-
-    sub-int v13, v8, v13
-
-    if-ge v11, v13, :cond_11
+    const/4 v1, 0x1
 
     :cond_7
-    move-object/from16 v0, p0
+    :goto_3
+    iget v10, p0, Landroid/widget/SemHorizontalAbsListView;->mDragScrollWorkingZonePx:I
 
-    iget-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
+    if-le v8, v10, :cond_12
 
-    if-eqz v13, :cond_8
+    iget v10, p0, Landroid/widget/SemHorizontalAbsListView;->mDragScrollWorkingZonePx:I
 
-    move-object/from16 v0, p0
+    sub-int v10, v6, v10
 
-    iget-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    const/4 v14, 0x1
-
-    invoke-virtual {v13, v14}, Landroid/os/Handler;->hasMessages(I)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_8
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    const/4 v14, 0x1
-
-    invoke-virtual {v13, v14}, Landroid/os/Handler;->removeMessages(I)V
+    if-ge v8, v10, :cond_12
 
     :cond_8
-    move-object/from16 v0, p0
+    iget-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    iget-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
+    if-eqz v10, :cond_9
 
-    if-nez v13, :cond_9
+    iget-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v0, p0
+    const/4 v11, 0x1
 
-    iget-wide v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
+    invoke-virtual {v10, v11}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->hasMessages(I)Z
 
-    const-wide/16 v16, 0x0
+    move-result v10
 
-    cmp-long v13, v14, v16
+    if-eqz v10, :cond_9
 
-    if-eqz v13, :cond_a
+    iget-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
+
+    const/4 v11, 0x1
+
+    invoke-virtual {v10, v11}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->removeMessages(I)V
 
     :cond_9
-    const/4 v13, 0x0
+    iget-boolean v10, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
 
-    move-object/from16 v0, p0
+    if-nez v10, :cond_a
 
-    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
+    iget-wide v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
+
+    const-wide/16 v12, 0x0
+
+    cmp-long v10, v10, v12
+
+    if-eqz v10, :cond_b
 
     :cond_a
-    const-wide/16 v14, 0x0
+    const/4 v10, 0x0
 
-    move-object/from16 v0, p0
-
-    iput-wide v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
-
-    const-wide/16 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-wide v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
-
-    const/4 v13, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
-
-    const/4 v13, 0x2
-
-    if-ne v2, v13, :cond_b
-
-    move-object/from16 v0, p0
-
-    iget-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsDragScrolled:Z
-
-    if-eqz v13, :cond_b
-
-    const/4 v13, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsDragScrolled:Z
-
-    invoke-virtual/range {p0 .. p1}, Landroid/view/ViewGroup;->resetDragableChildren(Landroid/view/DragEvent;)Z
+    iput-boolean v10, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
 
     :cond_b
-    invoke-super/range {p0 .. p1}, Landroid/widget/AdapterView;->dispatchDragEvent(Landroid/view/DragEvent;)Z
+    const-wide/16 v10, 0x0
 
-    move-result v13
+    iput-wide v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
 
-    return v13
+    const-wide/16 v10, 0x0
+
+    iput-wide v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
+
+    const/4 v10, 0x0
+
+    iput-boolean v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
+
+    const/4 v10, 0x2
+
+    if-ne v0, v10, :cond_c
+
+    iget-boolean v10, p0, Landroid/widget/SemHorizontalAbsListView;->mIsDragScrolled:Z
+
+    if-eqz v10, :cond_c
+
+    const/4 v10, 0x0
+
+    iput-boolean v10, p0, Landroid/widget/SemHorizontalAbsListView;->mIsDragScrolled:Z
+
+    invoke-virtual {p0, p1}, Landroid/widget/SemHorizontalAbsListView;->resetDragableChildren(Landroid/view/DragEvent;)Z
 
     :cond_c
-    const/4 v4, 0x0
+    invoke-super {p0, p1}, Landroid/widget/AdapterView;->dispatchDragEvent(Landroid/view/DragEvent;)Z
+
+    move-result v10
+
+    return v10
+
+    :cond_d
+    const/4 v2, 0x0
 
     goto/16 :goto_0
 
-    :cond_d
-    const/4 v4, 0x1
-
-    goto/16 :goto_1
-
     :cond_e
-    const/4 v4, 0x0
+    const/4 v2, 0x1
 
-    goto/16 :goto_1
+    goto :goto_1
 
     :cond_f
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    goto/16 :goto_2
+    goto :goto_1
 
     :cond_10
-    const/4 v3, 0x0
+    const/4 v1, 0x0
+
+    goto :goto_2
+
+    :cond_11
+    const/4 v1, 0x0
 
     goto :goto_3
 
-    :cond_11
-    if-lez v12, :cond_7
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getBottom()I
-
-    move-result v13
-
-    if-gt v12, v13, :cond_7
-
-    if-nez v3, :cond_12
-
-    if-eqz v4, :cond_7
-
     :cond_12
-    move-object/from16 v0, p0
+    if-lez v9, :cond_8
 
-    iget-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getBottom()I
 
-    if-nez v13, :cond_13
+    move-result v10
 
-    new-instance v13, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
+    if-gt v9, v10, :cond_8
 
-    move-object/from16 v0, p0
+    if-nez v1, :cond_16
 
-    invoke-direct {v13, v0}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;-><init>(Landroid/widget/SemHorizontalAbsListView;)V
+    :goto_4
+    xor-int/lit8 v10, v2, 0x1
 
-    move-object/from16 v0, p0
+    if-nez v10, :cond_8
 
-    iput-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
+    iget-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
+
+    if-nez v10, :cond_13
+
+    new-instance v10, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
+
+    invoke-direct {v10, p0}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;-><init>(Landroid/widget/SemHorizontalAbsListView;)V
+
+    iput-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
     :cond_13
-    move-object/from16 v0, p0
+    iget-boolean v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
 
-    iget-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
-
-    if-nez v13, :cond_14
+    if-nez v10, :cond_14
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v14
+    move-result-wide v10
 
-    move-object/from16 v0, p0
-
-    iput-wide v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
+    iput-wide v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
 
     :cond_14
-    packed-switch v2, :pswitch_data_0
+    packed-switch v0, :pswitch_data_0
 
     :cond_15
-    :goto_4
-    invoke-super/range {p0 .. p1}, Landroid/widget/AdapterView;->dispatchDragEvent(Landroid/view/DragEvent;)Z
+    :goto_5
+    invoke-super {p0, p1}, Landroid/widget/AdapterView;->dispatchDragEvent(Landroid/view/DragEvent;)Z
 
-    move-result v13
+    move-result v10
 
-    return v13
-
-    :pswitch_0
-    const/4 v13, 0x1
-
-    move-object/from16 v0, p0
-
-    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
-
-    if-ltz v11, :cond_16
-
-    move-object/from16 v0, p0
-
-    iget v13, v0, Landroid/widget/SemHorizontalAbsListView;->mDragScrollWorkingZonePx:I
-
-    if-gt v11, v13, :cond_16
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    const/4 v14, 0x1
-
-    invoke-virtual {v13, v14}, Landroid/os/Handler;->hasMessages(I)Z
-
-    move-result v13
-
-    if-nez v13, :cond_15
-
-    const/4 v13, 0x1
-
-    move-object/from16 v0, p0
-
-    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsDragScrolled:Z
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v14
-
-    move-object/from16 v0, p0
-
-    iput-wide v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
-
-    const/4 v13, 0x2
-
-    move-object/from16 v0, p0
-
-    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    const/4 v14, 0x1
-
-    invoke-virtual {v13, v14}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-
-    goto :goto_4
+    return v10
 
     :cond_16
-    move-object/from16 v0, p0
-
-    iget v13, v0, Landroid/widget/SemHorizontalAbsListView;->mDragScrollWorkingZonePx:I
-
-    sub-int v13, v8, v13
-
-    if-lt v11, v13, :cond_15
-
-    if-gt v11, v8, :cond_15
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    const/4 v14, 0x1
-
-    invoke-virtual {v13, v14}, Landroid/os/Handler;->hasMessages(I)Z
-
-    move-result v13
-
-    if-nez v13, :cond_15
-
-    const/4 v13, 0x1
-
-    move-object/from16 v0, p0
-
-    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsDragScrolled:Z
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v14
-
-    move-object/from16 v0, p0
-
-    iput-wide v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
-
-    const/4 v13, 0x1
-
-    move-object/from16 v0, p0
-
-    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    const/4 v14, 0x1
-
-    invoke-virtual {v13, v14}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    const/4 v2, 0x1
 
     goto :goto_4
 
-    :pswitch_1
-    move-object/from16 v0, p0
+    :pswitch_0
+    const/4 v10, 0x1
 
-    iget-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
+    iput-boolean v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
 
-    if-nez v13, :cond_17
+    if-ltz v8, :cond_17
 
-    const/4 v13, 0x1
+    iget v10, p0, Landroid/widget/SemHorizontalAbsListView;->mDragScrollWorkingZonePx:I
 
-    move-object/from16 v0, p0
+    if-gt v8, v10, :cond_17
 
-    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
+    iget-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
+
+    const/4 v11, 0x1
+
+    invoke-virtual {v10, v11}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->hasMessages(I)Z
+
+    move-result v10
+
+    if-nez v10, :cond_15
+
+    const/4 v10, 0x1
+
+    iput-boolean v10, p0, Landroid/widget/SemHorizontalAbsListView;->mIsDragScrolled:Z
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v10
+
+    iput-wide v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
+
+    const/4 v10, 0x2
+
+    iput v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
+
+    iget-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
+
+    const/4 v11, 0x1
+
+    invoke-virtual {v10, v11}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->sendEmptyMessage(I)Z
+
+    goto :goto_5
 
     :cond_17
-    if-ltz v11, :cond_18
+    iget v10, p0, Landroid/widget/SemHorizontalAbsListView;->mDragScrollWorkingZonePx:I
 
-    move-object/from16 v0, p0
+    sub-int v10, v6, v10
 
-    iget v13, v0, Landroid/widget/SemHorizontalAbsListView;->mDragScrollWorkingZonePx:I
+    if-lt v8, v10, :cond_15
 
-    if-gt v11, v13, :cond_18
+    if-gt v8, v6, :cond_15
 
-    move-object/from16 v0, p0
+    iget-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    iget-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
+    const/4 v11, 0x1
 
-    const/4 v14, 0x1
+    invoke-virtual {v10, v11}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->hasMessages(I)Z
 
-    invoke-virtual {v13, v14}, Landroid/os/Handler;->hasMessages(I)Z
+    move-result v10
 
-    move-result v13
+    if-nez v10, :cond_15
 
-    if-nez v13, :cond_15
+    const/4 v10, 0x1
 
-    const/4 v13, 0x1
-
-    move-object/from16 v0, p0
-
-    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsDragScrolled:Z
+    iput-boolean v10, p0, Landroid/widget/SemHorizontalAbsListView;->mIsDragScrolled:Z
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v14
+    move-result-wide v10
 
-    move-object/from16 v0, p0
+    iput-wide v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
 
-    iput-wide v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
+    const/4 v10, 0x1
 
-    const/4 v13, 0x2
+    iput v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
 
-    move-object/from16 v0, p0
+    iget-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
+    const/4 v11, 0x1
 
-    move-object/from16 v0, p0
+    invoke-virtual {v10, v11}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->sendEmptyMessage(I)Z
 
-    iget-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
+    goto :goto_5
 
-    const/4 v14, 0x1
+    :pswitch_1
+    iget-boolean v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
 
-    invoke-virtual {v13, v14}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    if-nez v10, :cond_18
 
-    goto/16 :goto_4
+    const/4 v10, 0x1
+
+    iput-boolean v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
 
     :cond_18
-    move-object/from16 v0, p0
+    if-ltz v8, :cond_19
 
-    iget v13, v0, Landroid/widget/SemHorizontalAbsListView;->mDragScrollWorkingZonePx:I
+    iget v10, p0, Landroid/widget/SemHorizontalAbsListView;->mDragScrollWorkingZonePx:I
 
-    sub-int v13, v8, v13
+    if-gt v8, v10, :cond_19
 
-    if-lt v11, v13, :cond_15
+    iget-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    if-gt v11, v8, :cond_15
+    const/4 v11, 0x1
 
-    move-object/from16 v0, p0
+    invoke-virtual {v10, v11}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->hasMessages(I)Z
 
-    iget-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
+    move-result v10
 
-    const/4 v14, 0x1
+    if-nez v10, :cond_15
 
-    invoke-virtual {v13, v14}, Landroid/os/Handler;->hasMessages(I)Z
+    const/4 v10, 0x1
 
-    move-result v13
-
-    if-nez v13, :cond_15
-
-    const/4 v13, 0x1
-
-    move-object/from16 v0, p0
-
-    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsDragScrolled:Z
+    iput-boolean v10, p0, Landroid/widget/SemHorizontalAbsListView;->mIsDragScrolled:Z
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v14
+    move-result-wide v10
 
-    move-object/from16 v0, p0
+    iput-wide v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
 
-    iput-wide v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
+    const/4 v10, 0x2
 
-    const/4 v13, 0x1
+    iput v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
 
-    move-object/from16 v0, p0
+    iget-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
+    const/4 v11, 0x1
 
-    move-object/from16 v0, p0
+    invoke-virtual {v10, v11}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->sendEmptyMessage(I)Z
 
-    iget-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    const/4 v14, 0x1
-
-    invoke-virtual {v13, v14}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-
-    goto/16 :goto_4
-
-    :pswitch_2
-    move-object/from16 v0, p0
-
-    iget-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsDragScrolled:Z
-
-    if-eqz v13, :cond_19
-
-    const/4 v13, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsDragScrolled:Z
-
-    invoke-virtual/range {p0 .. p1}, Landroid/view/ViewGroup;->resetDragableChildren(Landroid/view/DragEvent;)Z
+    goto :goto_5
 
     :cond_19
-    :pswitch_3
-    move-object/from16 v0, p0
+    iget v10, p0, Landroid/widget/SemHorizontalAbsListView;->mDragScrollWorkingZonePx:I
 
-    iget-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
+    sub-int v10, v6, v10
 
-    const/4 v14, 0x1
+    if-lt v8, v10, :cond_15
 
-    invoke-virtual {v13, v14}, Landroid/os/Handler;->hasMessages(I)Z
+    if-gt v8, v6, :cond_15
 
-    move-result v13
+    iget-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    if-eqz v13, :cond_1a
+    const/4 v11, 0x1
 
-    move-object/from16 v0, p0
+    invoke-virtual {v10, v11}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->hasMessages(I)Z
 
-    iget-object v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
+    move-result v10
 
-    const/4 v14, 0x1
+    if-nez v10, :cond_15
 
-    invoke-virtual {v13, v14}, Landroid/os/Handler;->removeMessages(I)V
+    const/4 v10, 0x1
+
+    iput-boolean v10, p0, Landroid/widget/SemHorizontalAbsListView;->mIsDragScrolled:Z
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v10
+
+    iput-wide v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
+
+    const/4 v10, 0x1
+
+    iput v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
+
+    iget-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
+
+    const/4 v11, 0x1
+
+    invoke-virtual {v10, v11}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->sendEmptyMessage(I)Z
+
+    goto/16 :goto_5
+
+    :pswitch_2
+    iget-boolean v10, p0, Landroid/widget/SemHorizontalAbsListView;->mIsDragScrolled:Z
+
+    if-eqz v10, :cond_1a
+
+    const/4 v10, 0x0
+
+    iput-boolean v10, p0, Landroid/widget/SemHorizontalAbsListView;->mIsDragScrolled:Z
+
+    invoke-virtual {p0, p1}, Landroid/widget/SemHorizontalAbsListView;->resetDragableChildren(Landroid/view/DragEvent;)Z
 
     :cond_1a
-    const/4 v13, 0x0
+    :pswitch_3
+    iget-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v0, p0
+    const/4 v11, 0x1
 
-    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsDragScrolled:Z
+    invoke-virtual {v10, v11}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->hasMessages(I)Z
 
-    const-wide/16 v14, 0x0
+    move-result v10
 
-    move-object/from16 v0, p0
+    if-eqz v10, :cond_1b
 
-    iput-wide v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
+    iget-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    const-wide/16 v14, 0x0
+    const/4 v11, 0x1
 
-    move-object/from16 v0, p0
+    invoke-virtual {v10, v11}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->removeMessages(I)V
 
-    iput-wide v14, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
+    :cond_1b
+    const/4 v10, 0x0
 
-    const/4 v13, 0x0
+    iput-boolean v10, p0, Landroid/widget/SemHorizontalAbsListView;->mIsDragScrolled:Z
 
-    move-object/from16 v0, p0
+    const-wide/16 v10, 0x0
 
-    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
+    iput-wide v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
 
-    const/4 v13, 0x0
+    const-wide/16 v10, 0x0
 
-    move-object/from16 v0, p0
+    iput-wide v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
 
-    iput-boolean v13, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
+    const/4 v10, 0x0
 
-    goto/16 :goto_4
+    iput-boolean v10, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
+
+    const/4 v10, 0x0
+
+    iput-boolean v10, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
+
+    goto/16 :goto_5
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x2
@@ -10906,103 +8809,97 @@
 .method protected dispatchDraw(Landroid/graphics/Canvas;)V
     .locals 13
 
-    const/4 v0, 0x0
-
     const/4 v4, 0x0
 
     const/4 v7, 0x0
 
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    iget v8, p0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mGroupFlags:I
 
     and-int/lit8 v8, v8, 0x22
 
     const/16 v9, 0x22
 
-    if-ne v8, v9, :cond_0
+    if-ne v8, v9, :cond_4
 
     const/4 v0, 0x1
 
-    :cond_0
-    if-eqz v0, :cond_1
+    :goto_0
+    if-eqz v0, :cond_0
 
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     move-result v4
 
-    iget v5, p0, Landroid/view/View;->mScrollX:I
+    iget v5, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollX:I
 
-    iget v6, p0, Landroid/view/View;->mScrollY:I
+    iget v6, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollY:I
 
-    iget v8, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mPaddingLeft:I
 
     add-int/2addr v8, v5
 
-    iget v9, p0, Landroid/view/View;->mPaddingTop:I
+    iget v9, p0, Landroid/widget/SemHorizontalAbsListView;->mPaddingTop:I
 
     add-int/2addr v9, v6
 
-    iget v10, p0, Landroid/view/View;->mRight:I
+    iget v10, p0, Landroid/widget/SemHorizontalAbsListView;->mRight:I
 
     add-int/2addr v10, v5
 
-    iget v11, p0, Landroid/view/View;->mLeft:I
+    iget v11, p0, Landroid/widget/SemHorizontalAbsListView;->mLeft:I
 
     sub-int/2addr v10, v11
 
-    iget v11, p0, Landroid/view/View;->mPaddingRight:I
+    iget v11, p0, Landroid/widget/SemHorizontalAbsListView;->mPaddingRight:I
 
     sub-int/2addr v10, v11
 
-    iget v11, p0, Landroid/view/View;->mBottom:I
+    iget v11, p0, Landroid/widget/SemHorizontalAbsListView;->mBottom:I
 
     add-int/2addr v11, v6
 
-    iget v12, p0, Landroid/view/View;->mTop:I
+    iget v12, p0, Landroid/widget/SemHorizontalAbsListView;->mTop:I
 
     sub-int/2addr v11, v12
 
-    iget v12, p0, Landroid/view/View;->mPaddingBottom:I
+    iget v12, p0, Landroid/widget/SemHorizontalAbsListView;->mPaddingBottom:I
 
     sub-int/2addr v11, v12
 
     invoke-virtual {p1, v8, v9, v10, v11}, Landroid/graphics/Canvas;->clipRect(IIII)Z
 
-    iget v8, p0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mGroupFlags:I
 
     and-int/lit8 v8, v8, -0x23
 
-    iput v8, p0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iput v8, p0, Landroid/widget/SemHorizontalAbsListView;->mGroupFlags:I
 
-    :cond_1
+    :cond_0
     iget-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mDrawSelectorOnTop:Z
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_1
+
+    invoke-direct {p0, p1}, Landroid/widget/SemHorizontalAbsListView;->drawSelector(Landroid/graphics/Canvas;)V
+
+    :cond_1
+    invoke-super {p0, p1}, Landroid/widget/AdapterView;->dispatchDraw(Landroid/graphics/Canvas;)V
+
+    if-eqz v1, :cond_2
 
     invoke-direct {p0, p1}, Landroid/widget/SemHorizontalAbsListView;->drawSelector(Landroid/graphics/Canvas;)V
 
     :cond_2
-    invoke-super {p0, p1}, Landroid/widget/AdapterView;->dispatchDraw(Landroid/graphics/Canvas;)V
-
-    if-eqz v1, :cond_3
-
-    invoke-direct {p0, p1}, Landroid/widget/SemHorizontalAbsListView;->drawSelector(Landroid/graphics/Canvas;)V
-
-    :cond_3
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
     invoke-virtual {p1, v4}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
-    iget v8, p0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mGroupFlags:I
 
     or-int/lit8 v8, v8, 0x22
 
-    iput v8, p0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iput v8, p0, Landroid/widget/SemHorizontalAbsListView;->mGroupFlags:I
 
-    :cond_4
+    :cond_3
     iget-boolean v8, p0, Landroid/widget/SemHorizontalAbsListView;->mIsDragBlockEnabled:Z
 
     if-eqz v8, :cond_8
@@ -11017,12 +8914,17 @@
 
     return-void
 
+    :cond_4
+    const/4 v0, 0x0
+
+    goto :goto_0
+
     :cond_5
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getFirstVisiblePosition()I
 
     move-result v2
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getLastVisiblePosition()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getLastVisiblePosition()I
 
     move-result v3
 
@@ -11036,13 +8938,13 @@
 
     iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChildPosition:I
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getFirstVisiblePosition()I
 
     move-result v9
 
     sub-int/2addr v8, v9
 
-    invoke-virtual {p0, v8}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v8}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v8
 
@@ -11074,7 +8976,7 @@
 
     iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
 
-    :goto_0
+    :goto_1
     iput v8, p0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockLeft:I
 
     iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndX:I
@@ -11085,7 +8987,7 @@
 
     iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndX:I
 
-    :goto_1
+    :goto_2
     iput v8, p0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockRight:I
 
     iget-object v8, p0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockRect:Landroid/graphics/Rect;
@@ -11116,16 +9018,16 @@
     :cond_9
     iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndX:I
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_a
     iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
 
-    goto :goto_1
+    goto :goto_2
 .end method
 
 .method protected dispatchHoverEvent(Landroid/view/MotionEvent;)Z
-    .locals 28
+    .locals 26
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getAction()I
 
@@ -11135,21 +9037,21 @@
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoveringEnabled:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-eqz v23, :cond_1
+    if-eqz v22, :cond_1
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mTouchMode:I
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    const/16 v24, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
-    move/from16 v1, v24
+    move/from16 v1, v23
 
     if-ne v0, v1, :cond_0
 
@@ -11157,19 +9059,21 @@
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsPenPressed:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-nez v23, :cond_1
+    xor-int/lit8 v22, v22, 0x1
+
+    if-eqz v22, :cond_1
 
     :cond_0
     invoke-direct/range {p0 .. p1}, Landroid/widget/SemHorizontalAbsListView;->onHoverDrawableState(Landroid/view/MotionEvent;)V
 
     :cond_1
-    invoke-static {}, Landroid/text/MultiSelection;->isTextViewHovered()Z
+    invoke-static {}, Landroid/widget/TextView;->semIsTextViewHovered()Z
 
-    move-result v23
+    move-result v22
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
@@ -11179,686 +9083,678 @@
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mNewTextViewHoverState:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-nez v23, :cond_7
+    if-nez v22, :cond_a
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mOldTextViewHoverState:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-eqz v23, :cond_7
+    if-eqz v22, :cond_a
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsDragBlockEnabled:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-eqz v23, :cond_7
+    if-eqz v22, :cond_a
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getButtonState()I
 
-    move-result v23
+    move-result v22
 
-    const/16 v24, 0x2
+    const/16 v23, 0x2
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
-    move/from16 v1, v24
+    move/from16 v1, v23
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_9
 
-    const/16 v23, 0x1
+    const/16 v22, 0x1
 
-    move/from16 v0, v23
+    :goto_0
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsNeedPenSelectIconSet:Z
 
-    :goto_0
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mNewTextViewHoverState:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mOldTextViewHoverState:Z
 
-    const/16 v23, 0x9
+    const/16 v22, 0x9
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     if-ne v4, v0, :cond_d
 
-    const/16 v23, 0x0
+    const/16 v22, 0x0
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v23
+    move/from16 v1, v22
 
     invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getToolType(I)I
 
-    move-result v20
+    move-result v19
 
-    const/16 v23, 0x1
+    const/16 v22, 0x1
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mNeedsHoverScroll:Z
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->isHoveringUIEnabled()Z
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->isHoveringUIEnabled()Z
 
-    move-result v23
+    move-result v22
 
-    if-eqz v23, :cond_8
+    if-eqz v22, :cond_2
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollEnable:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-eqz v23, :cond_8
+    xor-int/lit8 v22, v22, 0x1
 
-    :goto_1
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mNeedsHoverScroll:Z
-
-    move/from16 v23, v0
-
-    if-eqz v23, :cond_5
-
-    const/16 v23, 0x2
-
-    move/from16 v0, v20
-
-    move/from16 v1, v23
-
-    if-ne v0, v1, :cond_5
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/view/View;->mContext:Landroid/content/Context;
-
-    move-object/from16 v23, v0
-
-    invoke-virtual/range {v23 .. v23}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v23
-
-    const-string/jumbo v24, "pen_hovering"
-
-    const/16 v25, 0x0
-
-    invoke-static/range {v23 .. v25}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v23
-
-    const/16 v24, 0x1
-
-    move/from16 v0, v23
-
-    move/from16 v1, v24
-
-    if-ne v0, v1, :cond_9
-
-    const/4 v15, 0x1
-
-    :goto_2
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/view/View;->mContext:Landroid/content/Context;
-
-    move-object/from16 v23, v0
-
-    invoke-virtual/range {v23 .. v23}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v23
-
-    const-string/jumbo v24, "car_mode_on"
-
-    const/16 v25, 0x0
-
-    const/16 v26, -0x3
-
-    invoke-static/range {v23 .. v26}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
-
-    move-result v23
-
-    const/16 v24, 0x1
-
-    move/from16 v0, v23
-
-    move/from16 v1, v24
-
-    if-ne v0, v1, :cond_a
-
-    const/4 v13, 0x1
-
-    :goto_3
-    if-eqz v15, :cond_2
-
-    if-eqz v13, :cond_3
+    if-eqz v22, :cond_3
 
     :cond_2
-    const/16 v23, 0x0
+    const/16 v22, 0x0
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mNeedsHoverScroll:Z
 
     :cond_3
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mNeedsHoverScroll:Z
+
+    move/from16 v22, v0
+
+    if-eqz v22, :cond_7
+
+    const/16 v22, 0x2
+
+    move/from16 v0, v19
+
+    move/from16 v1, v22
+
+    if-ne v0, v1, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
+
+    move-object/from16 v22, v0
+
+    invoke-virtual/range {v22 .. v22}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v22
+
+    const-string/jumbo v23, "pen_hovering"
+
+    const/16 v24, 0x0
+
+    invoke-static/range {v22 .. v24}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v22
+
+    const/16 v23, 0x1
+
+    move/from16 v0, v22
+
+    move/from16 v1, v23
+
+    if-ne v0, v1, :cond_b
+
+    const/4 v15, 0x1
+
+    :goto_1
+    const/4 v14, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
+
+    move-object/from16 v22, v0
+
+    invoke-virtual/range {v22 .. v22}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v22
+
+    const-string/jumbo v23, "car_mode_on"
+
+    const/16 v24, 0x0
+
+    const/16 v25, -0x3
+
+    invoke-static/range {v22 .. v25}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+
+    move-result v22
+
+    const/16 v23, 0x1
+
+    move/from16 v0, v22
+
+    move/from16 v1, v23
+
+    if-ne v0, v1, :cond_c
+
+    const/4 v13, 0x1
+
+    :goto_2
     if-eqz v15, :cond_4
 
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsDragBlockEnabled:Z
-
-    move/from16 v23, v0
-
-    if-eqz v23, :cond_4
-
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsPenSelectPointerSetted:Z
-
-    move/from16 v23, v0
-
-    if-eqz v23, :cond_b
+    if-eqz v13, :cond_5
 
     :cond_4
-    :goto_4
-    if-nez v14, :cond_5
+    const/16 v22, 0x0
 
-    const/16 v23, 0x0
-
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mNeedsHoverScroll:Z
 
     :cond_5
+    if-eqz v15, :cond_6
+
     move-object/from16 v0, p0
 
-    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mNeedsHoverScroll:Z
+    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsDragBlockEnabled:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-eqz v23, :cond_6
+    if-eqz v22, :cond_6
 
-    const/16 v23, 0x3
+    move-object/from16 v0, p0
 
-    move/from16 v0, v20
+    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsPenSelectPointerSetted:Z
+
+    move/from16 v22, v0
+
+    xor-int/lit8 v22, v22, 0x1
+
+    if-eqz v22, :cond_6
+
+    const/16 v22, 0x2
+
+    move/from16 v0, v19
+
+    move/from16 v1, v22
+
+    if-ne v0, v1, :cond_6
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getButtonState()I
+
+    move-result v22
+
+    const/16 v23, 0x2
+
+    move/from16 v0, v22
 
     move/from16 v1, v23
 
     if-ne v0, v1, :cond_6
 
-    const/16 v17, 0x0
+    const/16 v22, 0x4e35
 
-    const/16 v16, 0x0
+    move-object/from16 v0, p0
 
-    if-eqz v17, :cond_c
+    move-object/from16 v1, p1
 
-    if-eqz v16, :cond_c
+    move/from16 v2, v22
+
+    invoke-direct {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->showPointerIcon(Landroid/view/MotionEvent;I)V
+
+    const/16 v22, 0x1
+
+    move/from16 v0, v22
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsPenSelectPointerSetted:Z
 
     :cond_6
-    :goto_5
+    if-nez v14, :cond_7
+
+    const/16 v22, 0x0
+
+    move/from16 v0, v22
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mNeedsHoverScroll:Z
+
+    :cond_7
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mNeedsHoverScroll:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-nez v23, :cond_12
+    if-eqz v22, :cond_8
+
+    const/16 v22, 0x3
+
+    move/from16 v0, v19
+
+    move/from16 v1, v22
+
+    if-ne v0, v1, :cond_8
+
+    const/16 v17, 0x0
+
+    const/16 v16, 0x0
+
+    const/16 v22, 0x0
+
+    move/from16 v0, v22
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mNeedsHoverScroll:Z
+
+    :cond_8
+    :goto_3
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mNeedsHoverScroll:Z
+
+    move/from16 v22, v0
+
+    if-nez v22, :cond_11
 
     invoke-super/range {p0 .. p1}, Landroid/widget/AdapterView;->dispatchHoverEvent(Landroid/view/MotionEvent;)Z
 
-    move-result v23
+    move-result v22
 
-    return v23
+    return v22
 
-    :cond_7
-    const/16 v23, 0x0
-
-    move/from16 v0, v23
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsNeedPenSelectIconSet:Z
+    :cond_9
+    const/16 v22, 0x0
 
     goto/16 :goto_0
 
-    :cond_8
-    const/16 v23, 0x0
+    :cond_a
+    const/16 v22, 0x0
 
-    move/from16 v0, v23
+    goto/16 :goto_0
 
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mNeedsHoverScroll:Z
+    :cond_b
+    const/4 v15, 0x0
 
     goto/16 :goto_1
 
-    :cond_9
-    const/4 v15, 0x0
+    :cond_c
+    const/4 v13, 0x0
 
     goto/16 :goto_2
 
-    :cond_a
-    const/4 v13, 0x0
-
-    goto :goto_3
-
-    :cond_b
-    const/16 v23, 0x2
-
-    move/from16 v0, v20
-
-    move/from16 v1, v23
-
-    if-ne v0, v1, :cond_4
-
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getButtonState()I
-
-    move-result v23
-
-    const/16 v24, 0x2
-
-    move/from16 v0, v23
-
-    move/from16 v1, v24
-
-    if-ne v0, v1, :cond_4
-
-    const/16 v23, 0x4e35
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p1
-
-    move/from16 v2, v23
-
-    invoke-direct {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->showPointerIcon(Landroid/view/MotionEvent;I)V
-
-    const/16 v23, 0x1
-
-    move/from16 v0, v23
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsPenSelectPointerSetted:Z
-
-    goto :goto_4
-
-    :cond_c
-    const/16 v23, 0x0
-
-    move/from16 v0, v23
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mNeedsHoverScroll:Z
-
-    goto :goto_5
-
     :cond_d
-    const/16 v23, 0x7
+    const/16 v22, 0x7
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
-    if-ne v4, v0, :cond_11
+    if-ne v4, v0, :cond_10
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsDragBlockEnabled:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-eqz v23, :cond_e
+    if-eqz v22, :cond_f
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsPenSelectPointerSetted:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-eqz v23, :cond_f
+    xor-int/lit8 v22, v22, 0x1
+
+    if-eqz v22, :cond_f
+
+    const/16 v22, 0x0
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getToolType(I)I
+
+    move-result v22
+
+    const/16 v23, 0x2
+
+    move/from16 v0, v22
+
+    move/from16 v1, v23
+
+    if-ne v0, v1, :cond_f
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getButtonState()I
+
+    move-result v22
+
+    const/16 v23, 0x2
+
+    move/from16 v0, v22
+
+    move/from16 v1, v23
+
+    if-ne v0, v1, :cond_f
 
     :cond_e
+    const/16 v22, 0x4e35
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    move/from16 v2, v22
+
+    invoke-direct {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->showPointerIcon(Landroid/view/MotionEvent;I)V
+
+    const/16 v22, 0x1
+
+    move/from16 v0, v22
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsPenSelectPointerSetted:Z
+
+    goto :goto_3
+
+    :cond_f
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsNeedPenSelectIconSet:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-eqz v23, :cond_10
+    if-nez v22, :cond_e
 
-    :goto_6
-    const/16 v23, 0x4e35
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p1
-
-    move/from16 v2, v23
-
-    invoke-direct {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->showPointerIcon(Landroid/view/MotionEvent;I)V
-
-    const/16 v23, 0x1
-
-    move/from16 v0, v23
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsPenSelectPointerSetted:Z
-
-    goto/16 :goto_5
-
-    :cond_f
-    const/16 v23, 0x0
-
-    move-object/from16 v0, p1
-
-    move/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getToolType(I)I
-
-    move-result v23
-
-    const/16 v24, 0x2
-
-    move/from16 v0, v23
-
-    move/from16 v1, v24
-
-    if-ne v0, v1, :cond_e
-
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getButtonState()I
-
-    move-result v23
-
-    const/16 v24, 0x2
-
-    move/from16 v0, v23
-
-    move/from16 v1, v24
-
-    if-ne v0, v1, :cond_e
-
-    goto :goto_6
-
-    :cond_10
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsDragBlockEnabled:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-eqz v23, :cond_6
+    if-eqz v22, :cond_8
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsPenSelectPointerSetted:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-eqz v23, :cond_6
+    if-eqz v22, :cond_8
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getButtonState()I
 
-    move-result v23
+    move-result v22
 
-    const/16 v24, 0x2
+    const/16 v23, 0x2
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
-    move/from16 v1, v24
+    move/from16 v1, v23
 
-    if-eq v0, v1, :cond_6
+    if-eq v0, v1, :cond_8
 
-    const/16 v23, 0x4e21
+    const/16 v22, 0x4e21
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v23
+    move/from16 v2, v22
 
     invoke-direct {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->showPointerIcon(Landroid/view/MotionEvent;I)V
 
-    const/16 v23, 0x0
+    const/16 v22, 0x0
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsPenSelectPointerSetted:Z
 
-    goto/16 :goto_5
+    goto/16 :goto_3
 
-    :cond_11
-    const/16 v23, 0xa
+    :cond_10
+    const/16 v22, 0xa
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
-    if-ne v4, v0, :cond_6
+    if-ne v4, v0, :cond_8
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsPenSelectPointerSetted:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-eqz v23, :cond_6
+    if-eqz v22, :cond_8
 
-    const/16 v23, 0x4e21
+    const/16 v22, 0x4e21
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v23
+    move/from16 v2, v22
 
     invoke-direct {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->showPointerIcon(Landroid/view/MotionEvent;I)V
 
-    const/16 v23, 0x0
+    const/16 v22, 0x0
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsPenSelectPointerSetted:Z
 
-    goto/16 :goto_5
+    goto/16 :goto_3
 
-    :cond_12
+    :cond_11
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getX()F
 
-    move-result v23
+    move-result v22
 
-    move/from16 v0, v23
+    move/from16 v0, v22
+
+    float-to-int v0, v0
+
+    move/from16 v20, v0
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getY()F
+
+    move-result v22
+
+    move/from16 v0, v22
 
     float-to-int v0, v0
 
     move/from16 v21, v0
 
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getY()F
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
-    move-result v23
-
-    move/from16 v0, v23
-
-    float-to-int v0, v0
-
-    move/from16 v22, v0
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/ViewGroup;->getChildCount()I
-
-    move-result v8
-
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    const/16 v19, 0x0
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/ViewGroup;->getChildCount()I
-
-    move-result v11
+    move-result v12
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v23, v0
+    move-object/from16 v22, v0
 
-    if-nez v23, :cond_13
+    if-nez v22, :cond_12
 
-    new-instance v23, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
+    new-instance v22, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     move-object/from16 v1, p0
 
     invoke-direct {v0, v1}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;-><init>(Landroid/widget/SemHorizontalAbsListView;)V
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    :cond_13
+    :cond_12
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverLeftAreaWidth:I
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-lez v23, :cond_14
+    if-lez v22, :cond_13
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverRightAreaWidth:I
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-gtz v23, :cond_15
+    if-gtz v22, :cond_14
 
-    :cond_14
-    const/high16 v23, 0x41c80000    # 25.0f
+    :cond_13
+    const/high16 v22, 0x41c80000    # 25.0f
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
 
-    move-object/from16 v24, v0
+    move-object/from16 v23, v0
 
-    invoke-virtual/range {v24 .. v24}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual/range {v23 .. v23}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v24
+    move-result-object v23
 
-    invoke-virtual/range {v24 .. v24}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual/range {v23 .. v23}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v24
+    move-result-object v23
 
-    const/16 v25, 0x1
+    const/16 v24, 0x1
 
-    move/from16 v0, v25
+    move/from16 v0, v24
 
-    move/from16 v1, v23
+    move/from16 v1, v22
 
-    move-object/from16 v2, v24
+    move-object/from16 v2, v23
 
     invoke-static {v0, v1, v2}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
 
-    move-result v23
+    move-result v22
 
-    const/high16 v24, 0x3f000000    # 0.5f
+    const/high16 v23, 0x3f000000    # 0.5f
 
-    add-float v23, v23, v24
+    add-float v22, v22, v23
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     float-to-int v0, v0
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mHoverLeftAreaWidth:I
 
-    const/high16 v23, 0x41c80000    # 25.0f
+    const/high16 v22, 0x41c80000    # 25.0f
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
 
-    move-object/from16 v24, v0
+    move-object/from16 v23, v0
 
-    invoke-virtual/range {v24 .. v24}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual/range {v23 .. v23}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v24
+    move-result-object v23
 
-    invoke-virtual/range {v24 .. v24}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual/range {v23 .. v23}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v24
+    move-result-object v23
 
-    const/16 v25, 0x1
+    const/16 v24, 0x1
 
-    move/from16 v0, v25
+    move/from16 v0, v24
 
-    move/from16 v1, v23
+    move/from16 v1, v22
 
-    move-object/from16 v2, v24
+    move-object/from16 v2, v23
 
     invoke-static {v0, v1, v2}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
 
-    move-result v23
+    move-result v22
 
-    const/high16 v24, 0x3f000000    # 0.5f
+    const/high16 v23, 0x3f000000    # 0.5f
 
-    add-float v23, v23, v24
+    add-float v22, v22, v23
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     float-to-int v0, v0
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mHoverRightAreaWidth:I
 
-    :cond_15
+    :cond_14
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsEnabledPaddingInHoverScroll:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-eqz v23, :cond_21
+    if-eqz v22, :cond_1e
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v22
+
+    iget v10, v0, Landroid/graphics/Rect;->left:I
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
+
+    move-result v22
 
     move-object/from16 v0, p0
 
@@ -11868,160 +9764,81 @@
 
     move-object/from16 v0, v23
 
-    iget v9, v0, Landroid/graphics/Rect;->left:I
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
-
-    move-result v23
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
-
-    move-object/from16 v24, v0
-
-    move-object/from16 v0, v24
-
     iget v0, v0, Landroid/graphics/Rect;->right:I
 
-    move/from16 v24, v0
+    move/from16 v23, v0
 
-    sub-int v10, v23, v24
+    sub-int v11, v22, v23
 
-    :goto_7
+    :goto_4
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
 
+    move/from16 v22, v0
+
+    if-eqz v22, :cond_24
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
+
+    move/from16 v22, v0
+
+    if-lez v22, :cond_1f
+
+    const/4 v8, 0x1
+
+    :goto_5
+    if-nez v8, :cond_15
+
+    if-lez v12, :cond_15
+
+    const/16 v22, 0x0
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Landroid/view/View;->getRight()I
+
+    move-result v22
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mRight:I
+
     move/from16 v23, v0
-
-    if-eqz v23, :cond_27
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/AdapterView;->mFirstPosition:I
-
-    move/from16 v23, v0
-
-    if-lez v23, :cond_22
-
-    const/4 v6, 0x1
-
-    :goto_8
-    if-nez v6, :cond_16
-
-    if-lez v11, :cond_16
-
-    const/16 v23, 0x0
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Landroid/view/View;->getRight()I
-
-    move-result v23
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/view/View;->mRight:I
-
-    move/from16 v24, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
 
-    move-object/from16 v25, v0
+    move-object/from16 v24, v0
 
-    move-object/from16 v0, v25
-
-    iget v0, v0, Landroid/graphics/Rect;->right:I
-
-    move/from16 v25, v0
-
-    sub-int v24, v24, v25
-
-    move/from16 v0, v23
-
-    move/from16 v1, v24
-
-    if-gt v0, v1, :cond_23
-
-    invoke-virtual {v7}, Landroid/view/View;->getWidth()I
-
-    move-result v23
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
-
-    move-result v24
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
-
-    move-object/from16 v25, v0
-
-    move-object/from16 v0, v25
+    move-object/from16 v0, v24
 
     iget v0, v0, Landroid/graphics/Rect;->right:I
-
-    move/from16 v25, v0
-
-    sub-int v24, v24, v25
-
-    move/from16 v0, v23
-
-    move/from16 v1, v24
-
-    if-le v0, v1, :cond_24
-
-    const/4 v6, 0x1
-
-    :cond_16
-    :goto_9
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/AdapterView;->mFirstPosition:I
-
-    move/from16 v23, v0
-
-    add-int v23, v23, v11
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/AdapterView;->mItemCount:I
 
     move/from16 v24, v0
 
-    move/from16 v0, v23
+    sub-int v23, v23, v24
 
-    move/from16 v1, v24
-
-    if-ge v0, v1, :cond_25
-
-    const/4 v5, 0x1
-
-    :goto_a
-    if-nez v5, :cond_17
-
-    if-lez v11, :cond_17
-
-    add-int/lit8 v23, v11, -0x1
-
-    move-object/from16 v0, p0
+    move/from16 v0, v22
 
     move/from16 v1, v23
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    if-gt v0, v1, :cond_20
 
-    move-result-object v7
+    invoke-virtual {v9}, Landroid/view/View;->getWidth()I
 
-    invoke-virtual {v7}, Landroid/view/View;->getLeft()I
+    move-result v22
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v23
 
@@ -12033,250 +9850,290 @@
 
     move-object/from16 v0, v24
 
-    iget v0, v0, Landroid/graphics/Rect;->left:I
+    iget v0, v0, Landroid/graphics/Rect;->right:I
 
     move/from16 v24, v0
 
-    move/from16 v0, v23
+    sub-int v23, v23, v24
 
-    move/from16 v1, v24
-
-    if-ge v0, v1, :cond_26
-
-    const/4 v5, 0x1
-
-    :cond_17
-    :goto_b
-    const/16 v23, 0x0
-
-    move-object/from16 v0, p1
+    move/from16 v0, v22
 
     move/from16 v1, v23
 
+    if-le v0, v1, :cond_21
+
+    const/4 v8, 0x1
+
+    :cond_15
+    :goto_6
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
+
+    move/from16 v22, v0
+
+    add-int v22, v22, v12
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
+
+    move/from16 v23, v0
+
+    move/from16 v0, v22
+
+    move/from16 v1, v23
+
+    if-ge v0, v1, :cond_22
+
+    const/4 v7, 0x1
+
+    :goto_7
+    if-nez v7, :cond_16
+
+    if-lez v12, :cond_16
+
+    add-int/lit8 v22, v12, -0x1
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Landroid/view/View;->getLeft()I
+
+    move-result v22
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v23
+
+    iget v0, v0, Landroid/graphics/Rect;->left:I
+
+    move/from16 v23, v0
+
+    move/from16 v0, v22
+
+    move/from16 v1, v23
+
+    if-ge v0, v1, :cond_23
+
+    const/4 v7, 0x1
+
+    :cond_16
+    :goto_8
+    const/16 v22, 0x0
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v22
+
     invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getToolType(I)I
 
-    move-result v23
+    move-result v22
 
-    const/16 v24, 0x2
+    const/16 v23, 0x2
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
-    move/from16 v1, v24
+    move/from16 v1, v23
 
-    if-ne v0, v1, :cond_2e
+    if-ne v0, v1, :cond_2b
 
     const/16 v18, 0x1
 
-    :goto_c
+    :goto_9
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverLeftAreaWidth:I
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    add-int v23, v23, v9
+    add-int v22, v22, v10
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
-    move/from16 v1, v23
+    move/from16 v1, v22
 
-    if-le v0, v1, :cond_2f
+    if-le v0, v1, :cond_2c
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverRightAreaWidth:I
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    sub-int v23, v10, v23
+    sub-int v22, v11, v22
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
-    move/from16 v1, v23
+    move/from16 v1, v22
 
-    if-ge v0, v1, :cond_2f
+    if-ge v0, v1, :cond_2c
 
-    :cond_18
+    :cond_17
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v23, v0
+    move-object/from16 v22, v0
 
-    const/16 v24, 0x1
+    const/16 v23, 0x1
 
-    invoke-virtual/range {v23 .. v24}, Landroid/os/Handler;->hasMessages(I)Z
+    invoke-virtual/range {v22 .. v23}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->hasMessages(I)Z
 
-    move-result v23
+    move-result v22
 
-    if-eqz v23, :cond_19
+    if-eqz v22, :cond_18
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v23, v0
+    move-object/from16 v22, v0
 
-    const/16 v24, 0x1
+    const/16 v23, 0x1
 
-    invoke-virtual/range {v23 .. v24}, Landroid/os/Handler;->removeMessages(I)V
+    invoke-virtual/range {v22 .. v23}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->removeMessages(I)V
 
-    const/16 v23, 0x4e21
+    const/16 v22, 0x4e21
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v23
+    move/from16 v2, v22
 
     invoke-direct {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->showPointerIcon(Landroid/view/MotionEvent;I)V
 
-    :cond_19
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    move-object/from16 v23, v0
-
-    const/16 v24, 0x2
-
-    invoke-virtual/range {v23 .. v24}, Landroid/os/Handler;->hasMessages(I)Z
-
-    move-result v23
-
-    if-eqz v23, :cond_1a
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    move-object/from16 v23, v0
-
-    const/16 v24, 0x2
-
-    invoke-virtual/range {v23 .. v24}, Landroid/os/Handler;->removeMessages(I)V
-
-    :cond_1a
+    :cond_18
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverLeftAreaWidth:I
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    add-int v23, v23, v9
+    add-int v22, v22, v10
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
-    move/from16 v1, v23
+    move/from16 v1, v22
 
-    if-le v0, v1, :cond_38
+    if-le v0, v1, :cond_33
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverRightAreaWidth:I
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    sub-int v23, v10, v23
+    sub-int v22, v11, v22
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
-    move/from16 v1, v23
+    move/from16 v1, v22
 
-    if-ge v0, v1, :cond_38
+    if-ge v0, v1, :cond_33
 
-    :cond_1b
-    :goto_d
-    const/16 v23, 0x0
+    :cond_19
+    :goto_a
+    const/16 v22, 0x0
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
 
-    :cond_1c
+    :cond_1a
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-nez v23, :cond_1d
+    if-nez v22, :cond_1b
 
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
 
-    move-wide/from16 v24, v0
+    move-wide/from16 v22, v0
 
-    const-wide/16 v26, 0x0
+    const-wide/16 v24, 0x0
 
-    cmp-long v23, v24, v26
+    cmp-long v22, v22, v24
 
-    if-eqz v23, :cond_1e
+    if-eqz v22, :cond_1c
 
-    :cond_1d
-    const/16 v23, 0x4e21
+    :cond_1b
+    const/16 v22, 0x4e21
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v23
+    move/from16 v2, v22
 
     invoke-direct {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->showPointerIcon(Landroid/view/MotionEvent;I)V
 
-    :cond_1e
-    const-wide/16 v24, 0x0
+    :cond_1c
+    const-wide/16 v22, 0x0
 
-    move-wide/from16 v0, v24
+    move-wide/from16 v0, v22
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
 
-    const-wide/16 v24, 0x0
+    const-wide/16 v22, 0x0
 
-    move-wide/from16 v0, v24
+    move-wide/from16 v0, v22
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
 
-    const/16 v23, 0x0
+    const/16 v22, 0x0
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
 
-    const/16 v23, 0x0
+    const/16 v22, 0x0
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsSendHoverScrollState:Z
 
-    const/16 v23, 0xa
+    const/16 v22, 0xa
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
-    if-ne v4, v0, :cond_1f
+    if-ne v4, v0, :cond_1d
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStateForListener:I
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-eqz v23, :cond_1f
+    if-eqz v22, :cond_1d
 
-    const/16 v23, 0x0
+    const/16 v22, 0x0
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
@@ -12286,236 +10143,164 @@
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mOnScrollListener:Landroid/widget/SemHorizontalAbsListView$OnScrollListener;
 
-    move-object/from16 v23, v0
+    move-object/from16 v22, v0
 
-    if-eqz v23, :cond_1f
+    if-eqz v22, :cond_1d
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mTouchMode:I
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    const/16 v24, 0x4
+    const/16 v23, 0x4
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
-    move/from16 v1, v24
+    move/from16 v1, v23
 
-    if-eq v0, v1, :cond_1f
+    if-eq v0, v1, :cond_1d
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mOnScrollListener:Landroid/widget/SemHorizontalAbsListView$OnScrollListener;
 
-    move-object/from16 v23, v0
-
-    const/16 v24, 0x0
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, p0
-
-    move/from16 v2, v24
-
-    invoke-interface {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView$OnScrollListener;->onScrollStateChanged(Landroid/widget/SemHorizontalAbsListView;I)V
-
-    :cond_1f
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    move/from16 v23, v0
-
-    if-eqz v23, :cond_20
+    move-object/from16 v22, v0
 
     const/16 v23, 0x0
 
-    move/from16 v0, v23
+    move-object/from16 v0, v22
 
     move-object/from16 v1, p0
 
-    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
+    move/from16 v2, v23
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->postInvalidateOnAnimation()V
+    invoke-interface {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView$OnScrollListener;->onScrollStateChanged(Landroid/widget/SemHorizontalAbsListView;I)V
 
-    :cond_20
+    :cond_1d
     invoke-super/range {p0 .. p1}, Landroid/widget/AdapterView;->dispatchHoverEvent(Landroid/view/MotionEvent;)Z
 
-    move-result v23
+    move-result v22
 
-    return v23
+    return v22
 
-    :cond_21
+    :cond_1e
     move-object/from16 v0, p0
 
-    iget v9, v0, Landroid/widget/SemHorizontalAbsListView;->mExtraPaddingInLeftHoverArea:I
+    iget v10, v0, Landroid/widget/SemHorizontalAbsListView;->mExtraPaddingInLeftHoverArea:I
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
-    move-result v23
+    move-result v22
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mExtraPaddingInRightHoverArea:I
 
-    move/from16 v24, v0
+    move/from16 v23, v0
 
-    sub-int v10, v23, v24
+    sub-int v11, v22, v23
+
+    goto/16 :goto_4
+
+    :cond_1f
+    const/4 v8, 0x0
+
+    goto/16 :goto_5
+
+    :cond_20
+    const/4 v8, 0x1
+
+    goto/16 :goto_6
+
+    :cond_21
+    const/4 v8, 0x0
+
+    goto/16 :goto_6
+
+    :cond_22
+    const/4 v7, 0x0
 
     goto/16 :goto_7
 
-    :cond_22
-    const/4 v6, 0x0
+    :cond_23
+    const/4 v7, 0x0
 
     goto/16 :goto_8
 
-    :cond_23
-    const/4 v6, 0x1
-
-    goto/16 :goto_9
-
     :cond_24
-    const/4 v6, 0x0
-
-    goto/16 :goto_9
-
-    :cond_25
-    const/4 v5, 0x0
-
-    goto/16 :goto_a
-
-    :cond_26
-    const/4 v5, 0x0
-
-    goto/16 :goto_b
-
-    :cond_27
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
+
+    move/from16 v22, v0
+
+    add-int v22, v22, v12
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     move/from16 v23, v0
 
-    add-int v23, v23, v11
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/AdapterView;->mItemCount:I
-
-    move/from16 v24, v0
-
-    move/from16 v0, v23
-
-    move/from16 v1, v24
-
-    if-ge v0, v1, :cond_29
-
-    const/4 v6, 0x1
-
-    :goto_e
-    if-nez v6, :cond_28
-
-    if-lez v11, :cond_28
-
-    add-int/lit8 v23, v11, -0x1
-
-    move-object/from16 v0, p0
+    move/from16 v0, v22
 
     move/from16 v1, v23
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    if-ge v0, v1, :cond_26
 
-    move-result-object v7
+    const/4 v8, 0x1
 
-    invoke-virtual {v7}, Landroid/view/View;->getRight()I
+    :goto_b
+    if-nez v8, :cond_25
 
-    move-result v23
+    if-lez v12, :cond_25
+
+    add-int/lit8 v22, v12, -0x1
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mRight:I
+    move/from16 v1, v22
 
-    move/from16 v24, v0
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Landroid/view/View;->getRight()I
+
+    move-result v22
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mRight:I
+
+    move/from16 v23, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
 
-    move-object/from16 v25, v0
+    move-object/from16 v24, v0
 
-    move-object/from16 v0, v25
-
-    iget v0, v0, Landroid/graphics/Rect;->right:I
-
-    move/from16 v25, v0
-
-    sub-int v24, v24, v25
-
-    move/from16 v0, v23
-
-    move/from16 v1, v24
-
-    if-gt v0, v1, :cond_2a
-
-    invoke-virtual {v7}, Landroid/view/View;->getWidth()I
-
-    move-result v23
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
-
-    move-result v24
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
-
-    move-object/from16 v25, v0
-
-    move-object/from16 v0, v25
+    move-object/from16 v0, v24
 
     iget v0, v0, Landroid/graphics/Rect;->right:I
 
-    move/from16 v25, v0
+    move/from16 v24, v0
 
-    sub-int v24, v24, v25
+    sub-int v23, v23, v24
 
-    move/from16 v0, v23
-
-    move/from16 v1, v24
-
-    if-le v0, v1, :cond_2b
-
-    const/4 v6, 0x1
-
-    :cond_28
-    :goto_f
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/AdapterView;->mFirstPosition:I
-
-    move/from16 v23, v0
-
-    if-lez v23, :cond_2c
-
-    const/4 v5, 0x1
-
-    :goto_10
-    if-nez v5, :cond_17
-
-    if-lez v11, :cond_17
-
-    const/16 v23, 0x0
-
-    move-object/from16 v0, p0
+    move/from16 v0, v22
 
     move/from16 v1, v23
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    if-gt v0, v1, :cond_27
 
-    move-result-object v7
+    invoke-virtual {v9}, Landroid/view/View;->getWidth()I
 
-    invoke-virtual {v7}, Landroid/view/View;->getLeft()I
+    move-result v22
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v23
 
@@ -12527,880 +10312,711 @@
 
     move-object/from16 v0, v24
 
-    iget v0, v0, Landroid/graphics/Rect;->left:I
+    iget v0, v0, Landroid/graphics/Rect;->right:I
 
     move/from16 v24, v0
 
-    move/from16 v0, v23
-
-    move/from16 v1, v24
-
-    if-ge v0, v1, :cond_2d
-
-    const/4 v5, 0x1
-
-    goto/16 :goto_b
-
-    :cond_29
-    const/4 v6, 0x0
-
-    goto :goto_e
-
-    :cond_2a
-    const/4 v6, 0x1
-
-    goto :goto_f
-
-    :cond_2b
-    const/4 v6, 0x0
-
-    goto :goto_f
-
-    :cond_2c
-    const/4 v5, 0x0
-
-    goto :goto_10
-
-    :cond_2d
-    const/4 v5, 0x0
-
-    goto/16 :goto_b
-
-    :cond_2e
-    const/16 v18, 0x0
-
-    goto/16 :goto_c
-
-    :cond_2f
-    if-lez v22, :cond_18
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getBottom()I
-
-    move-result v23
+    sub-int v23, v23, v24
 
     move/from16 v0, v22
 
     move/from16 v1, v23
 
-    if-gt v0, v1, :cond_18
+    if-le v0, v1, :cond_28
 
-    if-nez v5, :cond_30
+    const/4 v8, 0x1
 
-    if-eqz v6, :cond_18
+    :cond_25
+    :goto_c
+    move-object/from16 v0, p0
 
-    :cond_30
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
+
+    move/from16 v22, v0
+
+    if-lez v22, :cond_29
+
+    const/4 v7, 0x1
+
+    :goto_d
+    if-nez v7, :cond_16
+
+    if-lez v12, :cond_16
+
+    const/16 v22, 0x0
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Landroid/view/View;->getLeft()I
+
+    move-result v22
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v23
+
+    iget v0, v0, Landroid/graphics/Rect;->left:I
+
+    move/from16 v23, v0
+
+    move/from16 v0, v22
+
+    move/from16 v1, v23
+
+    if-ge v0, v1, :cond_2a
+
+    const/4 v7, 0x1
+
+    goto/16 :goto_8
+
+    :cond_26
+    const/4 v8, 0x0
+
+    goto :goto_b
+
+    :cond_27
+    const/4 v8, 0x1
+
+    goto :goto_c
+
+    :cond_28
+    const/4 v8, 0x0
+
+    goto :goto_c
+
+    :cond_29
+    const/4 v7, 0x0
+
+    goto :goto_d
+
+    :cond_2a
+    const/4 v7, 0x0
+
+    goto/16 :goto_8
+
+    :cond_2b
+    const/16 v18, 0x0
+
+    goto/16 :goto_9
+
+    :cond_2c
+    if-lez v21, :cond_17
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getBottom()I
+
+    move-result v22
+
     move/from16 v0, v21
 
-    if-lt v0, v9, :cond_31
+    move/from16 v1, v22
+
+    if-gt v0, v1, :cond_17
+
+    if-nez v7, :cond_2d
+
+    xor-int/lit8 v22, v8, 0x1
+
+    if-nez v22, :cond_17
+
+    :cond_2d
+    move/from16 v0, v20
+
+    if-lt v0, v10, :cond_2e
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverLeftAreaWidth:I
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    add-int v23, v23, v9
+    add-int v22, v22, v10
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
-    move/from16 v1, v23
+    move/from16 v1, v22
 
-    if-gt v0, v1, :cond_31
+    if-gt v0, v1, :cond_2e
 
-    if-eqz v5, :cond_36
+    xor-int/lit8 v22, v7, 0x1
 
-    :cond_31
-    :goto_11
+    if-eqz v22, :cond_2e
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
+
+    move/from16 v22, v0
+
+    if-nez v22, :cond_17
+
+    :cond_2e
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverRightAreaWidth:I
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    sub-int v23, v10, v23
+    sub-int v22, v11, v22
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
-    move/from16 v1, v23
+    move/from16 v1, v22
 
-    if-lt v0, v1, :cond_32
+    if-lt v0, v1, :cond_2f
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
-    if-gt v0, v10, :cond_32
+    if-gt v0, v11, :cond_2f
 
-    if-eqz v6, :cond_37
+    xor-int/lit8 v22, v8, 0x1
 
-    :cond_32
-    :goto_12
-    if-eqz v18, :cond_33
+    if-eqz v22, :cond_2f
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
+
+    move/from16 v22, v0
+
+    if-nez v22, :cond_17
+
+    :cond_2f
+    if-eqz v18, :cond_30
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getButtonState()I
 
-    move-result v23
+    move-result v22
 
-    const/16 v24, 0x2
+    const/16 v23, 0x2
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
-    move/from16 v1, v24
+    move/from16 v1, v23
 
-    if-eq v0, v1, :cond_18
+    if-eq v0, v1, :cond_17
 
-    :cond_33
-    if-eqz v18, :cond_18
+    :cond_30
+    xor-int/lit8 v22, v18, 0x1
+
+    if-nez v22, :cond_17
 
     invoke-direct/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->isLockScreenMode()Z
 
-    move-result v23
+    move-result v22
 
-    if-nez v23, :cond_18
+    if-nez v22, :cond_17
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-nez v23, :cond_34
+    if-nez v22, :cond_31
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v24
+    move-result-wide v22
 
-    move-wide/from16 v0, v24
+    move-wide/from16 v0, v22
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
 
-    :cond_34
-    packed-switch v4, :pswitch_data_0
+    :cond_31
+    move/from16 v0, v20
 
-    :cond_35
-    :goto_13
-    :pswitch_0
-    const/16 v23, 0x1
-
-    return v23
-
-    :cond_36
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
-
-    move/from16 v23, v0
-
-    if-nez v23, :cond_18
-
-    goto :goto_11
-
-    :cond_37
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
-
-    move/from16 v23, v0
-
-    if-nez v23, :cond_18
-
-    goto :goto_12
-
-    :cond_38
-    if-lez v22, :cond_1b
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getBottom()I
-
-    move-result v23
-
-    move/from16 v0, v22
-
-    move/from16 v1, v23
-
-    if-le v0, v1, :cond_1c
-
-    goto/16 :goto_d
-
-    :pswitch_1
-    const/16 v23, 0x1
-
-    move/from16 v0, v23
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
-
-    move/from16 v0, v21
-
-    if-lt v0, v9, :cond_39
+    if-lt v0, v10, :cond_34
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverLeftAreaWidth:I
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    add-int v23, v23, v9
+    add-int v22, v22, v10
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
-    move/from16 v1, v23
+    move/from16 v1, v22
 
-    if-gt v0, v1, :cond_39
+    if-gt v0, v1, :cond_34
 
-    move-object/from16 v0, p0
+    const/4 v5, 0x1
 
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    move-object/from16 v23, v0
-
-    const/16 v24, 0x1
-
-    invoke-virtual/range {v23 .. v24}, Landroid/os/Handler;->hasMessages(I)Z
-
-    move-result v23
-
-    if-nez v23, :cond_35
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v24
-
-    move-wide/from16 v0, v24
-
-    move-object/from16 v2, p0
-
-    iput-wide v0, v2, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
-
-    const/16 v23, 0x4e31
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p1
-
-    move/from16 v2, v23
-
-    invoke-direct {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->showPointerIcon(Landroid/view/MotionEvent;I)V
-
-    const/16 v23, 0x2
-
-    move/from16 v0, v23
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    move-object/from16 v23, v0
-
-    const/16 v24, 0x1
-
-    invoke-virtual/range {v23 .. v24}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-
-    invoke-direct/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->isQCSupported()Z
-
-    move-result v23
-
-    if-eqz v23, :cond_35
-
-    const/16 v23, -0x1
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->canScrollVertically(I)Z
-
-    move-result v23
-
-    if-eqz v23, :cond_35
-
-    const/16 v23, 0x2
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v23
-
-    invoke-direct {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->setupQuickController(I)V
-
-    const/16 v23, 0x1
-
-    move/from16 v0, v23
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    goto/16 :goto_13
-
-    :cond_39
+    :goto_e
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverRightAreaWidth:I
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    sub-int v23, v10, v23
+    sub-int v22, v11, v22
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
-    move/from16 v1, v23
+    move/from16 v1, v22
 
     if-lt v0, v1, :cond_35
 
+    move/from16 v0, v20
+
+    if-gt v0, v11, :cond_35
+
+    const/4 v6, 0x1
+
+    :goto_f
+    packed-switch v4, :pswitch_data_0
+
+    :cond_32
+    :goto_10
+    :pswitch_0
+    const/16 v22, 0x1
+
+    return v22
+
+    :cond_33
+    if-lez v21, :cond_19
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getBottom()I
+
+    move-result v22
+
     move/from16 v0, v21
 
-    if-gt v0, v10, :cond_35
+    move/from16 v1, v22
 
+    if-le v0, v1, :cond_1a
+
+    goto/16 :goto_a
+
+    :cond_34
+    const/4 v5, 0x0
+
+    goto :goto_e
+
+    :cond_35
+    const/4 v6, 0x0
+
+    goto :goto_f
+
+    :pswitch_1
+    const/16 v22, 0x1
+
+    move/from16 v0, v22
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
+
+    if-nez v5, :cond_36
+
+    if-eqz v6, :cond_32
+
+    :cond_36
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v23, v0
+    move-object/from16 v22, v0
 
-    const/16 v24, 0x1
+    const/16 v23, 0x1
 
-    invoke-virtual/range {v23 .. v24}, Landroid/os/Handler;->hasMessages(I)Z
+    invoke-virtual/range {v22 .. v23}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->hasMessages(I)Z
 
-    move-result v23
+    move-result v22
 
-    if-nez v23, :cond_35
+    if-nez v22, :cond_32
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v24
+    move-result-wide v22
 
-    move-wide/from16 v0, v24
+    move-wide/from16 v0, v22
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
 
-    const/16 v23, 0x4e2d
+    if-eqz v5, :cond_37
+
+    const/16 v22, 0x4e31
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v23
+    move/from16 v2, v22
 
     invoke-direct {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->showPointerIcon(Landroid/view/MotionEvent;I)V
 
-    const/16 v23, 0x1
+    const/16 v22, 0x2
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
 
+    :goto_11
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v23, v0
-
-    const/16 v24, 0x1
-
-    invoke-virtual/range {v23 .. v24}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-
-    invoke-direct/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->isQCSupported()Z
-
-    move-result v23
-
-    if-eqz v23, :cond_35
+    move-object/from16 v22, v0
 
     const/16 v23, 0x1
 
-    move-object/from16 v0, p0
+    invoke-virtual/range {v22 .. v23}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->sendEmptyMessage(I)Z
 
-    move/from16 v1, v23
+    goto :goto_10
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->canScrollVertically(I)Z
-
-    move-result v23
-
-    if-eqz v23, :cond_35
-
-    const/16 v23, 0x4
+    :cond_37
+    const/16 v22, 0x4e2d
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v23
+    move-object/from16 v1, p1
 
-    invoke-direct {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->setupQuickController(I)V
+    move/from16 v2, v22
 
-    const/16 v23, 0x1
+    invoke-direct {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->showPointerIcon(Landroid/view/MotionEvent;I)V
 
-    move/from16 v0, v23
+    const/16 v22, 0x1
+
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
-    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
+    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
 
-    goto/16 :goto_13
+    goto :goto_11
 
     :pswitch_2
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-nez v23, :cond_3a
+    if-nez v22, :cond_38
 
-    const/16 v23, 0x1
+    const/16 v22, 0x1
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
 
-    const/16 v23, 0xa
+    const/16 v22, 0xa
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v23
+    move/from16 v1, v22
 
     invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->setAction(I)V
 
     invoke-super/range {p0 .. p1}, Landroid/widget/AdapterView;->dispatchHoverEvent(Landroid/view/MotionEvent;)Z
 
-    move-result v23
+    move-result v22
 
-    return v23
+    return v22
+
+    :cond_38
+    if-nez v5, :cond_39
+
+    if-eqz v6, :cond_3f
+
+    :cond_39
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
+
+    move-object/from16 v22, v0
+
+    const/16 v23, 0x1
+
+    invoke-virtual/range {v22 .. v23}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->hasMessages(I)Z
+
+    move-result v22
+
+    xor-int/lit8 v22, v22, 0x1
+
+    if-eqz v22, :cond_3f
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v22
+
+    move-wide/from16 v0, v22
+
+    move-object/from16 v2, p0
+
+    iput-wide v0, v2, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
+
+    if-eqz v5, :cond_3c
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
+
+    move/from16 v22, v0
+
+    if-eqz v22, :cond_3a
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
+
+    move/from16 v22, v0
+
+    const/16 v23, 0x1
+
+    move/from16 v0, v22
+
+    move/from16 v1, v23
+
+    if-ne v0, v1, :cond_3b
 
     :cond_3a
-    move/from16 v0, v21
-
-    if-lt v0, v9, :cond_3d
+    const/16 v22, 0x4e31
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverLeftAreaWidth:I
+    move-object/from16 v1, p1
 
-    move/from16 v23, v0
+    move/from16 v2, v22
 
-    add-int v23, v23, v9
-
-    move/from16 v0, v21
-
-    move/from16 v1, v23
-
-    if-gt v0, v1, :cond_3d
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    move-object/from16 v23, v0
-
-    const/16 v24, 0x1
-
-    invoke-virtual/range {v23 .. v24}, Landroid/os/Handler;->hasMessages(I)Z
-
-    move-result v23
-
-    if-nez v23, :cond_35
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v24
-
-    move-wide/from16 v0, v24
-
-    move-object/from16 v2, p0
-
-    iput-wide v0, v2, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
-
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
-
-    move/from16 v23, v0
-
-    if-eqz v23, :cond_3b
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
-
-    move/from16 v23, v0
-
-    const/16 v24, 0x1
-
-    move/from16 v0, v23
-
-    move/from16 v1, v24
-
-    if-ne v0, v1, :cond_3c
+    invoke-direct {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->showPointerIcon(Landroid/view/MotionEvent;I)V
 
     :cond_3b
-    const/16 v23, 0x4e31
+    const/16 v22, 0x2
 
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p1
-
-    move/from16 v2, v23
-
-    invoke-direct {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->showPointerIcon(Landroid/view/MotionEvent;I)V
-
-    :cond_3c
-    const/16 v23, 0x2
-
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
 
+    :goto_12
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v23, v0
-
-    const/16 v24, 0x1
-
-    invoke-virtual/range {v23 .. v24}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-
-    invoke-direct/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->isQCSupported()Z
-
-    move-result v23
-
-    if-eqz v23, :cond_35
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    move/from16 v23, v0
-
-    if-nez v23, :cond_35
-
-    const/16 v23, -0x1
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->canScrollVertically(I)Z
-
-    move-result v23
-
-    if-eqz v23, :cond_35
-
-    const/16 v23, 0x2
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v23
-
-    invoke-direct {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->setupQuickController(I)V
+    move-object/from16 v22, v0
 
     const/16 v23, 0x1
 
-    move/from16 v0, v23
+    invoke-virtual/range {v22 .. v23}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->sendEmptyMessage(I)Z
 
-    move-object/from16 v1, p0
+    goto/16 :goto_10
 
-    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    goto/16 :goto_13
-
-    :cond_3d
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverRightAreaWidth:I
-
-    move/from16 v23, v0
-
-    sub-int v23, v10, v23
-
-    move/from16 v0, v21
-
-    move/from16 v1, v23
-
-    if-lt v0, v1, :cond_40
-
-    move/from16 v0, v21
-
-    if-gt v0, v10, :cond_40
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    move-object/from16 v23, v0
-
-    const/16 v24, 0x1
-
-    invoke-virtual/range {v23 .. v24}, Landroid/os/Handler;->hasMessages(I)Z
-
-    move-result v23
-
-    if-nez v23, :cond_35
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v24
-
-    move-wide/from16 v0, v24
-
-    move-object/from16 v2, p0
-
-    iput-wide v0, v2, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
-
+    :cond_3c
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-eqz v23, :cond_3e
+    if-eqz v22, :cond_3d
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    const/16 v24, 0x2
+    const/16 v23, 0x2
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
-    move/from16 v1, v24
+    move/from16 v1, v23
 
-    if-ne v0, v1, :cond_3f
+    if-ne v0, v1, :cond_3e
 
-    :cond_3e
-    const/16 v23, 0x4e2d
+    :cond_3d
+    const/16 v22, 0x4e2d
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v23
+    move/from16 v2, v22
 
     invoke-direct {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->showPointerIcon(Landroid/view/MotionEvent;I)V
 
-    :cond_3f
-    const/16 v23, 0x1
+    :cond_3e
+    const/16 v22, 0x1
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
 
+    goto :goto_12
+
+    :cond_3f
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v23, v0
-
-    const/16 v24, 0x1
-
-    invoke-virtual/range {v23 .. v24}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-
-    invoke-direct/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->isQCSupported()Z
-
-    move-result v23
-
-    if-eqz v23, :cond_35
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    move/from16 v23, v0
-
-    if-nez v23, :cond_35
+    move-object/from16 v22, v0
 
     const/16 v23, 0x1
 
-    move-object/from16 v0, p0
+    invoke-virtual/range {v22 .. v23}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->hasMessages(I)Z
 
-    move/from16 v1, v23
+    move-result v22
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->canScrollVertically(I)Z
-
-    move-result v23
-
-    if-eqz v23, :cond_35
-
-    const/16 v23, 0x4
+    if-eqz v22, :cond_40
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v23
+    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    invoke-direct {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->setupQuickController(I)V
+    move-object/from16 v22, v0
 
     const/16 v23, 0x1
 
-    move/from16 v0, v23
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    goto/16 :goto_13
+    invoke-virtual/range {v22 .. v23}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->removeMessages(I)V
 
     :cond_40
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    move-object/from16 v23, v0
-
-    const/16 v24, 0x1
-
-    invoke-virtual/range {v23 .. v24}, Landroid/os/Handler;->hasMessages(I)Z
-
-    move-result v23
-
-    if-eqz v23, :cond_41
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    move-object/from16 v23, v0
-
-    const/16 v24, 0x1
-
-    invoke-virtual/range {v23 .. v24}, Landroid/os/Handler;->removeMessages(I)V
-
-    :cond_41
-    const/16 v23, 0x4e21
+    const/16 v22, 0x4e21
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v23
+    move/from16 v2, v22
 
     invoke-direct {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->showPointerIcon(Landroid/view/MotionEvent;I)V
 
-    const-wide/16 v24, 0x0
+    const-wide/16 v22, 0x0
 
-    move-wide/from16 v0, v24
+    move-wide/from16 v0, v22
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
 
-    const-wide/16 v24, 0x0
+    const-wide/16 v22, 0x0
 
-    move-wide/from16 v0, v24
+    move-wide/from16 v0, v22
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
 
-    const/16 v23, 0x0
+    const/16 v22, 0x0
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
 
-    const/16 v23, 0x0
+    const/16 v22, 0x0
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
 
-    const/16 v23, 0x0
+    const/16 v22, 0x0
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsSendHoverScrollState:Z
 
-    goto/16 :goto_13
+    goto/16 :goto_10
 
     :pswitch_3
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v23, v0
+    move-object/from16 v22, v0
 
-    const/16 v24, 0x1
+    const/16 v23, 0x1
 
-    invoke-virtual/range {v23 .. v24}, Landroid/os/Handler;->hasMessages(I)Z
+    invoke-virtual/range {v22 .. v23}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->hasMessages(I)Z
 
-    move-result v23
+    move-result v22
 
-    if-eqz v23, :cond_42
+    if-eqz v22, :cond_41
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v23, v0
+    move-object/from16 v22, v0
 
-    const/16 v24, 0x1
+    const/16 v23, 0x1
 
-    invoke-virtual/range {v23 .. v24}, Landroid/os/Handler;->removeMessages(I)V
+    invoke-virtual/range {v22 .. v23}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->removeMessages(I)V
 
-    :cond_42
-    const/16 v23, 0x4e21
+    :cond_41
+    const/16 v22, 0x4e21
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v23
+    move/from16 v2, v22
 
     invoke-direct {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->showPointerIcon(Landroid/view/MotionEvent;I)V
 
-    const-wide/16 v24, 0x0
+    const-wide/16 v22, 0x0
 
-    move-wide/from16 v0, v24
+    move-wide/from16 v0, v22
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
 
-    const-wide/16 v24, 0x0
+    const-wide/16 v22, 0x0
 
-    move-wide/from16 v0, v24
+    move-wide/from16 v0, v22
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
 
-    const/16 v23, 0x0
+    const/16 v22, 0x0
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
 
-    const/16 v23, 0x0
+    const/16 v22, 0x0
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
 
-    const/16 v23, 0x0
+    const/16 v22, 0x0
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
@@ -13408,83 +11024,15 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    move/from16 v23, v0
-
-    const/16 v24, 0x1
-
-    move/from16 v0, v23
-
-    move/from16 v1, v24
-
-    if-ne v0, v1, :cond_44
-
-    invoke-static {}, Landroid/hardware/input/InputManager;->getInstance()Landroid/hardware/input/InputManager;
-
-    move-result-object v12
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mQCRect:Landroid/graphics/Rect;
-
-    move-object/from16 v23, v0
-
-    move-object/from16 v0, v23
-
-    move/from16 v1, v21
-
-    move/from16 v2, v22
-
-    invoke-virtual {v0, v1, v2}, Landroid/graphics/Rect;->contains(II)Z
-
-    move-result v23
-
-    if-eqz v23, :cond_43
-
-    if-eqz v12, :cond_44
-
-    const/16 v23, -0x1
-
-    const/16 v24, -0x100
-
-    const/16 v25, 0x140
-
-    move/from16 v0, v23
-
-    move/from16 v1, v24
-
-    move/from16 v2, v25
-
-    invoke-virtual {v12, v0, v1, v2}, Landroid/hardware/input/InputManager;->getScanCodeState(III)I
-
-    move-result v23
-
-    if-nez v23, :cond_44
-
-    :cond_43
-    const/16 v23, 0x0
-
-    move/from16 v0, v23
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->postInvalidateOnAnimation()V
-
-    :cond_44
-    move-object/from16 v0, p0
-
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStateForListener:I
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-eqz v23, :cond_45
+    if-eqz v22, :cond_42
 
-    const/16 v23, 0x0
+    const/16 v22, 0x0
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
@@ -13494,46 +11042,48 @@
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mOnScrollListener:Landroid/widget/SemHorizontalAbsListView$OnScrollListener;
 
-    move-object/from16 v23, v0
+    move-object/from16 v22, v0
 
-    if-eqz v23, :cond_45
+    if-eqz v22, :cond_42
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mTouchMode:I
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    const/16 v24, 0x4
+    const/16 v23, 0x4
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
-    move/from16 v1, v24
+    move/from16 v1, v23
 
-    if-eq v0, v1, :cond_45
+    if-eq v0, v1, :cond_42
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mOnScrollListener:Landroid/widget/SemHorizontalAbsListView$OnScrollListener;
 
-    move-object/from16 v23, v0
+    move-object/from16 v22, v0
 
-    const/16 v24, 0x0
+    const/16 v23, 0x0
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     move-object/from16 v1, p0
 
-    move/from16 v2, v24
+    move/from16 v2, v23
 
     invoke-interface {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView$OnScrollListener;->onScrollStateChanged(Landroid/widget/SemHorizontalAbsListView;I)V
 
-    :cond_45
+    :cond_42
     invoke-super/range {p0 .. p1}, Landroid/widget/AdapterView;->dispatchHoverEvent(Landroid/view/MotionEvent;)Z
 
-    move-result v23
+    move-result v22
 
-    return v23
+    return v22
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x7
@@ -13551,51 +11101,49 @@
 .end method
 
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 31
+    .locals 33
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getX()F
 
-    move-result v27
+    move-result v29
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     float-to-int v0, v0
 
-    move/from16 v25, v0
+    move/from16 v27, v0
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getY()F
 
-    move-result v27
+    move-result v29
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     float-to-int v0, v0
 
-    move/from16 v26, v0
-
-    const/4 v12, 0x0
-
-    const/4 v13, 0x0
+    move/from16 v28, v0
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v6
 
-    const/16 v20, 0x0
+    invoke-static {}, Landroid/text/MultiSelection;->isNeedToScroll()Z
+
+    move-result v22
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedItemArray:Ljava/util/ArrayList;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    if-nez v27, :cond_0
+    if-nez v29, :cond_0
 
-    new-instance v27, Ljava/util/ArrayList;
+    new-instance v29, Ljava/util/ArrayList;
 
-    invoke-direct/range {v27 .. v27}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct/range {v29 .. v29}, Ljava/util/ArrayList;-><init>()V
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v29
 
     move-object/from16 v1, p0
 
@@ -13606,48 +11154,44 @@
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    if-nez v27, :cond_1
+    if-nez v29, :cond_1
 
-    new-instance v27, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
+    new-instance v29, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v29
 
     move-object/from16 v1, p0
 
     invoke-direct {v0, v1}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;-><init>(Landroid/widget/SemHorizontalAbsListView;)V
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
     :cond_1
-    invoke-static {}, Landroid/text/MultiSelection;->getIsMultiSelectingText()Z
+    invoke-static {}, Landroid/widget/TextView;->semIsTextSelectionProgressing()Z
 
-    move-result v27
+    move-result v29
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsTextSelectionStarted:Z
 
-    invoke-static {}, Landroid/text/MultiSelection;->isNeedToScroll()Z
+    const/16 v29, 0xd3
 
-    move-result v20
-
-    const/16 v27, 0xd3
-
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     if-ne v6, v0, :cond_2
 
-    const/16 v27, 0x1
+    const/16 v29, 0x1
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
@@ -13655,40 +11199,40 @@
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    invoke-virtual/range {v27 .. v27}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual/range {v29 .. v29}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v27
+    move-result-object v29
 
-    const-string/jumbo v28, "car_mode_on"
+    const-string/jumbo v30, "car_mode_on"
 
-    const/16 v29, 0x0
+    const/16 v31, 0x0
 
-    const/16 v30, -0x3
+    const/16 v32, -0x3
 
-    invoke-static/range {v27 .. v30}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    invoke-static/range {v29 .. v32}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
-    move-result v27
+    move-result v29
 
-    const/16 v28, 0x1
+    const/16 v30, 0x1
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
-    move/from16 v1, v28
+    move/from16 v1, v30
 
     if-ne v0, v1, :cond_7
 
-    const/16 v18, 0x1
+    const/16 v20, 0x1
 
     :goto_0
-    if-eqz v18, :cond_2
+    if-eqz v20, :cond_2
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
@@ -13699,13 +11243,13 @@
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsTextSelectionStarted:Z
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    if-eqz v27, :cond_3
+    if-eqz v29, :cond_3
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
@@ -13716,102 +11260,102 @@
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverLeftAreaWidth:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    if-lez v27, :cond_4
+    if-lez v29, :cond_4
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverRightAreaWidth:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    if-gtz v27, :cond_5
+    if-gtz v29, :cond_5
 
     :cond_4
-    const/high16 v27, 0x41c80000    # 25.0f
+    const/high16 v29, 0x41c80000    # 25.0f
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
 
-    move-object/from16 v28, v0
+    move-object/from16 v30, v0
 
-    invoke-virtual/range {v28 .. v28}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual/range {v30 .. v30}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v28
+    move-result-object v30
 
-    invoke-virtual/range {v28 .. v28}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual/range {v30 .. v30}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v28
+    move-result-object v30
 
-    const/16 v29, 0x1
+    const/16 v31, 0x1
 
-    move/from16 v0, v29
+    move/from16 v0, v31
 
-    move/from16 v1, v27
+    move/from16 v1, v29
 
-    move-object/from16 v2, v28
+    move-object/from16 v2, v30
 
     invoke-static {v0, v1, v2}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
 
-    move-result v27
+    move-result v29
 
-    const/high16 v28, 0x3f000000    # 0.5f
+    const/high16 v30, 0x3f000000    # 0.5f
 
-    add-float v27, v27, v28
+    add-float v29, v29, v30
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     float-to-int v0, v0
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mHoverLeftAreaWidth:I
 
-    const/high16 v27, 0x41c80000    # 25.0f
+    const/high16 v29, 0x41c80000    # 25.0f
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
 
-    move-object/from16 v28, v0
+    move-object/from16 v30, v0
 
-    invoke-virtual/range {v28 .. v28}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual/range {v30 .. v30}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v28
+    move-result-object v30
 
-    invoke-virtual/range {v28 .. v28}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual/range {v30 .. v30}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v28
+    move-result-object v30
 
-    const/16 v29, 0x1
+    const/16 v31, 0x1
 
-    move/from16 v0, v29
+    move/from16 v0, v31
 
-    move/from16 v1, v27
+    move/from16 v1, v29
 
-    move-object/from16 v2, v28
+    move-object/from16 v2, v30
 
     invoke-static {v0, v1, v2}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
 
-    move-result v27
+    move-result v29
 
-    const/high16 v28, 0x3f000000    # 0.5f
+    const/high16 v30, 0x3f000000    # 0.5f
 
-    add-float v27, v27, v28
+    add-float v29, v29, v30
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     float-to-int v0, v0
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
@@ -13822,95 +11366,95 @@
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsEnabledPaddingInHoverScroll:Z
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    if-eqz v27, :cond_8
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
-
-    move-object/from16 v27, v0
-
-    move-object/from16 v0, v27
-
-    iget v12, v0, Landroid/graphics/Rect;->left:I
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
-
-    move-result v27
+    if-eqz v29, :cond_8
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
 
-    move-object/from16 v28, v0
+    move-object/from16 v29, v0
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
+
+    iget v14, v0, Landroid/graphics/Rect;->left:I
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
+
+    move-result v29
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
+
+    move-object/from16 v30, v0
+
+    move-object/from16 v0, v30
 
     iget v0, v0, Landroid/graphics/Rect;->right:I
 
-    move/from16 v28, v0
+    move/from16 v30, v0
 
-    sub-int v13, v27, v28
+    sub-int v15, v29, v30
 
     :goto_1
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsEnabledPaddingInHoverScroll:Z
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    if-eqz v27, :cond_9
+    if-eqz v29, :cond_9
 
-    move/from16 v0, v25
+    move/from16 v0, v27
 
-    if-lt v0, v12, :cond_6
+    if-lt v0, v14, :cond_6
 
-    move/from16 v0, v25
+    move/from16 v0, v27
 
-    if-le v0, v13, :cond_9
+    if-le v0, v15, :cond_9
 
     :cond_6
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getAction()I
 
-    move-result v27
+    move-result v29
 
-    const/16 v28, 0x1
+    const/16 v30, 0x1
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
-    move/from16 v1, v28
+    move/from16 v1, v30
 
     if-eq v0, v1, :cond_9
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getAction()I
 
-    move-result v27
+    move-result v29
 
-    const/16 v28, 0xd4
+    const/16 v30, 0xd4
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
-    move/from16 v1, v28
+    move/from16 v1, v30
 
     if-eq v0, v1, :cond_9
 
-    const/16 v27, 0x1
+    const/16 v29, 0x1
 
-    return v27
+    return v29
 
     :cond_7
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
     goto/16 :goto_0
 
     :cond_8
-    const/4 v12, 0x0
+    const/4 v14, 0x0
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
-    move-result v13
+    move-result v15
 
     goto :goto_1
 
@@ -13922,158 +11466,38 @@
     :sswitch_0
     invoke-super/range {p0 .. p1}, Landroid/widget/AdapterView;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
-    move-result v27
+    move-result v29
 
-    return v27
+    return v29
 
     :sswitch_1
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    move/from16 v27, v0
-
-    const/16 v28, 0x1
-
-    move/from16 v0, v27
-
-    move/from16 v1, v28
-
-    if-ne v0, v1, :cond_a
-
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsQCShown:Z
-
-    move/from16 v27, v0
-
-    if-eqz v27, :cond_c
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mQCRect:Landroid/graphics/Rect;
-
-    move-object/from16 v27, v0
-
-    move-object/from16 v0, v27
-
-    move/from16 v1, v25
-
-    move/from16 v2, v26
-
-    invoke-virtual {v0, v1, v2}, Landroid/graphics/Rect;->contains(II)Z
-
-    move-result v27
-
-    if-eqz v27, :cond_c
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    move-object/from16 v27, v0
-
-    const/16 v28, 0x1
-
-    invoke-virtual/range {v27 .. v28}, Landroid/os/Handler;->hasMessages(I)Z
-
-    move-result v27
-
-    if-eqz v27, :cond_b
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    move-object/from16 v27, v0
-
-    const/16 v28, 0x1
-
-    invoke-virtual/range {v27 .. v28}, Landroid/os/Handler;->removeMessages(I)V
-
-    :cond_b
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    move-object/from16 v27, v0
-
-    const/16 v28, 0x2
-
-    invoke-virtual/range {v27 .. v28}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-
-    const/16 v27, 0x2
-
-    move/from16 v0, v27
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->postInvalidateOnAnimation()V
-
-    const/16 v27, 0x1
-
-    return v27
-
-    :cond_c
-    const/16 v27, 0x0
-
-    move/from16 v0, v27
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    goto :goto_2
-
-    :sswitch_2
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    move/from16 v27, v0
-
-    const/16 v28, 0x2
-
-    move/from16 v0, v27
-
-    move/from16 v1, v28
-
-    if-ne v0, v1, :cond_a
-
-    const/16 v27, 0x1
-
-    return v27
-
-    :sswitch_3
-    move-object/from16 v0, p0
-
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsNeedPenSelection:Z
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    if-eqz v27, :cond_29
+    if-eqz v29, :cond_26
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
-    move-result v14
+    move-result v16
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsfirstMoveEvent:Z
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    if-eqz v27, :cond_11
+    if-eqz v29, :cond_f
 
-    move/from16 v0, v25
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
 
-    move/from16 v0, v26
+    move/from16 v0, v28
 
     move-object/from16 v1, p0
 
@@ -14081,15 +11505,15 @@
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v25
+    move/from16 v1, v27
 
-    move/from16 v2, v26
+    move/from16 v2, v28
 
     invoke-super {v0, v1, v2}, Landroid/widget/AdapterView;->semNotifyMultiSelectedStart(II)V
 
-    const/16 v27, 0x1
+    const/16 v29, 0x1
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
@@ -14097,15 +11521,15 @@
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v25
+    move/from16 v1, v27
 
-    move/from16 v2, v26
+    move/from16 v2, v28
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->pointToPosition(II)I
 
-    move-result v27
+    move-result v29
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
@@ -14115,113 +11539,109 @@
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChildPosition:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    const/16 v28, -0x1
+    const/16 v30, -0x1
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
-    move/from16 v1, v28
+    move/from16 v1, v30
 
-    if-ne v0, v1, :cond_1a
+    if-ne v0, v1, :cond_18
 
-    const/16 v23, 0x0
+    const/16 v25, 0x0
 
-    const/16 v24, 0x0
+    const/16 v26, 0x0
 
-    const/16 v21, 0x0
-
-    const/16 v22, 0x0
-
-    add-int/lit8 v17, v14, -0x1
+    add-int/lit8 v19, v16, -0x1
 
     :goto_3
-    if-ltz v17, :cond_d
+    if-ltz v19, :cond_b
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v7
+    move-result-object v9
 
-    if-eqz v7, :cond_17
+    if-eqz v9, :cond_15
 
-    invoke-virtual {v7}, Landroid/view/View;->getLeft()I
+    invoke-virtual {v9}, Landroid/view/View;->getLeft()I
 
-    move-result v9
+    move-result v11
 
-    invoke-virtual {v7}, Landroid/view/View;->getRight()I
+    invoke-virtual {v9}, Landroid/view/View;->getRight()I
 
-    move-result v10
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
-
-    move/from16 v27, v0
-
-    move/from16 v0, v27
-
-    if-lt v0, v9, :cond_16
+    move-result v12
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
-    if-gt v0, v10, :cond_16
+    if-lt v0, v11, :cond_14
 
     move-object/from16 v0, p0
 
-    iput-object v7, v0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChild:Landroid/view/View;
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
 
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
+    move/from16 v29, v0
 
-    move-result v27
+    move/from16 v0, v29
 
-    add-int v27, v27, v17
+    if-gt v0, v12, :cond_14
 
-    move/from16 v0, v27
+    move-object/from16 v0, p0
+
+    iput-object v9, v0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChild:Landroid/view/View;
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getFirstVisiblePosition()I
+
+    move-result v29
+
+    add-int v29, v29, v19
+
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChildPosition:I
 
-    :cond_d
+    :cond_b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChild:Landroid/view/View;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    if-nez v27, :cond_f
+    if-nez v29, :cond_d
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByLeft:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getFirstVisiblePosition()I
 
-    move-result v28
+    move-result v30
 
-    sub-int v27, v27, v28
+    sub-int v29, v29, v30
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v27
+    move/from16 v1, v29
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v27
+    move-result-object v29
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v29
 
     move-object/from16 v1, p0
 
@@ -14231,56 +11651,56 @@
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildByLeft:Landroid/view/View;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    if-eqz v27, :cond_e
+    if-eqz v29, :cond_c
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildByLeft:Landroid/view/View;
 
-    move-object/from16 v28, v0
+    move-object/from16 v30, v0
 
-    invoke-virtual/range {v28 .. v28}, Landroid/view/View;->getLeft()I
+    invoke-virtual/range {v30 .. v30}, Landroid/view/View;->getLeft()I
 
-    move-result v28
+    move-result v30
 
-    sub-int v27, v27, v28
+    sub-int v29, v29, v30
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDistanceFromCloseChildLeft:I
 
-    :cond_e
+    :cond_c
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByRight:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getFirstVisiblePosition()I
 
-    move-result v28
+    move-result v30
 
-    sub-int v27, v27, v28
+    sub-int v29, v29, v30
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v27
+    move/from16 v1, v29
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v27
+    move-result-object v29
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v29
 
     move-object/from16 v1, p0
 
@@ -14290,101 +11710,101 @@
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildByRight:Landroid/view/View;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    if-eqz v27, :cond_f
+    if-eqz v29, :cond_d
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildByRight:Landroid/view/View;
 
-    move-object/from16 v28, v0
+    move-object/from16 v30, v0
 
-    invoke-virtual/range {v28 .. v28}, Landroid/view/View;->getLeft()I
+    invoke-virtual/range {v30 .. v30}, Landroid/view/View;->getLeft()I
 
-    move-result v28
+    move-result v30
 
-    sub-int v27, v27, v28
+    sub-int v29, v29, v30
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDistanceFromCloseChildRight:I
 
-    :cond_f
+    :cond_d
     :goto_4
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChild:Landroid/view/View;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    if-eqz v27, :cond_10
+    if-eqz v29, :cond_e
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChild:Landroid/view/View;
 
-    move-object/from16 v28, v0
+    move-object/from16 v30, v0
 
-    invoke-virtual/range {v28 .. v28}, Landroid/view/View;->getLeft()I
+    invoke-virtual/range {v30 .. v30}, Landroid/view/View;->getLeft()I
 
-    move-result v28
+    move-result v30
 
-    sub-int v27, v27, v28
+    sub-int v29, v29, v30
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDistanceFromTrackedChildLeft:I
 
-    :cond_10
-    const/16 v27, 0x0
+    :cond_e
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsfirstMoveEvent:Z
 
-    :cond_11
+    :cond_f
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    if-nez v27, :cond_12
+    if-nez v29, :cond_10
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartY:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    if-nez v27, :cond_12
+    if-nez v29, :cond_10
 
-    move/from16 v0, v25
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
 
-    move/from16 v0, v26
+    move/from16 v0, v28
 
     move-object/from16 v1, p0
 
@@ -14392,28 +11812,28 @@
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v25
+    move/from16 v1, v27
 
-    move/from16 v2, v26
+    move/from16 v2, v28
 
     invoke-super {v0, v1, v2}, Landroid/widget/AdapterView;->semNotifyMultiSelectedStart(II)V
 
-    const/16 v27, 0x1
+    const/16 v29, 0x1
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsPenPressed:Z
 
-    :cond_12
-    move/from16 v0, v25
+    :cond_10
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndX:I
 
-    move/from16 v0, v26
+    move/from16 v0, v28
 
     move-object/from16 v1, p0
 
@@ -14423,31 +11843,31 @@
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndX:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    if-gez v27, :cond_1b
+    if-gez v29, :cond_19
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndX:I
 
-    :cond_13
+    :cond_11
     :goto_5
     move-object/from16 v0, p0
 
-    move/from16 v1, v25
+    move/from16 v1, v27
 
-    move/from16 v2, v26
+    move/from16 v2, v28
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->pointToPosition(II)I
 
-    move-result v27
+    move-result v29
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
@@ -14457,28 +11877,28 @@
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartY:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndY:I
 
-    move/from16 v28, v0
+    move/from16 v30, v0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
-    move/from16 v1, v28
+    move/from16 v1, v30
 
-    if-ge v0, v1, :cond_1c
+    if-ge v0, v1, :cond_1a
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartY:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
     :goto_6
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
@@ -14488,28 +11908,28 @@
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndX:I
 
-    move/from16 v28, v0
+    move/from16 v30, v0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
-    move/from16 v1, v28
+    move/from16 v1, v30
 
-    if-ge v0, v1, :cond_1d
+    if-ge v0, v1, :cond_1b
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
     :goto_7
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
@@ -14519,28 +11939,28 @@
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndY:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartY:I
 
-    move/from16 v28, v0
+    move/from16 v30, v0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
-    move/from16 v1, v28
+    move/from16 v1, v30
 
-    if-le v0, v1, :cond_1e
+    if-le v0, v1, :cond_1c
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndY:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
     :goto_8
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
@@ -14550,557 +11970,134 @@
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndX:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
 
-    move/from16 v28, v0
+    move/from16 v30, v0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
-    move/from16 v1, v28
+    move/from16 v1, v30
 
-    if-le v0, v1, :cond_1f
+    if-le v0, v1, :cond_1d
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndX:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
     :goto_9
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockRight:I
 
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
     :goto_a
-    move/from16 v0, v17
+    move/from16 v0, v19
 
-    if-ge v0, v14, :cond_28
+    move/from16 v1, v16
+
+    if-ge v0, v1, :cond_25
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v7
+    move-result-object v9
 
-    if-eqz v7, :cond_15
+    if-eqz v9, :cond_13
 
-    invoke-virtual {v7}, Landroid/view/View;->getLeft()I
-
-    move-result v9
-
-    invoke-virtual {v7}, Landroid/view/View;->getTop()I
+    invoke-virtual {v9}, Landroid/view/View;->getLeft()I
 
     move-result v11
 
-    invoke-virtual {v7}, Landroid/view/View;->getRight()I
+    invoke-virtual {v9}, Landroid/view/View;->getTop()I
+
+    move-result v13
+
+    invoke-virtual {v9}, Landroid/view/View;->getRight()I
+
+    move-result v12
+
+    invoke-virtual {v9}, Landroid/view/View;->getBottom()I
 
     move-result v10
 
-    invoke-virtual {v7}, Landroid/view/View;->getBottom()I
+    invoke-virtual {v9}, Landroid/view/View;->getVisibility()I
 
-    move-result v8
+    move-result v29
 
-    invoke-virtual {v7}, Landroid/view/View;->getVisibility()I
-
-    move-result v27
-
-    if-nez v27, :cond_15
+    if-nez v29, :cond_13
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockTop:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
-    if-le v0, v11, :cond_20
+    if-le v0, v13, :cond_1e
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockLeft:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
-    if-le v0, v9, :cond_20
+    if-le v0, v11, :cond_1e
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockBottom:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
-    if-ge v0, v8, :cond_20
+    if-ge v0, v10, :cond_1e
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockRight:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
-    if-ge v0, v10, :cond_20
+    if-ge v0, v12, :cond_1e
 
-    :cond_14
-    add-int/lit8 v27, v9, 0x1
+    :cond_12
+    add-int/lit8 v29, v11, 0x1
 
-    add-int/lit8 v28, v11, 0x1
+    add-int/lit8 v30, v13, 0x1
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v27
+    move/from16 v1, v29
 
-    move/from16 v2, v28
+    move/from16 v2, v30
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->pointToPosition(II)I
 
-    move-result v27
+    move-result v29
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
-
-    move/from16 v27, v0
-
-    const/16 v28, -0x1
-
-    move/from16 v0, v27
-
-    move/from16 v1, v28
-
-    if-eq v0, v1, :cond_15
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
-
-    move-object/from16 v27, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
-
-    move/from16 v28, v0
-
-    invoke-interface/range {v27 .. v28}, Landroid/widget/ListAdapter;->isEnabled(I)Z
-
-    move-result v27
-
-    if-eqz v27, :cond_15
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedItemArray:Ljava/util/ArrayList;
-
-    move-object/from16 v27, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
-
-    move/from16 v28, v0
-
-    invoke-static/range {v28 .. v28}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v28
-
-    invoke-virtual/range {v27 .. v28}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
-
-    move-result v27
-
-    if-eqz v27, :cond_27
-
-    :cond_15
-    :goto_b
-    add-int/lit8 v17, v17, 0x1
-
-    goto/16 :goto_a
-
-    :cond_16
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
-
-    move/from16 v27, v0
-
-    sub-int v27, v27, v9
-
-    invoke-static/range {v27 .. v27}, Ljava/lang/Math;->abs(I)I
-
-    move-result v21
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
-
-    move/from16 v27, v0
-
-    sub-int v27, v27, v10
-
-    invoke-static/range {v27 .. v27}, Ljava/lang/Math;->abs(I)I
-
-    move-result v22
-
-    add-int/lit8 v27, v14, -0x1
-
-    move/from16 v0, v17
-
-    move/from16 v1, v27
-
-    if-ne v0, v1, :cond_18
-
-    add-int/lit8 v27, v14, -0x1
-
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
-
-    move-result v28
-
-    add-int v27, v27, v28
-
-    move/from16 v0, v27
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByLeft:I
-
-    add-int/lit8 v27, v14, -0x1
-
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
-
-    move-result v28
-
-    add-int v27, v27, v28
-
-    move/from16 v0, v27
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByRight:I
-
-    move/from16 v23, v21
-
-    move/from16 v24, v22
-
-    :cond_17
-    :goto_c
-    add-int/lit8 v17, v17, -0x1
-
-    goto/16 :goto_3
-
-    :cond_18
-    move/from16 v0, v21
-
-    move/from16 v1, v23
-
-    if-gt v0, v1, :cond_19
-
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
-
-    move-result v27
-
-    add-int v27, v27, v17
-
-    move/from16 v0, v27
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByLeft:I
-
-    move/from16 v23, v21
-
-    :cond_19
-    move/from16 v0, v22
-
-    move/from16 v1, v24
-
-    if-gt v0, v1, :cond_17
-
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
-
-    move-result v27
-
-    add-int v27, v27, v17
-
-    move/from16 v0, v27
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByRight:I
-
-    move/from16 v24, v22
-
-    goto :goto_c
-
-    :cond_1a
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChildPosition:I
-
-    move/from16 v27, v0
-
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
-
-    move-result v28
-
-    sub-int v27, v27, v28
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v27
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v27
-
-    move-object/from16 v0, v27
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChild:Landroid/view/View;
-
-    goto/16 :goto_4
-
-    :cond_1b
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndX:I
-
-    move/from16 v27, v0
-
-    move/from16 v0, v27
-
-    if-le v0, v13, :cond_13
-
-    move-object/from16 v0, p0
-
-    iput v13, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndX:I
-
-    goto/16 :goto_5
-
-    :cond_1c
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndY:I
-
-    move/from16 v27, v0
-
-    goto/16 :goto_6
-
-    :cond_1d
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndX:I
-
-    move/from16 v27, v0
-
-    goto/16 :goto_7
-
-    :cond_1e
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartY:I
-
-    move/from16 v27, v0
-
-    goto/16 :goto_8
-
-    :cond_1f
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
-
-    move/from16 v27, v0
-
-    goto/16 :goto_9
-
-    :cond_20
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockTop:I
-
-    move/from16 v27, v0
-
-    move/from16 v0, v27
-
-    if-le v0, v9, :cond_25
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockBottom:I
-
-    move/from16 v27, v0
-
-    move/from16 v0, v27
-
-    if-ge v0, v8, :cond_25
-
-    :cond_21
-    :goto_d
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockLeft:I
-
-    move/from16 v27, v0
-
-    move/from16 v0, v27
-
-    if-lt v0, v11, :cond_22
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockRight:I
-
-    move/from16 v27, v0
-
-    move/from16 v0, v27
-
-    if-le v0, v10, :cond_14
-
-    :cond_22
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockLeft:I
-
-    move/from16 v27, v0
-
-    move/from16 v0, v27
-
-    if-gt v0, v9, :cond_23
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockRight:I
-
-    move/from16 v27, v0
-
-    move/from16 v0, v27
-
-    if-gt v0, v9, :cond_14
-
-    :cond_23
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockLeft:I
-
-    move/from16 v27, v0
-
-    move/from16 v0, v27
-
-    if-ge v0, v10, :cond_24
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockRight:I
-
-    move/from16 v27, v0
-
-    move/from16 v0, v27
-
-    if-ge v0, v10, :cond_14
-
-    :cond_24
-    add-int/lit8 v27, v9, 0x1
-
-    add-int/lit8 v28, v11, 0x1
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v27
-
-    move/from16 v2, v28
-
-    invoke-virtual {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->pointToPosition(II)I
-
-    move-result v27
-
-    move/from16 v0, v27
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
-
-    move/from16 v27, v0
-
-    const/16 v28, -0x1
-
-    move/from16 v0, v27
-
-    move/from16 v1, v28
-
-    if-eq v0, v1, :cond_15
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
-
-    move-object/from16 v27, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
-
-    move/from16 v28, v0
-
-    invoke-interface/range {v27 .. v28}, Landroid/widget/ListAdapter;->isEnabled(I)Z
-
-    move-result v27
-
-    if-eqz v27, :cond_15
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedItemArray:Ljava/util/ArrayList;
-
-    move-object/from16 v27, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
-
-    move/from16 v28, v0
-
-    invoke-static/range {v28 .. v28}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v28
-
-    invoke-virtual/range {v27 .. v28}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
-
-    move-result v27
-
-    if-eqz v27, :cond_15
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedItemArray:Ljava/util/ArrayList;
-
-    move-object/from16 v27, v0
-
-    new-instance v28, Ljava/lang/Integer;
 
     move-object/from16 v0, p0
 
@@ -15108,132 +12105,87 @@
 
     move/from16 v29, v0
 
-    invoke-direct/range {v28 .. v29}, Ljava/lang/Integer;-><init>(I)V
+    const/16 v30, -0x1
 
-    invoke-virtual/range {v27 .. v28}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+    move/from16 v0, v29
+
+    move/from16 v1, v30
+
+    if-eq v0, v1, :cond_13
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
+
+    move-object/from16 v29, v0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
 
-    move/from16 v27, v0
+    move/from16 v30, v0
 
-    const/16 v28, -0x1
+    invoke-interface/range {v29 .. v30}, Landroid/widget/ListAdapter;->isEnabled(I)Z
 
-    move-object/from16 v0, p0
+    move-result v29
 
-    move/from16 v1, v27
+    if-eqz v29, :cond_13
 
-    move/from16 v2, v28
-
-    invoke-direct {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->addToPressItemListArray(II)V
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
-
-    move/from16 v27, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
-
-    move/from16 v28, v0
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v28
-
-    invoke-virtual {v0, v1}, Landroid/widget/AdapterView;->getItemIdAtPosition(I)J
-
-    move-result-wide v28
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v27
-
-    move-wide/from16 v2, v28
-
-    invoke-direct {v0, v7, v1, v2, v3}, Landroid/widget/SemHorizontalAbsListView;->semNotifyMultiSelectState(Landroid/view/View;IJ)Z
-
-    goto/16 :goto_b
-
-    :cond_25
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockTop:I
-
-    move/from16 v27, v0
-
-    move/from16 v0, v27
-
-    if-ge v0, v11, :cond_26
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockBottom:I
-
-    move/from16 v27, v0
-
-    move/from16 v0, v27
-
-    if-gt v0, v11, :cond_21
-
-    :cond_26
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockTop:I
-
-    move/from16 v27, v0
-
-    move/from16 v0, v27
-
-    if-ge v0, v8, :cond_24
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockBottom:I
-
-    move/from16 v27, v0
-
-    move/from16 v0, v27
-
-    if-le v0, v8, :cond_24
-
-    goto/16 :goto_d
-
-    :cond_27
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedItemArray:Ljava/util/ArrayList;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
 
-    move/from16 v28, v0
+    move/from16 v30, v0
 
-    invoke-static/range {v28 .. v28}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v28
+    move-result-object v30
 
-    invoke-virtual/range {v27 .. v28}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual/range {v29 .. v30}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v29
+
+    xor-int/lit8 v29, v29, 0x1
+
+    if-eqz v29, :cond_13
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedItemArray:Ljava/util/ArrayList;
+
+    move-object/from16 v29, v0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
 
-    move/from16 v27, v0
+    move/from16 v30, v0
 
-    const/16 v28, -0x1
+    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v30
+
+    invoke-virtual/range {v29 .. v30}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v27
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
 
-    move/from16 v2, v28
+    move/from16 v29, v0
+
+    const/16 v30, -0x1
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v29
+
+    move/from16 v2, v30
 
     invoke-direct {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->addToPressItemListArray(II)V
 
@@ -15241,71 +12193,565 @@
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
 
-    move/from16 v28, v0
+    move/from16 v30, v0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v28
+    move/from16 v1, v30
 
-    invoke-virtual {v0, v1}, Landroid/widget/AdapterView;->getItemIdAtPosition(I)J
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getItemIdAtPosition(I)J
 
-    move-result-wide v28
+    move-result-wide v30
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v27
+    move/from16 v1, v29
 
-    move-wide/from16 v2, v28
+    move-wide/from16 v2, v30
 
-    invoke-direct {v0, v7, v1, v2, v3}, Landroid/widget/SemHorizontalAbsListView;->semNotifyMultiSelectState(Landroid/view/View;IJ)Z
+    invoke-direct {v0, v9, v1, v2, v3}, Landroid/widget/SemHorizontalAbsListView;->semNotifyMultiSelectState(Landroid/view/View;IJ)Z
+
+    :cond_13
+    :goto_b
+    add-int/lit8 v19, v19, 0x1
+
+    goto/16 :goto_a
+
+    :cond_14
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
+
+    move/from16 v29, v0
+
+    sub-int v29, v29, v11
+
+    invoke-static/range {v29 .. v29}, Ljava/lang/Math;->abs(I)I
+
+    move-result v23
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
+
+    move/from16 v29, v0
+
+    sub-int v29, v29, v12
+
+    invoke-static/range {v29 .. v29}, Ljava/lang/Math;->abs(I)I
+
+    move-result v24
+
+    add-int/lit8 v29, v16, -0x1
+
+    move/from16 v0, v19
+
+    move/from16 v1, v29
+
+    if-ne v0, v1, :cond_16
+
+    add-int/lit8 v29, v16, -0x1
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getFirstVisiblePosition()I
+
+    move-result v30
+
+    add-int v29, v29, v30
+
+    move/from16 v0, v29
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByLeft:I
+
+    add-int/lit8 v29, v16, -0x1
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getFirstVisiblePosition()I
+
+    move-result v30
+
+    add-int v29, v29, v30
+
+    move/from16 v0, v29
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByRight:I
+
+    move/from16 v25, v23
+
+    move/from16 v26, v24
+
+    :cond_15
+    :goto_c
+    add-int/lit8 v19, v19, -0x1
+
+    goto/16 :goto_3
+
+    :cond_16
+    move/from16 v0, v23
+
+    move/from16 v1, v25
+
+    if-gt v0, v1, :cond_17
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getFirstVisiblePosition()I
+
+    move-result v29
+
+    add-int v29, v29, v19
+
+    move/from16 v0, v29
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByLeft:I
+
+    move/from16 v25, v23
+
+    :cond_17
+    move/from16 v0, v24
+
+    move/from16 v1, v26
+
+    if-gt v0, v1, :cond_15
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getFirstVisiblePosition()I
+
+    move-result v29
+
+    add-int v29, v29, v19
+
+    move/from16 v0, v29
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByRight:I
+
+    move/from16 v26, v24
+
+    goto :goto_c
+
+    :cond_18
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChildPosition:I
+
+    move/from16 v29, v0
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getFirstVisiblePosition()I
+
+    move-result v30
+
+    sub-int v29, v29, v30
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v29
+
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v29
+
+    move-object/from16 v0, v29
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChild:Landroid/view/View;
+
+    goto/16 :goto_4
+
+    :cond_19
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndX:I
+
+    move/from16 v29, v0
+
+    move/from16 v0, v29
+
+    if-le v0, v15, :cond_11
+
+    move-object/from16 v0, p0
+
+    iput v15, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndX:I
+
+    goto/16 :goto_5
+
+    :cond_1a
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndY:I
+
+    move/from16 v29, v0
+
+    goto/16 :goto_6
+
+    :cond_1b
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndX:I
+
+    move/from16 v29, v0
+
+    goto/16 :goto_7
+
+    :cond_1c
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartY:I
+
+    move/from16 v29, v0
+
+    goto/16 :goto_8
+
+    :cond_1d
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
+
+    move/from16 v29, v0
+
+    goto/16 :goto_9
+
+    :cond_1e
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockTop:I
+
+    move/from16 v29, v0
+
+    move/from16 v0, v29
+
+    if-le v0, v13, :cond_23
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockBottom:I
+
+    move/from16 v29, v0
+
+    move/from16 v0, v29
+
+    if-ge v0, v10, :cond_23
+
+    :cond_1f
+    :goto_d
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockLeft:I
+
+    move/from16 v29, v0
+
+    move/from16 v0, v29
+
+    if-lt v0, v11, :cond_20
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockRight:I
+
+    move/from16 v29, v0
+
+    move/from16 v0, v29
+
+    if-le v0, v12, :cond_12
+
+    :cond_20
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockLeft:I
+
+    move/from16 v29, v0
+
+    move/from16 v0, v29
+
+    if-gt v0, v11, :cond_21
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockRight:I
+
+    move/from16 v29, v0
+
+    move/from16 v0, v29
+
+    if-gt v0, v11, :cond_12
+
+    :cond_21
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockLeft:I
+
+    move/from16 v29, v0
+
+    move/from16 v0, v29
+
+    if-ge v0, v12, :cond_22
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockRight:I
+
+    move/from16 v29, v0
+
+    move/from16 v0, v29
+
+    if-ge v0, v12, :cond_12
+
+    :cond_22
+    add-int/lit8 v29, v11, 0x1
+
+    add-int/lit8 v30, v13, 0x1
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v29
+
+    move/from16 v2, v30
+
+    invoke-virtual {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->pointToPosition(II)I
+
+    move-result v29
+
+    move/from16 v0, v29
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
+
+    move/from16 v29, v0
+
+    const/16 v30, -0x1
+
+    move/from16 v0, v29
+
+    move/from16 v1, v30
+
+    if-eq v0, v1, :cond_13
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
+
+    move/from16 v30, v0
+
+    invoke-interface/range {v29 .. v30}, Landroid/widget/ListAdapter;->isEnabled(I)Z
+
+    move-result v29
+
+    if-eqz v29, :cond_13
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedItemArray:Ljava/util/ArrayList;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
+
+    move/from16 v30, v0
+
+    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v30
+
+    invoke-virtual/range {v29 .. v30}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v29
+
+    if-eqz v29, :cond_13
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedItemArray:Ljava/util/ArrayList;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
+
+    move/from16 v30, v0
+
+    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v30
+
+    invoke-virtual/range {v29 .. v30}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
+
+    move/from16 v29, v0
+
+    const/16 v30, -0x1
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v29
+
+    move/from16 v2, v30
+
+    invoke-direct {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->addToPressItemListArray(II)V
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
+
+    move/from16 v29, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
+
+    move/from16 v30, v0
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v30
+
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getItemIdAtPosition(I)J
+
+    move-result-wide v30
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v29
+
+    move-wide/from16 v2, v30
+
+    invoke-direct {v0, v9, v1, v2, v3}, Landroid/widget/SemHorizontalAbsListView;->semNotifyMultiSelectState(Landroid/view/View;IJ)Z
 
     goto/16 :goto_b
 
-    :cond_28
-    const/16 v20, 0x1
+    :cond_23
+    move-object/from16 v0, p0
 
-    :cond_29
-    if-eqz v20, :cond_32
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockTop:I
 
-    add-int/lit8 v27, v12, 0x0
+    move/from16 v29, v0
 
-    move/from16 v0, v25
+    move/from16 v0, v29
 
-    move/from16 v1, v27
+    if-ge v0, v13, :cond_24
 
-    if-lt v0, v1, :cond_2d
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockBottom:I
+
+    move/from16 v29, v0
+
+    move/from16 v0, v29
+
+    if-gt v0, v13, :cond_1f
+
+    :cond_24
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockTop:I
+
+    move/from16 v29, v0
+
+    move/from16 v0, v29
+
+    if-ge v0, v10, :cond_22
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockBottom:I
+
+    move/from16 v29, v0
+
+    move/from16 v0, v29
+
+    if-le v0, v10, :cond_22
+
+    goto/16 :goto_d
+
+    :cond_25
+    const/16 v22, 0x1
+
+    :cond_26
+    if-eqz v22, :cond_31
+
+    move/from16 v0, v27
+
+    if-lt v0, v14, :cond_2b
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverLeftAreaWidth:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    add-int v27, v27, v12
+    add-int v29, v29, v14
 
-    move/from16 v0, v25
+    move/from16 v0, v27
 
-    move/from16 v1, v27
+    move/from16 v1, v29
 
-    if-gt v0, v1, :cond_2d
+    if-gt v0, v1, :cond_2b
 
+    const/4 v7, 0x1
+
+    :goto_e
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverRightAreaWidth:I
+
+    move/from16 v29, v0
+
+    sub-int v29, v15, v29
+
+    move/from16 v0, v27
+
+    move/from16 v1, v29
+
+    if-lt v0, v1, :cond_2c
+
+    move/from16 v0, v27
+
+    if-gt v0, v15, :cond_2c
+
+    const/4 v8, 0x1
+
+    :goto_f
+    if-nez v7, :cond_27
+
+    if-eqz v8, :cond_2e
+
+    :cond_27
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    if-nez v27, :cond_2a
+    if-nez v29, :cond_28
 
-    const/16 v27, 0x1
+    const/16 v29, 0x1
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
@@ -15313,9 +12759,9 @@
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v28
+    move-result-wide v30
 
-    move-wide/from16 v0, v28
+    move-wide/from16 v0, v30
 
     move-object/from16 v2, p0
 
@@ -15325,54 +12771,57 @@
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mOnScrollListener:Landroid/widget/SemHorizontalAbsListView$OnScrollListener;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    if-eqz v27, :cond_2a
+    if-eqz v29, :cond_28
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mOnScrollListener:Landroid/widget/SemHorizontalAbsListView$OnScrollListener;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    const/16 v28, 0x1
+    const/16 v30, 0x1
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v29
 
     move-object/from16 v1, p0
 
-    move/from16 v2, v28
+    move/from16 v2, v30
 
     invoke-interface {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView$OnScrollListener;->onScrollStateChanged(Landroid/widget/SemHorizontalAbsListView;I)V
 
-    :cond_2a
+    :cond_28
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    const/16 v28, 0x1
+    const/16 v30, 0x1
 
-    invoke-virtual/range {v27 .. v28}, Landroid/os/Handler;->hasMessages(I)Z
+    invoke-virtual/range {v29 .. v30}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->hasMessages(I)Z
 
-    move-result v27
+    move-result v29
 
-    if-nez v27, :cond_2b
+    if-nez v29, :cond_29
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v28
+    move-result-wide v30
 
-    move-wide/from16 v0, v28
+    move-wide/from16 v0, v30
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
 
-    const/16 v27, 0x2
+    if-eqz v7, :cond_2d
 
-    move/from16 v0, v27
+    const/16 v29, 0x2
+
+    :goto_10
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
@@ -15382,27 +12831,27 @@
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    const/16 v28, 0x1
+    const/16 v30, 0x1
 
-    invoke-virtual/range {v27 .. v28}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-virtual/range {v29 .. v30}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->sendEmptyMessage(I)Z
 
-    :cond_2b
-    :goto_e
+    :cond_29
+    :goto_11
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsDragBlockEnabled:Z
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    if-eqz v27, :cond_2c
+    if-eqz v29, :cond_2a
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->invalidate()V
 
-    :cond_2c
-    :goto_f
-    move/from16 v0, v20
+    :cond_2a
+    :goto_12
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
@@ -15410,173 +12859,74 @@
 
     goto/16 :goto_2
 
+    :cond_2b
+    const/4 v7, 0x0
+
+    goto/16 :goto_e
+
+    :cond_2c
+    const/4 v8, 0x0
+
+    goto :goto_f
+
     :cond_2d
-    move-object/from16 v0, p0
+    const/16 v29, 0x1
 
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverRightAreaWidth:I
-
-    move/from16 v27, v0
-
-    sub-int v27, v13, v27
-
-    move/from16 v0, v25
-
-    move/from16 v1, v27
-
-    if-lt v0, v1, :cond_2f
-
-    move/from16 v0, v25
-
-    if-gt v0, v13, :cond_2f
-
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
-
-    move/from16 v27, v0
-
-    if-nez v27, :cond_2e
-
-    const/16 v27, 0x1
-
-    move/from16 v0, v27
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v28
-
-    move-wide/from16 v0, v28
-
-    move-object/from16 v2, p0
-
-    iput-wide v0, v2, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mOnScrollListener:Landroid/widget/SemHorizontalAbsListView$OnScrollListener;
-
-    move-object/from16 v27, v0
-
-    if-eqz v27, :cond_2e
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mOnScrollListener:Landroid/widget/SemHorizontalAbsListView$OnScrollListener;
-
-    move-object/from16 v27, v0
-
-    const/16 v28, 0x1
-
-    move-object/from16 v0, v27
-
-    move-object/from16 v1, p0
-
-    move/from16 v2, v28
-
-    invoke-interface {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView$OnScrollListener;->onScrollStateChanged(Landroid/widget/SemHorizontalAbsListView;I)V
+    goto :goto_10
 
     :cond_2e
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    move-object/from16 v27, v0
-
-    const/16 v28, 0x1
-
-    invoke-virtual/range {v27 .. v28}, Landroid/os/Handler;->hasMessages(I)Z
-
-    move-result v27
-
-    if-nez v27, :cond_2b
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v28
-
-    move-wide/from16 v0, v28
-
-    move-object/from16 v2, p0
-
-    iput-wide v0, v2, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
-
-    const/16 v27, 0x1
-
-    move/from16 v0, v27
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollDirection:I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    move-object/from16 v27, v0
-
-    const/16 v28, 0x1
-
-    invoke-virtual/range {v27 .. v28}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-
-    goto/16 :goto_e
-
-    :cond_2f
-    move-object/from16 v0, p0
-
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    if-eqz v27, :cond_30
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mOnScrollListener:Landroid/widget/SemHorizontalAbsListView$OnScrollListener;
-
-    move-object/from16 v27, v0
-
-    if-eqz v27, :cond_30
+    if-eqz v29, :cond_2f
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mOnScrollListener:Landroid/widget/SemHorizontalAbsListView$OnScrollListener;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    const/16 v28, 0x0
+    if-eqz v29, :cond_2f
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mOnScrollListener:Landroid/widget/SemHorizontalAbsListView$OnScrollListener;
+
+    move-object/from16 v29, v0
+
+    const/16 v30, 0x0
+
+    move-object/from16 v0, v29
 
     move-object/from16 v1, p0
 
-    move/from16 v2, v28
+    move/from16 v2, v30
 
     invoke-interface {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView$OnScrollListener;->onScrollStateChanged(Landroid/widget/SemHorizontalAbsListView;I)V
 
-    :cond_30
-    const-wide/16 v28, 0x0
+    :cond_2f
+    const-wide/16 v30, 0x0
 
-    move-wide/from16 v0, v28
+    move-wide/from16 v0, v30
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
 
-    const-wide/16 v28, 0x0
+    const-wide/16 v30, 0x0
 
-    move-wide/from16 v0, v28
+    move-wide/from16 v0, v30
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
@@ -15586,239 +12936,151 @@
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    const/16 v28, 0x1
+    const/16 v30, 0x1
 
-    invoke-virtual/range {v27 .. v28}, Landroid/os/Handler;->hasMessages(I)Z
+    invoke-virtual/range {v29 .. v30}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->hasMessages(I)Z
 
-    move-result v27
+    move-result v29
 
-    if-eqz v27, :cond_31
+    if-eqz v29, :cond_30
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    const/16 v28, 0x1
+    const/16 v30, 0x1
 
-    invoke-virtual/range {v27 .. v28}, Landroid/os/Handler;->removeMessages(I)V
+    invoke-virtual/range {v29 .. v30}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->removeMessages(I)V
 
-    :cond_31
-    const/16 v27, 0x0
+    :cond_30
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
 
-    goto/16 :goto_e
+    goto :goto_11
 
-    :cond_32
+    :cond_31
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mPreviousTextViewScroll:Z
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    if-eqz v27, :cond_2c
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    move-object/from16 v27, v0
-
-    const/16 v28, 0x1
-
-    invoke-virtual/range {v27 .. v28}, Landroid/os/Handler;->hasMessages(I)Z
-
-    move-result v27
-
-    if-eqz v27, :cond_2c
+    if-eqz v29, :cond_2a
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    const/16 v28, 0x1
+    const/16 v30, 0x1
 
-    invoke-virtual/range {v27 .. v28}, Landroid/os/Handler;->removeMessages(I)V
+    invoke-virtual/range {v29 .. v30}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->hasMessages(I)Z
 
-    goto/16 :goto_f
+    move-result v29
 
-    :sswitch_4
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    move/from16 v27, v0
-
-    const/16 v28, 0x2
-
-    move/from16 v0, v27
-
-    move/from16 v1, v28
-
-    if-ne v0, v1, :cond_35
+    if-eqz v29, :cond_2a
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    const/16 v28, 0x1
+    const/16 v30, 0x1
 
-    invoke-virtual/range {v27 .. v28}, Landroid/os/Handler;->hasMessages(I)Z
+    invoke-virtual/range {v29 .. v30}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->removeMessages(I)V
 
-    move-result v27
+    goto/16 :goto_12
 
-    if-eqz v27, :cond_33
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    move-object/from16 v27, v0
-
-    const/16 v28, 0x1
-
-    invoke-virtual/range {v27 .. v28}, Landroid/os/Handler;->removeMessages(I)V
-
-    :cond_33
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    move-object/from16 v27, v0
-
-    const/16 v28, 0x2
-
-    invoke-virtual/range {v27 .. v28}, Landroid/os/Handler;->hasMessages(I)Z
-
-    move-result v27
-
-    if-eqz v27, :cond_34
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
-
-    move-object/from16 v27, v0
-
-    const/16 v28, 0x2
-
-    invoke-virtual/range {v27 .. v28}, Landroid/os/Handler;->removeMessages(I)V
-
-    :cond_34
-    const/16 v27, 0x0
-
-    move/from16 v0, v27
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsHoverOverscrolled:Z
-
-    const/16 v27, 0x0
-
-    move/from16 v0, v27
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->postInvalidateOnAnimation()V
-
-    const/16 v27, 0x1
-
-    return v27
-
-    :cond_35
-    :sswitch_5
+    :sswitch_2
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsTextSelectionStarted:Z
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    if-nez v27, :cond_3d
+    if-nez v29, :cond_39
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    if-eqz v27, :cond_36
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mOnScrollListener:Landroid/widget/SemHorizontalAbsListView$OnScrollListener;
-
-    move-object/from16 v27, v0
-
-    if-eqz v27, :cond_36
+    if-eqz v29, :cond_32
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mOnScrollListener:Landroid/widget/SemHorizontalAbsListView$OnScrollListener;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    const/16 v28, 0x0
+    if-eqz v29, :cond_32
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mOnScrollListener:Landroid/widget/SemHorizontalAbsListView$OnScrollListener;
+
+    move-object/from16 v29, v0
+
+    const/16 v30, 0x0
+
+    move-object/from16 v0, v29
 
     move-object/from16 v1, p0
 
-    move/from16 v2, v28
+    move/from16 v2, v30
 
     invoke-interface {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView$OnScrollListener;->onScrollStateChanged(Landroid/widget/SemHorizontalAbsListView;I)V
 
-    :cond_36
-    const-wide/16 v28, 0x0
+    :cond_32
+    const-wide/16 v30, 0x0
 
-    move-wide/from16 v0, v28
+    move-wide/from16 v0, v30
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Landroid/widget/SemHorizontalAbsListView;->mHoverRecognitionStartTime:J
 
-    const-wide/16 v28, 0x0
+    const-wide/16 v30, 0x0
 
-    move-wide/from16 v0, v28
+    move-wide/from16 v0, v30
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollStartTime:J
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
 
-    const/16 v19, 0x0
+    const/16 v21, 0x0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedItemArray:Ljava/util/ArrayList;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    invoke-virtual/range {v27 .. v27}, Ljava/util/ArrayList;->size()I
+    invoke-virtual/range {v29 .. v29}, Ljava/util/ArrayList;->size()I
 
-    move-result v27
+    move-result v29
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
@@ -15828,308 +13090,308 @@
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedItemSize:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    if-eqz v27, :cond_3d
+    if-eqz v29, :cond_39
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    if-eqz v27, :cond_3c
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mChoiceMode:I
-
-    move/from16 v27, v0
-
-    const/16 v28, 0x2
-
-    move/from16 v0, v27
-
-    move/from16 v1, v28
-
-    if-eq v0, v1, :cond_37
+    if-eqz v29, :cond_38
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mChoiceMode:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    const/16 v28, 0x3
+    const/16 v30, 0x2
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
-    move/from16 v1, v28
+    move/from16 v1, v30
 
-    if-ne v0, v1, :cond_3c
+    if-eq v0, v1, :cond_33
 
-    :cond_37
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mChoiceMode:I
+
+    move/from16 v29, v0
+
+    const/16 v30, 0x3
+
+    move/from16 v0, v29
+
+    move/from16 v1, v30
+
+    if-ne v0, v1, :cond_38
+
+    :cond_33
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedItemArray:Ljava/util/ArrayList;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    invoke-interface/range {v27 .. v27}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v29 .. v29}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v16
+    move-result-object v18
 
-    :cond_38
-    :goto_10
-    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
+    :cond_34
+    :goto_13
+    invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v27
+    move-result v29
 
-    if-eqz v27, :cond_39
+    if-eqz v29, :cond_35
 
-    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v15
+    move-result-object v17
 
-    check-cast v15, Ljava/lang/Integer;
+    check-cast v17, Ljava/lang/Integer;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    invoke-virtual {v15}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual/range {v17 .. v17}, Ljava/lang/Integer;->intValue()I
 
-    move-result v28
+    move-result v30
 
-    invoke-interface/range {v27 .. v28}, Landroid/widget/ListAdapter;->isEnabled(I)Z
+    invoke-interface/range {v29 .. v30}, Landroid/widget/ListAdapter;->isEnabled(I)Z
 
-    move-result v27
+    move-result v29
 
-    if-eqz v27, :cond_38
+    if-eqz v29, :cond_34
 
-    const/16 v19, 0x1
+    const/16 v21, 0x1
 
-    goto :goto_10
+    goto :goto_13
 
-    :cond_39
+    :cond_35
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mChoiceMode:I
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    const/16 v28, 0x3
+    const/16 v30, 0x3
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
-    move/from16 v1, v28
+    move/from16 v1, v30
 
-    if-ne v0, v1, :cond_3a
+    if-ne v0, v1, :cond_36
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mChoiceActionMode:Landroid/view/ActionMode;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    if-nez v27, :cond_3a
+    if-nez v29, :cond_36
 
-    if-eqz v19, :cond_3a
+    if-eqz v21, :cond_36
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mMultiChoiceModeCallback:Landroid/widget/SemHorizontalAbsListView$MultiChoiceModeWrapper;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v29
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->startActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->startActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
 
-    move-result-object v27
+    move-result-object v29
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Landroid/widget/SemHorizontalAbsListView;->mChoiceActionMode:Landroid/view/ActionMode;
 
-    :cond_3a
+    :cond_36
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemIsOnClickEnabled:Z
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    if-eqz v27, :cond_3c
+    if-eqz v29, :cond_38
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedItemArray:Ljava/util/ArrayList;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    invoke-interface/range {v27 .. v27}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v29 .. v29}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v16
+    move-result-object v18
 
-    :cond_3b
-    :goto_11
-    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
+    :cond_37
+    :goto_14
+    invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v27
+    move-result v29
 
-    if-eqz v27, :cond_3c
+    if-eqz v29, :cond_38
 
-    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v15
+    move-result-object v17
 
-    check-cast v15, Ljava/lang/Integer;
+    check-cast v17, Ljava/lang/Integer;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    invoke-virtual {v15}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual/range {v17 .. v17}, Ljava/lang/Integer;->intValue()I
 
-    move-result v28
+    move-result v30
 
-    invoke-interface/range {v27 .. v28}, Landroid/widget/ListAdapter;->isEnabled(I)Z
+    invoke-interface/range {v29 .. v30}, Landroid/widget/ListAdapter;->isEnabled(I)Z
 
-    move-result v27
+    move-result v29
 
-    if-eqz v27, :cond_3b
+    if-eqz v29, :cond_37
 
-    invoke-virtual {v15}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual/range {v17 .. v17}, Ljava/lang/Integer;->intValue()I
 
-    move-result v27
+    move-result v29
 
-    invoke-virtual {v15}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual/range {v17 .. v17}, Ljava/lang/Integer;->intValue()I
 
-    move-result v28
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v28
-
-    invoke-virtual {v0, v1}, Landroid/widget/AdapterView;->getItemIdAtPosition(I)J
-
-    move-result-wide v28
-
-    const/16 v30, 0x0
+    move-result v30
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v30
+    move/from16 v1, v30
 
-    move/from16 v2, v27
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getItemIdAtPosition(I)J
 
-    move-wide/from16 v3, v28
+    move-result-wide v30
+
+    const/16 v32, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v32
+
+    move/from16 v2, v29
+
+    move-wide/from16 v3, v30
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/widget/SemHorizontalAbsListView;->performItemClick(Landroid/view/View;IJ)Z
 
-    goto :goto_11
+    goto :goto_14
 
-    :cond_3c
+    :cond_38
     move-object/from16 v0, p0
 
-    move/from16 v1, v25
+    move/from16 v1, v27
 
-    move/from16 v2, v26
+    move/from16 v2, v28
 
     invoke-super {v0, v1, v2}, Landroid/widget/AdapterView;->semNotifyMultiSelectedStop(II)V
 
-    :cond_3d
-    const/16 v27, 0x0
+    :cond_39
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsPenPressed:Z
 
-    const/16 v27, 0x1
+    const/16 v29, 0x1
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsfirstMoveEvent:Z
 
-    const/16 v27, -0x1
+    const/16 v29, -0x1
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedViewPosition:I
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartX:I
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDragStartY:I
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndX:I
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDragEndY:I
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockLeft:I
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockTop:I
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDragBlockRight:I
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
@@ -16139,93 +13401,93 @@
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedItemArray:Ljava/util/ArrayList;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    invoke-virtual/range {v27 .. v27}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual/range {v29 .. v29}, Ljava/util/ArrayList;->clear()V
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDragSelectedItemSize:I
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemTrackedChild:Landroid/view/View;
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDistanceFromTrackedChildLeft:I
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mIsCloseChildSetted:Z
 
-    const/16 v27, -0x1
+    const/16 v29, -0x1
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mOldHoverScrollDirection:I
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildByLeft:Landroid/view/View;
 
-    const/16 v27, -0x1
+    const/16 v29, -0x1
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByLeft:I
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemDistanceFromCloseChildLeft:I
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildByRight:Landroid/view/View;
 
-    const/16 v27, -0x1
+    const/16 v29, -0x1
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mSemCloseChildPositionByRight:I
 
-    const/16 v27, 0x0
+    const/16 v29, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v29
 
     move-object/from16 v1, p0
 
@@ -16235,48 +13497,48 @@
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsDragBlockEnabled:Z
 
-    move/from16 v27, v0
+    move/from16 v29, v0
 
-    if-eqz v27, :cond_3e
+    if-eqz v29, :cond_3a
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->invalidate()V
 
-    :cond_3e
+    :cond_3a
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    const/16 v28, 0x1
+    const/16 v30, 0x1
 
-    invoke-virtual/range {v27 .. v28}, Landroid/os/Handler;->hasMessages(I)Z
+    invoke-virtual/range {v29 .. v30}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->hasMessages(I)Z
 
-    move-result v27
+    move-result v29
 
-    if-eqz v27, :cond_a
+    if-eqz v29, :cond_a
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mHoverHandler:Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;
 
-    move-object/from16 v27, v0
+    move-object/from16 v29, v0
 
-    const/16 v28, 0x1
+    const/16 v30, 0x1
 
-    invoke-virtual/range {v27 .. v28}, Landroid/os/Handler;->removeMessages(I)V
+    invoke-virtual/range {v29 .. v30}, Landroid/widget/SemHorizontalAbsListView$HoverScrollHandler;->removeMessages(I)V
 
     goto/16 :goto_2
 
     :sswitch_data_0
     .sparse-switch
-        0x0 -> :sswitch_1
-        0x1 -> :sswitch_4
-        0x2 -> :sswitch_2
-        0x3 -> :sswitch_4
+        0x0 -> :sswitch_0
+        0x1 -> :sswitch_2
+        0x2 -> :sswitch_0
+        0x3 -> :sswitch_2
         0xd3 -> :sswitch_0
-        0xd4 -> :sswitch_5
-        0xd5 -> :sswitch_3
+        0xd4 -> :sswitch_2
+        0xd5 -> :sswitch_1
     .end sparse-switch
 .end method
 
@@ -16291,7 +13553,7 @@
 
     if-eqz v5, :cond_3
 
-    iget v3, p0, Landroid/view/View;->mScrollX:I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollX:I
 
     iget-object v5, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
 
@@ -16305,7 +13567,7 @@
 
     move-result v2
 
-    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getHeight()I
 
     move-result v1
 
@@ -16329,7 +13591,7 @@
 
     iget-object v5, p0, Landroid/widget/SemHorizontalAbsListView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v6
 
@@ -16349,17 +13611,17 @@
 
     move-result v5
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getPaddingLeft()I
 
     move-result v6
 
     add-int/2addr v5, v6
 
-    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getHeight()I
 
     move-result v6
 
-    invoke-virtual {p0, v8, v8, v5, v6}, Landroid/view/View;->invalidate(IIII)V
+    invoke-virtual {p0, v8, v8, v5, v6}, Landroid/widget/SemHorizontalAbsListView;->invalidate(IIII)V
 
     :cond_0
     invoke-virtual {p1, v2}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -16377,11 +13639,11 @@
 
     move-result v2
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v4
 
-    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getHeight()I
 
     move-result v1
 
@@ -16415,11 +13677,11 @@
 
     if-eqz v5, :cond_2
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v5
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getPaddingRight()I
 
     move-result v6
 
@@ -16433,27 +13695,20 @@
 
     sub-int/2addr v5, v6
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v6
 
-    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getHeight()I
 
     move-result v7
 
-    invoke-virtual {p0, v5, v8, v6, v7}, Landroid/view/View;->invalidate(IIII)V
+    invoke-virtual {p0, v5, v8, v6, v7}, Landroid/widget/SemHorizontalAbsListView;->invalidate(IIII)V
 
     :cond_2
     invoke-virtual {p1, v2}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
     :cond_3
-    iget v5, p0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    if-eqz v5, :cond_4
-
-    invoke-direct {p0, p1}, Landroid/widget/SemHorizontalAbsListView;->drawQuickController(Landroid/graphics/Canvas;)V
-
-    :cond_4
     return-void
 .end method
 
@@ -16478,7 +13733,7 @@
 
     const/4 v2, -0x1
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v0
 
@@ -16497,7 +13752,7 @@
     return v1
 
     :cond_1
-    iget v2, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v2, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     add-int/2addr v2, v0
 
@@ -16512,7 +13767,7 @@
 .method public findViewByAccessibilityIdTraversal(I)Landroid/view/View;
     .locals 1
 
-    invoke-virtual {p0}, Landroid/view/View;->getAccessibilityViewId()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getAccessibilityViewId()I
 
     move-result v0
 
@@ -16521,7 +13776,7 @@
     return-object p0
 
     :cond_0
-    iget-boolean v0, p0, Landroid/widget/AdapterView;->mDataChanged:Z
+    iget-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
     if-eqz v0, :cond_1
 
@@ -16622,7 +13877,7 @@
 
     new-instance v0, Landroid/widget/SemHorizontalAbsListView$LayoutParams;
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -16671,7 +13926,7 @@
 .method protected getBottomPaddingOffset()I
     .locals 2
 
-    iget v0, p0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mGroupFlags:I
 
     and-int/lit8 v0, v0, 0x22
 
@@ -16685,7 +13940,7 @@
     return v0
 
     :cond_0
-    iget v0, p0, Landroid/view/View;->mPaddingBottom:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPaddingBottom:I
 
     goto :goto_0
 .end method
@@ -16846,7 +14101,7 @@
 
     invoke-virtual {v0, p1}, Landroid/view/View;->getFocusedRect(Landroid/graphics/Rect;)V
 
-    invoke-virtual {p0, v0, p1}, Landroid/view/ViewGroup;->offsetDescendantRectToMyCoords(Landroid/view/View;Landroid/graphics/Rect;)V
+    invoke-virtual {p0, v0, p1}, Landroid/widget/SemHorizontalAbsListView;->offsetDescendantRectToMyCoords(Landroid/view/View;Landroid/graphics/Rect;)V
 
     :goto_0
     return-void
@@ -16917,7 +14172,7 @@
 
     const/4 v6, 0x0
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v0
 
@@ -16934,13 +14189,13 @@
 
     if-eqz v4, :cond_2
 
-    iget v4, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     add-int/2addr v4, v0
 
     add-int/lit8 v4, v4, -0x1
 
-    iget v5, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v5, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     add-int/lit8 v5, v5, -0x1
 
@@ -16952,7 +14207,7 @@
     return v4
 
     :cond_2
-    iget v4, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     if-gtz v4, :cond_1
 
@@ -16963,7 +14218,7 @@
 
     add-int/lit8 v4, v0, -0x1
 
-    invoke-virtual {p0, v4}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v4}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v4
 
@@ -16972,17 +14227,17 @@
     move-result v3
 
     :goto_0
-    invoke-virtual {p0}, Landroid/view/View;->getHorizontalFadingEdgeLength()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getHorizontalFadingEdgeLength()I
 
     move-result v4
 
     int-to-float v2, v4
 
-    iget v4, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mPaddingLeft:I
 
     if-ge v3, v4, :cond_4
 
-    iget v4, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mPaddingLeft:I
 
     sub-int v4, v3, v4
 
@@ -16996,7 +14251,7 @@
     return v1
 
     :cond_5
-    invoke-virtual {p0, v6}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v6}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v4
 
@@ -17010,7 +14265,7 @@
 .method protected getLeftPaddingOffset()I
     .locals 2
 
-    iget v0, p0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mGroupFlags:I
 
     and-int/lit8 v0, v0, 0x22
 
@@ -17024,7 +14279,7 @@
     return v0
 
     :cond_0
-    iget v0, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPaddingLeft:I
 
     neg-int v0, v0
 
@@ -17076,7 +14331,7 @@
 
     const/4 v7, 0x0
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v0
 
@@ -17093,7 +14348,7 @@
 
     if-eqz v5, :cond_2
 
-    iget v5, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v5, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     if-lez v5, :cond_3
 
@@ -17103,13 +14358,13 @@
     return v5
 
     :cond_2
-    iget v5, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v5, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     add-int/2addr v5, v0
 
     add-int/lit8 v5, v5, -0x1
 
-    iget v6, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v6, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     add-int/lit8 v6, v6, -0x1
 
@@ -17120,7 +14375,7 @@
 
     if-eqz v5, :cond_5
 
-    invoke-virtual {p0, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v7}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v5
 
@@ -17129,17 +14384,17 @@
     move-result v3
 
     :goto_0
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v4
 
-    invoke-virtual {p0}, Landroid/view/View;->getHorizontalFadingEdgeLength()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getHorizontalFadingEdgeLength()I
 
     move-result v5
 
     int-to-float v2, v5
 
-    iget v5, p0, Landroid/view/View;->mPaddingRight:I
+    iget v5, p0, Landroid/widget/SemHorizontalAbsListView;->mPaddingRight:I
 
     sub-int v5, v4, v5
 
@@ -17147,7 +14402,7 @@
 
     sub-int v5, v3, v4
 
-    iget v6, p0, Landroid/view/View;->mPaddingRight:I
+    iget v6, p0, Landroid/widget/SemHorizontalAbsListView;->mPaddingRight:I
 
     add-int/2addr v5, v6
 
@@ -17161,7 +14416,7 @@
     :cond_5
     add-int/lit8 v5, v0, -0x1
 
-    invoke-virtual {p0, v5}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v5}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v5
 
@@ -17175,7 +14430,7 @@
 .method protected getRightPaddingOffset()I
     .locals 2
 
-    iget v0, p0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mGroupFlags:I
 
     and-int/lit8 v0, v0, 0x22
 
@@ -17189,7 +14444,7 @@
     return v0
 
     :cond_0
-    iget v0, p0, Landroid/view/View;->mPaddingRight:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPaddingRight:I
 
     goto :goto_0
 .end method
@@ -17199,21 +14454,21 @@
     .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
     .end annotation
 
-    iget v0, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     if-lez v0, :cond_0
 
-    iget v0, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
     if-ltz v0, :cond_0
 
-    iget v0, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
-    iget v1, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     sub-int/2addr v0, v1
 
-    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -17304,7 +14559,7 @@
 .method protected getTopPaddingOffset()I
     .locals 2
 
-    iget v0, p0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mGroupFlags:I
 
     and-int/lit8 v0, v0, 0x22
 
@@ -17318,7 +14573,7 @@
     return v0
 
     :cond_0
-    iget v0, p0, Landroid/view/View;->mPaddingTop:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPaddingTop:I
 
     neg-int v0, v0
 
@@ -17346,11 +14601,11 @@
 
     const/4 v6, 0x0
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getFirstVisiblePosition()I
 
     move-result v1
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v0
 
@@ -17360,7 +14615,7 @@
 
     if-ge v2, v0, :cond_0
 
-    invoke-virtual {p0, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -17405,11 +14660,11 @@
 
     const/4 v12, 0x0
 
-    iget v1, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mLastHandledItemCount:I
 
-    iget v10, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v10, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     iput v10, p0, Landroid/widget/SemHorizontalAbsListView;->mLastHandledItemCount:I
 
@@ -17421,7 +14676,7 @@
 
     if-eqz v10, :cond_0
 
-    iget v10, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v10, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     iget v11, p0, Landroid/widget/SemHorizontalAbsListView;->mOldAdapterItemCount:I
 
@@ -17435,7 +14690,7 @@
 
     invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->resetPressItemListArray()V
 
-    iget v10, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v10, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     iput v10, p0, Landroid/widget/SemHorizontalAbsListView;->mOldAdapterItemCount:I
 
@@ -17465,11 +14720,11 @@
 
     if-lez v1, :cond_f
 
-    iget-boolean v10, p0, Landroid/widget/AdapterView;->mNeedSync:Z
+    iget-boolean v10, p0, Landroid/widget/SemHorizontalAbsListView;->mNeedSync:Z
 
     if-eqz v10, :cond_8
 
-    iput-boolean v12, p0, Landroid/widget/AdapterView;->mNeedSync:Z
+    iput-boolean v12, p0, Landroid/widget/SemHorizontalAbsListView;->mNeedSync:Z
 
     iput-object v13, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingSync:Landroid/widget/SemHorizontalAbsListView$SavedState;
 
@@ -17499,15 +14754,15 @@
     return-void
 
     :cond_3
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v0
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v10
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getPaddingRight()I
 
     move-result v11
 
@@ -17517,7 +14772,7 @@
 
     if-eqz v10, :cond_4
 
-    invoke-virtual {p0, v12}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v12}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -17529,7 +14784,7 @@
     move-result v4
 
     :goto_1
-    iget v10, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v10, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     add-int/2addr v10, v0
 
@@ -17544,7 +14799,7 @@
     :cond_4
     add-int/lit8 v10, v0, -0x1
 
-    invoke-virtual {p0, v10}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v10}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -17556,21 +14811,21 @@
     goto :goto_1
 
     :cond_6
-    invoke-virtual {p0}, Landroid/view/View;->awakenScrollBars()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->awakenScrollBars()Z
 
     :cond_7
-    iget v10, p0, Landroid/widget/AdapterView;->mSyncMode:I
+    iget v10, p0, Landroid/widget/SemHorizontalAbsListView;->mSyncMode:I
 
     packed-switch v10, :pswitch_data_0
 
     :cond_8
-    invoke-virtual {p0}, Landroid/view/View;->isInTouchMode()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isInTouchMode()Z
 
     move-result v10
 
     if-nez v10, :cond_e
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getSelectedItemPosition()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getSelectedItemPosition()I
 
     move-result v6
 
@@ -17584,18 +14839,18 @@
     const/4 v6, 0x0
 
     :cond_a
-    invoke-virtual {p0, v6, v9}, Landroid/widget/AdapterView;->lookForSelectablePosition(IZ)I
+    invoke-virtual {p0, v6, v9}, Landroid/widget/SemHorizontalAbsListView;->lookForSelectablePosition(IZ)I
 
     move-result v7
 
     if-ltz v7, :cond_d
 
-    invoke-virtual {p0, v7}, Landroid/widget/AdapterView;->setNextSelectedPositionInt(I)V
+    invoke-virtual {p0, v7}, Landroid/widget/SemHorizontalAbsListView;->setNextSelectedPositionInt(I)V
 
     return-void
 
     :pswitch_0
-    invoke-virtual {p0}, Landroid/view/View;->isInTouchMode()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isInTouchMode()Z
 
     move-result v10
 
@@ -17605,7 +14860,7 @@
 
     iput v8, p0, Landroid/widget/SemHorizontalAbsListView;->mLayoutMode:I
 
-    iget v8, p0, Landroid/widget/AdapterView;->mSyncPosition:I
+    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mSyncPosition:I
 
     invoke-static {v12, v8}, Ljava/lang/Math;->max(II)I
 
@@ -17617,28 +14872,28 @@
 
     move-result v8
 
-    iput v8, p0, Landroid/widget/AdapterView;->mSyncPosition:I
+    iput v8, p0, Landroid/widget/SemHorizontalAbsListView;->mSyncPosition:I
 
     return-void
 
     :cond_b
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->findSyncPosition()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->findSyncPosition()I
 
     move-result v6
 
     if-ltz v6, :cond_8
 
-    invoke-virtual {p0, v6, v9}, Landroid/widget/AdapterView;->lookForSelectablePosition(IZ)I
+    invoke-virtual {p0, v6, v9}, Landroid/widget/SemHorizontalAbsListView;->lookForSelectablePosition(IZ)I
 
     move-result v7
 
     if-ne v7, v6, :cond_8
 
-    iput v6, p0, Landroid/widget/AdapterView;->mSyncPosition:I
+    iput v6, p0, Landroid/widget/SemHorizontalAbsListView;->mSyncPosition:I
 
-    iget-wide v8, p0, Landroid/widget/AdapterView;->mSyncHeight:J
+    iget-wide v8, p0, Landroid/widget/SemHorizontalAbsListView;->mSyncHeight:J
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v10
 
@@ -17653,7 +14908,7 @@
     iput v8, p0, Landroid/widget/SemHorizontalAbsListView;->mLayoutMode:I
 
     :goto_2
-    invoke-virtual {p0, v6}, Landroid/widget/AdapterView;->setNextSelectedPositionInt(I)V
+    invoke-virtual {p0, v6}, Landroid/widget/SemHorizontalAbsListView;->setNextSelectedPositionInt(I)V
 
     return-void
 
@@ -17669,7 +14924,7 @@
 
     iput v8, p0, Landroid/widget/SemHorizontalAbsListView;->mLayoutMode:I
 
-    iget v8, p0, Landroid/widget/AdapterView;->mSyncPosition:I
+    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mSyncPosition:I
 
     invoke-static {v12, v8}, Ljava/lang/Math;->max(II)I
 
@@ -17681,18 +14936,18 @@
 
     move-result v8
 
-    iput v8, p0, Landroid/widget/AdapterView;->mSyncPosition:I
+    iput v8, p0, Landroid/widget/SemHorizontalAbsListView;->mSyncPosition:I
 
     return-void
 
     :cond_d
-    invoke-virtual {p0, v6, v12}, Landroid/widget/AdapterView;->lookForSelectablePosition(IZ)I
+    invoke-virtual {p0, v6, v12}, Landroid/widget/SemHorizontalAbsListView;->lookForSelectablePosition(IZ)I
 
     move-result v7
 
     if-ltz v7, :cond_f
 
-    invoke-virtual {p0, v7}, Landroid/widget/AdapterView;->setNextSelectedPositionInt(I)V
+    invoke-virtual {p0, v7}, Landroid/widget/SemHorizontalAbsListView;->setNextSelectedPositionInt(I)V
 
     return-void
 
@@ -17711,25 +14966,25 @@
     :goto_3
     iput v8, p0, Landroid/widget/SemHorizontalAbsListView;->mLayoutMode:I
 
-    iput v14, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iput v14, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
     const-wide/high16 v8, -0x8000000000000000L
 
-    iput-wide v8, p0, Landroid/widget/AdapterView;->mSelectedRowId:J
+    iput-wide v8, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedRowId:J
 
-    iput v14, p0, Landroid/widget/AdapterView;->mNextSelectedPosition:I
+    iput v14, p0, Landroid/widget/SemHorizontalAbsListView;->mNextSelectedPosition:I
 
     const-wide/high16 v8, -0x8000000000000000L
 
-    iput-wide v8, p0, Landroid/widget/AdapterView;->mNextSelectedRowId:J
+    iput-wide v8, p0, Landroid/widget/SemHorizontalAbsListView;->mNextSelectedRowId:J
 
-    iput-boolean v12, p0, Landroid/widget/AdapterView;->mNeedSync:Z
+    iput-boolean v12, p0, Landroid/widget/SemHorizontalAbsListView;->mNeedSync:Z
 
     iput-object v13, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingSync:Landroid/widget/SemHorizontalAbsListView$SavedState;
 
     iput v14, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectorPosition:I
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->checkSelectionChanged()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->checkSelectionChanged()V
 
     return-void
 
@@ -17762,7 +15017,7 @@
 
     const/4 v2, -0x1
 
-    iget v0, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
     if-eq v0, v2, :cond_2
 
@@ -17772,29 +15027,29 @@
 
     if-eq v0, v1, :cond_0
 
-    iget v0, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
     iput v0, p0, Landroid/widget/SemHorizontalAbsListView;->mResurrectToPosition:I
 
     :cond_0
-    iget v0, p0, Landroid/widget/AdapterView;->mNextSelectedPosition:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mNextSelectedPosition:I
 
     if-ltz v0, :cond_1
 
-    iget v0, p0, Landroid/widget/AdapterView;->mNextSelectedPosition:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mNextSelectedPosition:I
 
-    iget v1, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
     if-eq v0, v1, :cond_1
 
-    iget v0, p0, Landroid/widget/AdapterView;->mNextSelectedPosition:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mNextSelectedPosition:I
 
     iput v0, p0, Landroid/widget/SemHorizontalAbsListView;->mResurrectToPosition:I
 
     :cond_1
-    invoke-virtual {p0, v2}, Landroid/widget/AdapterView;->setSelectedPositionInt(I)V
+    invoke-virtual {p0, v2}, Landroid/widget/SemHorizontalAbsListView;->setSelectedPositionInt(I)V
 
-    invoke-virtual {p0, v2}, Landroid/widget/AdapterView;->setNextSelectedPositionInt(I)V
+    invoke-virtual {p0, v2}, Landroid/widget/SemHorizontalAbsListView;->setNextSelectedPositionInt(I)V
 
     iput v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedLeft:I
 
@@ -17807,13 +15062,13 @@
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Landroid/widget/AdapterView;->mDataChanged:Z
+    iput-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
     invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->rememberSyncState()V
 
-    invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->requestLayout()V
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->invalidate()V
 
     return-void
 .end method
@@ -17829,13 +15084,13 @@
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mFastScroll:Lcom/samsung/android/widget/SemHorizontalFastScroller;
 
-    iget v1, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v2
 
-    iget v3, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->onScroll(III)V
 
@@ -17846,18 +15101,18 @@
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mOnScrollListener:Landroid/widget/SemHorizontalAbsListView$OnScrollListener;
 
-    iget v1, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v2
 
-    iget v3, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     invoke-interface {v0, p0, v1, v2, v3}, Landroid/widget/SemHorizontalAbsListView$OnScrollListener;->onScroll(Landroid/widget/SemHorizontalAbsListView;III)V
 
     :cond_1
-    invoke-virtual {p0, v4, v4, v4, v4}, Landroid/view/View;->onScrollChanged(IIII)V
+    invoke-virtual {p0, v4, v4, v4, v4}, Landroid/widget/SemHorizontalAbsListView;->onScrollChanged(IIII)V
 
     return-void
 .end method
@@ -17932,6 +15187,28 @@
     return v0
 .end method
 
+.method public isInTouchMode()Z
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->semIsInMouseStylusMode()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-super {p0}, Landroid/widget/AdapterView;->isInTouchMode()Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
+.end method
+
 .method public isItemChecked(I)Z
     .locals 2
 
@@ -17986,7 +15263,7 @@
 .method protected isPaddingOffsetRequired()Z
     .locals 2
 
-    iget v0, p0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mGroupFlags:I
 
     and-int/lit8 v0, v0, 0x22
 
@@ -18077,78 +15354,78 @@
 
     const/4 v7, 0x0
 
-    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isEnabled()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_0
 
-    invoke-virtual {p0}, Landroid/view/View;->isClickable()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isClickable()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    xor-int/lit8 v5, v5, 0x1
 
+    if-eqz v5, :cond_1
+
+    :cond_0
+    return-void
+
+    :cond_1
     iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
 
     iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectorRect:Landroid/graphics/Rect;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_6
 
-    invoke-virtual {p0}, Landroid/view/View;->isFocused()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isFocused()Z
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_2
 
     invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->touchModeDrawsInPressedState()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_6
 
-    :cond_0
+    :cond_2
     invoke-virtual {v3}, Landroid/graphics/Rect;->isEmpty()Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    xor-int/lit8 v5, v5, 0x1
 
-    :cond_1
-    :goto_0
-    return-void
+    if-eqz v5, :cond_6
 
-    :cond_2
-    return-void
+    iget v5, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
-    :cond_3
-    iget v5, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
-
-    iget v6, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v6, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     sub-int/2addr v5, v6
 
-    invoke-virtual {p0, v5}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v5}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_4
 
     invoke-virtual {v4}, Landroid/view/View;->hasFocusable()Z
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_3
 
     return-void
 
-    :cond_4
+    :cond_3
     invoke-virtual {v4, v8}, Landroid/view/View;->setPressed(Z)V
 
-    :cond_5
-    invoke-virtual {p0, v8}, Landroid/view/View;->setPressed(Z)V
+    :cond_4
+    invoke-virtual {p0, v8}, Landroid/widget/SemHorizontalAbsListView;->setPressed(Z)V
 
-    invoke-virtual {p0}, Landroid/view/View;->isLongClickable()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isLongClickable()Z
 
     move-result v1
 
@@ -18156,17 +15433,15 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_5
 
     instance-of v5, v0, Landroid/graphics/drawable/TransitionDrawable;
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_5
 
     if-eqz v1, :cond_7
 
-    nop
-
-    nop
+    check-cast v0, Landroid/graphics/drawable/TransitionDrawable;
 
     invoke-static {}, Landroid/view/ViewConfiguration;->getLongPressTimeout()I
 
@@ -18174,13 +15449,15 @@
 
     invoke-virtual {v0, v5}, Landroid/graphics/drawable/TransitionDrawable;->startTransition(I)V
 
-    :cond_6
-    :goto_1
-    if-eqz v1, :cond_1
+    :cond_5
+    :goto_0
+    if-eqz v1, :cond_6
 
-    iget-boolean v5, p0, Landroid/widget/AdapterView;->mDataChanged:Z
+    iget-boolean v5, p0, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
-    if-nez v5, :cond_1
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_6
 
     iget-object v5, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingCheckForKeyLongPress:Landroid/widget/SemHorizontalAbsListView$CheckForKeyLongPress;
 
@@ -18192,10 +15469,10 @@
 
     iput-object v5, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingCheckForKeyLongPress:Landroid/widget/SemHorizontalAbsListView$CheckForKeyLongPress;
 
-    :goto_2
+    :goto_1
     iget-object v5, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingCheckForKeyLongPress:Landroid/widget/SemHorizontalAbsListView$CheckForKeyLongPress;
 
-    invoke-virtual {v5}, Landroid/widget/SemHorizontalAbsListView$WindowRunnnable;->rememberWindowAttachCount()V
+    invoke-virtual {v5}, Landroid/widget/SemHorizontalAbsListView$CheckForKeyLongPress;->rememberWindowAttachCount()V
 
     iget-object v5, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingCheckForKeyLongPress:Landroid/widget/SemHorizontalAbsListView$CheckForKeyLongPress;
 
@@ -18205,25 +15482,24 @@
 
     int-to-long v6, v6
 
-    invoke-virtual {p0, v5, v6, v7}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {p0, v5, v6, v7}, Landroid/widget/SemHorizontalAbsListView;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    goto :goto_0
+    :cond_6
+    return-void
 
     :cond_7
-    nop
-
-    nop
+    check-cast v0, Landroid/graphics/drawable/TransitionDrawable;
 
     invoke-virtual {v0}, Landroid/graphics/drawable/TransitionDrawable;->resetTransition()V
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_8
     iget-object v5, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingCheckForKeyLongPress:Landroid/widget/SemHorizontalAbsListView$CheckForKeyLongPress;
 
-    invoke-virtual {p0, v5}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v5}, Landroid/widget/SemHorizontalAbsListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    goto :goto_2
+    goto :goto_1
 .end method
 
 .method protected layoutChildren()V
@@ -18407,7 +15683,7 @@
     :cond_9
     invoke-direct {p0, v0, p1}, Landroid/widget/SemHorizontalAbsListView;->setItemViewLayoutParams(Landroid/view/View;I)V
 
-    iget-object v7, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mContext:Landroid/content/Context;
 
     invoke-static {v7}, Landroid/view/accessibility/AccessibilityManager;->getInstance(Landroid/content/Context;)Landroid/view/accessibility/AccessibilityManager;
 
@@ -18464,42 +15740,36 @@
 
     invoke-super {p0}, Landroid/widget/AdapterView;->onAttachedToWindow()V
 
-    invoke-virtual {p0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v0
 
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->addOnTouchModeChangeListener(Landroid/view/ViewTreeObserver$OnTouchModeChangeListener;)V
 
-    iget-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->USE_SET_INTEGRATOR_HAPTIC:Z
+    iget-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mTextFilterEnabled:Z
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mHapticPreDrawListener:Landroid/view/HapticPreDrawListener;
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->addOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
-
-    :cond_0
-    iget-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mTextFilterEnabled:Z
-
-    if-eqz v1, :cond_1
-
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mPopup:Landroid/widget/PopupWindow;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     iget-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mGlobalLayoutListenerAddedFilter:Z
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_1
-    :goto_0
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
+
+    :cond_0
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mDataSetObserver:Landroid/widget/SemHorizontalAbsListView$AdapterDataSetObserver;
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_1
 
     new-instance v1, Landroid/widget/SemHorizontalAbsListView$AdapterDataSetObserver;
 
@@ -18515,11 +15785,11 @@
 
     const/4 v1, 0x1
 
-    iput-boolean v1, p0, Landroid/widget/AdapterView;->mDataChanged:Z
+    iput-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
-    iget v1, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
-    iput v1, p0, Landroid/widget/AdapterView;->mOldItemCount:I
+    iput v1, p0, Landroid/widget/SemHorizontalAbsListView;->mOldItemCount:I
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
 
@@ -18527,34 +15797,29 @@
 
     move-result v1
 
-    iput v1, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iput v1, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
-    :cond_2
-    invoke-virtual {p0}, Landroid/view/View;->isLayoutRtl()Z
+    :cond_1
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isLayoutRtl()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mFastScroll:Lcom/samsung/android/widget/SemHorizontalFastScroller;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mFastScroll:Lcom/samsung/android/widget/SemHorizontalFastScroller;
 
-    invoke-virtual {p0}, Landroid/view/View;->getVerticalScrollbarPosition()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getVerticalScrollbarPosition()I
 
     move-result v2
 
     invoke-virtual {v1, v2}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->setScrollbarPosition(I)V
 
-    :cond_3
+    :cond_2
     return-void
-
-    :cond_4
-    invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
-
-    goto :goto_0
 .end method
 
 .method public onCancelPendingInputEvents()V
@@ -18568,7 +15833,7 @@
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPerformClick:Landroid/widget/SemHorizontalAbsListView$PerformClick;
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v0}, Landroid/widget/SemHorizontalAbsListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     :cond_0
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingCheckForTap:Landroid/widget/SemHorizontalAbsListView$CheckForTap;
@@ -18577,7 +15842,7 @@
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingCheckForTap:Landroid/widget/SemHorizontalAbsListView$CheckForTap;
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v0}, Landroid/widget/SemHorizontalAbsListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     :cond_1
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingCheckForLongPress:Landroid/widget/SemHorizontalAbsListView$CheckForLongPress;
@@ -18586,7 +15851,7 @@
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingCheckForLongPress:Landroid/widget/SemHorizontalAbsListView$CheckForLongPress;
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v0}, Landroid/widget/SemHorizontalAbsListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     :cond_2
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingCheckForKeyLongPress:Landroid/widget/SemHorizontalAbsListView$CheckForKeyLongPress;
@@ -18595,7 +15860,7 @@
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingCheckForKeyLongPress:Landroid/widget/SemHorizontalAbsListView$CheckForKeyLongPress;
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v0}, Landroid/widget/SemHorizontalAbsListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     :cond_3
     return-void
@@ -18713,9 +15978,9 @@
 .method protected onDetachedFromWindow()V
     .locals 6
 
-    const/4 v5, -0x1
+    const/4 v5, 0x0
 
-    const/4 v4, 0x0
+    const/4 v4, -0x1
 
     const/4 v3, 0x0
 
@@ -18731,7 +15996,7 @@
 
     invoke-virtual {v1}, Landroid/widget/SemHorizontalAbsListView$RecycleBin;->clear()V
 
-    invoke-virtual {p0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v0
 
@@ -18747,7 +16012,7 @@
 
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
-    iput-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mGlobalLayoutListenerAddedFilter:Z
+    iput-boolean v5, p0, Landroid/widget/SemHorizontalAbsListView;->mGlobalLayoutListenerAddedFilter:Z
 
     :cond_0
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
@@ -18795,7 +16060,7 @@
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mFlingRunnable:Landroid/widget/SemHorizontalAbsListView$FlingRunnable;
 
-    invoke-virtual {p0, v1}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v1}, Landroid/widget/SemHorizontalAbsListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     :cond_4
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mPositionScroller:Landroid/widget/SemHorizontalAbsListView$AbsPositionScroller;
@@ -18813,7 +16078,7 @@
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mClearScrollingCache:Ljava/lang/Runnable;
 
-    invoke-virtual {p0, v1}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v1}, Landroid/widget/SemHorizontalAbsListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     :cond_6
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mPerformClick:Landroid/widget/SemHorizontalAbsListView$PerformClick;
@@ -18822,7 +16087,7 @@
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mPerformClick:Landroid/widget/SemHorizontalAbsListView$PerformClick;
 
-    invoke-virtual {p0, v1}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v1}, Landroid/widget/SemHorizontalAbsListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     :cond_7
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mTouchModeReset:Ljava/lang/Runnable;
@@ -18831,7 +16096,7 @@
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mTouchModeReset:Ljava/lang/Runnable;
 
-    invoke-virtual {p0, v1}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v1}, Landroid/widget/SemHorizontalAbsListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mTouchModeReset:Ljava/lang/Runnable;
 
@@ -18840,30 +16105,14 @@
     :cond_8
     iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mTouchMode:I
 
-    if-eq v1, v5, :cond_9
+    if-eq v1, v4, :cond_9
 
-    iput v5, p0, Landroid/widget/SemHorizontalAbsListView;->mTouchMode:I
+    iput v4, p0, Landroid/widget/SemHorizontalAbsListView;->mTouchMode:I
 
     :cond_9
-    iget-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->USE_SET_INTEGRATOR_HAPTIC:Z
-
-    if-eqz v1, :cond_a
-
-    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mHapticPreDrawListener:Landroid/view/HapticPreDrawListener;
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
-
-    :cond_a
-    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    if-eqz v1, :cond_b
-
-    iput v4, p0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    :cond_b
     invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->releaseAllBoosters()V
 
-    iput-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mIsDetaching:Z
+    iput-boolean v5, p0, Landroid/widget/SemHorizontalAbsListView;->mIsDetaching:Z
 
     return-void
 .end method
@@ -18920,7 +16169,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
 
     invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->showPopup()V
 
@@ -18943,7 +16194,7 @@
 .method public onFilterComplete(I)V
     .locals 1
 
-    iget v0, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
     if-gez v0, :cond_0
 
@@ -18964,40 +16215,37 @@
 
     invoke-super {p0, p1, p2, p3}, Landroid/widget/AdapterView;->onFocusChanged(ZILandroid/graphics/Rect;)V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
-    iget v0, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_1
 
-    invoke-virtual {p0}, Landroid/view/View;->isInTouchMode()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isInTouchMode()Z
 
     move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
 
     if-eqz v0, :cond_1
 
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    invoke-virtual {p0}, Landroid/view/View;->isAttachedToWindow()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isAttachedToWindow()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Landroid/widget/AdapterView;->mDataChanged:Z
+    iput-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
-    iget v0, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
-    iput v0, p0, Landroid/widget/AdapterView;->mOldItemCount:I
+    iput v0, p0, Landroid/widget/SemHorizontalAbsListView;->mOldItemCount:I
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
 
@@ -19005,12 +16253,13 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iput v0, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
-    :cond_2
+    :cond_0
     invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->resurrectSelection()Z
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method
 
 .method public onGenericMotionEvent(Landroid/view/MotionEvent;)Z
@@ -19058,7 +16307,7 @@
 
     if-eqz v3, :cond_1
 
-    invoke-virtual {p0}, Landroid/view/View;->getHorizontalScrollFactor()F
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getHorizontalScrollFactor()F
 
     move-result v3
 
@@ -19100,7 +16349,7 @@
 
     if-eqz v3, :cond_0
 
-    invoke-virtual {p0}, Landroid/view/View;->getVerticalScrollFactor()F
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getVerticalScrollFactor()F
 
     move-result v3
 
@@ -19127,11 +16376,11 @@
 .method public onGlobalLayout()V
     .locals 1
 
-    invoke-virtual {p0}, Landroid/view/View;->isShown()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isShown()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     iget-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mFiltered:Z
 
@@ -19147,22 +16396,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    iget-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPopupHidden:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->showPopup()V
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    iget-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPopupHidden:Z
-
-    if-nez v0, :cond_0
-
-    invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->showPopup()V
-
-    goto :goto_0
-
-    :cond_2
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPopup:Landroid/widget/PopupWindow;
 
     if-eqz v0, :cond_0
@@ -19191,7 +16441,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityRecord;->setClassName(Ljava/lang/CharSequence;)V
+    invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityEvent;->setClassName(Ljava/lang/CharSequence;)V
 
     return-void
 .end method
@@ -19211,13 +16461,13 @@
 
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setClassName(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getFirstVisiblePosition()I
 
     move-result v0
 
@@ -19230,11 +16480,11 @@
     invoke-virtual {p1, v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->setScrollable(Z)V
 
     :cond_0
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getLastVisiblePosition()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getLastVisiblePosition()I
 
     move-result v0
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getCount()I
 
     move-result v1
 
@@ -19257,7 +16507,7 @@
 
     const/4 v2, 0x1
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getAdapter()Landroid/widget/Adapter;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getAdapter()Landroid/widget/Adapter;
 
     move-result-object v0
 
@@ -19273,23 +16523,33 @@
     return-void
 
     :cond_1
-    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isEnabled()Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_2
 
     invoke-interface {v0, p2}, Landroid/widget/ListAdapter;->isEnabled(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v1, v1, 0x1
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getSelectedItemPosition()I
+    if-eqz v1, :cond_3
+
+    :cond_2
+    const/4 v1, 0x0
+
+    invoke-virtual {p3, v1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setEnabled(Z)V
+
+    return-void
+
+    :cond_3
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getSelectedItemPosition()I
 
     move-result v1
 
-    if-ne p2, v1, :cond_5
+    if-ne p2, v1, :cond_6
 
     invoke-virtual {p3, v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->setSelected(Z)V
 
@@ -19298,11 +16558,11 @@
     invoke-virtual {p3, v1}, Landroid/view/accessibility/AccessibilityNodeInfo;->addAction(I)V
 
     :goto_0
-    invoke-virtual {p0}, Landroid/view/View;->isClickable()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isClickable()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_4
 
     const/16 v1, 0x10
 
@@ -19310,12 +16570,12 @@
 
     invoke-virtual {p3, v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->setClickable(Z)V
 
-    :cond_2
-    invoke-virtual {p0}, Landroid/view/View;->isLongClickable()Z
+    :cond_4
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isLongClickable()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5
 
     const/16 v1, 0x20
 
@@ -19323,17 +16583,10 @@
 
     invoke-virtual {p3, v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->setLongClickable(Z)V
 
-    :cond_3
-    return-void
-
-    :cond_4
-    const/4 v1, 0x0
-
-    invoke-virtual {p3, v1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setEnabled(Z)V
-
-    return-void
-
     :cond_5
+    return-void
+
+    :cond_6
     const/4 v1, 0x4
 
     invoke-virtual {p3, v1}, Landroid/view/accessibility/AccessibilityNodeInfo;->addAction(I)V
@@ -19398,15 +16651,21 @@
 
     if-nez v7, :cond_1
 
-    invoke-virtual {p0}, Landroid/view/View;->isAttachedToWindow()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isAttachedToWindow()Z
 
     move-result v7
 
-    if-eqz v7, :cond_1
-
-    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mFastScroll:Lcom/samsung/android/widget/SemHorizontalFastScroller;
+    xor-int/lit8 v7, v7, 0x1
 
     if-eqz v7, :cond_2
+
+    :cond_1
+    return v8
+
+    :cond_2
+    iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mFastScroll:Lcom/samsung/android/widget/SemHorizontalFastScroller;
+
+    if-eqz v7, :cond_3
 
     iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mFastScroll:Lcom/samsung/android/widget/SemHorizontalFastScroller;
 
@@ -19414,17 +16673,14 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_3
 
     return v9
 
-    :cond_1
-    return v8
-
-    :cond_2
+    :cond_3
     packed-switch v0, :pswitch_data_0
 
-    :cond_3
+    :cond_4
     :goto_0
     :pswitch_0
     return v8
@@ -19434,18 +16690,18 @@
 
     const/4 v7, 0x6
 
-    if-eq v3, v7, :cond_4
+    if-eq v3, v7, :cond_5
 
     const/4 v7, 0x5
 
-    if-ne v3, v7, :cond_5
+    if-ne v3, v7, :cond_6
 
-    :cond_4
+    :cond_5
     iput v8, p0, Landroid/widget/SemHorizontalAbsListView;->mMotionCorrection:I
 
     return v9
 
-    :cond_5
+    :cond_6
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v7
@@ -19468,15 +16724,15 @@
 
     move-result v1
 
-    if-eq v3, v12, :cond_6
+    if-eq v3, v12, :cond_7
 
-    if-ltz v1, :cond_6
+    if-ltz v1, :cond_7
 
-    iget v7, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     sub-int v7, v1, v7
 
-    invoke-virtual {p0, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v7}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v4
 
@@ -19496,7 +16752,7 @@
 
     invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->clearScrollingCache()V
 
-    :cond_6
+    :cond_7
     const/high16 v7, -0x80000000
 
     iput v7, p0, Landroid/widget/SemHorizontalAbsListView;->mLastX:I
@@ -19511,9 +16767,9 @@
 
     const/4 v7, 0x2
 
-    invoke-virtual {p0, v7}, Landroid/view/View;->startNestedScroll(I)Z
+    invoke-virtual {p0, v7}, Landroid/widget/SemHorizontalAbsListView;->startNestedScroll(I)Z
 
-    if-ne v3, v12, :cond_3
+    if-ne v3, v12, :cond_4
 
     return v9
 
@@ -19531,7 +16787,7 @@
 
     move-result v2
 
-    if-ne v2, v10, :cond_7
+    if-ne v2, v10, :cond_8
 
     const/4 v2, 0x0
 
@@ -19541,7 +16797,7 @@
 
     iput v7, p0, Landroid/widget/SemHorizontalAbsListView;->mActivePointerId:I
 
-    :cond_7
+    :cond_8
     invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->getX(I)F
 
     move-result v7
@@ -19564,7 +16820,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_4
 
     return v9
 
@@ -19577,7 +16833,7 @@
 
     invoke-virtual {p0, v8}, Landroid/widget/SemHorizontalAbsListView;->reportScrollStateChange(I)V
 
-    invoke-virtual {p0}, Landroid/view/View;->stopNestedScroll()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->stopNestedScroll()V
 
     goto/16 :goto_0
 
@@ -19668,17 +16924,15 @@
 
     const/4 v6, 0x0
 
-    iget v3, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
-    iget v4, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     sub-int/2addr v3, v4
 
-    invoke-virtual {p0, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
-
-    const/4 v0, 0x0
 
     invoke-static {p1}, Landroid/view/KeyEvent;->isConfirmKey(I)Z
 
@@ -19686,7 +16940,7 @@
 
     if-eqz v3, :cond_2
 
-    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isEnabled()Z
 
     move-result v3
 
@@ -19695,19 +16949,19 @@
     return v7
 
     :cond_0
-    invoke-virtual {p0}, Landroid/view/View;->isClickable()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isClickable()Z
 
     move-result v3
 
     if-eqz v3, :cond_2
 
-    invoke-virtual {p0}, Landroid/view/View;->isPressed()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isPressed()Z
 
     move-result v3
 
     if-eqz v3, :cond_2
 
-    iget v3, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
     if-ltz v3, :cond_2
 
@@ -19715,7 +16969,7 @@
 
     if-eqz v3, :cond_2
 
-    iget v3, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
 
@@ -19725,28 +16979,28 @@
 
     if-ge v3, v4, :cond_2
 
-    iget v3, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
-    iget v4, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     sub-int/2addr v3, v4
 
-    invoke-virtual {p0, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
     if-eqz v2, :cond_1
 
-    iget v3, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
-    iget-wide v4, p0, Landroid/widget/AdapterView;->mSelectedRowId:J
+    iget-wide v4, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedRowId:J
 
     invoke-virtual {p0, v2, v3, v4, v5}, Landroid/widget/SemHorizontalAbsListView;->performItemClick(Landroid/view/View;IJ)Z
 
     invoke-virtual {v2, v6}, Landroid/view/View;->setPressed(Z)V
 
     :cond_1
-    invoke-virtual {p0, v6}, Landroid/view/View;->setPressed(Z)V
+    invoke-virtual {p0, v6}, Landroid/widget/SemHorizontalAbsListView;->setPressed(Z)V
 
     return v7
 
@@ -19774,13 +17028,13 @@
 
     :cond_4
     :goto_1
-    invoke-virtual {p0}, Landroid/view/View;->isClickable()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isClickable()Z
 
     move-result v3
 
     if-eqz v3, :cond_3
 
-    iget v3, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
     if-ltz v3, :cond_3
 
@@ -19788,7 +17042,7 @@
 
     if-eqz v3, :cond_3
 
-    iget v3, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
 
@@ -19800,7 +17054,7 @@
 
     iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCurrentFocusPosition:I
 
-    invoke-virtual {p0, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -19818,19 +17072,19 @@
 
     iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCurrentFocusPosition:I
 
-    iget-wide v4, p0, Landroid/widget/AdapterView;->mSelectedRowId:J
+    iget-wide v4, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedRowId:J
 
     invoke-virtual {p0, v0, v3, v4, v5}, Landroid/widget/SemHorizontalAbsListView;->semNotifyKeyPressState(Landroid/view/View;IJ)Z
 
-    iget v3, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
-    iget-wide v4, p0, Landroid/widget/AdapterView;->mSelectedRowId:J
+    iget-wide v4, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedRowId:J
 
     invoke-virtual {p0, v1, v3, v4, v5}, Landroid/widget/SemHorizontalAbsListView;->semNotifyKeyPressState(Landroid/view/View;IJ)Z
 
     iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSemCurrentFocusPosition:I
 
-    iget v4, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
     invoke-direct {p0, v3, v4}, Landroid/widget/SemHorizontalAbsListView;->addToPressItemListArray(II)V
 
@@ -19858,15 +17112,15 @@
     :cond_7
     invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->resetPressItemListArray()V
 
-    iget v3, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
-    iget-wide v4, p0, Landroid/widget/AdapterView;->mSelectedRowId:J
+    iget-wide v4, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedRowId:J
 
     invoke-virtual {p0, v1, v3, v4, v5}, Landroid/widget/SemHorizontalAbsListView;->semNotifyKeyPressState(Landroid/view/View;IJ)Z
 
     iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPressedPoint:I
 
-    iget v4, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
     invoke-direct {p0, v3, v4}, Landroid/widget/SemHorizontalAbsListView;->addToPressItemListArray(II)V
 
@@ -19899,6 +17153,8 @@
 
     goto/16 :goto_0
 
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x13 -> :sswitch_0
@@ -19920,9 +17176,9 @@
 
     const/4 v2, 0x1
 
-    iput-boolean v2, p0, Landroid/widget/AdapterView;->mInLayout:Z
+    iput-boolean v2, p0, Landroid/widget/SemHorizontalAbsListView;->mInLayout:Z
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v0
 
@@ -19933,7 +17189,7 @@
     :goto_0
     if-ge v1, v0, :cond_0
 
-    invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -19953,7 +17209,7 @@
 
     const/4 v2, 0x0
 
-    iput-boolean v2, p0, Landroid/widget/AdapterView;->mInLayout:Z
+    iput-boolean v2, p0, Landroid/widget/SemHorizontalAbsListView;->mInLayout:Z
 
     sub-int v2, p4, p2
 
@@ -19967,11 +17223,11 @@
 
     iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mFastScroll:Lcom/samsung/android/widget/SemHorizontalFastScroller;
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v3
 
-    iget v4, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     invoke-virtual {v2, v3, v4}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->onItemCountChanged(II)V
 
@@ -19997,7 +17253,7 @@
 
     iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectionLeftPadding:I
 
-    iget v8, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mPaddingLeft:I
 
     add-int/2addr v7, v8
 
@@ -20005,7 +17261,7 @@
 
     iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectionTopPadding:I
 
-    iget v8, p0, Landroid/view/View;->mPaddingTop:I
+    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mPaddingTop:I
 
     add-int/2addr v7, v8
 
@@ -20013,7 +17269,7 @@
 
     iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectionRightPadding:I
 
-    iget v8, p0, Landroid/view/View;->mPaddingRight:I
+    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mPaddingRight:I
 
     add-int/2addr v7, v8
 
@@ -20021,7 +17277,7 @@
 
     iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectionBottomPadding:I
 
-    iget v8, p0, Landroid/view/View;->mPaddingBottom:I
+    iget v8, p0, Landroid/widget/SemHorizontalAbsListView;->mPaddingBottom:I
 
     add-int/2addr v7, v8
 
@@ -20031,15 +17287,15 @@
 
     if-ne v7, v5, :cond_1
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v0
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v7
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getPaddingRight()I
 
     move-result v8
 
@@ -20049,7 +17305,7 @@
 
     if-eqz v7, :cond_2
 
-    invoke-virtual {p0, v6}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v6}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -20061,7 +17317,7 @@
     move-result v2
 
     :goto_1
-    iget v7, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     add-int/2addr v7, v0
 
@@ -20080,7 +17336,7 @@
     :cond_2
     add-int/lit8 v7, v0, -0x1
 
-    invoke-virtual {p0, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v7}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -20105,7 +17361,7 @@
 .method public onNestedFling(Landroid/view/View;FFZ)Z
     .locals 3
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v0
 
@@ -20150,7 +17406,7 @@
     :cond_0
     const/4 v1, 0x0
 
-    invoke-virtual {p0, p2, v1}, Landroid/view/View;->dispatchNestedPreFling(FF)Z
+    invoke-virtual {p0, p2, v1}, Landroid/widget/SemHorizontalAbsListView;->dispatchNestedPreFling(FF)Z
 
     move-result v1
 
@@ -20168,7 +17424,7 @@
     return v1
 
     :cond_2
-    invoke-virtual {p0, p2, p3, p4}, Landroid/view/View;->dispatchNestedFling(FFZ)Z
+    invoke-virtual {p0, p2, p3, p4}, Landroid/widget/SemHorizontalAbsListView;->dispatchNestedFling(FFZ)Z
 
     move-result v1
 
@@ -20182,13 +17438,13 @@
 
     const/4 v5, 0x0
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v0
 
     div-int/lit8 v6, v0, 0x2
 
-    invoke-virtual {p0, v6}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v6}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v7
 
@@ -20231,7 +17487,7 @@
 
     move v4, v2
 
-    invoke-virtual/range {v0 .. v5}, Landroid/view/View;->dispatchNestedScroll(IIII[I)Z
+    invoke-virtual/range {v0 .. v5}, Landroid/widget/SemHorizontalAbsListView;->dispatchNestedScroll(IIII[I)Z
 
     :cond_2
     return-void
@@ -20249,7 +17505,7 @@
 
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->startNestedScroll(I)Z
+    invoke-virtual {p0, v0}, Landroid/widget/SemHorizontalAbsListView;->startNestedScroll(I)Z
 
     return-void
 .end method
@@ -20257,23 +17513,23 @@
 .method protected onOverScrolled(IIZZ)V
     .locals 3
 
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollX:I
 
     if-eq v0, p1, :cond_0
 
-    iget v0, p0, Landroid/view/View;->mScrollY:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollY:I
 
-    iget v1, p0, Landroid/view/View;->mScrollX:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollX:I
 
-    iget v2, p0, Landroid/view/View;->mScrollY:I
+    iget v2, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollY:I
 
-    invoke-virtual {p0, p1, v0, v1, v2}, Landroid/view/View;->onScrollChanged(IIII)V
+    invoke-virtual {p0, p1, v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->onScrollChanged(IIII)V
 
-    iput p1, p0, Landroid/view/View;->mScrollX:I
+    iput p1, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollX:I
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidateParentIfNeeded()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->invalidateParentIfNeeded()V
 
-    invoke-virtual {p0}, Landroid/view/View;->awakenScrollBars()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->awakenScrollBars()Z
 
     :cond_0
     return-void
@@ -20292,7 +17548,7 @@
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mRemoteAdapter:Landroid/widget/RemoteViewsAdapter;
 
-    invoke-virtual {p0, v0}, Landroid/widget/AdapterView;->setAdapter(Landroid/widget/Adapter;)V
+    invoke-virtual {p0, v0}, Landroid/widget/SemHorizontalAbsListView;->setAdapter(Landroid/widget/Adapter;)V
 
     iget-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mDeferNotifyDataSetChanged:Z
 
@@ -20314,7 +17570,7 @@
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mRemoteAdapter:Landroid/widget/RemoteViewsAdapter;
 
-    invoke-virtual {v0}, Landroid/widget/RemoteViewsAdapter;->semSuperNotifyDataSetChanged()V
+    invoke-virtual {v0}, Landroid/widget/RemoteViewsAdapter;->superNotifyDataSetChanged()V
 
     const/4 v0, 0x1
 
@@ -20345,24 +17601,22 @@
 
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/widget/SemHorizontalAbsListView$SavedState;
 
     :goto_0
-    invoke-virtual {v0}, Landroid/view/AbsSavedState;->getSuperState()Landroid/os/Parcelable;
+    invoke-virtual {v0}, Landroid/widget/SemHorizontalAbsListView$SavedState;->getSuperState()Landroid/os/Parcelable;
 
     move-result-object v2
 
     invoke-super {p0, v2}, Landroid/widget/AdapterView;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
-    iput-boolean v4, p0, Landroid/widget/AdapterView;->mDataChanged:Z
+    iput-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
     iget v2, v0, Landroid/widget/SemHorizontalAbsListView$SavedState;->width:I
 
     int-to-long v2, v2
 
-    iput-wide v2, p0, Landroid/widget/AdapterView;->mSyncHeight:J
+    iput-wide v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSyncHeight:J
 
     iget-wide v2, v0, Landroid/widget/SemHorizontalAbsListView$SavedState;->selectedId:J
 
@@ -20370,25 +17624,25 @@
 
     if-ltz v2, :cond_6
 
-    iput-boolean v4, p0, Landroid/widget/AdapterView;->mNeedSync:Z
+    iput-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mNeedSync:Z
 
     iput-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingSync:Landroid/widget/SemHorizontalAbsListView$SavedState;
 
     iget-wide v2, v0, Landroid/widget/SemHorizontalAbsListView$SavedState;->selectedId:J
 
-    iput-wide v2, p0, Landroid/widget/AdapterView;->mSyncRowId:J
+    iput-wide v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSyncRowId:J
 
     iget v2, v0, Landroid/widget/SemHorizontalAbsListView$SavedState;->position:I
 
-    iput v2, p0, Landroid/widget/AdapterView;->mSyncPosition:I
+    iput v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSyncPosition:I
 
     iget v2, v0, Landroid/widget/SemHorizontalAbsListView$SavedState;->viewLeft:I
 
-    iput v2, p0, Landroid/widget/AdapterView;->mSpecificTop:I
+    iput v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSpecificTop:I
 
     const/4 v2, 0x0
 
-    iput v2, p0, Landroid/widget/AdapterView;->mSyncMode:I
+    iput v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSyncMode:I
 
     :cond_0
     :goto_1
@@ -20434,14 +17688,14 @@
 
     iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mMultiChoiceModeCallback:Landroid/widget/SemHorizontalAbsListView$MultiChoiceModeWrapper;
 
-    invoke-virtual {p0, v2}, Landroid/view/View;->startActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
+    invoke-virtual {p0, v2}, Landroid/widget/SemHorizontalAbsListView;->startActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
 
     move-result-object v2
 
     iput-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mChoiceActionMode:Landroid/view/ActionMode;
 
     :cond_3
-    invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->requestLayout()V
 
     return-void
 
@@ -20452,9 +17706,7 @@
 
     move-object v1, p1
 
-    nop
-
-    nop
+    check-cast v1, Landroid/os/Bundle;
 
     const-class v2, Landroid/widget/SemHorizontalAbsListView$SavedState;
 
@@ -20522,29 +17774,29 @@
 
     if-ltz v2, :cond_0
 
-    invoke-virtual {p0, v5}, Landroid/widget/AdapterView;->setSelectedPositionInt(I)V
+    invoke-virtual {p0, v5}, Landroid/widget/SemHorizontalAbsListView;->setSelectedPositionInt(I)V
 
-    invoke-virtual {p0, v5}, Landroid/widget/AdapterView;->setNextSelectedPositionInt(I)V
+    invoke-virtual {p0, v5}, Landroid/widget/SemHorizontalAbsListView;->setNextSelectedPositionInt(I)V
 
     iput v5, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectorPosition:I
 
-    iput-boolean v4, p0, Landroid/widget/AdapterView;->mNeedSync:Z
+    iput-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mNeedSync:Z
 
     iput-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingSync:Landroid/widget/SemHorizontalAbsListView$SavedState;
 
     iget-wide v2, v0, Landroid/widget/SemHorizontalAbsListView$SavedState;->firstId:J
 
-    iput-wide v2, p0, Landroid/widget/AdapterView;->mSyncRowId:J
+    iput-wide v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSyncRowId:J
 
     iget v2, v0, Landroid/widget/SemHorizontalAbsListView$SavedState;->position:I
 
-    iput v2, p0, Landroid/widget/AdapterView;->mSyncPosition:I
+    iput v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSyncPosition:I
 
     iget v2, v0, Landroid/widget/SemHorizontalAbsListView$SavedState;->viewLeft:I
 
-    iput v2, p0, Landroid/widget/AdapterView;->mSpecificTop:I
+    iput v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSpecificTop:I
 
-    iput v4, p0, Landroid/widget/AdapterView;->mSyncMode:I
+    iput v4, p0, Landroid/widget/SemHorizontalAbsListView;->mSyncMode:I
 
     goto/16 :goto_1
 .end method
@@ -20554,7 +17806,7 @@
 
     invoke-super {p0, p1}, Landroid/widget/AdapterView;->onRtlPropertiesChanged(I)V
 
-    invoke-virtual {p0}, Landroid/view/View;->isLayoutRtl()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isLayoutRtl()Z
 
     move-result v0
 
@@ -20566,7 +17818,7 @@
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mFastScroll:Lcom/samsung/android/widget/SemHorizontalFastScroller;
 
-    invoke-virtual {p0}, Landroid/view/View;->semGetHorizontalScrollbarPosition()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->semGetHorizontalScrollbarPosition()I
 
     move-result v1
 
@@ -20686,7 +17938,7 @@
     return-object v10
 
     :cond_0
-    invoke-virtual/range {p0 .. p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v15
 
@@ -20694,20 +17946,20 @@
 
     move-object/from16 v0, p0
 
-    iget v15, v0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v15, v0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     if-lez v15, :cond_3
 
     const/4 v5, 0x1
 
     :goto_0
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/AdapterView;->getSelectedItemId()J
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getSelectedItemId()J
 
     move-result-wide v8
 
     iput-wide v8, v10, Landroid/widget/SemHorizontalAbsListView$SavedState;->selectedId:J
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v15
 
@@ -20725,7 +17977,7 @@
 
     iput v15, v10, Landroid/widget/SemHorizontalAbsListView$SavedState;->viewLeft:I
 
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/AdapterView;->getSelectedItemPosition()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getSelectedItemPosition()I
 
     move-result v15
 
@@ -20864,7 +18116,7 @@
 
     move-object/from16 v0, p0
 
-    iget v15, v0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v15, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     if-lez v15, :cond_6
 
@@ -20872,7 +18124,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v15}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v15}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v13
 
@@ -20884,17 +18136,17 @@
 
     move-object/from16 v0, p0
 
-    iget v4, v0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v4, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     move-object/from16 v0, p0
 
-    iget v15, v0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v15, v0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     if-lt v4, v15, :cond_5
 
     move-object/from16 v0, p0
 
-    iget v15, v0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v15, v0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     add-int/lit8 v4, v15, -0x1
 
@@ -20974,7 +18226,7 @@
 .method protected onSizeChanged(IIII)V
     .locals 1
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v0
 
@@ -20982,7 +18234,7 @@
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Landroid/widget/AdapterView;->mDataChanged:Z
+    iput-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
     invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->rememberSyncState()V
 
@@ -21098,19 +18350,19 @@
 
     const/4 v12, 0x0
 
-    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isEnabled()Z
 
     move-result v10
 
     if-nez v10, :cond_1
 
-    invoke-virtual {p0}, Landroid/view/View;->isClickable()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isClickable()Z
 
     move-result v10
 
     if-nez v10, :cond_0
 
-    invoke-virtual {p0}, Landroid/view/View;->isLongClickable()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isLongClickable()Z
 
     move-result v9
 
@@ -21131,19 +18383,25 @@
 
     if-nez v10, :cond_3
 
-    invoke-virtual {p0}, Landroid/view/View;->isAttachedToWindow()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isAttachedToWindow()Z
 
     move-result v10
 
-    if-eqz v10, :cond_3
+    xor-int/lit8 v10, v10, 0x1
 
+    if-eqz v10, :cond_4
+
+    :cond_3
+    return v12
+
+    :cond_4
     const/4 v10, 0x2
 
-    invoke-virtual {p0, v10}, Landroid/view/View;->startNestedScroll(I)Z
+    invoke-virtual {p0, v10}, Landroid/widget/SemHorizontalAbsListView;->startNestedScroll(I)Z
 
     iget-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mFastScroll:Lcom/samsung/android/widget/SemHorizontalFastScroller;
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_5
 
     iget-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mFastScroll:Lcom/samsung/android/widget/SemHorizontalFastScroller;
 
@@ -21151,14 +18409,11 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5
 
     return v9
 
-    :cond_3
-    return v12
-
-    :cond_4
+    :cond_5
     invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->initVelocityTrackerIfNotExists()V
 
     invoke-static {p1}, Landroid/view/MotionEvent;->obtain(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
@@ -21169,11 +18424,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_6
 
     iput v12, p0, Landroid/widget/SemHorizontalAbsListView;->mNestedXOffset:I
 
-    :cond_5
+    :cond_6
     iget v10, p0, Landroid/widget/SemHorizontalAbsListView;->mNestedXOffset:I
 
     int-to-float v10, v10
@@ -21184,18 +18439,18 @@
 
     packed-switch v0, :pswitch_data_0
 
-    :cond_6
+    :cond_7
     :goto_0
     :pswitch_0
     iget-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_8
 
     iget-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {v10, v6}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
 
-    :cond_7
+    :cond_8
     invoke-virtual {v6}, Landroid/view/MotionEvent;->recycle()V
 
     return v9
@@ -21231,13 +18486,13 @@
 
     move-result v5
 
-    if-ltz v5, :cond_8
+    if-ltz v5, :cond_9
 
-    iget v10, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v10, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     sub-int v10, v5, v10
 
-    invoke-virtual {p0, v10}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v10}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -21251,7 +18506,7 @@
 
     iget-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
 
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_7
 
     iget-object v10, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
 
@@ -21259,19 +18514,21 @@
 
     move-result v10
 
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_7
 
     invoke-virtual {v1}, Landroid/view/View;->hasFocusable()Z
 
     move-result v10
 
-    if-nez v10, :cond_6
+    xor-int/lit8 v10, v10, 0x1
+
+    if-eqz v10, :cond_7
 
     invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->layoutChildren()V
 
     goto :goto_0
 
-    :cond_8
+    :cond_9
     invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->layoutChildren()V
 
     goto :goto_0
@@ -21309,13 +18566,13 @@
 
     move-result v5
 
-    if-ltz v5, :cond_9
+    if-ltz v5, :cond_a
 
-    iget v10, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v10, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     sub-int v10, v5, v10
 
-    invoke-virtual {p0, v10}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v10}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -21327,7 +18584,7 @@
 
     iput v5, p0, Landroid/widget/SemHorizontalAbsListView;->mMotionPosition:I
 
-    :cond_9
+    :cond_a
     iput v7, p0, Landroid/widget/SemHorizontalAbsListView;->mLastX:I
 
     goto/16 :goto_0
@@ -21355,13 +18612,13 @@
 
     invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->hideSelector()V
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v1
 
     if-lez v1, :cond_0
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v1
 
@@ -21406,17 +18663,17 @@
     invoke-virtual {v1}, Landroid/widget/SemHorizontalAbsListView$AbsPositionScroller;->stop()V
 
     :cond_5
-    iget v1, p0, Landroid/view/View;->mScrollX:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollX:I
 
     if-eqz v1, :cond_1
 
-    iput v2, p0, Landroid/view/View;->mScrollX:I
+    iput v2, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollX:I
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidateParentCaches()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->invalidateParentCaches()V
 
     invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->finishGlows()V
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->invalidate()V
 
     goto :goto_0
 .end method
@@ -21430,15 +18687,12 @@
 
     iput v0, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverPosition:I
 
-    if-nez p2, :cond_0
+    if-eqz p2, :cond_0
 
-    :goto_0
-    return-void
-
-    :cond_0
     invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->releaseAllBoosters()V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public onWindowFocusChanged(Z)V
@@ -21452,18 +18706,18 @@
 
     iput-boolean p1, p0, Landroid/widget/SemHorizontalAbsListView;->mHasWindowFocusForMotion:Z
 
-    invoke-virtual {p0}, Landroid/view/View;->isInTouchMode()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isInTouchMode()Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_4
 
     const/4 v0, 0x0
 
     :goto_0
-    if-nez p1, :cond_6
+    if-nez p1, :cond_5
 
-    invoke-virtual {p0, v3}, Landroid/view/ViewGroup;->setChildrenDrawingCacheEnabled(Z)V
+    invoke-virtual {p0, v3}, Landroid/widget/SemHorizontalAbsListView;->setChildrenDrawingCacheEnabled(Z)V
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mFlingRunnable:Landroid/widget/SemHorizontalAbsListView$FlingRunnable;
 
@@ -21471,7 +18725,7 @@
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mFlingRunnable:Landroid/widget/SemHorizontalAbsListView$FlingRunnable;
 
-    invoke-virtual {p0, v1}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v1}, Landroid/widget/SemHorizontalAbsListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mFlingRunnable:Landroid/widget/SemHorizontalAbsListView$FlingRunnable;
 
@@ -21486,83 +18740,74 @@
     invoke-virtual {v1}, Landroid/widget/SemHorizontalAbsListView$AbsPositionScroller;->stop()V
 
     :cond_0
-    iget v1, p0, Landroid/view/View;->mScrollY:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollY:I
 
     if-eqz v1, :cond_1
 
-    iput v3, p0, Landroid/view/View;->mScrollY:I
+    iput v3, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollY:I
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidateParentCaches()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->invalidateParentCaches()V
 
     invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->finishGlows()V
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->invalidate()V
 
     :cond_1
     invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->dismissPopup()V
 
     if-ne v0, v4, :cond_2
 
-    iget v1, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
     iput v1, p0, Landroid/widget/SemHorizontalAbsListView;->mResurrectToPosition:I
 
     :cond_2
-    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    if-eqz v1, :cond_3
-
-    iput v3, p0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    :cond_3
     :goto_1
     iput v0, p0, Landroid/widget/SemHorizontalAbsListView;->mLastTouchMode:I
 
-    if-nez p1, :cond_4
+    if-nez p1, :cond_3
 
     invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->releaseAllBoosters()V
 
-    :cond_4
+    :cond_3
     return-void
 
-    :cond_5
+    :cond_4
     const/4 v0, 0x1
 
     goto :goto_0
 
-    :cond_6
+    :cond_5
     iget-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mFiltered:Z
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_6
 
     iget-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mPopupHidden:Z
 
-    if-eqz v1, :cond_8
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_7
-    :goto_2
+    if-eqz v1, :cond_6
+
+    invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->showPopup()V
+
+    :cond_6
     iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mLastTouchMode:I
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_2
 
     iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mLastTouchMode:I
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_3
+    if-eq v1, v2, :cond_2
 
-    if-ne v0, v4, :cond_9
+    if-ne v0, v4, :cond_7
 
     invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->resurrectSelection()Z
 
     goto :goto_1
 
-    :cond_8
-    invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->showPopup()V
-
-    goto :goto_2
-
-    :cond_9
+    :cond_7
     invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->hideSelector()V
 
     iput v3, p0, Landroid/widget/SemHorizontalAbsListView;->mLayoutMode:I
@@ -21595,17 +18840,17 @@
     return v3
 
     :sswitch_0
-    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isEnabled()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getLastVisiblePosition()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getLastVisiblePosition()I
 
     move-result v1
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getCount()I
 
     move-result v2
 
@@ -21613,7 +18858,7 @@
 
     if-ge v1, v2, :cond_1
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v1
 
@@ -21637,17 +18882,17 @@
     return v3
 
     :sswitch_1
-    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isEnabled()Z
 
     move-result v1
 
     if-eqz v1, :cond_2
 
-    iget v1, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     if-lez v1, :cond_2
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v1
 
@@ -21680,58 +18925,53 @@
 .end method
 
 .method public performItemClick(Landroid/view/View;IJ)Z
-    .locals 11
+    .locals 9
 
-    const/4 v2, 0x1
+    const/4 v5, 0x1
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
     const/4 v8, 0x0
 
-    const/4 v9, 0x0
-
     const/4 v7, 0x1
 
-    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mChoiceMode:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mChoiceMode:I
 
-    if-eqz v3, :cond_f
+    if-eqz v1, :cond_4
 
     const/4 v8, 0x1
 
     const/4 v0, 0x0
 
-    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
+    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
 
-    if-eqz v3, :cond_9
+    if-eqz v1, :cond_8
 
-    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mChoiceMode:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mChoiceMode:I
 
-    const/4 v4, 0x2
+    const/4 v2, 0x2
 
-    if-eq v3, v4, :cond_0
+    if-eq v1, v2, :cond_0
 
-    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mChoiceMode:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mChoiceMode:I
 
-    const/4 v4, 0x3
+    const/4 v2, 0x3
 
-    if-ne v3, v4, :cond_9
+    if-ne v1, v2, :cond_8
 
-    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mChoiceActionMode:Landroid/view/ActionMode;
+    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mChoiceActionMode:Landroid/view/ActionMode;
 
-    if-eqz v3, :cond_9
+    if-eqz v1, :cond_8
 
     :cond_0
-    iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
+    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
 
-    invoke-virtual {v2, p2, v1}, Landroid/util/SparseBooleanArray;->get(IZ)Z
+    invoke-virtual {v1, p2, v3}, Landroid/util/SparseBooleanArray;->get(IZ)Z
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    xor-int/lit8 v6, v1, 0x1
 
-    const/4 v6, 0x0
-
-    :goto_0
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
 
     invoke-virtual {v1, p2, v6}, Landroid/util/SparseBooleanArray;->put(IZ)V
@@ -21748,7 +18988,7 @@
 
     if-eqz v1, :cond_1
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_6
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedIdStates:Landroid/util/LongSparseArray;
 
@@ -21765,8 +19005,8 @@
     invoke-virtual {v1, v2, v3, v4}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
 
     :cond_1
-    :goto_1
-    if-eqz v6, :cond_8
+    :goto_0
+    if-eqz v6, :cond_7
 
     iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedItemCount:I
 
@@ -21774,7 +19014,7 @@
 
     iput v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedItemCount:I
 
-    :goto_2
+    :goto_1
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mChoiceActionMode:Landroid/view/ActionMode;
 
     if-eqz v1, :cond_2
@@ -21795,13 +19035,12 @@
     const/4 v0, 0x1
 
     :cond_3
-    :goto_3
+    :goto_2
     if-eqz v0, :cond_4
 
     invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->updateOnScreenCheckedViews()V
 
     :cond_4
-    :goto_4
     if-eqz v7, :cond_5
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/AdapterView;->performItemClick(Landroid/view/View;IJ)Z
@@ -21814,11 +19053,6 @@
     return v8
 
     :cond_6
-    const/4 v6, 0x1
-
-    goto :goto_0
-
-    :cond_7
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedIdStates:Landroid/util/LongSparseArray;
 
     iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
@@ -21829,38 +19063,35 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/util/LongSparseArray;->delete(J)V
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_8
+    :cond_7
     iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedItemCount:I
 
     add-int/lit8 v1, v1, -0x1
 
     iput v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedItemCount:I
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_9
-    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
+    :cond_8
+    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
 
-    if-eqz v3, :cond_3
+    if-eqz v1, :cond_3
 
-    iget v3, p0, Landroid/widget/SemHorizontalAbsListView;->mChoiceMode:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mChoiceMode:I
 
-    if-ne v3, v2, :cond_3
+    if-ne v1, v5, :cond_3
 
-    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
+    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
 
-    invoke-virtual {v3, p2, v1}, Landroid/util/SparseBooleanArray;->get(IZ)Z
+    invoke-virtual {v1, p2, v3}, Landroid/util/SparseBooleanArray;->get(IZ)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_c
+    xor-int/lit8 v6, v1, 0x1
 
-    move v6, v1
-
-    :goto_5
-    if-eqz v6, :cond_d
+    if-eqz v6, :cond_b
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
 
@@ -21868,11 +19099,11 @@
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
 
-    invoke-virtual {v1, p2, v2}, Landroid/util/SparseBooleanArray;->put(IZ)V
+    invoke-virtual {v1, p2, v5}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedIdStates:Landroid/util/LongSparseArray;
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_9
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
 
@@ -21880,7 +19111,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_9
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedIdStates:Landroid/util/LongSparseArray;
 
@@ -21888,58 +19119,50 @@
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedIdStates:Landroid/util/LongSparseArray;
 
-    iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
+    iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
 
-    invoke-interface {v3, p2}, Landroid/widget/ListAdapter;->getItemId(I)J
+    invoke-interface {v2, p2}, Landroid/widget/ListAdapter;->getItemId(I)J
 
-    move-result-wide v4
+    move-result-wide v2
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v1, v4, v5, v3}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
+    invoke-virtual {v1, v2, v3, v4}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
+
+    :cond_9
+    iput v5, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedItemCount:I
 
     :cond_a
-    iput v2, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedItemCount:I
-
-    :cond_b
-    :goto_6
+    :goto_3
     const/4 v0, 0x1
 
-    goto :goto_3
+    goto :goto_2
+
+    :cond_b
+    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
+
+    invoke-virtual {v1}, Landroid/util/SparseBooleanArray;->size()I
+
+    move-result v1
+
+    if-eqz v1, :cond_c
+
+    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
+
+    invoke-virtual {v1, v3}, Landroid/util/SparseBooleanArray;->valueAt(I)Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_a
 
     :cond_c
-    move v6, v2
+    iput v3, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedItemCount:I
 
-    goto :goto_5
-
-    :cond_d
-    iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
-
-    invoke-virtual {v2}, Landroid/util/SparseBooleanArray;->size()I
-
-    move-result v2
-
-    if-eqz v2, :cond_e
-
-    iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
-
-    invoke-virtual {v2, v1}, Landroid/util/SparseBooleanArray;->valueAt(I)Z
-
-    move-result v2
-
-    if-nez v2, :cond_b
-
-    :cond_e
-    iput v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedItemCount:I
-
-    goto :goto_6
-
-    :cond_f
-    if-eqz p1, :cond_4
-
-    goto :goto_4
+    goto :goto_3
 .end method
 
 .method performLongPress(Landroid/view/View;IJ)Z
@@ -21961,7 +19184,7 @@
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mMultiChoiceModeCallback:Landroid/widget/SemHorizontalAbsListView$MultiChoiceModeWrapper;
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->startActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
+    invoke-virtual {p0, v0}, Landroid/widget/SemHorizontalAbsListView;->startActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
 
     move-result-object v0
 
@@ -21978,7 +19201,7 @@
     :cond_0
     invoke-virtual {p0, p2, v1}, Landroid/widget/SemHorizontalAbsListView;->setItemChecked(IZ)V
 
-    invoke-virtual {p0, v7}, Landroid/view/View;->performHapticFeedback(I)Z
+    invoke-virtual {p0, v7}, Landroid/widget/SemHorizontalAbsListView;->performHapticFeedback(I)Z
 
     :cond_1
     return v1
@@ -21986,11 +19209,11 @@
     :cond_2
     const/4 v6, 0x0
 
-    iget-object v0, p0, Landroid/widget/AdapterView;->mOnItemLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
+    iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mOnItemLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
 
     if-eqz v0, :cond_3
 
-    iget-object v0, p0, Landroid/widget/AdapterView;->mOnItemLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
+    iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mOnItemLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
 
     move-object v1, p0
 
@@ -22026,7 +19249,7 @@
 
     if-eqz v0, :cond_6
 
-    invoke-virtual {p0, v7}, Landroid/view/View;->performHapticFeedback(I)Z
+    invoke-virtual {p0, v7}, Landroid/widget/SemHorizontalAbsListView;->performHapticFeedback(I)Z
 
     :cond_5
     :goto_0
@@ -22045,8 +19268,6 @@
 .method public pointToPosition(II)I
     .locals 7
 
-    const/4 v2, 0x0
-
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView;->mTouchFrame:Landroid/graphics/Rect;
 
     if-nez v4, :cond_0
@@ -22062,17 +19283,15 @@
     :cond_0
     instance-of v6, p0, Landroid/widget/SemHorizontalListView;
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_2
 
     move-object v6, p0
 
-    nop
-
-    nop
+    check-cast v6, Landroid/widget/SemHorizontalListView;
 
     iget v2, v6, Landroid/widget/SemHorizontalListView;->mDividerHeight:I
 
-    :cond_1
+    :goto_0
     if-lez v2, :cond_3
 
     move-object v6, p0
@@ -22085,17 +19304,17 @@
 
     const/4 v3, 0x1
 
-    :goto_0
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    :goto_1
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v1
 
     add-int/lit8 v5, v1, -0x1
 
-    :goto_1
+    :goto_2
     if-ltz v5, :cond_5
 
-    invoke-virtual {p0, v5}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v5}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -22107,7 +19326,7 @@
 
     invoke-virtual {v0, v4}, Landroid/view/View;->getHitRect(Landroid/graphics/Rect;)V
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1
 
     iget v6, v4, Landroid/graphics/Rect;->bottom:I
 
@@ -22115,28 +19334,33 @@
 
     iput v6, v4, Landroid/graphics/Rect;->bottom:I
 
-    :cond_2
+    :cond_1
     invoke-virtual {v4, p1, p2}, Landroid/graphics/Rect;->contains(II)Z
 
     move-result v6
 
     if-eqz v6, :cond_4
 
-    iget v6, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v6, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     add-int/2addr v6, v5
 
     return v6
 
+    :cond_2
+    const/4 v2, 0x0
+
+    goto :goto_0
+
     :cond_3
     const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_4
     add-int/lit8 v5, v5, -0x1
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_5
     const/4 v6, -0x1
@@ -22266,7 +19490,7 @@
 
     const/4 v7, 0x0
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v1
 
@@ -22281,7 +19505,7 @@
     :goto_0
     if-ge v2, v1, :cond_1
 
-    invoke-virtual {p0, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -22321,7 +19545,7 @@
 
     invoke-virtual {v5, p1}, Landroid/widget/SemHorizontalAbsListView$RecycleBin;->reclaimScrapViews(Ljava/util/List;)V
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->removeAllViewsInLayout()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->removeAllViewsInLayout()V
 
     return-void
 .end method
@@ -22331,7 +19555,7 @@
 
     const/4 v1, 0x0
 
-    iget v0, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
     if-gez v0, :cond_0
 
@@ -22342,7 +19566,7 @@
 
     move-result v0
 
-    iget v1, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     add-int/lit8 v1, v1, -0x1
 
@@ -22356,7 +19580,7 @@
 .method rememberSyncState()V
     .locals 0
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->rememberSyncStateHorizontal()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->rememberSyncStateHorizontal()V
 
     return-void
 .end method
@@ -22364,7 +19588,7 @@
 .method removePendingCallbacks()V
     .locals 2
 
-    invoke-virtual {p0}, Landroid/view/View;->getHandler()Landroid/os/Handler;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getHandler()Landroid/os/Handler;
 
     move-result-object v0
 
@@ -22387,108 +19611,76 @@
 .end method
 
 .method public reportScrollStateChange(I)V
-    .locals 4
+    .locals 3
 
-    const/4 v3, 0x1
-
-    const/4 v2, 0x2
+    const/4 v2, 0x1
 
     const/4 v1, 0x0
 
     iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mLastScrollState:I
 
-    if-eq p1, v0, :cond_3
+    if-eq p1, v0, :cond_2
+
+    iget-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
+
+    if-nez v0, :cond_1
+
+    iget-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mSemScrollingByScrollbar:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    if-eqz p1, :cond_0
+
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mLastScrollState:I
+
+    if-nez v0, :cond_0
+
+    invoke-static {v2}, Lcom/samsung/android/os/SemPerfManager;->onScrollEvent(Z)V
+
+    iput-boolean v2, p0, Landroid/widget/SemHorizontalAbsListView;->mDVFSLockAcquired:Z
+
+    :cond_0
+    if-nez p1, :cond_1
+
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mLastScrollState:I
+
+    if-eqz v0, :cond_1
 
     iget-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mDVFSLockAcquired:Z
 
     if-eqz v0, :cond_1
 
-    iget-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
-
-    if-nez v0, :cond_0
-
-    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    if-ne v0, v2, :cond_1
-
-    :cond_0
     invoke-static {v1}, Lcom/samsung/android/os/SemPerfManager;->onScrollEvent(Z)V
 
     iput-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mDVFSLockAcquired:Z
 
     :cond_1
-    iget-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
-
-    if-nez v0, :cond_2
-
-    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    if-eq v0, v2, :cond_2
-
-    iget-boolean v0, p0, Landroid/view/View;->mSemScrollingByScrollbar:Z
-
-    if-eqz v0, :cond_4
-
-    :cond_2
-    :goto_0
     iput p1, p0, Landroid/widget/SemHorizontalAbsListView;->mLastScrollState:I
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mOnScrollListener:Landroid/widget/SemHorizontalAbsListView$OnScrollListener;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     iget-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverAreaEnter:Z
 
-    if-eqz v0, :cond_6
-
-    :cond_3
-    :goto_1
-    return-void
-
-    :cond_4
-    if-eqz p1, :cond_5
-
-    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mLastScrollState:I
-
-    if-nez v0, :cond_5
-
-    invoke-static {v3}, Lcom/samsung/android/os/SemPerfManager;->onScrollEvent(Z)V
-
-    iput-boolean v3, p0, Landroid/widget/SemHorizontalAbsListView;->mDVFSLockAcquired:Z
-
-    :cond_5
-    if-nez p1, :cond_2
-
-    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mLastScrollState:I
+    xor-int/lit8 v0, v0, 0x1
 
     if-eqz v0, :cond_2
-
-    iget-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mDVFSLockAcquired:Z
-
-    if-eqz v0, :cond_2
-
-    invoke-static {v1}, Lcom/samsung/android/os/SemPerfManager;->onScrollEvent(Z)V
-
-    iput-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mDVFSLockAcquired:Z
-
-    goto :goto_0
-
-    :cond_6
-    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mQCstate:I
-
-    if-eq v0, v2, :cond_3
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mOnScrollListener:Landroid/widget/SemHorizontalAbsListView$OnScrollListener;
 
     invoke-interface {v0, p0, p1}, Landroid/widget/SemHorizontalAbsListView$OnScrollListener;->onScrollStateChanged(Landroid/widget/SemHorizontalAbsListView;I)V
 
-    goto :goto_1
+    :cond_2
+    return-void
 .end method
 
 .method requestLayoutIfNecessary()V
     .locals 1
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v0
 
@@ -22496,9 +19688,9 @@
 
     invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->resetList()V
 
-    invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->requestLayout()V
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->invalidate()V
 
     :cond_0
     return-void
@@ -22507,40 +19699,33 @@
 .method resetList()V
     .locals 4
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     const/4 v3, 0x0
 
     const/4 v2, -0x1
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->removeAllViewsInLayout()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->removeAllViewsInLayout()V
 
-    iput v3, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iput v3, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
-    iget-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->USE_SET_INTEGRATOR_HAPTIC:Z
+    iput-boolean v3, p0, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
-    if-eqz v0, :cond_0
+    iput-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPositionScrollAfterLayout:Ljava/lang/Runnable;
 
-    iput v2, p0, Landroid/widget/SemHorizontalAbsListView;->mLastPosition:I
+    iput-boolean v3, p0, Landroid/widget/SemHorizontalAbsListView;->mNeedSync:Z
 
-    :cond_0
-    iput-boolean v3, p0, Landroid/widget/AdapterView;->mDataChanged:Z
+    iput-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingSync:Landroid/widget/SemHorizontalAbsListView$SavedState;
 
-    iput-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mPositionScrollAfterLayout:Ljava/lang/Runnable;
-
-    iput-boolean v3, p0, Landroid/widget/AdapterView;->mNeedSync:Z
-
-    iput-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mPendingSync:Landroid/widget/SemHorizontalAbsListView$SavedState;
-
-    iput v2, p0, Landroid/widget/AdapterView;->mOldSelectedPosition:I
+    iput v2, p0, Landroid/widget/SemHorizontalAbsListView;->mOldSelectedPosition:I
 
     const-wide/high16 v0, -0x8000000000000000L
 
-    iput-wide v0, p0, Landroid/widget/AdapterView;->mOldSelectedRowId:J
+    iput-wide v0, p0, Landroid/widget/SemHorizontalAbsListView;->mOldSelectedRowId:J
 
-    invoke-virtual {p0, v2}, Landroid/widget/AdapterView;->setSelectedPositionInt(I)V
+    invoke-virtual {p0, v2}, Landroid/widget/SemHorizontalAbsListView;->setSelectedPositionInt(I)V
 
-    invoke-virtual {p0, v2}, Landroid/widget/AdapterView;->setNextSelectedPositionInt(I)V
+    invoke-virtual {p0, v2}, Landroid/widget/SemHorizontalAbsListView;->setNextSelectedPositionInt(I)V
 
     iput v3, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedLeft:I
 
@@ -22550,39 +19735,33 @@
 
     invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->invalidate()V
 
     return-void
 .end method
 
 .method public resetPressItemListArray()V
-    .locals 2
+    .locals 1
 
-    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
+    iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
+    iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mSemPressItemListArray:Ljava/util/ArrayList;
 
-    invoke-interface {v1}, Landroid/widget/ListAdapter;->getCount()I
-
-    move-result v0
-
-    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mSemPressItemListArray:Ljava/util/ArrayList;
-
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
     return-void
 
     :cond_1
-    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mSemPressItemListArray:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mSemPressItemListArray:Ljava/util/ArrayList;
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->invalidate()V
 
     return-void
 .end method
@@ -22590,7 +19769,7 @@
 .method resurrectSelection()Z
     .locals 19
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v2
 
@@ -22617,13 +19796,13 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mRight:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mRight:I
 
     move/from16 v17, v0
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mLeft:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mLeft:I
 
     move/from16 v18, v0
 
@@ -22645,7 +19824,7 @@
 
     move-object/from16 v0, p0
 
-    iget v5, v0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v5, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     move-object/from16 v0, p0
 
@@ -22665,7 +19844,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     move/from16 v17, v0
 
@@ -22675,7 +19854,7 @@
 
     move/from16 v1, v17
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v11
 
@@ -22689,7 +19868,7 @@
 
     if-ge v12, v3, :cond_3
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getHorizontalFadingEdgeLength()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getHorizontalFadingEdgeLength()I
 
     move-result v17
 
@@ -22715,7 +19894,7 @@
 
     move-object/from16 v1, v17
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     move-object/from16 v0, p0
 
@@ -22754,18 +19933,18 @@
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/AdapterView;->mSpecificTop:I
+    iput v14, v0, Landroid/widget/SemHorizontalAbsListView;->mSpecificTop:I
 
     :goto_1
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v13, v10}, Landroid/widget/AdapterView;->lookForSelectablePosition(IZ)I
+    invoke-virtual {v0, v13, v10}, Landroid/widget/SemHorizontalAbsListView;->lookForSelectablePosition(IZ)I
 
     move-result v13
 
     if-lt v13, v5, :cond_d
 
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/AdapterView;->getLastVisiblePosition()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getLastVisiblePosition()I
 
     move-result v17
 
@@ -22814,7 +19993,7 @@
 
     sub-int v17, v4, v17
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getHorizontalFadingEdgeLength()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getHorizontalFadingEdgeLength()I
 
     move-result v18
 
@@ -22834,7 +20013,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v6}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v16
 
@@ -22857,7 +20036,7 @@
     if-ge v8, v3, :cond_6
 
     :cond_5
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getHorizontalFadingEdgeLength()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getHorizontalFadingEdgeLength()I
 
     move-result v17
 
@@ -22882,7 +20061,7 @@
     :cond_8
     move-object/from16 v0, p0
 
-    iget v7, v0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v7, v0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     const/4 v10, 0x0
 
@@ -22897,7 +20076,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v6}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v16
 
@@ -22928,7 +20107,7 @@
     if-le v9, v4, :cond_a
 
     :cond_9
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getHorizontalFadingEdgeLength()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getHorizontalFadingEdgeLength()I
 
     move-result v17
 
@@ -22953,7 +20132,7 @@
     :cond_c
     move-object/from16 v0, p0
 
-    iput v12, v0, Landroid/widget/AdapterView;->mSpecificTop:I
+    iput v12, v0, Landroid/widget/SemHorizontalAbsListView;->mSpecificTop:I
 
     goto/16 :goto_1
 
@@ -22973,7 +20152,7 @@
 
     const/4 v1, 0x0
 
-    iget v0, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
     if-gez v0, :cond_0
 
@@ -22996,7 +20175,7 @@
 .method protected semGetItemCount()I
     .locals 2
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getAdapter()Landroid/widget/Adapter;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getAdapter()Landroid/widget/Adapter;
 
     move-result-object v0
 
@@ -23026,26 +20205,23 @@
 .end method
 
 .method protected semIsShowingScrollbar()Z
-    .locals 2
-
-    const/4 v0, 0x0
+    .locals 1
 
     invoke-super {p0}, Landroid/widget/AdapterView;->semIsShowingScrollbar()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mFastScrollEnabled:Z
+    iget-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mFastScrollEnabled:Z
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
     :goto_0
     return v0
 
-    :cond_1
-    const/4 v0, 0x1
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -23053,11 +20229,9 @@
 .method public semNotifyKeyPressState(Landroid/view/View;IJ)Z
     .locals 7
 
-    const/4 v0, 0x0
+    iget-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mIsShiftkeyPressed:Z
 
-    iget-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mIsShiftkeyPressed:Z
-
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     iget-boolean v6, p0, Landroid/widget/SemHorizontalAbsListView;->mIsShiftkeyPressed:Z
 
@@ -23073,8 +20247,13 @@
 
     move-result v0
 
-    :cond_0
+    :goto_0
     return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public semSetClickableInMultiSelectMode(Z)V
@@ -23110,23 +20289,11 @@
 .end method
 
 .method public semSetHoverScrollEnabled(Z)V
-    .locals 1
+    .locals 0
 
-    if-eqz p1, :cond_0
+    iput-boolean p1, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollEnable:Z
 
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollEnable:Z
-
-    :goto_0
     return-void
-
-    :cond_0
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mHoverScrollEnable:Z
-
-    goto :goto_0
 .end method
 
 .method public semSetMultiFocusEnabled(Z)V
@@ -23159,14 +20326,14 @@
 
     sub-int/2addr v0, p1
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v1
 
     sub-int p1, v0, v1
 
     :cond_1
-    invoke-virtual {p0, p1}, Landroid/widget/AdapterView;->setSelection(I)V
+    invoke-virtual {p0, p1}, Landroid/widget/SemHorizontalAbsListView;->setSelection(I)V
 
     return-void
 .end method
@@ -23216,7 +20383,7 @@
     :cond_1
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mSemScrollRemains:Ljava/util/LinkedList;
 
-    invoke-virtual {v1}, Ljava/util/AbstractCollection;->isEmpty()Z
+    invoke-virtual {v1}, Ljava/util/LinkedList;->isEmpty()Z
 
     move-result v0
 
@@ -23290,7 +20457,7 @@
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mSemSmoothScrollByMove:Landroid/widget/SemHorizontalAbsListView$SemSmoothScrollByMove;
 
-    invoke-virtual {p0, v1}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v1}, Landroid/widget/SemHorizontalAbsListView;->post(Ljava/lang/Runnable;)Z
 
     :cond_4
     return-void
@@ -23386,7 +20553,7 @@
 
     if-nez v5, :cond_5
 
-    invoke-virtual {p0}, Landroid/view/View;->getKeyDispatcherState()Landroid/view/KeyEvent$DispatcherState;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getKeyDispatcherState()Landroid/view/KeyEvent$DispatcherState;
 
     move-result-object v4
 
@@ -23422,7 +20589,9 @@
 
     move-result v5
 
-    if-nez v5, :cond_4
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_4
 
     const/4 v2, 0x1
 
@@ -23430,7 +20599,7 @@
 
     const-string/jumbo v6, ""
 
-    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v5, v6}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
     goto :goto_2
 
@@ -23442,7 +20611,7 @@
     :pswitch_0
     iget-object v5, p0, Landroid/widget/SemHorizontalAbsListView;->mTextFilter:Landroid/widget/EditText;
 
-    invoke-virtual {v5, p1, v1}, Landroid/widget/TextView;->onKeyDown(ILandroid/view/KeyEvent;)Z
+    invoke-virtual {v5, p1, v1}, Landroid/widget/EditText;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result v2
 
@@ -23480,7 +20649,7 @@
     :pswitch_1
     iget-object v5, p0, Landroid/widget/SemHorizontalAbsListView;->mTextFilter:Landroid/widget/EditText;
 
-    invoke-virtual {v5, p1, v1}, Landroid/widget/TextView;->onKeyUp(ILandroid/view/KeyEvent;)Z
+    invoke-virtual {v5, p1, v1}, Landroid/widget/EditText;->onKeyUp(ILandroid/view/KeyEvent;)Z
 
     move-result v2
 
@@ -23534,7 +20703,7 @@
     :pswitch_2
     iget-object v5, p0, Landroid/widget/SemHorizontalAbsListView;->mTextFilter:Landroid/widget/EditText;
 
-    invoke-virtual {v5, p1, p2, p3}, Landroid/widget/TextView;->onKeyMultiple(IILandroid/view/KeyEvent;)Z
+    invoke-virtual {v5, p1, p2, p3}, Landroid/widget/EditText;->onKeyMultiple(IILandroid/view/KeyEvent;)Z
 
     move-result v2
 
@@ -23630,7 +20799,7 @@
 
     invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->clearChoices()V
 
-    invoke-virtual {p0, v3}, Landroid/view/View;->setLongClickable(Z)V
+    invoke-virtual {p0, v3}, Landroid/widget/SemHorizontalAbsListView;->setLongClickable(Z)V
 
     :cond_3
     iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mChoiceMode:I
@@ -23704,39 +20873,37 @@
 
     iget-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mFastScrollEnabled:Z
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Landroid/widget/SemHorizontalAbsListView;->setFastScrollEnabled(Z)V
 
     :cond_0
-    :goto_0
     iput-boolean p1, p0, Landroid/widget/SemHorizontalAbsListView;->mFastScrollAlwaysVisible:Z
 
     invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->isOwnerThread()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     invoke-direct {p0, p1}, Landroid/widget/SemHorizontalAbsListView;->setFastScrollerAlwaysVisibleUiThread(Z)V
 
     :cond_1
-    :goto_1
+    :goto_0
     return-void
 
     :cond_2
-    const/4 v0, 0x1
+    new-instance v0, Landroid/widget/SemHorizontalAbsListView$2;
 
-    invoke-virtual {p0, v0}, Landroid/widget/SemHorizontalAbsListView;->setFastScrollEnabled(Z)V
+    invoke-direct {v0, p0, p1}, Landroid/widget/SemHorizontalAbsListView$2;-><init>(Landroid/widget/SemHorizontalAbsListView;Z)V
+
+    invoke-virtual {p0, v0}, Landroid/widget/SemHorizontalAbsListView;->post(Ljava/lang/Runnable;)Z
 
     goto :goto_0
-
-    :cond_3
-    new-instance v0, Landroid/widget/SemHorizontalAbsListView$3;
-
-    invoke-direct {v0, p0, p1}, Landroid/widget/SemHorizontalAbsListView$3;-><init>(Landroid/widget/SemHorizontalAbsListView;Z)V
-
-    invoke-virtual {p0, v0}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
-
-    goto :goto_1
 .end method
 
 .method public setFastScrollEnabled(Z)V
@@ -23761,11 +20928,11 @@
     return-void
 
     :cond_1
-    new-instance v0, Landroid/widget/SemHorizontalAbsListView$2;
+    new-instance v0, Landroid/widget/SemHorizontalAbsListView$1;
 
-    invoke-direct {v0, p0, p1}, Landroid/widget/SemHorizontalAbsListView$2;-><init>(Landroid/widget/SemHorizontalAbsListView;Z)V
+    invoke-direct {v0, p0, p1}, Landroid/widget/SemHorizontalAbsListView$1;-><init>(Landroid/widget/SemHorizontalAbsListView;Z)V
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v0}, Landroid/widget/SemHorizontalAbsListView;->post(Ljava/lang/Runnable;)Z
 
     goto :goto_0
 .end method
@@ -23795,26 +20962,23 @@
 
     iget-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mTextFilterEnabled:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
+    xor-int/lit8 v1, v1, 0x1
+
     if-eqz v1, :cond_1
 
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
     const/4 v1, 0x0
 
     invoke-direct {p0, v1}, Landroid/widget/SemHorizontalAbsListView;->createTextFilter(Z)V
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mTextFilter:Landroid/widget/EditText;
 
-    invoke-virtual {v1, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, p1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mTextFilter:Landroid/widget/EditText;
 
@@ -23828,11 +20992,11 @@
 
     instance-of v1, v1, Landroid/widget/Filterable;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mPopup:Landroid/widget/PopupWindow;
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_0
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
 
@@ -23844,16 +21008,17 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/Filter;->filter(Ljava/lang/CharSequence;)V
 
-    :cond_2
+    :cond_0
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mFiltered:Z
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mDataSetObserver:Landroid/widget/SemHorizontalAbsListView$AdapterDataSetObserver;
 
-    invoke-virtual {v1}, Landroid/widget/AdapterView$AdapterDataSetObserver;->clearSavedState()V
+    invoke-virtual {v1}, Landroid/widget/SemHorizontalAbsListView$AdapterDataSetObserver;->clearSavedState()V
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method
 
 .method public setForcedClick(Z)V
@@ -23873,7 +21038,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Landroid/view/View;->getWindowVisibility()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWindowVisibility()I
 
     move-result v2
 
@@ -23952,19 +21117,19 @@
     return-void
 
     :cond_0
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_3
 
     iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mChoiceMode:I
 
-    if-ne v1, v6, :cond_1
+    if-ne v1, v6, :cond_3
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mChoiceActionMode:Landroid/view/ActionMode;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_3
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mMultiChoiceModeCallback:Landroid/widget/SemHorizontalAbsListView$MultiChoiceModeWrapper;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mMultiChoiceModeCallback:Landroid/widget/SemHorizontalAbsListView$MultiChoiceModeWrapper;
 
@@ -23972,28 +21137,40 @@
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    xor-int/lit8 v1, v1, 0x1
 
+    if-eqz v1, :cond_2
+
+    :cond_1
+    new-instance v1, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v2, "SemHorizontalAbsListView: attempted to start selection mode for CHOICE_MODE_MULTIPLE_MODAL but no choice mode callback was supplied. Call setMultiChoiceModeListener to set a callback."
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_2
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mMultiChoiceModeCallback:Landroid/widget/SemHorizontalAbsListView$MultiChoiceModeWrapper;
 
-    invoke-virtual {p0, v1}, Landroid/view/View;->startActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
+    invoke-virtual {p0, v1}, Landroid/widget/SemHorizontalAbsListView;->startActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mChoiceActionMode:Landroid/view/ActionMode;
 
-    :cond_1
+    :cond_3
     iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mChoiceMode:I
 
     const/4 v2, 0x2
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_4
 
     iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mChoiceMode:I
 
-    if-ne v1, v6, :cond_a
+    if-ne v1, v6, :cond_c
 
-    :cond_2
+    :cond_4
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
 
     invoke-virtual {v1, p1}, Landroid/util/SparseBooleanArray;->get(I)Z
@@ -24006,7 +21183,7 @@
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedIdStates:Landroid/util/LongSparseArray;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
 
@@ -24014,9 +21191,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5
 
-    if-eqz p2, :cond_8
+    if-eqz p2, :cond_a
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedIdStates:Landroid/util/LongSparseArray;
 
@@ -24032,11 +21209,11 @@
 
     invoke-virtual {v1, v2, v3, v6}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
 
-    :cond_3
+    :cond_5
     :goto_0
-    if-eq v0, p2, :cond_4
+    if-eq v0, p2, :cond_6
 
-    if-eqz p2, :cond_9
+    if-eqz p2, :cond_b
 
     iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedItemCount:I
 
@@ -24044,11 +21221,11 @@
 
     iput v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedItemCount:I
 
-    :cond_4
+    :cond_6
     :goto_1
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mChoiceActionMode:Landroid/view/ActionMode;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_7
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
 
@@ -24066,30 +21243,33 @@
 
     invoke-virtual/range {v1 .. v6}, Landroid/widget/SemHorizontalAbsListView$MultiChoiceModeWrapper;->onItemCheckedStateChanged(Landroid/view/ActionMode;IJZ)V
 
-    :cond_5
-    :goto_2
-    iget-boolean v1, p0, Landroid/widget/AdapterView;->mInLayout:Z
-
-    if-nez v1, :cond_6
-
-    iget-boolean v1, p0, Landroid/widget/AdapterView;->mBlockLayoutRequests:Z
-
-    if-eqz v1, :cond_11
-
-    :cond_6
-    :goto_3
-    return-void
-
     :cond_7
-    new-instance v1, Ljava/lang/IllegalStateException;
+    :goto_2
+    iget-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mInLayout:Z
 
-    const-string/jumbo v2, "SemHorizontalAbsListView: attempted to start selection mode for CHOICE_MODE_MULTIPLE_MODAL but no choice mode callback was supplied. Call setMultiChoiceModeListener to set a callback."
+    if-nez v1, :cond_9
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    iget-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mBlockLayoutRequests:Z
 
-    throw v1
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_9
+
+    iget-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mForcedClick:Z
+
+    if-nez v1, :cond_8
+
+    iput-boolean v8, p0, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
     :cond_8
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->rememberSyncState()V
+
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->requestLayout()V
+
+    :cond_9
+    return-void
+
+    :cond_a
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedIdStates:Landroid/util/LongSparseArray;
 
     iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
@@ -24102,7 +21282,7 @@
 
     goto :goto_0
 
-    :cond_9
+    :cond_b
     iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedItemCount:I
 
     add-int/lit8 v1, v1, -0x1
@@ -24111,10 +21291,10 @@
 
     goto :goto_1
 
-    :cond_a
+    :cond_c
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedIdStates:Landroid/util/LongSparseArray;
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_10
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
 
@@ -24122,34 +21302,34 @@
 
     move-result v7
 
-    :goto_4
-    if-nez p2, :cond_b
+    :goto_3
+    if-nez p2, :cond_d
 
     invoke-virtual {p0, p1}, Landroid/widget/SemHorizontalAbsListView;->isItemChecked(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_e
 
-    :cond_b
+    :cond_d
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
 
     invoke-virtual {v1}, Landroid/util/SparseBooleanArray;->clear()V
 
-    if-eqz v7, :cond_c
+    if-eqz v7, :cond_e
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedIdStates:Landroid/util/LongSparseArray;
 
     invoke-virtual {v1}, Landroid/util/LongSparseArray;->clear()V
 
-    :cond_c
-    if-eqz p2, :cond_f
+    :cond_e
+    if-eqz p2, :cond_11
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
 
     invoke-virtual {v1, p1, v8}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
-    if-eqz v7, :cond_d
+    if-eqz v7, :cond_f
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedIdStates:Landroid/util/LongSparseArray;
 
@@ -24165,24 +21345,24 @@
 
     invoke-virtual {v1, v2, v3, v6}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
 
-    :cond_d
+    :cond_f
     iput v8, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedItemCount:I
 
     goto :goto_2
 
-    :cond_e
+    :cond_10
     const/4 v7, 0x0
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_f
+    :cond_11
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
 
     invoke-virtual {v1}, Landroid/util/SparseBooleanArray;->size()I
 
     move-result v1
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_12
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckStates:Landroid/util/SparseBooleanArray;
 
@@ -24190,26 +21370,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_5
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_10
+    if-eqz v1, :cond_7
+
+    :cond_12
     iput v3, p0, Landroid/widget/SemHorizontalAbsListView;->mCheckedItemCount:I
 
     goto :goto_2
-
-    :cond_11
-    iget-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mForcedClick:Z
-
-    if-nez v1, :cond_12
-
-    iput-boolean v8, p0, Landroid/widget/AdapterView;->mDataChanged:Z
-
-    :cond_12
-    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->rememberSyncState()V
-
-    invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
-
-    goto :goto_3
 .end method
 
 .method public setMultiChoiceModeListener(Landroid/widget/SemHorizontalAbsListView$MultiChoiceModeListener;)V
@@ -24229,23 +21397,6 @@
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mMultiChoiceModeCallback:Landroid/widget/SemHorizontalAbsListView$MultiChoiceModeWrapper;
 
     invoke-virtual {v0, p1}, Landroid/widget/SemHorizontalAbsListView$MultiChoiceModeWrapper;->setWrapped(Landroid/widget/SemHorizontalAbsListView$MultiChoiceModeListener;)V
-
-    return-void
-.end method
-
-.method public setMultiFocusListItem(II)V
-    .locals 1
-
-    iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mSemPressItemListArray:Ljava/util/ArrayList;
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->resetPressItemListArray()V
-
-    invoke-direct {p0, p1, p2}, Landroid/widget/SemHorizontalAbsListView;->addToPressItemListArray(II)V
 
     return-void
 .end method
@@ -24283,7 +21434,7 @@
 
     if-nez v1, :cond_0
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -24324,6 +21475,16 @@
 .end method
 
 .method public setRemoteViewsAdapter(Landroid/content/Intent;)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, v0}, Landroid/widget/SemHorizontalAbsListView;->setRemoteViewsAdapter(Landroid/content/Intent;Z)V
+
+    return-void
+.end method
+
+.method public setRemoteViewsAdapter(Landroid/content/Intent;Z)V
     .locals 4
 
     iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mRemoteAdapter:Landroid/widget/RemoteViewsAdapter;
@@ -24359,11 +21520,11 @@
 
     new-instance v2, Landroid/widget/RemoteViewsAdapter;
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
-    invoke-direct {v2, v3, p1, p0}, Landroid/widget/RemoteViewsAdapter;-><init>(Landroid/content/Context;Landroid/content/Intent;Landroid/widget/RemoteViewsAdapter$RemoteAdapterConnectionCallback;)V
+    invoke-direct {v2, v3, p1, p0, p2}, Landroid/widget/RemoteViewsAdapter;-><init>(Landroid/content/Context;Landroid/content/Intent;Landroid/widget/RemoteViewsAdapter$RemoteAdapterConnectionCallback;Z)V
 
     iput-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mRemoteAdapter:Landroid/widget/RemoteViewsAdapter;
 
@@ -24377,10 +21538,20 @@
 
     iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mRemoteAdapter:Landroid/widget/RemoteViewsAdapter;
 
-    invoke-virtual {p0, v2}, Landroid/widget/AdapterView;->setAdapter(Landroid/widget/Adapter;)V
+    invoke-virtual {p0, v2}, Landroid/widget/SemHorizontalAbsListView;->setAdapter(Landroid/widget/Adapter;)V
 
     :cond_1
     return-void
+.end method
+
+.method public setRemoteViewsAdapterAsync(Landroid/content/Intent;)Ljava/lang/Runnable;
+    .locals 1
+
+    new-instance v0, Landroid/widget/RemoteViewsAdapter$AsyncRemoteAdapterAction;
+
+    invoke-direct {v0, p0, p1}, Landroid/widget/RemoteViewsAdapter$AsyncRemoteAdapterAction;-><init>(Landroid/widget/RemoteViewsAdapter$RemoteAdapterConnectionCallback;Landroid/content/Intent;)V
+
+    return-object v0
 .end method
 
 .method public setRemoteViewsOnClickHandler(Landroid/widget/RemoteViews$OnClickHandler;)V
@@ -24432,18 +21603,16 @@
 
     if-eqz v0, :cond_0
 
-    if-eqz p1, :cond_1
+    xor-int/lit8 v0, p1, 0x1
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->clearScrollingCache()V
 
     :cond_0
-    :goto_0
     iput-boolean p1, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollingCacheEnabled:Z
 
     return-void
-
-    :cond_1
-    invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView;->clearScrollingCache()V
-
-    goto :goto_0
 .end method
 
 .method public setSelectionFromStart(II)V
@@ -24456,7 +21625,7 @@
     return-void
 
     :cond_0
-    invoke-virtual {p0}, Landroid/view/View;->isInTouchMode()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isInTouchMode()Z
 
     move-result v0
 
@@ -24464,13 +21633,13 @@
 
     const/4 v0, 0x1
 
-    invoke-virtual {p0, p1, v0}, Landroid/widget/AdapterView;->lookForSelectablePosition(IZ)I
+    invoke-virtual {p0, p1, v0}, Landroid/widget/SemHorizontalAbsListView;->lookForSelectablePosition(IZ)I
 
     move-result p1
 
     if-ltz p1, :cond_1
 
-    invoke-virtual {p0, p1}, Landroid/widget/AdapterView;->setNextSelectedPositionInt(I)V
+    invoke-virtual {p0, p1}, Landroid/widget/SemHorizontalAbsListView;->setNextSelectedPositionInt(I)V
 
     :cond_1
     :goto_0
@@ -24484,20 +21653,20 @@
 
     if-eqz v0, :cond_6
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v0
 
     sub-int/2addr v0, p2
 
-    iput v0, p0, Landroid/widget/AdapterView;->mSpecificTop:I
+    iput v0, p0, Landroid/widget/SemHorizontalAbsListView;->mSpecificTop:I
 
     :goto_1
-    iget-boolean v0, p0, Landroid/widget/AdapterView;->mNeedSync:Z
+    iget-boolean v0, p0, Landroid/widget/SemHorizontalAbsListView;->mNeedSync:Z
 
     if-eqz v0, :cond_2
 
-    iput p1, p0, Landroid/widget/AdapterView;->mSyncPosition:I
+    iput p1, p0, Landroid/widget/SemHorizontalAbsListView;->mSyncPosition:I
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mAdapter:Landroid/widget/ListAdapter;
 
@@ -24505,7 +21674,7 @@
 
     move-result-wide v0
 
-    iput-wide v0, p0, Landroid/widget/AdapterView;->mSyncRowId:J
+    iput-wide v0, p0, Landroid/widget/SemHorizontalAbsListView;->mSyncRowId:J
 
     :cond_2
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mPositionScroller:Landroid/widget/SemHorizontalAbsListView$AbsPositionScroller;
@@ -24517,7 +21686,7 @@
     invoke-virtual {v0}, Landroid/widget/SemHorizontalAbsListView$AbsPositionScroller;->stop()V
 
     :cond_3
-    invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->requestLayout()V
 
     :cond_4
     return-void
@@ -24534,7 +21703,7 @@
 
     add-int/2addr v0, p2
 
-    iput v0, p0, Landroid/widget/AdapterView;->mSpecificTop:I
+    iput v0, p0, Landroid/widget/SemHorizontalAbsListView;->mSpecificTop:I
 
     goto :goto_1
 .end method
@@ -24545,7 +21714,7 @@
 .method public setSelector(I)V
     .locals 1
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -24573,7 +21742,7 @@
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {p0, v1}, Landroid/view/View;->unscheduleDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, v1}, Landroid/widget/SemHorizontalAbsListView;->unscheduleDrawable(Landroid/graphics/drawable/Drawable;)V
 
     :cond_0
     iput-object p1, p0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
@@ -24684,110 +21853,51 @@
 .end method
 
 .method shouldShowSelector()Z
-    .locals 6
+    .locals 1
 
-    const/4 v3, 0x1
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->hasFocus()Z
 
-    const/4 v2, 0x0
+    move-result v0
 
-    iget-object v4, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isInTouchMode()Z
 
-    move-result-object v4
+    move-result v0
 
-    const-string/jumbo v5, "finger_air_view"
+    xor-int/lit8 v0, v0, 0x1
 
-    invoke-static {v4, v5, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v4
-
-    if-ne v4, v3, :cond_3
-
-    const/4 v0, 0x1
-
-    :goto_0
-    iget-object v4, p0, Landroid/view/View;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "finger_air_view_information_preview"
-
-    invoke-static {v4, v5, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v4
-
-    if-ne v4, v3, :cond_4
-
-    const/4 v1, 0x1
-
-    :goto_1
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->hasFocus()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    invoke-virtual {p0}, Landroid/view/View;->isInTouchMode()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_5
+    if-nez v0, :cond_1
 
     :cond_0
     invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->touchModeDrawsInPressedState()Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_1
-
-    invoke-virtual {p0}, Landroid/view/View;->isPressed()Z
-
-    move-result v4
-
-    if-nez v4, :cond_5
-
-    :cond_1
     if-eqz v0, :cond_2
 
-    if-eqz v1, :cond_2
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isPressed()Z
 
-    invoke-virtual {p0}, Landroid/view/View;->isHovered()Z
+    move-result v0
 
-    move-result v3
+    :goto_0
+    return v0
 
-    if-eqz v3, :cond_2
-
-    invoke-virtual {p0}, Landroid/view/View;->isFingerHovered()Z
-
-    move-result v2
-
-    :cond_2
-    :goto_2
-    return v2
-
-    :cond_3
-    const/4 v0, 0x0
+    :cond_1
+    const/4 v0, 0x1
 
     goto :goto_0
 
-    :cond_4
-    const/4 v1, 0x0
+    :cond_2
+    const/4 v0, 0x0
 
-    goto :goto_1
-
-    :cond_5
-    move v2, v3
-
-    goto :goto_2
+    goto :goto_0
 .end method
 
 .method shouldShowSelectorDefault()Z
     .locals 1
 
-    invoke-virtual {p0}, Landroid/view/View;->isInTouchMode()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isInTouchMode()Z
 
     move-result v0
 
@@ -24799,7 +21909,7 @@
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p0}, Landroid/view/View;->isPressed()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isPressed()Z
 
     move-result v0
 
@@ -24840,11 +21950,11 @@
 
     move-result-wide v2
 
-    iget v4, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     sub-int v4, v1, v4
 
-    invoke-virtual {p0, v4}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v4}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -24878,7 +21988,7 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, p1}, Landroid/widget/AdapterView;->getPositionForView(Landroid/view/View;)I
+    invoke-virtual {p0, p1}, Landroid/widget/SemHorizontalAbsListView;->getPositionForView(Landroid/view/View;)I
 
     move-result v3
 
@@ -24892,11 +22002,11 @@
 
     const/4 v6, 0x0
 
-    iget-object v0, p0, Landroid/widget/AdapterView;->mOnItemLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
+    iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mOnItemLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Landroid/widget/AdapterView;->mOnItemLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
+    iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mOnItemLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
 
     move-object v1, p0
 
@@ -24909,11 +22019,11 @@
     :cond_0
     if-nez v6, :cond_1
 
-    iget v0, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v0, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     sub-int v0, v3, v0
 
-    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -24960,23 +22070,23 @@
     iput-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mFlingRunnable:Landroid/widget/SemHorizontalAbsListView$FlingRunnable;
 
     :cond_0
-    iget v1, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v0
 
     add-int v2, v1, v0
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getPaddingLeft()I
 
     move-result v3
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v7
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getPaddingRight()I
 
     move-result v8
 
@@ -24988,18 +22098,18 @@
 
     add-int/lit8 v7, v0, -0x1
 
-    invoke-virtual {p0, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v7}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v4
 
-    invoke-virtual {p0, v9}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v9}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v6
 
     :goto_0
     if-eqz p1, :cond_1
 
-    iget v7, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     if-nez v7, :cond_4
 
@@ -25021,13 +22131,13 @@
     return-void
 
     :cond_3
-    invoke-virtual {p0, v9}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v9}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v4
 
     add-int/lit8 v7, v0, -0x1
 
-    invoke-virtual {p0, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v7}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v6
 
@@ -25055,7 +22165,7 @@
 
     if-nez v7, :cond_6
 
-    iget v7, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     if-ne v2, v7, :cond_6
 
@@ -25087,7 +22197,7 @@
 
     if-eqz v7, :cond_8
 
-    iget v7, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     if-ne v2, v7, :cond_8
 
@@ -25122,7 +22232,7 @@
 
     if-gez p1, :cond_3
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getFirstVisiblePosition()I
 
     move-result v2
 
@@ -25132,13 +22242,13 @@
 
     if-le v2, v7, :cond_2
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getFirstVisiblePosition()I
 
     move-result v7
 
     sub-int v7, v2, v7
 
-    invoke-virtual {p0, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v7}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -25192,7 +22302,7 @@
 
     :cond_1
     :goto_1
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getCount()I
 
     move-result v7
 
@@ -25214,7 +22324,7 @@
     :cond_3
     if-lez p1, :cond_0
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getLastVisiblePosition()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getLastVisiblePosition()I
 
     move-result v2
 
@@ -25331,7 +22441,7 @@
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView;->mMultiChoiceModeCallback:Landroid/widget/SemHorizontalAbsListView$MultiChoiceModeWrapper;
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->startActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
+    invoke-virtual {p0, v0}, Landroid/widget/SemHorizontalAbsListView;->startActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
 
     move-result-object v0
 
@@ -25367,72 +22477,72 @@
 .end method
 
 .method trackMotionScroll(II)Z
-    .locals 34
+    .locals 33
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v7
 
     if-nez v7, :cond_0
 
-    const/16 v32, 0x1
+    const/16 v31, 0x1
 
-    return v32
+    return v31
 
     :cond_0
-    const/16 v32, 0x0
+    const/16 v31, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v32
+    move/from16 v1, v31
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v32
+    move-result-object v31
 
-    invoke-virtual/range {v32 .. v32}, Landroid/view/View;->getLeft()I
+    invoke-virtual/range {v31 .. v31}, Landroid/view/View;->getLeft()I
 
     move-result v13
 
-    add-int/lit8 v32, v7, -0x1
+    add-int/lit8 v31, v7, -0x1
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v32
+    move/from16 v1, v31
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v32
+    move-result-object v31
 
-    invoke-virtual/range {v32 .. v32}, Landroid/view/View;->getRight()I
+    invoke-virtual/range {v31 .. v31}, Landroid/view/View;->getRight()I
 
     move-result v21
 
-    const/16 v32, 0x0
+    const/16 v31, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v32
+    move/from16 v1, v31
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v32
+    move-result-object v31
 
-    invoke-virtual/range {v32 .. v32}, Landroid/view/View;->getRight()I
+    invoke-virtual/range {v31 .. v31}, Landroid/view/View;->getRight()I
 
     move-result v15
 
-    add-int/lit8 v32, v7, -0x1
+    add-int/lit8 v31, v7, -0x1
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v32
+    move/from16 v1, v31
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v32
+    move-result-object v31
 
-    invoke-virtual/range {v32 .. v32}, Landroid/view/View;->getLeft()I
+    invoke-virtual/range {v31 .. v31}, Landroid/view/View;->getLeft()I
 
     move-result v20
 
@@ -25448,17 +22558,17 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mGroupFlags:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    and-int/lit8 v32, v32, 0x22
+    and-int/lit8 v31, v31, 0x22
 
-    const/16 v33, 0x22
+    const/16 v32, 0x22
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
-    move/from16 v1, v33
+    move/from16 v1, v32
 
     if-ne v0, v1, :cond_1
 
@@ -25471,56 +22581,56 @@
     iget v11, v0, Landroid/graphics/Rect;->right:I
 
     :cond_1
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
-    move-result v32
+    move-result v31
 
-    sub-int v12, v32, v11
+    sub-int v12, v31, v11
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    if-eqz v32, :cond_3
+    if-eqz v31, :cond_3
 
-    sub-int v28, v15, v12
+    sub-int v27, v15, v12
 
-    sub-int v29, v10, v20
+    sub-int v28, v10, v20
 
     :goto_0
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
-    move-result v32
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/view/View;->mPaddingRight:I
-
-    move/from16 v33, v0
-
-    sub-int v32, v32, v33
+    move-result v31
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mPaddingLeft:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mPaddingRight:I
 
-    move/from16 v33, v0
+    move/from16 v32, v0
 
-    sub-int v31, v32, v33
+    sub-int v31, v31, v32
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mPaddingLeft:I
+
+    move/from16 v32, v0
+
+    sub-int v30, v31, v32
 
     if-gez p1, :cond_4
 
-    add-int/lit8 v32, v31, -0x1
+    add-int/lit8 v31, v30, -0x1
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
     neg-int v0, v0
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
     move/from16 v1, p1
 
@@ -25531,15 +22641,15 @@
     :goto_1
     if-gez p2, :cond_5
 
-    add-int/lit8 v32, v31, -0x1
+    add-int/lit8 v31, v30, -0x1
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
     neg-int v0, v0
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
     move/from16 v1, p2
 
@@ -25550,7 +22660,7 @@
     :goto_2
     move-object/from16 v0, p0
 
-    iget v14, v0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v14, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     if-nez v14, :cond_7
 
@@ -25558,36 +22668,36 @@
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    if-eqz v32, :cond_6
+    if-eqz v31, :cond_6
 
     move-object/from16 v0, v23
 
     iget v0, v0, Landroid/graphics/Rect;->right:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    add-int v32, v32, v15
+    add-int v31, v31, v15
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mFirstPositionDistanceGuess:I
 
     :goto_3
-    add-int v32, v14, v7
+    add-int v31, v14, v7
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
-    move/from16 v33, v0
+    move/from16 v32, v0
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
-    move/from16 v1, v33
+    move/from16 v1, v32
 
     if-ne v0, v1, :cond_9
 
@@ -25595,19 +22705,19 @@
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    if-eqz v32, :cond_8
+    if-eqz v31, :cond_8
 
     move-object/from16 v0, v23
 
     iget v0, v0, Landroid/graphics/Rect;->left:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    add-int v32, v32, v20
+    add-int v31, v31, v20
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
     move-object/from16 v1, p0
 
@@ -25618,21 +22728,21 @@
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    if-eqz v32, :cond_c
+    if-eqz v31, :cond_c
 
-    add-int v32, v14, v7
+    add-int v31, v14, v7
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
-    move/from16 v33, v0
+    move/from16 v32, v0
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
-    move/from16 v1, v33
+    move/from16 v1, v32
 
     if-ne v0, v1, :cond_a
 
@@ -25640,11 +22750,11 @@
 
     iget v0, v0, Landroid/graphics/Rect;->left:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
     move/from16 v0, v20
 
-    move/from16 v1, v32
+    move/from16 v1, v31
 
     if-lt v0, v1, :cond_a
 
@@ -25655,19 +22765,19 @@
     :goto_5
     if-nez v14, :cond_b
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
-    move-result v32
+    move-result v31
 
     move-object/from16 v0, v23
 
     iget v0, v0, Landroid/graphics/Rect;->right:I
 
-    move/from16 v33, v0
+    move/from16 v32, v0
 
-    sub-int v32, v32, v33
+    sub-int v31, v31, v32
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
     if-gt v15, v0, :cond_b
 
@@ -25683,22 +22793,22 @@
     :cond_2
     if-eqz p2, :cond_f
 
-    const/16 v32, 0x1
+    const/16 v31, 0x1
 
     :goto_7
-    return v32
+    return v31
 
     :cond_3
-    sub-int v28, v10, v13
+    sub-int v27, v10, v13
 
-    sub-int v29, v21, v12
+    sub-int v28, v21, v12
 
     goto/16 :goto_0
 
     :cond_4
-    add-int/lit8 v32, v31, -0x1
+    add-int/lit8 v31, v30, -0x1
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
     move/from16 v1, p1
 
@@ -25709,9 +22819,9 @@
     goto/16 :goto_1
 
     :cond_5
-    add-int/lit8 v32, v31, -0x1
+    add-int/lit8 v31, v30, -0x1
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
     move/from16 v1, p2
 
@@ -25726,11 +22836,11 @@
 
     iget v0, v0, Landroid/graphics/Rect;->left:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    sub-int v32, v13, v32
+    sub-int v31, v13, v31
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
     move-object/from16 v1, p0
 
@@ -25743,11 +22853,11 @@
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPositionDistanceGuess:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    add-int v32, v32, p2
+    add-int v31, v31, p2
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
     move-object/from16 v1, p0
 
@@ -25760,11 +22870,11 @@
 
     iget v0, v0, Landroid/graphics/Rect;->right:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    add-int v32, v32, v21
+    add-int v31, v31, v21
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
     move-object/from16 v1, p0
 
@@ -25777,11 +22887,11 @@
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mLastPositionDistanceGuess:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    add-int v32, v32, p2
+    add-int v31, v31, p2
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
     move-object/from16 v1, p0
 
@@ -25806,9 +22916,9 @@
 
     iget v0, v0, Landroid/graphics/Rect;->left:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
     if-lt v13, v0, :cond_d
 
@@ -25817,35 +22927,35 @@
     const/4 v5, 0x1
 
     :goto_8
-    add-int v32, v14, v7
+    add-int v31, v14, v7
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
-    move/from16 v33, v0
+    move/from16 v32, v0
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
-    move/from16 v1, v33
+    move/from16 v1, v32
 
     if-ne v0, v1, :cond_e
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
-    move-result v32
+    move-result v31
 
     move-object/from16 v0, v23
 
     iget v0, v0, Landroid/graphics/Rect;->right:I
 
-    move/from16 v33, v0
+    move/from16 v32, v0
 
-    sub-int v32, v32, v33
+    sub-int v31, v31, v32
 
     move/from16 v0, v21
 
-    move/from16 v1, v32
+    move/from16 v1, v31
 
     if-gt v0, v1, :cond_e
 
@@ -25866,17 +22976,17 @@
     goto/16 :goto_6
 
     :cond_f
-    const/16 v32, 0x0
+    const/16 v31, 0x0
 
     goto/16 :goto_7
 
     :cond_10
-    if-gez p2, :cond_1b
+    if-gez p2, :cond_1a
 
-    const/16 v27, 0x1
+    const/16 v26, 0x1
 
     :goto_9
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->isInTouchMode()Z
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->isInTouchMode()Z
 
     move-result v19
 
@@ -25891,31 +23001,29 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
     invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getFooterViewsCount()I
 
-    move-result v33
+    move-result v32
 
-    sub-int v16, v32, v33
+    sub-int v16, v31, v32
 
-    const/16 v30, 0x0
+    const/16 v29, 0x0
 
     const/4 v9, 0x0
-
-    const/16 v24, 0x1
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    if-eqz v32, :cond_21
+    if-eqz v31, :cond_20
 
-    if-eqz v27, :cond_1e
+    if-eqz v26, :cond_1d
 
     move/from16 v0, p2
 
@@ -25925,17 +23033,17 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mGroupFlags:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    and-int/lit8 v32, v32, 0x22
+    and-int/lit8 v31, v31, 0x22
 
-    const/16 v33, 0x22
+    const/16 v32, 0x22
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
-    move/from16 v1, v33
+    move/from16 v1, v32
 
     if-ne v0, v1, :cond_12
 
@@ -25943,9 +23051,9 @@
 
     iget v0, v0, Landroid/graphics/Rect;->left:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    add-int v22, v22, v32
+    add-int v22, v22, v31
 
     :cond_12
     add-int/lit8 v18, v7, -0x1
@@ -25957,111 +23065,102 @@
 
     move/from16 v1, v18
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v6
 
     invoke-virtual {v6}, Landroid/view/View;->getRight()I
 
-    move-result v32
+    move-result v31
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
     move/from16 v1, v22
 
-    if-lt v0, v1, :cond_1c
+    if-lt v0, v1, :cond_1b
 
     :cond_13
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mMotionViewOriginalLeft:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    add-int v32, v32, p1
+    add-int v31, v31, p1
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mMotionViewNewLeft:I
 
-    const/16 v32, 0x1
+    const/16 v31, 0x1
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
     move-object/from16 v1, p0
 
-    iput-boolean v0, v1, Landroid/widget/AdapterView;->mBlockLayoutRequests:Z
+    iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mBlockLayoutRequests:Z
 
     if-lez v9, :cond_14
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v30
+    move/from16 v1, v29
 
-    invoke-virtual {v0, v1, v9}, Landroid/view/ViewGroup;->detachViewsFromParent(II)V
+    invoke-virtual {v0, v1, v9}, Landroid/widget/SemHorizontalAbsListView;->detachViewsFromParent(II)V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mRecycler:Landroid/widget/SemHorizontalAbsListView$RecycleBin;
 
-    move-object/from16 v32, v0
+    move-object/from16 v31, v0
 
-    invoke-virtual/range {v32 .. v32}, Landroid/widget/SemHorizontalAbsListView$RecycleBin;->removeSkippedScrap()V
+    invoke-virtual/range {v31 .. v31}, Landroid/widget/SemHorizontalAbsListView$RecycleBin;->removeSkippedScrap()V
 
     :cond_14
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->awakenScrollBars()Z
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->awakenScrollBars()Z
 
-    move-result v32
+    move-result v31
 
-    if-nez v32, :cond_15
+    if-nez v31, :cond_15
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->invalidate()V
 
     :cond_15
     move-object/from16 v0, p0
 
     move/from16 v1, p2
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->semOffsetChildrenLeftAndRight(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->semOffsetChildrenLeftAndRight(I)V
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    if-eqz v32, :cond_16
+    if-eqz v31, :cond_26
 
-    if-eqz v27, :cond_27
+    xor-int/lit8 v31, v26, 0x1
 
-    :cond_16
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
-
-    move/from16 v32, v0
-
-    if-nez v32, :cond_17
-
-    if-eqz v27, :cond_17
+    if-eqz v31, :cond_26
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    add-int v32, v32, v9
+    add-int v31, v31, v9
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
     move-object/from16 v1, p0
 
-    iput v0, v1, Landroid/widget/AdapterView;->mFirstPosition:I
+    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
-    :cond_17
+    :cond_16
     :goto_b
     invoke-static/range {p2 .. p2}, Ljava/lang/Math;->abs(I)I
 
@@ -26071,178 +23170,178 @@
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    if-eqz v32, :cond_28
+    if-eqz v31, :cond_27
+
+    move/from16 v0, v27
+
+    if-lt v0, v3, :cond_17
 
     move/from16 v0, v28
 
-    if-lt v0, v3, :cond_18
+    if-ge v0, v3, :cond_18
 
-    move/from16 v0, v29
-
-    if-ge v0, v3, :cond_19
-
-    :cond_18
+    :cond_17
     move-object/from16 v0, p0
 
-    move/from16 v1, v27
+    move/from16 v1, v26
 
     invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->fillGapRTL(Z)V
 
-    :cond_19
+    :cond_18
     :goto_c
-    if-nez v19, :cond_2a
+    if-nez v19, :cond_29
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    const/16 v33, -0x1
+    const/16 v32, -0x1
 
-    move/from16 v0, v32
-
-    move/from16 v1, v33
-
-    if-eq v0, v1, :cond_2a
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/AdapterView;->mSelectedPosition:I
-
-    move/from16 v32, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/AdapterView;->mFirstPosition:I
-
-    move/from16 v33, v0
-
-    sub-int v8, v32, v33
-
-    if-ltz v8, :cond_1a
-
-    invoke-virtual/range {p0 .. p0}, Landroid/view/ViewGroup;->getChildCount()I
-
-    move-result v32
-
-    move/from16 v0, v32
-
-    if-ge v8, v0, :cond_1a
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/AdapterView;->mSelectedPosition:I
-
-    move/from16 v32, v0
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v8}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v33
-
-    move-object/from16 v0, p0
+    move/from16 v0, v31
 
     move/from16 v1, v32
 
-    move-object/from16 v2, v33
+    if-eq v0, v1, :cond_29
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
+
+    move/from16 v31, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
+
+    move/from16 v32, v0
+
+    sub-int v8, v31, v32
+
+    if-ltz v8, :cond_19
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
+
+    move-result v31
+
+    move/from16 v0, v31
+
+    if-ge v8, v0, :cond_19
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
+
+    move/from16 v31, v0
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v8}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v32
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v31
+
+    move-object/from16 v2, v32
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->positionSelector(ILandroid/view/View;)V
 
-    :cond_1a
+    :cond_19
     :goto_d
-    const/16 v32, 0x0
+    const/16 v31, 0x0
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
     move-object/from16 v1, p0
 
-    iput-boolean v0, v1, Landroid/widget/AdapterView;->mBlockLayoutRequests:Z
+    iput-boolean v0, v1, Landroid/widget/SemHorizontalAbsListView;->mBlockLayoutRequests:Z
 
     invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->invokeOnItemScrollListener()V
 
-    const/16 v32, 0x0
+    const/16 v31, 0x0
 
-    return v32
+    return v31
 
-    :cond_1b
-    const/16 v27, 0x0
+    :cond_1a
+    const/16 v26, 0x0
 
     goto/16 :goto_9
 
-    :cond_1c
-    move/from16 v30, v18
+    :cond_1b
+    move/from16 v29, v18
 
     add-int/lit8 v9, v9, 0x1
 
-    add-int v25, v14, v18
+    add-int v24, v14, v18
 
     invoke-virtual {v6}, Landroid/view/View;->clearAccessibilityFocus()V
 
-    move/from16 v0, v25
+    move/from16 v0, v24
 
     move/from16 v1, v17
 
-    if-lt v0, v1, :cond_1d
+    if-lt v0, v1, :cond_1c
 
-    move/from16 v0, v25
+    move/from16 v0, v24
 
     move/from16 v1, v16
 
-    if-ge v0, v1, :cond_1d
+    if-ge v0, v1, :cond_1c
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mRecycler:Landroid/widget/SemHorizontalAbsListView$RecycleBin;
 
-    move-object/from16 v32, v0
+    move-object/from16 v31, v0
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v31
 
-    move/from16 v1, v25
+    move/from16 v1, v24
 
     invoke-virtual {v0, v6, v1}, Landroid/widget/SemHorizontalAbsListView$RecycleBin;->addScrapView(Landroid/view/View;I)V
 
-    :cond_1d
+    :cond_1c
     add-int/lit8 v18, v18, -0x1
 
     goto/16 :goto_a
 
-    :cond_1e
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
+    :cond_1d
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
-    move-result v32
+    move-result v31
 
-    sub-int v26, v32, p2
+    sub-int v25, v31, p2
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mGroupFlags:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    and-int/lit8 v32, v32, 0x22
+    and-int/lit8 v31, v31, 0x22
 
-    const/16 v33, 0x22
+    const/16 v32, 0x22
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
-    move/from16 v1, v33
+    move/from16 v1, v32
 
-    if-ne v0, v1, :cond_1f
+    if-ne v0, v1, :cond_1e
 
     move-object/from16 v0, v23
 
     iget v0, v0, Landroid/graphics/Rect;->right:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    sub-int v26, v26, v32
+    sub-int v25, v25, v31
 
-    :cond_1f
+    :cond_1e
     const/16 v18, 0x0
 
     :goto_e
@@ -26254,57 +23353,57 @@
 
     move/from16 v1, v18
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v6
 
     invoke-virtual {v6}, Landroid/view/View;->getLeft()I
 
-    move-result v32
+    move-result v31
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
-    move/from16 v1, v26
+    move/from16 v1, v25
 
     if-le v0, v1, :cond_13
 
     add-int/lit8 v9, v9, 0x1
 
-    add-int v25, v14, v18
+    add-int v24, v14, v18
 
     invoke-virtual {v6}, Landroid/view/View;->clearAccessibilityFocus()V
 
-    move/from16 v0, v25
+    move/from16 v0, v24
 
     move/from16 v1, v17
 
-    if-lt v0, v1, :cond_20
+    if-lt v0, v1, :cond_1f
 
-    move/from16 v0, v25
+    move/from16 v0, v24
 
     move/from16 v1, v16
 
-    if-ge v0, v1, :cond_20
+    if-ge v0, v1, :cond_1f
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mRecycler:Landroid/widget/SemHorizontalAbsListView$RecycleBin;
 
-    move-object/from16 v32, v0
+    move-object/from16 v31, v0
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v31
 
-    move/from16 v1, v25
+    move/from16 v1, v24
 
     invoke-virtual {v0, v6, v1}, Landroid/widget/SemHorizontalAbsListView$RecycleBin;->addScrapView(Landroid/view/View;I)V
 
-    :cond_20
+    :cond_1f
     add-int/lit8 v18, v18, 0x1
 
     goto :goto_e
 
-    :cond_21
-    if-eqz v27, :cond_24
+    :cond_20
+    if-eqz v26, :cond_23
 
     move/from16 v0, p2
 
@@ -26314,29 +23413,29 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mGroupFlags:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    and-int/lit8 v32, v32, 0x22
+    and-int/lit8 v31, v31, 0x22
 
-    const/16 v33, 0x22
+    const/16 v32, 0x22
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
-    move/from16 v1, v33
+    move/from16 v1, v32
 
-    if-ne v0, v1, :cond_22
+    if-ne v0, v1, :cond_21
 
     move-object/from16 v0, v23
 
     iget v0, v0, Landroid/graphics/Rect;->left:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    add-int v22, v22, v32
+    add-int v22, v22, v31
 
-    :cond_22
+    :cond_21
     const/16 v18, 0x0
 
     :goto_f
@@ -26348,15 +23447,15 @@
 
     move/from16 v1, v18
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v6
 
     invoke-virtual {v6}, Landroid/view/View;->getRight()I
 
-    move-result v32
+    move-result v31
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
     move/from16 v1, v22
 
@@ -26364,71 +23463,71 @@
 
     add-int/lit8 v9, v9, 0x1
 
-    add-int v25, v14, v18
+    add-int v24, v14, v18
 
     invoke-virtual {v6}, Landroid/view/View;->clearAccessibilityFocus()V
 
-    move/from16 v0, v25
+    move/from16 v0, v24
 
     move/from16 v1, v17
 
-    if-lt v0, v1, :cond_23
+    if-lt v0, v1, :cond_22
 
-    move/from16 v0, v25
+    move/from16 v0, v24
 
     move/from16 v1, v16
 
-    if-ge v0, v1, :cond_23
+    if-ge v0, v1, :cond_22
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mRecycler:Landroid/widget/SemHorizontalAbsListView$RecycleBin;
 
-    move-object/from16 v32, v0
+    move-object/from16 v31, v0
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v31
 
-    move/from16 v1, v25
+    move/from16 v1, v24
 
     invoke-virtual {v0, v6, v1}, Landroid/widget/SemHorizontalAbsListView$RecycleBin;->addScrapView(Landroid/view/View;I)V
 
-    :cond_23
+    :cond_22
     add-int/lit8 v18, v18, 0x1
 
     goto :goto_f
 
-    :cond_24
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
+    :cond_23
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
-    move-result v32
+    move-result v31
 
-    sub-int v26, v32, p2
+    sub-int v25, v31, p2
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mGroupFlags:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    and-int/lit8 v32, v32, 0x22
+    and-int/lit8 v31, v31, 0x22
 
-    const/16 v33, 0x22
+    const/16 v32, 0x22
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
-    move/from16 v1, v33
+    move/from16 v1, v32
 
-    if-ne v0, v1, :cond_25
+    if-ne v0, v1, :cond_24
 
     move-object/from16 v0, v23
 
     iget v0, v0, Landroid/graphics/Rect;->right:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    sub-int v26, v26, v32
+    sub-int v25, v25, v31
 
-    :cond_25
+    :cond_24
     add-int/lit8 v18, v7, -0x1
 
     :goto_10
@@ -26438,157 +23537,167 @@
 
     move/from16 v1, v18
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v6
 
     invoke-virtual {v6}, Landroid/view/View;->getLeft()I
 
-    move-result v32
+    move-result v31
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
-    move/from16 v1, v26
+    move/from16 v1, v25
 
     if-le v0, v1, :cond_13
 
-    move/from16 v30, v18
+    move/from16 v29, v18
 
     add-int/lit8 v9, v9, 0x1
 
-    add-int v25, v14, v18
+    add-int v24, v14, v18
 
     invoke-virtual {v6}, Landroid/view/View;->clearAccessibilityFocus()V
 
-    move/from16 v0, v25
+    move/from16 v0, v24
 
     move/from16 v1, v17
 
-    if-lt v0, v1, :cond_26
+    if-lt v0, v1, :cond_25
 
-    move/from16 v0, v25
+    move/from16 v0, v24
 
     move/from16 v1, v16
 
-    if-ge v0, v1, :cond_26
+    if-ge v0, v1, :cond_25
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mRecycler:Landroid/widget/SemHorizontalAbsListView$RecycleBin;
 
-    move-object/from16 v32, v0
+    move-object/from16 v31, v0
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v31
 
-    move/from16 v1, v25
+    move/from16 v1, v24
 
     invoke-virtual {v0, v6, v1}, Landroid/widget/SemHorizontalAbsListView$RecycleBin;->addScrapView(Landroid/view/View;I)V
 
-    :cond_26
+    :cond_25
     add-int/lit8 v18, v18, -0x1
 
     goto :goto_10
 
-    :cond_27
+    :cond_26
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    add-int v32, v32, v9
+    if-nez v31, :cond_16
 
-    move/from16 v0, v32
+    if-eqz v26, :cond_16
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
+
+    move/from16 v31, v0
+
+    add-int v31, v31, v9
+
+    move/from16 v0, v31
 
     move-object/from16 v1, p0
 
-    iput v0, v1, Landroid/widget/AdapterView;->mFirstPosition:I
+    iput v0, v1, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     goto/16 :goto_b
 
-    :cond_28
+    :cond_27
+    move/from16 v0, v27
+
+    if-lt v0, v3, :cond_28
+
     move/from16 v0, v28
 
-    if-lt v0, v3, :cond_29
+    if-ge v0, v3, :cond_18
 
-    move/from16 v0, v29
-
-    if-ge v0, v3, :cond_19
-
-    :cond_29
+    :cond_28
     move-object/from16 v0, p0
 
-    move/from16 v1, v27
+    move/from16 v1, v26
 
     invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->fillGap(Z)V
 
     goto/16 :goto_c
 
-    :cond_2a
+    :cond_29
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectorPosition:I
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    const/16 v33, -0x1
+    const/16 v32, -0x1
 
-    move/from16 v0, v32
+    move/from16 v0, v31
 
-    move/from16 v1, v33
+    move/from16 v1, v32
 
-    if-eq v0, v1, :cond_2b
+    if-eq v0, v1, :cond_2a
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectorPosition:I
 
+    move/from16 v31, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
+
     move/from16 v32, v0
 
-    move-object/from16 v0, p0
+    sub-int v8, v31, v32
 
-    iget v0, v0, Landroid/widget/AdapterView;->mFirstPosition:I
+    if-ltz v8, :cond_19
 
-    move/from16 v33, v0
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
-    sub-int v8, v32, v33
+    move-result v31
 
-    if-ltz v8, :cond_1a
+    move/from16 v0, v31
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/ViewGroup;->getChildCount()I
-
-    move-result v32
-
-    move/from16 v0, v32
-
-    if-ge v8, v0, :cond_1a
+    if-ge v8, v0, :cond_19
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v8}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v8}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v32
+    move-result-object v31
 
-    const/16 v33, -0x1
+    const/16 v32, -0x1
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v33
+    move/from16 v1, v32
 
-    move-object/from16 v2, v32
+    move-object/from16 v2, v31
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView;->positionSelector(ILandroid/view/View;)V
 
     goto/16 :goto_d
 
-    :cond_2b
+    :cond_2a
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SemHorizontalAbsListView;->mSelectorRect:Landroid/graphics/Rect;
 
-    move-object/from16 v32, v0
+    move-object/from16 v31, v0
 
-    invoke-virtual/range {v32 .. v32}, Landroid/graphics/Rect;->setEmpty()V
+    invoke-virtual/range {v31 .. v31}, Landroid/graphics/Rect;->setEmpty()V
 
     goto/16 :goto_d
 .end method
@@ -26598,7 +23707,7 @@
 
     const/4 v4, 0x0
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getAdapter()Landroid/widget/Adapter;
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getAdapter()Landroid/widget/Adapter;
 
     move-result-object v2
 
@@ -26608,13 +23717,13 @@
 
     move-result v0
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v1
 
     if-lez p1, :cond_2
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getLastVisiblePosition()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getLastVisiblePosition()I
 
     move-result v2
 
@@ -26624,7 +23733,7 @@
 
     mul-int/lit8 v2, v1, 0x2
 
-    invoke-virtual {p0, v2}, Landroid/widget/AdapterView;->setSelection(I)V
+    invoke-virtual {p0, v2}, Landroid/widget/SemHorizontalAbsListView;->setSelection(I)V
 
     :cond_0
     invoke-virtual {p0, v4}, Landroid/widget/SemHorizontalAbsListView;->smoothScrollToPosition(I)V
@@ -26638,7 +23747,7 @@
 
     add-int/lit8 v2, v0, -0x1
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getFirstVisiblePosition()I
 
     move-result v3
 
@@ -26654,7 +23763,7 @@
 
     sub-int/2addr v2, v3
 
-    invoke-virtual {p0, v2}, Landroid/widget/AdapterView;->setSelection(I)V
+    invoke-virtual {p0, v2}, Landroid/widget/SemHorizontalAbsListView;->setSelection(I)V
 
     :cond_3
     add-int/lit8 v2, v0, -0x1
@@ -26695,7 +23804,7 @@
 
     if-eqz v4, :cond_1
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v3
 
@@ -26703,32 +23812,33 @@
 
     if-eqz v4, :cond_5
 
-    iget v4, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     add-int/2addr v4, v3
 
-    iget v7, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     if-ge v4, v7, :cond_4
 
+    :goto_0
     const/4 v0, 0x1
 
-    :goto_0
+    :goto_1
     if-nez v0, :cond_0
 
     if-lez v3, :cond_0
 
     iget-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_6
 
     add-int/lit8 v4, v3, -0x1
 
-    invoke-virtual {p0, v4}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v4}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
-    :goto_1
+    :goto_2
     invoke-virtual {v2}, Landroid/view/View;->getLeft()I
 
     move-result v4
@@ -26737,19 +23847,19 @@
 
     iget v7, v7, Landroid/graphics/Rect;->left:I
 
-    if-ge v4, v7, :cond_8
+    if-ge v4, v7, :cond_7
 
     const/4 v0, 0x1
 
     :cond_0
-    :goto_2
+    :goto_3
     iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollLeft:Landroid/view/View;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_8
 
     move v4, v5
 
-    :goto_3
+    :goto_4
     invoke-virtual {v7, v4}, Landroid/view/View;->setVisibility(I)V
 
     :cond_1
@@ -26757,39 +23867,40 @@
 
     if-eqz v4, :cond_3
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v3
 
     iget-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_a
 
-    iget v4, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
-    if-lez v4, :cond_a
+    if-lez v4, :cond_9
 
+    :goto_5
     const/4 v1, 0x1
 
-    :goto_4
+    :goto_6
     if-nez v1, :cond_2
 
     if-lez v3, :cond_2
 
     iget-boolean v4, p0, Landroid/widget/SemHorizontalAbsListView;->mIsRTL:Z
 
-    if-eqz v4, :cond_d
+    if-eqz v4, :cond_b
 
-    invoke-virtual {p0, v5}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v5}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
-    :goto_5
+    :goto_7
     invoke-virtual {v2}, Landroid/view/View;->getRight()I
 
     move-result v4
 
-    iget v7, p0, Landroid/view/View;->mRight:I
+    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mRight:I
 
     iget-object v8, p0, Landroid/widget/SemHorizontalAbsListView;->mListPadding:Landroid/graphics/Rect;
 
@@ -26797,17 +23908,17 @@
 
     sub-int/2addr v7, v8
 
-    if-le v4, v7, :cond_e
+    if-le v4, v7, :cond_c
 
     const/4 v1, 0x1
 
     :cond_2
-    :goto_6
+    :goto_8
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView;->mScrollRight:Landroid/view/View;
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_d
 
-    :goto_7
+    :goto_9
     invoke-virtual {v4, v5}, Landroid/view/View;->setVisibility(I)V
 
     :cond_3
@@ -26816,183 +23927,165 @@
     :cond_4
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_5
-    iget v4, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
-    if-lez v4, :cond_6
-
-    const/4 v0, 0x1
+    if-lez v4, :cond_4
 
     goto :goto_0
 
     :cond_6
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :cond_7
-    invoke-virtual {p0, v5}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v5}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
-
-    goto :goto_1
-
-    :cond_8
-    const/4 v0, 0x0
 
     goto :goto_2
 
-    :cond_9
-    move v4, v6
+    :cond_7
+    const/4 v0, 0x0
 
     goto :goto_3
 
-    :cond_a
-    const/4 v1, 0x0
+    :cond_8
+    move v4, v6
 
     goto :goto_4
 
-    :cond_b
-    iget v4, p0, Landroid/widget/AdapterView;->mFirstPosition:I
-
-    add-int/2addr v4, v3
-
-    iget v7, p0, Landroid/widget/AdapterView;->mItemCount:I
-
-    if-ge v4, v7, :cond_c
-
-    const/4 v1, 0x1
-
-    goto :goto_4
-
-    :cond_c
-    const/4 v1, 0x0
-
-    goto :goto_4
-
-    :cond_d
-    add-int/lit8 v4, v3, -0x1
-
-    invoke-virtual {p0, v4}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v2
-
-    goto :goto_5
-
-    :cond_e
+    :cond_9
     const/4 v1, 0x0
 
     goto :goto_6
 
-    :cond_f
-    move v5, v6
+    :cond_a
+    iget v4, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
+
+    add-int/2addr v4, v3
+
+    iget v7, p0, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
+
+    if-ge v4, v7, :cond_9
+
+    goto :goto_5
+
+    :cond_b
+    add-int/lit8 v4, v3, -0x1
+
+    invoke-virtual {p0, v4}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v2
 
     goto :goto_7
+
+    :cond_c
+    const/4 v1, 0x0
+
+    goto :goto_8
+
+    :cond_d
+    move v5, v6
+
+    goto :goto_9
 .end method
 
 .method updateSelectorState()V
-    .locals 4
+    .locals 3
 
-    iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
+    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_0
 
     invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->shouldShowSelector()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_5
+    if-eqz v1, :cond_3
 
-    invoke-virtual {p0}, Landroid/view/View;->isHovered()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    iget-boolean v2, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoveredByMouse:Z
-
-    if-eqz v2, :cond_2
-
-    :cond_0
-    iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {p0}, Landroid/view/View;->getDrawableState()[I
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Landroid/graphics/drawable/Drawable;->setState([I)Z
-
-    :cond_1
-    :goto_0
-    return-void
-
-    :cond_2
-    iget v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectorPosition:I
-
-    iget v3, p0, Landroid/widget/AdapterView;->mFirstPosition:I
-
-    if-lt v2, v3, :cond_0
-
-    iget v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectorPosition:I
-
-    iget v3, p0, Landroid/widget/AdapterView;->mFirstPosition:I
-
-    sub-int/2addr v2, v3
-
-    invoke-virtual {p0, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Landroid/view/View;->findEllipsizedTextView(Landroid/view/View;)Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->isHovered()Z
 
     move-result v1
 
-    iget-boolean v2, p0, Landroid/widget/SemHorizontalAbsListView;->mIsPenHovered:Z
+    if-eqz v1, :cond_2
 
-    if-nez v2, :cond_3
+    iget-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mIsHoveredByMouse:Z
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v1, v1, 0x1
 
-    if-eqz v0, :cond_3
+    if-eqz v1, :cond_2
+
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectorPosition:I
+
+    iget v2, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
+
+    if-lt v1, v2, :cond_2
+
+    iget v1, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectorPosition:I
+
+    iget v2, p0, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
+
+    sub-int/2addr v1, v2
+
+    invoke-virtual {p0, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView;->mIsPenHovered:Z
+
+    if-nez v1, :cond_1
+
+    if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Landroid/view/View;->isEnabled()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_4
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
+
+    sget-object v2, Landroid/util/StateSet;->NOTHING:[I
+
+    invoke-virtual {v1, v2}, Landroid/graphics/drawable/Drawable;->setState([I)Z
+
+    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectorRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v1}, Landroid/graphics/Rect;->setEmpty()V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getDrawableState()[I
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/graphics/drawable/Drawable;->setState([I)Z
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView;->getDrawableState()[I
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/graphics/drawable/Drawable;->setState([I)Z
+
+    goto :goto_0
 
     :cond_3
-    iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
+    iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {p0}, Landroid/view/View;->getDrawableState()[I
+    sget-object v2, Landroid/util/StateSet;->NOTHING:[I
 
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Landroid/graphics/drawable/Drawable;->setState([I)Z
-
-    goto :goto_0
-
-    :cond_4
-    iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
-
-    sget-object v3, Landroid/util/StateSet;->NOTHING:[I
-
-    invoke-virtual {v2, v3}, Landroid/graphics/drawable/Drawable;->setState([I)Z
-
-    iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSelectorRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v2}, Landroid/graphics/Rect;->setEmpty()V
-
-    goto :goto_0
-
-    :cond_5
-    iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
-
-    sget-object v3, Landroid/util/StateSet;->NOTHING:[I
-
-    invoke-virtual {v2, v3}, Landroid/graphics/drawable/Drawable;->setState([I)Z
+    invoke-virtual {v1, v2}, Landroid/graphics/drawable/Drawable;->setState([I)Z
 
     goto :goto_0
 .end method

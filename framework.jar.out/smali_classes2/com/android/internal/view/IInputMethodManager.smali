@@ -47,6 +47,14 @@
     .end annotation
 .end method
 
+.method public abstract createInputContentUriToken(Landroid/os/IBinder;Landroid/net/Uri;Ljava/lang/String;)Lcom/android/internal/inputmethod/IInputContentUriToken;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract dismissAndShowAgainInputMethodPicker()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -247,6 +255,14 @@
     .end annotation
 .end method
 
+.method public abstract reportFullscreenMode(Landroid/os/IBinder;Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setAdditionalInputMethodSubtypes(Ljava/lang/String;[Landroid/view/inputmethod/InputMethodSubtype;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -263,7 +279,7 @@
     .end annotation
 .end method
 
-.method public abstract setImeWindowStatus(Landroid/os/IBinder;II)V
+.method public abstract setImeWindowStatus(Landroid/os/IBinder;Landroid/os/IBinder;II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

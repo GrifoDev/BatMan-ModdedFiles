@@ -632,13 +632,15 @@
     throw v3
 .end method
 
-.method public removeSingleLocation(Landroid/app/PendingIntent;)I
+.method public removeSingleLocation(Landroid/app/PendingIntent;Lcom/samsung/android/location/ISLocationListener;)I
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
+
+    const/4 v3, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
@@ -649,21 +651,30 @@
     move-result-object v1
 
     :try_start_0
-    const-string/jumbo v3, "com.samsung.android.location.ISLocationManager"
+    const-string/jumbo v4, "com.samsung.android.location.ISLocationManager"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {p1, v0, v3}, Landroid/app/PendingIntent;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-virtual {p1, v0, v4}, Landroid/app/PendingIntent;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_0
+    if-eqz p2, :cond_0
+
+    invoke-interface {p2}, Lcom/samsung/android/location/ISLocationListener;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v3
+
+    :cond_0
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
     iget-object v3, p0, Lcom/samsung/android/location/ISLocationManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x14
@@ -686,11 +697,11 @@
 
     return v2
 
-    :cond_0
-    const/4 v3, 0x0
+    :cond_1
+    const/4 v4, 0x0
 
     :try_start_1
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -1552,17 +1563,19 @@
     throw v3
 .end method
 
-.method public requestSingleLocation(IIZLandroid/app/PendingIntent;)I
-    .locals 6
+.method public requestSingleLocation(IIZLandroid/app/PendingIntent;Lcom/samsung/android/location/ISLocationListener;)I
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
+
+    const/4 v5, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
@@ -1573,30 +1586,39 @@
     move-result-object v1
 
     :try_start_0
-    const-string/jumbo v5, "com.samsung.android.location.ISLocationManager"
+    const-string/jumbo v6, "com.samsung.android.location.ISLocationManager"
 
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v6}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_1
 
     :goto_0
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_2
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {p4, v0, v3}, Landroid/app/PendingIntent;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-virtual {p4, v0, v4}, Landroid/app/PendingIntent;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_1
+    if-eqz p5, :cond_0
+
+    invoke-interface {p5}, Lcom/samsung/android/location/ISLocationListener;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v3
+
+    :cond_0
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
     iget-object v3, p0, Lcom/samsung/android/location/ISLocationManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x10
@@ -1619,16 +1641,16 @@
 
     return v2
 
-    :cond_0
-    move v3, v4
+    :cond_1
+    move v4, v5
 
     goto :goto_0
 
-    :cond_1
-    const/4 v3, 0x0
+    :cond_2
+    const/4 v4, 0x0
 
     :try_start_1
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

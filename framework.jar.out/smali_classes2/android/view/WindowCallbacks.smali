@@ -15,6 +15,9 @@
 .method public abstract onContentDrawn(IIII)Z
 .end method
 
+.method public abstract onFinishMovingTask()V
+.end method
+
 .method public abstract onPostDraw(Landroid/view/DisplayListCanvas;)V
 .end method
 
@@ -27,8 +30,8 @@
 .method public abstract onWindowDragResizeStart(Landroid/graphics/Rect;ZLandroid/graphics/Rect;Landroid/graphics/Rect;I)V
 .end method
 
-.method public abstract onWindowMoved(II)V
+.method public abstract onWindowSizeIsChanging(Landroid/graphics/Rect;ZLandroid/graphics/Rect;Landroid/graphics/Rect;)V
 .end method
 
-.method public abstract onWindowSizeIsChanging(Landroid/graphics/Rect;ZLandroid/graphics/Rect;Landroid/graphics/Rect;)V
+.method public abstract touchFocusTransferred()V
 .end method

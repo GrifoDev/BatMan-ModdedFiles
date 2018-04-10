@@ -226,12 +226,13 @@
 
     iget v13, v4, Landroid/media/MediaFile$MediaFileType;->fileType:I
 
-    const/16 v14, 0x35
+    invoke-static {v13}, Landroid/media/MediaFile;->isRawImageFileType(I)Z
 
-    if-ne v13, v14, :cond_7
+    move-result v13
+
+    if-eqz v13, :cond_1
 
     :cond_0
-    :goto_3
     move-object/from16 v0, p0
 
     invoke-static {v0, v11, v5, v8}, Landroid/media/ThumbnailUtils;->createThumbnailFromEXIF(Ljava/lang/String;IILandroid/media/ThumbnailUtils$SizedThumbnailBitmap;)V
@@ -239,7 +240,7 @@
     iget-object v1, v8, Landroid/media/ThumbnailUtils$SizedThumbnailBitmap;->mBitmap:Landroid/graphics/Bitmap;
 
     :cond_1
-    if-nez v1, :cond_9
+    if-nez v1, :cond_8
 
     const/4 v9, 0x0
 
@@ -287,7 +288,7 @@
 
     const/4 v14, -0x1
 
-    if-ne v13, v14, :cond_8
+    if-ne v13, v14, :cond_7
 
     :cond_2
     const/4 v13, 0x0
@@ -300,7 +301,7 @@
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
     :cond_3
-    :goto_4
+    :goto_3
     return-object v13
 
     :cond_4
@@ -319,17 +320,6 @@
     goto :goto_2
 
     :cond_7
-    iget v13, v4, Landroid/media/MediaFile$MediaFileType;->fileType:I
-
-    invoke-static {v13}, Landroid/media/MediaFile;->isRawImageFileType(I)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_1
-
-    goto :goto_3
-
-    :cond_8
     :try_start_3
     iget v13, v7, Landroid/graphics/BitmapFactory$Options;->outHeight:I
 
@@ -365,20 +355,20 @@
 
     move-result-object v1
 
-    if-eqz v10, :cond_9
+    if-eqz v10, :cond_8
 
     :try_start_4
     invoke-virtual {v10}, Ljava/io/FileInputStream;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
 
-    :cond_9
-    :goto_5
+    :cond_8
+    :goto_4
     const/4 v13, 0x3
 
     move/from16 v0, p1
 
-    if-ne v0, v13, :cond_a
+    if-ne v0, v13, :cond_9
 
     const/16 v13, 0x60
 
@@ -390,7 +380,7 @@
 
     move-result-object v1
 
-    :cond_a
+    :cond_9
     return-object v1
 
     :catch_0
@@ -402,7 +392,7 @@
 
     invoke-static {v14, v15, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_4
+    goto :goto_3
 
     :catch_1
     move-exception v2
@@ -413,12 +403,12 @@
 
     invoke-static {v13, v14, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_5
+    goto :goto_4
 
     :catch_2
     move-exception v6
 
-    :goto_6
+    :goto_5
     :try_start_5
     const-string/jumbo v13, "ThumbnailUtils"
 
@@ -452,14 +442,14 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    if-eqz v9, :cond_9
+    if-eqz v9, :cond_8
 
     :try_start_6
     invoke-virtual {v9}, Ljava/io/FileInputStream;->close()V
     :try_end_6
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_3
 
-    goto :goto_5
+    goto :goto_4
 
     :catch_3
     move-exception v2
@@ -470,12 +460,12 @@
 
     invoke-static {v13, v14, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_5
+    goto :goto_4
 
     :catch_4
     move-exception v2
 
-    :goto_7
+    :goto_6
     :try_start_7
     const-string/jumbo v13, "ThumbnailUtils"
 
@@ -485,14 +475,14 @@
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
-    if-eqz v9, :cond_9
+    if-eqz v9, :cond_8
 
     :try_start_8
     invoke-virtual {v9}, Ljava/io/FileInputStream;->close()V
     :try_end_8
     .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_5
 
-    goto :goto_5
+    goto :goto_4
 
     :catch_5
     move-exception v2
@@ -503,21 +493,21 @@
 
     invoke-static {v13, v14, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_5
+    goto :goto_4
 
     :catchall_0
     move-exception v13
 
-    :goto_8
-    if-eqz v9, :cond_b
+    :goto_7
+    if-eqz v9, :cond_a
 
     :try_start_9
     invoke-virtual {v9}, Ljava/io/FileInputStream;->close()V
     :try_end_9
     .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_6
 
-    :cond_b
-    :goto_9
+    :cond_a
+    :goto_8
     throw v13
 
     :catch_6
@@ -529,28 +519,28 @@
 
     invoke-static {v14, v15, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_9
+    goto :goto_8
 
     :catchall_1
     move-exception v13
 
     move-object v9, v10
 
-    goto :goto_8
+    goto :goto_7
 
     :catch_7
     move-exception v2
 
     move-object v9, v10
 
-    goto :goto_7
+    goto :goto_6
 
     :catch_8
     move-exception v6
 
     move-object v9, v10
 
-    goto :goto_6
+    goto :goto_5
 .end method
 
 .method private static createThumbnailFromEXIF(Ljava/lang/String;IILandroid/media/ThumbnailUtils$SizedThumbnailBitmap;)V

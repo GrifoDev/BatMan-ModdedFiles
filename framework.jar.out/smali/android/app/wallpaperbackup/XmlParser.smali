@@ -162,7 +162,7 @@
 
     :goto_2
     :try_start_4
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljavax/xml/parsers/ParserConfigurationException;->printStackTrace()V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
@@ -178,14 +178,14 @@
     :catch_1
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
     :catch_2
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
@@ -194,7 +194,7 @@
 
     :goto_3
     :try_start_6
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
@@ -210,7 +210,7 @@
     :catch_4
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
@@ -219,7 +219,7 @@
 
     :goto_4
     :try_start_8
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Lorg/xml/sax/SAXException;->printStackTrace()V
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
@@ -235,7 +235,7 @@
     :catch_6
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
@@ -257,7 +257,7 @@
     :catch_7
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_6
 
@@ -412,7 +412,7 @@
     goto :goto_0
 
     :cond_4
-    const-string/jumbo v0, "image_path"
+    const-string/jumbo v0, "tiltSetting"
 
     invoke-virtual {p2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -424,12 +424,16 @@
 
     iget-object v1, p0, Landroid/app/wallpaperbackup/XmlParser;->mCurrentValue:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setImagePath(Ljava/lang/String;)V
+    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setTiltSettingValue(I)V
 
     goto :goto_0
 
     :cond_5
-    const-string/jumbo v0, "left"
+    const-string/jumbo v0, "image_path"
 
     invoke-virtual {p2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -441,16 +445,12 @@
 
     iget-object v1, p0, Landroid/app/wallpaperbackup/XmlParser;->mCurrentValue:Ljava/lang/String;
 
-    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setLeftValue(I)V
+    invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setImagePath(Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_6
-    const-string/jumbo v0, "top"
+    const-string/jumbo v0, "left"
 
     invoke-virtual {p2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -466,12 +466,12 @@
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setTopValue(I)V
+    invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setLeftValue(I)V
 
     goto :goto_0
 
     :cond_7
-    const-string/jumbo v0, "right"
+    const-string/jumbo v0, "top"
 
     invoke-virtual {p2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -487,12 +487,12 @@
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setRightValue(I)V
+    invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setTopValue(I)V
 
     goto/16 :goto_0
 
     :cond_8
-    const-string/jumbo v0, "bottom"
+    const-string/jumbo v0, "right"
 
     invoke-virtual {p2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -508,11 +508,32 @@
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setBottomValue(I)V
+    invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setRightValue(I)V
 
     goto/16 :goto_0
 
     :cond_9
+    const-string/jumbo v0, "bottom"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    iget-object v0, p0, Landroid/app/wallpaperbackup/XmlParser;->mItem:Landroid/app/wallpaperbackup/WallpaperUser;
+
+    iget-object v1, p0, Landroid/app/wallpaperbackup/XmlParser;->mCurrentValue:Ljava/lang/String;
+
+    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setBottomValue(I)V
+
+    goto/16 :goto_0
+
+    :cond_a
     const-string/jumbo v0, "rotation"
 
     invoke-virtual {p2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z

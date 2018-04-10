@@ -6,6 +6,10 @@
 # static fields
 .field public static final HW_AUTH_FINGERPRINT:I = 0x2
 
+.field public static final HW_AUTH_INTELLIGENT_SCAN:I = 0x10
+
+.field public static final HW_AUTH_IRIS:I = 0x4
+
 .field public static final HW_AUTH_PASSWORD:I = 0x1
 
 .field public static final KM_ALGORITHM_AES:I = 0x20
@@ -47,6 +51,8 @@
 .field public static final KM_ENUM_REP:I = 0x20000000
 
 .field public static final KM_ERROR_CALLER_NONCE_PROHIBITED:I = -0x37
+
+.field public static final KM_ERROR_CANNOT_ATTEST_IDS:I = -0x42
 
 .field public static final KM_ERROR_CONCURRENT_ACCESS_CONFLICT:I = -0x2f
 
@@ -178,6 +184,20 @@
 
 .field public static final KM_KEY_FORMAT_X509:I = 0x0
 
+.field public static final KM_KNOX_ATTRIBUTES_SEPARATOR:Ljava/lang/String; = ","
+
+.field public static final KM_KNOX_CCM_CSR_FLAG:Ljava/lang/String; = "DETERMINED_BY_CCM"
+
+.field public static final KM_KNOX_IDS_SEPARATOR:Ljava/lang/String; = ","
+
+.field public static final KM_KNOX_PREFIX_SEPARATOR:Ljava/lang/String; = "::"
+
+.field public static final KM_KNOX_USER_PREFIX:Ljava/lang/String; = "u"
+
+.field public static final KM_KNOX_USER_SEPARATOR:Ljava/lang/String; = "_"
+
+.field public static final KM_KNOX_WILDCARD:Ljava/lang/String; = "*"
+
 .field public static final KM_MODE_CBC:I = 0x2
 
 .field public static final KM_MODE_CTR:I = 0x3
@@ -228,6 +248,22 @@
 
 .field public static final KM_TAG_ATTESTATION_CHALLENGE:I = -0x6ffffd3c
 
+.field public static final KM_TAG_ATTESTATION_ID_BRAND:I = -0x6ffffd3a
+
+.field public static final KM_TAG_ATTESTATION_ID_DEVICE:I = -0x6ffffd39
+
+.field public static final KM_TAG_ATTESTATION_ID_IMEI:I = -0x6ffffd36
+
+.field public static final KM_TAG_ATTESTATION_ID_MANUFACTURER:I = -0x6ffffd34
+
+.field public static final KM_TAG_ATTESTATION_ID_MEID:I = -0x6ffffd35
+
+.field public static final KM_TAG_ATTESTATION_ID_MODEL:I = -0x6ffffd33
+
+.field public static final KM_TAG_ATTESTATION_ID_PRODUCT:I = -0x6ffffd38
+
+.field public static final KM_TAG_ATTESTATION_ID_SERIAL:I = -0x6ffffd37
+
 .field public static final KM_TAG_AUTH_TIMEOUT:I = 0x300001f9
 
 .field public static final KM_TAG_AUTH_TOKEN:I = -0x6ffffc16
@@ -253,8 +289,6 @@
 .field public static final KM_TAG_KNOX_ADMINISTRATOR_ID:I = -0x6ffff82e
 
 .field public static final KM_TAG_KNOX_CREATOR_ID:I = -0x6ffff82f
-
-.field public static final KM_TAG_KNOX_CSR_CHALLENGE:I = -0x6ffff766
 
 .field public static final KM_TAG_KNOX_CSR_RESPONSE_REQUIRED:I = 0x70000899
 
@@ -292,7 +326,15 @@
 
 .field public static final KM_TAG_SAMSUNG_ATTESTATION_ROOT:I = -0x6ffff7ca
 
-.field public static final KM_TAG_SAMSUNG_ATTESTATION_TEMPLATE:I = -0x6ffff7cb
+.field public static final KM_TAG_SAMSUNG_CERTIFICATE_SUBJECT:I = -0x6ffff7c9
+
+.field public static final KM_TAG_SAMSUNG_EXTENDED_KEY_USAGE:I = -0x6ffff7c7
+
+.field public static final KM_TAG_SAMSUNG_KEY_USAGE:I = 0x30000838
+
+.field public static final KM_TAG_SAMSUNG_SUBJECT_ALTERNATIVE_NAME:I = -0x6ffff7c6
+
+.field public static final KM_TAG_SAMSUNG_X509_EXTENSIONS:I = -0x6ffff7cb
 
 .field public static final KM_TAG_SOTER_AUTO_ADD_COUNTER_WHEN_GET_PUBLIC_KEY:I = 0x70002afc
 
@@ -770,6 +812,18 @@
     move-result-object v1
 
     const-string/jumbo v2, "Invalid MAC or authentication tag length"
+
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Landroid/security/keymaster/KeymasterDefs;->sErrorCodeToString:Ljava/util/Map;
+
+    const/16 v1, -0x42
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "Unable to attest device ids"
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 

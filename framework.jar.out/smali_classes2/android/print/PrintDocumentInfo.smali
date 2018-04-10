@@ -368,6 +368,8 @@
 
     const/16 v0, 0x1f
 
+    const/4 v1, 0x1
+
     iget-object v2, p0, Landroid/print/PrintDocumentInfo;->mName:Ljava/lang/String;
 
     if-eqz v2, :cond_0

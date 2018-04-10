@@ -19,14 +19,18 @@
 
 .field protected final mHandler:Landroid/os/Handler;
 
+.field protected final mObj:Ljava/lang/Object;
+
 .field private mScheduled:Z
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;I)V
-    .locals 7
+    .locals 8
 
     const/4 v5, 0x0
+
+    const/4 v7, 0x0
 
     move-object v0, p0
 
@@ -40,15 +44,17 @@
 
     move v6, v5
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/internal/util/WakeupMessage;-><init>(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;III)V
+    invoke-direct/range {v0 .. v7}, Lcom/android/internal/util/WakeupMessage;-><init>(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;IIILjava/lang/Object;)V
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;II)V
-    .locals 7
+    .locals 8
 
     const/4 v6, 0x0
+
+    const/4 v7, 0x0
 
     move-object v0, p0
 
@@ -62,12 +68,36 @@
 
     move v5, p5
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/internal/util/WakeupMessage;-><init>(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;III)V
+    invoke-direct/range {v0 .. v7}, Lcom/android/internal/util/WakeupMessage;-><init>(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;IIILjava/lang/Object;)V
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;III)V
+    .locals 8
+
+    const/4 v7, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    move v4, p4
+
+    move v5, p5
+
+    move v6, p6
+
+    invoke-direct/range {v0 .. v7}, Lcom/android/internal/util/WakeupMessage;-><init>(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;IIILjava/lang/Object;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;IIILjava/lang/Object;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -91,6 +121,8 @@
     iput p5, p0, Lcom/android/internal/util/WakeupMessage;->mArg1:I
 
     iput p6, p0, Lcom/android/internal/util/WakeupMessage;->mArg2:I
+
+    iput-object p7, p0, Lcom/android/internal/util/WakeupMessage;->mObj:Ljava/lang/Object;
 
     return-void
 .end method
@@ -131,7 +163,7 @@
 .end method
 
 .method public onAlarm()V
-    .locals 6
+    .locals 7
 
     monitor-enter p0
 
@@ -156,13 +188,15 @@
 
     iget v5, p0, Lcom/android/internal/util/WakeupMessage;->mArg2:I
 
-    invoke-virtual {v2, v3, v4, v5}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+    iget-object v6, p0, Lcom/android/internal/util/WakeupMessage;->mObj:Ljava/lang/Object;
+
+    invoke-virtual {v2, v3, v4, v5, v6}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
 
     iget-object v2, p0, Lcom/android/internal/util/WakeupMessage;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {v2, v0}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
+    invoke-virtual {v2, v0}, Landroid/os/Handler;->dispatchMessage(Landroid/os/Message;)V
 
     invoke-virtual {v0}, Landroid/os/Message;->recycle()V
 

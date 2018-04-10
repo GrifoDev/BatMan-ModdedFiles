@@ -39,23 +39,7 @@
     .end annotation
 .end method
 
-.method public abstract addClient(Landroid/view/accessibility/IAccessibilityManagerClient;I)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract disableAccessibilityService(Landroid/content/ComponentName;I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract enableAccessibilityService(Landroid/content/ComponentName;I)V
+.method public abstract addClient(Landroid/view/accessibility/IAccessibilityManagerClient;I)J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -131,7 +115,23 @@
     .end annotation
 .end method
 
-.method public abstract reboot(Z)V
+.method public abstract notifyAccessibilityButtonClicked()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract notifyAccessibilityButtonVisibilityChanged(Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract performAccessibilityShortcut()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -171,6 +171,14 @@
     .end annotation
 .end method
 
+.method public abstract semDisableMdnieColorFilter()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract semDisableScreenNotificationEffect()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -188,6 +196,14 @@
 .end method
 
 .method public abstract semEnableMagnifierByDisplayID(IIFI)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract semEnableMdnieColorFilter(II)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -331,7 +347,23 @@
     .end annotation
 .end method
 
-.method public abstract sendAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;I)Z
+.method public abstract sendAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract sendFingerprintGesture(I)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setPictureInPictureActionReplacingConnection(Landroid/view/accessibility/IAccessibilityInteractionConnection;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -340,14 +372,6 @@
 .end method
 
 .method public abstract setTalkbackMode()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract shutdown(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

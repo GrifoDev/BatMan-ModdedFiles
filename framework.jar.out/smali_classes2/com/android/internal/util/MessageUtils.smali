@@ -109,18 +109,18 @@
 
     array-length v0, v0
 
-    move/from16 v19, v0
+    move/from16 v18, v0
 
-    move/from16 v18, v15
+    move/from16 v17, v15
 
     :goto_0
-    move/from16 v0, v18
+    move/from16 v0, v17
 
-    move/from16 v1, v19
+    move/from16 v1, v18
 
-    if-ge v0, v1, :cond_8
+    if-ge v0, v1, :cond_5
 
-    aget-object v2, p0, v18
+    aget-object v2, p0, v17
 
     invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -137,18 +137,18 @@
 
     array-length v0, v8
 
-    move/from16 v20, v0
+    move/from16 v19, v0
 
-    move/from16 v17, v15
+    move/from16 v16, v15
 
     :goto_1
-    move/from16 v0, v17
+    move/from16 v0, v16
 
-    move/from16 v1, v20
+    move/from16 v1, v19
 
     if-ge v0, v1, :cond_1
 
-    aget-object v7, v8, v17
+    aget-object v7, v8, v16
 
     invoke-virtual {v7}, Ljava/lang/reflect/Field;->getModifiers()I
 
@@ -158,29 +158,23 @@
 
     move-result v15
 
-    if-eqz v15, :cond_2
+    xor-int/lit8 v15, v15, 0x1
 
-    const/4 v15, 0x0
-
-    :goto_2
     invoke-static {v10}, Ljava/lang/reflect/Modifier;->isFinal(I)Z
 
-    move-result v16
+    move-result v20
 
-    if-eqz v16, :cond_3
+    xor-int/lit8 v20, v20, 0x1
 
-    const/16 v16, 0x0
+    or-int v15, v15, v20
 
-    :goto_3
-    or-int v15, v15, v16
-
-    if-eqz v15, :cond_4
+    if-eqz v15, :cond_2
 
     :cond_0
-    :goto_4
-    add-int/lit8 v15, v17, 0x1
+    :goto_2
+    add-int/lit8 v15, v16, 0x1
 
-    move/from16 v17, v15
+    move/from16 v16, v15
 
     goto :goto_1
 
@@ -193,9 +187,13 @@
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v17, "Can\'t list fields of class "
+    const-string/jumbo v19, "Can\'t list fields of class "
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v16
 
@@ -212,23 +210,13 @@
     invoke-static/range {v15 .. v16}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    add-int/lit8 v15, v18, 0x1
+    add-int/lit8 v15, v17, 0x1
 
-    move/from16 v18, v15
+    move/from16 v17, v15
 
     goto :goto_0
 
     :cond_2
-    const/4 v15, 0x1
-
-    goto :goto_2
-
-    :cond_3
-    const/16 v16, 0x1
-
-    goto :goto_3
-
-    :cond_4
     invoke-virtual {v7}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
 
     move-result-object v11
@@ -239,10 +227,10 @@
 
     array-length v0, v0
 
-    move/from16 v16, v0
+    move/from16 v20, v0
 
-    :goto_5
-    move/from16 v0, v16
+    :goto_3
+    move/from16 v0, v20
 
     if-ge v15, v0, :cond_0
 
@@ -252,14 +240,14 @@
 
     move-result v21
 
-    if-nez v21, :cond_5
+    if-nez v21, :cond_3
 
-    :goto_6
+    :goto_4
     add-int/lit8 v15, v15, 0x1
 
-    goto :goto_5
+    goto :goto_3
 
-    :cond_5
+    :cond_3
     const/16 v21, 0x1
 
     :try_start_1
@@ -291,30 +279,16 @@
 
     check-cast v13, Ljava/lang/String;
 
-    if-eqz v13, :cond_6
+    if-eqz v13, :cond_4
 
     invoke-virtual {v13, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v21
 
-    if-eqz v21, :cond_7
+    xor-int/lit8 v21, v21, 0x1
 
-    :cond_6
-    invoke-virtual {v9, v14, v11}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    if-eqz v21, :cond_4
 
-    goto :goto_6
-
-    :catch_1
-    move-exception v4
-
-    goto :goto_6
-
-    :catch_2
-    move-exception v6
-
-    goto :goto_4
-
-    :cond_7
     new-instance v21, Lcom/android/internal/util/MessageUtils$DuplicateConstantError;
 
     move-object/from16 v0, v21
@@ -322,10 +296,25 @@
     invoke-direct {v0, v11, v13, v14}, Lcom/android/internal/util/MessageUtils$DuplicateConstantError;-><init>(Ljava/lang/String;Ljava/lang/String;I)V
 
     throw v21
+
+    :catch_1
+    move-exception v4
+
+    goto :goto_4
+
+    :catch_2
+    move-exception v6
+
+    goto :goto_2
+
+    :cond_4
+    invoke-virtual {v9, v14, v11}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
     :try_end_3
     .catch Ljava/lang/SecurityException; {:try_start_3 .. :try_end_3} :catch_1
     .catch Ljava/lang/IllegalAccessException; {:try_start_3 .. :try_end_3} :catch_1
 
-    :cond_8
+    goto :goto_4
+
+    :cond_5
     return-object v9
 .end method

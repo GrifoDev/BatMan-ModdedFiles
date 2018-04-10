@@ -116,6 +116,10 @@
 
 .field public static final SEM_METADATA_KEY_TITLE_ASCII:I = 0x3ef
 
+.field public static final SEM_METADATA_KEY_USER_EDITED_DURAION:I = 0x405
+
+.field public static final SEM_METADATA_KEY_USER_EDITED_DURATION:I = 0x405
+
 .field public static final SEM_METADATA_KEY_VIDEOCODECINFO:I = 0x400
 
 .field public static final SEM_METADATA_KEY_VIDEOSNAPSHOT:I = 0x3f8

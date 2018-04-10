@@ -154,7 +154,7 @@
 
     iget-object v1, p0, Lcom/android/internal/app/AlertController$AlertParams;->mInflater:Landroid/view/LayoutInflater;
 
-    invoke-static {p1}, Lcom/android/internal/app/AlertController;->-get10(Lcom/android/internal/app/AlertController;)I
+    invoke-static {p1}, Lcom/android/internal/app/AlertController;->-get9(Lcom/android/internal/app/AlertController;)I
 
     move-result v3
 
@@ -176,7 +176,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/AlertController$AlertParams;->mContext:Landroid/content/Context;
 
-    invoke-static {p1}, Lcom/android/internal/app/AlertController;->-get11(Lcom/android/internal/app/AlertController;)I
+    invoke-static {p1}, Lcom/android/internal/app/AlertController;->-get10(Lcom/android/internal/app/AlertController;)I
 
     move-result v3
 
@@ -235,7 +235,7 @@
 
     iput-boolean v1, v6, Lcom/android/internal/app/AlertController$RecycleListView;->mRecycleOnMeasure:Z
 
-    invoke-static {p1, v6}, Lcom/android/internal/app/AlertController;->-set2(Lcom/android/internal/app/AlertController;Landroid/widget/ListView;)Landroid/widget/ListView;
+    iput-object v6, p1, Lcom/android/internal/app/AlertController;->mListView:Landroid/widget/ListView;
 
     return-void
 
@@ -261,7 +261,7 @@
 
     if-eqz v1, :cond_6
 
-    invoke-static {p1}, Lcom/android/internal/app/AlertController;->-get12(Lcom/android/internal/app/AlertController;)I
+    invoke-static {p1}, Lcom/android/internal/app/AlertController;->-get11(Lcom/android/internal/app/AlertController;)I
 
     move-result v2
 
@@ -295,7 +295,7 @@
     goto :goto_0
 
     :cond_6
-    invoke-static {p1}, Lcom/android/internal/app/AlertController;->-get9(Lcom/android/internal/app/AlertController;)I
+    invoke-static {p1}, Lcom/android/internal/app/AlertController;->-get8(Lcom/android/internal/app/AlertController;)I
 
     move-result v2
 

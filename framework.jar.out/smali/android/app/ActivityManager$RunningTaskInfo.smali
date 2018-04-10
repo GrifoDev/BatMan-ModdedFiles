@@ -41,11 +41,13 @@
 
 .field public description:Ljava/lang/CharSequence;
 
+.field public displayId:I
+
 .field public id:I
 
 .field public isConventionalMode:Z
 
-.field public isDockable:Z
+.field public lastActiveElapsedTime:J
 
 .field public lastActiveTime:J
 
@@ -56,6 +58,8 @@
 .field public resizeMode:I
 
 .field public stackId:I
+
+.field public supportsSplitScreenMultiWindow:Z
 
 .field public thumbnail:Landroid/graphics/Bitmap;
 
@@ -192,7 +196,7 @@
     move v0, v1
 
     :goto_1
-    iput-boolean v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->isDockable:Z
+    iput-boolean v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->supportsSplitScreenMultiWindow:Z
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -214,6 +218,12 @@
 
     :goto_2
     iput-boolean v1, p0, Landroid/app/ActivityManager$RunningTaskInfo;->isConventionalMode:Z
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->displayId:I
 
     return-void
 
@@ -301,7 +311,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-boolean v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->isDockable:Z
+    iget-boolean v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->supportsSplitScreenMultiWindow:Z
 
     if-eqz v0, :cond_1
 
@@ -324,6 +334,10 @@
 
     :goto_2
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->displayId:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     return-void
 

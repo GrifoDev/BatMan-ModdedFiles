@@ -8,8 +8,6 @@
 
 .field private static final TAG:Ljava/lang/String; = "SShareShareLink"
 
-.field private static mEasySignUpCertificated:Z
-
 
 # instance fields
 .field private defaultTextSize:I
@@ -41,6 +39,8 @@
 
 .field private mShareLinkEnabled:Z
 
+.field private mShareLinkView:Landroid/view/View;
+
 .field private mSimpleSharingDri:Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
 
 
@@ -51,16 +51,6 @@
     iget-object v0, p0, Lcom/samsung/android/share/SShareShareLink;->mActivity:Landroid/app/Activity;
 
     return-object v0
-.end method
-
-.method static constructor <clinit>()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    sput-boolean v0, Lcom/samsung/android/share/SShareShareLink;->mEasySignUpCertificated:Z
-
-    return-void
 .end method
 
 .method public constructor <init>(Landroid/app/Activity;Landroid/content/Context;Lcom/samsung/android/share/SShareCommon;Landroid/content/Intent;Ljava/util/List;Lcom/samsung/android/share/SShareBixby;)V
@@ -99,13 +89,13 @@
 
     iput-object p6, p0, Lcom/samsung/android/share/SShareShareLink;->mBixby:Lcom/samsung/android/share/SShareBixby;
 
-    invoke-direct {p0}, Lcom/samsung/android/share/SShareShareLink;->checkEasySignUpCertificated()V
-
     invoke-direct {p0}, Lcom/samsung/android/share/SShareShareLink;->checkShareLinkEnabled()V
 
     iget-object v0, p0, Lcom/samsung/android/share/SShareShareLink;->mFeature:Lcom/samsung/android/share/SShareCommon;
 
-    invoke-virtual {v0}, Lcom/samsung/android/share/SShareCommon;->getSupportLogging()Z
+    sget v1, Lcom/samsung/android/share/SShareConstants;->SUPPORT_LOGGING:I
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/share/SShareCommon;->isFeatureSupported(I)Z
 
     move-result v0
 
@@ -125,76 +115,38 @@
     return-void
 .end method
 
-.method private checkEasySignUpCertificated()V
-    .locals 3
-
-    iget-object v0, p0, Lcom/samsung/android/share/SShareShareLink;->mContext:Landroid/content/Context;
-
-    const/4 v1, 0x2
-
-    invoke-static {v0, v1}, Lcom/samsung/android/share/SShareSignUpManager;->isJoined(Landroid/content/Context;I)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/samsung/android/share/SShareShareLink;->mEasySignUpCertificated:Z
-
-    const-string/jumbo v0, "SShareShareLink"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "isJoined="
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    sget-boolean v2, Lcom/samsung/android/share/SShareShareLink;->mEasySignUpCertificated:Z
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-.end method
-
 .method private checkMaxFontScale(Landroid/widget/TextView;I)V
-    .locals 4
+    .locals 5
 
-    const v3, 0x3f99999a    # 1.2f
+    const v4, 0x3f99999a    # 1.2f
 
-    iget-object v2, p0, Lcom/samsung/android/share/SShareShareLink;->mContext:Landroid/content/Context;
+    const v1, 0x3f99999a    # 1.2f
 
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    iget-object v3, p0, Lcom/samsung/android/share/SShareShareLink;->mContext:Landroid/content/Context;
 
-    move-result-object v2
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    invoke-virtual {v2}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    move-result-object v3
 
-    move-result-object v2
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    iget v0, v2, Landroid/content/res/Configuration;->fontScale:F
+    move-result-object v3
 
-    cmpl-float v2, v0, v3
+    iget v0, v3, Landroid/content/res/Configuration;->fontScale:F
 
-    if-lez v2, :cond_0
+    cmpl-float v3, v0, v4
 
-    int-to-float v2, p2
+    if-lez v3, :cond_0
 
-    div-float v1, v2, v0
+    int-to-float v3, p2
 
-    mul-float v2, v1, v3
+    div-float v2, v3, v0
 
-    const/4 v3, 0x0
+    mul-float v3, v2, v4
 
-    invoke-virtual {p1, v3, v2}, Landroid/widget/TextView;->setTextSize(IF)V
+    const/4 v4, 0x0
+
+    invoke-virtual {p1, v4, v3}, Landroid/widget/TextView;->setTextSize(IF)V
 
     :cond_0
     return-void
@@ -289,20 +241,34 @@
     return-object v4
 .end method
 
-.method public isEasySignUpCertificated()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/samsung/android/share/SShareShareLink;->mEasySignUpCertificated:Z
-
-    return v0
-.end method
-
 .method public isShareLinkEnabled()Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/samsung/android/share/SShareShareLink;->mShareLinkEnabled:Z
 
     return v0
+.end method
+
+.method public semGetMainViewVisibility()I
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/share/SShareShareLink;->mShareLinkView:Landroid/view/View;
+
+    if-nez v0, :cond_0
+
+    const/16 v0, 0x8
+
+    :goto_0
+    return v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/samsung/android/share/SShareShareLink;->mShareLinkView:Landroid/view/View;
+
+    invoke-virtual {v0}, Landroid/view/View;->getVisibility()I
+
+    move-result v0
+
+    goto :goto_0
 .end method
 
 .method public setShareLinkDri(Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;)V
@@ -322,23 +288,40 @@
     return-void
 .end method
 
-.method public setShareLinkView()V
+.method public setShareLinkView(Landroid/view/View;)V
     .locals 29
 
-    move-object/from16 v0, p0
+    const v26, 0x102048d
 
-    iget-object v0, v0, Lcom/samsung/android/share/SShareShareLink;->mActivity:Landroid/app/Activity;
+    move-object/from16 v0, p1
 
-    move-object/from16 v26, v0
+    move/from16 v1, v26
 
-    const v27, 0x10204df
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual/range {v26 .. v27}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    move-result-object v26
 
-    move-result-object v18
+    move-object/from16 v0, v26
 
-    if-eqz v18, :cond_2
+    move-object/from16 v1, p0
 
+    iput-object v0, v1, Lcom/samsung/android/share/SShareShareLink;->mShareLinkView:Landroid/view/View;
+
+    const v26, 0x102048b
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v26
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    if-nez v5, :cond_0
+
+    return-void
+
+    :cond_0
     new-instance v26, Lcom/samsung/android/share/SShareShareLink$1;
 
     move-object/from16 v0, v26
@@ -347,11 +330,9 @@
 
     invoke-direct {v0, v1}, Lcom/samsung/android/share/SShareShareLink$1;-><init>(Lcom/samsung/android/share/SShareShareLink;)V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v26
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v5, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     const/16 v22, 0x0
 
@@ -422,7 +403,7 @@
 
     invoke-virtual/range {v26 .. v28}, Landroid/content/Context;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
 
-    move-result-object v5
+    move-result-object v6
 
     const/16 v26, 0x1
 
@@ -446,7 +427,7 @@
 
     invoke-virtual {v3, v0, v1}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v14
+    move-result-object v15
 
     const-string/jumbo v26, "getTitle"
 
@@ -456,7 +437,7 @@
 
     invoke-virtual {v3, v0, v1}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v15
+    move-result-object v16
 
     const-string/jumbo v26, "getDescription"
 
@@ -466,11 +447,11 @@
 
     invoke-virtual {v3, v0, v1}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v13
+    move-result-object v14
 
     invoke-virtual {v3}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
-    move-result-object v17
+    move-result-object v18
 
     const/16 v26, 0x1
 
@@ -482,13 +463,13 @@
 
     const/16 v27, 0x0
 
-    aput-object v5, v26, v27
+    aput-object v6, v26, v27
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     move-object/from16 v1, v26
 
-    invoke-virtual {v14, v0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v15, v0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v26
 
@@ -508,13 +489,15 @@
 
     const/16 v27, 0x0
 
-    aput-object v5, v26, v27
+    aput-object v6, v26, v27
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v16
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v18
 
-    invoke-virtual {v15, v0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v2, v26
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v26
 
@@ -534,13 +517,13 @@
 
     const/16 v27, 0x0
 
-    aput-object v5, v26, v27
+    aput-object v6, v26, v27
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     move-object/from16 v1, v26
 
-    invoke-virtual {v13, v0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v14, v0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v26
 
@@ -558,13 +541,15 @@
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
-    const v26, 0x1020014
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, v18
+    iget-object v0, v0, Lcom/samsung/android/share/SShareShareLink;->mShareLinkView:Landroid/view/View;
 
-    move/from16 v1, v26
+    move-object/from16 v26, v0
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    const v27, 0x1020014
+
+    invoke-virtual/range {v26 .. v27}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v25
 
@@ -580,7 +565,7 @@
 
     move-result-object v26
 
-    const v27, 0x1050294
+    const v27, 0x1050273
 
     invoke-virtual/range {v26 .. v27}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -592,7 +577,7 @@
 
     iput v0, v1, Lcom/samsung/android/share/SShareShareLink;->defaultTextSize:I
 
-    if-eqz v25, :cond_0
+    if-eqz v25, :cond_1
 
     move-object/from16 v0, p0
 
@@ -608,7 +593,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/share/SShareShareLink;->checkMaxFontScale(Landroid/widget/TextView;I)V
 
-    if-eqz v23, :cond_0
+    if-eqz v23, :cond_1
 
     invoke-static/range {v23 .. v23}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
 
@@ -658,18 +643,20 @@
 
     invoke-static/range {v26 .. v27}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
-    const v26, 0x1020015
+    :cond_1
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, v18
+    iget-object v0, v0, Lcom/samsung/android/share/SShareShareLink;->mShareLinkView:Landroid/view/View;
 
-    move/from16 v1, v26
+    move-object/from16 v26, v0
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    const v27, 0x1020015
 
-    move-result-object v6
+    invoke-virtual/range {v26 .. v27}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    check-cast v6, Landroid/widget/TextView;
+    move-result-object v7
+
+    check-cast v7, Landroid/widget/TextView;
 
     move-object/from16 v0, p0
 
@@ -681,7 +668,7 @@
 
     move-result-object v26
 
-    const v27, 0x1050295
+    const v27, 0x1050272
 
     invoke-virtual/range {v26 .. v27}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -693,7 +680,7 @@
 
     iput v0, v1, Lcom/samsung/android/share/SShareShareLink;->defaultTextSize:I
 
-    if-eqz v6, :cond_1
+    if-eqz v7, :cond_2
 
     move-object/from16 v0, p0
 
@@ -705,9 +692,9 @@
 
     move/from16 v1, v26
 
-    invoke-direct {v0, v6, v1}, Lcom/samsung/android/share/SShareShareLink;->checkMaxFontScale(Landroid/widget/TextView;I)V
+    invoke-direct {v0, v7, v1}, Lcom/samsung/android/share/SShareShareLink;->checkMaxFontScale(Landroid/widget/TextView;I)V
 
-    if-eqz v21, :cond_1
+    if-eqz v21, :cond_2
 
     invoke-static/range {v21 .. v21}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
 
@@ -715,7 +702,7 @@
 
     move-object/from16 v0, v26
 
-    invoke-virtual {v6, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v7, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     const-string/jumbo v26, "SShareShareLink"
 
@@ -743,71 +730,73 @@
 
     invoke-static/range {v26 .. v27}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
-    const v26, 0x10204e0
+    :cond_2
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, v18
+    iget-object v0, v0, Lcom/samsung/android/share/SShareShareLink;->mShareLinkView:Landroid/view/View;
 
-    move/from16 v1, v26
+    move-object/from16 v26, v0
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    const v27, 0x102048c
 
-    move-result-object v16
+    invoke-virtual/range {v26 .. v27}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    check-cast v16, Landroid/widget/ImageView;
+    move-result-object v17
 
-    if-eqz v16, :cond_2
+    check-cast v17, Landroid/widget/ImageView;
 
-    if-eqz v22, :cond_2
+    if-eqz v17, :cond_3
 
-    move-object/from16 v0, v16
+    if-eqz v22, :cond_3
+
+    move-object/from16 v0, v17
 
     move-object/from16 v1, v22
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    :cond_2
+    :cond_3
     return-void
 
     :catch_0
-    move-exception v10
+    move-exception v11
 
-    invoke-virtual {v10}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v11}, Ljava/lang/InstantiationException;->printStackTrace()V
 
     goto/16 :goto_0
 
     :catch_1
-    move-exception v7
+    move-exception v8
 
-    invoke-virtual {v7}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v8}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
 
     goto/16 :goto_0
 
     :catch_2
-    move-exception v9
+    move-exception v10
 
-    invoke-virtual {v9}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v10}, Ljava/lang/IllegalAccessException;->printStackTrace()V
 
     goto/16 :goto_0
 
     :catch_3
-    move-exception v12
+    move-exception v13
 
-    invoke-virtual {v12}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v13}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
 
     goto/16 :goto_0
 
     :catch_4
-    move-exception v11
+    move-exception v12
 
-    invoke-virtual {v11}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v12}, Ljava/lang/NoSuchMethodException;->printStackTrace()V
 
     goto/16 :goto_0
 
     :catch_5
-    move-exception v8
+    move-exception v9
 
-    invoke-virtual {v8}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v9}, Ljava/lang/ClassNotFoundException;->printStackTrace()V
 
     goto/16 :goto_0
 .end method

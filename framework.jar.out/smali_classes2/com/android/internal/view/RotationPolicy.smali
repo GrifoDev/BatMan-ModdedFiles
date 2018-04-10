@@ -35,7 +35,23 @@
 
     move-result-object v0
 
-    const v1, 0x1120037
+    const v1, 0x112000c
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method private static areCurrentRotationLockAllowed(Landroid/content/Context;)Z
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x1120011
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -49,11 +65,44 @@
 
     const/4 v5, 0x0
 
+    invoke-static {p0}, Lcom/android/internal/view/RotationPolicy;->areCurrentRotationLockAllowed(Landroid/content/Context;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-static {}, Landroid/view/WindowManagerGlobal;->getWindowManagerService()Landroid/view/IWindowManager;
+
+    move-result-object v2
+
+    :try_start_0
+    invoke-interface {v2}, Landroid/view/IWindowManager;->getRotationLockOrientation()I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v3
+
+    return v3
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v3, "RotationPolicy"
+
+    const-string/jumbo v4, "Unable to get rotation lock orientation"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    :goto_0
+    return v5
+
+    :cond_1
     invoke-static {p0}, Lcom/android/internal/view/RotationPolicy;->areAllRotationsAllowed(Landroid/content/Context;)Z
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_0
 
     new-instance v1, Landroid/graphics/Point;
 
@@ -65,28 +114,28 @@
 
     const/4 v3, 0x0
 
-    :try_start_0
+    :try_start_1
     invoke-interface {v2, v3, v1}, Landroid/view/IWindowManager;->getInitialDisplaySize(ILandroid/graphics/Point;)V
 
     iget v3, v1, Landroid/graphics/Point;->x:I
 
     iget v4, v1, Landroid/graphics/Point;->y:I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
-    if-ge v3, v4, :cond_0
+    if-ge v3, v4, :cond_2
 
     const/4 v3, 0x1
 
-    :goto_0
+    :goto_1
     return v3
 
-    :cond_0
+    :cond_2
     const/4 v3, 0x2
 
-    goto :goto_0
+    goto :goto_1
 
-    :catch_0
+    :catch_1
     move-exception v0
 
     const-string/jumbo v3, "RotationPolicy"
@@ -95,8 +144,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
-    return v5
+    goto :goto_0
 .end method
 
 .method public static isRotationLockToggleVisible(Landroid/content/Context;)Z
@@ -190,7 +238,7 @@
 
     move-result-object v1
 
-    const v2, 0x1120036
+    const v2, 0x11200a2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -254,9 +302,7 @@
 .end method
 
 .method public static setRotationLock(Landroid/content/Context;Z)V
-    .locals 4
-
-    const/4 v0, 0x0
+    .locals 5
 
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -264,19 +310,28 @@
 
     const-string/jumbo v2, "hide_rotation_lock_toggle_for_accessibility"
 
-    const/4 v3, -0x2
+    const/4 v3, 0x0
 
-    invoke-static {v1, v2, v0, v3}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
+    const/4 v4, -0x2
+
+    invoke-static {v1, v2, v3, v4}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
     invoke-static {p0}, Lcom/android/internal/view/RotationPolicy;->areAllRotationsAllowed(Landroid/content/Context;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_0
 
-    const/4 v0, -0x1
+    invoke-static {p0}, Lcom/android/internal/view/RotationPolicy;->areCurrentRotationLockAllowed(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
 
     :cond_0
+    const/4 v0, -0x1
+
+    :goto_0
     invoke-static {p1, v0}, Lcom/android/internal/view/RotationPolicy;->setRotationLock(ZI)V
 
     const-string/jumbo v1, "RotationPolicy"
@@ -318,6 +373,11 @@
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method private static setRotationLock(ZI)V

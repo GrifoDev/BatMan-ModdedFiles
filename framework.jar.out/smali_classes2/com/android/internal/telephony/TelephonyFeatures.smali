@@ -4,90 +4,127 @@
 
 
 # static fields
+.field public static final IS_PHONE:Z
+
 .field static final LOG_TAG:Ljava/lang/String; = "TelephonyFeatures"
 
-.field static final NTCTYPE_COUNTRY:I = 0x3
+.field public static final MULTI_SIM_CONFIG:Ljava/lang/String;
 
-.field static final NTCTYPE_MAINOPERATOR:I = 0x0
+.field private static final NTCTYPE_COUNTRY:I = 0x3
 
-.field static final NTCTYPE_OPERATORTYPE:I = 0x2
+.field private static final NTCTYPE_MAINOPERATOR:I = 0x0
 
-.field static final NTCTYPE_SUBOPERATOR:I = 0x1
+.field private static final NTCTYPE_OPERATORTYPE:I = 0x2
 
-.field public static final NTC_FEATURE_COMBINED_SIGNAL:I = 0x1
+.field private static final NTCTYPE_SUBOPERATOR:I = 0x1
 
-.field public static final NTC_FEATURE_CONNECTION_FOR_GOOGLEIMS:I = 0xa
+.field public static final NTC_FEATURE_ALLOW_HANGUP_WHEN_DIALING:I = 0xd
 
-.field public static final NTC_FEATURE_CSC_SPRINT_CHAMELEON:I = 0x5
+.field public static final NTC_FEATURE_CSC_SPRINT_CHAMELEON:I = 0x4
 
-.field public static final NTC_FEATURE_ENABLE_CMCC_VOLTE:I = 0xf
+.field public static final NTC_FEATURE_ENABLE_CMCC_VOLTE:I = 0xc
 
-.field public static final NTC_FEATURE_ERI_ON_AP:I = 0x8
+.field public static final NTC_FEATURE_ERI_ON_AP:I = 0x7
 
-.field public static final NTC_FEATURE_ERI_ON_CP:I = 0x7
+.field public static final NTC_FEATURE_ERI_ON_CP:I = 0x6
 
-.field public static final NTC_FEATURE_FAKE_OPERATOR_NUMERIC:I = 0x6
+.field public static final NTC_FEATURE_FAKE_OPERATOR_NUMERIC:I = 0x5
 
-.field public static final NTC_FEATURE_MAX:I = 0x10
+.field public static final NTC_FEATURE_MAX:I = 0xf
 
-.field public static final NTC_FEATURE_REMOVE_ECB_EXIT:I = 0x2
+.field public static final NTC_FEATURE_REMOVE_ECB_EXIT:I = 0x1
 
-.field public static final NTC_FEATURE_SERVICESTATE_FOR_GOOGLEIMS:I = 0x9
+.field public static final NTC_FEATURE_SERVICESTATE_FOR_GOOGLEIMS:I = 0x8
 
-.field public static final NTC_FEATURE_SPR_US_INTERNATIONAL_DIALING:I = 0x4
+.field public static final NTC_FEATURE_SPR_US_INTERNATIONAL_DIALING:I = 0x3
 
-.field public static final NTC_FEATURE_USE_GOOGLEIMS:I = 0xb
+.field public static final NTC_FEATURE_SUPPORT_VOICELESS_OTA_PROVISIONING:I = 0xe
 
-.field public static final NTC_FEATURE_VZW_CDMALESS:I = 0xe
+.field public static final NTC_FEATURE_USE_GOOGLEIMS:I = 0x9
 
-.field public static final NTC_FEATURE_VZW_GLOBAL_DIALING:I = 0x3
+.field public static final NTC_FEATURE_VZW_CDMALESS:I = 0xb
 
-.field public static final NTC_FEATURE_VZW_HVOLTE:I = 0xc
+.field public static final NTC_FEATURE_VZW_GLOBAL_DIALING:I = 0x2
 
-.field public static final NTC_FEATURE_VZW_VOLTE_ROAMING:I = 0xd
+.field public static final NTC_FEATURE_VZW_HVOLTE:I = 0xa
+
+.field private static final PRIMARY_PHONE_ID:I = 0x0
 
 .field public static final SALES_CODE:Ljava/lang/String;
 
-.field public static final SHIP_BUILD:Z
+.field private static final SECONDARY_PHONE_ID:I = 0x1
 
-.field private static mConfigVolteRedialPolicy:Ljava/lang/String;
+.field public static final SHIP_BUILD:Z
 
 .field private static mCountry:Ljava/lang/String;
 
-.field private static mCrossMappingSupported:Z
+.field private static mCountry2:Ljava/lang/String;
 
 .field private static mImsStubEnabled:Z
 
 .field private static mMainOperator:Ljava/lang/String;
 
-.field public static final mMultiSimConfig:Ljava/lang/String;
+.field private static mMainOperator2:Ljava/lang/String;
+
+.field private static mNetworkCode:Ljava/lang/String;
+
+.field private static mNetworkCode2:Ljava/lang/String;
+
+.field private static mOmcVersion:D
 
 .field private static mOperatorType:Ljava/lang/String;
 
+.field private static mOperatorType2:Ljava/lang/String;
+
+.field private static mSalesCode:Ljava/lang/String;
+
 .field private static mSimHotswapSupported:Z
+
+.field private static mSimbasedChangeType:[Ljava/lang/String;
 
 .field private static mSubOperator:Ljava/lang/String;
 
-.field private static mUsedNetworkType:Ljava/lang/String;
+.field private static mSubOperator2:Ljava/lang/String;
+
+.field private static mUsedLegacyIms:Z
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .locals 7
 
-    const/4 v4, 0x1
+    const/4 v6, 0x3
 
-    const/4 v3, 0x0
+    const/4 v5, 0x2
 
-    const-string/jumbo v0, "ro.product_ship"
+    const/4 v2, 0x1
 
-    const-string/jumbo v1, "false"
+    const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    const-string/jumbo v0, "ro.build.characteristics"
+
+    const-string/jumbo v3, ""
+
+    invoke-static {v0, v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+    const-string/jumbo v3, "tablet"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    move v0, v1
+
+    :goto_0
+    sput-boolean v0, Lcom/android/internal/telephony/TelephonyFeatures;->IS_PHONE:Z
+
+    const-string/jumbo v0, "ro.product_ship"
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 
@@ -95,15 +132,15 @@
 
     const-string/jumbo v0, "ro.csc.omcnw_code"
 
-    const-string/jumbo v1, "ro.csc.sales_code"
+    const-string/jumbo v3, "ro.csc.sales_code"
 
-    const-string/jumbo v2, "NONE"
+    const-string/jumbo v4, "NONE"
 
-    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -111,81 +148,136 @@
 
     const-string/jumbo v0, "persist.radio.multisim.config"
 
-    const-string/jumbo v1, ""
+    const-string/jumbo v3, ""
 
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    sput-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mMultiSimConfig:Ljava/lang/String;
+    sput-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->MULTI_SIM_CONFIG:Ljava/lang/String;
 
-    invoke-static {v3}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(I)Ljava/lang/String;
+    invoke-static {v1, v1}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(II)Ljava/lang/String;
 
     move-result-object v0
 
     sput-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
 
-    invoke-static {v4}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(I)Ljava/lang/String;
+    invoke-static {v1, v2}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(II)Ljava/lang/String;
 
     move-result-object v0
 
     sput-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mSubOperator:Ljava/lang/String;
 
-    const/4 v0, 0x2
-
-    invoke-static {v0}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(I)Ljava/lang/String;
+    invoke-static {v1, v5}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(II)Ljava/lang/String;
 
     move-result-object v0
 
     sput-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mOperatorType:Ljava/lang/String;
 
-    const/4 v0, 0x3
-
-    invoke-static {v0}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(I)Ljava/lang/String;
+    invoke-static {v1, v6}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(II)Ljava/lang/String;
 
     move-result-object v0
 
     sput-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry:Ljava/lang/String;
 
-    const-string/jumbo v0, ""
+    const-string/jumbo v0, "ro.csc.omcnw_code"
 
-    sput-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mUsedNetworkType:Ljava/lang/String;
+    const-string/jumbo v3, "ro.csc.sales_code"
 
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+    const-string/jumbo v4, "NONE"
+
+    invoke-static {v3, v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v0, v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v1, "CscFeature_RIL_ConfigVolteRedialPolicy"
+    sput-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mNetworkCode:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v1}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(II)Ljava/lang/String;
 
     move-result-object v0
 
-    sput-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mConfigVolteRedialPolicy:Ljava/lang/String;
+    sput-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator2:Ljava/lang/String;
+
+    invoke-static {v2, v2}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(II)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mSubOperator2:Ljava/lang/String;
+
+    invoke-static {v2, v5}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(II)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mOperatorType2:Ljava/lang/String;
+
+    invoke-static {v2, v6}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(II)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry2:Ljava/lang/String;
+
+    const-string/jumbo v0, "ro.csc.omcnw_code2"
+
+    const-string/jumbo v3, "ro.csc.sales_code"
+
+    const-string/jumbo v4, "NONE"
+
+    invoke-static {v3, v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v0, v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mNetworkCode2:Ljava/lang/String;
+
+    const-string/jumbo v0, "persist.ril.ims.legacy.enabled"
+
+    invoke-static {v0, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/internal/telephony/TelephonyFeatures;->mUsedLegacyIms:Z
 
     const-string/jumbo v0, "persist.radio.enable.stubDebug"
 
-    invoke-static {v0, v3}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 
     sput-boolean v0, Lcom/android/internal/telephony/TelephonyFeatures;->mImsStubEnabled:Z
 
-    sput-boolean v4, Lcom/android/internal/telephony/TelephonyFeatures;->mSimHotswapSupported:Z
+    sput-boolean v2, Lcom/android/internal/telephony/TelephonyFeatures;->mSimHotswapSupported:Z
 
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+    const-string/jumbo v0, "ro.csc.sales_code"
+
+    const-string/jumbo v1, "NONE"
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v1, "CscFeature_RIL_SupportQcomCrossMapping"
+    sput-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mSalesCode:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
+    const/4 v0, 0x0
 
-    move-result v0
+    sput-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mSimbasedChangeType:[Ljava/lang/String;
 
-    sput-boolean v0, Lcom/android/internal/telephony/TelephonyFeatures;->mCrossMappingSupported:Z
+    const-wide/high16 v0, -0x4010000000000000L    # -1.0
+
+    sput-wide v0, Lcom/android/internal/telephony/TelephonyFeatures;->mOmcVersion:D
 
     return-void
+
+    :cond_0
+    move v0, v2
+
+    goto/16 :goto_0
 .end method
 
 .method public constructor <init>()V
@@ -196,7 +288,7 @@
     return-void
 .end method
 
-.method private static InitializeNetworkTypeCapability(I)Ljava/lang/String;
+.method private static InitializeNetworkTypeCapability(II)Ljava/lang/String;
     .locals 4
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
@@ -205,45 +297,10 @@
 
     const-string/jumbo v3, "CscFeature_RIL_ConfigNetworkTypeCapability"
 
-    invoke-virtual {v2, v3}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v2, p0, v3}, Lcom/samsung/android/feature/SemCscFeature;->getString(ILjava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    const-string/jumbo v2, "EUR"
-
-    const-string/jumbo v3, ""
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    const/4 v2, 0x2
-
-    if-ne p0, v2, :cond_0
-
-    const-string/jumbo v2, "GSM"
-
-    return-object v2
-
-    :cond_0
-    const-string/jumbo v2, "EUR"
-
-    return-object v2
-
-    :cond_1
-    const-string/jumbo v2, "---"
-
-    return-object v2
-
-    :cond_2
     const-string/jumbo v2, "-"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -254,28 +311,169 @@
 
     const/4 v3, 0x4
 
-    if-eq v2, v3, :cond_3
+    if-eq v2, v3, :cond_0
 
     const-string/jumbo v2, "---"
 
     return-object v2
 
-    :cond_3
-    aget-object v2, v1, p0
+    :cond_0
+    aget-object v2, v1, p1
 
     return-object v2
 .end method
 
+.method private static InitializeSimbasedType()V
+    .locals 7
+
+    const/4 v6, 0x2
+
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
+
+    const-string/jumbo v1, "ro.simbased.changetype"
+
+    const-string/jumbo v2, "NONE"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, ","
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mSimbasedChangeType:[Ljava/lang/String;
+
+    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mSimbasedChangeType:[Ljava/lang/String;
+
+    if-eqz v1, :cond_0
+
+    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mSimbasedChangeType:[Ljava/lang/String;
+
+    array-length v1, v1
+
+    if-ge v1, v6, :cond_1
+
+    :cond_0
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "CscFeature_Common_AutoConfigurationType"
+
+    const-string/jumbo v3, "NONE,DISABLED"
+
+    invoke-virtual {v1, v2, v3}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, ","
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mSimbasedChangeType:[Ljava/lang/String;
+
+    :cond_1
+    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mSimbasedChangeType:[Ljava/lang/String;
+
+    if-eqz v1, :cond_2
+
+    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mSimbasedChangeType:[Ljava/lang/String;
+
+    array-length v1, v1
+
+    if-ge v1, v6, :cond_3
+
+    :cond_2
+    new-array v1, v6, [Ljava/lang/String;
+
+    sput-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mSimbasedChangeType:[Ljava/lang/String;
+
+    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mSimbasedChangeType:[Ljava/lang/String;
+
+    const-string/jumbo v2, "NONE"
+
+    aput-object v2, v1, v4
+
+    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mSimbasedChangeType:[Ljava/lang/String;
+
+    const-string/jumbo v2, "DISABLED"
+
+    aput-object v2, v1, v5
+
+    :goto_0
+    return-void
+
+    :cond_3
+    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mSimbasedChangeType:[Ljava/lang/String;
+
+    sget-object v2, Lcom/android/internal/telephony/TelephonyFeatures;->mSimbasedChangeType:[Ljava/lang/String;
+
+    aget-object v2, v2, v4
+
+    invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v2
+
+    aput-object v2, v1, v4
+
+    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mSimbasedChangeType:[Ljava/lang/String;
+
+    sget-object v2, Lcom/android/internal/telephony/TelephonyFeatures;->mSimbasedChangeType:[Ljava/lang/String;
+
+    aget-object v2, v2, v5
+
+    invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v2
+
+    aput-object v2, v1, v5
+
+    goto :goto_0
+.end method
+
 .method public static displaySpnRulePlmnAtAbout(I)Z
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    const-string/jumbo v0, "CHN"
+    const/4 v0, 0x3
 
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry:Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
+
+    const-string/jumbo v1, "CHN"
+
+    aput-object v1, v0, v3
+
+    const-string/jumbo v1, "HKG"
+
+    aput-object v1, v0, v4
+
+    const-string/jumbo v1, "TPE"
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    invoke-static {p0, v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isCountrySpecific(I[Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "KDI"
+
+    invoke-static {p0}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName(I)Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -283,90 +481,1177 @@
 
     if-nez v0, :cond_0
 
-    const-string/jumbo v0, "HKG"
+    new-array v0, v4, [Ljava/lang/String;
 
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry:Ljava/lang/String;
+    const-string/jumbo v1, "52501"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    aput-object v1, v0, v3
 
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const-string/jumbo v0, "TPE"
-
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {p0, v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isIccOperatorNumericSpecific(I[Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
     :cond_0
-    return v2
+    return v3
 
     :cond_1
-    new-array v0, v3, [Ljava/lang/String;
-
-    const-string/jumbo v1, "52501"
-
-    aput-object v1, v0, v2
-
-    invoke-static {p0, v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isIccOperatorNumericSpecific(I[Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    return v2
-
-    :cond_2
-    const-string/jumbo v0, "KDI"
-
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    return v2
-
-    :cond_3
-    return v3
+    return v4
 .end method
 
 .method public static doNotShowSpnUnderEpdgRegi()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/android/internal/telephony/TelephonyFeatures;->doNotShowSpnUnderEpdgRegi(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static doNotShowSpnUnderEpdgRegi(I)Z
     .locals 2
 
-    const-string/jumbo v0, "DTM"
+    const-string/jumbo v0, "EUR"
 
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName(I)Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    return v0
+.end method
+
+.method public static dump()V
+    .locals 8
+
+    const/4 v7, 0x3
+
+    const/4 v6, 0x2
+
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
+
+    const-string/jumbo v1, "----- TelephonyFeatures.dump -----"
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "getMainOperatorName(PRIMARY / SECONDARY): "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v4}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " / "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v5}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "getSubOperatorName(PRIMARY / SECONDARY): "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v4}, Lcom/android/internal/telephony/TelephonyFeatures;->getSubOperatorName(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " / "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v5}, Lcom/android/internal/telephony/TelephonyFeatures;->getSubOperatorName(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "getOperatorType(PRIMARY / SECONDARY): "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v4}, Lcom/android/internal/telephony/TelephonyFeatures;->getOperatorType(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " / "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v5}, Lcom/android/internal/telephony/TelephonyFeatures;->getOperatorType(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "getCountryName(PRIMARY / SECONDARY): "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v4}, Lcom/android/internal/telephony/TelephonyFeatures;->getCountryName(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " / "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v5}, Lcom/android/internal/telephony/TelephonyFeatures;->getCountryName(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "getNetworkCode(PRIMARY / SECONDARY): "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v4}, Lcom/android/internal/telephony/TelephonyFeatures;->getNetworkCode(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " / "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v5}, Lcom/android/internal/telephony/TelephonyFeatures;->getNetworkCode(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "isUsaCdmaModel(PRIMARY / SECONDARY): "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v4}, Lcom/android/internal/telephony/TelephonyFeatures;->isUsaCdmaModel(I)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " / "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v5}, Lcom/android/internal/telephony/TelephonyFeatures;->isUsaCdmaModel(I)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "isUsaGlobalModel(PRIMARY / SECONDARY): "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v4}, Lcom/android/internal/telephony/TelephonyFeatures;->isUsaGlobalModel(I)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " / "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v5}, Lcom/android/internal/telephony/TelephonyFeatures;->isUsaGlobalModel(I)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "isChnGlobalModel(PRIMARY / SECONDARY): "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v4}, Lcom/android/internal/telephony/TelephonyFeatures;->isChnGlobalModel(I)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " / "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v5}, Lcom/android/internal/telephony/TelephonyFeatures;->isChnGlobalModel(I)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "isGlobalModel(PRIMARY / SECONDARY): "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v4}, Lcom/android/internal/telephony/TelephonyFeatures;->isGlobalModel(I)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " / "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v5}, Lcom/android/internal/telephony/TelephonyFeatures;->isGlobalModel(I)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "isMainOperatorSpecific(PRIMARY / SECONDARY) - VZW, SPR, USC?: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    new-array v2, v7, [Ljava/lang/String;
+
+    const-string/jumbo v3, "VZW"
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "SPR"
+
+    aput-object v3, v2, v5
+
+    const-string/jumbo v3, "USC"
+
+    aput-object v3, v2, v6
+
+    invoke-static {v4, v2}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific(I[Ljava/lang/String;)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " / "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    new-array v2, v7, [Ljava/lang/String;
+
+    const-string/jumbo v3, "VZW"
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "SPR"
+
+    aput-object v3, v2, v5
+
+    const-string/jumbo v3, "USC"
+
+    aput-object v3, v2, v6
+
+    invoke-static {v5, v2}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific(I[Ljava/lang/String;)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "isMainOperatorSpecific(PRIMARY / SECONDARY) - SKT, LGT, KTT?: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    new-array v2, v7, [Ljava/lang/String;
+
+    const-string/jumbo v3, "SKT"
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "LGT"
+
+    aput-object v3, v2, v5
+
+    const-string/jumbo v3, "KTT"
+
+    aput-object v3, v2, v6
+
+    invoke-static {v4, v2}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific(I[Ljava/lang/String;)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " / "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    new-array v2, v7, [Ljava/lang/String;
+
+    const-string/jumbo v3, "SKT"
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "LGT"
+
+    aput-object v3, v2, v5
+
+    const-string/jumbo v3, "KTT"
+
+    aput-object v3, v2, v6
+
+    invoke-static {v5, v2}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific(I[Ljava/lang/String;)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "isSubOperatorSpecific(PRIMARY / SECONDARY) - VZW, SPR, USC?: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    new-array v2, v7, [Ljava/lang/String;
+
+    const-string/jumbo v3, "VZW"
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "SPR"
+
+    aput-object v3, v2, v5
+
+    const-string/jumbo v3, "USC"
+
+    aput-object v3, v2, v6
+
+    invoke-static {v4, v2}, Lcom/android/internal/telephony/TelephonyFeatures;->isSubOperatorSpecific(I[Ljava/lang/String;)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " / "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    new-array v2, v7, [Ljava/lang/String;
+
+    const-string/jumbo v3, "VZW"
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "SPR"
+
+    aput-object v3, v2, v5
+
+    const-string/jumbo v3, "USC"
+
+    aput-object v3, v2, v6
+
+    invoke-static {v5, v2}, Lcom/android/internal/telephony/TelephonyFeatures;->isSubOperatorSpecific(I[Ljava/lang/String;)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "isSubOperatorSpecific(PRIMARY / SECONDARY) - SKT, LGT, KTT?: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    new-array v2, v7, [Ljava/lang/String;
+
+    const-string/jumbo v3, "SKT"
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "LGT"
+
+    aput-object v3, v2, v5
+
+    const-string/jumbo v3, "KTT"
+
+    aput-object v3, v2, v6
+
+    invoke-static {v4, v2}, Lcom/android/internal/telephony/TelephonyFeatures;->isSubOperatorSpecific(I[Ljava/lang/String;)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " / "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    new-array v2, v7, [Ljava/lang/String;
+
+    const-string/jumbo v3, "SKT"
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "LGT"
+
+    aput-object v3, v2, v5
+
+    const-string/jumbo v3, "KTT"
+
+    aput-object v3, v2, v6
+
+    invoke-static {v5, v2}, Lcom/android/internal/telephony/TelephonyFeatures;->isSubOperatorSpecific(I[Ljava/lang/String;)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "isCountrySpecific(PRIMARY / SECONDARY) - USA, CHM, CHC?: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    new-array v2, v7, [Ljava/lang/String;
+
+    const-string/jumbo v3, "USA"
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "CHM"
+
+    aput-object v3, v2, v5
+
+    const-string/jumbo v3, "CHC"
+
+    aput-object v3, v2, v6
+
+    invoke-static {v4, v2}, Lcom/android/internal/telephony/TelephonyFeatures;->isCountrySpecific(I[Ljava/lang/String;)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " / "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    new-array v2, v7, [Ljava/lang/String;
+
+    const-string/jumbo v3, "USA"
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "CHM"
+
+    aput-object v3, v2, v5
+
+    const-string/jumbo v3, "CHC"
+
+    aput-object v3, v2, v6
+
+    invoke-static {v5, v2}, Lcom/android/internal/telephony/TelephonyFeatures;->isCountrySpecific(I[Ljava/lang/String;)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "isCountrySpecific(PRIMARY / SECONDARY) - KOR, HKG, TPE?: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    new-array v2, v7, [Ljava/lang/String;
+
+    const-string/jumbo v3, "KOR"
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "HKG"
+
+    aput-object v3, v2, v5
+
+    const-string/jumbo v3, "TPE"
+
+    aput-object v3, v2, v6
+
+    invoke-static {v4, v2}, Lcom/android/internal/telephony/TelephonyFeatures;->isCountrySpecific(I[Ljava/lang/String;)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " / "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    new-array v2, v7, [Ljava/lang/String;
+
+    const-string/jumbo v3, "KOR"
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "HKG"
+
+    aput-object v3, v2, v5
+
+    const-string/jumbo v3, "TPE"
+
+    aput-object v3, v2, v6
+
+    invoke-static {v5, v2}, Lcom/android/internal/telephony/TelephonyFeatures;->isCountrySpecific(I[Ljava/lang/String;)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "IS_PHONE: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    sget-boolean v2, Lcom/android/internal/telephony/TelephonyFeatures;->IS_PHONE:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "SHIP_BUILD: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    sget-boolean v2, Lcom/android/internal/telephony/TelephonyFeatures;->SHIP_BUILD:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "SALES_CODE: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "MULTI_SIM_CONFIG: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/android/internal/telephony/TelephonyFeatures;->MULTI_SIM_CONFIG:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "mUsedLegacyIms: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    sget-boolean v2, Lcom/android/internal/telephony/TelephonyFeatures;->mUsedLegacyIms:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "mImsStubEnabled: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    sget-boolean v2, Lcom/android/internal/telephony/TelephonyFeatures;->mImsStubEnabled:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "mSalesCode: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/android/internal/telephony/TelephonyFeatures;->mSalesCode:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
 
     const/4 v0, 0x1
 
-    return v0
+    :goto_0
+    const/16 v1, 0xf
+
+    if-ge v0, v1, :cond_0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "getNtcFeature("
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v0}, Lcom/android/internal/telephony/TelephonyFeatures;->featureToString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "): "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v4, v0}, Lcom/android/internal/telephony/TelephonyFeatures;->getNtcFeature(II)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " / "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v5, v0}, Lcom/android/internal/telephony/TelephonyFeatures;->getNtcFeature(II)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    return-void
+.end method
 
-    return v0
+.method private static featureToString(I)Ljava/lang/String;
+    .locals 2
+
+    packed-switch p0, :pswitch_data_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "uknown NTC_FEATURE("
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, ")"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    :pswitch_0
+    const-string/jumbo v0, "NTC_FEATURE_REMOVE_ECB_EXIT"
+
+    return-object v0
+
+    :pswitch_1
+    const-string/jumbo v0, "NTC_FEATURE_VZW_GLOBAL_DIALING"
+
+    return-object v0
+
+    :pswitch_2
+    const-string/jumbo v0, "NTC_FEATURE_SPR_US_INTERNATIONAL_DIALING"
+
+    return-object v0
+
+    :pswitch_3
+    const-string/jumbo v0, "NTC_FEATURE_CSC_SPRINT_CHAMELEON"
+
+    return-object v0
+
+    :pswitch_4
+    const-string/jumbo v0, "NTC_FEATURE_FAKE_OPERATOR_NUMERIC"
+
+    return-object v0
+
+    :pswitch_5
+    const-string/jumbo v0, "NTC_FEATURE_ERI_ON_CP"
+
+    return-object v0
+
+    :pswitch_6
+    const-string/jumbo v0, "NTC_FEATURE_ERI_ON_AP"
+
+    return-object v0
+
+    :pswitch_7
+    const-string/jumbo v0, "NTC_FEATURE_SERVICESTATE_FOR_GOOGLEIMS"
+
+    return-object v0
+
+    :pswitch_8
+    const-string/jumbo v0, "NTC_FEATURE_USE_GOOGLEIMS"
+
+    return-object v0
+
+    :pswitch_9
+    const-string/jumbo v0, "NTC_FEATURE_VZW_HVOLTE"
+
+    return-object v0
+
+    :pswitch_a
+    const-string/jumbo v0, "NTC_FEATURE_VZW_CDMALESS"
+
+    return-object v0
+
+    :pswitch_b
+    const-string/jumbo v0, "NTC_FEATURE_ENABLE_CMCC_VOLTE"
+
+    return-object v0
+
+    :pswitch_c
+    const-string/jumbo v0, "NTC_FEATURE_ALLOW_HANGUP_WHEN_DIALING"
+
+    return-object v0
+
+    :pswitch_d
+    const-string/jumbo v0, "NTC_FEATURE_SUPPORT_VOICELESS_OTA_PROVISIONING"
+
+    return-object v0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
+        :pswitch_8
+        :pswitch_9
+        :pswitch_a
+        :pswitch_b
+        :pswitch_c
+        :pswitch_d
+    .end packed-switch
 .end method
 
 .method public static getCountryName()Ljava/lang/String;
     .locals 1
 
-    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry:Ljava/lang/String;
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/android/internal/telephony/TelephonyFeatures;->getCountryName(I)Ljava/lang/String;
+
+    move-result-object v0
 
     return-object v0
+.end method
+
+.method public static getCountryName(I)Ljava/lang/String;
+    .locals 1
+
+    const/4 v0, 0x1
+
+    if-ne p0, v0, :cond_0
+
+    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry2:Ljava/lang/String;
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry:Ljava/lang/String;
+
+    goto :goto_0
 .end method
 
 .method public static getImsStubEnabled()Z
@@ -378,345 +1663,469 @@
 
     sget-boolean v0, Lcom/android/internal/telephony/TelephonyFeatures;->SHIP_BUILD:Z
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
+
+    :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    return v0
-
-    :cond_1
-    sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    return v0
+    goto :goto_0
 .end method
 
 .method public static getMainOperatorName()Ljava/lang/String;
     .locals 1
 
-    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName(I)Ljava/lang/String;
+
+    move-result-object v0
 
     return-object v0
 .end method
 
-.method public static getMultiSimConfig()Ljava/lang/String;
+.method public static getMainOperatorName(I)Ljava/lang/String;
     .locals 1
 
-    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mMultiSimConfig:Ljava/lang/String;
+    const/4 v0, 0x1
 
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    if-ne p0, v0, :cond_0
+
+    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator2:Ljava/lang/String;
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
+
+    goto :goto_0
+.end method
+
+.method public static getNetworkCode()Ljava/lang/String;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/android/internal/telephony/TelephonyFeatures;->getNetworkCode(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static getNetworkCode(I)Ljava/lang/String;
+    .locals 1
+
+    const/4 v0, 0x1
+
+    if-ne p0, v0, :cond_0
+
+    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mNetworkCode2:Ljava/lang/String;
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mNetworkCode:Ljava/lang/String;
+
+    goto :goto_0
+.end method
+
+.method public static getNetworkType()I
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/android/internal/telephony/TelephonyFeatures;->getNetworkType(I)I
 
     move-result v0
 
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, ""
-
-    return-object v0
-
-    :cond_0
-    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mMultiSimConfig:Ljava/lang/String;
-
-    return-object v0
+    return v0
 .end method
 
-.method public static getNtcFeature(I)Z
-    .locals 7
+.method public static getNetworkType(I)I
+    .locals 3
 
-    const/4 v6, 0x0
+    const/16 v0, 0x9
 
-    const/4 v5, 0x1
-
-    packed-switch p0, :pswitch_data_0
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "Unknown NTC feature: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v3}, Lcom/android/internal/telephony/TelephonyFeatures;->loge(Ljava/lang/String;)V
-
-    :cond_0
-    :pswitch_0
-    return v6
-
-    :pswitch_1
-    const-string/jumbo v3, "ril.voicecapable"
-
-    invoke-static {v3, v5}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->supportDualLte()Z
 
     move-result v1
 
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->isUsaCdmaModel()Z
+    if-eqz v1, :cond_0
 
-    move-result v3
+    const-string/jumbo v1, "ro.telephony.default_network"
 
-    if-eqz v3, :cond_1
+    const/16 v2, 0x9
 
-    const-string/jumbo v3, "USC"
+    invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
+    move-result-object v2
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {p0, v1, v2}, Landroid/telephony/TelephonyManager;->getTelephonyProperty(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result v3
+    move-result-object v1
 
-    if-eqz v3, :cond_2
+    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    if-eqz v1, :cond_2
+    move-result v0
+
+    :goto_0
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "CscFeature_Setting_SupportTdsCdma"
+
+    invoke-virtual {v1, p0, v2}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(ILjava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    packed-switch v0, :pswitch_data_0
+
+    :pswitch_0
+    return v0
+
+    :cond_0
+    const-string/jumbo v1, "ro.telephony.default_network"
+
+    const/4 v2, 0x0
+
+    invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {p0, v1, v2}, Landroid/telephony/TelephonyManager;->getTelephonyProperty(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    goto :goto_0
+
+    :pswitch_1
+    const/16 v1, 0x13
+
+    return v1
+
+    :pswitch_2
+    const/16 v1, 0x16
+
+    return v1
+
+    :pswitch_3
+    const/16 v1, 0x14
+
+    return v1
+
+    :pswitch_4
+    const/16 v1, 0x12
+
+    return v1
+
+    :pswitch_5
+    const/16 v1, 0xe
+
+    return v1
 
     :cond_1
-    const-string/jumbo v3, "ro.config.combined_signal"
+    return v0
 
-    invoke-static {v3, v6}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_4
+        :pswitch_0
+        :pswitch_5
+        :pswitch_4
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_3
+        :pswitch_2
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
+.end method
+
+.method public static getNtcFeature(I)Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-static {v0, p0}, Lcom/android/internal/telephony/TelephonyFeatures;->getNtcFeature(II)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static getNtcFeature(II)Z
+    .locals 6
+
+    const/4 v5, 0x3
+
+    const/4 v4, 0x2
+
+    const/4 v3, 0x0
+
+    const/4 v2, 0x1
+
+    packed-switch p1, :pswitch_data_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Unknown NTC feature: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/internal/telephony/TelephonyFeatures;->loge(Ljava/lang/String;)V
+
+    :cond_0
+    :pswitch_0
+    return v3
+
+    :pswitch_1
+    const-string/jumbo v0, "SPR"
+
+    invoke-static {p0}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    return v5
-
-    :cond_2
-    return v5
+    return v2
 
     :pswitch_2
-    const-string/jumbo v3, "SPR"
+    const-string/jumbo v0, "VZW"
 
-    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName(I)Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v1
 
-    move-result v3
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v3, :cond_0
+    move-result v0
 
-    return v5
+    if-eqz v0, :cond_0
+
+    return v2
 
     :pswitch_3
-    const-string/jumbo v3, "VZW"
+    const-string/jumbo v0, "SPR"
 
-    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName(I)Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v1
 
-    move-result v3
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v3, :cond_0
+    move-result v0
 
-    return v5
+    if-eqz v0, :cond_0
+
+    return v2
 
     :pswitch_4
-    const-string/jumbo v3, "SPR"
+    const-string/jumbo v0, "SPR"
 
-    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName(I)Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v1
 
-    move-result v3
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v3, :cond_0
+    move-result v0
 
-    return v5
+    if-eqz v0, :cond_0
+
+    return v2
 
     :pswitch_5
-    const-string/jumbo v3, "SPR"
+    const-string/jumbo v0, "SPR"
 
-    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName(I)Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v1
 
-    move-result v3
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v3, :cond_0
+    move-result v0
 
-    return v5
+    if-eqz v0, :cond_0
+
+    return v2
 
     :pswitch_6
-    const-string/jumbo v3, "SPR"
+    const-string/jumbo v0, "VZW"
 
-    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName(I)Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v1
 
-    move-result v3
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v3, :cond_0
+    move-result v0
 
-    return v5
+    if-eqz v0, :cond_0
+
+    return v2
 
     :pswitch_7
-    const-string/jumbo v3, "VZW"
+    new-array v0, v4, [Ljava/lang/String;
 
-    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
+    const-string/jumbo v1, "SPR"
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    aput-object v1, v0, v3
 
-    move-result v3
+    const-string/jumbo v1, "USC"
 
-    if-eqz v3, :cond_0
+    aput-object v1, v0, v2
 
-    return v5
+    invoke-static {p0, v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific(I[Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return v2
 
     :pswitch_8
-    const-string/jumbo v3, "SPR"
+    const/4 v0, 0x4
 
-    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v1, "VZW"
 
-    move-result v3
+    aput-object v1, v0, v3
 
-    if-nez v3, :cond_3
+    const-string/jumbo v1, "SPR"
 
-    const-string/jumbo v3, "USC"
+    aput-object v1, v0, v2
 
-    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
+    const-string/jumbo v1, "USC"
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    aput-object v1, v0, v4
 
-    move-result v3
+    const-string/jumbo v1, "GCF"
 
-    if-eqz v3, :cond_0
+    aput-object v1, v0, v5
 
-    :cond_3
-    return v5
+    invoke-static {p0, v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific(I[Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return v2
 
     :pswitch_9
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->isUsaCdmaModel()Z
+    sget-boolean v0, Lcom/android/internal/telephony/TelephonyFeatures;->mUsedLegacyIms:Z
 
-    move-result v3
+    if-nez v0, :cond_0
 
-    if-eqz v3, :cond_0
+    sget-boolean v0, Lcom/android/internal/telephony/TelephonyFeatures;->SHIP_BUILD:Z
 
-    return v5
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    return v2
 
     :pswitch_a
-    return v5
+    const-string/jumbo v0, "VZW"
+
+    invoke-static {p0}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    sget-boolean v0, Lcom/android/internal/telephony/TelephonyFeatures;->IS_PHONE:Z
+
+    if-eqz v0, :cond_0
+
+    return v2
 
     :pswitch_b
-    const-string/jumbo v3, "VZW"
+    new-array v0, v5, [Ljava/lang/String;
 
-    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
+    const-string/jumbo v1, "VZW"
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    aput-object v1, v0, v3
 
-    move-result v3
+    const-string/jumbo v1, "SPR"
 
-    if-eqz v3, :cond_0
+    aput-object v1, v0, v2
 
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+    const-string/jumbo v1, "USC"
 
-    move-result-object v3
+    aput-object v1, v0, v4
 
-    const-string/jumbo v4, "CscFeature_RIL_SupportVolte"
+    invoke-static {p0, v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific(I[Ljava/lang/String;)Z
 
-    invoke-virtual {v3, v4}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
+    move-result v0
 
-    move-result v3
+    if-eqz v0, :cond_0
 
-    if-eqz v3, :cond_0
-
-    return v5
+    return v2
 
     :pswitch_c
-    const-string/jumbo v3, "VZW"
+    new-array v0, v5, [Ljava/lang/String;
 
-    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mSubOperator:Ljava/lang/String;
+    const-string/jumbo v1, "VZW"
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    aput-object v1, v0, v3
 
-    move-result v3
+    const-string/jumbo v1, "SPR"
 
-    if-eqz v3, :cond_5
+    aput-object v1, v0, v2
 
-    const-string/jumbo v3, "ro.product.name"
+    const-string/jumbo v1, "USC"
 
-    const-string/jumbo v4, ""
+    aput-object v1, v0, v4
 
-    invoke-static {v3, v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p0, v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific(I[Ljava/lang/String;)Z
 
-    move-result-object v2
+    move-result v0
 
-    const-string/jumbo v3, "heroqltevzw"
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_4
-
-    const-string/jumbo v3, "hero2qltevzw"
-
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_4
-
-    const-string/jumbo v3, "dreamqltesq"
-
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_4
-
-    const-string/jumbo v3, "dream2qltesq"
-
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    :cond_4
-    return v5
-
-    :cond_5
-    const-string/jumbo v3, "LRA"
-
-    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mSubOperator:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const-string/jumbo v3, "ro.product.name"
-
-    const-string/jumbo v4, ""
-
-    invoke-static {v3, v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "heroqltelra"
-
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    return v5
+    return v2
 
     nop
 
@@ -733,16 +2142,168 @@
         :pswitch_9
         :pswitch_a
         :pswitch_0
+        :pswitch_0
         :pswitch_b
         :pswitch_c
-        :pswitch_0
     .end packed-switch
+.end method
+
+.method public static getOmcVersion()D
+    .locals 8
+
+    const-wide/16 v6, 0x0
+
+    sget-wide v2, Lcom/android/internal/telephony/TelephonyFeatures;->mOmcVersion:D
+
+    const-wide/high16 v4, -0x4010000000000000L    # -1.0
+
+    invoke-static {v2, v3, v4, v5}, Ljava/lang/Double;->compare(DD)I
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    :try_start_0
+    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "SEC_FLOATING_FEATURE_COMMON_CONFIG_OMC_VERSION"
+
+    const-string/jumbo v4, "0.0"
+
+    invoke-virtual {v2, v3, v4}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
+
+    move-result-wide v2
+
+    sput-wide v2, Lcom/android/internal/telephony/TelephonyFeatures;->mOmcVersion:D
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_0
+    sget-wide v2, Lcom/android/internal/telephony/TelephonyFeatures;->mOmcVersion:D
+
+    return-wide v2
+
+    :catch_0
+    move-exception v0
+
+    sput-wide v6, Lcom/android/internal/telephony/TelephonyFeatures;->mOmcVersion:D
+
+    const-string/jumbo v2, "NullPointerException"
+
+    invoke-static {v2}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v1
+
+    sput-wide v6, Lcom/android/internal/telephony/TelephonyFeatures;->mOmcVersion:D
+
+    const-string/jumbo v2, "NumberFormatException"
+
+    invoke-static {v2}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    goto :goto_0
 .end method
 
 .method public static getOperatorType()Ljava/lang/String;
     .locals 1
 
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/android/internal/telephony/TelephonyFeatures;->getOperatorType(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static getOperatorType(I)Ljava/lang/String;
+    .locals 1
+
+    const/4 v0, 0x1
+
+    if-ne p0, v0, :cond_0
+
+    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mOperatorType2:Ljava/lang/String;
+
+    :goto_0
+    return-object v0
+
+    :cond_0
     sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mOperatorType:Ljava/lang/String;
+
+    goto :goto_0
+.end method
+
+.method public static getSalesCode()Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mSalesCode:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public static getSimbasedChangeType()Ljava/lang/String;
+    .locals 2
+
+    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mSimbasedChangeType:[Ljava/lang/String;
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mSimbasedChangeType:[Ljava/lang/String;
+
+    array-length v0, v0
+
+    const/4 v1, 0x2
+
+    if-ge v0, v1, :cond_1
+
+    :cond_0
+    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeSimbasedType()V
+
+    :cond_1
+    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mSimbasedChangeType:[Ljava/lang/String;
+
+    const/4 v1, 0x1
+
+    aget-object v0, v0, v1
+
+    return-object v0
+.end method
+
+.method public static getSimbasedChangeTypeDefCode()Ljava/lang/String;
+    .locals 2
+
+    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mSimbasedChangeType:[Ljava/lang/String;
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mSimbasedChangeType:[Ljava/lang/String;
+
+    array-length v0, v0
+
+    const/4 v1, 0x2
+
+    if-ge v0, v1, :cond_1
+
+    :cond_0
+    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeSimbasedType()V
+
+    :cond_1
+    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mSimbasedChangeType:[Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    aget-object v0, v0, v1
 
     return-object v0
 .end method
@@ -750,62 +2311,159 @@
 .method public static getSubOperatorName()Ljava/lang/String;
     .locals 1
 
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/android/internal/telephony/TelephonyFeatures;->getSubOperatorName(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static getSubOperatorName(I)Ljava/lang/String;
+    .locals 1
+
+    const/4 v0, 0x1
+
+    if-ne p0, v0, :cond_0
+
+    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mSubOperator2:Ljava/lang/String;
+
+    :goto_0
+    return-object v0
+
+    :cond_0
     sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mSubOperator:Ljava/lang/String;
 
-    return-object v0
+    goto :goto_0
 .end method
 
-.method public static getUsedNetworkType()Ljava/lang/String;
+.method public static isChnGlobalModel()Z
     .locals 1
 
-    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mUsedNetworkType:Ljava/lang/String;
+    const/4 v0, 0x0
 
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isChnGlobalModel(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "UNKNOWN"
-
-    return-object v0
-
-    :cond_0
-    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mUsedNetworkType:Ljava/lang/String;
-
-    return-object v0
+    return v0
 .end method
 
-.method public static getVoltePolicy()Ljava/lang/String;
-    .locals 1
+.method public static isChnGlobalModel(I)Z
+    .locals 3
 
-    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mConfigVolteRedialPolicy:Ljava/lang/String;
+    const/4 v0, 0x0
 
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {p0}, Lcom/android/internal/telephony/TelephonyFeatures;->isGlobalModel(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v1, 0x3
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "CHN"
+
+    aput-object v2, v1, v0
+
+    const-string/jumbo v0, "HKG"
+
+    const/4 v2, 0x1
+
+    aput-object v0, v1, v2
+
+    const-string/jumbo v0, "TPE"
+
+    const/4 v2, 0x2
+
+    aput-object v0, v1, v2
+
+    invoke-static {p0, v1}, Lcom/android/internal/telephony/TelephonyFeatures;->isCountrySpecific(I[Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "UNKNOWN"
-
-    return-object v0
-
     :cond_0
-    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mConfigVolteRedialPolicy:Ljava/lang/String;
-
-    return-object v0
+    return v0
 .end method
 
-.method public static isCrossMappingSupported()Z
+.method public static varargs isCountrySpecific(I[Ljava/lang/String;)Z
+    .locals 6
+
+    const/4 v2, 0x0
+
+    const/4 v5, 0x1
+
+    array-length v3, p1
+
+    move v1, v2
+
+    :goto_0
+    if-ge v1, v3, :cond_2
+
+    aget-object v0, p1, v1
+
+    if-ne p0, v5, :cond_0
+
+    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry2:Ljava/lang/String;
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    return v5
+
+    :cond_0
+    if-eq p0, v5, :cond_1
+
+    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry:Ljava/lang/String;
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    return v5
+
+    :cond_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    return v2
+.end method
+
+.method public static varargs isCountrySpecific([Ljava/lang/String;)Z
     .locals 1
 
-    sget-boolean v0, Lcom/android/internal/telephony/TelephonyFeatures;->mCrossMappingSupported:Z
+    const/4 v0, 0x0
+
+    invoke-static {v0, p0}, Lcom/android/internal/telephony/TelephonyFeatures;->isCountrySpecific(I[Ljava/lang/String;)Z
+
+    move-result v0
 
     return v0
 .end method
 
 .method public static isGCFMode()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isGCFMode(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static isGCFMode(I)Z
     .locals 3
 
     const-string/jumbo v1, "persist.ims.gcfmode"
@@ -818,7 +2476,7 @@
 
     const-string/jumbo v1, "GCF"
 
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName()Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -841,6 +2499,34 @@
     const/4 v1, 0x1
 
     goto :goto_0
+.end method
+
+.method public static isGlobalModel()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isGlobalModel(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static isGlobalModel(I)Z
+    .locals 2
+
+    const-string/jumbo v0, "GLB"
+
+    invoke-static {p0}, Lcom/android/internal/telephony/TelephonyFeatures;->getOperatorType(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public static varargs isIccOperatorNumericSpecific(I[Ljava/lang/String;)Z
@@ -884,7 +2570,282 @@
     return v3
 .end method
 
+.method public static isKdiSim(I)Z
+    .locals 5
+
+    const/4 v4, 0x1
+
+    const/4 v3, 0x0
+
+    const/16 v0, 0x16
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const-string/jumbo v1, "44050"
+
+    aput-object v1, v0, v3
+
+    const-string/jumbo v1, "44051"
+
+    aput-object v1, v0, v4
+
+    const-string/jumbo v1, "44007"
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "44008"
+
+    const/4 v2, 0x3
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "44052"
+
+    const/4 v2, 0x4
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "44053"
+
+    const/4 v2, 0x5
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "44054"
+
+    const/4 v2, 0x6
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "44055"
+
+    const/4 v2, 0x7
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "44056"
+
+    const/16 v2, 0x8
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "44070"
+
+    const/16 v2, 0x9
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "44071"
+
+    const/16 v2, 0xa
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "44072"
+
+    const/16 v2, 0xb
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "44073"
+
+    const/16 v2, 0xc
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "44074"
+
+    const/16 v2, 0xd
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "44075"
+
+    const/16 v2, 0xe
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "44076"
+
+    const/16 v2, 0xf
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "44077"
+
+    const/16 v2, 0x10
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "44078"
+
+    const/16 v2, 0x11
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "44079"
+
+    const/16 v2, 0x12
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "44088"
+
+    const/16 v2, 0x13
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "44089"
+
+    const/16 v2, 0x14
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "44170"
+
+    const/16 v2, 0x15
+
+    aput-object v1, v0, v2
+
+    invoke-static {p0, v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isIccOperatorNumericSpecific(I[Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return v4
+
+    :cond_0
+    return v3
+.end method
+
+.method public static varargs isMainOperatorSpecific(I[Ljava/lang/String;)Z
+    .locals 6
+
+    const/4 v2, 0x0
+
+    const/4 v5, 0x1
+
+    array-length v3, p1
+
+    move v1, v2
+
+    :goto_0
+    if-ge v1, v3, :cond_2
+
+    aget-object v0, p1, v1
+
+    if-ne p0, v5, :cond_0
+
+    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator2:Ljava/lang/String;
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    return v5
+
+    :cond_0
+    if-eq p0, v5, :cond_1
+
+    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    return v5
+
+    :cond_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    return v2
+.end method
+
 .method public static varargs isMainOperatorSpecific([Ljava/lang/String;)Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-static {v0, p0}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific(I[Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static varargs isNetworkCodeSpecific(I[Ljava/lang/String;)Z
+    .locals 6
+
+    const/4 v2, 0x0
+
+    const/4 v5, 0x1
+
+    array-length v3, p1
+
+    move v1, v2
+
+    :goto_0
+    if-ge v1, v3, :cond_2
+
+    aget-object v0, p1, v1
+
+    if-ne p0, v5, :cond_0
+
+    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mNetworkCode2:Ljava/lang/String;
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    return v5
+
+    :cond_0
+    if-eq p0, v5, :cond_1
+
+    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mNetworkCode:Ljava/lang/String;
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    return v5
+
+    :cond_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    return v2
+.end method
+
+.method public static varargs isNetworkCodeSpecific([Ljava/lang/String;)Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-static {v0, p0}, Lcom/android/internal/telephony/TelephonyFeatures;->isNetworkCodeSpecific(I[Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static varargs isSalesCodeSpecific([Ljava/lang/String;)Z
     .locals 5
 
     const/4 v2, 0x0
@@ -898,7 +2859,7 @@
 
     aget-object v0, p0, v1
 
-    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
+    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mSalesCode:Ljava/lang/String;
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -919,53 +2880,6 @@
     return v2
 .end method
 
-.method public static isOpenMarket()Z
-    .locals 3
-
-    const/4 v2, 0x1
-
-    const-string/jumbo v0, "XSA"
-
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    return v2
-
-    :cond_0
-    const-string/jumbo v0, "BTU"
-
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    const-string/jumbo v0, "XEU"
-
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    :cond_1
-    return v2
-
-    :cond_2
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
 .method public static isSimHotswapSupported()Z
     .locals 1
 
@@ -974,91 +2888,175 @@
     return v0
 .end method
 
-.method public static isUsaCdmaModel()Z
-    .locals 2
+.method public static varargs isSubOperatorSpecific(I[Ljava/lang/String;)Z
+    .locals 6
 
-    const-string/jumbo v0, "USA"
+    const/4 v2, 0x0
 
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry:Ljava/lang/String;
+    const/4 v5, 0x1
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    array-length v3, p1
 
-    move-result v0
+    move v1, v2
 
-    if-eqz v0, :cond_1
+    :goto_0
+    if-ge v1, v3, :cond_2
 
-    const-string/jumbo v0, "CDM"
+    aget-object v0, p1, v1
 
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mOperatorType:Ljava/lang/String;
+    if-ne p0, v5, :cond_0
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mSubOperator2:Ljava/lang/String;
 
-    move-result v0
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-nez v0, :cond_0
+    move-result v4
 
-    const-string/jumbo v0, "GLB"
+    if-eqz v4, :cond_0
 
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mOperatorType:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const-string/jumbo v0, "CLS"
-
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mOperatorType:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
+    return v5
 
     :cond_0
-    const/4 v0, 0x1
+    if-eq p0, v5, :cond_1
 
-    return v0
+    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mSubOperator:Ljava/lang/String;
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    return v5
 
     :cond_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    return v2
+.end method
+
+.method public static varargs isSubOperatorSpecific([Ljava/lang/String;)Z
+    .locals 1
+
     const/4 v0, 0x0
+
+    invoke-static {v0, p0}, Lcom/android/internal/telephony/TelephonyFeatures;->isSubOperatorSpecific(I[Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static isTimOperator(I)Z
+    .locals 4
+
+    const/4 v3, 0x1
+
+    const/4 v2, 0x0
+
+    new-array v0, v3, [Ljava/lang/String;
+
+    const-string/jumbo v1, "22201"
+
+    aput-object v1, v0, v2
+
+    invoke-static {p0, v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isIccOperatorNumericSpecific(I[Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return v3
+
+    :cond_0
+    return v2
+.end method
+
+.method public static isUsaCdmaModel()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isUsaCdmaModel(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static isUsaCdmaModel(I)Z
+    .locals 3
+
+    const/4 v0, 0x3
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const-string/jumbo v1, "VZW"
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "SPR"
+
+    const/4 v2, 0x1
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "USC"
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    invoke-static {p0, v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific(I[Ljava/lang/String;)Z
+
+    move-result v0
 
     return v0
 .end method
 
 .method public static isUsaGlobalModel()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isUsaGlobalModel(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static isUsaGlobalModel(I)Z
     .locals 2
+
+    invoke-static {p0}, Lcom/android/internal/telephony/TelephonyFeatures;->isGlobalModel(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     const-string/jumbo v0, "USA"
 
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry:Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/internal/telephony/TelephonyFeatures;->getCountryName(I)Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "GLB"
-
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mOperatorType:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
+    :goto_0
     return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    return v0
+    goto :goto_0
 .end method
 
 .method private static log(Ljava/lang/String;)V
@@ -1081,20 +3079,22 @@
     return-void
 .end method
 
-.method public static needApHandlingStkCmdForCp(Ljava/lang/String;)Z
+.method public static needApHandlingStkCmdForCp(ILjava/lang/String;)Z
     .locals 2
 
     const-string/jumbo v0, "SetupCall"
 
-    invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
+    const-string/jumbo v0, "BMC"
 
-    const-string/jumbo v1, "BMC"
+    invoke-static {p0}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName(I)Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1108,6 +3108,18 @@
 
     :cond_0
     const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public static needApHandlingStkCmdForCp(Ljava/lang/String;)Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-static {v0, p0}, Lcom/android/internal/telephony/TelephonyFeatures;->needApHandlingStkCmdForCp(ILjava/lang/String;)Z
+
+    move-result v0
 
     return v0
 .end method
@@ -1143,7 +3155,7 @@
 
     aput-object v2, v1, v3
 
-    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific([Ljava/lang/String;)Z
+    invoke-static {p0, v1}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific(I[Ljava/lang/String;)Z
 
     move-result v1
 
@@ -1168,13 +3180,13 @@
 
     if-eqz v1, :cond_1
 
-    new-array v1, v5, [Ljava/lang/String;
+    const-string/jumbo v1, "KTT"
 
-    const-string/jumbo v2, "KTT"
+    invoke-static {p0}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName(I)Ljava/lang/String;
 
-    aput-object v2, v1, v4
+    move-result-object v2
 
-    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific([Ljava/lang/String;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -1189,13 +3201,13 @@
 
     if-eqz v1, :cond_2
 
-    new-array v1, v5, [Ljava/lang/String;
+    const-string/jumbo v1, "LGT"
 
-    const-string/jumbo v2, "LGT"
+    invoke-static {p0}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName(I)Ljava/lang/String;
 
-    aput-object v2, v1, v4
+    move-result-object v2
 
-    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific([Ljava/lang/String;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -1210,13 +3222,13 @@
 
     if-eqz v1, :cond_4
 
-    new-array v1, v5, [Ljava/lang/String;
+    const-string/jumbo v1, "SKT"
 
-    const-string/jumbo v2, "SKT"
+    invoke-static {p0}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName(I)Ljava/lang/String;
 
-    aput-object v2, v1, v4
+    move-result-object v2
 
-    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific([Ljava/lang/String;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -1228,7 +3240,9 @@
     :cond_4
     const-string/jumbo v1, "KOO"
 
-    sget-object v2, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName(I)Ljava/lang/String;
+
+    move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1267,322 +3281,481 @@
     return v4
 .end method
 
-.method public static needToSetCWDB(I)Z
-    .locals 5
-
-    const/4 v4, 0x1
-
-    const/4 v3, 0x0
-
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "CscFeature_RIL_SupportVolte"
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    return v3
-
-    :cond_0
-    const-string/jumbo v1, "ril.ICC_TYPE"
-
-    const-string/jumbo v2, "0"
-
-    invoke-static {p0, v1, v2}, Landroid/telephony/TelephonyManager;->getTelephonyProperty(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v0
-
-    if-gt v0, v4, :cond_1
-
-    return v3
-
-    :cond_1
-    new-array v1, v4, [Ljava/lang/String;
-
-    const-string/jumbo v2, "46697"
-
-    aput-object v2, v1, v3
-
-    invoke-static {p0, v1}, Lcom/android/internal/telephony/TelephonyFeatures;->isIccOperatorNumericSpecific(I[Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    return v4
-
-    :cond_2
-    return v3
-.end method
-
 .method public static reInitialize()V
-    .locals 8
+    .locals 13
 
     sget-object v2, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
 
-    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mSubOperator:Ljava/lang/String;
+    sget-object v8, Lcom/android/internal/telephony/TelephonyFeatures;->mSubOperator:Ljava/lang/String;
 
-    sget-object v3, Lcom/android/internal/telephony/TelephonyFeatures;->mOperatorType:Ljava/lang/String;
+    sget-object v6, Lcom/android/internal/telephony/TelephonyFeatures;->mOperatorType:Ljava/lang/String;
 
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry:Ljava/lang/String;
+    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry:Ljava/lang/String;
 
-    sget-object v5, Lcom/android/internal/telephony/TelephonyFeatures;->mUsedNetworkType:Ljava/lang/String;
+    sget-object v4, Lcom/android/internal/telephony/TelephonyFeatures;->mNetworkCode:Ljava/lang/String;
 
-    sget-object v0, Lcom/android/internal/telephony/TelephonyFeatures;->mConfigVolteRedialPolicy:Ljava/lang/String;
+    sget-object v3, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator2:Ljava/lang/String;
 
-    const/4 v6, 0x0
+    sget-object v9, Lcom/android/internal/telephony/TelephonyFeatures;->mSubOperator2:Ljava/lang/String;
 
-    invoke-static {v6}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(I)Ljava/lang/String;
+    sget-object v7, Lcom/android/internal/telephony/TelephonyFeatures;->mOperatorType2:Ljava/lang/String;
 
-    move-result-object v6
+    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry2:Ljava/lang/String;
 
-    sput-object v6, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
+    sget-object v5, Lcom/android/internal/telephony/TelephonyFeatures;->mNetworkCode2:Ljava/lang/String;
 
-    const/4 v6, 0x1
+    const/4 v10, 0x0
 
-    invoke-static {v6}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(I)Ljava/lang/String;
+    const/4 v11, 0x0
 
-    move-result-object v6
+    invoke-static {v10, v11}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(II)Ljava/lang/String;
 
-    sput-object v6, Lcom/android/internal/telephony/TelephonyFeatures;->mSubOperator:Ljava/lang/String;
+    move-result-object v10
 
-    const/4 v6, 0x2
+    sput-object v10, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
 
-    invoke-static {v6}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(I)Ljava/lang/String;
+    const/4 v10, 0x0
 
-    move-result-object v6
+    const/4 v11, 0x1
 
-    sput-object v6, Lcom/android/internal/telephony/TelephonyFeatures;->mOperatorType:Ljava/lang/String;
+    invoke-static {v10, v11}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(II)Ljava/lang/String;
 
-    const/4 v6, 0x3
+    move-result-object v10
 
-    invoke-static {v6}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(I)Ljava/lang/String;
+    sput-object v10, Lcom/android/internal/telephony/TelephonyFeatures;->mSubOperator:Ljava/lang/String;
 
-    move-result-object v6
+    const/4 v10, 0x0
 
-    sput-object v6, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry:Ljava/lang/String;
+    const/4 v11, 0x2
 
-    const-string/jumbo v6, ""
+    invoke-static {v10, v11}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(II)Ljava/lang/String;
 
-    sput-object v6, Lcom/android/internal/telephony/TelephonyFeatures;->mUsedNetworkType:Ljava/lang/String;
+    move-result-object v10
 
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+    sput-object v10, Lcom/android/internal/telephony/TelephonyFeatures;->mOperatorType:Ljava/lang/String;
 
-    move-result-object v6
+    const/4 v10, 0x0
 
-    const-string/jumbo v7, "CscFeature_RIL_ConfigVolteRedialPolicy"
+    const/4 v11, 0x3
 
-    invoke-virtual {v6, v7}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v10, v11}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(II)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v10
 
-    sput-object v6, Lcom/android/internal/telephony/TelephonyFeatures;->mConfigVolteRedialPolicy:Ljava/lang/String;
+    sput-object v10, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry:Ljava/lang/String;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v10, "ro.csc.omcnw_code"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v11, "ro.csc.sales_code"
 
-    const-string/jumbo v7, "reInitialize - MainOperator: "
+    const-string/jumbo v12, "NONE"
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v11, v12}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v11
 
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v10, v11}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v10
 
-    const-string/jumbo v7, " -> "
+    sput-object v10, Lcom/android/internal/telephony/TelephonyFeatures;->mNetworkCode:Ljava/lang/String;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/4 v10, 0x1
 
-    move-result-object v6
+    const/4 v11, 0x0
 
-    sget-object v7, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
+    invoke-static {v10, v11}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(II)Ljava/lang/String;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v10
 
-    move-result-object v6
+    sput-object v10, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator2:Ljava/lang/String;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const/4 v10, 0x1
 
-    move-result-object v6
+    const/4 v11, 0x1
 
-    invoke-static {v6}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+    invoke-static {v10, v11}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(II)Ljava/lang/String;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    move-result-object v10
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    sput-object v10, Lcom/android/internal/telephony/TelephonyFeatures;->mSubOperator2:Ljava/lang/String;
 
-    const-string/jumbo v7, "reInitialize - SubOperator: "
+    const/4 v10, 0x1
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/4 v11, 0x2
 
-    move-result-object v6
+    invoke-static {v10, v11}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(II)Ljava/lang/String;
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v10
 
-    move-result-object v6
+    sput-object v10, Lcom/android/internal/telephony/TelephonyFeatures;->mOperatorType2:Ljava/lang/String;
 
-    const-string/jumbo v7, " -> "
+    const/4 v10, 0x1
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/4 v11, 0x3
 
-    move-result-object v6
+    invoke-static {v10, v11}, Lcom/android/internal/telephony/TelephonyFeatures;->InitializeNetworkTypeCapability(II)Ljava/lang/String;
 
-    sget-object v7, Lcom/android/internal/telephony/TelephonyFeatures;->mSubOperator:Ljava/lang/String;
+    move-result-object v10
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sput-object v10, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry2:Ljava/lang/String;
 
-    move-result-object v6
+    const-string/jumbo v10, "ro.csc.omcnw_code2"
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v11, "ro.csc.sales_code"
 
-    move-result-object v6
+    const-string/jumbo v12, "NONE"
 
-    invoke-static {v6}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+    invoke-static {v11, v12}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    move-result-object v11
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v10, v11}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    const-string/jumbo v7, "reInitialize - OperatorType: "
+    move-result-object v10
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sput-object v10, Lcom/android/internal/telephony/TelephonyFeatures;->mNetworkCode2:Ljava/lang/String;
 
-    move-result-object v6
+    const-string/jumbo v10, "----- TelephonyFeatures.reInitialize -----"
 
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v10}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
 
-    move-result-object v6
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, " -> "
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v11, "MainOperator(PRIMARY): "
 
-    move-result-object v6
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v7, Lcom/android/internal/telephony/TelephonyFeatures;->mOperatorType:Ljava/lang/String;
+    move-result-object v10
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v10
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v11, " -> "
 
-    move-result-object v6
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v6}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+    move-result-object v10
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    sget-object v11, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, "reInitialize - Country: "
+    move-result-object v10
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v10
 
-    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v10}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
 
-    move-result-object v6
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, " -> "
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v11, "SubOperator(PRIMARY): "
 
-    move-result-object v6
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v7, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry:Ljava/lang/String;
+    move-result-object v10
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v10
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v11, " -> "
 
-    move-result-object v6
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v6}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+    move-result-object v10
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    sget-object v11, Lcom/android/internal/telephony/TelephonyFeatures;->mSubOperator:Ljava/lang/String;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, "reInitialize - UsedNetworkType: "
+    move-result-object v10
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v10
 
-    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v10}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
 
-    move-result-object v6
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, " -> "
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v11, "OperatorType(PRIMARY): "
 
-    move-result-object v6
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v7, Lcom/android/internal/telephony/TelephonyFeatures;->mUsedNetworkType:Ljava/lang/String;
+    move-result-object v10
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v10
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v11, " -> "
 
-    move-result-object v6
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v6}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+    move-result-object v10
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    sget-object v11, Lcom/android/internal/telephony/TelephonyFeatures;->mOperatorType:Ljava/lang/String;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, "reInitialize - ConfigVolteRedialPolicy: "
+    move-result-object v10
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v10
 
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v10}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
 
-    move-result-object v6
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, " -> "
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v11, "Country(PRIMARY): "
 
-    move-result-object v6
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v7, Lcom/android/internal/telephony/TelephonyFeatures;->mConfigVolteRedialPolicy:Ljava/lang/String;
+    move-result-object v10
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v10
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v11, " -> "
 
-    move-result-object v6
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v6}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+    move-result-object v10
+
+    sget-object v11, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry:Ljava/lang/String;
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v10}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "NetworkCode(PRIMARY): "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, " -> "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    sget-object v11, Lcom/android/internal/telephony/TelephonyFeatures;->mNetworkCode:Ljava/lang/String;
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v10}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "MainOperator(SECONDARY): "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, " -> "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    sget-object v11, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator2:Ljava/lang/String;
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v10}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "SubOperator(SECONDARY): "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, " -> "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    sget-object v11, Lcom/android/internal/telephony/TelephonyFeatures;->mSubOperator2:Ljava/lang/String;
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v10}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "OperatorType(SECONDARY): "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, " -> "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    sget-object v11, Lcom/android/internal/telephony/TelephonyFeatures;->mOperatorType2:Ljava/lang/String;
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v10}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "Country(SECONDARY): "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, " -> "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    sget-object v11, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry2:Ljava/lang/String;
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v10}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "NetworkCode(SECONDARY): "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, " -> "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    sget-object v11, Lcom/android/internal/telephony/TelephonyFeatures;->mNetworkCode2:Ljava/lang/String;
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v10}, Lcom/android/internal/telephony/TelephonyFeatures;->log(Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method public static setFakeRoamingOrHome()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/android/internal/telephony/TelephonyFeatures;->setFakeRoamingOrHome(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static setFakeRoamingOrHome(I)Z
     .locals 5
 
     const/4 v4, 0x1
@@ -1613,7 +3786,7 @@
 
     aput-object v1, v0, v2
 
-    invoke-static {v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific([Ljava/lang/String;)Z
+    invoke-static {p0, v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific(I[Ljava/lang/String;)Z
 
     move-result v0
 
@@ -1625,123 +3798,24 @@
     return v4
 .end method
 
-.method public static showEpdgNetName(I)Z
-    .locals 2
+.method public static showVoiceAsDataNetworkType()Z
+    .locals 1
 
-    const-string/jumbo v0, "EUR"
-
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const-string/jumbo v0, "TMO"
-
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_1
     const/4 v0, 0x0
 
+    invoke-static {v0}, Lcom/android/internal/telephony/TelephonyFeatures;->showVoiceAsDataNetworkType(I)Z
+
+    move-result v0
+
     return v0
 .end method
 
-.method public static showEpdgNetNameWhenOos(I)Z
-    .locals 5
+.method public static showVoiceAsDataNetworkType(I)Z
+    .locals 4
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    const/4 v3, 0x0
-
-    const-string/jumbo v0, "BTU"
-
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const-string/jumbo v0, "XEU"
-
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    :cond_0
-    const/4 v0, 0x3
-
-    new-array v0, v0, [Ljava/lang/String;
-
-    const-string/jumbo v1, "23430"
-
-    aput-object v1, v0, v3
-
-    const-string/jumbo v1, "23433"
-
-    aput-object v1, v0, v4
-
-    const-string/jumbo v1, "23486"
-
-    const/4 v2, 0x2
-
-    aput-object v1, v0, v2
-
-    invoke-static {p0, v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isIccOperatorNumericSpecific(I[Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    return v4
-
-    :cond_1
-    return v3
-
-    :cond_2
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->isUsaCdmaModel()Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    const-string/jumbo v0, "EUR"
-
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    :cond_3
-    return v4
-
-    :cond_4
-    return v3
-.end method
-
-.method public static showVoiceAsDataNetworkType()Z
-    .locals 2
+    const/4 v2, 0x0
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
@@ -1749,167 +3823,84 @@
 
     const-string/jumbo v1, "CscFeature_RIL_UseRatInfoDuringPlmnSelection"
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v0, p0, v1}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(ILjava/lang/String;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    const-string/jumbo v0, "HKG"
+    const/4 v0, 0x2
 
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry:Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v1, "HKG"
 
-    move-result v0
+    aput-object v1, v0, v2
 
-    if-nez v0, :cond_0
+    const-string/jumbo v1, "TPE"
 
-    const-string/jumbo v0, "TPE"
+    aput-object v1, v0, v3
 
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mCountry:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {p0, v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isCountrySpecific(I[Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
     :cond_0
-    const/4 v0, 0x1
-
-    return v0
+    return v3
 
     :cond_1
-    const/4 v0, 0x0
-
-    return v0
+    return v2
 .end method
 
-.method public static terminalBasedCallWaiting(I)Z
-    .locals 7
+.method public static supportDualLte()Z
+    .locals 5
 
-    const/4 v6, 0x3
+    const/4 v4, 0x1
 
-    const/4 v3, 0x2
+    const-string/jumbo v0, ""
 
-    const/4 v5, 0x1
+    const-string/jumbo v2, "DSDS_SI"
 
-    const/4 v4, 0x0
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+    move-result v2
 
-    move-result-object v1
+    if-nez v2, :cond_0
 
-    const-string/jumbo v2, "CscFeature_RIL_SupportVolte"
+    const-string/jumbo v2, "DSDS_DI"
 
-    invoke-virtual {v1, v2}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_0
-
-    return v4
+    if-eqz v2, :cond_1
 
     :cond_0
-    new-array v1, v6, [Ljava/lang/String;
-
-    const-string/jumbo v2, "CHM"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "CHC"
-
-    aput-object v2, v1, v5
-
-    const-string/jumbo v2, "TGY"
-
-    aput-object v2, v1, v3
-
-    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific([Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    const-string/jumbo v1, "ril.ICC_TYPE"
-
-    const-string/jumbo v2, "0"
-
-    invoke-static {p0, v1, v2}, Landroid/telephony/TelephonyManager;->getTelephonyProperty(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v0
-
-    if-gt v0, v5, :cond_1
-
     return v4
 
     :cond_1
-    const/4 v1, 0x5
+    const-string/jumbo v2, "persist.ril.config.dualims"
 
-    new-array v1, v1, [Ljava/lang/String;
+    const-string/jumbo v3, ""
 
-    const-string/jumbo v2, "46000"
+    invoke-static {v2, v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    aput-object v2, v1, v4
+    move-result-object v1
 
-    const-string/jumbo v2, "46002"
+    const-string/jumbo v2, "DSDS_DI"
 
-    aput-object v2, v1, v5
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "46004"
+    move-result v2
 
-    aput-object v2, v1, v3
+    if-eqz v2, :cond_2
 
-    const-string/jumbo v2, "46007"
-
-    aput-object v2, v1, v6
-
-    const-string/jumbo v2, "46008"
-
-    const/4 v3, 0x4
-
-    aput-object v2, v1, v3
-
-    invoke-static {p0, v1}, Lcom/android/internal/telephony/TelephonyFeatures;->isIccOperatorNumericSpecific(I[Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    return v5
+    return v4
 
     :cond_2
-    new-array v1, v5, [Ljava/lang/String;
+    const/4 v2, 0x0
 
-    const-string/jumbo v2, "BRI"
-
-    aput-object v2, v1, v4
-
-    invoke-static {v1}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific([Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    new-array v1, v5, [Ljava/lang/String;
-
-    const-string/jumbo v2, "46689"
-
-    aput-object v2, v1, v4
-
-    invoke-static {p0, v1}, Lcom/android/internal/telephony/TelephonyFeatures;->isIccOperatorNumericSpecific(I[Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    return v5
-
-    :cond_3
-    return v4
+    return v2
 .end method

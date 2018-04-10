@@ -111,14 +111,6 @@
     .end annotation
 .end method
 
-.method public abstract semRefreshConnection(Landroid/content/Intent;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract semSetToggleButtonChecked(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

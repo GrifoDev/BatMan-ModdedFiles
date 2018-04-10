@@ -196,6 +196,8 @@
 
     const/16 v1, 0x1f
 
+    const/4 v0, 0x1
+
     iget-object v2, p0, Landroid/print/PrinterId;->mServiceName:Landroid/content/ComponentName;
 
     invoke-virtual {v2}, Landroid/content/ComponentName;->hashCode()I

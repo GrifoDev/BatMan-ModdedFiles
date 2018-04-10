@@ -31,7 +31,7 @@
 
 .field private final mListener:Landroid/media/IMediaScannerListener$Stub;
 
-.field private mPackageName:Ljava/lang/String;
+.field private final mPackageName:Ljava/lang/String;
 
 .field private mService:Landroid/media/IMediaScannerService;
 
@@ -46,62 +46,27 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/media/MediaScannerConnection$MediaScannerConnectionClient;)V
-    .locals 4
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v1, Landroid/media/MediaScannerConnection$1;
+    new-instance v0, Landroid/media/MediaScannerConnection$1;
 
-    invoke-direct {v1, p0}, Landroid/media/MediaScannerConnection$1;-><init>(Landroid/media/MediaScannerConnection;)V
+    invoke-direct {v0, p0}, Landroid/media/MediaScannerConnection$1;-><init>(Landroid/media/MediaScannerConnection;)V
 
-    iput-object v1, p0, Landroid/media/MediaScannerConnection;->mListener:Landroid/media/IMediaScannerListener$Stub;
+    iput-object v0, p0, Landroid/media/MediaScannerConnection;->mListener:Landroid/media/IMediaScannerListener$Stub;
 
-    :try_start_0
     iput-object p1, p0, Landroid/media/MediaScannerConnection;->mContext:Landroid/content/Context;
 
     iput-object p2, p0, Landroid/media/MediaScannerConnection;->mClient:Landroid/media/MediaScannerConnection$MediaScannerConnectionClient;
 
     invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Landroid/media/MediaScannerConnection;->mPackageName:Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+    iput-object v0, p0, Landroid/media/MediaScannerConnection;->mPackageName:Ljava/lang/String;
 
-    :goto_0
     return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "MediaScannerConnection"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "NullPointerException: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v0}, Ljava/lang/NullPointerException;->getMessage()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
 .end method
 
 .method public static scanFile(Landroid/content/Context;[Ljava/lang/String;[Ljava/lang/String;Landroid/media/MediaScannerConnection$OnScanCompletedListener;)V
@@ -207,12 +172,27 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     :try_start_1
     iget-object v1, p0, Landroid/media/MediaScannerConnection;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, p0}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
+
+    iget-object v1, p0, Landroid/media/MediaScannerConnection;->mClient:Landroid/media/MediaScannerConnection$MediaScannerConnectionClient;
+
+    instance-of v1, v1, Landroid/media/MediaScannerConnection$ClientProxy;
+
+    if-eqz v1, :cond_0
+
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Landroid/media/MediaScannerConnection;->mClient:Landroid/media/MediaScannerConnection$MediaScannerConnectionClient;
+
+    :cond_0
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Landroid/media/MediaScannerConnection;->mService:Landroid/media/IMediaScannerService;
     :try_end_1
     .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -225,7 +205,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    :cond_0
+    :cond_1
     monitor-exit p0
 
     return-void
@@ -349,11 +329,30 @@
     if-eqz v1, :cond_0
 
     iget-boolean v1, p0, Landroid/media/MediaScannerConnection;->mConnected:Z
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    new-instance v1, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v2, "not connected to MediaScannerService"
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v1, :cond_0
+    :catchall_0
+    move-exception v1
 
+    monitor-exit p0
+
+    throw v1
+
+    :cond_1
     :try_start_1
     iget-object v1, p0, Landroid/media/MediaScannerConnection;->mService:Landroid/media/IMediaScannerService;
 
@@ -375,25 +374,6 @@
 
     return-void
 
-    :cond_0
-    :try_start_2
-    new-instance v1, Ljava/lang/IllegalStateException;
-
-    const-string/jumbo v2, "not connected to MediaScannerService"
-
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit p0
-
-    throw v1
-
     :catch_0
     move-exception v0
 
@@ -411,12 +391,31 @@
     if-eqz v4, :cond_0
 
     iget-boolean v4, p0, Landroid/media/MediaScannerConnection;->mConnected:Z
+
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_1
+
+    :cond_0
+    new-instance v4, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v5, "not connected to MediaScannerService"
+
+    invoke-direct {v4, v5}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v4
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v4, :cond_0
+    :catchall_0
+    move-exception v4
 
-    if-nez p1, :cond_1
+    monitor-exit p0
+
+    throw v4
+
+    :cond_1
+    if-nez p1, :cond_2
 
     :try_start_1
     new-instance v4, Ljava/lang/NullPointerException;
@@ -439,33 +438,14 @@
 
     return-void
 
-    :cond_0
-    :try_start_2
-    new-instance v4, Ljava/lang/IllegalStateException;
-
-    const-string/jumbo v5, "not connected to MediaScannerService"
-
-    invoke-direct {v4, v5}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v4
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    :catchall_0
-    move-exception v4
-
-    monitor-exit p0
-
-    throw v4
-
-    :cond_1
+    :cond_2
     const/4 v3, 0x0
 
     :goto_1
-    :try_start_3
+    :try_start_2
     array-length v4, p1
 
-    if-ge v3, v4, :cond_4
+    if-ge v3, v4, :cond_5
 
     new-instance v2, Ljava/io/File;
 
@@ -477,7 +457,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3
 
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
@@ -504,15 +484,15 @@
     invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v4
-    :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
-    .catch Ljava/lang/NullPointerException; {:try_start_3 .. :try_end_3} :catch_1
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/lang/NullPointerException; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :catch_1
     move-exception v1
 
-    :try_start_4
+    :try_start_3
     const-string/jumbo v4, "MediaScannerConnection"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -538,13 +518,13 @@
     move-result-object v5
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto :goto_0
 
-    :cond_2
-    :try_start_5
+    :cond_3
+    :try_start_4
     aget-object v4, p1, v3
 
     const-string/jumbo v5, "/"
@@ -553,7 +533,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4
 
     aget-object v4, p1, v3
 
@@ -573,12 +553,12 @@
 
     aput-object v4, p1, v3
 
-    :cond_3
+    :cond_4
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     iget-object v4, p0, Landroid/media/MediaScannerConnection;->mService:Landroid/media/IMediaScannerService;
 
     iget-object v5, p0, Landroid/media/MediaScannerConnection;->mPackageName:Ljava/lang/String;
@@ -590,10 +570,10 @@
     iget-object v5, p0, Landroid/media/MediaScannerConnection;->mListener:Landroid/media/IMediaScannerListener$Stub;
 
     invoke-interface {v4, p1, v5}, Landroid/media/IMediaScannerService;->semRequestScanDirectories([Ljava/lang/String;Landroid/media/IMediaScannerListener;)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_0
-    .catch Ljava/lang/NullPointerException; {:try_start_5 .. :try_end_5} :catch_1
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    :try_end_4
+    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_0
+    .catch Ljava/lang/NullPointerException; {:try_start_4 .. :try_end_4} :catch_1
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    goto/16 :goto_0
+    goto :goto_0
 .end method

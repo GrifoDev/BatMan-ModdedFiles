@@ -45,7 +45,7 @@
 
     iget-object v0, p0, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest$CPUCoreReleaser;->this$1:Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;
 
-    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->cancelFrequencyRequest()V
+    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;->cancelFrequencyRequest()V
 
     :cond_0
     return-void

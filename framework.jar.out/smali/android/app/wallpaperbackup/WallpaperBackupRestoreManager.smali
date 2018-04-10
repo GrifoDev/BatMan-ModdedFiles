@@ -16,6 +16,10 @@
 # static fields
 .field public static final CROP_IMAGE_BACKUP:I = 0x0
 
+.field private static final DISABLE:I = 0x0
+
+.field private static final ENABLE:I = 0x1
+
 .field private static final ERROR_KEY:Ljava/lang/String; = "ERR_CODE"
 
 .field private static final EXTRA_ERR_CODE:Ljava/lang/String; = "EXTRA_ERR_CODE"
@@ -52,9 +56,13 @@
 
 .field private static final RESULT_KEY:Ljava/lang/String; = "RESULT"
 
+.field private static final SENSOR_TYPE_INTERRUPT_GYROSCOPE:I = 0x1002b
+
 .field private static final SESSION_TIME_KEY:Ljava/lang/String; = "EXPORT_SESSION_TIME"
 
 .field private static final SETTINGS_SYSTEMUI_TRANSPARENCY:Ljava/lang/String; = "android.wallpaper.settings_systemui_transparency"
+
+.field private static final SETTINGS_WALLPAPER_TILT_STATUS:Ljava/lang/String; = "wallpaper_tilt_status"
 
 .field private static final SOURCE_KEY:Ljava/lang/String; = "SOURCE"
 
@@ -62,13 +70,13 @@
 
 .field private static final TAG:Ljava/lang/String; = "WallpaperBackupRestoreManager"
 
-.field private static final WALLPAPERCROPPER2_LOCK_FILE_PATH:Ljava/lang/String; = "/Android/data/com.sec.android.wallpapercropper2/files/original_file_lock.jpg"
+.field private static final WALLPAPERCROPPER2_LOCK_FILE_PATH:Ljava/lang/String; = "/Android/data/com.android.systemui/files/backupwallpapers/original_file_lock.jpg"
 
-.field private static final WALLPAPERCROPPER2_LOCK_XML_FILE_PATH:Ljava/lang/String; = "/Android/data/com.sec.android.wallpapercropper2/files/backup_lock.xml"
+.field private static final WALLPAPERCROPPER2_LOCK_XML_FILE_PATH:Ljava/lang/String; = "/Android/data/com.android.systemui/files/backupwallpapers/backup_lock.xml"
 
-.field private static final WALLPAPERCROPPER2_SYSTEM_FILE_PATH:Ljava/lang/String; = "/Android/data/com.sec.android.wallpapercropper2/files/original_file_home.jpg"
+.field private static final WALLPAPERCROPPER2_SYSTEM_FILE_PATH:Ljava/lang/String; = "/Android/data/com.android.systemui/files/backupwallpapers/original_file_home.jpg"
 
-.field private static final WALLPAPERCROPPER2_SYSTEM_XML_FILE_PATH:Ljava/lang/String; = "/Android/data/com.sec.android.wallpapercropper2/files/backup_home.xml"
+.field private static final WALLPAPERCROPPER2_SYSTEM_XML_FILE_PATH:Ljava/lang/String; = "/Android/data/com.android.systemui/files/backupwallpapers/backup_home.xml"
 
 
 # direct methods
@@ -129,7 +137,7 @@
 
     move-result-object v4
 
-    const-string/jumbo v5, "/Android/data/com.sec.android.wallpapercropper2/files/original_file_home.jpg"
+    const-string/jumbo v5, "/Android/data/com.android.systemui/files/backupwallpapers/original_file_home.jpg"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -151,7 +159,7 @@
 
     move-result-object v4
 
-    const-string/jumbo v5, "/Android/data/com.sec.android.wallpapercropper2/files/backup_home.xml"
+    const-string/jumbo v5, "/Android/data/com.android.systemui/files/backupwallpapers/backup_home.xml"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -219,7 +227,7 @@
 
     move-result-object v4
 
-    const-string/jumbo v5, "/Android/data/com.sec.android.wallpapercropper2/files/original_file_lock.jpg"
+    const-string/jumbo v5, "/Android/data/com.android.systemui/files/backupwallpapers/original_file_lock.jpg"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -241,7 +249,7 @@
 
     move-result-object v4
 
-    const-string/jumbo v5, "/Android/data/com.sec.android.wallpapercropper2/files/backup_lock.xml"
+    const-string/jumbo v5, "/Android/data/com.android.systemui/files/backupwallpapers/backup_lock.xml"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -386,7 +394,7 @@
 
     :goto_2
     :try_start_3
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/FileNotFoundException;->printStackTrace()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -481,7 +489,7 @@
 
     :goto_1
     :try_start_2
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -496,7 +504,7 @@
 
     :goto_2
     :try_start_3
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/FileNotFoundException;->printStackTrace()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -672,7 +680,7 @@
 
     :goto_1
     :try_start_3
-    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -835,7 +843,7 @@
 
     move-result-object v3
 
-    const-string/jumbo v4, "/Android/data/com.sec.android.wallpapercropper2/files/original_file_home.jpg"
+    const-string/jumbo v4, "/Android/data/com.android.systemui/files/backupwallpapers/original_file_home.jpg"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -914,7 +922,7 @@
 
     move-result-object v3
 
-    const-string/jumbo v4, "/Android/data/com.sec.android.wallpapercropper2/files/original_file_lock.jpg"
+    const-string/jumbo v4, "/Android/data/com.android.systemui/files/backupwallpapers/original_file_lock.jpg"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -957,97 +965,113 @@
 .end method
 
 .method private createBackupCurrentWallpaperFile(Landroid/content/Context;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)Z
-    .locals 8
+    .locals 11
 
-    const/4 v6, 0x1
+    const/4 v8, 0x0
 
     const/4 v7, 0x0
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
-    const/4 v0, 0x0
-
-    if-ne p2, v6, :cond_3
+    if-ne p2, v1, :cond_3
 
     invoke-static {p1}, Landroid/app/WallpaperManager;->getInstance(Landroid/content/Context;)Landroid/app/WallpaperManager;
 
-    move-result-object v3
+    move-result-object v10
 
-    invoke-virtual {v3}, Landroid/app/WallpaperManager;->getDrawable()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v10}, Landroid/app/WallpaperManager;->getDrawable()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v9
+
+    if-eqz v9, :cond_2
+
+    invoke-direct {p0, v9}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->drawableToBitmap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/Bitmap;
+
+    move-result-object v7
+
+    :goto_0
+    if-nez v7, :cond_4
+
+    const-string/jumbo v1, "WallpaperBackupRestoreManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "bitmap is null. "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    if-eqz v2, :cond_2
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-direct {p0, v2}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->drawableToBitmap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/Bitmap;
+    move-result-object v2
 
-    move-result-object v0
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    :goto_0
-    if-nez v0, :cond_4
+    move-result-object v2
 
-    const-string/jumbo v4, "WallpaperBackupRestoreManager"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "bitmap is null. "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     :goto_1
-    if-eqz v1, :cond_1
+    if-eqz v8, :cond_1
 
-    invoke-direct {p0, p2, p5, p3, v7}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->createBackupWallpaperXmlFile(ILjava/lang/String;Ljava/lang/String;I)V
+    const/4 v6, 0x0
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move v3, p2
+
+    move-object/from16 v4, p5
+
+    move-object v5, p3
+
+    invoke-direct/range {v1 .. v6}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->createBackupWallpaperXmlFile(Landroid/content/Context;ILjava/lang/String;Ljava/lang/String;I)V
 
     :cond_1
-    return v1
+    return v8
 
     :cond_2
-    const-string/jumbo v4, "WallpaperBackupRestoreManager"
+    const-string/jumbo v1, "WallpaperBackupRestoreManager"
 
-    const-string/jumbo v5, "wallpaperDrawable is null"
+    const-string/jumbo v2, "wallpaperDrawable is null"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_3
     invoke-direct {p0, p1}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->getWallpaperLockBitmap(Landroid/content/Context;)Landroid/graphics/Bitmap;
 
-    move-result-object v0
+    move-result-object v7
 
     goto :goto_0
 
     :cond_4
     if-nez p6, :cond_5
 
-    invoke-direct {p0, p4, v0}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->copyBitmapToFile(Ljava/lang/String;Landroid/graphics/Bitmap;)Z
+    invoke-direct {p0, p4, v7}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->copyBitmapToFile(Ljava/lang/String;Landroid/graphics/Bitmap;)Z
 
-    move-result v1
+    move-result v8
 
     goto :goto_1
 
     :cond_5
-    if-ne p6, v6, :cond_0
+    const/4 v1, 0x1
 
-    invoke-direct {p0, p4, v0, p7}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->copyEncryptBitmapToFile(Ljava/lang/String;Landroid/graphics/Bitmap;Ljava/lang/String;)Z
+    move/from16 v0, p6
 
-    move-result v1
+    if-ne v0, v1, :cond_0
+
+    move-object/from16 v0, p7
+
+    invoke-direct {p0, p4, v7, v0}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->copyEncryptBitmapToFile(Ljava/lang/String;Landroid/graphics/Bitmap;Ljava/lang/String;)Z
+
+    move-result v8
 
     goto :goto_1
 .end method
@@ -1278,193 +1302,206 @@
     :cond_2
     if-eqz v9, :cond_3
 
-    if-eqz v10, :cond_4
+    xor-int/lit8 v0, v10, 0x1
+
+    if-eqz v0, :cond_3
+
+    sget-object v0, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$RESULT_CODE;->RESULT_OLD_CONCEPT_OK:Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$RESULT_CODE;
+
+    return-object v0
 
     :cond_3
-    if-nez v9, :cond_5
+    if-nez v9, :cond_4
 
-    if-eqz v10, :cond_5
+    if-eqz v10, :cond_4
 
     sget-object v0, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$RESULT_CODE;->RESULT_NEW_CONCEPT_OK:Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$RESULT_CODE;
 
     return-object v0
 
     :cond_4
-    sget-object v0, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$RESULT_CODE;->RESULT_OLD_CONCEPT_OK:Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$RESULT_CODE;
-
-    return-object v0
-
-    :cond_5
     sget-object v0, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$RESULT_CODE;->RESULT_FAIL:Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$RESULT_CODE;
 
     return-object v0
 .end method
 
 .method private createBackupOriginalWallpaperFile(Landroid/content/Context;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)Z
-    .locals 7
+    .locals 10
 
-    const/4 v6, 0x1
+    const/4 v8, 0x0
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
-    if-ne p2, v6, :cond_2
+    if-ne p2, v1, :cond_2
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "/Android/data/com.sec.android.wallpapercropper2/files/original_file_home.jpg"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
+    const-string/jumbo v2, "/Android/data/com.android.systemui/files/backupwallpapers/original_file_home.jpg"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
     :goto_0
-    const/4 v2, 0x0
+    const/4 v9, 0x0
 
-    new-instance v0, Ljava/io/File;
+    new-instance v7, Ljava/io/File;
 
-    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v7, v8}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    if-eqz v0, :cond_4
+    if-eqz v7, :cond_4
 
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+    invoke-virtual {v7}, Ljava/io/File;->exists()Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_4
+    if-eqz v1, :cond_4
 
-    invoke-virtual {v0}, Ljava/io/File;->canRead()Z
+    invoke-virtual {v7}, Ljava/io/File;->canRead()Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_4
+    if-eqz v1, :cond_4
 
-    const-string/jumbo v3, "WallpaperBackupRestoreManager"
+    const-string/jumbo v1, "WallpaperBackupRestoreManager"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "original image file exists. "
+    const-string/jumbo v3, "original image file exists. "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v2
 
     invoke-static {p2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     if-nez p6, :cond_3
 
-    invoke-virtual {p0, v1, p4}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->copyFile(Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-virtual {p0, v8, p4}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->copyFile(Ljava/lang/String;Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v9
 
     :cond_0
     :goto_1
-    if-eqz v2, :cond_1
+    if-eqz v9, :cond_1
 
-    invoke-direct {p0, p2, p5, p3, v6}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->createBackupWallpaperXmlFile(ILjava/lang/String;Ljava/lang/String;I)V
+    const/4 v6, 0x1
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move v3, p2
+
+    move-object v4, p5
+
+    move-object v5, p3
+
+    invoke-direct/range {v1 .. v6}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->createBackupWallpaperXmlFile(Landroid/content/Context;ILjava/lang/String;Ljava/lang/String;I)V
 
     :cond_1
-    return v2
+    return v9
 
     :cond_2
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "/Android/data/com.sec.android.wallpapercropper2/files/original_file_lock.jpg"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v1
+
+    const-string/jumbo v2, "/Android/data/com.android.systemui/files/backupwallpapers/original_file_lock.jpg"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
 
     goto :goto_0
 
     :cond_3
-    if-ne p6, v6, :cond_0
+    const/4 v1, 0x1
 
-    invoke-direct {p0, v1, p4, p7}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->copyEncryptFile(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+    move/from16 v0, p6
 
-    move-result v2
+    if-ne v0, v1, :cond_0
+
+    move-object/from16 v0, p7
+
+    invoke-direct {p0, v8, p4, v0}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->copyEncryptFile(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v9
 
     goto :goto_1
 
     :cond_4
-    const-string/jumbo v3, "WallpaperBackupRestoreManager"
+    const-string/jumbo v1, "WallpaperBackupRestoreManager"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "original image file does not exists. "
+    const-string/jumbo v3, "original image file does not exists. "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v2
 
     invoke-static {p2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 .end method
 
-.method private createBackupWallpaperXmlFile(ILjava/lang/String;Ljava/lang/String;I)V
-    .locals 11
-
-    const/16 v6, 0x65
-
-    const/4 v10, 0x1
-
-    const/4 v1, 0x0
+.method private createBackupWallpaperXmlFile(Landroid/content/Context;ILjava/lang/String;Ljava/lang/String;I)V
+    .locals 10
 
     new-instance v8, Ljava/util/ArrayList;
 
@@ -1472,7 +1509,9 @@
 
     const/4 v0, 0x0
 
-    if-ne p1, v10, :cond_1
+    const/4 v1, 0x1
+
+    if-ne p2, v1, :cond_2
 
     new-instance v0, Landroid/app/wallpaperbackup/WallpaperUser;
 
@@ -1480,22 +1519,43 @@
 
     const-string/jumbo v5, ""
 
-    move v2, v1
+    const/4 v1, 0x0
 
-    move-object v3, p2
+    const/4 v2, 0x0
+
+    const/16 v6, 0x65
+
+    move-object v3, p3
 
     invoke-direct/range {v0 .. v6}, Landroid/app/wallpaperbackup/WallpaperUser;-><init>(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
 
+    if-eqz v0, :cond_0
+
+    invoke-static {p1}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->isInterruptGyroSensorSupported(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0, p1}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->getTiltSettingValue(Landroid/content/Context;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setTiltSettingValue(I)V
+
+    :cond_0
     :goto_0
-    invoke-direct {p0, p1}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->loadSettingsLocked(I)Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$WallpaperData;
+    invoke-direct {p0, p2}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->loadSettingsLocked(I)Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$WallpaperData;
 
     move-result-object v9
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    if-ne p4, v10, :cond_0
+    const/4 v1, 0x1
+
+    if-ne p5, v1, :cond_1
 
     iget v1, v9, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$WallpaperData;->left:I
 
@@ -1517,27 +1577,31 @@
 
     invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setRotationValue(I)V
 
-    :cond_0
+    :cond_1
     invoke-virtual {v8, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance v7, Landroid/app/wallpaperbackup/GenerateXML;
 
     invoke-direct {v7, v8}, Landroid/app/wallpaperbackup/GenerateXML;-><init>(Ljava/util/ArrayList;)V
 
-    invoke-virtual {v7, p3, p1, p4}, Landroid/app/wallpaperbackup/GenerateXML;->createResultFile(Ljava/lang/String;II)V
+    invoke-virtual {v7, p4, p2, p5}, Landroid/app/wallpaperbackup/GenerateXML;->createResultFile(Ljava/lang/String;II)V
 
     return-void
 
-    :cond_1
+    :cond_2
     new-instance v0, Landroid/app/wallpaperbackup/WallpaperUser;
 
     const-string/jumbo v3, ""
 
     const-string/jumbo v4, ""
 
-    move v2, v1
+    const/4 v1, 0x0
 
-    move-object v5, p2
+    const/4 v2, 0x0
+
+    const/16 v6, 0x65
+
+    move-object v5, p3
 
     invoke-direct/range {v0 .. v6}, Landroid/app/wallpaperbackup/WallpaperUser;-><init>(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
 
@@ -1603,35 +1667,35 @@
     :catch_0
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/security/InvalidAlgorithmParameterException;->printStackTrace()V
 
     goto :goto_0
 
     :catch_1
     move-exception v3
 
-    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/security/InvalidKeyException;->printStackTrace()V
 
     goto :goto_0
 
     :catch_2
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
     :catch_3
     move-exception v5
 
-    invoke-virtual {v5}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v5}, Ljavax/crypto/NoSuchPaddingException;->printStackTrace()V
 
     goto :goto_0
 
     :catch_4
     move-exception v4
 
-    invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v4}, Ljava/security/NoSuchAlgorithmException;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -1661,7 +1725,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -1675,9 +1739,7 @@
 
     if-eqz v2, :cond_0
 
-    nop
-
-    nop
+    check-cast p1, Landroid/graphics/drawable/BitmapDrawable;
 
     invoke-virtual {p1}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
 
@@ -1784,35 +1846,35 @@
     :catch_0
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/security/InvalidAlgorithmParameterException;->printStackTrace()V
 
     goto :goto_0
 
     :catch_1
     move-exception v3
 
-    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/security/InvalidKeyException;->printStackTrace()V
 
     goto :goto_0
 
     :catch_2
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
     :catch_3
     move-exception v5
 
-    invoke-virtual {v5}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v5}, Ljavax/crypto/NoSuchPaddingException;->printStackTrace()V
 
     goto :goto_0
 
     :catch_4
     move-exception v4
 
-    invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v4}, Ljava/security/NoSuchAlgorithmException;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -1882,14 +1944,14 @@
     :catch_0
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/security/spec/InvalidKeySpecException;->printStackTrace()V
 
     goto :goto_0
 
     :catch_1
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/security/NoSuchAlgorithmException;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -1970,7 +2032,7 @@
 
     invoke-static {v5, v6, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/OutOfMemoryError;->printStackTrace()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -1984,6 +2046,37 @@
     invoke-static {v2}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     throw v5
+.end method
+
+.method private static isInterruptGyroSensorSupported(Landroid/content/Context;)Z
+    .locals 3
+
+    const-string/jumbo v2, "sensor"
+
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/hardware/SensorManager;
+
+    if-eqz v1, :cond_0
+
+    const v2, 0x1002b
+
+    invoke-virtual {v1, v2}, Landroid/hardware/SensorManager;->getDefaultSensor(I)Landroid/hardware/Sensor;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v2, 0x1
+
+    return v2
+
+    :cond_0
+    const/4 v2, 0x0
+
+    return v2
 .end method
 
 .method private isLiveWallpaper(Landroid/content/Context;)Z
@@ -2060,7 +2153,7 @@
 
     move-result-object v19
 
-    const-string/jumbo v20, "/Android/data/com.sec.android.wallpapercropper2/files/backup_home.xml"
+    const-string/jumbo v20, "/Android/data/com.android.systemui/files/backupwallpapers/backup_home.xml"
 
     invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2252,7 +2345,7 @@
 
     move-result-object v19
 
-    const-string/jumbo v20, "/Android/data/com.sec.android.wallpapercropper2/files/backup_lock.xml"
+    const-string/jumbo v20, "/Android/data/com.android.systemui/files/backupwallpapers/backup_lock.xml"
 
     invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2712,36 +2805,240 @@
     return-void
 .end method
 
-.method private pushRestoreFiles(Landroid/content/Context;ILjava/lang/String;Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$WallpaperData;ILjava/lang/String;)Z
-    .locals 16
+.method private pushRestoreFiles(Landroid/content/Context;ILjava/lang/String;Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$WallpaperData;ILjava/lang/String;Z)Z
+    .locals 18
 
-    const-string/jumbo v1, "WallpaperBackupRestoreManager"
+    const-string/jumbo v2, "WallpaperBackupRestoreManager"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "pushRestoreFiles which=0x"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-static/range {p2 .. p2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " basePath="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "gyro="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move/from16 v0, p7
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v5, 0x0
+
+    const/16 v17, 0x0
+
+    const/4 v6, 0x0
+
+    const/4 v14, 0x0
+
+    const/4 v2, 0x1
+
+    move/from16 v0, p2
+
+    if-ne v0, v2, :cond_3
+
+    new-instance v17, Landroid/app/wallpaperbackup/XmlParser;
 
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "pushRestoreFiles which=0x"
+    move-object/from16 v0, p3
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "wallpaper_original.xml"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    invoke-static/range {p2 .. p2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p1
+
+    invoke-direct {v0, v1, v2}, Landroid/app/wallpaperbackup/XmlParser;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "wallpaper_original"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "/"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "wallpaper.png"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    :goto_0
+    invoke-virtual/range {v17 .. v17}, Landroid/app/wallpaperbackup/XmlParser;->getObject()Landroid/app/wallpaperbackup/WallpaperUser;
+
+    move-result-object v6
+
+    move-object/from16 v2, p0
+
+    move-object/from16 v3, p1
+
+    move/from16 v4, p2
+
+    move-object/from16 v7, p4
+
+    move/from16 v8, p5
+
+    move-object/from16 v9, p6
+
+    move/from16 v10, p7
+
+    invoke-direct/range {v2 .. v10}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->pushRestoreOriginalWallpaperFiles(Landroid/content/Context;ILjava/lang/String;Landroid/app/wallpaperbackup/WallpaperUser;Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$WallpaperData;ILjava/lang/String;Z)Z
+
+    move-result v14
+
+    if-nez v14, :cond_2
+
+    const-string/jumbo v2, "WallpaperBackupRestoreManager"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Failed original wallpaper restore. Start crop wallpaper restore. "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static/range {p2 .. p2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    const-string/jumbo v3, " basePath="
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v2
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v16, 0x0
+
+    const/4 v2, 0x1
+
+    move/from16 v0, p2
+
+    if-ne v0, v2, :cond_4
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     move-object/from16 v0, p3
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "wallpaper"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "/"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "wallpaper.png"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string/jumbo v16, "wallpaper.xml"
+
+    :goto_1
+    new-instance v17, Landroid/app/wallpaperbackup/XmlParser;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    move-object/from16 v0, v16
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2751,118 +3048,107 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-object/from16 v0, v17
 
-    const/4 v4, 0x0
+    move-object/from16 v1, p1
 
-    const/4 v15, 0x0
+    invoke-direct {v0, v1, v2}, Landroid/app/wallpaperbackup/XmlParser;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    const/4 v5, 0x0
+    invoke-virtual/range {v17 .. v17}, Landroid/app/wallpaperbackup/XmlParser;->getObject()Landroid/app/wallpaperbackup/WallpaperUser;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_6
 
     const/4 v13, 0x0
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
     move/from16 v0, p2
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v2, :cond_5
 
-    new-instance v15, Landroid/app/wallpaperbackup/XmlParser;
+    invoke-virtual {v6}, Landroid/app/wallpaperbackup/WallpaperUser;->getName()Ljava/lang/String;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    move-result-object v13
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz p7, :cond_0
 
-    move-object/from16 v0, p3
+    invoke-virtual {v6}, Landroid/app/wallpaperbackup/WallpaperUser;->getTiltSettingValue()I
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v15
 
-    move-result-object v1
+    invoke-virtual/range {p0 .. p1}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->getTiltSettingValue(Landroid/content/Context;)I
 
-    const-string/jumbo v2, "wallpaper_original.xml"
+    move-result v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-eq v15, v2, :cond_0
 
-    move-result-object v1
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v1
+    const-string/jumbo v3, "wallpaper_tilt_status"
 
-    move-object/from16 v0, p1
+    invoke-static {v2, v3, v15}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    invoke-direct {v15, v0, v1}, Landroid/app/wallpaperbackup/XmlParser;-><init>(Landroid/content/Context;Ljava/lang/String;)V
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "wallpaper_original"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "/"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "wallpaper.png"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    :goto_0
-    invoke-virtual {v15}, Landroid/app/wallpaperbackup/XmlParser;->getObject()Landroid/app/wallpaperbackup/WallpaperUser;
-
-    move-result-object v5
-
-    move-object/from16 v1, p0
-
-    move-object/from16 v2, p1
-
-    move/from16 v3, p2
-
-    move-object/from16 v6, p4
-
-    move/from16 v7, p5
-
-    move-object/from16 v8, p6
-
-    invoke-direct/range {v1 .. v8}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->pushRestoreOriginalWallpaperFiles(Landroid/content/Context;ILjava/lang/String;Landroid/app/wallpaperbackup/WallpaperUser;Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$WallpaperData;ILjava/lang/String;)Z
-
-    move-result v13
-
-    if-nez v13, :cond_1
-
-    const-string/jumbo v1, "WallpaperBackupRestoreManager"
+    :cond_0
+    :goto_2
+    if-eqz v13, :cond_1
 
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "Failed original wallpaper restore. Start crop wallpaper restore. "
+    move-object/from16 v0, p3
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    invoke-static/range {p2 .. p2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    invoke-virtual {v2, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    :cond_1
+    :goto_3
+    move-object/from16 v7, p0
+
+    move-object/from16 v8, p1
+
+    move/from16 v9, p2
+
+    move-object v10, v5
+
+    move/from16 v11, p5
+
+    move-object/from16 v12, p6
+
+    invoke-direct/range {v7 .. v12}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->pushRestoreWallpaperFiles(Landroid/content/Context;ILjava/lang/String;ILjava/lang/String;)Z
+
+    move-result v14
+
+    :cond_2
+    return v14
+
+    :cond_3
+    new-instance v17, Landroid/app/wallpaperbackup/XmlParser;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "lockscreen_original.xml"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2872,256 +3158,70 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-object/from16 v0, v17
 
-    const/4 v14, 0x0
+    move-object/from16 v1, p1
 
-    const/4 v1, 0x1
+    invoke-direct {v0, v1, v2}, Landroid/app/wallpaperbackup/XmlParser;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    move/from16 v0, p2
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    if-ne v0, v1, :cond_3
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     move-object/from16 v0, p3
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "wallpaper"
+    const-string/jumbo v3, "wallpaper_original"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "/"
+    const-string/jumbo v3, "/"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "wallpaper.png"
+    const-string/jumbo v3, "lockscreen_wallpaper.jpg"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string/jumbo v14, "wallpaper.xml"
-
-    :goto_1
-    new-instance v15, Landroid/app/wallpaperbackup/XmlParser;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    move-object/from16 v0, p1
-
-    invoke-direct {v15, v0, v1}, Landroid/app/wallpaperbackup/XmlParser;-><init>(Landroid/content/Context;Ljava/lang/String;)V
-
-    invoke-virtual {v15}, Landroid/app/wallpaperbackup/XmlParser;->getObject()Landroid/app/wallpaperbackup/WallpaperUser;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
-
-    if-eqz v5, :cond_5
-
-    const/4 v12, 0x0
-
-    const/4 v1, 0x1
-
-    move/from16 v0, p2
-
-    if-ne v0, v1, :cond_4
-
-    invoke-virtual {v5}, Landroid/app/wallpaperbackup/WallpaperUser;->getName()Ljava/lang/String;
-
-    move-result-object v12
-
-    :goto_2
-    if-eqz v12, :cond_0
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    :cond_0
-    :goto_3
-    move-object/from16 v6, p0
-
-    move-object/from16 v7, p1
-
-    move/from16 v8, p2
-
-    move-object v9, v4
-
-    move/from16 v10, p5
-
-    move-object/from16 v11, p6
-
-    invoke-direct/range {v6 .. v11}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->pushRestoreWallpaperFiles(Landroid/content/Context;ILjava/lang/String;ILjava/lang/String;)Z
-
-    move-result v13
-
-    :cond_1
-    return v13
-
-    :cond_2
-    new-instance v15, Landroid/app/wallpaperbackup/XmlParser;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "lockscreen_original.xml"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    move-object/from16 v0, p1
-
-    invoke-direct {v15, v0, v1}, Landroid/app/wallpaperbackup/XmlParser;-><init>(Landroid/content/Context;Ljava/lang/String;)V
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "wallpaper_original"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "/"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "lockscreen_wallpaper.jpg"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
 
     goto/16 :goto_0
 
-    :cond_3
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "wallpaper"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "/"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "lockscreen_wallpaper.jpg"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string/jumbo v14, "lockscreen.xml"
-
-    goto/16 :goto_1
-
     :cond_4
-    invoke-virtual {v5}, Landroid/app/wallpaperbackup/WallpaperUser;->getImagePath()Ljava/lang/String;
-
-    move-result-object v12
-
-    goto/16 :goto_2
-
-    :cond_5
-    const-string/jumbo v1, "WallpaperBackupRestoreManager"
-
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "Item value is null. "
+    move-object/from16 v0, p3
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "wallpaper"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    invoke-static/range {p2 .. p2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    const-string/jumbo v3, "/"
 
-    move-result-object v3
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "lockscreen_wallpaper.jpg"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3129,19 +3229,57 @@
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v5
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v16, "lockscreen.xml"
+
+    goto/16 :goto_1
+
+    :cond_5
+    invoke-virtual {v6}, Landroid/app/wallpaperbackup/WallpaperUser;->getImagePath()Ljava/lang/String;
+
+    move-result-object v13
+
+    goto/16 :goto_2
+
+    :cond_6
+    const-string/jumbo v2, "WallpaperBackupRestoreManager"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Item value is null. "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-static/range {p2 .. p2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_3
 .end method
 
-.method private pushRestoreOriginalWallpaperFiles(Landroid/content/Context;ILjava/lang/String;Landroid/app/wallpaperbackup/WallpaperUser;Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$WallpaperData;ILjava/lang/String;)Z
-    .locals 17
+.method private pushRestoreOriginalWallpaperFiles(Landroid/content/Context;ILjava/lang/String;Landroid/app/wallpaperbackup/WallpaperUser;Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$WallpaperData;ILjava/lang/String;Z)Z
+    .locals 18
 
     const/4 v15, 0x0
 
-    if-eqz p4, :cond_1
+    const/16 v16, 0x0
+
+    if-eqz p4, :cond_2
 
     invoke-virtual/range {p4 .. p4}, Landroid/app/wallpaperbackup/WallpaperUser;->getLeftValue()I
 
@@ -3182,6 +3320,10 @@
     move-object/from16 v0, p5
 
     iput v3, v0, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$WallpaperData;->rotation:I
+
+    invoke-virtual/range {p4 .. p4}, Landroid/app/wallpaperbackup/WallpaperUser;->getTiltSettingValue()I
+
+    move-result v16
 
     :goto_0
     new-instance v12, Landroid/graphics/Rect;
@@ -3306,12 +3448,51 @@
 
     move-result-object v4
 
+    const-string/jumbo v5, " tiltSetting="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    move/from16 v0, v16
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    if-eqz p8, :cond_0
+
+    const/4 v3, 0x1
+
+    move/from16 v0, p2
+
+    if-ne v0, v3, :cond_0
+
+    invoke-virtual/range {p0 .. p1}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->getTiltSettingValue(Landroid/content/Context;)I
+
+    move-result v3
+
+    move/from16 v0, v16
+
+    if-eq v0, v3, :cond_0
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "wallpaper_tilt_status"
+
+    move/from16 v0, v16
+
+    invoke-static {v3, v4, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    :cond_0
     new-instance v7, Landroid/graphics/Matrix;
 
     invoke-direct {v7}, Landroid/graphics/Matrix;-><init>()V
@@ -3327,9 +3508,9 @@
     :try_start_0
     invoke-static/range {p1 .. p1}, Landroid/app/WallpaperManager;->getInstance(Landroid/content/Context;)Landroid/app/WallpaperManager;
 
-    move-result-object v16
+    move-result-object v17
 
-    if-nez p6, :cond_2
+    if-nez p6, :cond_3
 
     invoke-static/range {p3 .. p3}, Landroid/graphics/BitmapFactory;->decodeFile(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
@@ -3355,7 +3536,7 @@
 
     const/4 v3, 0x1
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     move/from16 v1, p2
 
@@ -3366,11 +3547,11 @@
 
     const/4 v15, 0x1
 
-    :cond_0
+    :cond_1
     :goto_1
     return v15
 
-    :cond_1
+    :cond_2
     const-string/jumbo v3, "WallpaperBackupRestoreManager"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -3399,12 +3580,12 @@
 
     goto/16 :goto_0
 
-    :cond_2
+    :cond_3
     const/4 v3, 0x1
 
     move/from16 v0, p6
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v3, :cond_1
 
     :try_start_1
     new-instance v14, Ljava/io/FileInputStream;
@@ -3445,7 +3626,7 @@
 
     const/4 v3, 0x1
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     move/from16 v1, p2
 
@@ -3469,189 +3650,247 @@
     :catch_0
     move-exception v11
 
-    invoke-virtual {v11}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v11}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_1
 
     :catch_1
     move-exception v10
 
-    invoke-virtual {v10}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v10}, Ljava/io/FileNotFoundException;->printStackTrace()V
 
     goto :goto_1
 .end method
 
 .method private pushRestoreWallpaperFiles(Landroid/content/Context;ILjava/lang/String;ILjava/lang/String;)Z
-    .locals 10
+    .locals 14
 
-    const-string/jumbo v7, "WallpaperBackupRestoreManager"
+    const-string/jumbo v10, "WallpaperBackupRestoreManager"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "pushRestoreWallpaperFiles which=0x"
+    const-string/jumbo v12, "pushRestoreWallpaperFiles which=0x"
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v11
 
-    invoke-static {p2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    invoke-static/range {p2 .. p2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v12
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v11
 
-    const-string/jumbo v9, " imagePath="
+    const-string/jumbo v12, " imagePath="
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v11
 
-    invoke-virtual {v8, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, p3
 
-    move-result-object v8
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v11
 
-    move-result-object v8
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v11
 
-    const/4 v5, 0x0
+    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v3, 0x0
+    const/4 v8, 0x0
+
+    const/4 v6, 0x0
 
     :try_start_0
     invoke-static {p1}, Landroid/app/WallpaperManager;->getInstance(Landroid/content/Context;)Landroid/app/WallpaperManager;
 
-    move-result-object v6
+    move-result-object v9
 
     if-nez p4, :cond_1
 
-    new-instance v4, Ljava/io/FileInputStream;
+    new-instance v7, Ljava/io/FileInputStream;
 
-    invoke-direct {v4, p3}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
+    move-object/from16 v0, p3
+
+    invoke-direct {v7, v0}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v7, 0x0
+    const/4 v10, 0x0
 
-    const/4 v8, 0x1
+    const/4 v11, 0x1
 
     :try_start_1
-    invoke-virtual {v6, v4, v7, v8, p2}, Landroid/app/WallpaperManager;->setStream(Ljava/io/InputStream;Landroid/graphics/Rect;ZI)I
+    move/from16 v0, p2
+
+    invoke-virtual {v9, v7, v10, v11, v0}, Landroid/app/WallpaperManager;->setStream(Ljava/io/InputStream;Landroid/graphics/Rect;ZI)I
     :try_end_1
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_2
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_3
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    const/4 v5, 0x1
+    const/4 v8, 0x1
 
-    move-object v3, v4
+    move-object v6, v7
 
     :cond_0
     :goto_0
-    invoke-virtual {p0, v3}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->closeSilently(Ljava/io/Closeable;)V
+    invoke-virtual {p0, v6}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->closeSilently(Ljava/io/Closeable;)V
 
     :goto_1
-    return v5
+    return v8
 
     :cond_1
-    const/4 v7, 0x1
+    const/4 v10, 0x1
 
-    if-ne p4, v7, :cond_0
+    move/from16 v0, p4
+
+    if-ne v0, v10, :cond_0
 
     :try_start_2
-    new-instance v4, Ljava/io/FileInputStream;
+    invoke-static/range {p3 .. p3}, Landroid/graphics/BitmapFactory;->decodeFile(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
-    invoke-direct {v4, p3}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
+    move-result-object v1
+
+    if-eqz v1, :cond_2
+
+    const-string/jumbo v10, "WallpaperBackupRestoreManager"
+
+    const-string/jumbo v11, "It isn\'t encrypted. So load as Bitmap."
+
+    invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v5, Landroid/graphics/Rect;
+
+    invoke-virtual {v1}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v10
+
+    invoke-virtual {v1}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v11
+
+    const/4 v12, 0x0
+
+    const/4 v13, 0x0
+
+    invoke-direct {v5, v12, v13, v10, v11}, Landroid/graphics/Rect;-><init>(IIII)V
+
+    const/4 v10, 0x1
+
+    move/from16 v0, p2
+
+    invoke-virtual {v9, v1, v5, v10, v0}, Landroid/app/WallpaperManager;->setBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;ZI)I
+
+    :goto_2
+    const/4 v8, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    const-string/jumbo v10, "WallpaperBackupRestoreManager"
+
+    const-string/jumbo v11, "Restore with decryption."
+
+    invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v7, Ljava/io/FileInputStream;
+
+    move-object/from16 v0, p3
+
+    invoke-direct {v7, v0}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
     :try_end_2
     .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_1
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :try_start_3
-    invoke-direct {p0, v4, p5}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->decryptStream(Ljava/io/InputStream;Ljava/lang/String;)Ljava/io/InputStream;
+    move-object/from16 v0, p5
 
-    move-result-object v0
+    invoke-direct {p0, v7, v0}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->decryptStream(Ljava/io/InputStream;Ljava/lang/String;)Ljava/io/InputStream;
 
-    const/4 v7, 0x0
+    move-result-object v2
 
-    const/4 v8, 0x1
+    const/4 v10, 0x0
 
-    invoke-virtual {v6, v0, v7, v8, p2}, Landroid/app/WallpaperManager;->setStream(Ljava/io/InputStream;Landroid/graphics/Rect;ZI)I
+    const/4 v11, 0x1
 
-    invoke-virtual {p0, v0}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->closeSilently(Ljava/io/Closeable;)V
+    move/from16 v0, p2
+
+    invoke-virtual {v9, v2, v10, v11, v0}, Landroid/app/WallpaperManager;->setStream(Ljava/io/InputStream;Landroid/graphics/Rect;ZI)I
+
+    invoke-virtual {p0, v2}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->closeSilently(Ljava/io/Closeable;)V
     :try_end_3
     .catch Ljava/io/FileNotFoundException; {:try_start_3 .. :try_end_3} :catch_2
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    const/4 v5, 0x1
+    move-object v6, v7
 
-    move-object v3, v4
-
-    goto :goto_0
+    goto :goto_2
 
     :catch_0
-    move-exception v2
+    move-exception v4
 
-    :goto_2
+    :goto_3
     :try_start_4
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    invoke-virtual {p0, v3}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->closeSilently(Ljava/io/Closeable;)V
+    invoke-virtual {p0, v6}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->closeSilently(Ljava/io/Closeable;)V
 
     goto :goto_1
 
     :catch_1
-    move-exception v1
+    move-exception v3
 
-    :goto_3
+    :goto_4
     :try_start_5
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/io/FileNotFoundException;->printStackTrace()V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    invoke-virtual {p0, v3}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->closeSilently(Ljava/io/Closeable;)V
+    invoke-virtual {p0, v6}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->closeSilently(Ljava/io/Closeable;)V
 
     goto :goto_1
 
     :catchall_0
-    move-exception v7
+    move-exception v10
 
-    :goto_4
-    invoke-virtual {p0, v3}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->closeSilently(Ljava/io/Closeable;)V
+    :goto_5
+    invoke-virtual {p0, v6}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->closeSilently(Ljava/io/Closeable;)V
 
-    throw v7
+    throw v10
 
     :catchall_1
-    move-exception v7
+    move-exception v10
 
-    move-object v3, v4
+    move-object v6, v7
+
+    goto :goto_5
+
+    :catch_2
+    move-exception v3
+
+    move-object v6, v7
 
     goto :goto_4
 
-    :catch_2
-    move-exception v1
+    :catch_3
+    move-exception v4
 
-    move-object v3, v4
+    move-object v6, v7
 
     goto :goto_3
-
-    :catch_3
-    move-exception v2
-
-    move-object v3, v4
-
-    goto :goto_2
 .end method
 
 .method private responseToKies(Landroid/content/Context;ILjava/lang/String;Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$RESULT_CODE;Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$ERR_CODE;ILjava/lang/String;Ljava/lang/String;Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$RESULT_CODE;)V
@@ -3965,7 +4204,7 @@
 
     move-result-object v8
 
-    const-string/jumbo v9, "/Android/data/com.sec.android.wallpapercropper2/files/backup_home.xml"
+    const-string/jumbo v9, "/Android/data/com.android.systemui/files/backupwallpapers/backup_home.xml"
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -4069,7 +4308,7 @@
 
     invoke-static {v2}, Landroid/os/FileUtils;->sync(Ljava/io/FileOutputStream;)Z
 
-    invoke-virtual {v7}, Ljava/io/FilterOutputStream;->close()V
+    invoke-virtual {v7}, Ljava/io/BufferedOutputStream;->close()V
 
     invoke-virtual {v3}, Lcom/android/internal/util/JournaledFile;->commit()V
     :try_end_2
@@ -4095,7 +4334,7 @@
 
     move-result-object v8
 
-    const-string/jumbo v9, "/Android/data/com.sec.android.wallpapercropper2/files/backup_lock.xml"
+    const-string/jumbo v9, "/Android/data/com.android.systemui/files/backupwallpapers/backup_lock.xml"
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -4125,7 +4364,7 @@
     move-object v1, v2
 
     :goto_3
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     invoke-static {v6}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
@@ -4328,7 +4567,7 @@
 
     :goto_0
     :try_start_3
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -4389,6 +4628,31 @@
     move-object v8, v9
 
     goto :goto_0
+.end method
+
+.method getTiltSettingValue(Landroid/content/Context;)I
+    .locals 4
+
+    const/4 v3, 0x0
+
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "wallpaper_tilt_status"
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    return v0
+
+    :cond_0
+    return v3
 .end method
 
 .method public startBackupWallpaper(Landroid/content/Context;ILjava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
@@ -4574,7 +4838,7 @@
     :catch_0
     move-exception v15
 
-    invoke-virtual {v15}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v15}, Ljava/lang/Exception;->printStackTrace()V
 
     sget-object v6, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$RESULT_CODE;->RESULT_FAIL:Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$RESULT_CODE;
 
@@ -4891,7 +5155,7 @@
 .end method
 
 .method public startRestoreWallpaper(Landroid/content/Context;ILjava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
-    .locals 27
+    .locals 28
 
     const-string/jumbo v4, "WallpaperBackupRestoreManager"
 
@@ -4949,9 +5213,9 @@
 
     const/4 v10, 0x0
 
-    const-wide/16 v18, 0x0
-
     const-wide/16 v20, 0x0
+
+    const-wide/16 v22, 0x0
 
     const-wide/32 v24, 0x40000000
 
@@ -4961,37 +5225,37 @@
 
     move/from16 v0, p2
 
-    if-ne v0, v4, :cond_0
+    if-ne v0, v4, :cond_1
 
     const-string/jumbo v7, "com.samsung.android.intent.action.RESPONSE_RESTORE_WALLPAPER"
 
     :goto_0
     :try_start_0
-    new-instance v23, Landroid/os/StatFs;
+    new-instance v26, Landroid/os/StatFs;
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v26
 
     move-object/from16 v1, p3
 
     invoke-direct {v0, v1}, Landroid/os/StatFs;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual/range {v23 .. v23}, Landroid/os/StatFs;->getAvailableBlocksLong()J
-
-    move-result-wide v18
-
-    invoke-virtual/range {v23 .. v23}, Landroid/os/StatFs;->getBlockSizeLong()J
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual/range {v26 .. v26}, Landroid/os/StatFs;->getAvailableBlocksLong()J
 
     move-result-wide v20
 
-    mul-long v24, v18, v20
+    invoke-virtual/range {v26 .. v26}, Landroid/os/StatFs;->getBlockSizeLong()J
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-wide v22
+
+    mul-long v24, v20, v22
 
     const-wide/32 v4, 0xa00000
 
     cmp-long v4, v24, v4
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_2
 
     const-string/jumbo v4, "WallpaperBackupRestoreManager"
 
@@ -5005,7 +5269,7 @@
 
     move-result-object v5
 
-    move-wide/from16 v0, v18
+    move-wide/from16 v0, v20
 
     invoke-virtual {v5, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
@@ -5017,7 +5281,7 @@
 
     move-result-object v5
 
-    move-wide/from16 v0, v20
+    move-wide/from16 v0, v22
 
     invoke-virtual {v5, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
@@ -5047,6 +5311,7 @@
 
     const/high16 v10, 0xa00000
 
+    :cond_0
     :goto_1
     sget-object v13, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$RESULT_CODE;->INVALID_VALUE:Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$RESULT_CODE;
 
@@ -5064,15 +5329,15 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     const-string/jumbo v7, "com.samsung.android.intent.action.RESPONSE_RESTORE_LOCKSCREEN"
 
     goto :goto_0
 
     :catch_0
-    move-exception v22
+    move-exception v19
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/Exception;->printStackTrace()V
 
     sget-object v8, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$RESULT_CODE;->RESULT_FAIL:Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$RESULT_CODE;
 
@@ -5094,7 +5359,7 @@
 
     return-void
 
-    :cond_1
+    :cond_2
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -5139,6 +5404,10 @@
 
     iput v4, v15, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$WallpaperData;->rotation:I
 
+    invoke-static/range {p1 .. p1}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->isInterruptGyroSensorSupported(Landroid/content/Context;)Z
+
+    move-result v18
+
     move-object/from16 v11, p0
 
     move-object/from16 v12, p1
@@ -5151,24 +5420,72 @@
 
     move-object/from16 v17, p6
 
-    invoke-direct/range {v11 .. v17}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->pushRestoreFiles(Landroid/content/Context;ILjava/lang/String;Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$WallpaperData;ILjava/lang/String;)Z
+    invoke-direct/range {v11 .. v18}, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager;->pushRestoreFiles(Landroid/content/Context;ILjava/lang/String;Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$WallpaperData;ILjava/lang/String;Z)Z
 
-    move-result v26
+    move-result v27
 
-    if-nez v26, :cond_2
+    if-nez v27, :cond_3
 
     sget-object v8, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$RESULT_CODE;->RESULT_FAIL:Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$RESULT_CODE;
 
     sget-object v9, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$ERR_CODE;->INVALID_DATA:Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$ERR_CODE;
 
-    goto :goto_1
-
-    :cond_2
     const/4 v4, 0x1
 
     move/from16 v0, p2
 
-    if-ne v0, v4, :cond_3
+    if-ne v0, v4, :cond_0
+
+    if-eqz v18, :cond_0
+
+    const-string/jumbo v4, "WallpaperBackupRestoreManager"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "startRestoreWallpaper success="
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    move/from16 v0, v27
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, ", tilt 0"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "wallpaper_tilt_status"
+
+    const/4 v6, 0x0
+
+    invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto/16 :goto_1
+
+    :cond_3
+    const/4 v4, 0x1
+
+    move/from16 v0, p2
+
+    if-ne v0, v4, :cond_4
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -5199,7 +5516,7 @@
 
     goto/16 :goto_1
 
-    :cond_3
+    :cond_4
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4

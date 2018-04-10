@@ -59,8 +59,6 @@
 
 .field public static final SEM_INJECT_INPUT_EVENT_MODE_WAIT_FOR_RESULT:I = 0x1
 
-.field private static final SUPPORT_DEX:Z = true
-
 .field public static final SWITCH_STATE_OFF:I = 0x0
 
 .field public static final SWITCH_STATE_ON:I = 0x1
@@ -75,8 +73,6 @@
 
 
 # instance fields
-.field private mDesktopMode:Lcom/samsung/android/desktopmode/IDesktopMode;
-
 .field private final mIm:Landroid/hardware/input/IInputManager;
 
 .field private final mInputDeviceListeners:Ljava/util/ArrayList;
@@ -157,41 +153,29 @@
 .end method
 
 .method private constructor <init>(Landroid/hardware/input/IInputManager;)V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v1, Ljava/lang/Object;
+    new-instance v0, Ljava/lang/Object;
 
-    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
-    iput-object v1, p0, Landroid/hardware/input/InputManager;->mInputDevicesLock:Ljava/lang/Object;
+    iput-object v0, p0, Landroid/hardware/input/InputManager;->mInputDevicesLock:Ljava/lang/Object;
 
-    new-instance v1, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v1, p0, Landroid/hardware/input/InputManager;->mInputDeviceListeners:Ljava/util/ArrayList;
+    iput-object v0, p0, Landroid/hardware/input/InputManager;->mInputDeviceListeners:Ljava/util/ArrayList;
 
-    new-instance v1, Ljava/lang/Object;
+    new-instance v0, Ljava/lang/Object;
 
-    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
-    iput-object v1, p0, Landroid/hardware/input/InputManager;->mTabletModeLock:Ljava/lang/Object;
+    iput-object v0, p0, Landroid/hardware/input/InputManager;->mTabletModeLock:Ljava/lang/Object;
 
     iput-object p1, p0, Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
-
-    const-string/jumbo v1, "desktopmode"
-
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/samsung/android/desktopmode/IDesktopMode$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/desktopmode/IDesktopMode;
-
-    move-result-object v1
-
-    iput-object v1, p0, Landroid/hardware/input/InputManager;->mDesktopMode:Lcom/samsung/android/desktopmode/IDesktopMode;
 
     return-void
 .end method
@@ -312,33 +296,52 @@
 
     :try_start_0
     sget-object v1, Landroid/hardware/input/InputManager;->sInstance:Landroid/hardware/input/InputManager;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-nez v1, :cond_0
 
-    const-string/jumbo v1, "input"
-
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
+    :try_start_1
     new-instance v1, Landroid/hardware/input/InputManager;
 
-    invoke-static {v0}, Landroid/hardware/input/IInputManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/hardware/input/IInputManager;
+    const-string/jumbo v3, "input"
+
+    invoke-static {v3}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v3
+
+    invoke-static {v3}, Landroid/hardware/input/IInputManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/hardware/input/IInputManager;
 
     move-result-object v3
 
     invoke-direct {v1, v3}, Landroid/hardware/input/InputManager;-><init>(Landroid/hardware/input/IInputManager;)V
 
     sput-object v1, Landroid/hardware/input/InputManager;->sInstance:Landroid/hardware/input/InputManager;
+    :try_end_1
+    .catch Landroid/os/ServiceManager$ServiceNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :cond_0
+    :try_start_2
     sget-object v1, Landroid/hardware/input/InputManager;->sInstance:Landroid/hardware/input/InputManager;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     monitor-exit v2
 
     return-object v1
+
+    :catch_0
+    move-exception v0
+
+    :try_start_3
+    new-instance v1, Ljava/lang/IllegalStateException;
+
+    invoke-direct {v1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v1
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     :catchall_0
     move-exception v1
@@ -836,6 +839,50 @@
     goto :goto_0
 .end method
 
+.method public enablePressureSettingMode(Z)Z
+    .locals 4
+
+    :try_start_0
+    iget-object v1, p0, Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
+
+    invoke-interface {v1, p1}, Landroid/hardware/input/IInputManager;->enablePressureSettingMode(Z)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "InputManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Failed to set pressure setting mode: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
 .method public getCurrentKeyboardLayoutForInputDevice(Landroid/hardware/input/InputDeviceIdentifier;)Ljava/lang/String;
     .locals 2
 
@@ -893,6 +940,28 @@
     move-result-object v1
 
     throw v1
+.end method
+
+.method public getHallSensorFlipState()I
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
+
+    invoke-interface {v1}, Landroid/hardware/input/IInputManager;->getHallSensorFlipState()I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const/4 v1, 0x0
+
+    return v1
 .end method
 
 .method public getInboundQueueLength()I
@@ -1322,28 +1391,6 @@
     return v0
 .end method
 
-.method public getSmartHallFlipState()I
-    .locals 2
-
-    :try_start_0
-    iget-object v1, p0, Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
-
-    invoke-interface {v1}, Landroid/hardware/input/IInputManager;->getSmartHallFlipState()I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    const/4 v1, 0x0
-
-    return v1
-.end method
-
 .method public getTouchCalibration(Ljava/lang/String;I)Landroid/hardware/input/TouchCalibration;
     .locals 2
 
@@ -1617,6 +1664,28 @@
     throw v1
 .end method
 
+.method public requestPointerCapture(Landroid/os/IBinder;Z)V
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/hardware/input/IInputManager;->requestPointerCapture(Landroid/os/IBinder;Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
 .method public semGetScanCodeState(III)I
     .locals 2
 
@@ -1782,7 +1851,7 @@
 .end method
 
 .method public setCustomPointerIcon(Landroid/view/PointerIcon;)V
-    .locals 3
+    .locals 4
 
     :try_start_0
     invoke-virtual {p1}, Landroid/view/PointerIcon;->getType()I
@@ -1802,6 +1871,32 @@
     if-ne v1, v2, :cond_2
 
     :cond_0
+    const-string/jumbo v1, "InputManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "setCustomPointerIcon MOUSE CUSTOM, callingPid = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     iget-object v1, p0, Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
 
     invoke-interface {v1, p1}, Landroid/hardware/input/IInputManager;->setCustomPointerIcon(Landroid/view/PointerIcon;)V
@@ -1828,6 +1923,32 @@
     if-ne v1, v2, :cond_1
 
     :cond_3
+    const-string/jumbo v1, "InputManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "setCustomPointerIcon SPEN CUSTOM, callingPid = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     iget-object v1, p0, Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
 
     invoke-interface {v1, p1}, Landroid/hardware/input/IInputManager;->setCustomHoverIcon(Landroid/view/PointerIcon;)V
@@ -1935,157 +2056,285 @@
 .end method
 
 .method public setPointerIconType(I)V
-    .locals 5
-
-    const/16 v4, 0x4e20
-
-    const/4 v3, -0x1
+    .locals 6
 
     :try_start_0
-    iget-object v2, p0, Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
+    iget-object v3, p0, Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
 
-    invoke-interface {v2}, Landroid/hardware/input/IInputManager;->isDefaultPointerIconChanged()Z
+    invoke-interface {v3}, Landroid/hardware/input/IInputManager;->isDefaultPointerIconChanged()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_9
+    if-eqz v3, :cond_7
 
-    iget-object v2, p0, Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
+    iget-object v3, p0, Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
 
-    invoke-interface {v2}, Landroid/hardware/input/IInputManager;->getDefaultPointerIcon()Landroid/view/PointerIcon;
+    invoke-interface {v3}, Landroid/hardware/input/IInputManager;->getDefaultPointerIcon()Landroid/view/PointerIcon;
 
     move-result-object v0
 
+    const/4 v1, 0x1
+
     if-eqz v0, :cond_4
 
-    const/16 v2, 0x3e8
+    const/16 v3, 0x3e8
 
-    if-eq p1, v2, :cond_0
+    if-eq p1, v3, :cond_0
 
-    const/16 v2, 0x4e21
+    const/16 v3, 0x4e21
 
-    if-ne p1, v2, :cond_3
+    if-ne p1, v3, :cond_3
 
     :cond_0
-    sget-object v2, Landroid/hardware/input/InputManager;->mDefaultPointerIcon:Landroid/view/PointerIcon;
+    sget-object v3, Landroid/hardware/input/InputManager;->mDefaultPointerIcon:Landroid/view/PointerIcon;
 
-    if-nez v2, :cond_6
+    if-eqz v3, :cond_1
 
+    sget-object v3, Landroid/hardware/input/InputManager;->mDefaultPointerIcon:Landroid/view/PointerIcon;
+
+    if-eqz v3, :cond_6
+
+    sget-object v3, Landroid/hardware/input/InputManager;->mDefaultPointerIcon:Landroid/view/PointerIcon;
+
+    invoke-virtual {v3, v0}, Landroid/view/PointerIcon;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_6
+
+    :cond_1
     sput-object v0, Landroid/hardware/input/InputManager;->mDefaultPointerIcon:Landroid/view/PointerIcon;
 
     invoke-virtual {v0}, Landroid/view/PointerIcon;->getType()I
 
-    move-result v2
+    move-result v1
 
-    if-eq v2, v3, :cond_1
+    const/4 v3, -0x1
 
-    invoke-virtual {v0}, Landroid/view/PointerIcon;->getType()I
+    if-eq v1, v3, :cond_2
 
-    move-result v2
+    const/16 v3, 0x4e20
 
-    if-ne v2, v4, :cond_5
-
-    :cond_1
-    invoke-virtual {p0, v0}, Landroid/hardware/input/InputManager;->setCustomPointerIcon(Landroid/view/PointerIcon;)V
+    if-ne v1, v3, :cond_5
 
     :cond_2
+    const-string/jumbo v3, "InputManager"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "setPointerIconType Call setCustomPointerIcon, callingPid = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0, v0}, Landroid/hardware/input/InputManager;->setCustomPointerIcon(Landroid/view/PointerIcon;)V
+
     :goto_0
     return-void
 
     :cond_3
-    const/16 v2, 0x2789
+    const/16 v3, 0x2789
 
-    if-eq p1, v2, :cond_0
+    if-eq p1, v3, :cond_0
 
     :cond_4
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    sput-object v2, Landroid/hardware/input/InputManager;->mDefaultPointerIcon:Landroid/view/PointerIcon;
+    sput-object v3, Landroid/hardware/input/InputManager;->mDefaultPointerIcon:Landroid/view/PointerIcon;
 
-    iget-object v2, p0, Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
+    const-string/jumbo v3, "InputManager"
 
-    invoke-interface {v2, p1}, Landroid/hardware/input/IInputManager;->setPointerIconType(I)V
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "setPointerIconType[isDefaultPointerIconChanged2] iconId = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ", callingPid = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v3, p0, Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
+
+    invoke-interface {v3, p1}, Landroid/hardware/input/IInputManager;->setPointerIconType(I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v1
+    move-exception v2
 
-    invoke-virtual {v1}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    invoke-virtual {v2}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
-    move-result-object v2
+    move-result-object v3
 
-    throw v2
+    throw v3
 
     :cond_5
     :try_start_1
-    iget-object v2, p0, Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
+    const-string/jumbo v3, "InputManager"
 
-    invoke-virtual {v0}, Landroid/view/PointerIcon;->getType()I
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    move-result v3
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-interface {v2, v3}, Landroid/hardware/input/IInputManager;->setPointerIconType(I)V
+    const-string/jumbo v5, "setPointerIconType defaultIconType = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ", callingPid = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v3, p0, Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
+
+    invoke-interface {v3, v1}, Landroid/hardware/input/IInputManager;->setPointerIconType(I)V
 
     goto :goto_0
 
     :cond_6
-    sget-object v2, Landroid/hardware/input/InputManager;->mDefaultPointerIcon:Landroid/view/PointerIcon;
+    const-string/jumbo v3, "InputManager"
 
-    if-eqz v2, :cond_2
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    sget-object v2, Landroid/hardware/input/InputManager;->mDefaultPointerIcon:Landroid/view/PointerIcon;
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, v0}, Landroid/view/PointerIcon;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v5, "setPointerIconType NOT SET, callingPid = "
 
-    move-result v2
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-nez v2, :cond_2
+    move-result-object v4
 
-    sput-object v0, Landroid/hardware/input/InputManager;->mDefaultPointerIcon:Landroid/view/PointerIcon;
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    invoke-virtual {v0}, Landroid/view/PointerIcon;->getType()I
+    move-result v5
 
-    move-result v2
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    if-eq v2, v3, :cond_7
+    move-result-object v4
 
-    invoke-virtual {v0}, Landroid/view/PointerIcon;->getType()I
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result v2
+    move-result-object v4
 
-    if-ne v2, v4, :cond_8
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
 
     :cond_7
-    invoke-virtual {p0, v0}, Landroid/hardware/input/InputManager;->setCustomPointerIcon(Landroid/view/PointerIcon;)V
+    const-string/jumbo v3, "InputManager"
 
-    goto :goto_0
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    :cond_8
-    iget-object v2, p0, Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0}, Landroid/view/PointerIcon;->getType()I
+    const-string/jumbo v5, "setPointerIconType iconId = "
 
-    move-result v3
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-interface {v2, v3}, Landroid/hardware/input/IInputManager;->setPointerIconType(I)V
+    move-result-object v4
 
-    goto :goto_0
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    :cond_9
-    const/4 v2, 0x0
+    move-result-object v4
 
-    sput-object v2, Landroid/hardware/input/InputManager;->mDefaultPointerIcon:Landroid/view/PointerIcon;
+    const-string/jumbo v5, ", callingPid = "
 
-    iget-object v2, p0, Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-interface {v2, p1}, Landroid/hardware/input/IInputManager;->setPointerIconType(I)V
+    move-result-object v4
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v3, 0x0
+
+    sput-object v3, Landroid/hardware/input/InputManager;->mDefaultPointerIcon:Landroid/view/PointerIcon;
+
+    iget-object v3, p0, Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
+
+    invoke-interface {v3, p1}, Landroid/hardware/input/IInputManager;->setPointerIconType(I)V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method
 
 .method public setPointerSpeed(Landroid/content/Context;I)V

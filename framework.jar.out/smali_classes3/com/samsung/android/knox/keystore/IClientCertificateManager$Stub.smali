@@ -68,6 +68,8 @@
 
 .field static final TRANSACTION_hasGrant:I = 0x2a
 
+.field static final TRANSACTION_hasGrantWithCxt:I = 0x2b
+
 .field static final TRANSACTION_insertOrUpdateCCMProfile:I = 0x23
 
 .field static final TRANSACTION_insertOrUpdateCertificateProfile:I = 0x24
@@ -96,6 +98,8 @@
 
 .field static final TRANSACTION_keychainMarkedReset:I = 0x1d
 
+.field static final TRANSACTION_notifyLicenseStatus:I = 0x2d
+
 .field static final TRANSACTION_registerForDefaultCertificate:I = 0x2
 
 .field static final TRANSACTION_removeKeyPair:I = 0x28
@@ -110,6 +114,8 @@
 
 .field static final TRANSACTION_setGrant:I = 0x29
 
+.field static final TRANSACTION_updateDBdata:I = 0x2c
+
 
 # direct methods
 .method public constructor <init>()V
@@ -119,7 +125,7 @@
 
     const-string/jumbo v0, "com.samsung.android.knox.keystore.IClientCertificateManager"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -167,7 +173,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 51
+    .locals 54
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -246,13 +252,13 @@
 
     invoke-virtual/range {v4 .. v10}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->generateCSR(Lcom/samsung/android/knox/ContextInfo;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)[B
 
-    move-result-object v50
+    move-result-object v53
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeByteArray([B)V
 
@@ -327,13 +333,13 @@
 
     invoke-virtual/range {v11 .. v16}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->registerForDefaultCertificate(Lcom/samsung/android/knox/ContextInfo;ILjava/lang/String;Ljava/lang/String;Z)I
 
-    move-result v43
+    move-result v46
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v43
+    move/from16 v1, v46
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -426,13 +432,13 @@
 
     invoke-virtual/range {v17 .. v26}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->installObject(Lcom/samsung/android/knox/ContextInfo;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I[BLjava/lang/String;Z)I
 
-    move-result v43
+    move-result v46
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v43
+    move/from16 v1, v46
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -490,13 +496,13 @@
 
     invoke-virtual {v0, v5, v1, v2}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->generateKeyPair(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;I)[B
 
-    move-result-object v50
+    move-result-object v53
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeByteArray([B)V
 
@@ -545,22 +551,22 @@
 
     invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v40
+    move-result-object v42
 
-    check-cast v40, Lcom/samsung/android/knox/keystore/CCMProfile;
+    check-cast v42, Lcom/samsung/android/knox/keystore/CCMProfile;
 
     :goto_8
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v40
+    move-object/from16 v1, v42
 
     invoke-virtual {v0, v5, v1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->setCCMProfile(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/keystore/CCMProfile;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_9
+    if-eqz v52, :cond_9
 
     const/4 v4, 0x1
 
@@ -579,7 +585,7 @@
     goto :goto_7
 
     :cond_8
-    const/16 v40, 0x0
+    const/16 v42, 0x0
 
     goto :goto_8
 
@@ -616,11 +622,11 @@
 
     invoke-virtual {v0, v5}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->getCCMProfile(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/keystore/CCMProfile;
 
-    move-result-object v46
+    move-result-object v47
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v46, :cond_b
+    if-eqz v47, :cond_b
 
     const/4 v4, 0x1
 
@@ -630,7 +636,7 @@
 
     const/4 v4, 0x1
 
-    move-object/from16 v0, v46
+    move-object/from16 v0, v47
 
     move-object/from16 v1, p3
 
@@ -683,11 +689,11 @@
 
     invoke-virtual {v0, v5}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->deleteCCMProfile(Lcom/samsung/android/knox/ContextInfo;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_d
+    if-eqz v52, :cond_d
 
     const/4 v4, 0x1
 
@@ -767,11 +773,11 @@
 
     invoke-virtual {v0, v5, v1, v2, v8}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->installCertificate(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/keystore/CertificateProfile;[BLjava/lang/String;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_10
+    if-eqz v52, :cond_10
 
     const/4 v4, 0x1
 
@@ -833,11 +839,11 @@
 
     invoke-virtual {v0, v5, v1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->deleteCertificate(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_12
+    if-eqz v52, :cond_12
 
     const/4 v4, 0x1
 
@@ -888,11 +894,11 @@
 
     invoke-virtual {v0, v5}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->isCCMPolicyEnabledForCaller(Lcom/samsung/android/knox/ContextInfo;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_14
+    if-eqz v52, :cond_14
 
     const/4 v4, 0x1
 
@@ -949,11 +955,11 @@
 
     invoke-virtual {v0, v5, v1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->isCCMPolicyEnabledForPackage(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_16
+    if-eqz v52, :cond_16
 
     const/4 v4, 0x1
 
@@ -1010,13 +1016,13 @@
 
     invoke-virtual {v0, v5, v1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->getSlotIdForCaller(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)J
 
-    move-result-wide v44
+    move-result-wide v48
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-wide/from16 v1, v44
+    move-wide/from16 v1, v48
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Parcel;->writeLong(J)V
 
@@ -1067,13 +1073,13 @@
 
     invoke-virtual {v0, v5, v1, v7}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->getSlotIdForPackage(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;)J
 
-    move-result-wide v44
+    move-result-wide v48
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-wide/from16 v1, v44
+    move-wide/from16 v1, v48
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Parcel;->writeLong(J)V
 
@@ -1122,22 +1128,22 @@
 
     invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v41
+    move-result-object v43
 
-    check-cast v41, Lcom/samsung/android/knox/keystore/CSRProfile;
+    check-cast v43, Lcom/samsung/android/knox/keystore/CSRProfile;
 
     :goto_1a
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v41
+    move-object/from16 v1, v43
 
     invoke-virtual {v0, v5, v1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->setCSRProfile(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/keystore/CSRProfile;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_1b
+    if-eqz v52, :cond_1b
 
     const/4 v4, 0x1
 
@@ -1156,7 +1162,7 @@
     goto :goto_19
 
     :cond_1a
-    const/16 v41, 0x0
+    const/16 v43, 0x0
 
     goto :goto_1a
 
@@ -1199,11 +1205,11 @@
 
     invoke-virtual {v0, v5, v1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->deleteCSRProfile(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_1d
+    if-eqz v52, :cond_1d
 
     const/4 v4, 0x1
 
@@ -1268,13 +1274,13 @@
 
     invoke-virtual {v0, v5, v1, v7, v8}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->generateCSRUsingTemplate(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)[B
 
-    move-result-object v50
+    move-result-object v53
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeByteArray([B)V
 
@@ -1335,13 +1341,13 @@
 
     invoke-virtual/range {v17 .. v22}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->generateCSRUsingByteArray(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;[BI)[B
 
-    move-result-object v50
+    move-result-object v53
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeByteArray([B)V
 
@@ -1408,13 +1414,13 @@
 
     invoke-virtual/range {v27 .. v32}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->generateCSRUsingString(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)[B
 
-    move-result-object v50
+    move-result-object v53
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeByteArray([B)V
 
@@ -1444,11 +1450,11 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->isCCMPolicyEnabledByAdmin(I)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_21
+    if-eqz v52, :cond_21
 
     const/4 v4, 0x1
 
@@ -1500,11 +1506,11 @@
 
     invoke-virtual {v0, v5, v1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->addPackageToExemptList(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_23
+    if-eqz v52, :cond_23
 
     const/4 v4, 0x1
 
@@ -1561,11 +1567,11 @@
 
     invoke-virtual {v0, v5, v1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->removePackageFromExemptList(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_25
+    if-eqz v52, :cond_25
 
     const/4 v4, 0x1
 
@@ -1597,13 +1603,13 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->getCCMVersion()Ljava/lang/String;
 
-    move-result-object v47
+    move-result-object v50
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v47
+    move-object/from16 v1, v50
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
@@ -1663,11 +1669,11 @@
 
     invoke-virtual/range {v27 .. v32}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->installObjectWithType(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;I[BLjava/lang/String;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_27
+    if-eqz v52, :cond_27
 
     const/4 v4, 0x1
 
@@ -1699,13 +1705,13 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->getDefaultCertificateAlias()Ljava/lang/String;
 
-    move-result-object v47
+    move-result-object v50
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v47
+    move-object/from16 v1, v50
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
@@ -1741,13 +1747,13 @@
 
     invoke-virtual {v0, v5}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->getAliasesForCaller(Lcom/samsung/android/knox/ContextInfo;)Ljava/util/List;
 
-    move-result-object v48
+    move-result-object v51
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v48
+    move-object/from16 v1, v51
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
 
@@ -1788,11 +1794,11 @@
 
     invoke-virtual {v0, v5}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->isAccessControlMethodPassword(Lcom/samsung/android/knox/ContextInfo;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_2a
+    if-eqz v52, :cond_2a
 
     const/4 v4, 0x1
 
@@ -1824,13 +1830,13 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->getAliasesForWiFi()Ljava/util/List;
 
-    move-result-object v48
+    move-result-object v51
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v48
+    move-object/from16 v1, v51
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
 
@@ -1872,11 +1878,11 @@
 
     invoke-virtual {v0, v5, v1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->isKeyChainMarkedAlias(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_2c
+    if-eqz v52, :cond_2c
 
     const/4 v4, 0x1
 
@@ -1927,11 +1933,11 @@
 
     invoke-virtual {v0, v5}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->keychainMarkedReset(Lcom/samsung/android/knox/ContextInfo;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_2e
+    if-eqz v52, :cond_2e
 
     const/4 v4, 0x1
 
@@ -1982,13 +1988,13 @@
 
     invoke-virtual {v0, v5}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->getKeyChainMarkedAliases(Lcom/samsung/android/knox/ContextInfo;)Ljava/util/List;
 
-    move-result-object v48
+    move-result-object v51
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v48
+    move-object/from16 v1, v51
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
 
@@ -2029,11 +2035,11 @@
 
     invoke-virtual {v0, v5}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->isCCMEmptyForKeyChain(Lcom/samsung/android/knox/ContextInfo;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_31
+    if-eqz v52, :cond_31
 
     const/4 v4, 0x1
 
@@ -2084,13 +2090,13 @@
 
     invoke-virtual {v0, v5}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->getCertificateAliases(Lcom/samsung/android/knox/ContextInfo;)Ljava/util/List;
 
-    move-result-object v48
+    move-result-object v51
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v48
+    move-object/from16 v1, v51
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
 
@@ -2131,13 +2137,13 @@
 
     invoke-virtual {v0, v5}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->getCertificateAliasesHavingPrivateKey(Lcom/samsung/android/knox/ContextInfo;)Ljava/util/List;
 
-    move-result-object v48
+    move-result-object v51
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v48
+    move-object/from16 v1, v51
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
 
@@ -2213,11 +2219,11 @@
 
     invoke-virtual/range {v27 .. v32}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->installObjectWithProfile(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/keystore/CertificateProfile;I[BLjava/lang/String;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_36
+    if-eqz v52, :cond_36
 
     const/4 v4, 0x1
 
@@ -2281,22 +2287,22 @@
 
     invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v40
+    move-result-object v42
 
-    check-cast v40, Lcom/samsung/android/knox/keystore/CCMProfile;
+    check-cast v42, Lcom/samsung/android/knox/keystore/CCMProfile;
 
     :goto_38
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v40
+    move-object/from16 v1, v42
 
     invoke-virtual {v0, v5, v1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->insertOrUpdateCCMProfile(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/keystore/CCMProfile;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_39
+    if-eqz v52, :cond_39
 
     const/4 v4, 0x1
 
@@ -2315,7 +2321,7 @@
     goto :goto_37
 
     :cond_38
-    const/16 v40, 0x0
+    const/16 v42, 0x0
 
     goto :goto_38
 
@@ -2371,11 +2377,11 @@
 
     invoke-virtual {v0, v5, v1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->insertOrUpdateCertificateProfile(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/keystore/CertificateProfile;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_3c
+    if-eqz v52, :cond_3c
 
     const/4 v4, 0x1
 
@@ -2437,13 +2443,13 @@
 
     invoke-virtual {v0, v5, v1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->getAliasesForPackage(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v48
+    move-result-object v51
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v48
+    move-object/from16 v1, v51
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
 
@@ -2465,11 +2471,11 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->setDefaultCCMProfile()Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_3e
+    if-eqz v52, :cond_3e
 
     const/4 v4, 0x1
 
@@ -2541,11 +2547,11 @@
 
     invoke-virtual/range {v31 .. v37}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->installKeyPair(Lcom/samsung/android/knox/ContextInfo;[B[B[BLjava/lang/String;Ljava/lang/String;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_40
+    if-eqz v52, :cond_40
 
     const/4 v4, 0x1
 
@@ -2602,11 +2608,11 @@
 
     invoke-virtual {v0, v5, v1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->removeKeyPair(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_42
+    if-eqz v52, :cond_42
 
     const/4 v4, 0x1
 
@@ -2650,7 +2656,7 @@
 
     if-eqz v4, :cond_43
 
-    const/16 v42, 0x1
+    const/16 v45, 0x1
 
     :goto_43
     move-object/from16 v0, p0
@@ -2659,7 +2665,7 @@
 
     move-object/from16 v2, v19
 
-    move/from16 v3, v42
+    move/from16 v3, v45
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->setGrant(ILjava/lang/String;Z)V
 
@@ -2670,7 +2676,7 @@
     return v4
 
     :cond_43
-    const/16 v42, 0x0
+    const/16 v45, 0x0
 
     goto :goto_43
 
@@ -2691,11 +2697,11 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->hasGrant(Ljava/lang/String;)Z
 
-    move-result v49
+    move-result v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v49, :cond_44
+    if-eqz v52, :cond_44
 
     const/4 v4, 0x1
 
@@ -2712,6 +2718,187 @@
     const/4 v4, 0x0
 
     goto :goto_44
+
+    :sswitch_2b
+    const-string/jumbo v4, "com.samsung.android.knox.keystore.IClientCertificateManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v39
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_45
+
+    sget-object v4, Lcom/samsung/android/knox/ContextInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v41
+
+    check-cast v41, Lcom/samsung/android/knox/ContextInfo;
+
+    :goto_45
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v39
+
+    move-object/from16 v2, v41
+
+    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->hasGrantWithCxt(Ljava/lang/String;Lcom/samsung/android/knox/ContextInfo;)Z
+
+    move-result v52
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v52, :cond_46
+
+    const/4 v4, 0x1
+
+    :goto_46
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_45
+    const/16 v41, 0x0
+
+    goto :goto_45
+
+    :cond_46
+    const/4 v4, 0x0
+
+    goto :goto_46
+
+    :sswitch_2c
+    const-string/jumbo v4, "com.samsung.android.knox.keystore.IClientCertificateManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v39
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_47
+
+    sget-object v4, Landroid/content/ContentValues;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v40
+
+    check-cast v40, Landroid/content/ContentValues;
+
+    :goto_47
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_48
+
+    sget-object v4, Landroid/content/ContentValues;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v44
+
+    check-cast v44, Landroid/content/ContentValues;
+
+    :goto_48
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v39
+
+    move-object/from16 v2, v40
+
+    move-object/from16 v3, v44
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->updateDBdata(Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/ContentValues;)Z
+
+    move-result v52
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v52, :cond_49
+
+    const/4 v4, 0x1
+
+    :goto_49
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_47
+    const/16 v40, 0x0
+
+    goto :goto_47
+
+    :cond_48
+    const/16 v44, 0x0
+
+    goto :goto_48
+
+    :cond_49
+    const/4 v4, 0x0
+
+    goto :goto_49
+
+    :sswitch_2d
+    const-string/jumbo v4, "com.samsung.android.knox.keystore.IClientCertificateManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->notifyLicenseStatus()Z
+
+    move-result v52
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v52, :cond_4a
+
+    const/4 v4, 0x1
+
+    :goto_4a
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_4a
+    const/4 v4, 0x0
+
+    goto :goto_4a
 
     nop
 
@@ -2759,6 +2946,9 @@
         0x28 -> :sswitch_28
         0x29 -> :sswitch_29
         0x2a -> :sswitch_2a
+        0x2b -> :sswitch_2b
+        0x2c -> :sswitch_2c
+        0x2d -> :sswitch_2d
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

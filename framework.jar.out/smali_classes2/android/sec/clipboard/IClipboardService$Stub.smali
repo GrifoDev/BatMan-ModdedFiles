@@ -28,19 +28,19 @@
 
 .field static final TRANSACTION_addClip:I = 0x12
 
-.field static final TRANSACTION_addClipboardEventListener:I = 0x1e
+.field static final TRANSACTION_addClipboardEventListener:I = 0x1f
 
-.field static final TRANSACTION_addUserChangedListener:I = 0x20
+.field static final TRANSACTION_addUserChangedListener:I = 0x21
 
 .field static final TRANSACTION_dismissDialog:I = 0x8
 
-.field static final TRANSACTION_getClip:I = 0x1b
+.field static final TRANSACTION_getClip:I = 0x1c
 
 .field static final TRANSACTION_getClipData:I = 0xb
 
 .field static final TRANSACTION_getClipedStrings:I = 0x13
 
-.field static final TRANSACTION_getClips:I = 0x1a
+.field static final TRANSACTION_getClips:I = 0x1b
 
 .field static final TRANSACTION_getCount:I = 0x1
 
@@ -52,23 +52,25 @@
 
 .field static final TRANSACTION_isEnabled:I = 0x11
 
+.field static final TRANSACTION_isKnoxKeyguardShowing:I = 0x18
+
 .field static final TRANSACTION_isPackageAllowed:I = 0x16
 
 .field static final TRANSACTION_isShowing:I = 0x7
 
 .field static final TRANSACTION_loadSEClipboard:I = 0x10
 
-.field static final TRANSACTION_pasteClip:I = 0x19
+.field static final TRANSACTION_pasteClip:I = 0x1a
 
 .field static final TRANSACTION_registClipboardWorkingFormUiInterfaces:I = 0x9
 
-.field static final TRANSACTION_removeAll:I = 0x18
+.field static final TRANSACTION_removeAll:I = 0x19
 
-.field static final TRANSACTION_removeClip:I = 0x1c
+.field static final TRANSACTION_removeClip:I = 0x1d
 
-.field static final TRANSACTION_removeClipboardEventListener:I = 0x1f
+.field static final TRANSACTION_removeClipboardEventListener:I = 0x20
 
-.field static final TRANSACTION_removeUserChangedListener:I = 0x21
+.field static final TRANSACTION_removeUserChangedListener:I = 0x22
 
 .field static final TRANSACTION_setClipData:I = 0xc
 
@@ -84,7 +86,7 @@
 
 .field static final TRANSACTION_unRegistClipboardWorkingFormUiInterfaces:I = 0xa
 
-.field static final TRANSACTION_updateClip:I = 0x1d
+.field static final TRANSACTION_updateClip:I = 0x1e
 
 .field static final TRANSACTION_updateDialogShowingState:I = 0x2
 
@@ -101,7 +103,7 @@
 
     const-string/jumbo v0, "android.sec.clipboard.IClipboardService"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/sec/clipboard/IClipboardService$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -1065,7 +1067,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p0 .. p0}, Landroid/sec/clipboard/IClipboardService$Stub;->removeAll()Z
+    invoke-virtual/range {p0 .. p0}, Landroid/sec/clipboard/IClipboardService$Stub;->isKnoxKeyguardShowing()Z
 
     move-result v22
 
@@ -1100,13 +1102,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v8
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v8}, Landroid/sec/clipboard/IClipboardService$Stub;->pasteClip(Ljava/lang/String;)Z
+    invoke-virtual/range {p0 .. p0}, Landroid/sec/clipboard/IClipboardService$Stub;->removeAll()Z
 
     move-result v22
 
@@ -1141,6 +1137,47 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v8
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v8}, Landroid/sec/clipboard/IClipboardService$Stub;->pasteClip(Ljava/lang/String;)Z
+
+    move-result v22
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v22, :cond_f
+
+    const/16 v23, 0x1
+
+    :goto_f
+    move-object/from16 v0, p3
+
+    move/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v23, 0x1
+
+    return v23
+
+    :cond_f
+    const/16 v23, 0x0
+
+    goto :goto_f
+
+    :sswitch_1b
+    const-string/jumbo v23, "android.sec.clipboard.IClipboardService"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
     invoke-virtual/range {p0 .. p0}, Landroid/sec/clipboard/IClipboardService$Stub;->getClips()Ljava/util/List;
 
     move-result-object v20
@@ -1157,7 +1194,7 @@
 
     return v23
 
-    :sswitch_1b
+    :sswitch_1c
     const-string/jumbo v23, "android.sec.clipboard.IClipboardService"
 
     move-object/from16 v0, p2
@@ -1178,7 +1215,7 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v19, :cond_f
+    if-eqz v19, :cond_10
 
     const/16 v23, 0x1
 
@@ -1198,12 +1235,12 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/samsung/android/content/clipboard/data/SemClipData;->writeToParcel(Landroid/os/Parcel;I)V
 
-    :goto_f
+    :goto_10
     const/16 v23, 0x1
 
     return v23
 
-    :cond_f
+    :cond_10
     const/16 v23, 0x0
 
     move-object/from16 v0, p3
@@ -1212,9 +1249,9 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_f
+    goto :goto_10
 
-    :sswitch_1c
+    :sswitch_1d
     const-string/jumbo v23, "android.sec.clipboard.IClipboardService"
 
     move-object/from16 v0, p2
@@ -1235,11 +1272,11 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v22, :cond_10
+    if-eqz v22, :cond_11
 
     const/16 v23, 0x1
 
-    :goto_10
+    :goto_11
     move-object/from16 v0, p3
 
     move/from16 v1, v23
@@ -1250,12 +1287,12 @@
 
     return v23
 
-    :cond_10
+    :cond_11
     const/16 v23, 0x0
 
-    goto :goto_10
+    goto :goto_11
 
-    :sswitch_1d
+    :sswitch_1e
     const-string/jumbo v23, "android.sec.clipboard.IClipboardService"
 
     move-object/from16 v0, p2
@@ -1272,7 +1309,7 @@
 
     move-result v23
 
-    if-eqz v23, :cond_11
+    if-eqz v23, :cond_12
 
     sget-object v23, Lcom/samsung/android/content/clipboard/data/SemClipData;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -1286,7 +1323,7 @@
 
     check-cast v12, Lcom/samsung/android/content/clipboard/data/SemClipData;
 
-    :goto_11
+    :goto_12
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v8, v12}, Landroid/sec/clipboard/IClipboardService$Stub;->updateClip(Ljava/lang/String;Lcom/samsung/android/content/clipboard/data/SemClipData;)Z
@@ -1295,11 +1332,11 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v22, :cond_12
+    if-eqz v22, :cond_13
 
     const/16 v23, 0x1
 
-    :goto_12
+    :goto_13
     move-object/from16 v0, p3
 
     move/from16 v1, v23
@@ -1310,17 +1347,17 @@
 
     return v23
 
-    :cond_11
-    const/4 v12, 0x0
-
-    goto :goto_11
-
     :cond_12
-    const/16 v23, 0x0
+    const/4 v12, 0x0
 
     goto :goto_12
 
-    :sswitch_1e
+    :cond_13
+    const/16 v23, 0x0
+
+    goto :goto_13
+
+    :sswitch_1f
     const-string/jumbo v23, "android.sec.clipboard.IClipboardService"
 
     move-object/from16 v0, p2
@@ -1351,7 +1388,7 @@
 
     return v23
 
-    :sswitch_1f
+    :sswitch_20
     const-string/jumbo v23, "android.sec.clipboard.IClipboardService"
 
     move-object/from16 v0, p2
@@ -1378,7 +1415,7 @@
 
     return v23
 
-    :sswitch_20
+    :sswitch_21
     const-string/jumbo v23, "android.sec.clipboard.IClipboardService"
 
     move-object/from16 v0, p2
@@ -1409,7 +1446,7 @@
 
     return v23
 
-    :sswitch_21
+    :sswitch_22
     const-string/jumbo v23, "android.sec.clipboard.IClipboardService"
 
     move-object/from16 v0, p2
@@ -1473,6 +1510,7 @@
         0x1f -> :sswitch_1f
         0x20 -> :sswitch_20
         0x21 -> :sswitch_21
+        0x22 -> :sswitch_22
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

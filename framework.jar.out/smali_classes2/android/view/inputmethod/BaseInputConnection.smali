@@ -68,19 +68,11 @@
 
     iput-object p1, p0, Landroid/view/inputmethod/BaseInputConnection;->mTargetView:Landroid/view/View;
 
-    if-eqz p2, :cond_0
+    xor-int/lit8 v0, p2, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     iput-boolean v0, p0, Landroid/view/inputmethod/BaseInputConnection;->mDummyMode:Z
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method constructor <init>(Landroid/view/inputmethod/InputMethodManager;Z)V
@@ -94,19 +86,11 @@
 
     iput-object v0, p0, Landroid/view/inputmethod/BaseInputConnection;->mTargetView:Landroid/view/View;
 
-    if-eqz p2, :cond_0
+    xor-int/lit8 v0, p2, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     iput-boolean v0, p0, Landroid/view/inputmethod/BaseInputConnection;->mDummyMode:Z
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method private convertAllBrackets(Ljava/lang/CharSequence;)Ljava/lang/String;
@@ -1656,6 +1640,14 @@
 .end method
 
 .method public commitCompletion(Landroid/view/inputmethod/CompletionInfo;)Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public commitContent(Landroid/view/inputmethod/InputContentInfo;ILandroid/os/Bundle;)Z
     .locals 1
 
     const/4 v0, 0x0

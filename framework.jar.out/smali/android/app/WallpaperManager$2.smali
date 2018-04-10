@@ -33,9 +33,13 @@
 
     if-eqz p1, :cond_0
 
-    const/16 v0, 0x64
+    invoke-static {p1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
-    if-ge p1, v0, :cond_0
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
 
     const-string/jumbo v0, "/system/wallpaper/default_wallpaper/"
 

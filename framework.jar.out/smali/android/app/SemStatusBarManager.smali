@@ -96,8 +96,6 @@
 
     iget-object v0, p0, Landroid/app/SemStatusBarManager;->mService:Lcom/android/internal/statusbar/IStatusBarService;
 
-    if-nez v0, :cond_0
-
     :cond_0
     iget-object v0, p0, Landroid/app/SemStatusBarManager;->mService:Lcom/android/internal/statusbar/IStatusBarService;
     :try_end_0

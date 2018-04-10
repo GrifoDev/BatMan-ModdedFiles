@@ -199,7 +199,9 @@
 
     iput-object v0, p0, Lcom/sec/tima/keystore/util/Utility;->SDK_24_MODELS:[Ljava/lang/String;
 
-    new-array v0, v7, [Ljava/lang/String;
+    const/4 v0, 0x6
+
+    new-array v0, v0, [Ljava/lang/String;
 
     const-string/jumbo v1, "MSM8998"
 
@@ -216,6 +218,16 @@
     const-string/jumbo v1, "exynos8895"
 
     aput-object v1, v0, v6
+
+    const-string/jumbo v1, "exynos9810"
+
+    aput-object v1, v0, v7
+
+    const-string/jumbo v1, "SDM845"
+
+    const/4 v2, 0x5
+
+    aput-object v1, v0, v2
 
     iput-object v0, p0, Lcom/sec/tima/keystore/util/Utility;->FIPS_SUPPORT_CHIPSETS:[Ljava/lang/String;
 

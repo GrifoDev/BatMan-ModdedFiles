@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Lcom/samsung/android/content/smartclip/SpenGestureManager;",
+        "Lcom/samsung/android/app/SemExecutableManager;",
         ">;"
     }
 .end annotation
@@ -34,20 +34,29 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/content/smartclip/SpenGestureManager;
-    .locals 1
+.method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/app/SemExecutableManager;
+    .locals 2
 
-    new-instance v0, Lcom/samsung/android/content/smartclip/SpenGestureManager;
+    new-instance v0, Lcom/samsung/android/app/SemExecutableManager;
 
-    invoke-direct {v0, p1}, Lcom/samsung/android/content/smartclip/SpenGestureManager;-><init>(Landroid/content/Context;)V
+    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Lcom/samsung/android/app/SemExecutableManager;-><init>(Landroid/content/Context;)V
 
     return-object v0
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$94;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/content/smartclip/SpenGestureManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$94;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/app/SemExecutableManager;
 
     move-result-object v0
 

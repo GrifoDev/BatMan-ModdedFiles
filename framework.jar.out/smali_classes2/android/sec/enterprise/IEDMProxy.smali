@@ -569,7 +569,31 @@
     .end annotation
 .end method
 
+.method public abstract isAccountRemovalAllowedAsUser(Ljava/lang/String;Ljava/lang/String;ZI)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isAndroidBeamAllowed(Z)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isAnyApplicationIconChangedAsUser(I)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isAnyApplicationNameChangedAsUser(I)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -721,6 +745,14 @@
     .end annotation
 .end method
 
+.method public abstract isCertificateValidationAtInstallEnabledAsUser(I)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isChangeRequested()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -770,6 +802,22 @@
 .end method
 
 .method public abstract isDiscoverableEnabled()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isFactoryResetAllowed()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isGoogleAccountsAutoSyncAllowedAsUser(I)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -873,6 +921,22 @@
     .end annotation
 .end method
 
+.method public abstract isMockLocationEnabled()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isMultifactorAuthenticationEnabled()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isNFCEnabled()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -930,6 +994,14 @@
 .end method
 
 .method public abstract isPackageAllowedToAccessExternalSdcard(II)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isPackageInAvrWhitelist(I)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1154,6 +1226,14 @@
 .end method
 
 .method public abstract notifyCertificateRemovedAsUser(Ljava/lang/String;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract notifyPasswordPolicyOneLockChanged(ZI)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -67,7 +67,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/share/executor/data/ScreenStateInfo;->mStateList:Ljava/util/LinkedHashSet;
 
-    invoke-virtual {v0, p1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
@@ -98,7 +98,7 @@
 
     if-eqz p1, :cond_0
 
-    invoke-virtual {p1}, Ljava/util/HashSet;->isEmpty()Z
+    invoke-virtual {p1}, Ljava/util/LinkedHashSet;->isEmpty()Z
 
     move-result v0
 
@@ -153,7 +153,7 @@
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/share/executor/data/ScreenStateInfo;->mStateList:Ljava/util/LinkedHashSet;
 
-    invoke-virtual {v0, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/util/LinkedHashSet;->contains(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -186,7 +186,7 @@
     :cond_2
     iget-object v0, p0, Lcom/samsung/android/share/executor/data/ScreenStateInfo;->mStateList:Ljava/util/LinkedHashSet;
 
-    invoke-virtual {v0, p1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
 
     return-object p0
 .end method
@@ -299,7 +299,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/share/executor/data/ScreenStateInfo;->mStateList:Ljava/util/LinkedHashSet;
 
-    invoke-virtual {v3}, Ljava/util/HashSet;->size()I
+    invoke-virtual {v3}, Ljava/util/LinkedHashSet;->size()I
 
     move-result v3
 

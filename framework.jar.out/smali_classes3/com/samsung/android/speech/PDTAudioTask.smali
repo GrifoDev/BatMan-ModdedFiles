@@ -157,7 +157,7 @@
 
     iput v2, p0, Lcom/samsung/android/speech/PDTAudioTask;->recogAfterReadCount:I
 
-    const/16 v0, 0x64
+    const/16 v0, 0x32
 
     iput v0, p0, Lcom/samsung/android/speech/PDTAudioTask;->RECOGNITION_WAIT_TIME:I
 
@@ -277,7 +277,7 @@
 
     const-string/jumbo v3, "recognition_result"
 
-    invoke-virtual {v0, v3, p1}, Landroid/os/BaseBundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
+    invoke-virtual {v0, v3, p1}, Landroid/os/Bundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
 
     invoke-virtual {v2, v0}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
 
@@ -306,7 +306,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/IllegalStateException;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -715,7 +715,7 @@
 
     if-eqz v10, :cond_1
 
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->BargeinAct:[S
+    iget-object v0, p0, Lcom/samsung/android/speech/PDTAudioTask;->BargeinAct:[S
 
     iget v1, p0, Lcom/samsung/android/speech/PDTAudioTask;->mCommandType:I
 
@@ -729,7 +729,7 @@
 
     aput-short v1, v0, v2
 
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->strResult:[Ljava/lang/String;
+    iget-object v0, p0, Lcom/samsung/android/speech/PDTAudioTask;->strResult:[Ljava/lang/String;
 
     const/4 v1, 0x0
 
@@ -773,7 +773,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/samsung/android/speech/AudioTask;->strResult:[Ljava/lang/String;
+    iget-object v2, p0, Lcom/samsung/android/speech/PDTAudioTask;->strResult:[Ljava/lang/String;
 
     const/4 v3, 0x0
 
@@ -801,7 +801,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/samsung/android/speech/AudioTask;->BargeinAct:[S
+    iget-object v2, p0, Lcom/samsung/android/speech/PDTAudioTask;->BargeinAct:[S
 
     const/4 v3, 0x0
 
@@ -843,7 +843,7 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->strResult:[Ljava/lang/String;
+    iget-object v0, p0, Lcom/samsung/android/speech/PDTAudioTask;->strResult:[Ljava/lang/String;
 
     invoke-direct {p0, v0}, Lcom/samsung/android/speech/PDTAudioTask;->SendHandlerMessage([Ljava/lang/String;)V
 
@@ -860,7 +860,7 @@
 
     iput v0, p0, Lcom/samsung/android/speech/PDTAudioTask;->recogAfterReadCount:I
 
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->strResult:[Ljava/lang/String;
+    iget-object v0, p0, Lcom/samsung/android/speech/PDTAudioTask;->strResult:[Ljava/lang/String;
 
     invoke-direct {p0, v0}, Lcom/samsung/android/speech/PDTAudioTask;->SendHandlerMessage([Ljava/lang/String;)V
 
@@ -925,7 +925,7 @@
 
     const-string/jumbo v2, "/system/lib/libBargeInEngine.so"
 
-    invoke-virtual {p0, v2}, Lcom/samsung/android/speech/AudioTask;->isBargeInFile(Ljava/lang/String;)Z
+    invoke-virtual {p0, v2}, Lcom/samsung/android/speech/PDTAudioTask;->isBargeInFile(Ljava/lang/String;)Z
 
     move-result v2
 
@@ -933,20 +933,20 @@
 
     const-string/jumbo v2, "/system/lib64/libBargeInEngine.so"
 
-    invoke-virtual {p0, v2}, Lcom/samsung/android/speech/AudioTask;->isBargeInFile(Ljava/lang/String;)Z
+    invoke-virtual {p0, v2}, Lcom/samsung/android/speech/PDTAudioTask;->isBargeInFile(Ljava/lang/String;)Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
     :cond_0
-    invoke-virtual {p0, v1}, Lcom/samsung/android/speech/AudioTask;->isBargeInFile(Ljava/lang/String;)Z
+    invoke-virtual {p0, v1}, Lcom/samsung/android/speech/PDTAudioTask;->isBargeInFile(Ljava/lang/String;)Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
-    invoke-virtual {p0, v0}, Lcom/samsung/android/speech/AudioTask;->isBargeInFile(Ljava/lang/String;)Z
+    invoke-virtual {p0, v0}, Lcom/samsung/android/speech/PDTAudioTask;->isBargeInFile(Ljava/lang/String;)Z
 
     move-result v2
 
@@ -1076,7 +1076,7 @@
 
     iput p5, p0, Lcom/samsung/android/speech/PDTAudioTask;->mCommandType:I
 
-    iput-object v4, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iput-object v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->rec:Landroid/media/AudioRecord;
 
     iput-object p3, p0, Lcom/samsung/android/speech/PDTAudioTask;->m_listener:Lcom/samsung/android/speech/SemSpeechRecognizer$ResultListener;
 
@@ -1084,7 +1084,7 @@
 
     iput p6, p0, Lcom/samsung/android/speech/PDTAudioTask;->mLanguage:I
 
-    iget-object v1, p0, Lcom/samsung/android/speech/AudioTask;->BargeinAct:[S
+    iget-object v1, p0, Lcom/samsung/android/speech/PDTAudioTask;->BargeinAct:[S
 
     aput-short v6, v1, v5
 
@@ -1177,15 +1177,15 @@
     :cond_2
     iput v5, p0, Lcom/samsung/android/speech/PDTAudioTask;->AUDIO_START:I
 
-    iget v1, p0, Lcom/samsung/android/speech/AudioTask;->AUDIO_RECORD_FOR_VOICE_RECOGNITION:I
+    iget v1, p0, Lcom/samsung/android/speech/PDTAudioTask;->AUDIO_RECORD_FOR_VOICE_RECOGNITION:I
 
-    invoke-virtual {p0, v1}, Lcom/samsung/android/speech/AudioTask;->getAudioRecord(I)Landroid/media/AudioRecord;
+    invoke-virtual {p0, v1}, Lcom/samsung/android/speech/PDTAudioTask;->getAudioRecord(I)Landroid/media/AudioRecord;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iput-object v1, p0, Lcom/samsung/android/speech/PDTAudioTask;->rec:Landroid/media/AudioRecord;
 
-    iget-object v1, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iget-object v1, p0, Lcom/samsung/android/speech/PDTAudioTask;->rec:Landroid/media/AudioRecord;
 
     if-eqz v1, :cond_3
 
@@ -1201,7 +1201,7 @@
 
     move-result-object v2
 
-    iget v3, p0, Lcom/samsung/android/speech/AudioTask;->AUDIO_RECORD_FOR_VOICE_RECOGNITION:I
+    iget v3, p0, Lcom/samsung/android/speech/PDTAudioTask;->AUDIO_RECORD_FOR_VOICE_RECOGNITION:I
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -1215,17 +1215,17 @@
 
     :cond_3
     :goto_1
-    iget-object v1, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iget-object v1, p0, Lcom/samsung/android/speech/PDTAudioTask;->rec:Landroid/media/AudioRecord;
 
     if-nez v1, :cond_4
 
-    iget v1, p0, Lcom/samsung/android/speech/AudioTask;->AUDIO_RECORD_FOR_BARGE_IN:I
+    iget v1, p0, Lcom/samsung/android/speech/PDTAudioTask;->AUDIO_RECORD_FOR_BARGE_IN:I
 
-    invoke-virtual {p0, v1}, Lcom/samsung/android/speech/AudioTask;->getAudioRecord(I)Landroid/media/AudioRecord;
+    invoke-virtual {p0, v1}, Lcom/samsung/android/speech/PDTAudioTask;->getAudioRecord(I)Landroid/media/AudioRecord;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iput-object v1, p0, Lcom/samsung/android/speech/PDTAudioTask;->rec:Landroid/media/AudioRecord;
 
     iget-object v1, p0, Lcom/samsung/android/speech/PDTAudioTask;->TAG:Ljava/lang/String;
 
@@ -1239,7 +1239,7 @@
 
     move-result-object v2
 
-    iget v3, p0, Lcom/samsung/android/speech/AudioTask;->AUDIO_RECORD_FOR_BARGE_IN:I
+    iget v3, p0, Lcom/samsung/android/speech/PDTAudioTask;->AUDIO_RECORD_FOR_BARGE_IN:I
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -1285,7 +1285,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/FileNotFoundException;->printStackTrace()V
 
     goto :goto_0
 
@@ -1298,15 +1298,15 @@
 
     iput v1, p0, Lcom/samsung/android/speech/PDTAudioTask;->AUDIO_START:I
 
-    iget v1, p0, Lcom/samsung/android/speech/AudioTask;->AUDIO_RECORD_FOR_BARGE_IN_SENSORY:I
+    iget v1, p0, Lcom/samsung/android/speech/PDTAudioTask;->AUDIO_RECORD_FOR_BARGE_IN_SENSORY:I
 
-    invoke-virtual {p0, v1}, Lcom/samsung/android/speech/AudioTask;->getAudioRecord(I)Landroid/media/AudioRecord;
+    invoke-virtual {p0, v1}, Lcom/samsung/android/speech/PDTAudioTask;->getAudioRecord(I)Landroid/media/AudioRecord;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iput-object v1, p0, Lcom/samsung/android/speech/PDTAudioTask;->rec:Landroid/media/AudioRecord;
 
-    iget-object v1, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iget-object v1, p0, Lcom/samsung/android/speech/PDTAudioTask;->rec:Landroid/media/AudioRecord;
 
     if-eqz v1, :cond_3
 
@@ -1322,7 +1322,7 @@
 
     move-result-object v2
 
-    iget v3, p0, Lcom/samsung/android/speech/AudioTask;->AUDIO_RECORD_FOR_BARGE_IN_SENSORY:I
+    iget v3, p0, Lcom/samsung/android/speech/PDTAudioTask;->AUDIO_RECORD_FOR_BARGE_IN_SENSORY:I
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -1376,32 +1376,17 @@
     return v7
 
     :cond_0
-    iget-object v4, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iget-object v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->rec:Landroid/media/AudioRecord;
 
     if-eqz v4, :cond_1
 
     iget-boolean v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->done:Z
 
-    if-eqz v4, :cond_2
+    xor-int/lit8 v4, v4, 0x1
 
-    :cond_1
-    :goto_0
-    iget-boolean v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->done:Z
+    if-eqz v4, :cond_1
 
-    if-eqz v4, :cond_3
-
-    iget-object v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v5, "readByteBlock return -1 : Section2"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    iput v7, p0, Lcom/samsung/android/speech/PDTAudioTask;->readNshorts:I
-
-    return v7
-
-    :cond_2
-    iget-object v4, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iget-object v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->rec:Landroid/media/AudioRecord;
 
     iget-object v5, p0, Lcom/samsung/android/speech/PDTAudioTask;->speech:[S
 
@@ -1415,14 +1400,27 @@
 
     iput v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->readNshorts:I
 
-    goto :goto_0
+    :cond_1
+    iget-boolean v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->done:Z
 
-    :cond_3
+    if-eqz v4, :cond_2
+
+    iget-object v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v5, "readByteBlock return -1 : Section2"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput v7, p0, Lcom/samsung/android/speech/PDTAudioTask;->readNshorts:I
+
+    return v7
+
+    :cond_2
     iget v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->readNshorts:I
 
     const/16 v5, 0x140
 
-    if-ge v4, v5, :cond_4
+    if-ge v4, v5, :cond_3
 
     iget-object v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->TAG:Ljava/lang/String;
 
@@ -1472,12 +1470,12 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_4
+    :cond_3
     iget v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->totalReadCount:I
 
     rem-int/lit8 v4, v4, 0x14
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_4
 
     iget-object v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->TAG:Ljava/lang/String;
 
@@ -1541,7 +1539,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_5
+    :cond_4
     iget v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->totalReadCount:I
 
     add-int/lit8 v4, v4, 0x1
@@ -1550,20 +1548,20 @@
 
     iget v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->recogAfterReadCount:I
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_5
 
     iget v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->recogAfterReadCount:I
 
     add-int/lit8 v4, v4, 0x1
 
-    rem-int/lit8 v4, v4, 0x64
+    rem-int/lit8 v4, v4, 0x32
 
     iput v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->recogAfterReadCount:I
 
-    :cond_6
+    :cond_5
     iget-boolean v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->done:Z
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_6
 
     iget-object v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->TAG:Ljava/lang/String;
 
@@ -1575,14 +1573,14 @@
 
     return v7
 
-    :cond_7
+    :cond_6
     iget v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->readNshorts:I
 
-    if-lez v4, :cond_c
+    if-lez v4, :cond_b
 
     iget-boolean v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->done:Z
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_7
 
     iget-object v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->TAG:Ljava/lang/String;
 
@@ -1594,16 +1592,16 @@
 
     return v7
 
-    :cond_8
+    :cond_7
     const/4 v2, 0x0
 
     iget-boolean v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->isPDTBargeInEnable:Z
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_9
 
     iget-boolean v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->done:Z
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_8
 
     iget-object v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->TAG:Ljava/lang/String;
 
@@ -1615,16 +1613,16 @@
 
     return v7
 
-    :cond_9
+    :cond_8
     iget-object v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->aPDTBargeInEngine:Lcom/samsung/voicebargein/BargeInEngine;
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_9
 
     iget v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->totalReadCount:I
 
     iget v5, p0, Lcom/samsung/android/speech/PDTAudioTask;->AUDIO_START:I
 
-    if-le v4, v5, :cond_a
+    if-le v4, v5, :cond_9
 
     const/4 v3, 0x0
 
@@ -1636,10 +1634,10 @@
 
     move-result v3
 
-    :cond_a
+    :cond_9
     iget-boolean v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->isMakePCM:Z
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_a
 
     iget-object v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->speech:[S
 
@@ -1647,13 +1645,13 @@
 
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_0
     :try_start_0
     iget-object v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->speech:[S
 
     array-length v4, v4
 
-    if-ge v1, v4, :cond_b
+    if-ge v1, v4, :cond_a
 
     iget-object v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->mDataOutputStream:Ljava/io/DataOutputStream;
 
@@ -1667,20 +1665,20 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    :cond_b
-    :goto_2
+    :cond_a
+    :goto_1
     iget v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->readNshorts:I
 
     return v4
 
-    :cond_c
+    :cond_b
     iget-object v4, p0, Lcom/samsung/android/speech/PDTAudioTask;->TAG:Ljava/lang/String;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1711,7 +1709,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_2
+    goto :goto_1
 .end method
 
 .method public run()V
@@ -1727,7 +1725,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iget-object v0, p0, Lcom/samsung/android/speech/PDTAudioTask;->rec:Landroid/media/AudioRecord;
 
     if-eqz v0, :cond_6
 
@@ -1737,7 +1735,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iget-object v0, p0, Lcom/samsung/android/speech/PDTAudioTask;->rec:Landroid/media/AudioRecord;
 
     invoke-virtual {v0}, Landroid/media/AudioRecord;->startRecording()V
 
@@ -1889,7 +1887,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v1, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iget-object v1, p0, Lcom/samsung/android/speech/PDTAudioTask;->rec:Landroid/media/AudioRecord;
 
     if-eqz v1, :cond_1
 
@@ -1904,7 +1902,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/speech/PDTAudioTask;->mDataOutputStream:Ljava/io/DataOutputStream;
 
-    invoke-virtual {v1}, Ljava/io/FilterOutputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/DataOutputStream;->close()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1916,7 +1914,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v1, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iget-object v1, p0, Lcom/samsung/android/speech/PDTAudioTask;->rec:Landroid/media/AudioRecord;
 
     invoke-virtual {v1}, Landroid/media/AudioRecord;->stop()V
 
@@ -1932,7 +1930,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v1, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iget-object v1, p0, Lcom/samsung/android/speech/PDTAudioTask;->rec:Landroid/media/AudioRecord;
 
     invoke-virtual {v1}, Landroid/media/AudioRecord;->release()V
 
@@ -1942,7 +1940,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput-object v3, p0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
+    iput-object v3, p0, Lcom/samsung/android/speech/PDTAudioTask;->rec:Landroid/media/AudioRecord;
 
     iget-object v1, p0, Lcom/samsung/android/speech/PDTAudioTask;->TAG:Ljava/lang/String;
 
@@ -1962,7 +1960,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 .end method

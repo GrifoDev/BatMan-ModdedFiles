@@ -298,21 +298,13 @@
     return-void
 
     :cond_0
-    instance-of v7, p1, Landroid/view/MotionEvent;
-
-    if-eqz v7, :cond_1
-
-    move-object v7, p1
-
-    check-cast v7, Landroid/view/MotionEvent;
-
-    iget-boolean v7, v7, Landroid/view/MotionEvent;->mNeedWindowOffset:Z
-
-    if-eqz v7, :cond_1
-
     move-object v6, p1
 
     check-cast v6, Landroid/view/MotionEvent;
+
+    iget-boolean v7, v6, Landroid/view/MotionEvent;->mNeedWindowOffset:Z
+
+    if-eqz v7, :cond_1
 
     invoke-virtual {v6}, Landroid/view/MotionEvent;->getRawX()F
 

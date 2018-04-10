@@ -124,7 +124,7 @@
 .end method
 
 .method protected onStartLoading()V
-    .locals 2
+    .locals 3
 
     new-instance v0, Landroid/print/PrintServicesLoader$1;
 
@@ -136,7 +136,9 @@
 
     iget-object v1, p0, Landroid/print/PrintServicesLoader;->mListener:Landroid/print/PrintManager$PrintServicesChangeListener;
 
-    invoke-virtual {v0, v1}, Landroid/print/PrintManager;->addPrintServicesChangeListener(Landroid/print/PrintManager$PrintServicesChangeListener;)V
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/print/PrintManager;->addPrintServicesChangeListener(Landroid/print/PrintManager$PrintServicesChangeListener;Landroid/os/Handler;)V
 
     iget-object v0, p0, Landroid/print/PrintServicesLoader;->mPrintManager:Landroid/print/PrintManager;
 

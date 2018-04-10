@@ -4,6 +4,8 @@
 
 
 # instance fields
+.field private mHandler:Landroid/os/Handler;
+
 .field mLooper:Landroid/os/Looper;
 
 .field mPriority:I
@@ -100,6 +102,29 @@
     monitor-exit p0
 
     throw v1
+.end method
+
+.method public getThreadHandler()Landroid/os/Handler;
+    .locals 2
+
+    iget-object v0, p0, Landroid/os/HandlerThread;->mHandler:Landroid/os/Handler;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/os/Handler;
+
+    invoke-virtual {p0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    iput-object v0, p0, Landroid/os/HandlerThread;->mHandler:Landroid/os/Handler;
+
+    :cond_0
+    iget-object v0, p0, Landroid/os/HandlerThread;->mHandler:Landroid/os/Handler;
+
+    return-object v0
 .end method
 
 .method public getThreadId()I

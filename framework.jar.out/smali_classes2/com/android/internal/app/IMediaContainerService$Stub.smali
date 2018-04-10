@@ -26,6 +26,8 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.app.IMediaContainerService"
 
+.field static final TRANSACTION_backupShortcut:I = 0x9
+
 .field static final TRANSACTION_calculateDirectorySize:I = 0x5
 
 .field static final TRANSACTION_calculateInstalledSize:I = 0x8
@@ -41,6 +43,8 @@
 .field static final TRANSACTION_getMinimalPackageInfo:I = 0x3
 
 .field static final TRANSACTION_getObbInfo:I = 0x4
+
+.field static final TRANSACTION_restoreShortcut:I = 0xa
 
 
 # direct methods
@@ -455,6 +459,60 @@
 
     goto :goto_4
 
+    :sswitch_9
+    const-string/jumbo v2, "com.android.internal.app.IMediaContainerService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v3
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v3}, Lcom/android/internal/app/IMediaContainerService$Stub;->backupShortcut(Ljava/lang/String;)I
+
+    move-result v12
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v12}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v2, 0x1
+
+    return v2
+
+    :sswitch_a
+    const-string/jumbo v2, "com.android.internal.app.IMediaContainerService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v3
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v3}, Lcom/android/internal/app/IMediaContainerService$Stub;->restoreShortcut(Ljava/lang/String;)I
+
+    move-result v12
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v12}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v2, 0x1
+
+    return v2
+
     nop
 
     :sswitch_data_0
@@ -467,6 +525,8 @@
         0x6 -> :sswitch_6
         0x7 -> :sswitch_7
         0x8 -> :sswitch_8
+        0x9 -> :sswitch_9
+        0xa -> :sswitch_a
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

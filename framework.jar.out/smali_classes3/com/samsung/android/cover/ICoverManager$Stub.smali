@@ -26,21 +26,23 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.samsung.android.cover.ICoverManager"
 
-.field static final TRANSACTION_addLedNotification:I = 0x10
+.field static final TRANSACTION_addLedNotification:I = 0x11
 
-.field static final TRANSACTION_disableCoverManager:I = 0x9
+.field static final TRANSACTION_disableCoverManager:I = 0xa
 
-.field static final TRANSACTION_disableLcdOffByCover:I = 0x13
+.field static final TRANSACTION_disableLcdOffByCover:I = 0x14
 
-.field static final TRANSACTION_enableLcdOffByCover:I = 0x14
+.field static final TRANSACTION_enableLcdOffByCover:I = 0x15
 
 .field static final TRANSACTION_getCoverState:I = 0x7
 
-.field static final TRANSACTION_getCoverStateForExternal:I = 0x1a
+.field static final TRANSACTION_getCoverStateForExternal:I = 0x1b
 
-.field static final TRANSACTION_getVersion:I = 0xa
+.field static final TRANSACTION_getCoverSwitchState:I = 0x8
 
-.field static final TRANSACTION_isCoverManagerDisabled:I = 0x8
+.field static final TRANSACTION_getVersion:I = 0xb
+
+.field static final TRANSACTION_isCoverManagerDisabled:I = 0x9
 
 .field static final TRANSACTION_notifyCoverAttachStateChanged:I = 0x5
 
@@ -48,41 +50,41 @@
 
 .field static final TRANSACTION_notifySmartCoverAttachStateChanged:I = 0x6
 
-.field static final TRANSACTION_onCoverAppCovered:I = 0x17
+.field static final TRANSACTION_onCoverAppCovered:I = 0x18
 
-.field static final TRANSACTION_readTouchChannelCountForExternal:I = 0x1b
+.field static final TRANSACTION_readTouchChannelCountForExternal:I = 0x1c
 
 .field static final TRANSACTION_registerCallback:I = 0x1
 
 .field static final TRANSACTION_registerListenerCallback:I = 0x2
 
-.field static final TRANSACTION_registerListenerCallbackForExternal:I = 0x18
+.field static final TRANSACTION_registerListenerCallbackForExternal:I = 0x19
 
-.field static final TRANSACTION_registerNfcTouchListenerCallback:I = 0xd
+.field static final TRANSACTION_registerNfcTouchListenerCallback:I = 0xe
 
-.field static final TRANSACTION_removeLedNotification:I = 0x11
+.field static final TRANSACTION_removeLedNotification:I = 0x12
 
-.field static final TRANSACTION_requestCoverAuthentication:I = 0x15
+.field static final TRANSACTION_requestCoverAuthentication:I = 0x16
 
-.field static final TRANSACTION_sendDataToCover:I = 0xb
+.field static final TRANSACTION_sendDataToCover:I = 0xc
 
-.field static final TRANSACTION_sendDataToNfcLedCover:I = 0xf
+.field static final TRANSACTION_sendDataToNfcLedCover:I = 0x10
 
-.field static final TRANSACTION_sendPowerKeyToCover:I = 0xc
+.field static final TRANSACTION_sendPowerKeyToCover:I = 0xd
 
-.field static final TRANSACTION_sendSystemEvent:I = 0x12
+.field static final TRANSACTION_sendSystemEvent:I = 0x13
 
-.field static final TRANSACTION_sendTouchRegionForExternal:I = 0x1c
+.field static final TRANSACTION_sendTouchRegionForExternal:I = 0x1d
 
-.field static final TRANSACTION_setCoverPackage:I = 0x1d
+.field static final TRANSACTION_setCoverPackage:I = 0x1e
 
-.field static final TRANSACTION_setFotaInProgress:I = 0x16
+.field static final TRANSACTION_setFotaInProgress:I = 0x17
 
 .field static final TRANSACTION_unregisterCallback:I = 0x3
 
-.field static final TRANSACTION_unregisterCallbackForExternal:I = 0x19
+.field static final TRANSACTION_unregisterCallbackForExternal:I = 0x1a
 
-.field static final TRANSACTION_unregisterNfcTouchListenerCallback:I = 0xe
+.field static final TRANSACTION_unregisterNfcTouchListenerCallback:I = 0xf
 
 
 # direct methods
@@ -93,7 +95,7 @@
 
     const-string/jumbo v0, "com.samsung.android.cover.ICoverManager"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/samsung/android/cover/ICoverManager$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -507,7 +509,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/cover/ICoverManager$Stub;->isCoverManagerDisabled()Z
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/cover/ICoverManager$Stub;->getCoverSwitchState()Z
 
     move-result v24
 
@@ -542,15 +544,50 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/cover/ICoverManager$Stub;->isCoverManagerDisabled()Z
+
+    move-result v24
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v24, :cond_9
+
+    const/16 v25, 0x1
+
+    :goto_9
+    move-object/from16 v0, p3
+
+    move/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v25, 0x1
+
+    return v25
+
+    :cond_9
+    const/16 v25, 0x0
+
+    goto :goto_9
+
+    :sswitch_a
+    const-string/jumbo v25, "com.samsung.android.cover.ICoverManager"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v25
 
-    if-eqz v25, :cond_9
+    if-eqz v25, :cond_a
 
     const/4 v10, 0x1
 
-    :goto_9
+    :goto_a
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v14
@@ -571,12 +608,12 @@
 
     return v25
 
-    :cond_9
+    :cond_a
     const/4 v10, 0x0
 
-    goto :goto_9
+    goto :goto_a
 
-    :sswitch_a
+    :sswitch_b
     const-string/jumbo v25, "com.samsung.android.cover.ICoverManager"
 
     move-object/from16 v0, p2
@@ -601,7 +638,7 @@
 
     return v25
 
-    :sswitch_b
+    :sswitch_c
     const-string/jumbo v25, "com.samsung.android.cover.ICoverManager"
 
     move-object/from16 v0, p2
@@ -630,7 +667,7 @@
 
     return v25
 
-    :sswitch_c
+    :sswitch_d
     const-string/jumbo v25, "com.samsung.android.cover.ICoverManager"
 
     move-object/from16 v0, p2
@@ -647,7 +684,7 @@
 
     return v25
 
-    :sswitch_d
+    :sswitch_e
     const-string/jumbo v25, "com.samsung.android.cover.ICoverManager"
 
     move-object/from16 v0, p2
@@ -668,7 +705,7 @@
 
     move-result v25
 
-    if-eqz v25, :cond_a
+    if-eqz v25, :cond_b
 
     sget-object v25, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -682,7 +719,7 @@
 
     check-cast v18, Landroid/content/ComponentName;
 
-    :goto_a
+    :goto_b
     move-object/from16 v0, p0
 
     move-object/from16 v1, v18
@@ -695,12 +732,12 @@
 
     return v25
 
-    :cond_a
+    :cond_b
     const/16 v18, 0x0
 
-    goto :goto_a
+    goto :goto_b
 
-    :sswitch_e
+    :sswitch_f
     const-string/jumbo v25, "com.samsung.android.cover.ICoverManager"
 
     move-object/from16 v0, p2
@@ -721,11 +758,11 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v24, :cond_b
+    if-eqz v24, :cond_c
 
     const/16 v25, 0x1
 
-    :goto_b
+    :goto_c
     move-object/from16 v0, p3
 
     move/from16 v1, v25
@@ -736,12 +773,12 @@
 
     return v25
 
-    :cond_b
+    :cond_c
     const/16 v25, 0x0
 
-    goto :goto_b
+    goto :goto_c
 
-    :sswitch_f
+    :sswitch_10
     const-string/jumbo v25, "com.samsung.android.cover.ICoverManager"
 
     move-object/from16 v0, p2
@@ -769,49 +806,6 @@
     const/16 v25, 0x1
 
     return v25
-
-    :sswitch_10
-    const-string/jumbo v25, "com.samsung.android.cover.ICoverManager"
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v25
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v25
-
-    if-eqz v25, :cond_c
-
-    sget-object v25, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, v25
-
-    move-object/from16 v1, p2
-
-    invoke-interface {v0, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/os/Bundle;
-
-    :goto_c
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v5}, Lcom/samsung/android/cover/ICoverManager$Stub;->addLedNotification(Landroid/os/Bundle;)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/16 v25, 0x1
-
-    return v25
-
-    :cond_c
-    const/4 v5, 0x0
-
-    goto :goto_c
 
     :sswitch_11
     const-string/jumbo v25, "com.samsung.android.cover.ICoverManager"
@@ -843,7 +837,7 @@
     :goto_d
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Lcom/samsung/android/cover/ICoverManager$Stub;->removeLedNotification(Landroid/os/Bundle;)V
+    invoke-virtual {v0, v5}, Lcom/samsung/android/cover/ICoverManager$Stub;->addLedNotification(Landroid/os/Bundle;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -886,7 +880,7 @@
     :goto_e
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Lcom/samsung/android/cover/ICoverManager$Stub;->sendSystemEvent(Landroid/os/Bundle;)V
+    invoke-virtual {v0, v5}, Lcom/samsung/android/cover/ICoverManager$Stub;->removeLedNotification(Landroid/os/Bundle;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -908,17 +902,13 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v8
-
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v25
 
     if-eqz v25, :cond_f
 
-    sget-object v25, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v25, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, v25
 
@@ -926,43 +916,25 @@
 
     invoke-interface {v0, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v13
+    move-result-object v5
 
-    check-cast v13, Landroid/content/ComponentName;
+    check-cast v5, Landroid/os/Bundle;
 
     :goto_f
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v8, v13}, Lcom/samsung/android/cover/ICoverManager$Stub;->disableLcdOffByCover(Landroid/os/IBinder;Landroid/content/ComponentName;)Z
-
-    move-result v24
+    invoke-virtual {v0, v5}, Lcom/samsung/android/cover/ICoverManager$Stub;->sendSystemEvent(Landroid/os/Bundle;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v24, :cond_10
-
-    const/16 v25, 0x1
-
-    :goto_10
-    move-object/from16 v0, p3
-
-    move/from16 v1, v25
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     const/16 v25, 0x1
 
     return v25
 
     :cond_f
-    const/4 v13, 0x0
+    const/4 v5, 0x0
 
     goto :goto_f
-
-    :cond_10
-    const/16 v25, 0x0
-
-    goto :goto_10
 
     :sswitch_14
     const-string/jumbo v25, "com.samsung.android.cover.ICoverManager"
@@ -981,7 +953,7 @@
 
     move-result v25
 
-    if-eqz v25, :cond_11
+    if-eqz v25, :cond_10
 
     sget-object v25, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -995,20 +967,20 @@
 
     check-cast v13, Landroid/content/ComponentName;
 
-    :goto_11
+    :goto_10
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v8, v13}, Lcom/samsung/android/cover/ICoverManager$Stub;->enableLcdOffByCover(Landroid/os/IBinder;Landroid/content/ComponentName;)Z
+    invoke-virtual {v0, v8, v13}, Lcom/samsung/android/cover/ICoverManager$Stub;->disableLcdOffByCover(Landroid/os/IBinder;Landroid/content/ComponentName;)Z
 
     move-result v24
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v24, :cond_12
+    if-eqz v24, :cond_11
 
     const/16 v25, 0x1
 
-    :goto_12
+    :goto_11
     move-object/from16 v0, p3
 
     move/from16 v1, v25
@@ -1019,15 +991,15 @@
 
     return v25
 
-    :cond_11
+    :cond_10
     const/4 v13, 0x0
 
-    goto :goto_11
+    goto :goto_10
 
-    :cond_12
+    :cond_11
     const/16 v25, 0x0
 
-    goto :goto_12
+    goto :goto_11
 
     :sswitch_15
     const-string/jumbo v25, "com.samsung.android.cover.ICoverManager"
@@ -1046,7 +1018,7 @@
 
     move-result v25
 
-    if-eqz v25, :cond_13
+    if-eqz v25, :cond_12
 
     sget-object v25, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -1060,20 +1032,20 @@
 
     check-cast v13, Landroid/content/ComponentName;
 
-    :goto_13
+    :goto_12
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v8, v13}, Lcom/samsung/android/cover/ICoverManager$Stub;->requestCoverAuthentication(Landroid/os/IBinder;Landroid/content/ComponentName;)Z
+    invoke-virtual {v0, v8, v13}, Lcom/samsung/android/cover/ICoverManager$Stub;->enableLcdOffByCover(Landroid/os/IBinder;Landroid/content/ComponentName;)Z
 
     move-result v24
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v24, :cond_14
+    if-eqz v24, :cond_13
 
     const/16 v25, 0x1
 
-    :goto_14
+    :goto_13
     move-object/from16 v0, p3
 
     move/from16 v1, v25
@@ -1084,15 +1056,15 @@
 
     return v25
 
-    :cond_13
+    :cond_12
     const/4 v13, 0x0
 
-    goto :goto_13
+    goto :goto_12
 
-    :cond_14
+    :cond_13
     const/16 v25, 0x0
 
-    goto :goto_14
+    goto :goto_13
 
     :sswitch_16
     const-string/jumbo v25, "com.samsung.android.cover.ICoverManager"
@@ -1103,24 +1075,15 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v25
-
-    if-eqz v25, :cond_15
-
-    const/4 v10, 0x1
-
-    :goto_15
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v14
+    move-result-object v8
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v25
 
-    if-eqz v25, :cond_16
+    if-eqz v25, :cond_14
 
     sget-object v25, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -1130,26 +1093,24 @@
 
     invoke-interface {v0, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v13
 
-    check-cast v18, Landroid/content/ComponentName;
+    check-cast v13, Landroid/content/ComponentName;
 
-    :goto_16
+    :goto_14
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v10, v14, v1}, Lcom/samsung/android/cover/ICoverManager$Stub;->setFotaInProgress(ZLandroid/os/IBinder;Landroid/content/ComponentName;)Z
+    invoke-virtual {v0, v8, v13}, Lcom/samsung/android/cover/ICoverManager$Stub;->requestCoverAuthentication(Landroid/os/IBinder;Landroid/content/ComponentName;)Z
 
     move-result v24
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v24, :cond_17
+    if-eqz v24, :cond_15
 
     const/16 v25, 0x1
 
-    :goto_17
+    :goto_15
     move-object/from16 v0, p3
 
     move/from16 v1, v25
@@ -1160,20 +1121,15 @@
 
     return v25
 
+    :cond_14
+    const/4 v13, 0x0
+
+    goto :goto_14
+
     :cond_15
-    const/4 v10, 0x0
-
-    goto :goto_15
-
-    :cond_16
-    const/16 v18, 0x0
-
-    goto :goto_16
-
-    :cond_17
     const/16 v25, 0x0
 
-    goto :goto_17
+    goto :goto_15
 
     :sswitch_17
     const-string/jumbo v25, "com.samsung.android.cover.ICoverManager"
@@ -1188,11 +1144,92 @@
 
     move-result v25
 
-    if-eqz v25, :cond_18
+    if-eqz v25, :cond_16
 
     const/4 v10, 0x1
 
+    :goto_16
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v14
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v25
+
+    if-eqz v25, :cond_17
+
+    sget-object v25, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, v25
+
+    move-object/from16 v1, p2
+
+    invoke-interface {v0, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v18
+
+    check-cast v18, Landroid/content/ComponentName;
+
+    :goto_17
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v10, v14, v1}, Lcom/samsung/android/cover/ICoverManager$Stub;->setFotaInProgress(ZLandroid/os/IBinder;Landroid/content/ComponentName;)Z
+
+    move-result v24
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v24, :cond_18
+
+    const/16 v25, 0x1
+
     :goto_18
+    move-object/from16 v0, p3
+
+    move/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v25, 0x1
+
+    return v25
+
+    :cond_16
+    const/4 v10, 0x0
+
+    goto :goto_16
+
+    :cond_17
+    const/16 v18, 0x0
+
+    goto :goto_17
+
+    :cond_18
+    const/16 v25, 0x0
+
+    goto :goto_18
+
+    :sswitch_18
+    const-string/jumbo v25, "com.samsung.android.cover.ICoverManager"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v25
+
+    if-eqz v25, :cond_19
+
+    const/4 v10, 0x1
+
+    :goto_19
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v10}, Lcom/samsung/android/cover/ICoverManager$Stub;->onCoverAppCovered(Z)I
@@ -1211,12 +1248,12 @@
 
     return v25
 
-    :cond_18
+    :cond_19
     const/4 v10, 0x0
 
-    goto :goto_18
+    goto :goto_19
 
-    :sswitch_18
+    :sswitch_19
     const-string/jumbo v25, "com.samsung.android.cover.ICoverManager"
 
     move-object/from16 v0, p2
@@ -1233,7 +1270,7 @@
 
     move-result v25
 
-    if-eqz v25, :cond_19
+    if-eqz v25, :cond_1a
 
     sget-object v25, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -1247,7 +1284,7 @@
 
     check-cast v13, Landroid/content/ComponentName;
 
-    :goto_19
+    :goto_1a
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v17
@@ -1264,12 +1301,12 @@
 
     return v25
 
-    :cond_19
+    :cond_1a
     const/4 v13, 0x0
 
-    goto :goto_19
+    goto :goto_1a
 
-    :sswitch_19
+    :sswitch_1a
     const-string/jumbo v25, "com.samsung.android.cover.ICoverManager"
 
     move-object/from16 v0, p2
@@ -1290,11 +1327,11 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v24, :cond_1a
+    if-eqz v24, :cond_1b
 
     const/16 v25, 0x1
 
-    :goto_1a
+    :goto_1b
     move-object/from16 v0, p3
 
     move/from16 v1, v25
@@ -1305,12 +1342,12 @@
 
     return v25
 
-    :cond_1a
+    :cond_1b
     const/16 v25, 0x0
 
-    goto :goto_1a
+    goto :goto_1b
 
-    :sswitch_1a
+    :sswitch_1b
     const-string/jumbo v25, "com.samsung.android.cover.ICoverManager"
 
     move-object/from16 v0, p2
@@ -1325,7 +1362,7 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v23, :cond_1b
+    if-eqz v23, :cond_1c
 
     const/16 v25, 0x1
 
@@ -1345,12 +1382,12 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/samsung/android/cover/CoverState;->writeToParcel(Landroid/os/Parcel;I)V
 
-    :goto_1b
+    :goto_1c
     const/16 v25, 0x1
 
     return v25
 
-    :cond_1b
+    :cond_1c
     const/16 v25, 0x0
 
     move-object/from16 v0, p3
@@ -1359,9 +1396,9 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_1b
+    goto :goto_1c
 
-    :sswitch_1b
+    :sswitch_1c
     const-string/jumbo v25, "com.samsung.android.cover.ICoverManager"
 
     move-object/from16 v0, p2
@@ -1376,7 +1413,7 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v22, :cond_1c
+    if-eqz v22, :cond_1d
 
     const/16 v25, 0x1
 
@@ -1396,12 +1433,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/graphics/Point;->writeToParcel(Landroid/os/Parcel;I)V
 
-    :goto_1c
+    :goto_1d
     const/16 v25, 0x1
 
     return v25
 
-    :cond_1c
+    :cond_1d
     const/16 v25, 0x0
 
     move-object/from16 v0, p3
@@ -1410,9 +1447,9 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_1c
+    goto :goto_1d
 
-    :sswitch_1c
+    :sswitch_1d
     const-string/jumbo v25, "com.samsung.android.cover.ICoverManager"
 
     move-object/from16 v0, p2
@@ -1445,7 +1482,7 @@
 
     return v25
 
-    :sswitch_1d
+    :sswitch_1e
     const-string/jumbo v25, "com.samsung.android.cover.ICoverManager"
 
     move-object/from16 v0, p2
@@ -1499,6 +1536,7 @@
         0x1b -> :sswitch_1b
         0x1c -> :sswitch_1c
         0x1d -> :sswitch_1d
+        0x1e -> :sswitch_1e
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

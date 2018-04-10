@@ -45,7 +45,7 @@
 
     iget-object v0, p0, Landroid/os/CustomFrequencyManager$CPULegacySchedulerRequest$CPULegacySchedulerReleaser;->this$1:Landroid/os/CustomFrequencyManager$CPULegacySchedulerRequest;
 
-    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->cancelFrequencyRequest()V
+    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$CPULegacySchedulerRequest;->cancelFrequencyRequest()V
 
     :cond_0
     return-void

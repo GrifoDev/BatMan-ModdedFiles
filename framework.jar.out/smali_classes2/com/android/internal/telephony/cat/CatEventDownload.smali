@@ -68,9 +68,9 @@
 
 .field public static final EVENT_USER_ACTIVITY:I = 0x4
 
-.field public static final MAX_EVENTS_NUM:I = 0x14
+.field public static final MAX_EVENTS_NUM:I = 0x19
 
-.field public static final STK_EVENT_ACTION:Ljava/lang/String; = "com.samsung.intent.action.stk.event"
+.field public static final STK_EVENT_ACTION:Ljava/lang/String; = "com.samsung.intent.internal.stk.event"
 
 .field public static final TERMINATED_BY_ERROR:I = 0x1
 
@@ -82,7 +82,11 @@
 
 .field private mEvent:I
 
+.field private mIMPUlist:Ljava/lang/String;
+
 .field private mLanguage:Ljava/lang/String;
+
+.field private mPhoneid:I
 
 
 # direct methods
@@ -99,7 +103,11 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 1
+    .locals 3
+
+    const/4 v2, 0x0
+
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -107,13 +115,13 @@
 
     iput v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mEvent:I
 
-    const/4 v0, 0x0
+    iput-object v2, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mLanguage:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mLanguage:Ljava/lang/String;
+    iput v1, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mBrowserTerminationCause:I
 
-    const/4 v0, 0x0
+    iput v1, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mPhoneid:I
 
-    iput v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mBrowserTerminationCause:I
+    iput-object v2, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mIMPUlist:Ljava/lang/String;
 
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/cat/CatEventDownload;->setEvent(I)V
 
@@ -121,7 +129,11 @@
 .end method
 
 .method public constructor <init>(II)V
-    .locals 1
+    .locals 3
+
+    const/4 v2, 0x0
+
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -129,13 +141,13 @@
 
     iput v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mEvent:I
 
-    const/4 v0, 0x0
+    iput-object v2, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mLanguage:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mLanguage:Ljava/lang/String;
+    iput v1, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mBrowserTerminationCause:I
 
-    const/4 v0, 0x0
+    iput v1, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mPhoneid:I
 
-    iput v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mBrowserTerminationCause:I
+    iput-object v2, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mIMPUlist:Ljava/lang/String;
 
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/cat/CatEventDownload;->setEvent(I)V
 
@@ -144,8 +156,12 @@
     return-void
 .end method
 
-.method public constructor <init>(ILjava/lang/String;)V
-    .locals 1
+.method public constructor <init>(IILjava/lang/String;)V
+    .locals 3
+
+    const/4 v2, 0x0
+
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -153,13 +169,43 @@
 
     iput v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mEvent:I
 
-    const/4 v0, 0x0
+    iput-object v2, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mLanguage:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mLanguage:Ljava/lang/String;
+    iput v1, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mBrowserTerminationCause:I
 
-    const/4 v0, 0x0
+    iput v1, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mPhoneid:I
 
-    iput v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mBrowserTerminationCause:I
+    iput-object v2, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mIMPUlist:Ljava/lang/String;
+
+    invoke-virtual {p0, p1}, Lcom/android/internal/telephony/cat/CatEventDownload;->setEvent(I)V
+
+    invoke-virtual {p0, p2}, Lcom/android/internal/telephony/cat/CatEventDownload;->setPhoneid(I)V
+
+    invoke-virtual {p0, p3}, Lcom/android/internal/telephony/cat/CatEventDownload;->setImsRegiImpuList(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(ILjava/lang/String;)V
+    .locals 3
+
+    const/4 v2, 0x0
+
+    const/4 v1, 0x0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/16 v0, 0xfe
+
+    iput v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mEvent:I
+
+    iput-object v2, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mLanguage:Ljava/lang/String;
+
+    iput v1, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mBrowserTerminationCause:I
+
+    iput v1, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mPhoneid:I
+
+    iput-object v2, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mIMPUlist:Ljava/lang/String;
 
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/cat/CatEventDownload;->setEvent(I)V
 
@@ -194,12 +240,28 @@
     return v0
 .end method
 
+.method public getImsRegiImpuList()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mIMPUlist:Ljava/lang/String;
+
+    return-object v0
+.end method
+
 .method public getLanguage()Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mLanguage:Ljava/lang/String;
 
     return-object v0
+.end method
+
+.method public getPhoneid()I
+    .locals 1
+
+    iget v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mPhoneid:I
+
+    return v0
 .end method
 
 .method public setBrowserTerminationCause(I)V
@@ -218,10 +280,26 @@
     return-void
 .end method
 
+.method public setImsRegiImpuList(Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mIMPUlist:Ljava/lang/String;
+
+    return-void
+.end method
+
 .method public setLenguage(Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mLanguage:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public setPhoneid(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mPhoneid:I
 
     return-void
 .end method
@@ -240,6 +318,14 @@
     iget v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mBrowserTerminationCause:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mPhoneid:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mIMPUlist:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     return-void
 .end method

@@ -65,7 +65,7 @@
 
     iget-object v2, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$CpuDvfsReleaser;->this$1:Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;
 
-    iget-object v2, v2, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mPkgName:Ljava/lang/String;
+    iget-object v2, v2, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mPkgName:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -107,7 +107,7 @@
 
     iget-object v2, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$CpuDvfsReleaser;->this$1:Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;
 
-    iget-object v2, v2, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mPkgName:Ljava/lang/String;
+    iget-object v2, v2, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mPkgName:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -121,7 +121,7 @@
 
     iget-object v0, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$CpuDvfsReleaser;->this$1:Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;
 
-    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->cancelFrequencyRequest()V
+    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->cancelFrequencyRequest()V
 
     :cond_0
     return-void

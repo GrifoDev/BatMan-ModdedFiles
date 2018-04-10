@@ -87,53 +87,53 @@
 
     const/16 v11, 0x63
 
-    const/4 v5, 0x1
+    const/4 v10, 0x1
 
-    const/4 v6, 0x0
+    const/4 v8, 0x0
 
-    const/4 v10, 0x0
+    const/4 v9, 0x0
 
-    iget-object v7, p0, Lcom/android/internal/policy/DecorView$ActionModeCallback2Wrapper;->mWrapped:Landroid/view/ActionMode$Callback;
+    iget-object v5, p0, Lcom/android/internal/policy/DecorView$ActionModeCallback2Wrapper;->mWrapped:Landroid/view/ActionMode$Callback;
 
-    invoke-interface {v7, p1}, Landroid/view/ActionMode$Callback;->onDestroyActionMode(Landroid/view/ActionMode;)V
+    invoke-interface {v5, p1}, Landroid/view/ActionMode$Callback;->onDestroyActionMode(Landroid/view/ActionMode;)V
 
-    iget-object v7, p0, Lcom/android/internal/policy/DecorView$ActionModeCallback2Wrapper;->this$0:Lcom/android/internal/policy/DecorView;
+    iget-object v5, p0, Lcom/android/internal/policy/DecorView$ActionModeCallback2Wrapper;->this$0:Lcom/android/internal/policy/DecorView;
 
-    invoke-static {v7}, Lcom/android/internal/policy/DecorView;->-get0(Lcom/android/internal/policy/DecorView;)Landroid/content/Context;
+    invoke-static {v5}, Lcom/android/internal/policy/DecorView;->-get0(Lcom/android/internal/policy/DecorView;)Landroid/content/Context;
 
-    move-result-object v7
+    move-result-object v5
 
-    invoke-virtual {v7}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+    invoke-virtual {v5}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
-    move-result-object v7
+    move-result-object v5
 
-    iget v7, v7, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+    iget v5, v5, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
-    const/16 v8, 0x17
+    const/16 v6, 0x17
 
-    if-lt v7, v8, :cond_7
+    if-lt v5, v6, :cond_7
 
-    move v2, v5
+    const/4 v2, 0x1
 
     :goto_0
     if-eqz v2, :cond_a
 
-    iget-object v7, p0, Lcom/android/internal/policy/DecorView$ActionModeCallback2Wrapper;->this$0:Lcom/android/internal/policy/DecorView;
+    iget-object v5, p0, Lcom/android/internal/policy/DecorView$ActionModeCallback2Wrapper;->this$0:Lcom/android/internal/policy/DecorView;
 
-    iget-object v7, v7, Lcom/android/internal/policy/DecorView;->mPrimaryActionMode:Landroid/view/ActionMode;
+    iget-object v5, v5, Lcom/android/internal/policy/DecorView;->mPrimaryActionMode:Landroid/view/ActionMode;
 
-    if-ne p1, v7, :cond_8
+    if-ne p1, v5, :cond_8
 
     const/4 v3, 0x1
 
     :goto_1
-    iget-object v7, p0, Lcom/android/internal/policy/DecorView$ActionModeCallback2Wrapper;->this$0:Lcom/android/internal/policy/DecorView;
+    iget-object v5, p0, Lcom/android/internal/policy/DecorView$ActionModeCallback2Wrapper;->this$0:Lcom/android/internal/policy/DecorView;
 
-    invoke-static {v7}, Lcom/android/internal/policy/DecorView;->-get2(Lcom/android/internal/policy/DecorView;)Landroid/view/ActionMode;
+    invoke-static {v5}, Lcom/android/internal/policy/DecorView;->-get2(Lcom/android/internal/policy/DecorView;)Landroid/view/ActionMode;
 
-    move-result-object v7
+    move-result-object v5
 
-    if-ne p1, v7, :cond_9
+    if-ne p1, v5, :cond_9
 
     const/4 v1, 0x1
 
@@ -142,56 +142,56 @@
 
     invoke-virtual {p1}, Landroid/view/ActionMode;->getType()I
 
-    move-result v7
+    move-result v5
 
-    if-nez v7, :cond_0
+    if-nez v5, :cond_0
+
+    iget-object v5, p0, Lcom/android/internal/policy/DecorView$ActionModeCallback2Wrapper;->this$0:Lcom/android/internal/policy/DecorView;
+
+    iget-object v5, v5, Lcom/android/internal/policy/DecorView;->mLogTag:Ljava/lang/String;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Destroying unexpected ActionMode instance of TYPE_PRIMARY; "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, " was not the current primary action mode! Expected "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
 
     iget-object v7, p0, Lcom/android/internal/policy/DecorView$ActionModeCallback2Wrapper;->this$0:Lcom/android/internal/policy/DecorView;
 
-    iget-object v7, v7, Lcom/android/internal/policy/DecorView;->mLogTag:Ljava/lang/String;
+    iget-object v7, v7, Lcom/android/internal/policy/DecorView;->mPrimaryActionMode:Landroid/view/ActionMode;
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v6
 
-    const-string/jumbo v9, "Destroying unexpected ActionMode instance of TYPE_PRIMARY; "
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v8
-
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, " was not the current primary action mode! Expected "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    iget-object v9, p0, Lcom/android/internal/policy/DecorView$ActionModeCallback2Wrapper;->this$0:Lcom/android/internal/policy/DecorView;
-
-    iget-object v9, v9, Lcom/android/internal/policy/DecorView;->mPrimaryActionMode:Landroid/view/ActionMode;
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     if-nez v1, :cond_2
 
     invoke-virtual {p1}, Landroid/view/ActionMode;->getType()I
 
-    move-result v7
+    move-result v5
 
-    if-eq v7, v5, :cond_1
+    if-eq v5, v10, :cond_1
 
     invoke-virtual {p1}, Landroid/view/ActionMode;->getType()I
 
@@ -204,41 +204,41 @@
 
     iget-object v5, v5, Lcom/android/internal/policy/DecorView;->mLogTag:Ljava/lang/String;
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "Destroying unexpected ActionMode instance of TYPE_FLOATING; "
+    const-string/jumbo v7, "Destroying unexpected ActionMode instance of TYPE_FLOATING; "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    const-string/jumbo v8, " was not the current floating action mode! Expected "
+    const-string/jumbo v7, " was not the current floating action mode! Expected "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    iget-object v8, p0, Lcom/android/internal/policy/DecorView$ActionModeCallback2Wrapper;->this$0:Lcom/android/internal/policy/DecorView;
+    iget-object v7, p0, Lcom/android/internal/policy/DecorView$ActionModeCallback2Wrapper;->this$0:Lcom/android/internal/policy/DecorView;
 
-    invoke-static {v8}, Lcom/android/internal/policy/DecorView;->-get2(Lcom/android/internal/policy/DecorView;)Landroid/view/ActionMode;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-static {v7}, Lcom/android/internal/policy/DecorView;->-get2(Lcom/android/internal/policy/DecorView;)Landroid/view/ActionMode;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-static {v5, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
     :goto_3
@@ -326,7 +326,7 @@
     :cond_4
     iget-object v5, p0, Lcom/android/internal/policy/DecorView$ActionModeCallback2Wrapper;->this$0:Lcom/android/internal/policy/DecorView;
 
-    iput-object v10, v5, Lcom/android/internal/policy/DecorView;->mPrimaryActionMode:Landroid/view/ActionMode;
+    iput-object v9, v5, Lcom/android/internal/policy/DecorView;->mPrimaryActionMode:Landroid/view/ActionMode;
 
     :cond_5
     :goto_4
@@ -352,7 +352,24 @@
 
     move-result v5
 
-    if-eqz v5, :cond_f
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_6
+
+    :try_start_0
+    iget-object v5, p0, Lcom/android/internal/policy/DecorView$ActionModeCallback2Wrapper;->this$0:Lcom/android/internal/policy/DecorView;
+
+    invoke-static {v5}, Lcom/android/internal/policy/DecorView;->-get7(Lcom/android/internal/policy/DecorView;)Lcom/android/internal/policy/PhoneWindow;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/internal/policy/PhoneWindow;->getCallback()Landroid/view/Window$Callback;
+
+    move-result-object v5
+
+    invoke-interface {v5, p1}, Landroid/view/Window$Callback;->onActionModeFinished(Landroid/view/ActionMode;)V
+    :try_end_0
+    .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_6
     :goto_5
@@ -363,7 +380,7 @@
     return-void
 
     :cond_7
-    move v2, v6
+    const/4 v2, 0x0
 
     goto/16 :goto_0
 
@@ -380,18 +397,18 @@
     :cond_a
     invoke-virtual {p1}, Landroid/view/ActionMode;->getType()I
 
-    move-result v7
+    move-result v5
 
-    if-nez v7, :cond_c
+    if-nez v5, :cond_c
 
     const/4 v3, 0x1
 
     :goto_6
     invoke-virtual {p1}, Landroid/view/ActionMode;->getType()I
 
-    move-result v7
+    move-result v5
 
-    if-eq v7, v5, :cond_b
+    if-eq v5, v10, :cond_b
 
     invoke-virtual {p1}, Landroid/view/ActionMode;->getType()I
 
@@ -425,36 +442,20 @@
 
     invoke-static {v5}, Lcom/android/internal/policy/DecorView;->-get3(Lcom/android/internal/policy/DecorView;)Lcom/android/internal/widget/FloatingToolbar;
 
-    invoke-static {v6}, Lcom/android/internal/widget/FloatingToolbar;->setMovingStarted(Z)V
+    invoke-static {v8}, Lcom/android/internal/widget/FloatingToolbar;->setMovingStarted(Z)V
 
     iget-object v5, p0, Lcom/android/internal/policy/DecorView$ActionModeCallback2Wrapper;->this$0:Lcom/android/internal/policy/DecorView;
 
-    invoke-static {v5, v10}, Lcom/android/internal/policy/DecorView;->-set1(Lcom/android/internal/policy/DecorView;Landroid/view/ActionMode;)Landroid/view/ActionMode;
+    invoke-static {v5, v9}, Lcom/android/internal/policy/DecorView;->-set1(Lcom/android/internal/policy/DecorView;Landroid/view/ActionMode;)Landroid/view/ActionMode;
 
     goto :goto_4
-
-    :cond_f
-    :try_start_0
-    iget-object v5, p0, Lcom/android/internal/policy/DecorView$ActionModeCallback2Wrapper;->this$0:Lcom/android/internal/policy/DecorView;
-
-    invoke-static {v5}, Lcom/android/internal/policy/DecorView;->-get7(Lcom/android/internal/policy/DecorView;)Lcom/android/internal/policy/PhoneWindow;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Lcom/android/internal/policy/PhoneWindow;->getCallback()Landroid/view/Window$Callback;
-
-    move-result-object v5
-
-    invoke-interface {v5, p1}, Landroid/view/Window$Callback;->onActionModeFinished(Landroid/view/ActionMode;)V
-    :try_end_0
-    .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_5
 
     :catch_0
     move-exception v0
 
     goto :goto_5
+
+    nop
 
     :array_0
     .array-data 4

@@ -109,7 +109,7 @@
 
     :goto_0
     :try_start_1
-    invoke-virtual {p0}, Landroid/os/AsyncTask;->isCancelled()Z
+    invoke-virtual {p0}, Landroid/print/PrintFileDocumentAdapter$WriteFileAsyncTask;->isCancelled()Z
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
@@ -132,7 +132,7 @@
 
     :cond_1
     :try_start_2
-    invoke-virtual {v2, v0}, Ljava/io/FileInputStream;->read([B)I
+    invoke-virtual {v2, v0}, Ljava/io/InputStream;->read([B)I
 
     move-result v5
 
@@ -140,7 +140,7 @@
 
     const/4 v6, 0x0
 
-    invoke-virtual {v4, v0, v6, v5}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v4, v0, v6, v5}, Ljava/io/OutputStream;->write([BII)V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
@@ -168,7 +168,7 @@
 
     move-result-object v7
 
-    const v8, 0x10405a3
+    const v8, 0x1040bb2
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -228,7 +228,7 @@
 
     move-result-object v1
 
-    const v2, 0x10405a2
+    const v2, 0x1040bb1
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

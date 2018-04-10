@@ -440,13 +440,13 @@
 
     move/from16 v1, v18
 
-    if-ne v0, v1, :cond_b
+    if-ne v0, v1, :cond_9
 
     :cond_6
     const/4 v5, 0x1
 
     :goto_2
-    if-eqz v5, :cond_d
+    if-eqz v5, :cond_b
 
     invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getX()F
 
@@ -577,35 +577,17 @@
 
     move-result v14
 
-    invoke-static/range {p1 .. p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_7
-
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/TextView;->getHint()Ljava/lang/CharSequence;
-
-    move-result-object v17
-
-    invoke-static/range {v17 .. v17}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_8
-
-    :cond_7
     move-object/from16 v0, p0
 
     invoke-static {v0, v10, v11, v12}, Landroid/text/method/Touch;->scrollTo(Landroid/widget/TextView;Landroid/text/Layout;II)V
 
-    :cond_8
     invoke-virtual/range {p0 .. p0}, Landroid/widget/TextView;->getScrollX()I
 
     move-result v17
 
     move/from16 v0, v17
 
-    if-ne v13, v0, :cond_9
+    if-ne v13, v0, :cond_7
 
     invoke-virtual/range {p0 .. p0}, Landroid/widget/TextView;->getScrollY()I
 
@@ -613,17 +595,17 @@
 
     move/from16 v0, v17
 
-    if-eq v14, v0, :cond_a
+    if-eq v14, v0, :cond_8
 
-    :cond_9
+    :cond_7
     invoke-virtual/range {p0 .. p0}, Landroid/widget/TextView;->cancelLongPress()V
 
-    :cond_a
+    :cond_8
     const/16 v17, 0x1
 
     return v17
 
-    :cond_b
+    :cond_9
     const/16 v17, 0x800
 
     move-object/from16 v0, p1
@@ -634,18 +616,18 @@
 
     move-result v17
 
-    if-eqz v17, :cond_c
+    if-eqz v17, :cond_a
 
     const/4 v5, 0x1
 
     goto/16 :goto_2
 
-    :cond_c
+    :cond_a
     const/4 v5, 0x0
 
     goto/16 :goto_2
 
-    :cond_d
+    :cond_b
     const/16 v17, 0x0
 
     aget-object v17, v6, v17

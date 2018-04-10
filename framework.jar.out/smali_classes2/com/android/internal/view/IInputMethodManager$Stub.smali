@@ -28,17 +28,19 @@
 
 .field static final TRANSACTION_addClient:I = 0x6
 
-.field static final TRANSACTION_addServiceForDirectPenInput:I = 0x2a
+.field static final TRANSACTION_addServiceForDirectPenInput:I = 0x2c
 
-.field static final TRANSACTION_changeFullInputMethod:I = 0x2c
+.field static final TRANSACTION_changeFullInputMethod:I = 0x2e
 
 .field static final TRANSACTION_clearLastInputMethodWindowForTransition:I = 0x20
 
-.field static final TRANSACTION_dismissAndShowAgainInputMethodPicker:I = 0x28
+.field static final TRANSACTION_createInputContentUriToken:I = 0x2b
+
+.field static final TRANSACTION_dismissAndShowAgainInputMethodPicker:I = 0x29
 
 .field static final TRANSACTION_finishInput:I = 0x8
 
-.field static final TRANSACTION_getCurrentFocusDisplayID:I = 0x2b
+.field static final TRANSACTION_getCurrentFocusDisplayID:I = 0x2d
 
 .field static final TRANSACTION_getCurrentInputMethodSubtype:I = 0x18
 
@@ -54,27 +56,29 @@
 
 .field static final TRANSACTION_getShortcutInputMethodsAndSubtypes:I = 0x5
 
-.field static final TRANSACTION_getWACOMPen:I = 0x26
+.field static final TRANSACTION_getWACOMPen:I = 0x27
 
 .field static final TRANSACTION_hideMySoftInput:I = 0x12
 
 .field static final TRANSACTION_hideSoftInput:I = 0xa
 
-.field static final TRANSACTION_isAccessoryKeyboard:I = 0x24
+.field static final TRANSACTION_isAccessoryKeyboard:I = 0x25
 
-.field static final TRANSACTION_isCurrentInputMethodAsSamsungKeyboard:I = 0x29
+.field static final TRANSACTION_isCurrentInputMethodAsSamsungKeyboard:I = 0x2a
 
-.field static final TRANSACTION_isInputMethodShown:I = 0x27
+.field static final TRANSACTION_isInputMethodShown:I = 0x28
 
 .field static final TRANSACTION_minimizeSoftInput:I = 0xb
 
 .field static final TRANSACTION_notifySuggestionPicked:I = 0x17
 
-.field static final TRANSACTION_notifyUserAction:I = 0x22
+.field static final TRANSACTION_notifyUserAction:I = 0x23
 
 .field static final TRANSACTION_registerSuggestionSpansForNotification:I = 0x16
 
 .field static final TRANSACTION_removeClient:I = 0x7
+
+.field static final TRANSACTION_reportFullscreenMode:I = 0x22
 
 .field static final TRANSACTION_setAdditionalInputMethodSubtypes:I = 0x1e
 
@@ -90,9 +94,9 @@
 
 .field static final TRANSACTION_setInputMethodSwitchDisable:I = 0x21
 
-.field static final TRANSACTION_setScreenBrightness:I = 0x23
+.field static final TRANSACTION_setScreenBrightness:I = 0x24
 
-.field static final TRANSACTION_setWACOMPen:I = 0x25
+.field static final TRANSACTION_setWACOMPen:I = 0x26
 
 .field static final TRANSACTION_shouldOfferSwitchingToNextInputMethod:I = 0x1c
 
@@ -171,7 +175,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 37
+    .locals 40
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -206,13 +210,13 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/IInputMethodManager$Stub;->getInputMethodList()Ljava/util/List;
 
-    move-result-object v34
+    move-result-object v37
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v34
+    move-object/from16 v1, v37
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
@@ -229,13 +233,13 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/IInputMethodManager$Stub;->getEnabledInputMethodList()Ljava/util/List;
 
-    move-result-object v34
+    move-result-object v37
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v34
+    move-object/from16 v1, v37
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
@@ -260,24 +264,24 @@
 
     if-eqz v4, :cond_0
 
-    const/16 v25, 0x1
+    const/16 v26, 0x1
 
     :goto_0
     move-object/from16 v0, p0
 
     move-object/from16 v1, v18
 
-    move/from16 v2, v25
+    move/from16 v2, v26
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/view/IInputMethodManager$Stub;->getEnabledInputMethodSubtypeList(Ljava/lang/String;Z)Ljava/util/List;
 
-    move-result-object v35
+    move-result-object v38
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v35
+    move-object/from16 v1, v38
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
@@ -286,7 +290,7 @@
     return v4
 
     :cond_0
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
     goto :goto_0
 
@@ -299,11 +303,11 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/IInputMethodManager$Stub;->getLastInputMethodSubtype()Landroid/view/inputmethod/InputMethodSubtype;
 
-    move-result-object v31
+    move-result-object v33
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v31, :cond_1
+    if-eqz v33, :cond_1
 
     const/4 v4, 0x1
 
@@ -313,7 +317,7 @@
 
     const/4 v4, 0x1
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v33
 
     move-object/from16 v1, p3
 
@@ -342,13 +346,13 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/IInputMethodManager$Stub;->getShortcutInputMethodsAndSubtypes()Ljava/util/List;
 
-    move-result-object v33
+    move-result-object v36
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v33
+    move-object/from16 v1, v36
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeList(Ljava/util/List;)V
 
@@ -377,11 +381,11 @@
 
     invoke-static {v4}, Lcom/android/internal/view/IInputContext$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputContext;
 
-    move-result-object v23
+    move-result-object v24
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -391,9 +395,9 @@
 
     move-object/from16 v1, v17
 
-    move-object/from16 v2, v23
+    move-object/from16 v2, v24
 
-    move/from16 v3, v27
+    move/from16 v3, v28
 
     invoke-virtual {v0, v1, v2, v3, v8}, Lcom/android/internal/view/IInputMethodManager$Stub;->addClient(Lcom/android/internal/view/IInputMethodClient;Lcom/android/internal/view/IInputContext;II)V
 
@@ -488,9 +492,9 @@
 
     invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v28
+    move-result-object v29
 
-    check-cast v28, Landroid/os/ResultReceiver;
+    check-cast v29, Landroid/os/ResultReceiver;
 
     :goto_2
     move-object/from16 v0, p0
@@ -499,15 +503,15 @@
 
     move/from16 v2, v21
 
-    move-object/from16 v3, v28
+    move-object/from16 v3, v29
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/internal/view/IInputMethodManager$Stub;->showSoftInput(Lcom/android/internal/view/IInputMethodClient;ILandroid/os/ResultReceiver;)Z
 
-    move-result v36
+    move-result v39
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v36, :cond_3
+    if-eqz v39, :cond_3
 
     const/4 v4, 0x1
 
@@ -521,7 +525,7 @@
     return v4
 
     :cond_2
-    const/16 v28, 0x0
+    const/16 v29, 0x0
 
     goto :goto_2
 
@@ -561,9 +565,9 @@
 
     invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v28
+    move-result-object v29
 
-    check-cast v28, Landroid/os/ResultReceiver;
+    check-cast v29, Landroid/os/ResultReceiver;
 
     :goto_4
     move-object/from16 v0, p0
@@ -572,15 +576,15 @@
 
     move/from16 v2, v21
 
-    move-object/from16 v3, v28
+    move-object/from16 v3, v29
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/internal/view/IInputMethodManager$Stub;->hideSoftInput(Lcom/android/internal/view/IInputMethodClient;ILandroid/os/ResultReceiver;)Z
 
-    move-result v36
+    move-result v39
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v36, :cond_5
+    if-eqz v39, :cond_5
 
     const/4 v4, 0x1
 
@@ -594,7 +598,7 @@
     return v4
 
     :cond_4
-    const/16 v28, 0x0
+    const/16 v29, 0x0
 
     goto :goto_4
 
@@ -630,11 +634,11 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/view/IInputMethodManager$Stub;->minimizeSoftInput(Lcom/android/internal/view/IInputMethodClient;I)Z
 
-    move-result v36
+    move-result v39
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v36, :cond_6
+    if-eqz v39, :cond_6
 
     const/4 v4, 0x1
 
@@ -735,11 +739,11 @@
 
     invoke-virtual/range {v4 .. v13}, Lcom/android/internal/view/IInputMethodManager$Stub;->startInputOrWindowGainedFocus(ILcom/android/internal/view/IInputMethodClient;Landroid/os/IBinder;IIILandroid/view/inputmethod/EditorInfo;Lcom/android/internal/view/IInputContext;I)Lcom/android/internal/view/InputBindResult;
 
-    move-result-object v32
+    move-result-object v35
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v32, :cond_8
+    if-eqz v35, :cond_8
 
     const/4 v4, 0x1
 
@@ -749,7 +753,7 @@
 
     const/4 v4, 0x1
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v35
 
     move-object/from16 v1, p3
 
@@ -824,13 +828,13 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, v17
 
-    move-object/from16 v2, v24
+    move-object/from16 v2, v25
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/view/IInputMethodManager$Stub;->showInputMethodAndSubtypeEnablerFromClient(Lcom/android/internal/view/IInputMethodClient;Ljava/lang/String;)V
 
@@ -853,11 +857,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v14, v1}, Lcom/android/internal/view/IInputMethodManager$Stub;->setInputMethod(Landroid/os/IBinder;Ljava/lang/String;)V
 
@@ -880,7 +884,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -894,16 +898,16 @@
 
     invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v29
+    move-result-object v30
 
-    check-cast v29, Landroid/view/inputmethod/InputMethodSubtype;
+    check-cast v30, Landroid/view/inputmethod/InputMethodSubtype;
 
     :goto_9
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
-    move-object/from16 v2, v29
+    move-object/from16 v2, v30
 
     invoke-virtual {v0, v14, v1, v2}, Lcom/android/internal/view/IInputMethodManager$Stub;->setInputMethodAndSubtype(Landroid/os/IBinder;Ljava/lang/String;Landroid/view/inputmethod/InputMethodSubtype;)V
 
@@ -914,7 +918,7 @@
     return v4
 
     :cond_9
-    const/16 v29, 0x0
+    const/16 v30, 0x0
 
     goto :goto_9
 
@@ -985,17 +989,17 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v27
+    move-result v28
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
-    move/from16 v2, v27
+    move/from16 v2, v28
 
     invoke-virtual {v0, v14, v1, v2}, Lcom/android/internal/view/IInputMethodManager$Stub;->updateStatusIcon(Landroid/os/IBinder;Ljava/lang/String;I)V
 
@@ -1016,21 +1020,25 @@
 
     move-result-object v14
 
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v23
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v21
+    move-result v28
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v27
+    move-result v8
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v21
+    move-object/from16 v1, v23
 
-    move/from16 v2, v27
+    move/from16 v2, v28
 
-    invoke-virtual {v0, v14, v1, v2}, Lcom/android/internal/view/IInputMethodManager$Stub;->setImeWindowStatus(Landroid/os/IBinder;II)V
+    invoke-virtual {v0, v14, v1, v2, v8}, Lcom/android/internal/view/IInputMethodManager$Stub;->setImeWindowStatus(Landroid/os/IBinder;Landroid/os/IBinder;II)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -1093,25 +1101,25 @@
     :goto_a
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v27
+    move-result v28
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
-    move/from16 v2, v27
+    move/from16 v2, v28
 
     invoke-virtual {v0, v15, v1, v2}, Lcom/android/internal/view/IInputMethodManager$Stub;->notifySuggestionPicked(Landroid/text/style/SuggestionSpan;Ljava/lang/String;I)Z
 
-    move-result v36
+    move-result v39
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v36, :cond_b
+    if-eqz v39, :cond_b
 
     const/4 v4, 0x1
 
@@ -1143,11 +1151,11 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/IInputMethodManager$Stub;->getCurrentInputMethodSubtype()Landroid/view/inputmethod/InputMethodSubtype;
 
-    move-result-object v31
+    move-result-object v33
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v31, :cond_c
+    if-eqz v33, :cond_c
 
     const/4 v4, 0x1
 
@@ -1157,7 +1165,7 @@
 
     const/4 v4, 0x1
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v33
 
     move-object/from16 v1, p3
 
@@ -1207,11 +1215,11 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/view/IInputMethodManager$Stub;->setCurrentInputMethodSubtype(Landroid/view/inputmethod/InputMethodSubtype;)Z
 
-    move-result v36
+    move-result v39
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v36, :cond_e
+    if-eqz v39, :cond_e
 
     const/4 v4, 0x1
 
@@ -1249,11 +1257,11 @@
 
     invoke-virtual {v0, v14}, Lcom/android/internal/view/IInputMethodManager$Stub;->switchToLastInputMethod(Landroid/os/IBinder;)Z
 
-    move-result v36
+    move-result v39
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v36, :cond_f
+    if-eqz v39, :cond_f
 
     const/4 v4, 0x1
 
@@ -1288,20 +1296,20 @@
 
     if-eqz v4, :cond_10
 
-    const/16 v25, 0x1
+    const/16 v26, 0x1
 
     :goto_10
     move-object/from16 v0, p0
 
-    move/from16 v1, v25
+    move/from16 v1, v26
 
     invoke-virtual {v0, v14, v1}, Lcom/android/internal/view/IInputMethodManager$Stub;->switchToNextInputMethod(Landroid/os/IBinder;Z)Z
 
-    move-result v36
+    move-result v39
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v36, :cond_11
+    if-eqz v39, :cond_11
 
     const/4 v4, 0x1
 
@@ -1315,7 +1323,7 @@
     return v4
 
     :cond_10
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
     goto :goto_10
 
@@ -1339,11 +1347,11 @@
 
     invoke-virtual {v0, v14}, Lcom/android/internal/view/IInputMethodManager$Stub;->shouldOfferSwitchingToNextInputMethod(Landroid/os/IBinder;)Z
 
-    move-result v36
+    move-result v39
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v36, :cond_12
+    if-eqz v39, :cond_12
 
     const/4 v4, 0x1
 
@@ -1378,22 +1386,22 @@
 
     if-eqz v4, :cond_13
 
-    const/16 v25, 0x1
+    const/16 v26, 0x1
 
     :goto_13
     move-object/from16 v0, p0
 
     move-object/from16 v1, v18
 
-    move/from16 v2, v25
+    move/from16 v2, v26
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/view/IInputMethodManager$Stub;->setInputMethodEnabled(Ljava/lang/String;Z)Z
 
-    move-result v36
+    move-result v39
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v36, :cond_14
+    if-eqz v39, :cond_14
 
     const/4 v4, 0x1
 
@@ -1407,7 +1415,7 @@
     return v4
 
     :cond_13
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
     goto :goto_13
 
@@ -1433,15 +1441,15 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->createTypedArray(Landroid/os/Parcelable$Creator;)[Ljava/lang/Object;
 
-    move-result-object v26
+    move-result-object v27
 
-    check-cast v26, [Landroid/view/inputmethod/InputMethodSubtype;
+    check-cast v27, [Landroid/view/inputmethod/InputMethodSubtype;
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, v18
 
-    move-object/from16 v2, v26
+    move-object/from16 v2, v27
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/view/IInputMethodManager$Stub;->setAdditionalInputMethodSubtypes(Ljava/lang/String;[Landroid/view/inputmethod/InputMethodSubtype;)V
 
@@ -1460,13 +1468,13 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/IInputMethodManager$Stub;->getInputMethodWindowVisibleHeight()I
 
-    move-result v30
+    move-result v32
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v30
+    move/from16 v1, v32
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -1535,6 +1543,43 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v14
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_16
+
+    const/16 v26, 0x1
+
+    :goto_16
+    move-object/from16 v0, p0
+
+    move/from16 v1, v26
+
+    invoke-virtual {v0, v14, v1}, Lcom/android/internal/view/IInputMethodManager$Stub;->reportFullscreenMode(Landroid/os/IBinder;Z)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_16
+    const/16 v26, 0x0
+
+    goto :goto_16
+
+    :sswitch_23
+    const-string/jumbo v4, "com.android.internal.view.IInputMethodManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
@@ -1547,7 +1592,7 @@
 
     return v4
 
-    :sswitch_23
+    :sswitch_24
     const-string/jumbo v4, "com.android.internal.view.IInputMethodManager"
 
     move-object/from16 v0, p2
@@ -1568,7 +1613,7 @@
 
     return v4
 
-    :sswitch_24
+    :sswitch_25
     const-string/jumbo v4, "com.android.internal.view.IInputMethodManager"
 
     move-object/from16 v0, p2
@@ -1577,13 +1622,13 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/IInputMethodManager$Stub;->isAccessoryKeyboard()I
 
-    move-result v30
+    move-result v32
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v30
+    move/from16 v1, v32
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -1591,7 +1636,7 @@
 
     return v4
 
-    :sswitch_25
+    :sswitch_26
     const-string/jumbo v4, "com.android.internal.view.IInputMethodManager"
 
     move-object/from16 v0, p2
@@ -1602,11 +1647,11 @@
 
     move-result v4
 
-    if-eqz v4, :cond_16
+    if-eqz v4, :cond_17
 
     const/16 v19, 0x1
 
-    :goto_16
+    :goto_17
     move-object/from16 v0, p0
 
     move/from16 v1, v19
@@ -1619,39 +1664,8 @@
 
     return v4
 
-    :cond_16
-    const/16 v19, 0x0
-
-    goto :goto_16
-
-    :sswitch_26
-    const-string/jumbo v4, "com.android.internal.view.IInputMethodManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/IInputMethodManager$Stub;->getWACOMPen()Z
-
-    move-result v36
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v36, :cond_17
-
-    const/4 v4, 0x1
-
-    :goto_17
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v4, 0x1
-
-    return v4
-
     :cond_17
-    const/4 v4, 0x0
+    const/16 v19, 0x0
 
     goto :goto_17
 
@@ -1662,13 +1676,13 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/IInputMethodManager$Stub;->isInputMethodShown()Z
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/IInputMethodManager$Stub;->getWACOMPen()Z
 
-    move-result v36
+    move-result v39
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v36, :cond_18
+    if-eqz v39, :cond_18
 
     const/4 v4, 0x1
 
@@ -1693,28 +1707,13 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/IInputMethodManager$Stub;->dismissAndShowAgainInputMethodPicker()V
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/IInputMethodManager$Stub;->isInputMethodShown()Z
+
+    move-result v39
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    const/4 v4, 0x1
-
-    return v4
-
-    :sswitch_29
-    const-string/jumbo v4, "com.android.internal.view.IInputMethodManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/IInputMethodManager$Stub;->isCurrentInputMethodAsSamsungKeyboard()Z
-
-    move-result v36
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v36, :cond_19
+    if-eqz v39, :cond_19
 
     const/4 v4, 0x1
 
@@ -1732,7 +1731,122 @@
 
     goto :goto_19
 
+    :sswitch_29
+    const-string/jumbo v4, "com.android.internal.view.IInputMethodManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/IInputMethodManager$Stub;->dismissAndShowAgainInputMethodPicker()V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
     :sswitch_2a
+    const-string/jumbo v4, "com.android.internal.view.IInputMethodManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/IInputMethodManager$Stub;->isCurrentInputMethodAsSamsungKeyboard()Z
+
+    move-result v39
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v39, :cond_1a
+
+    const/4 v4, 0x1
+
+    :goto_1a
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_1a
+    const/4 v4, 0x0
+
+    goto :goto_1a
+
+    :sswitch_2b
+    const-string/jumbo v4, "com.android.internal.view.IInputMethodManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v14
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_1b
+
+    sget-object v4, Landroid/net/Uri;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Landroid/net/Uri;
+
+    :goto_1b
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v31
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v22
+
+    move-object/from16 v2, v31
+
+    invoke-virtual {v0, v14, v1, v2}, Lcom/android/internal/view/IInputMethodManager$Stub;->createInputContentUriToken(Landroid/os/IBinder;Landroid/net/Uri;Ljava/lang/String;)Lcom/android/internal/inputmethod/IInputContentUriToken;
+
+    move-result-object v34
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v34, :cond_1c
+
+    invoke-interface/range {v34 .. v34}, Lcom/android/internal/inputmethod/IInputContentUriToken;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v4
+
+    :goto_1c
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_1b
+    const/16 v22, 0x0
+
+    goto :goto_1b
+
+    :cond_1c
+    const/4 v4, 0x0
+
+    goto :goto_1c
+
+    :sswitch_2c
     const-string/jumbo v4, "com.android.internal.view.IInputMethodManager"
 
     move-object/from16 v0, p2
@@ -1745,13 +1859,13 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v22
+    move-result-object v23
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, v18
 
-    move-object/from16 v2, v22
+    move-object/from16 v2, v23
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/view/IInputMethodManager$Stub;->addServiceForDirectPenInput(Ljava/lang/String;Landroid/os/IBinder;)V
 
@@ -1761,7 +1875,7 @@
 
     return v4
 
-    :sswitch_2b
+    :sswitch_2d
     const-string/jumbo v4, "com.android.internal.view.IInputMethodManager"
 
     move-object/from16 v0, p2
@@ -1770,13 +1884,13 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/IInputMethodManager$Stub;->getCurrentFocusDisplayID()I
 
-    move-result v30
+    move-result v32
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v30
+    move/from16 v1, v32
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -1784,7 +1898,7 @@
 
     return v4
 
-    :sswitch_2c
+    :sswitch_2e
     const-string/jumbo v4, "com.android.internal.view.IInputMethodManager"
 
     move-object/from16 v0, p2
@@ -1795,11 +1909,11 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1a
+    if-eqz v4, :cond_1d
 
     const/16 v19, 0x1
 
-    :goto_1a
+    :goto_1d
     move-object/from16 v0, p0
 
     move/from16 v1, v19
@@ -1812,10 +1926,10 @@
 
     return v4
 
-    :cond_1a
+    :cond_1d
     const/16 v19, 0x0
 
-    goto :goto_1a
+    goto :goto_1d
 
     nop
 
@@ -1865,6 +1979,8 @@
         0x2a -> :sswitch_2a
         0x2b -> :sswitch_2b
         0x2c -> :sswitch_2c
+        0x2d -> :sswitch_2d
+        0x2e -> :sswitch_2e
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

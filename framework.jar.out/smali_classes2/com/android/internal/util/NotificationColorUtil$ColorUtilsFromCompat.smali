@@ -60,6 +60,308 @@
     return-void
 .end method
 
+.method public static HSLToColor([F)I
+    .locals 12
+
+    const/4 v10, 0x0
+
+    aget v3, p0, v10
+
+    const/4 v10, 0x1
+
+    aget v8, p0, v10
+
+    const/4 v10, 0x2
+
+    aget v5, p0, v10
+
+    const/high16 v10, 0x40000000    # 2.0f
+
+    mul-float/2addr v10, v5
+
+    const/high16 v11, 0x3f800000    # 1.0f
+
+    sub-float/2addr v10, v11
+
+    invoke-static {v10}, Ljava/lang/Math;->abs(F)F
+
+    move-result v10
+
+    const/high16 v11, 0x3f800000    # 1.0f
+
+    sub-float v10, v11, v10
+
+    mul-float v1, v10, v8
+
+    const/high16 v10, 0x3f000000    # 0.5f
+
+    mul-float/2addr v10, v1
+
+    sub-float v6, v5, v10
+
+    const/high16 v10, 0x42700000    # 60.0f
+
+    div-float v10, v3, v10
+
+    const/high16 v11, 0x40000000    # 2.0f
+
+    rem-float/2addr v10, v11
+
+    const/high16 v11, 0x3f800000    # 1.0f
+
+    sub-float/2addr v10, v11
+
+    invoke-static {v10}, Ljava/lang/Math;->abs(F)F
+
+    move-result v10
+
+    const/high16 v11, 0x3f800000    # 1.0f
+
+    sub-float v10, v11, v10
+
+    mul-float v9, v1, v10
+
+    float-to-int v10, v3
+
+    div-int/lit8 v4, v10, 0x3c
+
+    const/4 v7, 0x0
+
+    const/4 v2, 0x0
+
+    const/4 v0, 0x0
+
+    packed-switch v4, :pswitch_data_0
+
+    :goto_0
+    const/4 v10, 0x0
+
+    const/16 v11, 0xff
+
+    invoke-static {v7, v10, v11}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->constrain(III)I
+
+    move-result v7
+
+    const/4 v10, 0x0
+
+    const/16 v11, 0xff
+
+    invoke-static {v2, v10, v11}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->constrain(III)I
+
+    move-result v2
+
+    const/4 v10, 0x0
+
+    const/16 v11, 0xff
+
+    invoke-static {v0, v10, v11}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->constrain(III)I
+
+    move-result v0
+
+    invoke-static {v7, v2, v0}, Landroid/graphics/Color;->rgb(III)I
+
+    move-result v10
+
+    return v10
+
+    :pswitch_0
+    add-float v10, v1, v6
+
+    const/high16 v11, 0x437f0000    # 255.0f
+
+    mul-float/2addr v10, v11
+
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
+
+    move-result v7
+
+    add-float v10, v9, v6
+
+    const/high16 v11, 0x437f0000    # 255.0f
+
+    mul-float/2addr v10, v11
+
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
+
+    move-result v2
+
+    const/high16 v10, 0x437f0000    # 255.0f
+
+    mul-float/2addr v10, v6
+
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
+
+    move-result v0
+
+    goto :goto_0
+
+    :pswitch_1
+    add-float v10, v9, v6
+
+    const/high16 v11, 0x437f0000    # 255.0f
+
+    mul-float/2addr v10, v11
+
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
+
+    move-result v7
+
+    add-float v10, v1, v6
+
+    const/high16 v11, 0x437f0000    # 255.0f
+
+    mul-float/2addr v10, v11
+
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
+
+    move-result v2
+
+    const/high16 v10, 0x437f0000    # 255.0f
+
+    mul-float/2addr v10, v6
+
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
+
+    move-result v0
+
+    goto :goto_0
+
+    :pswitch_2
+    const/high16 v10, 0x437f0000    # 255.0f
+
+    mul-float/2addr v10, v6
+
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
+
+    move-result v7
+
+    add-float v10, v1, v6
+
+    const/high16 v11, 0x437f0000    # 255.0f
+
+    mul-float/2addr v10, v11
+
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
+
+    move-result v2
+
+    add-float v10, v9, v6
+
+    const/high16 v11, 0x437f0000    # 255.0f
+
+    mul-float/2addr v10, v11
+
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
+
+    move-result v0
+
+    goto :goto_0
+
+    :pswitch_3
+    const/high16 v10, 0x437f0000    # 255.0f
+
+    mul-float/2addr v10, v6
+
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
+
+    move-result v7
+
+    add-float v10, v9, v6
+
+    const/high16 v11, 0x437f0000    # 255.0f
+
+    mul-float/2addr v10, v11
+
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
+
+    move-result v2
+
+    add-float v10, v1, v6
+
+    const/high16 v11, 0x437f0000    # 255.0f
+
+    mul-float/2addr v10, v11
+
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
+
+    move-result v0
+
+    goto/16 :goto_0
+
+    :pswitch_4
+    add-float v10, v9, v6
+
+    const/high16 v11, 0x437f0000    # 255.0f
+
+    mul-float/2addr v10, v11
+
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
+
+    move-result v7
+
+    const/high16 v10, 0x437f0000    # 255.0f
+
+    mul-float/2addr v10, v6
+
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
+
+    move-result v2
+
+    add-float v10, v1, v6
+
+    const/high16 v11, 0x437f0000    # 255.0f
+
+    mul-float/2addr v10, v11
+
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
+
+    move-result v0
+
+    goto/16 :goto_0
+
+    :pswitch_5
+    add-float v10, v1, v6
+
+    const/high16 v11, 0x437f0000    # 255.0f
+
+    mul-float/2addr v10, v11
+
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
+
+    move-result v7
+
+    const/high16 v10, 0x437f0000    # 255.0f
+
+    mul-float/2addr v10, v6
+
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
+
+    move-result v2
+
+    add-float v10, v9, v6
+
+    const/high16 v11, 0x437f0000    # 255.0f
+
+    mul-float/2addr v10, v11
+
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
+
+    move-result v0
+
+    goto/16 :goto_0
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_5
+    .end packed-switch
+.end method
+
 .method public static LABToColor(DDD)I
     .locals 8
 
@@ -222,6 +524,178 @@
     div-double v12, v14, v16
 
     goto :goto_2
+.end method
+
+.method public static RGBToHSL(III[F)V
+    .locals 11
+
+    int-to-float v9, p0
+
+    const/high16 v10, 0x437f0000    # 255.0f
+
+    div-float v7, v9, v10
+
+    int-to-float v9, p1
+
+    const/high16 v10, 0x437f0000    # 255.0f
+
+    div-float v2, v9, v10
+
+    int-to-float v9, p2
+
+    const/high16 v10, 0x437f0000    # 255.0f
+
+    div-float v0, v9, v10
+
+    invoke-static {v2, v0}, Ljava/lang/Math;->max(FF)F
+
+    move-result v9
+
+    invoke-static {v7, v9}, Ljava/lang/Math;->max(FF)F
+
+    move-result v5
+
+    invoke-static {v2, v0}, Ljava/lang/Math;->min(FF)F
+
+    move-result v9
+
+    invoke-static {v7, v9}, Ljava/lang/Math;->min(FF)F
+
+    move-result v6
+
+    sub-float v1, v5, v6
+
+    add-float v9, v5, v6
+
+    const/high16 v10, 0x40000000    # 2.0f
+
+    div-float v4, v9, v10
+
+    cmpl-float v9, v5, v6
+
+    if-nez v9, :cond_1
+
+    const/4 v8, 0x0
+
+    const/4 v3, 0x0
+
+    :goto_0
+    const/high16 v9, 0x42700000    # 60.0f
+
+    mul-float/2addr v9, v3
+
+    const/high16 v10, 0x43b40000    # 360.0f
+
+    rem-float v3, v9, v10
+
+    const/4 v9, 0x0
+
+    cmpg-float v9, v3, v9
+
+    if-gez v9, :cond_0
+
+    const/high16 v9, 0x43b40000    # 360.0f
+
+    add-float/2addr v3, v9
+
+    :cond_0
+    const/4 v9, 0x0
+
+    const/high16 v10, 0x43b40000    # 360.0f
+
+    invoke-static {v3, v9, v10}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->constrain(FFF)F
+
+    move-result v9
+
+    const/4 v10, 0x0
+
+    aput v9, p3, v10
+
+    const/4 v9, 0x0
+
+    const/high16 v10, 0x3f800000    # 1.0f
+
+    invoke-static {v8, v9, v10}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->constrain(FFF)F
+
+    move-result v9
+
+    const/4 v10, 0x1
+
+    aput v9, p3, v10
+
+    const/4 v9, 0x0
+
+    const/high16 v10, 0x3f800000    # 1.0f
+
+    invoke-static {v4, v9, v10}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->constrain(FFF)F
+
+    move-result v9
+
+    const/4 v10, 0x2
+
+    aput v9, p3, v10
+
+    return-void
+
+    :cond_1
+    cmpl-float v9, v5, v7
+
+    if-nez v9, :cond_2
+
+    sub-float v9, v2, v0
+
+    div-float/2addr v9, v1
+
+    const/high16 v10, 0x40c00000    # 6.0f
+
+    rem-float v3, v9, v10
+
+    :goto_1
+    const/high16 v9, 0x40000000    # 2.0f
+
+    mul-float/2addr v9, v4
+
+    const/high16 v10, 0x3f800000    # 1.0f
+
+    sub-float/2addr v9, v10
+
+    invoke-static {v9}, Ljava/lang/Math;->abs(F)F
+
+    move-result v9
+
+    const/high16 v10, 0x3f800000    # 1.0f
+
+    sub-float v9, v10, v9
+
+    div-float v8, v1, v9
+
+    goto :goto_0
+
+    :cond_2
+    cmpl-float v9, v5, v2
+
+    if-nez v9, :cond_3
+
+    sub-float v9, v0, v7
+
+    div-float/2addr v9, v1
+
+    const/high16 v10, 0x40000000    # 2.0f
+
+    add-float v3, v9, v10
+
+    goto :goto_1
+
+    :cond_3
+    sub-float v9, v7, v2
+
+    div-float/2addr v9, v1
+
+    const/high16 v10, 0x40800000    # 4.0f
+
+    add-float v3, v9, v10
+
+    goto :goto_1
 .end method
 
 .method public static RGBToLAB(III[D)V
@@ -735,19 +1209,19 @@
 .end method
 
 .method public static calculateContrast(II)D
-    .locals 8
+    .locals 10
 
-    const/16 v5, 0xff
+    const/16 v7, 0xff
 
-    const-wide v6, 0x3fa999999999999aL    # 0.05
+    const-wide v8, 0x3fa999999999999aL    # 0.05
 
     invoke-static {p1}, Landroid/graphics/Color;->alpha(I)I
 
     move-result v4
 
-    if-eq v4, v5, :cond_0
+    if-eq v4, v7, :cond_0
 
-    new-instance v4, Ljava/lang/IllegalArgumentException;
+    const-string/jumbo v4, "NotificationColorUtil"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -771,16 +1245,14 @@
 
     move-result-object v5
 
-    invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v4
+    invoke-static {v4, v5}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     invoke-static {p0}, Landroid/graphics/Color;->alpha(I)I
 
     move-result v4
 
-    if-ge v4, v5, :cond_1
+    if-ge v4, v7, :cond_1
 
     invoke-static {p0, p1}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->compositeColors(II)I
 
@@ -791,13 +1263,13 @@
 
     move-result-wide v4
 
-    add-double v0, v4, v6
+    add-double v0, v4, v8
 
     invoke-static {p1}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->calculateLuminance(I)D
 
     move-result-wide v4
 
-    add-double v2, v4, v6
+    add-double v2, v4, v8
 
     invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->max(DD)D
 
@@ -830,6 +1302,26 @@
     div-double/2addr v2, v4
 
     return-wide v2
+.end method
+
+.method public static colorToHSL(I[F)V
+    .locals 3
+
+    invoke-static {p0}, Landroid/graphics/Color;->red(I)I
+
+    move-result v0
+
+    invoke-static {p0}, Landroid/graphics/Color;->green(I)I
+
+    move-result v1
+
+    invoke-static {p0}, Landroid/graphics/Color;->blue(I)I
+
+    move-result v2
+
+    invoke-static {v0, v1, v2, p1}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->RGBToHSL(III[F)V
+
+    return-void
 .end method
 
 .method public static colorToLAB(I[D)V
@@ -975,6 +1467,31 @@
     return v0
 .end method
 
+.method private static constrain(FFF)F
+    .locals 1
+
+    cmpg-float v0, p0, p1
+
+    if-gez v0, :cond_0
+
+    :goto_0
+    return p1
+
+    :cond_0
+    cmpl-float v0, p0, p2
+
+    if-lez v0, :cond_1
+
+    move p1, p2
+
+    goto :goto_0
+
+    :cond_1
+    move p1, p0
+
+    goto :goto_0
+.end method
+
 .method private static constrain(III)I
     .locals 0
 
@@ -996,7 +1513,7 @@
     goto :goto_0
 .end method
 
-.method private static getTempDouble3Array()[D
+.method public static getTempDouble3Array()[D
     .locals 2
 
     sget-object v1, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->TEMP_ARRAY:Ljava/lang/ThreadLocal;

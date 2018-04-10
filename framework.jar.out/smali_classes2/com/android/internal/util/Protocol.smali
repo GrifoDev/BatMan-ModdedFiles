@@ -14,7 +14,7 @@
 
 .field public static final BASE_DHCP:I = 0x30000
 
-.field public static final BASE_DNS_PINGER:I = 0x85000
+.field public static final BASE_DNS_PINGER:I = 0x86000
 
 .field public static final BASE_ETHERNET:I = 0x84000
 
@@ -35,6 +35,8 @@
 .field public static final BASE_TETHERING:I = 0x50000
 
 .field public static final BASE_WIFI:I = 0x20000
+
+.field public static final BASE_WIFI_AP_MONITOR:I = 0x85000
 
 .field public static final BASE_WIFI_CONTROLLER:I = 0x26000
 

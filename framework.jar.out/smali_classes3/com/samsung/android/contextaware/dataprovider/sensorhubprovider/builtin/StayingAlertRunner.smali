@@ -168,7 +168,7 @@
 .method public getFaultDetectionResult()Landroid/os/Bundle;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->checkFaultDetectionResult()Z
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/StayingAlertRunner;->checkFaultDetectionResult()Z
 
     move-result v0
 
@@ -401,7 +401,7 @@
 
     move-result-object v3
 
-    invoke-virtual {p0, v6, v5, v3}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->sendPropertyValueToSensorHub(BB[B)Z
+    invoke-virtual {p0, v6, v5, v3}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/StayingAlertRunner;->sendPropertyValueToSensorHub(BB[B)Z
 
     move-result v0
 
@@ -457,7 +457,7 @@
 
     const/4 v4, 0x2
 
-    invoke-virtual {p0, v6, v4, v3}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->sendPropertyValueToSensorHub(BB[B)Z
+    invoke-virtual {p0, v6, v4, v3}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/StayingAlertRunner;->sendPropertyValueToSensorHub(BB[B)Z
 
     move-result v0
 
@@ -530,7 +530,7 @@
 
     const/4 v6, 0x3
 
-    invoke-virtual {p0, v5, v6, v2}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->sendPropertyValueToSensorHub(BB[B)Z
+    invoke-virtual {p0, v5, v6, v2}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/StayingAlertRunner;->sendPropertyValueToSensorHub(BB[B)Z
 
     return-void
 .end method

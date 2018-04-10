@@ -39,6 +39,14 @@
     .end annotation
 .end method
 
+.method public abstract commitContent(Landroid/view/inputmethod/InputContentInfo;ILandroid/os/Bundle;ILcom/android/internal/view/IInputContextCallback;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract commitCorrection(Landroid/view/inputmethod/CorrectionInfo;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -144,14 +152,6 @@
 .end method
 
 .method public abstract performPrivateCommand(Ljava/lang/String;Landroid/os/Bundle;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract reportFullscreenMode(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

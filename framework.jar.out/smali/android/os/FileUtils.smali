@@ -107,8 +107,51 @@
     return-object v0
 .end method
 
+.method public static buildUniqueFile(Ljava/io/File;Ljava/lang/String;)Ljava/io/File;
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/FileNotFoundException;
+        }
+    .end annotation
+
+    const/4 v4, 0x0
+
+    const/16 v3, 0x2e
+
+    invoke-virtual {p1, v3}, Ljava/lang/String;->lastIndexOf(I)I
+
+    move-result v1
+
+    if-ltz v1, :cond_0
+
+    invoke-virtual {p1, v4, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v2
+
+    add-int/lit8 v3, v1, 0x1
+
+    invoke-virtual {p1, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-static {p0, v2, v0}, Landroid/os/FileUtils;->buildUniqueFileWithExtension(Ljava/io/File;Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v3
+
+    return-object v3
+
+    :cond_0
+    move-object v2, p1
+
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public static buildUniqueFile(Ljava/io/File;Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
-    .locals 8
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -117,82 +160,97 @@
 
     invoke-static {p1, p2}, Landroid/os/FileUtils;->splitFileName(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v0
 
-    const/4 v6, 0x0
+    const/4 v1, 0x0
 
-    aget-object v4, v5, v6
+    aget-object v1, v0, v1
 
-    const/4 v6, 0x1
+    const/4 v2, 0x1
 
-    aget-object v0, v5, v6
+    aget-object v2, v0, v2
 
-    invoke-static {p0, v4, v0}, Landroid/os/FileUtils;->buildFile(Ljava/io/File;Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
+    invoke-static {p0, v1, v2}, Landroid/os/FileUtils;->buildUniqueFileWithExtension(Ljava/io/File;Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v1
 
-    const/4 v2, 0x0
+    return-object v1
+.end method
+
+.method private static buildUniqueFileWithExtension(Ljava/io/File;Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/FileNotFoundException;
+        }
+    .end annotation
+
+    invoke-static {p0, p1, p2}, Landroid/os/FileUtils;->buildFile(Ljava/io/File;Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
 
     :goto_0
-    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
-    move-result v6
+    move-result v3
 
-    if-eqz v6, :cond_1
+    if-eqz v3, :cond_1
 
-    add-int/lit8 v3, v2, 0x1
+    add-int/lit8 v2, v1, 0x1
 
-    const/16 v6, 0x20
+    const/16 v3, 0x20
 
-    if-lt v2, v6, :cond_0
+    if-lt v1, v3, :cond_0
 
-    new-instance v6, Ljava/io/FileNotFoundException;
+    new-instance v3, Ljava/io/FileNotFoundException;
 
-    const-string/jumbo v7, "Failed to create unique file"
+    const-string/jumbo v4, "Failed to create unique file"
 
-    invoke-direct {v6, v7}, Ljava/io/FileNotFoundException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/io/FileNotFoundException;-><init>(Ljava/lang/String;)V
 
-    throw v6
+    throw v3
 
     :cond_0
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v3
 
-    const-string/jumbo v7, " ("
+    const-string/jumbo v4, " ("
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v3
 
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v3
 
-    const-string/jumbo v7, ")"
+    const-string/jumbo v4, ")"
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v3
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v3
 
-    invoke-static {p0, v6, v0}, Landroid/os/FileUtils;->buildFile(Ljava/io/File;Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
+    invoke-static {p0, v3, p2}, Landroid/os/FileUtils;->buildFile(Ljava/io/File;Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
 
-    move-result-object v1
+    move-result-object v0
 
-    move v2, v3
+    move v1, v2
 
     goto :goto_0
 
     :cond_1
-    return-object v1
+    return-object v0
 .end method
 
 .method public static buildValidExtFilename(Ljava/lang/String;)Ljava/lang/String;
@@ -363,6 +421,124 @@
     return-object v3
 .end method
 
+.method public static bytesToFile(Ljava/lang/String;[B)V
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const/4 v3, 0x0
+
+    const/4 v0, 0x0
+
+    :try_start_0
+    new-instance v1, Ljava/io/FileOutputStream;
+
+    invoke-direct {v1, p0}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+
+    :try_start_1
+    invoke-virtual {v1, p1}, Ljava/io/FileOutputStream;->write([B)V
+    :try_end_1
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_3
+    .catchall {:try_start_1 .. :try_end_1} :catchall_2
+
+    if-eqz v1, :cond_0
+
+    :try_start_2
+    invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
+    :try_end_2
+    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_0
+
+    :cond_0
+    :goto_0
+    if-eqz v3, :cond_4
+
+    throw v3
+
+    :catch_0
+    move-exception v3
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v2
+
+    :goto_1
+    :try_start_3
+    throw v2
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :catchall_0
+    move-exception v3
+
+    move-object v5, v3
+
+    move-object v3, v2
+
+    move-object v2, v5
+
+    :goto_2
+    if-eqz v0, :cond_1
+
+    :try_start_4
+    invoke-virtual {v0}, Ljava/io/FileOutputStream;->close()V
+    :try_end_4
+    .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_2
+
+    :cond_1
+    :goto_3
+    if-eqz v3, :cond_3
+
+    throw v3
+
+    :catch_2
+    move-exception v4
+
+    if-nez v3, :cond_2
+
+    move-object v3, v4
+
+    goto :goto_3
+
+    :cond_2
+    if-eq v3, v4, :cond_1
+
+    invoke-virtual {v3, v4}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+
+    goto :goto_3
+
+    :cond_3
+    throw v2
+
+    :cond_4
+    return-void
+
+    :catchall_1
+    move-exception v2
+
+    goto :goto_2
+
+    :catchall_2
+    move-exception v2
+
+    move-object v0, v1
+
+    goto :goto_2
+
+    :catch_3
+    move-exception v2
+
+    move-object v0, v1
+
+    goto :goto_1
+.end method
+
 .method public static checksumCrc32(Ljava/io/File;)J
     .locals 8
     .annotation system Ldalvik/annotation/Throws;
@@ -452,16 +628,16 @@
 .end method
 
 .method public static contains(Ljava/io/File;Ljava/io/File;)Z
-    .locals 4
+    .locals 2
 
     if-eqz p0, :cond_0
 
     if-nez p1, :cond_1
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    return v2
+    return v0
 
     :cond_1
     invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
@@ -472,49 +648,59 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v0, v1}, Landroid/os/FileUtils;->contains(Ljava/lang/String;Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_2
+    return v0
+.end method
 
-    const/4 v2, 0x1
+.method public static contains(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 2
 
-    return v2
+    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    :cond_2
-    const-string/jumbo v2, "/"
+    move-result v0
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    if-eqz v0, :cond_0
 
-    move-result v2
+    const/4 v0, 0x1
 
-    if-nez v2, :cond_3
+    return v0
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    :cond_0
+    const-string/jumbo v0, "/"
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {p0, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v0
 
-    move-result-object v2
+    if-nez v0, :cond_1
 
-    const-string/jumbo v3, "/"
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    :cond_3
-    invoke-virtual {v1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    const-string/jumbo v1, "/"
 
-    move-result v2
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    return v2
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    :cond_1
+    invoke-virtual {p1, p0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public static contains([Ljava/io/File;Ljava/io/File;)Z
@@ -847,6 +1033,51 @@
     move-exception v2
 
     goto :goto_2
+.end method
+
+.method public static createDir(Ljava/io/File;Ljava/lang/String;)Ljava/io/File;
+    .locals 3
+
+    const/4 v1, 0x0
+
+    new-instance v0, Ljava/io/File;
+
+    invoke-direct {v0, p0, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v0}, Ljava/io/File;->isDirectory()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    move-object v0, v1
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    :goto_1
+    return-object v0
+
+    :cond_2
+    move-object v0, v1
+
+    goto :goto_1
 .end method
 
 .method public static deleteContents(Ljava/io/File;)Z
@@ -1431,7 +1662,7 @@
     return-object v13
 
     :cond_6
-    if-gez p1, :cond_e
+    if-gez p1, :cond_f
 
     const/4 v9, 0x0
 
@@ -1526,8 +1757,25 @@
     :cond_c
     if-eqz p2, :cond_d
 
-    if-eqz v9, :cond_d
+    xor-int/lit8 v13, v9, 0x1
 
+    if-eqz v13, :cond_e
+
+    :cond_d
+    new-instance v13, Ljava/lang/String;
+
+    invoke-direct {v13, v6}, Ljava/lang/String;-><init>([B)V
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+
+    invoke-virtual {v2}, Ljava/io/BufferedInputStream;->close()V
+
+    invoke-virtual {v5}, Ljava/io/InputStream;->close()V
+
+    return-object v13
+
+    :cond_e
+    :try_start_7
     new-instance v13, Ljava/lang/StringBuilder;
 
     invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
@@ -1547,8 +1795,8 @@
     move-result-object v13
 
     invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
     move-result-object v13
 
@@ -1558,21 +1806,7 @@
 
     return-object v13
 
-    :cond_d
-    :try_start_7
-    new-instance v13, Ljava/lang/String;
-
-    invoke-direct {v13, v6}, Ljava/lang/String;-><init>([B)V
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_0
-
-    invoke-virtual {v2}, Ljava/io/BufferedInputStream;->close()V
-
-    invoke-virtual {v5}, Ljava/io/InputStream;->close()V
-
-    return-object v13
-
-    :cond_e
+    :cond_f
     :try_start_8
     new-instance v3, Ljava/io/ByteArrayOutputStream;
 
@@ -1582,21 +1816,21 @@
 
     new-array v4, v13, [B
 
-    :cond_f
+    :cond_10
     invoke-virtual {v2, v4}, Ljava/io/BufferedInputStream;->read([B)I
 
     move-result v7
 
-    if-lez v7, :cond_10
+    if-lez v7, :cond_11
 
     const/4 v13, 0x0
 
     invoke-virtual {v3, v4, v13, v7}, Ljava/io/ByteArrayOutputStream;->write([BII)V
 
-    :cond_10
+    :cond_11
     array-length v13, v4
 
-    if-eq v7, v13, :cond_f
+    if-eq v7, v13, :cond_10
 
     invoke-virtual {v3}, Ljava/io/ByteArrayOutputStream;->toString()Ljava/lang/String;
     :try_end_8
@@ -1730,6 +1964,45 @@
 
     :cond_1
     return-object v1
+.end method
+
+.method public static roundStorageSize(J)J
+    .locals 6
+
+    const-wide/16 v2, 0x1
+
+    const-wide/16 v0, 0x1
+
+    :cond_0
+    :goto_0
+    mul-long v4, v2, v0
+
+    cmp-long v4, v4, p0
+
+    if-gez v4, :cond_1
+
+    const/4 v4, 0x1
+
+    shl-long/2addr v2, v4
+
+    const-wide/16 v4, 0x200
+
+    cmp-long v4, v2, v4
+
+    if-lez v4, :cond_0
+
+    const-wide/16 v2, 0x1
+
+    const-wide/16 v4, 0x3e8
+
+    mul-long/2addr v0, v4
+
+    goto :goto_0
+
+    :cond_1
+    mul-long v4, v2, v0
+
+    return-wide v4
 .end method
 
 .method public static setPermissions(Ljava/io/File;III)I
@@ -2057,32 +2330,22 @@
 .end method
 
 .method public static stringToFile(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    new-instance v0, Ljava/io/FileWriter;
+    sget-object v0, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    invoke-direct {v0, p0}, Ljava/io/FileWriter;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
-    :try_start_0
-    invoke-virtual {v0, p1}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    move-result-object v0
 
-    invoke-virtual {v0}, Ljava/io/FileWriter;->close()V
+    invoke-static {p0, v0}, Landroid/os/FileUtils;->bytesToFile(Ljava/lang/String;[B)V
 
     return-void
-
-    :catchall_0
-    move-exception v1
-
-    invoke-virtual {v0}, Ljava/io/FileWriter;->close()V
-
-    throw v1
 .end method
 
 .method public static sync(Ljava/io/FileOutputStream;)Z
