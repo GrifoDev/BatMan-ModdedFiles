@@ -1387,4 +1387,5 @@
     <item type="id" name="dynamic_status_bar">false</item>
     <item type="id" name="recents_matrix_anim">false</item>
     <item type="id" name="battbar_no_pulldown_below">false</item>
+    <item type="id" name="gif_animation">false</item>
 </resources>

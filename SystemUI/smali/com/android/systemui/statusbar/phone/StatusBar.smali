@@ -18942,6 +18942,8 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->clockOnClick()V
 
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateGifAnimationView()V
+
     return-void
 .end method
 
@@ -26451,6 +26453,17 @@
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->setNavbarIconColors()V
 
     :cond_21
+    const-string v0, "show_gif_animation"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_22
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateGifAnimationView()V
+
+    :cond_22
     return-void
 .end method
 
@@ -29092,6 +29105,10 @@
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     const-string/jumbo v4, "navbar_ime_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "show_gif_animation"
 
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -36873,6 +36890,68 @@
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskPanel;->setCurrentDisplaySize(Landroid/graphics/Point;)V
 
     :cond_0
+    return-void
+.end method
+
+.method updateGifAnimationView()V
+    .locals 9
+
+    iget-object v1, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v2, "show_gif_animation"
+
+    const/4 v3, 0x0
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const v3, 0x8
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    const-string v8, "gif_animation"
+
+    const-string v7, "id"
+
+    invoke-static {v8, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v3}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    goto/16 :goto_0
+
+    :cond_0
+    const v3, 0x3
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    const-string v8, "gif_animation"
+
+    const-string v7, "id"
+
+    invoke-static {v8, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v3}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    :goto_0
     return-void
 .end method
 
