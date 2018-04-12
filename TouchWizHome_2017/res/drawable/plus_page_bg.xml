@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<bitmap android:gravity="center" android:layout_width="100.0dip" android:layout_height="100.0dip" android:src="@drawable/homescreen_quick_view_add"
-  xmlns:android="http://schemas.android.com/apk/res/android" />

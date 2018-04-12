@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@id/folder_add_button_container" android:background="@drawable/focusable_view_bg" android:padding="@dimen/open_folder_focusable_view_padding" android:focusable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/folder_add_button_icon" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/folder_homescreen_add_btn" android:scaleType="fitXY" android:layout_centerHorizontal="true" android:contentDescription="@string/folder_add_app" />
-</RelativeLayout>

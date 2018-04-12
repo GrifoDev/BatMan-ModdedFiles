@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.android.launcher3.allapps.view.AllAppsRecyclerViewContainerView android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:elevation="15.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.android.launcher3.allapps.view.AppsSearchRecyclerView android:layout_gravity="center|top" android:id="@id/apps_search_list_view" android:focusable="true" android:clipToPadding="false" android:descendantFocusability="afterDescendants" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/appsearch_grid_margin_left_right" android:layout_marginRight="@dimen/appsearch_grid_margin_left_right" />
-</com.android.launcher3.allapps.view.AllAppsRecyclerViewContainerView>

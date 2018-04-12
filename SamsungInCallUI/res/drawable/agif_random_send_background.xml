@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape android:shape="rectangle"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/agif_random_send_bg_color" />
-    <corners android:topLeftRadius="@dimen/sec_primary_call_agif_arc_size" android:topRightRadius="@dimen/sec_primary_call_agif_arc_size" android:bottomLeftRadius="@dimen/sec_primary_call_agif_arc_size" android:bottomRightRadius="@dimen/sec_primary_call_agif_arc_size" />
-</shape>
