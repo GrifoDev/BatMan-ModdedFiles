@@ -22068,6 +22068,8 @@
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->setBlurImageView(I)V
 
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->setCustomBgView(I)V
+
     return-void
 
     :cond_1
@@ -22120,6 +22122,8 @@
     const/4 v0, 0x4
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->setBlurImageView(I)V
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->setCustomBgView(I)V
 
     return-void
 
@@ -22218,6 +22222,8 @@
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->setBlurImageView(I)V
 
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->setCustomBgView(I)V
+
     return-void
 .end method
 
@@ -22277,6 +22283,8 @@
     :cond_2
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->setBlurImageView(I)V
 
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->setCustomBgView(I)V
+
     return-void
 
     :cond_3
@@ -22317,6 +22325,55 @@
 
     :cond_5
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->setBlurImageView(I)V
+
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->setCustomBgView(I)V
+
+    return-void
+.end method
+
+.method public setCustomBgView(I)V
+    .locals 6
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const v2, 0x0
+
+    const-string/jumbo v1, "enable_gear_custom_bg"
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mNotificationPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+
+    const-string v4, "CustomBg"
+
+    const-string v5, "id"
+
+    invoke-static {v4, v5}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/ImageView;
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {v2, p1}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    return-void
+
+    :cond_0
+    const v1, 0x4
+
+    invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
     return-void
 .end method
