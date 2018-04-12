@@ -4,36 +4,30 @@ Created-By: 1.0 (Android SignApk)
 Name: assets/databases/SysScope.db
 SHA1-Digest: S5o5SoAZTadHpJTGUbQfDgE9cBs=
 
-Name: lib/arm64-v8a/libcordon.so
-SHA1-Digest: Aw+P/tWiptazHtexMijYtbO8QS0=
-
-Name: lib/armeabi/libcordon.so
-SHA1-Digest: NChdRJTqjy4OEKmlhcVkctdM1jc=
-
 Name: AndroidManifest.xml
-SHA1-Digest: gNEDDTiSKZt8HnUhzxeFyizFAxM=
+SHA1-Digest: NI6TeShG56TIYL4/+t58yS4p4X8=
+
+Name: res/drawable-ldpi-v4/icon.webp
+SHA1-Digest: tmW7TUkd2fQXlXvzkStDBT/LE9o=
 
 Name: SEC-INF/buildConfirm.crt
 SHA1-Digest: rzhOt9eAouxefH7GQUAHHm1HIuI=
 
-Name: res/drawable-mdpi-v4/icon.qmg
-SHA1-Digest: eSED2Z18bZ492wXgvFvtRPBSR9o=
-
-Name: res/drawable-ldpi-v4/icon.qmg
-SHA1-Digest: 643TmwegNZHdbrKlm6ao1JYXYXQ=
+Name: res/drawable-mdpi-v4/icon.webp
+SHA1-Digest: FvVj+EYR4LjOKNJH+BSU37GokV4=
 
 Name: res/layout/main.xml
 SHA1-Digest: zCuxTVmY206HEsIqrqTFIdUuQ3w=
 
 Name: SEC-INF/buildinfo.xml
-SHA1-Digest: t1txgKrrSr+uuuPiY/UQEIV+3eM=
+SHA1-Digest: zqqUPfbr3C1rh1qfkE4yWKhHrUQ=
 
 Name: resources.arsc
-SHA1-Digest: sEPkytDeUsbyvDb0bSn7qSjW0OY=
-
-Name: res/drawable-hdpi-v4/icon.qmg
-SHA1-Digest: 83oSF+BZV8phoXu5OapGu5HO0AQ=
+SHA1-Digest: 6gF28Y7FGOv3oRyk24RbZux1ecE=
 
 Name: classes.dex
-SHA1-Digest: Fu6vxgMlM/hc1DvsvtSwmEokhrQ=
+SHA1-Digest: jJYj7kvmz35KIYf9PE53ExAKNMA=
+
+Name: res/drawable-hdpi-v4/icon.webp
+SHA1-Digest: MQuStfldZTtLSmCnQlXfV700ZB8=
 
