@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bearer_entries">
+        <item>Тодорхойлогдоогүй</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bearer_entries_dcm_kdi">
+        <item>Тодорхойлогдоогүй</item>
+        <item>4G</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+        <item>IWLAN</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Бүх код уншигчид</item>
+        <item>Өгөгдмөл код уншигч</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>Өгөгдмөл</item>
+        <item>None</item>
+        <item>Outline</item>
+        <item>Drop shadow</item>
+        <item>Raised</item>
+        <item>Depressed</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>Маш жижиг</item>
+        <item>Жижиг</item>
+        <item>Хэвийн</item>
+        <item>Том</item>
+        <item>Маш том</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>Өгөгдмөл</item>
+        <item>Sans serif</item>
+        <item>Нягтруулсан Sans serif</item>
+        <item>Нягтруулсан Sans serif</item>
+        <item>Serif</item>
+        <item>Нягтруулсан Serif</item>
+        <item>Жирийн</item>
+        <item>Таталган бичиг</item>
+        <item>Жижиг үсгүүд</item>
+    </string-array>
+    <string-array name="color_adjust_type_entries">
+        <item>Саарал өнгөний хэмжүүр</item>
+        <item>Протан (улаан-ногоон)</item>
+        <item>Дэутан (ногоон-улаан)</item>
+        <item>Тритан (цэнхэр-шар)</item>
+        <item>Өөриймшүүлсэн өнгө</item>
+    </string-array>
+    <string-array name="color_lens_entries">
+        <item>Хөх</item>
+        <item>Номин</item>
+        <item>Шар хөх</item>
+        <item>Шар ногоон</item>
+        <item>Ногоон</item>
+        <item>Тод ногоон</item>
+        <item>Шар</item>
+        <item>Улбар шар</item>
+        <item>Улаан</item>
+        <item>Ягаан</item>
+        <item>Улаан ягаан</item>
+        <item>Чернилийн ягаан</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Тэжээлийн товчлуураар эсвэл дэлгэц амрахад шууд</item>
+        <item>5 секунд</item>
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 минут</item>
+        <item>2 минут</item>
+        <item>5 минут</item>
+        <item>10 минут</item>
+        <item>30 минут</item>
+    </string-array>
+    <string-array name="dex_timeout_entries">
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 минут</item>
+        <item>2 минут</item>
+        <item>5 минут</item>
+        <item>10 минут</item>
+        <item>20 минут</item>
+        <item>30 минут</item>
+        <item>60 минут</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>Даруй</item>
+        <item>5 секунд</item>
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 минут</item>
+        <item>2 минут</item>
+        <item>5 минут</item>
+        <item>10 минут</item>
+        <item>30 минут</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>Богино (0,5 секунд)</item>
+        <item>Дунд (1,0 секунд)</item>
+        <item>Удаан (1,5 секунд)</item>
+        <item>Дурын</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>Алга</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="ram_states">
+        <item>Ердийн</item>
+        <item>Дунд зэргийн</item>
+        <item>Бага</item>
+        <item>Аюултай</item>
+        <item>\?</item>
+    </string-array>
+    <string-array name="screen_timeout_entries">
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 минут</item>
+        <item>2 минут</item>
+        <item>5 минут</item>
+        <item>10 минут</item>
+        <item>30 минут</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 минут</item>
+        <item>3 минут</item>
+        <item>5 минут</item>
+        <item>10 минут</item>
+        <item>15 минут</item>
+        <item>30 минут</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>1 минут</item>
+        <item>3 минут</item>
+        <item>5 минут</item>
+        <item>10 минут</item>
+        <item>15 минут</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>Салгасан</item>
+        <item>Анхны утга өгч байна…</item>
+        <item>Холбогдож байна…</item>
+        <item>Холбогдсон</item>
+        <item>Завсарлага</item>
+        <item>Амжилтгүй</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>Автомат</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>Нээх</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>Хугацааг хэзээ ч дуусгахгүй</item>
+        <item>5 минут</item>
+        <item>10 минут</item>
+        <item>20 минут</item>
+        <item>30 минут</item>
+        <item>60 минут</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Wi-Fi хувц.г ид.жүүл</item>
+        <item>Wi-Fi хувц.г ид.гүй</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>Автомат</item>
+        <item>Гараар</item>
+        <item>Үргэлж асуух</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Холбогдсон</item>
+        <item>Уригдсан</item>
+        <item>Холболт тасарсан</item>
+        <item>Холбогдохын тулд энд товш.</item>
+        <item>Сүлжээнээс гарсан</item>
+        <item>Өөр төхөөрөмжтэй холбогдсон</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries_with_sim_auth">
+        <item>Алга</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+        <item>SIM</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"Үргэлж
+(Зайн зарцуулалтыг ихэсгэнэ)"</item>
+        <item>Цэнэглэж байх үед</item>
+        <item>"Хэзээ ч үгүй
+(Өгөгдлийн ашиглалтыг нэмэгдүүлнэ)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"Үргэлж
+(Зайн зарцуулалтыг ихэсгэнэ)"</item>
+        <item>Цэнэглэж байх үед</item>
+        <item>Хэзээ ч үгүй</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Шалгаж байна…</item>
+        <item>Холбогдож байна…</item>
+        <item>Баталгаажуулж байна…</item>
+        <item>IP хаяг авч байна…</item>
+        <item>Холбогдсон</item>
+        <item>Түр зогсоосон</item>
+        <item>Салгагдаж байна…</item>
+        <item>Салгасан</item>
+        <item>Амжилтгүй</item>
+        <item>Хаагдсан</item>
+        <item>Интернэт холболтынхоо чанарыг шалгаж байна…</item>
+    </string-array>
+</resources>

@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<bitmap android:src="@drawable/st_ic_sounds" android:tint="@color/dashboard_sounds_color" android:autoMirrored="true"
-  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen android:title="@string/full_screen_apps_title"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
-    <com.samsung.android.settings.UnclickablePreference android:title="@string/full_screen_apps_summary" android:selectable="false" style="@style/description_text" />
-    <SwitchPreference android:title="@string/notifications_all_apps" android:key="auto_fit" />
-    <PreferenceCategory android:title="" android:key="full_screen_apps" />
-</PreferenceScreen>
