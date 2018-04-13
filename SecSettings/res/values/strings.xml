@@ -9361,4 +9361,14 @@ Or, tap ALLOW SWITCH to switch to a mobile network whenever the %3$s internet co
 Incorrect"</string>
     <string name="zzz_lgt_password_wrong_pin_code2">"(%1$s/3)
 %1$s time(s) left"</string>
+    <string name="device_info">Device Information</string>
+    <string name="rom_info">Information About ROM</string>
+    <string name="rom_name">Rom Name</string>
+    <string name="rom_name_details">BatMan-Rom</string>
+    <string name="rom_ver">Rom Version</string>
+    <string name="rom_ver_details">V2.0.0</string>
+    <string name="rom_date">Rom Date</string>
+    <string name="rom_date_details">20.04.18</string>
+    <string name="rom_developer">Rom Developer</string>
+    <string name="rom_developer_name">Tkkg1994</string>
 </resources>
