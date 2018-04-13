@@ -3,19 +3,22 @@ apkFileName: framework-res.apk
 compressionType: false
 doNotCompress:
 - arsc
+- qmg
+- webp
 isFrameworkApk: true
 packageInfo:
   forcedPackageId: '1'
   renameManifestPackage: null
 sdkInfo:
-  minSdkVersion: '24'
-  targetSdkVersion: '24'
+  minSdkVersion: '26'
+  targetSdkVersion: '26'
 sharedLibrary: false
+sparseResources: false
 unknownFiles:
   SEC-INF/buildConfirm.crt: '8'
   SEC-INF/buildinfo.xml: '8'
 usesFramework: null
-version: 2.2.3
+version: 2.3.2
 versionInfo:
-  versionCode: '24'
-  versionName: '7.0'
+  versionCode: '26'
+  versionName: 8.0.0

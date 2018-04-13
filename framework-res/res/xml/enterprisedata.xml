@@ -7,11 +7,11 @@
         <column name="DefaultConfigType" value="true" />
         <column name="DefaultContainerLayout" value="1" />
         <column name="LayoutSwitchingAllowed" value="true" />
-        <column name="PasswordMinimumLength" value="8" />
-        <column name="PasswordMinimumNonLetters" value="4" />
-        <column name="PasswordMinimumLetters" value="4" />
-        <column name="PasswordMinimumSymbols" value="1" />
-        <column name="PasswordQuality" value="65536" />
+        <column name="PasswordMinimumLength" value="0" />
+        <column name="PasswordMinimumNonLetters" value="0" />
+        <column name="PasswordMinimumLetters" value="0" />
+        <column name="PasswordMinimumSymbols" value="0" />
+        <column name="PasswordQuality" value="0" />
         <column name="MaximumCharacterOccurences" value="0" />
         <column name="MaximumCharacterSequenceLength" value="0" />
         <column name="MaximumNumericSequenceLength" value="0" />
@@ -27,44 +27,35 @@
         <column name="BiometricAuthEnabled" type="3" value="true" />
         <column name="USBDebuggingAllowed" value="false" />
         <column name="AppInstallList">
-            <application name="com.samsung.android.app.memo">
-                <replace name="com.samsung.android.snote" value="tre3ca, viennalte, v1a, v2, hlte, ha3g, h3g, htdlte, hvolte, hllte, hl3g, lt03, t0, chagallwifizc, chagallltetdzc, klimtltetdzc, klimtwifizc, trlte, tblte, trelte, tre3g, trhplte, tbelte, SC-01G, SCL24, gt5note, noblelte, SCL22" />
-                <replace name="com.sec.android.app.snotebook" value="p4notelteusc, kona" />
-                <replace name="com.sec.android.widgetapp.diotek.smemo" value="c1, d2, melius, jflte, ja3g, jalte, jactivelte, jflterefresh, jftdd, jfvolte, jfvelte, serrano, ks01lte, wilcox, m3" />
-                <replace name="com.sec.android.app.memo" value="lt02ltetmo" />
-                <replace name="com.samsung.android.app.memo" value="jfltevzwpp" />
-                <replace name="com.samsung.android.app.notes" value="gracelte, graceqlte, j7poplte, dreamlte, dream2lte, dreamqlte, dream2qlte, gts3llte, gts3lwifi, j3popelte, j3poplte, xcover4lte, SC-02J, SC-03J, SCV35, SCV36, SC-04J, j7y17lte, j7popelte, greatlte, greatqlte, j5y17lte, gracerlte, j7maxlte, j3y17lte, a7y17lte, gtanotexllte, cruiserlte, j5y17lte" />
-            </application>
-            <application name="com.sec.spp.push" allow="systemAppOnly" />
-            <application name="com.samsung.android.calendar" allow="systemAppOnly" />
-            <application name="com.samsung.android.app.scrollcapture" allow="systemAppOnly" />
-            <application name="com.samsung.android.service.pentastic" allow="systemAppOnly" />
-            <application name="com.samsung.android.service.airviewdictionary" allow="systemAppOnly" />
-            <application name="com.samsung.android.app.pinboard" allow="tre3ca, viennalte, v1a, v2, hlte, ha3g, h3g, htdlte, hvolte, hllte, hl3g, lt03, t0, chagallwifizc, chagallltetdzc, klimtltetdzc, klimtwifizc, trlte, tblte, trelte, tre3g, trhplte, tbelte, SC-01G, SCL24, gt5note, noblelte, SCL22" />
+            <application name="com.samsung.android.app.notes" />
+            <application name="com.samsung.android.app.memo" />
+            <application allow="systemAppOnly" name="com.sec.spp.push" />
+            <application allow="systemAppOnly" name="com.samsung.android.calendar" />
+            <application allow="systemAppOnly" name="com.samsung.android.app.scrollcapture" />
+            <application allow="systemAppOnly" name="com.samsung.android.service.pentastic" />
+            <application allow="systemAppOnly" name="com.samsung.android.service.airviewdictionary" />
+            <application allow="tre3ca, viennalte, v1a, v2, hlte, ha3g, h3g, htdlte, hvolte, hllte, hl3g, lt03, t0, chagallwifizc, chagallltetdzc, klimtltetdzc, klimtwifizc, trlte, tblte, trelte, tre3g, trhplte, tbelte, SC-01G, SCL24, gt5note, noblelte, SCL22" name="com.samsung.android.app.pinboard" />
             <application name="com.sec.android.widgetapp.diotek.smemo" />
-            <application name="com.infraware.polarisviewer5" allow="systemAppOnly" />
-            <application name="com.infraware.polarisviewer4" allow="systemAppOnly" />
-            <application name="com.infraware.polarisoffice5" allow="systemAppOnly" />
-            <application name="com.infraware.polarisoffice4" allow="systemAppOnly" />
-            <application name="com.hancom.androidpc.launcher.shared" allow="systemAppOnly" />
-            <application name="com.hancom.androidpc.viewer.launcher" allow="systemAppOnly" />
-            <application name="com.hancom.androidpc.appwidget" allow="systemAppOnly" />
-            <application name="com.hancom.office.hword.viewer.hword_apk" allow="systemAppOnly" />
-            <application name="com.hancom.office.hcell.viewer.hcell_viewer_apk" allow="systemAppOnly" />
-            <application name="com.hancom.office.hshow.viewer.hshow_viewer_apk" allow="systemAppOnly" />
-            <application name="com.hancom.office.hwp.viewer.hwp_apk" allow="systemAppOnly" />
-            <application name="com.hancom.office.viewer" allow="systemAppOnly" />
-            <application name="com.hancom.office.editor" allow="systemAppOnly" />
-            <application name="com.hancom.office.editor.hidden" allow="systemAppOnly" />
-            <application name="com.infraware.polarisoffice5tablet" allow="systemAppOnly" />
-            <application name="com.microsoft.office.word" allow="systemAppOnly" />
-            <application name="com.microsoft.office.powerpoint" allow="systemAppOnly" />
-            <application name="com.microsoft.office.excel" allow="systemAppOnly" />
-            <application name="com.sec.android.mimage.photoretouching" allow="systemAppOnly" />
+            <application allow="systemAppOnly" name="com.infraware.polarisviewer5" />
+            <application allow="systemAppOnly" name="com.infraware.polarisviewer4" />
+            <application allow="systemAppOnly" name="com.infraware.polarisoffice5" />
+            <application allow="systemAppOnly" name="com.infraware.polarisoffice4" />
+            <application allow="systemAppOnly" name="com.hancom.androidpc.launcher.shared" />
+            <application allow="systemAppOnly" name="com.hancom.androidpc.viewer.launcher" />
+            <application allow="systemAppOnly" name="com.hancom.androidpc.appwidget" />
+            <application allow="systemAppOnly" name="com.hancom.office.hword.viewer.hword_apk" />
+            <application allow="systemAppOnly" name="com.hancom.office.hcell.viewer.hcell_viewer_apk" />
+            <application allow="systemAppOnly" name="com.hancom.office.hshow.viewer.hshow_viewer_apk" />
+            <application allow="systemAppOnly" name="com.hancom.office.hwp.viewer.hwp_apk" />
+            <application allow="systemAppOnly" name="com.hancom.office.viewer" />
+            <application allow="systemAppOnly" name="com.hancom.office.editor" />
+            <application allow="systemAppOnly" name="com.hancom.office.editor.hidden" />
+            <application allow="systemAppOnly" name="com.infraware.polarisoffice5tablet" />
+            <application name="com.microsoft.office.word" />
+            <application name="com.microsoft.office.powerpoint" />
+            <application name="com.microsoft.office.excel" />
+            <application allow="systemAppOnly" name="com.sec.android.mimage.photoretouching" />
             <application name="com.sec.android.inputmethod" />
-            <application name="com.microsoft.office.word" allow="noblelteskt, nobleltelgt, nobleltekt, zenlteskt, zenltekt, zenltelgt, zenltekx, a8elteskt, a8eltekt, a8eltelgt, herolteskt, heroltektt, heroltelgt, hero2lteskt, hero2ltektt, hero2ltelgt, j7xelteskt, j7xeltektt, j7xeltelgt, j3ltekx, j5xnlteskt, j5xnltektt, j5xnltelgt, a7xelteskt, a7xeltektt, a7xeltelgt, a5xelteskt, a7xeltexx, a5xeltektt, a5xeltelgt, dreamlteks, dream2lteks" />
-            <application name="com.microsoft.office.powerpoint" allow="noblelteskt, nobleltelgt, nobleltekt, zenlteskt, zenltekt, zenltelgt, zenltekx, a8elteskt, a8eltekt, a8eltelgt, herolteskt, heroltektt, heroltelgt, hero2lteskt, hero2ltektt, hero2ltelgt, j7xelteskt, j7xeltektt, j7xeltelgt, j3ltekx, j5xnlteskt, j5xnltektt, j5xnltelgt, a7xelteskt, a7xeltektt, a7xeltelgt, a5xelteskt, a7xeltexx, a5xeltektt, a5xeltelgt, dreamlteks, dream2lteks" />
-            <application name="com.microsoft.office.excel" allow="noblelteskt, nobleltelgt, nobleltekt, zenlteskt, zenltekt, zenltelgt, zenltekx, a8elteskt, a8eltekt, a8eltelgt, herolteskt, heroltektt, heroltelgt, hero2lteskt, hero2ltektt, hero2ltelgt, j7xelteskt, j7xeltektt, j7xeltelgt, j3ltekx, j5xnlteskt, j5xnltektt, j5xnltelgt, a7xelteskt, a7xeltektt, a7xeltelgt, a5xelteskt, a7xeltexx, a5xeltektt, a5xeltelgt, dreamlteks, dream2lteks" />
             <application name="com.android.browser.provider" />
             <application name="com.google.android.marvin.talkback" />
             <application name="com.google.android.gm" />
@@ -111,9 +102,10 @@
             <application name="com.samsung.android.app.music.chn" />
             <application name="com.sec.android.app.soundalive" />
             <application name="com.sec.android.app.myfiles" />
-            <application name="com.sec.android.app.samsungapps" allow="systemAppOnly" />
-            <application name="com.osp.app.signin" allow="systemAppOnly" />
-            <application name="com.sec.android.app.billing" allow="systemAppOnly" />
+            <application allow="systemAppOnly" name="com.sec.android.app.samsungapps" />
+            <application allow="systemAppOnly" name="com.osp.app.signin" />
+            <application name="com.samsung.android.mobileservice" />
+            <application allow="systemAppOnly" name="com.sec.android.app.billing" />
             <application name="com.sec.android.app.sbrowser" />
             <application name="com.sec.sprextension" />
             <application name="com.android.browser" />
@@ -151,6 +143,9 @@
             <application name="com.samsung.android.spdfnote" />
             <application name="com.samsung.android.app.smartcapture" />
             <application name="com.samsung.android.service.livedrawing" />
+            <application name="com.sec.android.app.ocrservice" />
+            <application name="com.samsung.android.app.soundpicker" />
+            <application name="com.samsung.android.app.dofviewer" />
             <application name="com.skms.android.agent" />
             <application name="org.simalliance.openmobileapi.service" />
         </column>
@@ -167,7 +162,6 @@
         <column name="GoogleAppsPkgList">
             <disablePkg name="com.android.browser.provider" />
             <disablePkg name="com.google.android.gm" />
-            <disablePkg name="com.android.chrome" value="vzw" />
             <disablePkg name="com.google.android.apps.maps" />
             <disablePkg name="com.google.android.gms" />
             <disablePkg name="com.google.android.gsf" />
@@ -258,44 +252,35 @@
         <column name="CustomStatusLabel" value="Enterprise Knox" />
         <column name="USBDebuggingAllowed" value="false" />
         <column name="AppInstallList">
-            <application name="com.samsung.android.app.memo">
-                <replace name="com.samsung.android.snote" value="tre3ca, viennalte, v1a, v2, hlte, ha3g, h3g, htdlte, hvolte, hllte, hl3g, lt03, t0, chagallwifizc, chagallltetdzc, klimtltetdzc, klimtwifizc, trlte, tblte, trelte, tre3g, trhplte, tbelte, SC-01G, SCL24, gt5note, noblelte, SCL22" />
-                <replace name="com.sec.android.app.snotebook" value="p4notelteusc, kona" />
-                <replace name="com.sec.android.widgetapp.diotek.smemo" value="c1, d2, melius, jflte, ja3g, jalte, jactivelte, jflterefresh, jftdd, jfvolte, jfvelte, serrano, ks01lte, wilcox, m3" />
-                <replace name="com.sec.android.app.memo" value="lt02ltetmo" />
-                <replace name="com.samsung.android.app.memo" value="jfltevzwpp" />
-                <replace name="com.samsung.android.app.notes" value="gracelte, graceqlte, j7poplte, dreamlte, dream2lte, dreamqlte, dream2qlte, gts3llte, gts3lwifi, j3popelte, j3poplte, xcover4lte, SC-02J, SC-03J, SCV35, SCV36, SC-04J, j7y17lte, j7popelte, greatlte, greatqlte, j5y17lte, gracerlte, j7maxlte, j3y17lte, a7y17lte, gtanotexllte, cruiserlte, j5y17lte" />
-            </application>
-            <application name="com.sec.spp.push" allow="systemAppOnly" />
-            <application name="com.samsung.android.calendar" allow="systemAppOnly" />
-            <application name="com.samsung.android.app.scrollcapture" allow="systemAppOnly" />
-            <application name="com.samsung.android.service.pentastic" allow="systemAppOnly" />
-            <application name="com.samsung.android.service.airviewdictionary" allow="systemAppOnly" />
-            <application name="com.samsung.android.app.pinboard" allow="tre3ca, viennalte, v1a, v2, hlte, ha3g, h3g, htdlte, hvolte, hllte, hl3g, lt03, t0, chagallwifizc, chagallltetdzc, klimtltetdzc, klimtwifizc, trlte, tblte, trelte, tre3g, trhplte, tbelte, SC-01G, SCL24, gt5note, noblelte, SCL22" />
+            <application name="com.samsung.android.app.notes" />
+            <application name="com.samsung.android.app.memo" />
+            <application allow="systemAppOnly" name="com.sec.spp.push" />
+            <application allow="systemAppOnly" name="com.samsung.android.calendar" />
+            <application allow="systemAppOnly" name="com.samsung.android.app.scrollcapture" />
+            <application allow="systemAppOnly" name="com.samsung.android.service.pentastic" />
+            <application allow="systemAppOnly" name="com.samsung.android.service.airviewdictionary" />
+            <application allow="tre3ca, viennalte, v1a, v2, hlte, ha3g, h3g, htdlte, hvolte, hllte, hl3g, lt03, t0, chagallwifizc, chagallltetdzc, klimtltetdzc, klimtwifizc, trlte, tblte, trelte, tre3g, trhplte, tbelte, SC-01G, SCL24, gt5note, noblelte, SCL22" name="com.samsung.android.app.pinboard" />
             <application name="com.sec.android.widgetapp.diotek.smemo" />
-            <application name="com.infraware.polarisviewer5" allow="systemAppOnly" />
-            <application name="com.infraware.polarisviewer4" allow="systemAppOnly" />
-            <application name="com.infraware.polarisoffice5" allow="systemAppOnly" />
-            <application name="com.infraware.polarisoffice4" allow="systemAppOnly" />
-            <application name="com.hancom.androidpc.launcher.shared" allow="systemAppOnly" />
-            <application name="com.hancom.androidpc.viewer.launcher" allow="systemAppOnly" />
-            <application name="com.hancom.androidpc.appwidget" allow="systemAppOnly" />
-            <application name="com.hancom.office.hword.viewer.hword_apk" allow="systemAppOnly" />
-            <application name="com.hancom.office.hcell.viewer.hcell_viewer_apk" allow="systemAppOnly" />
-            <application name="com.hancom.office.hshow.viewer.hshow_viewer_apk" allow="systemAppOnly" />
-            <application name="com.hancom.office.hwp.viewer.hwp_apk" allow="systemAppOnly" />
-            <application name="com.hancom.office.viewer" allow="systemAppOnly" />
-            <application name="com.hancom.office.editor" allow="systemAppOnly" />
-            <application name="com.hancom.office.editor.hidden" allow="systemAppOnly" />
-            <application name="com.infraware.polarisoffice5tablet" allow="systemAppOnly" />
-            <application name="com.microsoft.office.word" allow="systemAppOnly" />
-            <application name="com.microsoft.office.powerpoint" allow="systemAppOnly" />
-            <application name="com.microsoft.office.excel" allow="systemAppOnly" />
-            <application name="com.sec.android.mimage.photoretouching" allow="systemAppOnly" />
+            <application allow="systemAppOnly" name="com.infraware.polarisviewer5" />
+            <application allow="systemAppOnly" name="com.infraware.polarisviewer4" />
+            <application allow="systemAppOnly" name="com.infraware.polarisoffice5" />
+            <application allow="systemAppOnly" name="com.infraware.polarisoffice4" />
+            <application allow="systemAppOnly" name="com.hancom.androidpc.launcher.shared" />
+            <application allow="systemAppOnly" name="com.hancom.androidpc.viewer.launcher" />
+            <application allow="systemAppOnly" name="com.hancom.androidpc.appwidget" />
+            <application allow="systemAppOnly" name="com.hancom.office.hword.viewer.hword_apk" />
+            <application allow="systemAppOnly" name="com.hancom.office.hcell.viewer.hcell_viewer_apk" />
+            <application allow="systemAppOnly" name="com.hancom.office.hshow.viewer.hshow_viewer_apk" />
+            <application allow="systemAppOnly" name="com.hancom.office.hwp.viewer.hwp_apk" />
+            <application allow="systemAppOnly" name="com.hancom.office.viewer" />
+            <application allow="systemAppOnly" name="com.hancom.office.editor" />
+            <application allow="systemAppOnly" name="com.hancom.office.editor.hidden" />
+            <application allow="systemAppOnly" name="com.infraware.polarisoffice5tablet" />
+            <application name="com.microsoft.office.word" />
+            <application name="com.microsoft.office.powerpoint" />
+            <application name="com.microsoft.office.excel" />
+            <application allow="systemAppOnly" name="com.sec.android.mimage.photoretouching" />
             <application name="com.sec.android.inputmethod" />
-            <application name="com.microsoft.office.word" allow="noblelteskt, nobleltelgt, nobleltekt, zenlteskt, zenltekt, zenltelgt, zenltekx, a8elteskt, a8eltekt, a8eltelgt, herolteskt, heroltektt, heroltelgt, hero2lteskt, hero2ltektt, hero2ltelgt, j7xelteskt, j7xeltektt, j7xeltelgt, j3ltekx, j5xnlteskt, j5xnltektt, j5xnltelgt, a7xelteskt, a7xeltektt, a7xeltelgt, a5xelteskt, a5xeltektt, a5xeltelgt, dreamlteks, dream2lteks" />
-            <application name="com.microsoft.office.powerpoint" allow="noblelteskt, nobleltelgt, nobleltekt, zenlteskt, zenltekt, zenltelgt, zenltekx, a8elteskt, a8eltekt, a8eltelgt, herolteskt, heroltektt, heroltelgt, hero2lteskt, hero2ltektt, hero2ltelgt, j7xelteskt, j7xeltektt, j7xeltelgt, j3ltekx, j5xnlteskt, j5xnltektt, j5xnltelgt, a7xelteskt, a7xeltektt, a7xeltelgt, a5xelteskt, a5xeltektt, a5xeltelgt, dreamlteks, dream2lteks" />
-            <application name="com.microsoft.office.excel" allow="noblelteskt, nobleltelgt, nobleltekt, zenlteskt, zenltekt, zenltelgt, zenltekx, a8elteskt, a8eltekt, a8eltelgt, herolteskt, heroltektt, heroltelgt, hero2lteskt, hero2ltektt, hero2ltelgt, j7xelteskt, j7xeltektt, j7xeltelgt, j3ltekx, j5xnlteskt, j5xnltektt, j5xnltelgt, a7xelteskt, a7xeltektt, a7xeltelgt, a5xelteskt, a5xeltektt, a5xeltelgt, dreamlteks, dream2lteks" />
             <application name="com.gd.mobicore.pa" />
             <application name="com.android.browser.provider" />
             <application name="com.google.android.marvin.talkback" />
@@ -341,9 +326,10 @@
             <application name="com.samsung.android.app.music.chn" />
             <application name="com.sec.android.app.soundalive" />
             <application name="com.sec.android.app.myfiles" />
-            <application name="com.sec.android.app.samsungapps" allow="systemAppOnly" />
-            <application name="com.osp.app.signin" allow="systemAppOnly" />
-            <application name="com.sec.android.app.billing" allow="systemAppOnly" />
+            <application allow="systemAppOnly" name="com.sec.android.app.samsungapps" />
+            <application allow="systemAppOnly" name="com.osp.app.signin" />
+            <application name="com.samsung.android.mobileservice" />
+            <application allow="systemAppOnly" name="com.sec.android.app.billing" />
             <application name="com.sec.android.app.sbrowser" />
             <application name="com.sec.sprextension" />
             <application name="com.android.browser" />
@@ -380,6 +366,9 @@
             <application name="com.samsung.android.spdfnote" />
             <application name="com.samsung.android.app.smartcapture" />
             <application name="com.samsung.android.service.livedrawing" />
+            <application name="com.sec.android.app.ocrservice" />
+            <application name="com.samsung.android.app.soundpicker" />
+            <application name="com.samsung.android.app.dofviewer" />
             <application name="com.skms.android.agent" />
             <application name="org.simalliance.openmobileapi.service" />
         </column>
@@ -396,7 +385,6 @@
         <column name="GoogleAppsPkgList">
             <disablePkg name="com.android.browser.provider" />
             <disablePkg name="com.google.android.gm" />
-            <disablePkg name="com.android.chrome" value="vzw" />
             <disablePkg name="com.google.android.apps.maps" />
             <disablePkg name="com.google.android.gms" />
             <disablePkg name="com.google.android.gsf" />
@@ -471,8 +459,8 @@
         <column name="UserID" value="-1" />
         <column name="Name" value="knox-b2c" />
         <column name="MaximumFailedPasswordsForWipe" value="20" />
-        <column name="PasswordMinimumLength" value="8" />
-        <column name="PasswordQuality" value="65536" />
+        <column name="PasswordMinimumLength" value="0" />
+        <column name="PasswordQuality" value="0" />
         <column name="EncryptionRequired" value="true" />
         <column name="CustomHomeScreenWallpaper" value="/system/container/resources/CustomHomeWallpaper-b2b.jpg" />
         <column name="EC" value="false" />
@@ -485,44 +473,35 @@
         <column name="UserManaged" value="true" />
         <column name="USBDebuggingAllowed" value="false" />
         <column name="AppInstallList">
-            <application name="com.samsung.android.app.memo">
-                <replace name="com.samsung.android.snote" value="tre3ca, viennalte, v1a, v2, hlte, ha3g, h3g, htdlte, hvolte, hllte, hl3g, lt03, t0, chagallwifizc, chagallltetdzc, klimtltetdzc, klimtwifizc, trlte, tblte, trelte, tre3g, trhplte, tbelte, SC-01G, SCL24, gt5note, noblelte, SCL22" />
-                <replace name="com.sec.android.app.snotebook" value="p4notelteusc, kona" />
-                <replace name="com.sec.android.widgetapp.diotek.smemo" value="c1, d2, melius, jflte, ja3g, jalte, jactivelte, jflterefresh, jftdd, jfvolte, jfvelte, serrano, ks01lte, wilcox, m3" />
-                <replace name="com.sec.android.app.memo" value="lt02ltetmo" />
-                <replace name="com.samsung.android.app.memo" value="jfltevzwpp" />
-                <replace name="com.samsung.android.app.notes" value="gracelte, graceqlte, j7poplte, dreamlte, dream2lte, dreamqlte, dream2qlte, gts3llte, gts3lwifi, j3popelte, j3poplte, xcover4lte, SC-02J, SC-03J, SCV35, SCV36, SC-04J, j7y17lte, j7popelte, greatlte, greatqlte, j5y17lte, gracerlte, j7maxlte, j3y17lte, a7y17lte, gtanotexllte, cruiserlte, j5y17lte" />
-            </application>
-            <application name="com.sec.spp.push" allow="systemAppOnly" />
-            <application name="com.samsung.android.calendar" allow="systemAppOnly" />
-            <application name="com.samsung.android.app.scrollcapture" allow="systemAppOnly" />
-            <application name="com.samsung.android.service.pentastic" allow="systemAppOnly" />
-            <application name="com.samsung.android.service.airviewdictionary" allow="systemAppOnly" />
-            <application name="com.samsung.android.app.pinboard" allow="tre3ca, viennalte, v1a, v2, hlte, ha3g, h3g, htdlte, hvolte, hllte, hl3g, lt03, t0, chagallwifizc, chagallltetdzc, klimtltetdzc, klimtwifizc, trlte, tblte, trelte, tre3g, trhplte, tbelte, SC-01G, SCL24, gt5note, noblelte, SCL22" />
+            <application name="com.samsung.android.app.notes" />
+            <application name="com.samsung.android.app.memo" />
+            <application allow="systemAppOnly" name="com.sec.spp.push" />
+            <application allow="systemAppOnly" name="com.samsung.android.calendar" />
+            <application allow="systemAppOnly" name="com.samsung.android.app.scrollcapture" />
+            <application allow="systemAppOnly" name="com.samsung.android.service.pentastic" />
+            <application allow="systemAppOnly" name="com.samsung.android.service.airviewdictionary" />
+            <application allow="tre3ca, viennalte, v1a, v2, hlte, ha3g, h3g, htdlte, hvolte, hllte, hl3g, lt03, t0, chagallwifizc, chagallltetdzc, klimtltetdzc, klimtwifizc, trlte, tblte, trelte, tre3g, trhplte, tbelte, SC-01G, SCL24, gt5note, noblelte, SCL22" name="com.samsung.android.app.pinboard" />
             <application name="com.sec.android.widgetapp.diotek.smemo" />
-            <application name="com.infraware.polarisviewer5" allow="systemAppOnly" />
-            <application name="com.infraware.polarisviewer4" allow="systemAppOnly" />
-            <application name="com.infraware.polarisoffice5" allow="systemAppOnly" />
-            <application name="com.infraware.polarisoffice4" allow="systemAppOnly" />
-            <application name="com.hancom.androidpc.launcher.shared" allow="systemAppOnly" />
-            <application name="com.hancom.androidpc.viewer.launcher" allow="systemAppOnly" />
-            <application name="com.hancom.androidpc.appwidget" allow="systemAppOnly" />
-            <application name="com.hancom.office.hword.viewer.hword_apk" allow="systemAppOnly" />
-            <application name="com.hancom.office.hcell.viewer.hcell_viewer_apk" allow="systemAppOnly" />
-            <application name="com.hancom.office.hshow.viewer.hshow_viewer_apk" allow="systemAppOnly" />
-            <application name="com.hancom.office.hwp.viewer.hwp_apk" allow="systemAppOnly" />
-            <application name="com.hancom.office.viewer" allow="systemAppOnly" />
-            <application name="com.hancom.office.editor" allow="systemAppOnly" />
-            <application name="com.hancom.office.editor.hidden" allow="systemAppOnly" />
-            <application name="com.infraware.polarisoffice5tablet" allow="systemAppOnly" />
-            <application name="com.microsoft.office.word" allow="systemAppOnly" />
-            <application name="com.microsoft.office.powerpoint" allow="systemAppOnly" />
-            <application name="com.microsoft.office.excel" allow="systemAppOnly" />
-            <application name="com.sec.android.mimage.photoretouching" allow="systemAppOnly" />
+            <application allow="systemAppOnly" name="com.infraware.polarisviewer5" />
+            <application allow="systemAppOnly" name="com.infraware.polarisviewer4" />
+            <application allow="systemAppOnly" name="com.infraware.polarisoffice5" />
+            <application allow="systemAppOnly" name="com.infraware.polarisoffice4" />
+            <application allow="systemAppOnly" name="com.hancom.androidpc.launcher.shared" />
+            <application allow="systemAppOnly" name="com.hancom.androidpc.viewer.launcher" />
+            <application allow="systemAppOnly" name="com.hancom.androidpc.appwidget" />
+            <application allow="systemAppOnly" name="com.hancom.office.hword.viewer.hword_apk" />
+            <application allow="systemAppOnly" name="com.hancom.office.hcell.viewer.hcell_viewer_apk" />
+            <application allow="systemAppOnly" name="com.hancom.office.hshow.viewer.hshow_viewer_apk" />
+            <application allow="systemAppOnly" name="com.hancom.office.hwp.viewer.hwp_apk" />
+            <application allow="systemAppOnly" name="com.hancom.office.viewer" />
+            <application allow="systemAppOnly" name="com.hancom.office.editor" />
+            <application allow="systemAppOnly" name="com.hancom.office.editor.hidden" />
+            <application allow="systemAppOnly" name="com.infraware.polarisoffice5tablet" />
+            <application name="com.microsoft.office.word" />
+            <application name="com.microsoft.office.powerpoint" />
+            <application name="com.microsoft.office.excel" />
+            <application allow="systemAppOnly" name="com.sec.android.mimage.photoretouching" />
             <application name="com.sec.android.inputmethod" />
-            <application name="com.microsoft.office.word" allow="noblelteskt, nobleltelgt, nobleltekt, zenlteskt, zenltekt, zenltelgt, zenltekx, a8elteskt, a8eltekt, a8eltelgt, herolteskt, heroltektt, heroltelgt, hero2lteskt, hero2ltektt, hero2ltelgt, j7xelteskt, j7xeltektt, j7xeltelgt, j3ltekx, j5xnlteskt, j5xnltektt, j5xnltelgt, a7xelteskt, a7xeltektt, a7xeltelgt, a5xelteskt, a5xeltektt, a5xeltelgt, dreamlteks, dream2lteks" />
-            <application name="com.microsoft.office.powerpoint" allow="noblelteskt, nobleltelgt, nobleltekt, zenlteskt, zenltekt, zenltelgt, zenltekx, a8elteskt, a8eltekt, a8eltelgt, herolteskt, heroltektt, heroltelgt, hero2lteskt, hero2ltektt, hero2ltelgt, j7xelteskt, j7xeltektt, j7xeltelgt, j3ltekx, j5xnlteskt, j5xnltektt, j5xnltelgt, a7xelteskt, a7xeltektt, a7xeltelgt, a5xelteskt, a5xeltektt, a5xeltelgt, dreamlteks, dream2lteks" />
-            <application name="com.microsoft.office.excel" allow="noblelteskt, nobleltelgt, nobleltekt, zenlteskt, zenltekt, zenltelgt, zenltekx, a8elteskt, a8eltekt, a8eltelgt, herolteskt, heroltektt, heroltelgt, hero2lteskt, hero2ltektt, hero2ltelgt, j7xelteskt, j7xeltektt, j7xeltelgt, j3ltekx, j5xnlteskt, j5xnltektt, j5xnltelgt, a7xelteskt, a7xeltektt, a7xeltelgt, a5xelteskt, a5xeltektt, a5xeltelgt, dreamlteks, dream2lteks" />
             <application name="com.google.android.marvin.talkback" />
             <application name="com.gd.mobicore.pa" />
             <application name="com.android.calendar" />
@@ -550,9 +529,10 @@
             <application name="com.samsung.android.app.music.chn" />
             <application name="com.sec.android.app.soundalive" />
             <application name="com.sec.android.app.myfiles" />
-            <application name="com.sec.android.app.samsungapps" allow="systemAppOnly" />
-            <application name="com.osp.app.signin" allow="systemAppOnly" />
-            <application name="com.sec.android.app.billing" allow="systemAppOnly" />
+            <application allow="systemAppOnly" name="com.sec.android.app.samsungapps" />
+            <application allow="systemAppOnly" name="com.osp.app.signin" />
+            <application name="com.samsung.android.mobileservice" />
+            <application allow="systemAppOnly" name="com.sec.android.app.billing" />
             <application name="com.sec.android.app.sbrowser" />
             <application name="com.sec.sprextension" />
             <application name="com.sec.android.gallery3d" />
@@ -591,6 +571,9 @@
             <application name="com.samsung.android.spdfnote" />
             <application name="com.samsung.android.app.smartcapture" />
             <application name="com.samsung.android.service.livedrawing" />
+            <application name="com.sec.android.app.ocrservice" />
+            <application name="com.samsung.android.app.soundpicker" />
+            <application name="com.samsung.android.app.dofviewer" />
         </column>
         <column name="FOTADisableAppsPkgList">
             <fotadisablePkg name="com.samsung.android.fingerprint.service" />
@@ -682,13 +665,13 @@
         <column name="BiometricAuthEnabled" type="3" value="true" />
         <column name="USBDebuggingAllowed" value="true" />
         <column name="AppInstallList">
-            <application name="com.sec.spp.push" allow="systemAppOnly" />
-            <application name="com.samsung.android.app.scrollcapture" allow="systemAppOnly" />
-            <application name="com.samsung.android.service.pentastic" allow="systemAppOnly" />
-            <application name="com.samsung.android.service.airviewdictionary" allow="systemAppOnly" />
-            <application name="com.samsung.android.app.pinboard" allow="tre3ca, viennalte, v1a, v2, hlte, ha3g, h3g, htdlte, hvolte, hllte, hl3g, lt03, t0, chagallwifizc, chagallltetdzc, klimtltetdzc, klimtwifizc, trlte, tblte, trelte, tre3g, trhplte, tbelte, SC-01G, SCL24, gt5note, noblelte, SCL22" />
+            <application allow="systemAppOnly" name="com.sec.spp.push" />
+            <application allow="systemAppOnly" name="com.samsung.android.app.scrollcapture" />
+            <application allow="systemAppOnly" name="com.samsung.android.service.pentastic" />
+            <application allow="systemAppOnly" name="com.samsung.android.service.airviewdictionary" />
+            <application allow="tre3ca, viennalte, v1a, v2, hlte, ha3g, h3g, htdlte, hvolte, hllte, hl3g, lt03, t0, chagallwifizc, chagallltetdzc, klimtltetdzc, klimtwifizc, trlte, tblte, trelte, tre3g, trhplte, tbelte, SC-01G, SCL24, gt5note, noblelte, SCL22" name="com.samsung.android.app.pinboard" />
             <application name="android.support.v4.print" />
-            <application name="com.sec.android.mimage.photoretouching" allow="systemAppOnly" />
+            <application allow="systemAppOnly" name="com.sec.android.mimage.photoretouching" />
             <application name="com.sec.android.inputmethod" />
             <application name="com.android.browser.provider" />
             <application name="com.google.android.marvin.talkback" />
@@ -713,9 +696,10 @@
             <application name="com.sec.ims" remove="true" />
             <application name="com.sec.imsservice" remove="true" />
             <application name="com.sec.android.app.soundalive" />
-            <application name="com.sec.android.app.samsungapps" allow="systemAppOnly" />
-            <application name="com.osp.app.signin" allow="systemAppOnly" />
-            <application name="com.sec.android.app.billing" allow="systemAppOnly" />
+            <application allow="systemAppOnly" name="com.sec.android.app.samsungapps" />
+            <application allow="systemAppOnly" name="com.osp.app.signin" />
+            <application name="com.samsung.android.mobileservice" />
+            <application allow="systemAppOnly" name="com.sec.android.app.billing" />
             <application name="com.sec.sprextension" />
             <application name="com.samsung.android.mdm" />
             <application name="com.samsung.android.fingerprint.service" />
@@ -741,6 +725,9 @@
             <application name="com.samsung.android.spdfnote" />
             <application name="com.samsung.android.app.smartcapture" />
             <application name="com.samsung.android.service.livedrawing" />
+            <application name="com.sec.android.app.ocrservice" />
+            <application name="com.samsung.android.app.soundpicker" />
+            <application name="com.samsung.android.app.dofviewer" />
         </column>
         <column name="FOTADisableAppsPkgList">
             <fotadisablePkg name="com.samsung.android.fingerprint.service" />
@@ -806,11 +793,11 @@
         <column name="UserID" value="-1" />
         <column name="Name" value="knox-b2b-com" />
         <column name="LayoutSwitchingAllowed" value="false" />
-        <column name="PasswordMinimumLength" value="8" />
-        <column name="PasswordMinimumNonLetters" value="4" />
-        <column name="PasswordMinimumLetters" value="4" />
-        <column name="PasswordMinimumSymbols" value="1" />
-        <column name="PasswordQuality" value="65536" />
+        <column name="PasswordMinimumLength" value="0" />
+        <column name="PasswordMinimumNonLetters" value="0" />
+        <column name="PasswordMinimumLetters" value="0" />
+        <column name="PasswordMinimumSymbols" value="0" />
+        <column name="PasswordQuality" value="0" />
         <column name="MaximumCharacterOccurences" value="0" />
         <column name="MaximumCharacterSequenceLength" value="0" />
         <column name="MaximumNumericSequenceLength" value="0" />
@@ -834,37 +821,31 @@
         <column name="WipeRecentTasks" value="true" />
         <column name="USBDebuggingAllowed" value="false" />
         <column name="AppInstallList">
-            <application name="com.samsung.android.app.memo">
-                <replace name="com.samsung.android.snote" value="tre3ca, viennalte, v1a, v2, hlte, ha3g, h3g, htdlte, hvolte, hllte, hl3g, lt03, t0, chagallwifizc, chagallltetdzc, klimtltetdzc, klimtwifizc, trlte, tblte, trelte, tre3g, trhplte, tbelte, SC-01G, SCL24, gt5note, noblelte, SCL22" />
-                <replace name="com.sec.android.app.snotebook" value="p4notelteusc, kona" />
-                <replace name="com.sec.android.widgetapp.diotek.smemo" value="c1, d2, melius, jflte, ja3g, jalte, jactivelte, jflterefresh, jftdd, jfvolte, jfvelte, serrano, ks01lte, wilcox, m3" />
-                <replace name="com.sec.android.app.memo" value="lt02ltetmo" />
-                <replace name="com.samsung.android.app.memo" value="jfltevzwpp" />
-                <replace name="com.samsung.android.app.notes" value="gracelte, graceqlte, j7poplte, dreamlte, dream2lte, dreamqlte, dream2qlte, gts3llte, gts3lwifi, j3popelte, j3poplte, xcover4lte, SC-02J, SC-03J, SCV35, SCV36, SC-04J, j7y17lte, j7popelte, greatlte, greatqlte, j5y17lte, gracerlte, j7maxlte, j3y17lte, a7y17lte, gtanotexllte, cruiserlte, j5y17lte" />
-            </application>
-            <application name="com.sec.spp.push" allow="systemAppOnly" />
-            <application name="com.samsung.android.calendar" allow="systemAppOnly" />
-            <application name="com.samsung.android.app.scrollcapture" allow="systemAppOnly" />
-            <application name="com.samsung.android.service.pentastic" allow="systemAppOnly" />
-            <application name="com.samsung.android.service.airviewdictionary" allow="systemAppOnly" />
-            <application name="com.samsung.android.app.pinboard" allow="tre3ca, viennalte, v1a, v2, hlte, ha3g, h3g, htdlte, hvolte, hllte, hl3g, lt03, t0, chagallwifizc, chagallltetdzc, klimtltetdzc, klimtwifizc, trlte, tblte, trelte, tre3g, trhplte, tbelte, SC-01G, SCL24, gt5note, noblelte, SCL22" />
+            <application name="com.samsung.android.app.notes" />
+            <application name="com.samsung.android.app.memo" />
+            <application allow="systemAppOnly" name="com.sec.spp.push" />
+            <application allow="systemAppOnly" name="com.samsung.android.calendar" />
+            <application allow="systemAppOnly" name="com.samsung.android.app.scrollcapture" />
+            <application allow="systemAppOnly" name="com.samsung.android.service.pentastic" />
+            <application allow="systemAppOnly" name="com.samsung.android.service.airviewdictionary" />
+            <application allow="tre3ca, viennalte, v1a, v2, hlte, ha3g, h3g, htdlte, hvolte, hllte, hl3g, lt03, t0, chagallwifizc, chagallltetdzc, klimtltetdzc, klimtwifizc, trlte, tblte, trelte, tre3g, trhplte, tbelte, SC-01G, SCL24, gt5note, noblelte, SCL22" name="com.samsung.android.app.pinboard" />
             <application name="com.sec.android.widgetapp.diotek.smemo" />
-            <application name="com.infraware.polarisviewer5" allow="systemAppOnly" />
-            <application name="com.infraware.polarisviewer4" allow="systemAppOnly" />
-            <application name="com.infraware.polarisoffice5" allow="systemAppOnly" />
-            <application name="com.infraware.polarisoffice4" allow="systemAppOnly" />
-            <application name="com.hancom.androidpc.launcher.shared" allow="systemAppOnly" />
-            <application name="com.hancom.androidpc.viewer.launcher" allow="systemAppOnly" />
-            <application name="com.hancom.androidpc.appwidget" allow="systemAppOnly" />
-            <application name="com.hancom.office.hword.viewer.hword_apk" allow="systemAppOnly" />
-            <application name="com.hancom.office.hcell.viewer.hcell_viewer_apk" allow="systemAppOnly" />
-            <application name="com.hancom.office.hshow.viewer.hshow_viewer_apk" allow="systemAppOnly" />
-            <application name="com.hancom.office.hwp.viewer.hwp_apk" allow="systemAppOnly" />
-            <application name="com.hancom.office.viewer" allow="systemAppOnly" />
-            <application name="com.hancom.office.editor" allow="systemAppOnly" />
-            <application name="com.hancom.office.editor.hidden" allow="systemAppOnly" />
-            <application name="com.infraware.polarisoffice5tablet" allow="systemAppOnly" />
-            <application name="com.sec.android.mimage.photoretouching" allow="systemAppOnly" />
+            <application allow="systemAppOnly" name="com.infraware.polarisviewer5" />
+            <application allow="systemAppOnly" name="com.infraware.polarisviewer4" />
+            <application allow="systemAppOnly" name="com.infraware.polarisoffice5" />
+            <application allow="systemAppOnly" name="com.infraware.polarisoffice4" />
+            <application allow="systemAppOnly" name="com.hancom.androidpc.launcher.shared" />
+            <application allow="systemAppOnly" name="com.hancom.androidpc.viewer.launcher" />
+            <application allow="systemAppOnly" name="com.hancom.androidpc.appwidget" />
+            <application allow="systemAppOnly" name="com.hancom.office.hword.viewer.hword_apk" />
+            <application allow="systemAppOnly" name="com.hancom.office.hcell.viewer.hcell_viewer_apk" />
+            <application allow="systemAppOnly" name="com.hancom.office.hshow.viewer.hshow_viewer_apk" />
+            <application allow="systemAppOnly" name="com.hancom.office.hwp.viewer.hwp_apk" />
+            <application allow="systemAppOnly" name="com.hancom.office.viewer" />
+            <application allow="systemAppOnly" name="com.hancom.office.editor" />
+            <application allow="systemAppOnly" name="com.hancom.office.editor.hidden" />
+            <application allow="systemAppOnly" name="com.infraware.polarisoffice5tablet" />
+            <application allow="systemAppOnly" name="com.sec.android.mimage.photoretouching" />
             <application name="com.sec.android.inputmethod" />
             <application name="com.microsoft.office.word" />
             <application name="com.microsoft.office.powerpoint" />
@@ -915,9 +896,10 @@
             <application name="com.samsung.android.app.music.chn" />
             <application name="com.sec.android.app.soundalive" />
             <application name="com.sec.android.app.myfiles" />
-            <application name="com.sec.android.app.samsungapps" allow="systemAppOnly" />
-            <application name="com.osp.app.signin" allow="systemAppOnly" />
-            <application name="com.sec.android.app.billing" allow="systemAppOnly" />
+            <application allow="systemAppOnly" name="com.sec.android.app.samsungapps" />
+            <application allow="systemAppOnly" name="com.osp.app.signin" />
+            <application name="com.samsung.android.mobileservice" />
+            <application allow="systemAppOnly" name="com.sec.android.app.billing" />
             <application name="com.sec.android.app.sbrowser" />
             <application name="com.sec.sprextension" />
             <application name="com.android.browser" />
@@ -957,6 +939,10 @@
             <application name="com.samsung.android.spdfnote" />
             <application name="com.samsung.android.app.smartcapture" />
             <application name="com.samsung.android.service.livedrawing" />
+            <application name="com.sec.android.app.ocrservice" />
+            <application name="com.samsung.android.app.soundpicker" />
+            <application name="com.samsung.android.app.dofviewer" />
+            <application name="com.sec.android.app.desktoplauncher" />
             <application name="com.skms.android.agent" />
             <application name="org.simalliance.openmobileapi.service" />
         </column>
@@ -973,7 +959,6 @@
         <column name="GoogleAppsPkgList">
             <disablePkg name="com.android.browser.provider" />
             <disablePkg name="com.google.android.gm" />
-            <disablePkg name="com.android.chrome" value="vzw" />
             <disablePkg name="com.google.android.apps.maps" />
             <disablePkg name="com.google.android.gms" />
             <disablePkg name="com.google.android.gsf" />
@@ -1014,7 +999,7 @@
                 <property name="knox-sanitize-data-lockscreen" value="true" />
             </provider>
             <provider name="Clipboard">
-                <property name="knox-import-data" value="false" />
+                <property name="knox-import-data" value="true" />
                 <property name="knox-export-data" value="false" />
             </provider>
         </column>
@@ -1041,7 +1026,7 @@
                 <property name="knox-sanitize-data-lockscreen" value="true" />
             </provider>
             <provider name="Clipboard">
-                <property name="knox-import-data" value="false" />
+                <property name="knox-import-data" value="true" />
                 <property name="knox-export-data" value="false" />
             </provider>
         </column>
@@ -1051,11 +1036,11 @@
         <column name="UserID" value="-1" />
         <column name="Name" value="knox-b2b-lwc" />
         <column name="LayoutSwitchingAllowed" value="false" />
-        <column name="PasswordMinimumLength" value="8" />
-        <column name="PasswordMinimumNonLetters" value="4" />
-        <column name="PasswordMinimumLetters" value="4" />
-        <column name="PasswordMinimumSymbols" value="1" />
-        <column name="PasswordQuality" value="65536" />
+        <column name="PasswordMinimumLength" value="0" />
+        <column name="PasswordMinimumNonLetters" value="0" />
+        <column name="PasswordMinimumLetters" value="0" />
+        <column name="PasswordMinimumSymbols" value="0" />
+        <column name="PasswordQuality" value="0" />
         <column name="MaximumCharacterOccurences" value="0" />
         <column name="MaximumCharacterSequenceLength" value="0" />
         <column name="MaximumNumericSequenceLength" value="0" />
@@ -1072,9 +1057,9 @@
         <column name="USBDebuggingAllowed" value="false" />
         <column name="FolderDisabledChangeLayout" value="true" />
         <column name="AppInstallList">
-            <application name="com.sec.spp.push" allow="systemAppOnly" />
-            <application name="com.infraware.polarisviewer5" allow="systemAppOnly" />
-            <application name="com.infraware.polarisviewer4" allow="systemAppOnly" />
+            <application allow="systemAppOnly" name="com.sec.spp.push" />
+            <application allow="systemAppOnly" name="com.infraware.polarisviewer5" />
+            <application allow="systemAppOnly" name="com.infraware.polarisviewer4" />
             <application name="com.gd.mobicore.pa" />
             <application name="com.android.providers.downloads.ui" />
             <application name="com.android.browser.provider" />
@@ -1095,9 +1080,6 @@
             <application name="com.google.android.syncadapters.contacts" />
             <application name="com.google.android.syncadapters.calendar" />
             <application name="com.google.android.tts" />
-            <application name="com.baidu.map.location" />
-            <application name="com.amap.android.location" />
-            <application name="com.autonavi.cmccmap" />
             <application name="com.samsung.locationhistory" />
             <application name="com.sec.android.app.SamsungContentsAgent" />
             <application name="com.google.android.webview" />
@@ -1117,9 +1099,11 @@
             <application name="com.samsung.android.authservice" />
             <application name="com.samsung.android.samsungpass" />
             <application name="com.samsung.android.server.iris" />
-            <application name="com.samsung.android.spdfnote" />
             <application name="com.samsung.android.app.smartcapture" />
             <application name="com.samsung.android.service.livedrawing" />
+            <application name="com.sec.android.app.ocrservice" />
+            <application name="com.samsung.android.app.soundpicker" />
+            <application name="com.samsung.android.app.dofviewer" />
             <application name="com.skms.android.agent" />
             <application name="org.simalliance.openmobileapi.service" />
         </column>
@@ -1259,6 +1243,14 @@
             <application name="com.samsung.android.spdfnote" />
             <application name="com.samsung.android.app.smartcapture" />
             <application name="com.samsung.android.service.livedrawing" />
+            <application name="com.sec.android.app.ocrservice" />
+            <application name="com.samsung.android.app.soundpicker" />
+            <application name="com.samsung.android.app.dofviewer" />
+            <application name="com.android.providers.settings" />
+            <application name="com.google.android.partnersetup" />
+            <application name="com.android.settings" />
+            <application name="com.android.defcontainer" />
+            <application name="com.android.chrome" />
         </column>
         <column name="RCPDataSettings">
             <provider name="Contacts">
@@ -1343,7 +1335,6 @@
             <cloneapplication name="com.amap.android.location" />
             <cloneapplication name="com.qualcomm.location" />
             <cloneapplication name="com.sec.android.app.storycam" />
-            <cloneapplication name="com.autonavi.cmccmap" />
             <cloneapplication name="com.samsung.locationhistory" />
             <cloneapplication name="com.sec.android.app.SamsungContentsAgent" />
             <cloneapplication name="com.samsung.android.dlp.service" />
@@ -1377,6 +1368,7 @@
             <cloneapplication name="com.samsung.app.highlightplayer" />
             <cloneapplication name="com.samsung.android.contacts" />
             <cloneapplication name="com.sec.spp.push" />
+            <cloneapplication allow="systemAppOnly" name="com.sec.android.mimage.photoretouching" />
         </column>
         <column name="AppDisableListForFotaClone">
             <clonedisablePkg name="com.samsung.android.fingerprint.service" />
@@ -1393,6 +1385,7 @@
         <package name="com.samsung.android.intelligenceservice" />
         <package name="com.samsung.android.internal.intelligence.useranalysis" />
         <package name="com.samsung.android.provider.filterprovider" />
+        <package name="com.sec.android.app.camerabokehservice" />
         <package name="com.sec.android.app.FlashBarService" />
         <package name="com.android.packageinstaller" />
         <package name="com.google.android.packageinstaller" />
@@ -1401,11 +1394,13 @@
         <package name="com.samsung.android.writingbuddyservice" />
         <package name="com.android.providers.calendar" />
         <package name="com.android.providers.contacts" />
+        <package name="com.samsung.android.providers.contacts" />
         <package name="com.android.providers.downloads" />
         <package name="com.sec.android.providers.downloads" />
         <package name="com.android.providers.media" />
         <package name="com.android.providers.telephony" />
         <package name="com.android.vpndialogs" />
+        <package name="com.knox.vpn.proxyhandler" />
         <package name="com.samsung.clipboardsaveservice" />
         <package name="com.sec.android.provider.badge" />
         <package name="com.sec.android.provider.logsprovider" />
@@ -1414,7 +1409,6 @@
         <package name="com.sec.enterprise.mdm.vpn" />
         <package name="com.sec.smartcard.pinservice" />
         <package name="com.sec.smartcard.manager" />
-        <package name="com.sec.tetheringprovision" />
         <package name="com.samsung.knox.bridge.clipboard.syncer" />
         <package name="com.samsung.knox.rcp.components" />
         <package name="com.sec.knox.containeragent2" />
@@ -1427,6 +1421,7 @@
         <package name="com.monotype.android.font.droidserifitalic" />
         <package name="com.monotype.android.font.rosemary" />
         <package name="com.monotype.android.font.samsungsans" />
+        <package name="com.monotype.android.font.applemint" />
         <package name="com.samsung.android.mdm" />
         <package name="com.sec.android.app.ringtoneBR" />
         <package name="com.sec.android.app.SPenKeeper" />
@@ -1451,7 +1446,7 @@
         <package name="com.samsung.android.internal.smartassistant" />
         <package name="com.sec.android.app.mv.player" />
         <package name="com.sec.android.app.sbrowsertry" />
-        <package name="com.sec.android.app.browsertry" allow="kona" />
+        <package allow="kona" name="com.sec.android.app.browsertry" />
         <package name="com.sec.android.iap" />
         <package name="com.sec.factory.camera" />
         <package name="com.sec.android.app.parser" />
@@ -1485,9 +1480,10 @@
         <package name="com.qualcomm.location" />
         <package name="com.sec.android.app.storycam" />
         <package name="com.samsung.android.app.qragent" />
-        <package name="com.sec.sprextension.phoneinfo" />
         <package name="com.android.apps.tag" />
         <package name="com.sec.android.app.SmartClipEdgeService" />
+        <package name="com.samsung.android.sdk.handwriting" />
+        <package name="com.samsung.android.smartmirroring" />
     </knoxCore>
     <BadgePolicy>
         <policy name="multiwindow" value="ic_knox_badge" />

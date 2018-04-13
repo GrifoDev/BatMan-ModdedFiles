@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="config_mobile_tcp_buffers">
+        <item>lte:2097152,4194304,8388608,262144,524288,1048576</item>
+    </string-array>
+    <array name="config_tether_apndata" />
     <integer-array name="config_tether_upstream_types">
         <item>1</item>
         <item>4</item>
         <item>7</item>
         <item>9</item>
     </integer-array>
-    <array name="config_tether_apndata" />
 </resources>

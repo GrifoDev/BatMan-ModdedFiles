@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="knox_app_icon_width">64.0dip</dimen>
-    <dimen name="knox_app_icon_height">64.0dip</dimen>
-    <dimen name="sem_resolver_max_collapsed_height">1080.0dip</dimen>
-</resources>

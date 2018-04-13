@@ -37,6 +37,12 @@
         <item>Other</item>
         <item>Custom</item>
     </string-array>
+    <string-array name="imAddressTypes">
+        <item>Home</item>
+        <item>Work</item>
+        <item>Other</item>
+        <item>Custom</item>
+    </string-array>
     <string-array name="special_locale_codes">
         <item>my_MM</item>
         <item>my_ZG</item>
@@ -44,11 +50,5 @@
     <string-array name="special_locale_names">
         <item>ျမန္မာ (Unicode)</item>
         <item>ျမန္မာ (Zawgyi)</item>
-    </string-array>
-    <string-array name="imAddressTypes">
-        <item>Home</item>
-        <item>Work</item>
-        <item>Other</item>
-        <item>Custom</item>
     </string-array>
 </resources>

@@ -21,7 +21,7 @@
 	<sysprop_node key="MODEL_NAME" path="ro.product.model" />
 	<sysprop_node key="SW_VER" path="ro.build.PDA" />
 	<sysfs_node key="SERIAL_NO" path="/efs/FactoryApp/serial_no" />
-	<sysfs_node key="Sample_SN" path="/efs/FactoryApp/HwPartProtoTypeSerialNo" />
+	<sysfs_node key="SMSN" path="/efs/FactoryApp/HwPartProtoTypeSerialNo" />
 	<function_node key="IMEI" />
 	<function_node key="SLAVE_IMEI" />
 
@@ -49,6 +49,6 @@
 	<handwriting_node key="FRONT_ASSAY" value="" />
 	<handwriting_node key="REAR_ASSAY" value="" />
 	<handwriting_node key="LDS_ANT" value="" />
-	<handwriting_node key="TRANCEIVER" value="" />
-	<handwriting_node key="RF_PA" value="" />
+	<function_node key="TRANCEIVER" />
+	<function_node key="RF_PA" />
 </hwpartinform_document>

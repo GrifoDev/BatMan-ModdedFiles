@@ -54,6 +54,13 @@
             <set ovht_low_temp_burn_pst="540" ovht_low_temp_burn_bat="450" />
             <set ovht_security_standard_pst="540" ovht_security_standard_bat="450" />
         </setting>
+        <setting name="TemperatureGap">
+            <set model_gap="110" />
+        </setting>
+        <setting name="DaydreamThreshold">
+            <set bat_shutdown="60" bat_throttling_vrmin="50" />
+            <set skin_shutdown="60" skin_throttling="48" skin_throttling_vrmin="50"/>
+        </setting>
     </model_settings>
 
     <levels>
@@ -117,9 +124,17 @@
         <limiter name="MaxVolume" type="number">
             <table_item temp="470" value="-1" />
         </limiter>
+        <limiter name="HmtLevel" type="number">
+            <table_item temp="470" value="0" />
+        </limiter>
     </default_scenario>
 
     <extra_scenario>
+
+        <scenario name="GameSDK" priority="1">
+            <limiter name="CPUFreqMax" type="sdk" />
+            <limiter name="GPUFreqMax" type="sdk" />
+        </scenario>
 
         <scenario name="IPM+">
             <limiter name="CPUFreqMax" type="ipm" />
@@ -159,39 +174,39 @@
             </limiter>
         </scenario>
 
-        <scenario name="DayDreamAndSustained" priority="2">
+        <scenario name="DayDream" priority="2">
             <limiter name="CPUFreqMax" type="number">
-                <table_item temp="580" value="962000" />
-                <table_item temp="630" value="422500" />
-                <table_item temp="640" value="312000" />
+                <table_item temp="570" value="1066000" />
+                <table_item temp="620" value="422500" />
+                <table_item temp="630" value="312000" />
             </limiter>
             <limiter name="GPUFreqMax" type="number">
-                <table_item temp="580" value="338" />
-                <table_item temp="630" value="260" />
+                <table_item temp="570" value="385" />
+                <table_item temp="620" value="260" />
             </limiter>
         </scenario>
 
-        <scenario name="DayDream" priority="2">
+        <scenario name="DayDreamAndSustained" priority="2">
             <limiter name="CPUFreqMax" type="number">
-                <table_item temp="580" value="1170000" />
-                <table_item temp="630" value="422500" />
-                <table_item temp="640" value="312000" />
+                <table_item temp="570" value="962000" />
+                <table_item temp="620" value="422500" />
+                <table_item temp="630" value="312000" />
             </limiter>
             <limiter name="GPUFreqMax" type="number">
-                <table_item temp="580" value="338" />
-                <table_item temp="630" value="260" />
+                <table_item temp="570" value="338" />
+                <table_item temp="620" value="260" />
             </limiter>
         </scenario>
 
         <scenario name="SustainedPerformance" priority="2">
             <limiter name="CPUFreqMax" type="number">
-                <table_item temp="580" value="962000" />
-                <table_item temp="630" value="422500" />
-                <table_item temp="640" value="312000" />
+                <table_item temp="570" value="962000" />
+                <table_item temp="620" value="422500" />
+                <table_item temp="630" value="312000" />
             </limiter>
             <limiter name="GPUFreqMax" type="number">
-                <table_item temp="580" value="338" />
-                <table_item temp="630" value="260" />
+                <table_item temp="570" value="338" />
+                <table_item temp="620" value="260" />
             </limiter>
         </scenario>
 
@@ -327,6 +342,9 @@
             <limiter name="MaxVolume" type="number">
                 <table_item temp="470" value="13" />
             </limiter>
+            <limiter name="WifiTput" type="number">
+                <table_item temp="470" value="10" />
+            </limiter>
             <limiter name="HotspotTput" type="number">
                 <table_item temp="470" value="1" />
             </limiter>
@@ -461,13 +479,13 @@
 
         <scenario name="GameThermalCpuControl4">
             <limiter name="CPUFreqMax" type="STS">
-                <sts_item pre="400" perc="75" trigger="430" release="380" min="1807000" />
+                <sts_item pre="400" perc="80" trigger="430" release="380" min="1807000" />
             </limiter>
         </scenario>
 
         <scenario name="GameThermalCpuControl5">
             <limiter name="CPUFreqMax" type="STS">
-                <sts_item pre="400" perc="80" trigger="430" release="380" min="1937000" />
+                <sts_item pre="400" perc="85" trigger="430" release="380" min="1937000" />
             </limiter>
         </scenario>
 
@@ -497,25 +515,25 @@
 
         <scenario name="GameThermalGpuControl0">
             <limiter name="GPUFreqMax" type="STS">
-                <sts_item pre="400" perc="60" trigger="430" release="380" min="338" />
+                <sts_item pre="400" perc="70" trigger="430" release="380" min="338" />
             </limiter>
         </scenario>
 
         <scenario name="GameThermalGpuControl1">
             <limiter name="GPUFreqMax" type="STS">
-                <sts_item pre="400" perc="60" trigger="430" release="380" min="385" />
+                <sts_item pre="400" perc="75" trigger="430" release="380" min="385" />
             </limiter>
         </scenario>
 
         <scenario name="GameThermalGpuControl2">
             <limiter name="GPUFreqMax" type="STS">
-                <sts_item pre="400" perc="60" trigger="430" release="380" min="455" />
+                <sts_item pre="400" perc="85" trigger="430" release="380" min="455" />
             </limiter>
         </scenario>
 
         <scenario name="GameThermalGpuControl3">
             <limiter name="GPUFreqMax" type="STS">
-                <sts_item pre="400" perc="60" trigger="430" release="380" min="546" />
+                <sts_item trigger="430" release="380" min="546" />
             </limiter>
         </scenario>
 
@@ -664,6 +682,22 @@
                 <table_item temp="470" value="50" />
                 <table_item temp="490" value="30" />
                 <table_item temp="510" value="0" />
+            </limiter>
+        </scenario>
+
+        <scenario name="EarlySIP">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="460" value="-1" />
+                <table_item temp="480" value="1703000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="SIP">
+            <limiter name="CPUFreqMax" type="number" formula="PST*BAT">
+                <table_item pst="460" bat="0" value="-1" />
+                <table_item pst="480" bat="0" value="1703000" />
+                <table_item pst="500" bat="360" value="1469000" />
+                <table_item pst="510" bat="380" value="1170000" />
             </limiter>
         </scenario>
 

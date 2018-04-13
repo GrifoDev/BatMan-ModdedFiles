@@ -6,5 +6,4 @@
         <TextView android:textAppearance="?textAppearanceListItem" android:ellipsize="marquee" android:id="@id/title" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:paddingEnd="12.0dip" />
         <TextView android:textAppearance="?textAppearanceListItemSecondary" android:id="@id/summary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="10" android:layout_below="@id/title" android:paddingEnd="12.0dip" android:layout_alignStart="@id/title" />
     </RelativeLayout>
-    <LinearLayout android:gravity="end|center" android:orientation="vertical" android:id="@id/widget_frame" android:layout_width="wrap_content" android:layout_height="fill_parent" android:minWidth="32.0dip" />
 </LinearLayout>

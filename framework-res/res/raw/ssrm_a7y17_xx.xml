@@ -40,6 +40,17 @@
 
 <siop_document>
 
+    <model_settings>
+        <setting name="OverheatComplexControl">
+            <set ovht_mw_pst="530" ovht_mw_bat="445" />
+            <set ovht_low_temp_burn_pst="530" ovht_low_temp_burn_bat="445" />
+            <set ovht_security_standard_pst="575" ovht_security_standard_bat="480" />
+        </setting>
+        <setting name="TemperatureGap">
+            <set model_gap="80" />
+        </setting>
+    </model_settings>
+
     <levels>
         <level id="-3" temp="350" />
         <level id="-2" temp="370" />
@@ -91,16 +102,23 @@
             <table_item temp="430" value="-1" />
             <table_item temp="450" value="1234" />
         </limiter>
+        <limiter name="SmartBonding" type="bool">
+            <table_item temp="470" value="0" />
+        </limiter>
         <limiter name="AppInstallStandby" type="number">
             <table_item temp="410" value="-1" />
         </limiter>
     </default_scenario>
 
     <extra_scenario>
+        <scenario name="IPM+">
+            <limiter name="CPUFreqMax" type="ipm" />
+            <limiter name="GPUFreqMax" type="ipm" />
+        </scenario>
 
         <scenario name="ScreenOff" priority="1">
             <limiter name="Charging" type="number">
-                <table_item temp="460" value="100" />
+                <table_item temp="410" value="100" />
             </limiter>
             <limiter name="AppInstallStandby" type="number">
                 <table_item temp="370" value="5000" />
@@ -110,13 +128,25 @@
 
         <scenario name="ScreenOffInCall" priority="1">
             <limiter name="Charging" type="number">
-                <table_item temp="460" value="10" />
+                <table_item temp="410" value="10" />
             </limiter>
         </scenario>
 
         <scenario name="ScreenOnAppStarted">
             <limiter name="Charging" type="number">
-                <table_item temp="460" value="100" />
+                <table_item temp="410" value="100" />
+            </limiter>
+        </scenario>
+
+        <scenario name="WirelessChgEvent">
+            <limiter name="ChargingEvent" type="number">
+                <table_item temp="410" value="2" />
+            </limiter>
+        </scenario>
+
+        <scenario name="WirelessChgInCallEvent">
+            <limiter name="ChargingEvent" type="number">
+                <table_item temp="410" value="1" />
             </limiter>
         </scenario>
 
@@ -126,40 +156,13 @@
             </trigger_packages>
 
             <limiter name="CPUFreqMax" type="number">
-                <table_item temp="460" value="-1" />
+                <table_item temp="410" value="-1" />
             </limiter>
         </scenario>
 
         <scenario name="BrowserScenario">
             <limiter name="Charging" type="number">
-                <table_item temp="460" value="10" />
-            </limiter>
-        </scenario>
-
-        <scenario name="AbusiveAppListLevel1">
-            <limiter name="CPUFreqMax" type="number">
-                <table_item temp="460" value="-1" />
-            </limiter>
-            <limiter name="GPUFreqMax" type="number">
-                <table_item temp="460" value="-1" />
-            </limiter>
-        </scenario>
-
-        <scenario name="AbusiveAppListLevel2">
-            <limiter name="CPUFreqMax" type="number">
-                <table_item temp="460" value="-1" />
-            </limiter>
-            <limiter name="GPUFreqMax" type="number">
-                <table_item temp="460" value="-1" />
-            </limiter>
-        </scenario>
-
-        <scenario name="AbusiveAppListLevel3">
-            <limiter name="CPUFreqMax" type="number">
-                <table_item temp="460" value="-1" />
-            </limiter>
-            <limiter name="GPUFreqMax" type="number">
-                <table_item temp="460" value="-1" />
+                <table_item temp="410" value="10" />
             </limiter>
         </scenario>
 
@@ -173,7 +176,7 @@
                 <table_item temp="410" value="1144000" />
             </limiter>
             <limiter name="Charging" type="number">
-                <table_item temp="460" value="10" />
+                <table_item temp="410" value="10" />
             </limiter>
         </scenario>
 
@@ -187,7 +190,7 @@
                 <table_item temp="410" value="1242000" />
             </limiter>
             <limiter name="Charging" type="number">
-                <table_item temp="460" value="10" />
+                <table_item temp="410" value="10" />
             </limiter>
         </scenario>
 
@@ -201,7 +204,7 @@
                 <table_item temp="490" value="1242000" />
             </limiter>
             <limiter name="Charging" type="number">
-                <table_item temp="460" value="10" />
+                <table_item temp="410" value="10" />
             </limiter>
         </scenario>
 
@@ -215,7 +218,7 @@
                 <table_item temp="490" value="1242000" />
             </limiter>
             <limiter name="Charging" type="number">
-                <table_item temp="460" value="10" />
+                <table_item temp="410" value="10" />
             </limiter>
         </scenario>
 
@@ -228,7 +231,7 @@
                 <table_item temp="490" value="1242000" />
             </limiter>
             <limiter name="Charging" type="number">
-                <table_item temp="460" value="10" />
+                <table_item temp="410" value="10" />
             </limiter>
         </scenario>
 
@@ -239,7 +242,7 @@
                 <table_item temp="410" value="1690000" />
             </limiter>
             <limiter name="Charging" type="number">
-                <table_item temp="460" value="10" />
+                <table_item temp="410" value="10" />
             </limiter>
         </scenario>
 
@@ -249,7 +252,7 @@
                 <table_item temp="410" value="1794000" />
             </limiter>
             <limiter name="Charging" type="number">
-                <table_item temp="460" value="10" />
+                <table_item temp="410" value="10" />
             </limiter>
         </scenario>
 
@@ -258,16 +261,7 @@
                 <table_item temp="410" value="-1" />
             </limiter>
             <limiter name="Charging" type="number">
-                <table_item temp="460" value="10" />
-            </limiter>
-        </scenario>
-
-        <scenario name="GameThermalCpuControl4">
-            <limiter name="CPUFreqMax" type="number">
-                <table_item temp="410" value="-1" />
-            </limiter>
-            <limiter name="Charging" type="number">
-                <table_item temp="460" value="10" />
+                <table_item temp="410" value="10" />
             </limiter>
         </scenario>
 

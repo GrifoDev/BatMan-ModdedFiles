@@ -58,7 +58,7 @@
 
     <hwparam_setting enable="false" DVServer="false" DQServer="false" CFServer="false" />
     
-    <!-- Device : BSP Qualcomm -->
+    <!-- Device : AP -->
     <hwparam_info compID="AP" feature="CORE" hitType="sm" compVer="0.0" compManufacture="" order_compID="1" order_feature="1" >
     </hwparam_info>
 

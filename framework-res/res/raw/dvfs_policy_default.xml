@@ -56,6 +56,10 @@
             <Control type="core_num_min" value="max"/>
             <Control type="power_collapse" value="1"/>
         </Hint>
+    
+        <Hint name="AMS_ACT_LAZY" timeout="15000">
+            <Control type="lpm_bias" value="-1"/>
+        </Hint>
         
         <Hint name="AMS_APP_SWITCH" timeout="-1">
             <Control type="cpu_min" value="max"/>
@@ -63,6 +67,7 @@
             <Control type="bus_min" value="-1"/>
             <Control type="core_num_min" value="max"/>
             <Control type="power_collapse" value="1"/>
+            <Control type="schedtune_policy" value="1"/>
         </Hint>
         
         <Hint name="AMS_APP_HOME" timeout="500">
@@ -142,6 +147,7 @@
             <Control type="bus_min" value="-1"/>
             <Control type="core_num_min" value="max"/>
             <Control type="power_collapse" value="1"/>
+            <Control type="schedtune_policy" value="1"/>
         </Hint>
     
         <Hint name="DEVICE_WAKEUP" timeout="1000">
@@ -168,6 +174,7 @@
     
         <Hint name="GESTURE_DETECTED" timeout="500">
             <Control type="cpu_min" value="45%"/>
+            <Control type="lpm_bias" value="-1"/>
         </Hint>
     </Resolution>
 </DvfsHintList>

@@ -13,6 +13,7 @@
     <item name="camera.flashlight">127</item>
     <item name="camera.avg">796</item>
     <item name="gps.on">62</item>
+    <item name="aod.on">12.5</item>
     <item name="radio.active">138</item>
     <item name="radio.scanning">167</item>
     <array name="radio.on">

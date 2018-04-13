@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="config_tether_apndata">
+        <item>Application,fourgsmartphone,,,,,,,,,440,20,,default,mms,supl,hipri</item>
+    </string-array>
     <integer-array name="config_tether_upstream_types">
         <item>0</item>
         <item>1</item>
@@ -7,7 +10,4 @@
         <item>5</item>
         <item>7</item>
     </integer-array>
-    <string-array name="config_tether_apndata">
-        <item>Application,fourgsmartphone,,,,,,,,,440,20,,default,mms,supl,hipri</item>
-    </string-array>
 </resources>

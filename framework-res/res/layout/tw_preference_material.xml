@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center_vertical" android:background="?activatedBackgroundIndicator" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?listPreferredItemHeightSmall" android:paddingStart="?listPreferredItemPaddingStart" android:paddingEnd="?listPreferredItemPaddingEnd"
+<LinearLayout android:gravity="center_vertical" android:background="?activatedBackgroundIndicator" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?listPreferredItemHeightSmall" android:paddingStart="?listPreferredItemPaddingStart" android:paddingEnd="?listPreferredItemPaddingEnd"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout android:gravity="start|center" android:orientation="horizontal" android:id="@id/icon_frame" android:layout_width="wrap_content" android:layout_height="fill_parent">
         <com.android.internal.widget.PreferenceImageView android:id="@id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="@dimen/tw_preference_item_icon_size" android:maxHeight="@dimen/tw_preference_item_icon_size" android:paddingEnd="16.0dip" />
