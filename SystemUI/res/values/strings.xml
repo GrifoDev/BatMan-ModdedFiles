@@ -3191,4 +3191,6 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="zen_priority_introduction">"You won\u0080\u0099t be disturbed by sounds and vibrations, except from alarms, reminders, events, and callers you specify. You'll still hear anything you choose to play including music, videos, and games."</string>
     <string name="zen_silence_introduction">This blocks ALL sounds and vibrations, including from alarms, music, videos, and games.</string>
     <string name="zen_silence_introduction_voice">This blocks ALL sounds and vibrations, including from alarms, music, videos, and games. You\u0080\u0099ll still be able to make phone calls.</string>
+    <string name="rebootrecovery">Recovery</string>
+    <string name="rebootrecovery2">Tap again to reboot to recovery</string>
 </resources>
