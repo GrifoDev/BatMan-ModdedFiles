@@ -94,24 +94,24 @@ Kun tämä toiminto on käytössä, Näytön automaattinen kierto -toiminto pois
     <string name="accessibility_screen_magnification_navbar_summary">"Kun suurennus on käytössä, voit suurentaa näytössä olevan sisällön nopeasti painamalla näytön alaosassa olevaa Helppokäyttöisyys-painiketta.
 
 "<b>Voit zoomata</b>" napauttamalla Helppokäyttöisyys-painiketta ja napauttamalla sitten mitä tahansa näytön kohtaa.
-"<ul><li>Voit vierittää pyyhkäisemällä vähintään kahdella sormella.</li>"
-"<li>Voit säätää zoomaustasoa nipistämällä vähintään kahdella sormella.</li></ul>"
+"<li><ul>"Voit vierittää pyyhkäisemällä vähintään kahdella sormella.
+"<li>Voit säätää zoomaustasoa nipistämällä vähintään kahdella sormella.</li></ul></li>"
 
 "<b>Voit zoomata tilapäisesti</b>" napauttamalla Helppokäyttöisyys-painiketta ja painamalla sitten mitä tahansa näytön kohtaa.
-"<ul><li>Voit liikkua näytössä pyyhkäisemällä.</li>"
-"<li>Voit loitontaa nostamalla sormesi.</li></ul>"
+"<li><ul>"Voit liikkua näytössä pyyhkäisemällä.
+"<li>Voit loitontaa nostamalla sormesi.</li></ul></li>"
 
 Näppäimistöön tai siirtymispalkkiin ei voi lähentää."</string>
     <string name="accessibility_screen_magnification_navbar_title">Suurenna napauttamalla painiketta</string>
     <string name="accessibility_screen_magnification_short_summary">Suurenna näytössä olevaa sisältöä eleillä.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Suurenna napauttamalla näyttöä kolme kertaa tai napauttamalla painiketta</string>
     <string name="accessibility_screen_magnification_summary"><b>Voit zoomata</b>" napauttamalla näyttöä nopeasti kolme kertaa.
-"<ul><li>Voit vierittää pyyhkäisemällä vähintään kahdella sormella.</li>"
-"<li>Voit säätää zoomaustasoa nipistämällä vähintään kahdella sormella.</li></ul>"
+"<li><ul>"Voit vierittää pyyhkäisemällä vähintään kahdella sormella.
+"<li>Voit säätää zoomaustasoa nipistämällä vähintään kahdella sormella.</li></ul></li>"
 
 "<b>Voit zoomata tilapäisesti</b>" napauttamalla näyttöä nopeasti kolme kertaa ja pitämällä sormeasi kolmannella napautuksella painettuna.
-"<ul><li>Voit liikkua näytössä pyyhkäisemällä.</li>"
-"<li>Voit loitontaa nostamalla sormesi.</li></ul>"
+"<li><ul>"Voit liikkua näytössä pyyhkäisemällä.
+"<li>Voit loitontaa nostamalla sormesi.</li></ul></li>"
 
 Näppäimistöön tai siirtymispalkkiin ei voi lähentää."</string>
     <string name="accessibility_screen_magnification_summary_1">"Lähennä ja loitonna napauttamalla yhdellä sormella mitä tahansa näytön kohtaa kolme kertaa.

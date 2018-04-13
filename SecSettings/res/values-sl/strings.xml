@@ -94,24 +94,24 @@ Ko je ta funkcija omogočena, bo funkcija Samodejno vrtenje zaslona onemogočena
     <string name="accessibility_screen_magnification_navbar_summary">"Ko je povečava vklopljena, lahko z gumbom za funkcijo Dostopnost na dnu zaslona hitro povečate vsebino na zaslonu.
 
 "<b>Za povečevanje</b>" pritisnite gumb za Dostopnost in nato pritisnite poljubno mesto na zaslonu.
-"<ul><li>Za pomikanje podrsajte z 2 prstoma ali več.</li>"
-"<li>Za prilagoditev stopnje povečave približajte z 2 prstoma ali več.</li></ul>"
+"<li><ul>"Za pomikanje podrsajte z 2 prstoma ali več.
+"<li>Za prilagoditev stopnje povečave približajte z 2 prstoma ali več.</li></ul></li>"
 
 "<b>Za začasno povečevanje</b>" pritisnite gumb za Dostopnost, nato pa se dotaknite poljubnega mesta na zaslonu in pridržite prst.
-"<ul><li>Za premikanje po zaslonu podrsajte.</li>"
-"<li>Za pomanjšavo dvignite prst.</li></ul>"
+"<li><ul>"Za premikanje po zaslonu podrsajte.
+"<li>Za pomanjšavo dvignite prst.</li></ul></li>"
 
 Tipkovnice in navigacijske vrstice ni mogoče povečati."</string>
     <string name="accessibility_screen_magnification_navbar_title">Za povečavo pritisnite gumb</string>
     <string name="accessibility_screen_magnification_short_summary">Uporaba potez za povečevanje vsebine na zaslonu.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Za povečavo trikrat pritisnite zaslon ali pritisnite gumb</string>
     <string name="accessibility_screen_magnification_summary"><b>Za povečevanje</b>" 3-krat hitro pritisnite zaslon.
-"<ul><li>Za pomikanje podrsajte z 2 prstoma ali več.</li>"
-"<li>Za prilagoditev stopnje povečave približajte z 2 prstoma ali več.</li></ul>"
+"<li><ul>"Za pomikanje podrsajte z 2 prstoma ali več.
+"<li>Za prilagoditev stopnje povečave približajte z 2 prstoma ali več.</li></ul></li>"
 
 "<b>Za začasno povečevanje</b>" 3-krat hitro pritisnite zaslon in pridržite prst pri tretjem pritisku.
-"<ul><li>Za premikanje po zaslonu podrsajte.</li>"
-"<li>Dvignite prst za pomanjšavo.</li></ul>"
+"<li><ul>"Za premikanje po zaslonu podrsajte.
+"<li>Dvignite prst za pomanjšavo.</li></ul></li>"
 
 Tipkovnice in navigacijske vrstice ni mogoče povečati."</string>
     <string name="accessibility_screen_magnification_summary_1">"Za povečevanje ali pomanjševanje trikrat pritisnite na poljubno mesto na zaslonu.

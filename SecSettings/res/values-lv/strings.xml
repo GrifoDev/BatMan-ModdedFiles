@@ -96,24 +96,24 @@ Kamēr ir aktivizēta šī funkcija, automātiskās pagriešanas ekrāns tiks de
     <string name="accessibility_screen_magnification_navbar_summary">"Kad palielināšana ir ieslēgta, izmantojiet ekrāna apakšā esošo pogu Pieejamība, lai ātri palielinātu ekrānā redzamo saturu.
 
 "<b>Lai tālummainītu</b>", pieskarieties pogai Pieejamība, pēc tam pieskarieties jebkurā ekrāna vietā.
-"<ul><li>Pavelciet ar 2 vai vairāk pirkstiem, lai ritinātu.</li>"
-"<li>Savelciet 2 vai vairāk pirkstus, lai mainītu tālummaiņas līmeni.</li></ul>"
+"<li><ul>"Pavelciet ar 2 vai vairāk pirkstiem, lai ritinātu.
+"<li>Savelciet 2 vai vairāk pirkstus, lai mainītu tālummaiņas līmeni.</li></ul></li>"
 
 "<b>Lai tālummainītu īslaicīgi</b>", pieskarieties pogai Pieejamība, pēc tam pieskarieties jebkurā ekrāna vietā un turiet.
-"<ul><li>Pavelciet, lai pārvietotos ekrānā.</li>"
-"<li>Atlaidiet pirkstu, lai tālinātu.</li></ul>"
+"<li><ul>"Pavelciet, lai pārvietotos ekrānā.
+"<li>Atlaidiet pirkstu, lai tālinātu.</li></ul></li>"
 
 Tastatūru vai navigācijas joslu nevar tālummainīt."</string>
     <string name="accessibility_screen_magnification_navbar_title">Pieskar. pogai, lai palielinātu</string>
     <string name="accessibility_screen_magnification_short_summary">Izmantojiet žestus, lai palielinātu ekrānā redzamo saturu.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Trīsreiz pieskarieties ekrānam vai pieskarieties pogai, lai palielinātu</string>
     <string name="accessibility_screen_magnification_summary"><b>Lai tālummainītu</b>", 3 reizes ātri pieskarieties ekrānam.
-"<ul><li>Pavelciet ar 2 vai vairāk pirkstiem, lai ritinātu.</li>"
-"<li>Savelciet 2 vai vairāk pirkstus, lai mainītu tālummaiņas līmeni.</li></ul>"
+"<li><ul>"Pavelciet ar 2 vai vairāk pirkstiem, lai ritinātu.
+"<li>Savelciet 2 vai vairāk pirkstus, lai mainītu tālummaiņas līmeni.</li></ul></li>"
 
 "<b>Lai tālummainītu īslaicīgi</b>", 3 reizes ātri pieskarieties ekrānam un pēc trešā pieskāriena neatlaidiet pirkstu.
-"<ul><li>Pavelciet, lai pārvietotos ekrānā.</li>"
-"<li>Atlaidiet pirkstu, lai tālinātu.</li></ul>"
+"<li><ul>"Pavelciet, lai pārvietotos ekrānā.
+"<li>Atlaidiet pirkstu, lai tālinātu.</li></ul></li>"
 
 Tastatūru vai navigācijas joslu nevar tālummainīt."</string>
     <string name="accessibility_screen_magnification_summary_1">"Lai tuvinātu vai tālinātu, veiciet trīskāršu pieskārienu jebkurā vietā ekrānā ar vienu pirkstu.

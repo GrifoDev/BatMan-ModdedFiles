@@ -94,24 +94,24 @@ Amíg ez a funkció be van kapcsolva, a képernyő automatikus elforgatása nem 
     <string name="accessibility_screen_magnification_navbar_summary">"Amikor be van kapcsolva a nagyítás, a képernyő alján található Kisegítő lehetőségek gombbal gyorsan kinagyíthatja a képernyő tartalmát.
 
 "<b>A nagyításhoz</b>" érintse meg a Kisegítő lehetőségek gombot, majd a képernyő kívánt részét.
-"<ul><li>A görgetéshez húzza 2 ujját.</li>"
-"<li>A nagyítás mértékét 2 vagy több ujját összecsippentve módosíthatja.</li></ul>"
+"<li><ul>"A görgetéshez húzza 2 ujját.
+"<li>A nagyítás mértékét 2 vagy több ujját összecsippentve módosíthatja.</li></ul></li>"
 
 "<b>Az ideiglenes nagyításhoz</b>" érintse meg a Kisegítő lehetőségek gombját, majd tartsa ujját a képernyő kívánt részén.
-"<ul><li>A képernyőt az ujját elhúzva mozgathatja.</li>"
-"<li>A kicsinyítéshez emelje fel ujját.</li></ul>"
+"<li><ul>"A képernyőt az ujját elhúzva mozgathatja.
+"<li>A kicsinyítéshez emelje fel ujját.</li></ul></li>"
 
 A billentyűzet és a navigációs sáv nem nagyítható."</string>
     <string name="accessibility_screen_magnification_navbar_title">Érintse meg a nagyításhoz</string>
     <string name="accessibility_screen_magnification_short_summary">A képernyő tartalmának nagyítása kézmozdulatokkal.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">A nagyításhoz érintse meg a képernyőt háromszor vagy érintse meg a gombot</string>
     <string name="accessibility_screen_magnification_summary"><b>A nagyításhoz</b>" érintse meg a képernyőt háromszor gyors egymásutánban.
-"<ul><li>A görgetéshez húzza 2 vagy több ujját.</li>"
-"<li>A nagyítás mértékét 2 vagy több ujját összecsippentve módosíthatja.</li></ul>"
+"<li><ul>"A görgetéshez húzza 2 vagy több ujját.
+"<li>A nagyítás mértékét 2 vagy több ujját összecsippentve módosíthatja.</li></ul></li>"
 
 "<b>Az ideiglenes nagyításhoz</b>" érintse meg a képernyőt háromszor gyors egymásutánban, és a harmadik érintésnél tartsa ujját a képernyőn.
-"<ul><li>A képernyőt az ujját elhúzva mozgathatja.</li>"
-"<li>A kicsinyítéshez emelje fel ujját.</li></ul>"
+"<li><ul>"A képernyőt az ujját elhúzva mozgathatja.
+"<li>A kicsinyítéshez emelje fel ujját.</li></ul></li>"
 
 A billentyűzet és a navigációs sáv nem nagyítható."</string>
     <string name="accessibility_screen_magnification_summary_1">"Nagyításhoz vagy kicsinyítéshez érintse meg háromszor a képernyő bármely pontját egy ujjal.

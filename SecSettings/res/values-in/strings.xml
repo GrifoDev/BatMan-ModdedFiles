@@ -94,24 +94,24 @@ Saat fungsi aktif, Putar layar otomatis akan dinonaktifkan. Semua panggilan, beb
     <string name="accessibility_screen_magnification_navbar_summary">"Saat pembesaran diaktifkan, gunakan tombol Aksesibilitas di bagian bawah layar untuk memperbesar konten pada layar dengan cepat.
 
 "<b>Untuk memperbesar atau memperkecil</b>", ketuk tombol Aksesibilitas, lalu ketuk di mana pun pada layar.
-"<ul><li>Usap dengan 2 jari atau lebih untuk menggulir.</li>"
-"<li>Cubit dengan 2 jari atau lebih untuk menyesuaikan level zoom.</li></ul>"
+"<li><ul>"Usap dengan 2 jari atau lebih untuk menggulir.
+"<li>Cubit dengan 2 jari atau lebih untuk menyesuaikan level zoom.</li></ul></li>"
 
 "<b> Untuk memperbesar atau memperkecil sementara waktu</b>", ketuk tombol Aksesibilitas, lalu sentuh dan tahan di mana pun pada layar.
-"<ul><li>Usap untuk berpindah-pindah pada layar.</li>"
-"<li>Angkat jari Anda untuk memperkecil.</li></ul>"
+"<li><ul>"Usap untuk berpindah-pindah pada layar.
+"<li>Angkat jari Anda untuk memperkecil.</li></ul></li>"
 
 Anda tidak dapat memperbesar pada keyboard atau bilah navigasi."</string>
     <string name="accessibility_screen_magnification_navbar_title">Ketuk tombol untuk memperbesar</string>
     <string name="accessibility_screen_magnification_short_summary">Gunakan gerakan untuk memperbesar konten di layar.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Ketuk layar tiga kali atau ketuk tombol untuk memperbesar</string>
     <string name="accessibility_screen_magnification_summary"><b>Untuk memperbesar atau memperkecil</b>", ketuk layar 3 kali dengan cepat.
-"<ul><li>Usap dengan 2 jari atau lebih untuk menggulir.</li>"
-"<li>Cubit dengan 2 jari atau lebih untuk menyesuaikan level zoom.</li></ul>"
+"<li><ul>"Usap dengan 2 jari atau lebih untuk menggulir.
+"<li>Cubit dengan 2 jari atau lebih untuk menyesuaikan level zoom.</li></ul></li>"
 
 "<b>Untuk memperbesar atau memperkecil sementara waktu</b>", ketuk layar 3 kali dengan cepat dan tahan jari Anda saat ketukan ketiga.
-"<ul><li>Usap untuk berpindah-pindah pada layar.</li>"
-"<li>Angkat jari Anda untuk memperkecil.</li></ul>"
+"<li><ul>"Usap untuk berpindah-pindah pada layar.
+"<li>Angkat jari Anda untuk memperkecil.</li></ul></li>"
 
 Anda tidak dapat memperbesar pada keyboard atau bilah navigasi."</string>
     <string name="accessibility_screen_magnification_summary_1">"Perbesar dan perkecil dengan mengetuk tiga kali di mana saja di layar dengan satu jari.

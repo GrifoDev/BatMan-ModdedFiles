@@ -95,24 +95,24 @@
     <string name="accessibility_screen_magnification_navbar_summary">"확대 기능이 실행 중일 때 현재 화면의 콘텐츠를 빠르게 확대하려면 화면 하단의 접근성 버튼을 사용하세요.
 
 "<b>확대하려면</b>" 접근성 버튼을 누른 후 화면의 아무 곳이나 누르세요.
-"<ul><li>스크롤하려면 손가락을 2개 이상 화면에 대고 미세요.</li>"
-"<li>확대 비율을 조절하려면 손가락을 2개 이상 화면에 대고 모으세요.</li></ul>"
+"<li><ul>"스크롤하려면 손가락을 2개 이상 화면에 대고 미세요.
+"<li>확대 비율을 조절하려면 손가락을 2개 이상 화면에 대고 모으세요.</li></ul></li>"
 
 "<b>일시적으로 확대하려면</b>" 접근성 버튼을 누른 후 화면의 아무 곳이나 길게 누르세요.
-"<ul><li>손가락을 움직여 화면 내에서 이동하세요.</li>"
-"<li>화면을 축소하려면 손가락을 떼세요.</li></ul>"
+"<li><ul>"손가락을 움직여 화면 내에서 이동하세요.
+"<li>화면을 축소하려면 손가락을 떼세요.</li></ul></li>"
 
 키보드와 내비게이션 바에서는 확대 기능을 사용할 수 없습니다."</string>
     <string name="accessibility_screen_magnification_navbar_title">버튼을 눌러 확대</string>
     <string name="accessibility_screen_magnification_short_summary">제스처로 화면에 표시된 내용을 확대합니다.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">확대하려면 화면을 세 번 누르거나 버튼을 누르세요</string>
     <string name="accessibility_screen_magnification_summary"><b>확대하려면</b>" 화면을 빠르게 3번 누르세요.
-"<ul><li>스크롤하려면 손가락을 2개 이상 화면에 대고 미세요.</li>"
-"<li>확대 비율을 조절하려면 손가락을 2개 이상 화면에 대고 모으세요.</li></ul>"
+"<li><ul>"스크롤하려면 손가락을 2개 이상 화면에 대고 미세요.
+"<li>확대 비율을 조절하려면 손가락을 2개 이상 화면에 대고 모으세요.</li></ul></li>"
 
 "<b>일시적으로 확대하려면</b>" 화면을 빠르게 3번 누르고 마지막 세 번째에는 길게 누르세요.
-"<ul><li>손가락을 움직여 화면 내에서 이동하세요.</li>"
-"<li>화면을 축소하려면 손가락을 떼세요.</li></ul>"
+"<li><ul>"손가락을 움직여 화면 내에서 이동하세요.
+"<li>화면을 축소하려면 손가락을 떼세요.</li></ul></li>"
 
 키보드와 내비게이션 바에서는 확대 기능을 사용할 수 없습니다."</string>
     <string name="accessibility_screen_magnification_summary_1">"한 손가락으로 화면 아무 곳이나 연속해서 세 번 눌러 확대하거나 축소할 수 있습니다.

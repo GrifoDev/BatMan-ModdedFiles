@@ -94,24 +94,24 @@ Keď je zapnutá táto funkcia, automatické otáčanie obrazovky sa vypne. Zabl
     <string name="accessibility_screen_magnification_navbar_summary">"Keď je zapnuté zväčšenie, pomocou tlačidla Zjednodušenie ovládania v dolnej časti obrazovky môžete rýchlo zväčšiť obsah na obrazovke.
 
 "<b>Na priblíženie</b>" ťuknite na tlačidlo Zjednodušenie ovládania a potom ťuknite kdekoľvek na obrazovke.
-"<ul><li>Potiahnutím 2 alebo viacerými prstami môžete posúvať.</li>"
-"<li>Stiahnutím 2 alebo viacerých prstov k sebe môžete upraviť úroveň priblíženia.</li></ul>"
+"<li><ul>"Potiahnutím 2 alebo viacerými prstami môžete posúvať.
+"<li>Stiahnutím 2 alebo viacerých prstov k sebe môžete upraviť úroveň priblíženia.</li></ul></li>"
 
 "<b>Na dočasné priblíženie</b>" ťuknite na tlačidlo Zjednodušenie ovládania a potom vykonajte dotyk a podržanie kdekoľvek na obrazovke.
-"<ul><li>Potiahnutím prstom sa môžete pohybovať po obrazovke.</li>"
-"<li>Zdvihnutím prsta vykonáte oddialenie.</li></ul>"
+"<li><ul>"Potiahnutím prstom sa môžete pohybovať po obrazovke.
+"<li>Zdvihnutím prsta vykonáte oddialenie.</li></ul></li>"
 
 Nemôžete vykonať priblíženie na klávesnicu ani navigačný panel."</string>
     <string name="accessibility_screen_magnification_navbar_title">Zväčšenie ťuknutím na tlačidlo</string>
     <string name="accessibility_screen_magnification_short_summary">Pomocou gest môžete zväčšiť obsah na obrazovke.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Zväčšenie trojitým ťuknutím na obrazovku alebo ťuknutím na tlačidlo</string>
     <string name="accessibility_screen_magnification_summary"><b>Na priblíženie</b>" 3-krát rýchlo ťuknite na obrazovku.
-"<ul><li>Potiahnutím 2 alebo viacerými prstami môžete posúvať.</li>"
-"<li>Stiahnutím 2 alebo viacerých prstov k sebe môžete upraviť úroveň priblíženia.</li></ul>"
+"<li><ul>"Potiahnutím 2 alebo viacerými prstami môžete posúvať.
+"<li>Stiahnutím 2 alebo viacerých prstov k sebe môžete upraviť úroveň priblíženia.</li></ul></li>"
 
 "<b>Na dočasné priblíženie</b>" 3-krát rýchlo ťuknite na obrazovku a pri treťom ťuknutí vykonajte stlačenie a podržanie prstom.
-"<ul><li>Potiahnutím prstom sa môžete pohybovať po obrazovke.</li>"
-"<li>Zdvihnutím prsta vykonáte oddialenie.</li></ul>"
+"<li><ul>"Potiahnutím prstom sa môžete pohybovať po obrazovke.
+"<li>Zdvihnutím prsta vykonáte oddialenie.</li></ul></li>"
 
 Nemôžete vykonať priblíženie na klávesnicu ani navigačný panel."</string>
     <string name="accessibility_screen_magnification_summary_1">"Trojitým ťuknutím jedným prstom kamkoľvek na obrazovku môžete vykonávať priblíženie a oddialenie.

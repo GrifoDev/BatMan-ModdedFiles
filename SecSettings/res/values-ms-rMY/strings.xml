@@ -76,24 +76,24 @@ Semasa fungsi ini diaktifkan, Auto putar skrin akan dinyahaktifkan. Semua panggi
     <string name="accessibility_screen_magnification_navbar_summary">"Apabila pembesaran dihidupkan, guna butang Pencapaian di bahagian bawah skrin untuk membesarkan kandungan pada skrin dengan cepat.
 
 "<b>Untuk zum</b>", ketik butang Pencapaian, kemudian ketik di mana-mana pada skrin.
-"<ul><li>Sapu dengan 2 atau lebih jari untuk menatal.</li>"
-"<li>Cubit dengan 2 atau lebih jari untuk melaraskan tahap zum.</li></ul>"
+"<li><ul>"Sapu dengan 2 atau lebih jari untuk menatal.
+"<li>Cubit dengan 2 atau lebih jari untuk melaraskan tahap zum.</li></ul></li>"
 
 "<b> Untuk zum buat sementara</b>", ketik butang Pencapaian, kemudian sentuh dan tahan di mana-mana pada skrin.
-"<ul><li>Sapu untuk bergerak di sekitar skrin.</li>"
-"<li>Angkat jari anda untuk zum keluar.</li></ul>"
+"<li><ul>"Sapu untuk bergerak di sekitar skrin.
+"<li>Angkat jari anda untuk zum keluar.</li></ul></li>"
 
 Anda tidak boleh zum masuk pada papan kekunci atau bar pemanduan arah."</string>
     <string name="accessibility_screen_magnification_navbar_title">Ketik butang untuk besarkan</string>
     <string name="accessibility_screen_magnification_short_summary">Gunakan gerak isyarat untuk membesarkan kandungan pada skrin.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Ketik skrin tiga kali atau ketik butang untuk besarkan</string>
     <string name="accessibility_screen_magnification_summary"><b>Untuk zum</b>", ketik skrin 3 kali dengan cepat.
-"<ul><li>Sapu dengan 2 atau lebih jari untuk menatal.</li>"
-"<li>Cubit dengan 2 atau lebih jari untuk melaraskan tahap zum.</li></ul>"
+"<li><ul>"Sapu dengan 2 atau lebih jari untuk menatal.
+"<li>Cubit dengan 2 atau lebih jari untuk melaraskan tahap zum.</li></ul></li>"
 
 "<b>Untuk zum buat sementara</b>", ketik skrin 3 kali dengan cepat dan tahan jari anda ke bawah pada ketikan ketiga.
-"<ul><li>Sapu untuk bergerak ke sekitar skrin.</li>"
-"<li>Angkat jari anda untuk zum keluar.</li></ul>"
+"<li><ul>"Sapu untuk bergerak ke sekitar skrin.
+"<li>Angkat jari anda untuk zum keluar.</li></ul></li>"
 
 Anda tidak boleh zum masuk pada papan kekunci atau bar pemanduan arah."</string>
     <string name="accessibility_screen_magnification_summary_1">"Zum masuk dan zum keluar dengan ketikan tiga kali di mana-mana sahaja pada skrin dengan satu jari.

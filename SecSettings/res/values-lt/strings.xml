@@ -94,24 +94,24 @@ Kai ši funkcija įjungiama, automatinis ekrano pasukimas išjungiamas. Visi ska
     <string name="accessibility_screen_magnification_navbar_summary">"Kai įjungtas didinimas, naudodami ekrano apačioje esantį pritaikymo neįgaliesiems mygtuką galite greitai padidinti ekrane rodomą turinį.
 
 "<b>Jei norite padidinti mastelį</b>", bakstelėkite pritaikymo neįgaliesiems mygtuką, tada bakstelėkite bet kurioje ekrano vietoje.
-"<ul><li>Jei norite slinkti, braukite 2 ar daugiau pirštų.</li>"
-"<li>Sugnybkite 2 ar daugiau pirštų ir pakeiskite mastelio didinimo lygį.</li></ul>"
+"<li><ul>"Jei norite slinkti, braukite 2 ar daugiau pirštų.
+"<li>Sugnybkite 2 ar daugiau pirštų ir pakeiskite mastelio didinimo lygį.</li></ul></li>"
 
 "<b>Jei norite laikinai padidinti mastelį</b>", bakstelėkite pritaikymo neįgaliesiems mygtuką, tada palieskite ir palaikykite bet kurioje ekrano vietoje.
-"<ul><li>Braukdami naršykite po ekraną.</li>"
-"<li>Atkelkite pirštą, kad mastelį sumažintumėte.</li></ul>"
+"<li><ul>"Braukdami naršykite po ekraną.
+"<li>Atkelkite pirštą, kad mastelį sumažintumėte.</li></ul></li>"
 
 Klaviatūros ar naršymo juostos mastelio padidinti negalima."</string>
     <string name="accessibility_screen_magnification_navbar_title">Padidinkite bakstelėję mygtuką</string>
     <string name="accessibility_screen_magnification_short_summary">Naudodami gestus padidinkite turinį ekrane.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Bakstelėkite ekraną triskart arba bakstelėkite mygtuką ir padidinkite</string>
     <string name="accessibility_screen_magnification_summary"><b>Jei norite padidinti mastelį</b>", greitai bakstelėkite ekraną 3 kartus.
-"<ul><li>Jei norite slinkti, braukite 2 ar daugiau pirštų.</li>"
-"<li>Sugnybkite 2 ar daugiau pirštų ir pakeiskite mastelio didinimo lygį.</li></ul>"
+"<li><ul>"Jei norite slinkti, braukite 2 ar daugiau pirštų.
+"<li>Sugnybkite 2 ar daugiau pirštų ir pakeiskite mastelio didinimo lygį.</li></ul></li>"
 
 "<b>Jei norite laikinai padidinti mastelį</b>", greitai bakstelėkite ekraną 3 kartus, trečią kartą bakstelėję pirštą palaikykite.
-"<ul><li>Braukdami naršykite po ekraną.</li>"
-"<li>Atkelkite pirštą, kad mastelį sumažintumėte.</li></ul>"
+"<li><ul>"Braukdami naršykite po ekraną.
+"<li>Atkelkite pirštą, kad mastelį sumažintumėte.</li></ul></li>"
 
 Klaviatūros ar naršymo juostos mastelio padidinti negalima."</string>
     <string name="accessibility_screen_magnification_summary_1">"Didinkite arba mažinkite bakstelėdami tris kartus bet kurioje ekrano vietoje vienu pirštu.

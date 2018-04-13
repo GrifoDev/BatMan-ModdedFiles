@@ -76,24 +76,24 @@ Kui see funktsioon on aktiveeritud, inaktiveeritakse ekraani automaatne pööram
     <string name="accessibility_screen_magnification_navbar_summary">"Kui suurendus on sisse lülitatud, kasutage juurdepääsu nuppu ekraani alaosas, et kiirelt suurendada ekraanil olevat sisu.
 
 "<b>Suumimiseks</b>" toksake juurdepääsu nuppu, seejärel toksake ekraanil suvalist kohta.
-"<ul><li>Libistage 2 või enama sõrmega, et kerida.</li>"
-"<li>Libistage 2 või enamat sõrme kokku või lahku, et muuta suumimise taset.</li></ul>"
+"<li><ul>"Libistage 2 või enama sõrmega, et kerida.
+"<li>Libistage 2 või enamat sõrme kokku või lahku, et muuta suumimise taset.</li></ul></li>"
 
 "<b>Ajutiseks suumimiseks</b>" toksake juurdepääsu nuppu, seejärel puudutage ja hoidke ekraanil suvalist kohta.
-"<ul><li>Libistage, et ekraani liigutada.</li>"
-"<li>Tõstke oma sõrm, et välja suumida.</li></ul>"
+"<li><ul>"Libistage, et ekraani liigutada.
+"<li>Tõstke oma sõrm, et välja suumida.</li></ul></li>"
 
 Klaviatuuril või navigatsiooniribal ei saa sisse suumida."</string>
     <string name="accessibility_screen_magnification_navbar_title">Toksake nuppu, et suurendada</string>
     <string name="accessibility_screen_magnification_short_summary">Saate kasutada liigutusi, et suurendada ekraanil olevat sisu.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Toksake ekraani kolm korda või toksake nuppu, et suurendada</string>
     <string name="accessibility_screen_magnification_summary"><b>Suumimiseks</b>" toksake ekraani kiirelt 3 korda.
-"<ul><li>Libistage 2 või enama sõrmega, et kerida.</li>"
-"<li>Libistage 2 või enamat sõrme kokku või lahku, et reguleerida suumimise taset.</li></ul>"
+"<li><ul>"Libistage 2 või enama sõrmega, et kerida.
+"<li>Libistage 2 või enamat sõrme kokku või lahku, et reguleerida suumimise taset.</li></ul></li>"
 
 "<b>Ajutiseks suumimiseks</b>", toksake ekraani kiirelt 3 korda ja hoidke oma sõrme kolmanda toksamise ajal all.
-"<ul><li>Libistage, et ekraani liigutada.</li>"
-"<li>Tõstke oma sõrm, et välja suumida.</li></ul>"
+"<li><ul>"Libistage, et ekraani liigutada.
+"<li>Tõstke oma sõrm, et välja suumida.</li></ul></li>"
 
 Klaviatuuril või navigatsiooniribal ei saa sisse suumida."</string>
     <string name="accessibility_screen_magnification_summary_1">"Sisse ja välja saate suumida, kui toksate ekraanil suvalises kohas kolm korda ühe sõrmega.

@@ -94,24 +94,24 @@ Terwijl deze functie is ingeschakeld, wordt Scherm automatisch draaien uitgescha
     <string name="accessibility_screen_magnification_navbar_summary">"Als vergroting is ingeschakeld, gebruikt u de knop Toegankelijkheid onder aan het scherm om inhoud op het scherm snel te vergroten.
 
 "<b>Als u wilt zoomen</b>", tikt u op de knop Toegankelijkheid en daarna ergens op het scherm.
-"<ul><li>Veeg met 2 of meer vingers om te scrollen.</li>"
-"<li>Knijp 2 of meer vingers samen om het zoomniveau aan te passen.</li></ul>"
+"<li><ul>"Veeg met 2 of meer vingers om te scrollen.
+"<li>Knijp 2 of meer vingers samen om het zoomniveau aan te passen.</li></ul></li>"
 
 "<b>Als u tijdelijk wilt zoomen</b>", tikt u op de knop Toegankelijkheid en houdt u het scherm ergens ingedrukt.
-"<ul><li>Veeg om over het scherm te bewegen.</li>"
-"<li>Til uw vinger op om uit te zoomen.</li></ul>"
+"<li><ul>"Veeg om over het scherm te bewegen.
+"<li>Til uw vinger op om uit te zoomen.</li></ul></li>"
 
 U kunt niet inzoomen op het toetsenbord of de navigatiebalk."</string>
     <string name="accessibility_screen_magnification_navbar_title">Tik op knop voor vergroten</string>
     <string name="accessibility_screen_magnification_short_summary">Gebruik gebaren om de inhoud op het scherm te vergroten.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Tik drie keer op scherm of op knop voor vergroten</string>
     <string name="accessibility_screen_magnification_summary"><b>Als u wilt zoomen</b>", tikt u 3 keer snel op het scherm.
-"<ul><li>Veeg met 2 of meer vingers om te scrollen.</li>"
-"<li>Knijp 2 of meer vingers samen om het zoomniveau aan te passen.</li></ul>"
+"<li><ul>"Veeg met 2 of meer vingers om te scrollen.
+"<li>Knijp 2 of meer vingers samen om het zoomniveau aan te passen.</li></ul></li>"
 
 "<b>Als u tijdelijk wilt zoomen</b>", tikt u 3 keer snel op het scherm en laat u uw vinger liggen bij de derde keer.
-"<ul><li>Veeg om te verplaatsen over het scherm.</li>"
-"<li>Til uw vinger op om uit te zoomen.</li></ul>"
+"<li><ul>"Veeg om te verplaatsen over het scherm.
+"<li>Til uw vinger op om uit te zoomen.</li></ul></li>"
 
 U kunt niet inzoomen op het toetsenbord of de navigatiebalk."</string>
     <string name="accessibility_screen_magnification_summary_1">"Zoom in en uit door driemaal ergens met één vinger op het scherm te tikken.

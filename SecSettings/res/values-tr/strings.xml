@@ -94,24 +94,24 @@ Bu işlev etkinleştirildiğinde, Ekranı otomatik döndür devre dışı bırak
     <string name="accessibility_screen_magnification_navbar_summary">"Büyütme açıkken ekrandaki içeriği hızlıca büyütmek için ekranın altındaki Erişilebilirlik tuşunu kullanın.
 
 "<b>Yakınlaştırmak için</b>" Erişilebilirlik tuşuna ve ardından ekranda herhangi bir yere dokunun.
-"<ul><li>Kaydırmak için 2 veya daha fazla parmağınızla kaydırın.</li>"
-"<li>Yakınlaştırma seviyesini ayarlamak için 2 veya daha fazla parmağınızla sıkıştırın.</li></ul>"
+"<li><ul>"Kaydırmak için 2 veya daha fazla parmağınızla kaydırın.
+"<li>Yakınlaştırma seviyesini ayarlamak için 2 veya daha fazla parmağınızla sıkıştırın.</li></ul></li>"
 
 "<b>Geçici olarak yakınlaştırmak için</b>" Erişilebilirlik tuşuna dokunun ve ardından ekranda herhangi bir yere dokunup basılı tutun.
-"<ul><li>Ekran üzerinde taşımak için kaydırın.</li>"
-"<li>Uzaklaştırmak için parmağınızı kaldırın.</li></ul>"
+"<li><ul>"Ekran üzerinde taşımak için kaydırın.
+"<li>Uzaklaştırmak için parmağınızı kaldırın.</li></ul></li>"
 
 Klavyede veya gezinme çubuğunda yakınlaştıramazsınız."</string>
     <string name="accessibility_screen_magnification_navbar_title">Büyütmek için tuşa dokunun</string>
     <string name="accessibility_screen_magnification_short_summary">Ekrandaki içeriği büyütmek için hareketleri kullanın.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Büyütmek için ekrana üç kez dokunun veya tuşa dokunun</string>
     <string name="accessibility_screen_magnification_summary"><b>Yakınlaştırmak için</b>" ekrana 3 kez hızlıca dokunun.
-"<ul><li>Kaydırmak için 2 veya daha fazla parmağınızla kaydırın.</li>"
-"<li>Yakınlaştırma seviyesini ayarlamak için 2 veya daha fazla parmağınızla sıkıştırın.</li></ul>"
+"<li><ul>"Kaydırmak için 2 veya daha fazla parmağınızla kaydırın.
+"<li>Yakınlaştırma seviyesini ayarlamak için 2 veya daha fazla parmağınızla sıkıştırın.</li></ul></li>"
 
 "<b>Geçici olarak yakınlaştırmak için</b>" ekrana 3 kez hızlıca dokunun ve üçüncü dokunuşta parmağınızı basılı tutun.
-"<ul><li>Ekran üzerinde taşımak için kaydırın.</li>"
-"<li>Uzaklaştırmak için parmağınızı kaldırın.</li></ul>"
+"<li><ul>"Ekran üzerinde taşımak için kaydırın.
+"<li>Uzaklaştırmak için parmağınızı kaldırın.</li></ul></li>"
 
 Klavyede veya gezinme çubuğunda yakınlaştıramazsınız."</string>
     <string name="accessibility_screen_magnification_summary_1">"Ekranın herhangi bir yerine tek parmağınızla üç kez dokunarak yakınlaştırıp uzaklaştırın.

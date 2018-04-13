@@ -96,24 +96,24 @@ Når denne funksjonen er aktivert, vil Roter skjerm automatisk være deaktivert.
     <string name="accessibility_screen_magnification_navbar_summary">"Når forstørrelse er slått på, kan du bruke Tilgjengelighet-knappen nederst på skjermen til å forstørre innholdet på skjermen raskt.
 
 "<b>For å zoome</b>" trykker du på Tilgjengelighet-knappen og trykker hvor som helst på skjermen.
-"<ul><li>Stryk med 2 eller flere fingre for å bla.</li>"
-"<li>Klyp med 2 eller flere fingre for å justere zoomnivået.</li></ul>"
+"<li><ul>"Stryk med 2 eller flere fingre for å bla.
+"<li>Klyp med 2 eller flere fingre for å justere zoomnivået.</li></ul></li>"
 
 "<b>For å zoome midlertidig</b>" trykker du på Tilgjengelighet-knappen og trykker og holder hvor som helst på skjermen.
-"<ul><li>Stryk for å navigere rundt på skjermen.</li>"
-"<li>Løft fingeren for å zoome ut.</li></ul>"
+"<li><ul>"Stryk for å navigere rundt på skjermen.
+"<li>Løft fingeren for å zoome ut.</li></ul></li>"
 
 Du kan ikke zoome inn på tastaturet eller navigeringslinjen."</string>
     <string name="accessibility_screen_magnification_navbar_title">Trykk på knapp for å forstørre</string>
     <string name="accessibility_screen_magnification_short_summary">Bruk bevegelser til å forstørre innhold på skjermen.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Trykk raskt tre ganger på skjermen eller trykk på knappen for å forstørre</string>
     <string name="accessibility_screen_magnification_summary"><b>For å zoome</b>" trykker du raskt på skjermen 3 ganger.
-"<ul><li>Stryk med 2 eller flere fingre for å bla.</li>"
-"<li>Klyp med 2 eller flere fingre for å justere zoomnivået.</li></ul>"
+"<li><ul>"Stryk med 2 eller flere fingre for å bla.
+"<li>Klyp med 2 eller flere fingre for å justere zoomnivået.</li></ul></li>"
 
 "<b>For å zoome midlertidig</b>" trykker du raskt på skjermen 3 ganger og holder fingeren nede på det tredje trykket.
-"<ul><li>Stryk for å navigere rundt på skjermen.</li>"
-"<li>Løft fingeren for å zoome ut.</li></ul>"
+"<li><ul>"Stryk for å navigere rundt på skjermen.
+"<li>Løft fingeren for å zoome ut.</li></ul></li>"
 
 Du kan ikke zoome inn på tastaturet eller navigeringslinjen."</string>
     <string name="accessibility_screen_magnification_summary_1">"Zoom inn og ut ved å trykke raskt tre ganger hvor som helst på skjermen med én finger.

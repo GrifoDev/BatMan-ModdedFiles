@@ -76,24 +76,24 @@
     <string name="accessibility_screen_magnification_navbar_summary">"Þegar kveikt er á stækkun skaltu nota aðgengishnappinn neðst á skjánum til að stækka efni á skjánum á skjótan hátt.
 
 "<b>Til að auka aðdráttinn</b>" skaltu pikka á aðgengishnappinn og pikka síðan hvar sem er á skjáinn.
-"<ul><li>Strjúktu með tveimur eða fleiri fingrum til að fletta.</li>"
-"<li>Færðu tvo eða fleiri fingur saman til að stilla aðdráttinn.</li></ul>"
+"<li><ul>"Strjúktu með tveimur eða fleiri fingrum til að fletta.
+"<li>Færðu tvo eða fleiri fingur saman til að stilla aðdráttinn.</li></ul></li>"
 
 "<b>Til að auka aðdráttinn tímabundið</b>" skaltu pikka á aðgengishnappinn og halda fingri hvar sem er á skjánum.
-"<ul><li>Strjúktu til að færa þig til á skjánum.</li>"
-"<li>Lyftu fingrinum til að minnka aðdráttinn.</li></ul>"
+"<li><ul>"Strjúktu til að færa þig til á skjánum.
+"<li>Lyftu fingrinum til að minnka aðdráttinn.</li></ul></li>"
 
 Ekki er hægt að auka aðdráttinn á lyklaborðinu eða yfirlitsstikunni."</string>
     <string name="accessibility_screen_magnification_navbar_title">Pikka á hnappinn til að stækka</string>
     <string name="accessibility_screen_magnification_short_summary">Notaðu bendingar til að stækka efni á skjánum.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Pikka þrisvar á skjáinn eða pikka á hnappinn til að stækka</string>
     <string name="accessibility_screen_magnification_summary"><b>Til að auka aðdráttinn</b>" skaltu pikka þrisvar sinnum hratt á skjáinn.
-"<ul><li>Strjúktu með tveimur eða fleiri fingrum til að fletta.</li>"
-"<li>Færðu tvo eða fleiri fingur saman til að stilla aðdráttinn.</li></ul>"
+"<li><ul>"Strjúktu með tveimur eða fleiri fingrum til að fletta.
+"<li>Færðu tvo eða fleiri fingur saman til að stilla aðdráttinn.</li></ul></li>"
 
 "<b>Til að auka aðdráttinn tímabundið</b>" skaltu pikka þrisvar sinnum hratt á skjáinn og halda fingrinum á skjánum á þriðja pikki.
-"<ul><li>Strjúktu til að færa þig til á skjánum.</li>"
-"<li>Lyftu fingrinum til að minnka aðdráttinn.</li></ul>"
+"<li><ul>"Strjúktu til að færa þig til á skjánum.
+"<li>Lyftu fingrinum til að minnka aðdráttinn.</li></ul></li>"
 
 Ekki er hægt að auka aðdráttinn á lyklaborðinu eða yfirlitsstikunni."</string>
     <string name="accessibility_screen_magnification_summary_1">"Stækkaðu og minnkaðu með því að pikka þrisvar á skjáinn með einum fingri.

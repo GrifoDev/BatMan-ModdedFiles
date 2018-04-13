@@ -94,24 +94,24 @@ Habang gumagana ang function na ito, hindi papaganahin ang Awto rotate screen. I
     <string name="accessibility_screen_magnification_navbar_summary">"Kapag naka-on ang magnification, gamitin ang Accessibility button sa ibaba ng screen para mabilis na i-magnify ang content na nasa screen.
 
 "<b>Para mag-zoom</b>", i-tap ang Accessibility button, tapos mag-tap saanman sa screen.
-"<ul><li>Mag-swipe gamit ang 2 o higit pang mga daliri para mag-scroll.</li>"
-"<li>Kumurot gamit ang 2 o higit pang mga daliri para i-adjust ang zoom level.</li></ul>"
+"<li><ul>"Mag-swipe gamit ang 2 o higit pang mga daliri para mag-scroll.
+"<li>Kumurot gamit ang 2 o higit pang mga daliri para i-adjust ang zoom level.</li></ul></li>"
 
 "<b>Para mag-zoom pansamantala</b>", i-tap ang Accessibility button, tapos mag-touch at mag-hold saanman sa screen.
-"<ul><li>Mag-swipe para kumilos sa screen.</li>"
-"<li>Itaas ang daliri mo para mag-zoom out.</li></ul>"
+"<li><ul>"Mag-swipe para kumilos sa screen.
+"<li>Itaas ang daliri mo para mag-zoom out.</li></ul></li>"
 
 Hindi ka makaka-zoom in sa keyboard o navigation bar."</string>
     <string name="accessibility_screen_magnification_navbar_title">I-tap ang button para i-magnify</string>
     <string name="accessibility_screen_magnification_short_summary">Gamitin ang mga kumpas para palakihin ang content sa screen.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">I-triple tap ang screen o i-tap ang button para i-magnify</string>
     <string name="accessibility_screen_magnification_summary"><b>Para mag-zoom</b>", mabilis na mag-tap nang 3 beses sa screen.
-"<ul><li>Mag-swipe gamit ang 2 o higit pang mga daliri para mag-scroll.</li>"
-"<li>Kumurot gamit ang 2 o higit pang mga daliri para i-adjust ang zoom level.</li></ul>"
+"<li><ul>"Mag-swipe gamit ang 2 o higit pang mga daliri para mag-scroll.
+"<li>Kumurot gamit ang 2 o higit pang mga daliri para i-adjust ang zoom level.</li></ul></li>"
 
 "<b>Para mag-zoom pansamantala</b>", mabilis na mag-tap sa screen nang 3 beses at ilapat ang daliri mo sa ikatlong pag-tap.
-"<ul><li>Mag-swipe para kumilos sa screen.</li>"
-"<li>Itaas ang daliri mo para mag-zoom out.</li></ul>"
+"<li><ul>"Mag-swipe para kumilos sa screen.
+"<li>Itaas ang daliri mo para mag-zoom out.</li></ul></li>"
 
 Hindi ka makaka-zoom in sa keyboard o navigation bar."</string>
     <string name="accessibility_screen_magnification_summary_1">"Mag-zoom in at mag-zoom out sa pamamagitan ng pag-tap nang tatlong beses kahit saan sa screen gamit ang isang daliri.

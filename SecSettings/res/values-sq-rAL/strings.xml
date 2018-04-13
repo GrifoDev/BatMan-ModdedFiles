@@ -76,24 +76,24 @@ Gjatë kohës që ky funksion është aftësuar, Rrotullimi auto i ekranit do t�
     <string name="accessibility_screen_magnification_navbar_summary">"Kur është ndezur zmadhimi, përdor butonin e Aksesibilitetit në pjesën e poshtme të ekranit për të zmadhuar shpejt materialet në ekran.
 
 "<b>Për të bërë zoom</b>", trokit mbi butonin e Aksesibilitetit, pastaj trokit ku të duash në ekran.
-"<ul><li>Rrëshqit me 2 ose më shumë gishta për të lundruar.</li>"
-"<li>Picko me 2 ose më shumë gishta për të përshtatur nivelin e zoom-it.</li></ul>"
+"<li><ul>"Rrëshqit me 2 ose më shumë gishta për të lundruar.
+"<li>Picko me 2 ose më shumë gishta për të përshtatur nivelin e zoom-it.</li></ul></li>"
 
 "<b>Për zoom të përkohshëm</b>", trokit mbi butonin e Aksesibilitetit, pastaj prek dhe mbaj ku të duash në ekran.
-"<ul><li>Rrëshqit për t’u zhvendosur përreth ekranit.</li>"
-"<li>Ngrije gishtin për zoom zvogëlues.</li></ul>"
+"<li><ul>"Rrëshqit për t’u zhvendosur përreth ekranit.
+"<li>Ngrije gishtin për zoom zvogëlues.</li></ul></li>"
 
 Nuk mund të bësh zoom në tastierë ose në shiritin e navigimit."</string>
     <string name="accessibility_screen_magnification_navbar_title">Trokit mbi buton për zmadhim</string>
     <string name="accessibility_screen_magnification_short_summary">Përdor gjestet për të zmadhuar materialet në ekran.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Tri-trokit mbi ekran ose trokit mbi buton për të zmadhuar</string>
     <string name="accessibility_screen_magnification_summary"><b>Për të bërë zoom</b>", trokit shpejt 3 herë në ekran.
-"<ul><li>Rrëshqit me 2 ose më shumë gishta për të lundruar.</li>"
-"<li>Picko me 2 ose më shumë gishta për të përshtatur nivelin e zoom-it.</li></ul>"
+"<li><ul>"Rrëshqit me 2 ose më shumë gishta për të lundruar.
+"<li>Picko me 2 ose më shumë gishta për të përshtatur nivelin e zoom-it.</li></ul></li>"
 
 "<b>Për zoom të përkohshëm</b>", trokit shpejt 3 herë mbi ekran dhe mbaje gishtin poshtë pas trokitjes së tretë.
-"<ul><li>Rrëshqit për t’u zhvendosur përreth ekranit.</li>"
-"<li>Ngrije gishtin për zoom zvogëlues.</li></ul>"
+"<li><ul>"Rrëshqit për t’u zhvendosur përreth ekranit.
+"<li>Ngrije gishtin për zoom zvogëlues.</li></ul></li>"
 
 Nuk mund të bësh zoom zmadhues në tastierë ose në shiritin e navigimit."</string>
     <string name="accessibility_screen_magnification_summary_1">"Bëj zoom zmadhues dhe zvogëlues duke tri-trokitur kudo në ekran me një gisht.

@@ -76,24 +76,24 @@ Con esta función activada, Xirar pantalla automaticamente desactivarase. Todas 
     <string name="accessibility_screen_magnification_navbar_summary">"Cando a ampliación estea activada, utiliza o botón Accesibilidade da parte inferior da pantalla para ampliar rapidamente o contido da pantalla.
 
 "<b>Para aplicar o zoom</b>", toca o botón Accesibilidade e, a continuación, calquera parte da pantalla.
-"<ul><li>Pasa 2 ou máis dedos pola pantalla para desprazala.</li>"
-"<li>Belisca a pantalla con 2 ou máis dedos para axustar o nivel de zoom.</li></ul>"
+"<li><ul>"Pasa 2 ou máis dedos pola pantalla para desprazala.
+"<li>Belisca a pantalla con 2 ou máis dedos para axustar o nivel de zoom.</li></ul></li>"
 
 "<b>Para aplicar o zoom temporalmente</b>", toca o botón Accesibilidade e mantén tocada calquera parte da pantalla.
-"<ul><li>Pasa o dedo para moverte pola pantalla.</li>"
-"<li>Levanta o dedo para afastar o zoom.</li></ul>"
+"<li><ul>"Pasa o dedo para moverte pola pantalla.
+"<li>Levanta o dedo para afastar o zoom.</li></ul></li>"
 
 Non se pode achegar o zoom no teclado nin na barra de navegación."</string>
     <string name="accessibility_screen_magnification_navbar_title">Tocar o botón para ampliar</string>
     <string name="accessibility_screen_magnification_short_summary">Utiliza xestos para ampliar o contido na pantalla.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Toca a pantalla tres veces ou o botón para ampliar</string>
     <string name="accessibility_screen_magnification_summary"><b>Para aplicar o zoom</b>", toca a pantalla 3 veces rapidamente.
-"<ul><li>Pasa 2 ou máis dedos pola pantalla para desprazala.</li>"
-"<li>Belisca a pantalla con 2 ou máis dedos para axustar o nivel de zoom.</li></ul>"
+"<li><ul>"Pasa 2 ou máis dedos pola pantalla para desprazala.
+"<li>Belisca a pantalla con 2 ou máis dedos para axustar o nivel de zoom.</li></ul></li>"
 
 "<b>Para aplicar o zoom temporalmente</b>", toca a pantalla 3 veces rapidamente e mantén o dedo pulsado na terceira pulsación.
-"<ul><li>Pasa o dedo para moverte pola pantalla.</li>"
-"<li>Levanta o dedo para afastar o zoom.</li></ul>"
+"<li><ul>"Pasa o dedo para moverte pola pantalla.
+"<li>Levanta o dedo para afastar o zoom.</li></ul></li>"
 
 Non se pode achegar o zoom no teclado nin na barra de navegación."</string>
     <string name="accessibility_screen_magnification_summary_1">"Achega e afasta o zoom tocando tres veces calquera parte da pantalla cun dedo.
@@ -1412,9 +1412,9 @@ Este axuste afecta a todos os usuarios deste dispositivo."</string>
     <string name="data_usage_summary_format">%s usado</string>
     <string name="data_usage_summary_title">Uso dos datos</string>
     <string name="data_usage_sweep_limit">Límite de<font size="21"> ^1</font><font size="9"> ^2</font>"
-"<font size="12"></font></string>
+"</string>
     <string name="data_usage_sweep_warning">Aviso de<font size="21"> ^1</font><font size="9"> ^2</font>"
-"<font size="12"></font></string>
+"</string>
     <string name="data_usage_tab_ethernet">Ethernet</string>
     <string name="data_usage_tab_mobile">Móbil</string>
     <string name="data_usage_template">%1$s consumidos entre o %2$s</string>

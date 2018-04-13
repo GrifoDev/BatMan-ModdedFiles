@@ -76,24 +76,24 @@ Bu funksiya aktiv olan zaman Ekranın avtomatik fırlanması qeyri-aktiv olacaq.
     <string name="accessibility_screen_magnification_navbar_summary">"Böyütmə yanılı olan zaman ekrandakı məzmunu tez böyütmək üçün ekranın aşağısındakı Çıxış imkanı düyməsindən istifadə edin.
 
 "<b>Miqyas üçün</b>" Çıxış imkanı düyməsinə və ekranın istənilən yerinə vurun.
-"<ul><li>Sürüşdürmək üçün 2 və ya daha çox barmaqla sürüşdürün.</li>"
-"<li>Miqyası tənzimləmək üçün 2 və ya daha çox barmaq ucundan istifadə edin.</li></ul>"
+"<li><ul>"Sürüşdürmək üçün 2 və ya daha çox barmaqla sürüşdürün.
+"<li>Miqyası tənzimləmək üçün 2 və ya daha çox barmaq ucundan istifadə edin.</li></ul></li>"
 
 "<b>Müvəqqəti miqyas üçün</b>" Çıxış imkanı düyməsinə vurun və ekranın istənilən yerində vurub saxlayın.
-"<ul><li>Ekranda hərəkət üçün sürüşdürün.</li>"
-"<li>Miqyası kiçiltmək üçün barmağınızı qaldırın.</li></ul>"
+"<li><ul>"Ekranda hərəkət üçün sürüşdürün.
+"<li>Miqyası kiçiltmək üçün barmağınızı qaldırın.</li></ul></li>"
 
 Siz klaviatura və ya naviqasiya panelində miqyası böyüdə bilməzsiniz."</string>
     <string name="accessibility_screen_magnification_navbar_title">Böyütmək üçün düyməyə vurun</string>
     <string name="accessibility_screen_magnification_short_summary">Ekranda məzmunu böyütmək üçün jestlərdən istifadə et.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Böyütmək üçün ekrana üç dəfə və ya düyməyə vurun</string>
     <string name="accessibility_screen_magnification_summary"><b>Miqyas üçün</b>" ekrana 3 dəfə tez vurun.
-"<ul><li>Sürüşdürmək üçün 2 və ya daha çox barmaqla sürüşdürün.</li>"
-"<li>Miqyası tənzimləmək üçün 2 və ya daha çox barmaq ucundan istifadə edin.</li></ul>"
+"<li><ul>"Sürüşdürmək üçün 2 və ya daha çox barmaqla sürüşdürün.
+"<li>Miqyası tənzimləmək üçün 2 və ya daha çox barmaq ucundan istifadə edin.</li></ul></li>"
 
 "<b>Müvəqqəti miqyas üçün</b>" 3 dəfə ekrana tez vurun və üçüncü vuruşda barmağınızı sıxın.
-"<ul><li>Ekranda hərəkət üçün sürüşdürün.</li>"
-"<li>Miqyası kiçiltmək üçün barmağınızı qaldırın.</li></ul>"
+"<li><ul>"Ekranda hərəkət üçün sürüşdürün.
+"<li>Miqyası kiçiltmək üçün barmağınızı qaldırın.</li></ul></li>"
 
 Siz klaviatura və ya naviqasiya panelində miqyası böyüdə bilməzsiniz."</string>
     <string name="accessibility_screen_magnification_summary_1">"Bir barmağınızla ekranın istənilən yerində üç dəfə vurmaqla miqyası artırıb azaldın.

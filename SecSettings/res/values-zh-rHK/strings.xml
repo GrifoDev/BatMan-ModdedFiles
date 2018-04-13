@@ -96,24 +96,24 @@
     <string name="accessibility_screen_magnification_navbar_summary">"已開啟放大時，使用螢幕底部的協助工具按鍵快速放大螢幕上的內容。
 
 "<b>若要縮放</b>"，請輕觸協助工具按鍵，然後輕觸螢幕上任何位置。
-"<ul><li>以兩指或更多手指滑動以捲動。</li>"
-"<li>合攏兩指或更多手指以調整縮放程度。</li></ul>"
+"<li><ul>"以兩指或更多手指滑動以捲動。
+"<li>合攏兩指或更多手指以調整縮放程度。</li></ul></li>"
 
 "<b>若要暫時縮放</b>"，請輕觸協助工具按鍵，然後輕觸並按住螢幕上任何位置。
-"<ul><li>滑動以在螢幕上來回移動。</li>"
-"<li>抬起您的手指以縮小。</li></ul>"
+"<li><ul>"滑動以在螢幕上來回移動。
+"<li>抬起您的手指以縮小。</li></ul></li>"
 
 您無法在鍵盤或導覽列上放大。"</string>
     <string name="accessibility_screen_magnification_navbar_title">輕觸按鍵以放大</string>
     <string name="accessibility_screen_magnification_short_summary">使用手勢放大螢幕上的內容。</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">輕觸三下螢幕或輕觸按鍵以放大</string>
     <string name="accessibility_screen_magnification_summary"><b>若要縮放</b>"，請快速輕觸螢幕 3 下。
-"<ul><li>以兩指或更多手指滑動以捲動。</li>"
-"<li>合攏兩指或更多手指以調整縮放程度。</li></ul>"
+"<li><ul>"以兩指或更多手指滑動以捲動。
+"<li>合攏兩指或更多手指以調整縮放程度。</li></ul></li>"
 
 "<b>若要暫時縮放</b>"，請快速輕觸螢幕 3 下並在第三次輕觸時按下手指。
-"<ul><li>滑動以在螢幕上來回移動。</li>"
-"<li>抬起您的手指以縮小。</li></ul>"
+"<li><ul>"滑動以在螢幕上來回移動。
+"<li>抬起您的手指以縮小。</li></ul></li>"
 
 您無法在鍵盤或導覽列上放大。"</string>
     <string name="accessibility_screen_magnification_summary_1">"以一隻手指在螢幕上任一處輕觸三下來放大與縮小。

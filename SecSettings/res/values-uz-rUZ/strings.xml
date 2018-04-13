@@ -76,24 +76,24 @@ Ushbu funksiya yoqilganda, Ekranni avtomatik aylantirish o‘chiriladi. Barcha q
     <string name="accessibility_screen_magnification_navbar_summary">"Kattalashtirish yoqilgan vaqtda ekrandagi tarkibni tezda kattalashtirish uchun ekranning quyi qismidagi Maxsus imkoniyat tugmasidan foydalaning.
 
 "<b>Masshtabni o‘zgartirish uchun</b>" Maxsus imkoniyat tugmasiga teging, so‘ngra ekranning istalgan joyiga teging.
-"<ul><li>Aylantirish uchun 2 yoki undan ortiq barmoq bilan suring.</li>"
-"<li>Masshtab darajasini sozlash uchun 2 yoki undan ortiq barmoq yordamida chimding.</li></ul>"
+"<li><ul>"Aylantirish uchun 2 yoki undan ortiq barmoq bilan suring.
+"<li>Masshtab darajasini sozlash uchun 2 yoki undan ortiq barmoq yordamida chimding.</li></ul></li>"
 
 "<b>Masshtabni vaqtincha o‘zgartirish uchun</b>" Maxsus imkoniyat tugmasiga teging, so‘ngra ekranning istalgan joyiga tegib turing.
-"<ul><li>Ekran bo‘ylab harakatlanish uchun suring.</li>"
-"<li>Kichraytirish uchun barmog‘ingizni ekrandan oling.</li></ul>"
+"<li><ul>"Ekran bo‘ylab harakatlanish uchun suring.
+"<li>Kichraytirish uchun barmog‘ingizni ekrandan oling.</li></ul></li>"
 
 Klaviatura yoki navigatsiya panelida kattalashtira olmaysiz."</string>
     <string name="accessibility_screen_magnification_navbar_title">Kattalash. u-n tugmaga teging</string>
     <string name="accessibility_screen_magnification_short_summary">Ekrandagi tarkibni kattalashtirish uchun ishoralardan foydalaning.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Kattalashtirish uchun ekranga uch marta teging yoki tugmaga teging</string>
     <string name="accessibility_screen_magnification_summary"><b>Masshtabni o‘zgartirish uchun</b>" ekranga tezda 3 marta teging.
-"<ul><li>Aylantirish uchun 2 yoki undan ortiq barmoq bilan suring.</li>"
-"<li>Masshtab darajasini sozlash uchun 2 yoki undan ortiq barmoq yordamida chimding.</li></ul>"
+"<li><ul>"Aylantirish uchun 2 yoki undan ortiq barmoq bilan suring.
+"<li>Masshtab darajasini sozlash uchun 2 yoki undan ortiq barmoq yordamida chimding.</li></ul></li>"
 
 "<b>Masshtabni vaqtincha o‘zgartirish uchun</b>" ekranga tezda 3 marta teging va uchinchi tegishdan keyin barmog‘ingizni ekran ustida qoldiring.
-"<ul><li>Ekran bo‘ylab harakatlanish uchun suring.</li>"
-"<li>Kichraytirish uchun barmog‘ingizni ekrandan oling.</li></ul>"
+"<li><ul>"Ekran bo‘ylab harakatlanish uchun suring.
+"<li>Kichraytirish uchun barmog‘ingizni ekrandan oling.</li></ul></li>"
 
 Klaviatura yoki navigatsiya panelida kattalashtira olmaysiz."</string>
     <string name="accessibility_screen_magnification_summary_1">"Ekranning istalgan joyiga bitta barmoq bilan uch marta tegish orqali masshtabni o‘zgartiring.

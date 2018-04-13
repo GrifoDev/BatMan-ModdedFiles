@@ -94,24 +94,24 @@ Si cette fonction est activée, la fonction Rotation automatique de l'écran ser
     <string name="accessibility_screen_magnification_navbar_summary">"Lorsque l'agrandissement est activé, utilisez la touche Accessibilité en bas de l'écran pour agrandir rapidement le contenu à l'écran.
 
 "<b>Pour effectuer un zoom</b>", appuyez sur la touche Accessibilité, puis appuyez n'importe où sur l'écran.
-"<ul><li>"Faites glisser 2 doigts ou plus sur l'écran pour le faire défiler."</li>"
-"<li>"Pincez l'écran avec 2 doigts ou plus pour ajuster le niveau de zoom."</li></ul>"
+"<li><ul>"Faites glisser 2 doigts ou plus sur l'écran pour le faire défiler.
+"<li>"Pincez l'écran avec 2 doigts ou plus pour ajuster le niveau de zoom."</li></ul></li>"
 
 "<b>Pour effectuer un zoom temporaire</b>", appuyez sur la touche Accessibilité, puis maintenez votre doigt appuyé n'importe où sur l'écran.
-"<ul><li>"Faites glisser votre doigt pour vous déplacer sur l'écran."</li>"
-"<li>Levez votre doigt pour effectuer un zoom arrière.</li></ul>"
+"<li><ul>"Faites glisser votre doigt pour vous déplacer sur l'écran.
+"<li>Levez votre doigt pour effectuer un zoom arrière.</li></ul></li>"
 
 Vous ne pouvez pas effectuer de zoom avant sur le clavier ou la barre de navigation."</string>
     <string name="accessibility_screen_magnification_navbar_title">Appui sur touche pour agrandir</string>
     <string name="accessibility_screen_magnification_short_summary">"Utilisez les mouvements pour agrandir le contenu à l'écran."</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">"Appuyez trois fois sur l'écran ou appuyez sur une touche pour agrandir"</string>
     <string name="accessibility_screen_magnification_summary"><b>Pour effectuer un zoom</b>", appuyez rapidement 3 fois sur l'écran.
-"<ul><li>"Faites glisser 2 doigts ou plus sur l'écran pour le faire défiler."</li>"
-"<li>"Pincez l'écran avec 2 doigts ou plus pour ajuster le niveau de zoom."</li></ul>"
+"<li><ul>"Faites glisser 2 doigts ou plus sur l'écran pour le faire défiler.
+"<li>"Pincez l'écran avec 2 doigts ou plus pour ajuster le niveau de zoom."</li></ul></li>"
 
 "<b>Pour effectuer un zoom temporaire</b>", appuyez rapidement 3 fois sur l'écran et maintenez votre doigt appuyé lors du troisième appui.
-"<ul><li>"Faites glisser votre doigt pour vous déplacer sur l'écran."</li>"
-"<li>Levez votre doigt pour effectuer un zoom arrière.</li></ul>"
+"<li><ul>"Faites glisser votre doigt pour vous déplacer sur l'écran.
+"<li>Levez votre doigt pour effectuer un zoom arrière.</li></ul></li>"
 
 Vous ne pouvez pas effectuer de zoom avant sur le clavier ou la barre de navigation."</string>
     <string name="accessibility_screen_magnification_summary_1">"Effectuez un zoom avant ou arrière en appuyant trois fois avec un doigt n'importe où sur l'écran.

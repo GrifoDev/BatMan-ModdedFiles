@@ -76,24 +76,24 @@ Agus an fheidhm seo cumasaithe, beidh Uathrothlú scáileáin díchumasaithe. Be
     <string name="accessibility_screen_magnification_navbar_summary">"Agus formhéadú casta air, úsáid an Cnaipe inrochtaineachta ag bun an scáileáin le hinneachar atá ar an scáileán a fhormhéadú go tapa.
 
 "<b>Le zúmáil</b>", tapáil an Cnaipe inrochtaineachta, ansin tapáil áit ar bith ar an scáileán.
-"<ul><li>Svaidhpeáil le 2 mhéar nó níos mó le scrollú.</li>"
-"<li>Cúngaigh le 2 mhéar nó níos mó leis an leibhéal zúmála a cheartú.</li></ul>"
+"<li><ul>"Svaidhpeáil le 2 mhéar nó níos mó le scrollú.
+"<li>Cúngaigh le 2 mhéar nó níos mó leis an leibhéal zúmála a cheartú.</li></ul></li>"
 
 "<b>Le zúmáil go sealadach</b>", tapáil an Cnaipe inrochtaineachta, ansin tadhaill agus coinnigh áit ar bith ar an scáileán.
-"<ul><li>Svaidhpeáil le bogadh thart ar an scáileán.</li>"
-"<li>Ardaigh do mhéar le zúmáil amach.</li></ul>"
+"<li><ul>"Svaidhpeáil le bogadh thart ar an scáileán.
+"<li>Ardaigh do mhéar le zúmáil amach.</li></ul></li>"
 
 Ní féidir leat zúmáil isteach ar an eochairchlár ná ar an mbarra nascleanúna."</string>
     <string name="accessibility_screen_magnification_navbar_title">Tapáil an cnaipe le formhéadú</string>
     <string name="accessibility_screen_magnification_short_summary">Úsáid comharthaí le hinneachar atá ar an scáileán a fhormhéadú.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Tapáil an scáileán faoi thrí nó tapáil an cnaipe le formhéadú</string>
     <string name="accessibility_screen_magnification_summary"><b>Le zúmáil</b>", tapáil an scáileán faoi 3 go tapa.
-"<ul><li>Svaidhpeáil le 2 mhéar nó níos mó le scrollú.</li>"
-"<li>Cúngaigh le 2 mhéar nó níos mó leis an leibhéal zúmála a cheartú.</li></ul>"
+"<li><ul>"Svaidhpeáil le 2 mhéar nó níos mó le scrollú.
+"<li>Cúngaigh le 2 mhéar nó níos mó leis an leibhéal zúmála a cheartú.</li></ul></li>"
 
 "<b>Le zúmáil go sealadach</b>", tapáil an scáileán faoi 3 go tapa agus coinnigh do mhéar síos ar an tríú tapáil.
-"<ul><li>Svaidhpeáil le bogadh thart ar an scáileán.</li>"
-"<li>Ardaigh do mhéar le zúmáil amach.</li></ul>"
+"<li><ul>"Svaidhpeáil le bogadh thart ar an scáileán.
+"<li>Ardaigh do mhéar le zúmáil amach.</li></ul></li>"
 
 Ní féidir leat zúmáil isteach ar an eochairchlár ná ar an mbarra nascleanúna."</string>
     <string name="accessibility_screen_magnification_summary_1">"Zúmáil isteach agus amach trí thapáil faoi 3 áit ar bith ar an scáileán le méar amháin.

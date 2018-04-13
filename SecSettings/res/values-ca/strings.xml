@@ -94,24 +94,24 @@ Mentre aquesta funció estigui activada, l'opció Girar pantalla automàticament
     <string name="accessibility_screen_magnification_navbar_summary">"Quan l’ampliació estigui activada, utilitza el botó d’Accessibilitat a la part inferior de la pantalla per ampliar ràpidament el contingut en pantalla.
 
 "<b>Per ampliar</b>", toca el botó d'Accessibilitat i, a continuació, toca a qualsevol punt de la pantalla.
-"<ul><li>Passa amb 2 dits o més per desplaçar-te.</li>"
-"<li>Pessiga amb 2 dits o més per ajustar el nivell de zoom.</li></ul>"
+"<li><ul>"Passa amb 2 dits o més per desplaçar-te.
+"<li>Pessiga amb 2 dits o més per ajustar el nivell de zoom.</li></ul></li>"
 
 "<b>Per ampliar temporalment</b>", toca el botó d'Accessibilitat i, a continuació, mantén premut qualsevol punt de la pantalla.
-"<ul><li>Desplaça’t per moure’t per la pantalla.</li>"
-"<li>Aixeca el dit per reduir.</li></ul>"
+"<li><ul>"Desplaça’t per moure’t per la pantalla.
+"<li>Aixeca el dit per reduir.</li></ul></li>"
 
 No pots ampliar el teclat ni la barra de navegació."</string>
     <string name="accessibility_screen_magnification_navbar_title">Toca el botó per ampliar</string>
     <string name="accessibility_screen_magnification_short_summary">Utilitzi gestos per ampliar el contingut de la pantalla.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Toca tres cops la pantalla o toca el botó per ampliar</string>
     <string name="accessibility_screen_magnification_summary"><b>Per ampliar</b>", toca ràpidament la pantalla 3 cops.
-"<ul><li>Passa amb 2 dits o més per desplaçar-te.</li>"
-"<li>Pessiga amb 2 dits o més per ajustar el nivell de zoom.</li></ul>"
+"<li><ul>"Passa amb 2 dits o més per desplaçar-te.
+"<li>Pessiga amb 2 dits o més per ajustar el nivell de zoom.</li></ul></li>"
 
 "<b>Per ampliar temporalment</b>", toca ràpidament la pantalla 3 cops i mantén premut el dit al tercer cop.
-"<ul><li>Desplaça’t per moure’t per la pantalla.</li>"
-"<li>Aixeca el dit per reduir.</li></ul>"
+"<li><ul>"Desplaça’t per moure’t per la pantalla.
+"<li>Aixeca el dit per reduir.</li></ul></li>"
 
 No pots ampliar el teclat ni la barra de navegació."</string>
     <string name="accessibility_screen_magnification_summary_1">"Ampliï i redueixi tocant qualsevol lloc de la pantalla tres cops amb un dit.

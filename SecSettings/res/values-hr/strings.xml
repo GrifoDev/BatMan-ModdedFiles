@@ -94,24 +94,24 @@ Dok je ova funkcija uključena, bit će isključena funkcija Automatskog zakreta
     <string name="accessibility_screen_magnification_navbar_summary">"Kada je uključeno povećavanje, upotrijebite gumb Pristupačnost pri dnu zaslona da biste brzo povećali sadržaj na zaslonu.
 
 "<b>Za povećavanje</b>", pritisnite gumb Pristupačnost, a zatim dodirnite bilo koji dio zaslona.
-"<ul><li> Prijeđite dvama prstima ili više za pomicanje.</li>"
-"<li>Privucite dvama prstima ili više da biste podesili razinu povećavanja.</li></ul>"
+"<li><ul>" Prijeđite dvama prstima ili više za pomicanje.
+"<li>Privucite dvama prstima ili više da biste podesili razinu povećavanja.</li></ul></li>"
 
 "<b>Za privremeno povećanje</b>", dodirnite gumb Pristupačnost, a zatim dodirnite i držite bilo koji dio zaslona.
-"<ul><li>Prijeđite prstom da biste se pomicali po zaslonu.</li>"
-"<li>Podignite prst da biste smanjili prikaz.</li></ul>"
+"<li><ul>"Prijeđite prstom da biste se pomicali po zaslonu.
+"<li>Podignite prst da biste smanjili prikaz.</li></ul></li>"
 
 Ne možete povećati prikaz na tipkovnici ili navigacijskoj traci."</string>
     <string name="accessibility_screen_magnification_navbar_title">Dodirni gumb za povećavanje</string>
     <string name="accessibility_screen_magnification_short_summary">Gestama povećajte sadržaj na zaslonu.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Triput dodirnite zaslon ili dodirnite gumb za povećavanje</string>
     <string name="accessibility_screen_magnification_summary"><b>Za povećavanje</b>", brzo pritisnite zaslon 3 puta.
-"<ul><li>Prijeđite dvama prstima ili više za pomicanje.</li>"
-"<li>Privucite dvama prstima ili više da biste podesili razinu povećavanja.</li></ul>"
+"<li><ul>"Prijeđite dvama prstima ili više za pomicanje.
+"<li>Privucite dvama prstima ili više da biste podesili razinu povećavanja.</li></ul></li>"
 
 "<b>Za privremeno povećavanje</b>", brzo pritisnite zaslon 3 puta i držite prst prilikom trećeg pritiska.
-"<ul><li>Prijeđite prstom da biste se pomicali po zaslonu.</li>"
-"<li>Podignite prst da biste smanjili prikaz.</li></ul>"
+"<li><ul>"Prijeđite prstom da biste se pomicali po zaslonu.
+"<li>Podignite prst da biste smanjili prikaz.</li></ul></li>"
 
 Ne možete povećati prikaz na tipkovnici ili navigacijskoj traci."</string>
     <string name="accessibility_screen_magnification_summary_1">"Povećavajte i smanjujte trostrukim dodirom prsta na bilo kojem dijelu zaslona.

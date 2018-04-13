@@ -83,24 +83,24 @@ Cuando se active esta función, se desactivará la rotación automática de la p
     <string name="accessibility_screen_magnification_navbar_summary">"Cuando la función de ampliación está activada, use el botón de Accesibilidad ubicado en la parte inferior de la pantalla para ampliar rápidamente el contenido de la pantalla.
 
 "<b>Para usar el zoom</b>", pulse el botón de Accesibilidad y luego pulse en cualquier lugar de la pantalla.
-"<ul><li>Deslice con 2 o más dedos para desplazarse.</li>"
-"<li>Junte 2 o más dedos para ajustar el nivel de zoom.</li></ul>"
+"<li><ul>"Deslice con 2 o más dedos para desplazarse.
+"<li>Junte 2 o más dedos para ajustar el nivel de zoom.</li></ul></li>"
 
 "<b>Para ampliar de forma temporal</b>", pulse el botón de Accesibilidad y luego mantenga pulsado cualquier lugar de la pantalla.
-"<ul><li>Deslice para desplazarse por la pantalla.</li>"
-"<li>Levante el dedo para dejar de usar el zoom.</li></ul>"
+"<li><ul>"Deslice para desplazarse por la pantalla.
+"<li>Levante el dedo para dejar de usar el zoom.</li></ul></li>"
 
 No puede usar el zoom en el teclado ni en la barra de navegación."</string>
     <string name="accessibility_screen_magnification_navbar_title">Pulse el botón para ampliar</string>
     <string name="accessibility_screen_magnification_short_summary">Use gestos para ampliar el contenido de la pantalla.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Pulse la pantalla tres veces o pulse el botón para ampliar</string>
     <string name="accessibility_screen_magnification_summary"><b>Para usar el zoom</b>", pulse la pantalla 3 veces rápidamente.
-"<ul><li>Deslice con 2 o más dedos para desplazarse.</li>"
-"<li>Junte 2 o más dedos para ajustar el nivel de zoom.</li></ul>"
+"<li><ul>"Deslice con 2 o más dedos para desplazarse.
+"<li>Junte 2 o más dedos para ajustar el nivel de zoom.</li></ul></li>"
 
 "<b>Para ampliar de forma temporal</b>", pulse la pantalla 3 veces rápidamente y mantenga el dedo sobre la pantalla al tercer toque.
-"<ul><li>Deslice para desplazarse por la pantalla.</li>"
-"<li>Levante el dedo para dejar de usar el zoom.</li></ul>"
+"<li><ul>"Deslice para desplazarse por la pantalla.
+"<li>Levante el dedo para dejar de usar el zoom.</li></ul></li>"
 
 No puede usar el zoom en el teclado ni en la barra de navegación."</string>
     <string name="accessibility_screen_magnification_summary_1">"Para acercar y alejar, pulse tres veces cualquier lugar de la pantalla con un dedo.

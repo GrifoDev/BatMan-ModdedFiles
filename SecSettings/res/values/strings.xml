@@ -125,24 +125,24 @@ While this function is enabled, Auto rotate screen will be disabled. All calls, 
     <string name="accessibility_screen_magnification_navbar_summary">"When magnification is turned on, use the Accessibility button at the bottom of the screen to quickly magnify on-screen content.
 
 "<b>To zoom</b>", tap the Accessibility button, then tap anywhere on the screen.
-"<ul><li>Swipe with 2 or more fingers to scroll.</li>"
-"<li>Pinch with 2 or more fingers to adjust the zoom level.</li></ul>"
+"<li><ul>"Swipe with 2 or more fingers to scroll.
+"<li>Pinch with 2 or more fingers to adjust the zoom level.</li></ul></li>"
 
 "<b>To zoom temporarily</b>", tap the Accessibility button, then touch and hold anywhere on the screen.
-"<ul><li>Swipe to move around the screen.</li>"
-"<li>Lift your finger to zoom out.</li></ul>"
+"<li><ul>"Swipe to move around the screen.
+"<li>Lift your finger to zoom out.</li></ul></li>"
 
 You can't zoom in on the keyboard or navigation bar."</string>
     <string name="accessibility_screen_magnification_navbar_title">Tap button to magnify</string>
     <string name="accessibility_screen_magnification_short_summary">Use gestures to magnify content on the screen.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Triple tap screen or tap button to magnify</string>
     <string name="accessibility_screen_magnification_summary"><b>To zoom</b>", quickly tap the screen 3 times.
-"<ul><li>Swipe with 2 or more fingers to scroll.</li>"
-"<li>Pinch with 2 or more fingers to adjust the zoom level.</li></ul>"
+"<li><ul>"Swipe with 2 or more fingers to scroll.
+"<li>Pinch with 2 or more fingers to adjust the zoom level.</li></ul></li>"
 
 "<b>To zoom temporarily</b>", quickly tap the screen 3 times and hold down your finger on the third tap.
-"<ul><li>Swipe to move around the screen.</li>"
-"<li>Lift your finger to zoom out.</li></ul>"
+"<li><ul>"Swipe to move around the screen.
+"<li>Lift your finger to zoom out.</li></ul></li>"
 
 You can't zoom in on the keyboard or navigation bar."</string>
     <string name="accessibility_screen_magnification_summary_1">"Zoom in and out by triple tapping anywhere on the screen with one finger.
@@ -9371,4 +9371,15 @@ Incorrect"</string>
     <string name="rom_date_details">20.04.18</string>
     <string name="rom_developer">Rom Developer</string>
     <string name="rom_developer_name">Tkkg1994</string>
+    <string name="led_indicator_charging">Charging</string>
+    <string name="led_indicator_charging_summary">Light up the red LED when the device is charging while the screen is off.</string>
+    <string name="led_indicator_notifications">Notifications</string>
+    <string name="led_indicator_notifications_summary">Light up the blue LED when there are missed calls, unread messages, or application notifications while the screen is off.</string>
+    <string name="led_indicator_voice_recording">Voice recording</string>
+    <string name="led_indicator_voice_recording_summary">Blink the blue LED when voice recording is in progress while the screen is off.</string>
+    <string name="led_indicator_incoming_notification">Incoming notification</string>
+    <string name="led_indicator_incoming_notification_summary">LED lights up when you receive a notification.</string>
+    <string name="led_indicator_low_battery">Low battery</string>
+    <string name="led_indicator_low_battery_summary">The red LED blinks when the battery power is low while the screen is off.</string>
+    <string name="notification_reminder_led_toast">LED indicator for Accessibility and Sounds and notifications cannot be enabled at same time. Go to Settings > Accessibility > Notification reminder, then disable LED indicator first.</string>
 </resources>

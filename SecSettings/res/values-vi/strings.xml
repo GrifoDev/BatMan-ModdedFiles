@@ -94,24 +94,24 @@ Khi bật chức năng này, Tự động xoay màn hình sẽ tắt. Tất cả
     <string name="accessibility_screen_magnification_navbar_summary">"Khi bật phóng to, hãy sử dụng phím Hỗ trợ ở cuối màn hình để phóng to nhanh nội dung trên màn hình.
 
 "<b>Để thu/phóng</b>", hãy chạm phím Hỗ trợ, sau đó chạm bất kỳ đâu trên màn hình.
-"<ul><li>Vuốt bằng 2 hoặc nhiều ngón tay để cuộn.</li>"
-"<li>Chụm 2 hoặc nhiều ngón tay để điều chỉnh độ thu/phóng.</li></ul>"
+"<li><ul>"Vuốt bằng 2 hoặc nhiều ngón tay để cuộn.
+"<li>Chụm 2 hoặc nhiều ngón tay để điều chỉnh độ thu/phóng.</li></ul></li>"
 
 "<b>Để thu/phóng tạm thời</b>", hãy chạm phím Hỗ trợ rồi chạm và giữ bất kỳ đâu trên màn hình.
-"<ul><li>Vuốt để di chuyển xung quanh màn hình.</li>"
-"<li>Nhấc ngón tay lên để thu nhỏ.</li></ul>"
+"<li><ul>"Vuốt để di chuyển xung quanh màn hình.
+"<li>Nhấc ngón tay lên để thu nhỏ.</li></ul></li>"
 
 Bạn không thể phóng to trên bàn phím hoặc thanh điều hướng."</string>
     <string name="accessibility_screen_magnification_navbar_title">Chạm phím để phóng to</string>
     <string name="accessibility_screen_magnification_short_summary">Dùng cử chỉ để phóng to nội dung trên màn hình.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Chạm màn hình ba lần hoặc chạm phím để phóng to</string>
     <string name="accessibility_screen_magnification_summary"><b>Để thu/phóng</b>", hãy chạm nhanh vào màn hình 3 lần.
-"<ul><li>Vuốt bằng 2 hoặc nhiều ngón tay để cuộn.</li>"
-"<li>Chụm 2 hoặc nhiều ngón tay để điều chỉnh độ thu/phóng.</li></ul>"
+"<li><ul>"Vuốt bằng 2 hoặc nhiều ngón tay để cuộn.
+"<li>Chụm 2 hoặc nhiều ngón tay để điều chỉnh độ thu/phóng.</li></ul></li>"
 
 "<b>Để thu/phóng tạm thời</b>", hãy chạm nhanh vào màn hình 3 lần và giữ ngón tay ở lần chạm thứ 3.
-"<ul><li>Vuốt để di chuyển xung quanh màn hình.</li>"
-"<li>Nhấc ngón tay lên để thu nhỏ.</li></ul>"
+"<li><ul>"Vuốt để di chuyển xung quanh màn hình.
+"<li>Nhấc ngón tay lên để thu nhỏ.</li></ul></li>"
 
 Bạn không thể phóng to trên bàn phím hoặc thanh điều hướng."</string>
     <string name="accessibility_screen_magnification_summary_1">"Thu nhỏ và phóng to bằng cách chạm ba lần vào bất kỳ đâu trên màn hình bằng một ngón tay.

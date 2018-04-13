@@ -94,24 +94,24 @@ När den här funktionen är aktiverad är Rotera skärm automatiskt inaktiverat
     <string name="accessibility_screen_magnification_navbar_summary">"När förstoring är på kan du snabbt förstora innehållet på skärmen med hjälp av knappen Tillgänglighet.
 
 "<b>Zooma</b>" genom att trycka på Tillgänglighet och sedan någonstans på skärmen.
-"<ul><li>Rulla genom att svepa med två eller fler fingrar.</li>"
-"<li>Nyp med två eller fler fingrar om du vill justera zoomningsnivån.</li></ul>"
+"<li><ul>"Rulla genom att svepa med två eller fler fingrar.
+"<li>Nyp med två eller fler fingrar om du vill justera zoomningsnivån.</li></ul></li>"
 
 "<b>Zooma tillfälligt</b>" genom att trycka Tillgänglighet och håll ned någonstans på skärmen.
-"<ul><li>Svep om du vill flytta runt på skärmen.</li>"
-"<li>Zooma ut genom att lyfta fingret.</li></ul>"
+"<li><ul>"Svep om du vill flytta runt på skärmen.
+"<li>Zooma ut genom att lyfta fingret.</li></ul></li>"
 
 Det går inte att zooma in på tangentbordet eller navigeringsfältet."</string>
     <string name="accessibility_screen_magnification_navbar_title">Tryck på knappen för förstoring</string>
     <string name="accessibility_screen_magnification_short_summary">Använd gester om du vill förstora innehållet på skärmen.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Trippeltryck på skärmen eller tryck på knappen för förstoring</string>
     <string name="accessibility_screen_magnification_summary"><b>Zooma</b>" genom att trycka snabbt tre gånger på skärmen.
-"<ul><li>Rulla genom att svepa med två eller fler fingrar.</li>"
-"<li>Nyp med två eller fler fingrar om du vill justera zoomningsnivån.</li></ul>"
+"<li><ul>"Rulla genom att svepa med två eller fler fingrar.
+"<li>Nyp med två eller fler fingrar om du vill justera zoomningsnivån.</li></ul></li>"
 
 "<b>Zooma tillfälligt</b>" genom att trycka snabbt tre gånger och på det tredje trycket hålla kvar fingret på skärmen.
-"<ul><li>Svep om du vill flytta runt på skärmen.</li>"
-"<li>Zooma ut genom att lyfta fingret.</li></ul>"
+"<li><ul>"Svep om du vill flytta runt på skärmen.
+"<li>Zooma ut genom att lyfta fingret.</li></ul></li>"
 
 Det går inte att zooma in på tangentbordet eller navigeringsfältet."</string>
     <string name="accessibility_screen_magnification_summary_1">"Zooma in och ut genom att trycka tre gånger var som helst på skärmen med ett finger.

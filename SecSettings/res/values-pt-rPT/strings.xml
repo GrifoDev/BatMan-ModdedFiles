@@ -83,24 +83,24 @@ Enquanto esta função estiver activa, a Rotação automática do ecrã estará 
     <string name="accessibility_screen_magnification_navbar_summary">"Quando a ampliação está ligada, utilize o botão Acessibilidade na parte inferior do ecrã para ampliar rapidamente os conteúdos no ecrã.
 
 "<b>Para ampliar e reduzir</b>", toque no botão Acessibilidade e depois toque em qualquer ponto do ecrã.
-"<ul><li>Deslize com 2 ou mais dedos para se deslocar no ecrã.</li>"
-"<li>Junte 2 ou mais dedos para ajustar o nível de zoom.</li></ul>"
+"<li><ul>"Deslize com 2 ou mais dedos para se deslocar no ecrã.
+"<li>Junte 2 ou mais dedos para ajustar o nível de zoom.</li></ul></li>"
 
 "<b>Para ampliar e reduzir temporariamente</b>", toque no botão Acessibilidade e depois toque sem soltar em qualquer ponto do ecrã.
-"<ul><li>Deslize para se mover por todo o ecrã.</li>"
-"<li>Levante o dedo para reduzir.</li></ul>"
+"<li><ul>"Deslize para se mover por todo o ecrã.
+"<li>Levante o dedo para reduzir.</li></ul></li>"
 
 Não pode ampliar no teclado nem na barra de navegação."</string>
     <string name="accessibility_screen_magnification_navbar_title">Tocar no botão para ampliar</string>
     <string name="accessibility_screen_magnification_short_summary">Utilizar gestos para ampliar o conteúdo do ecrã.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Tocar três vezes no ecrã ou tocar no botão para ampliar</string>
     <string name="accessibility_screen_magnification_summary"><b>Para ampliar e reduzir</b>", toque rapidamente no ecrã 3 vezes.
-"<ul><li>Deslize com 2 ou mais dedos para se deslocar no ecrã.</li>"
-"<li>Junte 2 ou mais dedos para ajustar o nível de zoom.</li></ul>"
+"<li><ul>"Deslize com 2 ou mais dedos para se deslocar no ecrã.
+"<li>Junte 2 ou mais dedos para ajustar o nível de zoom.</li></ul></li>"
 
 "<b>Para ampliar e reduzir temporariamente</b>", toque rapidamente no ecrã 3 vezes e não levante o dedo no terceiro toque.
-"<ul><li>Deslize para se mover por todo o ecrã.</li>"
-"<li>Levante o dedo para reduzir.</li></ul>"
+"<li><ul>"Deslize para se mover por todo o ecrã.
+"<li>Levante o dedo para reduzir.</li></ul></li>"
 
 Não pode ampliar no teclado nem na barra de navegação."</string>
     <string name="accessibility_screen_magnification_summary_1">"Amplie e reduza tocando três vezes com um dedo em qualquer lugar do ecrã.

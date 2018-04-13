@@ -94,24 +94,24 @@ Atunci când funcția este activată, opțiunea Rotire automată ecran va fi dez
     <string name="accessibility_screen_magnification_navbar_summary">"Atunci când funcția de mărire este pornită, utilizați butonul Accesibilitate din partea de jos a ecranului pentru a mări rapid conținutul de pe ecran.
 
 "<b>Pentru a mări</b>", atingeți butonul Accesibilitate, apoi atingeți orice punct de pe ecran.
-"<ul><li>Pentru a derula, glisați cu 2 sau mai multe degete.</li>"
-"<li>Pentru a ajusta nivelul de mărire, apropiați 2 sau mai multe degete.</li></ul>"
+"<li><ul>"Pentru a derula, glisați cu 2 sau mai multe degete.
+"<li>Pentru a ajusta nivelul de mărire, apropiați 2 sau mai multe degete.</li></ul></li>"
 
 "<b>Pentru a mări temporar</b>", atingeți butonul Accesibilitate, apoi mențineți apăsat în orice punct de pe ecran.
-"<ul><li>Pentru a vă deplasa pe ecran, glisați.</li>"
-"<li>Pentru a micșora, ridicați degetul.</li></ul>"
+"<li><ul>"Pentru a vă deplasa pe ecran, glisați.
+"<li>Pentru a micșora, ridicați degetul.</li></ul></li>"
 
 Nu puteți mări pe de pe tastatură sau din bara de navigare."</string>
     <string name="accessibility_screen_magnification_navbar_title">Atingeți butonul pentru a mări</string>
     <string name="accessibility_screen_magnification_short_summary">Utilizați gesturile pentru a mări conținutul de pe ecran.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Atingeți ecranul de trei ori sau atingeți butonul pentru a mări</string>
     <string name="accessibility_screen_magnification_summary"><b>Pentru a mări</b>", atingeți ecranul rapid de 3 ori.
-"<ul><li>Pentru a derula, glisați cu 2 sau mai multe degete.</li>"
-"<li>Pentru a ajusta nivelul de mărire, apropiați 2 sau mai multe degete.</li></ul>"
+"<li><ul>"Pentru a derula, glisați cu 2 sau mai multe degete.
+"<li>Pentru a ajusta nivelul de mărire, apropiați 2 sau mai multe degete.</li></ul></li>"
 
 "<b>Pentru a mări temporar</b>", atingeți ecranul rapid de 3 ori și mențineți apăsat cu degetul la cea de-a treia atingere.
-"<ul><li>Pentru a vă deplasa pe ecran, glisați.</li>"
-"<li>Pentru a micșora, ridicați degetul.</li></ul>"
+"<li><ul>"Pentru a vă deplasa pe ecran, glisați.
+"<li>Pentru a micșora, ridicați degetul.</li></ul></li>"
 
 Nu puteți mări pe de pe tastatură sau din bara de navigare."</string>
     <string name="accessibility_screen_magnification_summary_1">"Măriți și micșorați atingând cu un deget orice punct de pe ecran.

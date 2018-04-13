@@ -96,24 +96,24 @@ Když tuto funkci zapnete, Automatické otočení obrazovky se vypne. Všechny h
     <string name="accessibility_screen_magnification_navbar_summary">"Když je zapnuté zvětšení, použijte tlačítko Usnadnění u dolního okraje obrazovky k rychlému zvětšení obsahu na obrazovce.
 
 "<b>Pro zvětšení</b>" klepněte na tlačítko Usnadnění a potom klepněte kdekoli na obrazovku.
-"<ul><li>Potažením 2 nebo více prsty posunete obrazovku.</li>"
-"<li>Stažením 2 nebo více prstů upravíte úroveň zvětšení.</li></ul>"
+"<li><ul>"Potažením 2 nebo více prsty posunete obrazovku.
+"<li>Stažením 2 nebo více prstů upravíte úroveň zvětšení.</li></ul></li>"
 
 "<b>Pro dočasné zvětšení</b>" klepněte na tlačítko Usnadnění potom klepněte a podržte kdekoli na obrazovce.
-"<ul><li>Potažením se pohybujete po obrazovce.</li>"
-"<li>Zvednutím prstu zmenšíte obraz.</li></ul>"
+"<li><ul>"Potažením se pohybujete po obrazovce.
+"<li>Zvednutím prstu zmenšíte obraz.</li></ul></li>"
 
 Zvětšení nelze použít na klávesnici nebo navigačním panelu."</string>
     <string name="accessibility_screen_magnification_navbar_title">Klepnutím na tlačítko zvětšíte</string>
     <string name="accessibility_screen_magnification_short_summary">Pomocí gest zvětšíte obsah na obrazovce.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Trojím klepnutím na obrazovku nebo klepnutím na tlačítko zvětšíte</string>
     <string name="accessibility_screen_magnification_summary"><b>Pro zvětšení</b>" třikrát rychle klepněte na obrazovku.
-"<ul><li>Potažením 2 nebo více prsty posunete obrazovku.</li>"
-"<li>Stažením 2 nebo více prstů upravíte úroveň zvětšení.</li></ul>"
+"<li><ul>"Potažením 2 nebo více prsty posunete obrazovku.
+"<li>Stažením 2 nebo více prstů upravíte úroveň zvětšení.</li></ul></li>"
 
 "<b>Pro dočasné zvětšení</b>" třikrát rychle klepněte na obrazovku a při třetím klepnutí podržte prst.
-"<ul><li>Potažením se pohybujete po obrazovce.</li>"
-"<li>Zvednutím prstu zmenšíte obraz.</li></ul>"
+"<li><ul>"Potažením se pohybujete po obrazovce.
+"<li>Zvednutím prstu zmenšíte obraz.</li></ul></li>"
 
 Zvětšení nelze použít na klávesnici nebo navigačním panelu."</string>
     <string name="accessibility_screen_magnification_summary_1">"Můžete zvětšit a zmenšit obraz trojitým klepnutím jedním prstem kdekoli na obrazovce.

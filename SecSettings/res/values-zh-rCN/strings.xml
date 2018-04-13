@@ -96,24 +96,24 @@
     <string name="accessibility_screen_magnification_navbar_summary">"在启用放大时，使用屏幕底部的辅助功能按钮可快速放大屏幕上的内容。
 
 "<b>若要缩放</b>"，请点击【辅助功能】按钮，然后点击屏幕上的任意位置。
-"<ul><li>用两根或更多手指滑动来滚动屏幕。</li>"
-"<li>用两根或更多手指捏合来调整缩放水平。</li></ul>"
+"<li><ul>"用两根或更多手指滑动来滚动屏幕。
+"<li>用两根或更多手指捏合来调整缩放水平。</li></ul></li>"
 
 "<b>若要暂时缩放</b>"，请快速点击辅助功能按钮，然后长按屏幕上的任意位置。
-"<ul><li>滑动手指来沿着屏幕移动。</li>"
-"<li>抬起手指来放大。</li></ul>"
+"<li><ul>"滑动手指来沿着屏幕移动。
+"<li>抬起手指来放大。</li></ul></li>"
 
 您不能通过键盘或导航栏进行缩小。"</string>
     <string name="accessibility_screen_magnification_navbar_title">点击按钮来放大</string>
     <string name="accessibility_screen_magnification_short_summary">使用手势放大屏幕上的内容</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">点击屏幕三次或点击按钮来放大</string>
     <string name="accessibility_screen_magnification_summary"><b>若要缩放</b>"，请快速点击屏幕 3 次。
-"<ul><li>用两根或更多手指滑动来滚动屏幕。</li>"
-"<li>用两根或更多手指捏合来调整缩放水平。</li></ul>"
+"<li><ul>"用两根或更多手指滑动来滚动屏幕。
+"<li>用两根或更多手指捏合来调整缩放水平。</li></ul></li>"
 
 "<b>若要暂时缩放</b>"，请快速点击屏幕 3 次并在第三次点击时按住手指。
-"<ul><li>滑动手指来沿着屏幕移动。</li>"
-"<li>抬起手指来缩小。</li></ul>"
+"<li><ul>"滑动手指来沿着屏幕移动。
+"<li>抬起手指来缩小。</li></ul></li>"
 
 您不能通过键盘或导航栏进行放大。"</string>
     <string name="accessibility_screen_magnification_summary_1">"可以用一根手指在屏幕上任一处点击三下来放大和缩小。

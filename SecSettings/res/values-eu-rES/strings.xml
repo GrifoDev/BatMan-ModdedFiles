@@ -76,24 +76,24 @@ Funtzioa gaituta dagoenean, Biratu automatikoki pantaila aukera desgaituko da. J
     <string name="accessibility_screen_magnification_navbar_summary">"Lupa aktibatuta dagoenean, erabili pantailaren behealdean dagoen Erabilerraztasun botoia pantailako edukia handitzeko.
 
 "<b>Zooma aplikatzeko</b>", ukitu Erabilerraztasun botoia, eta ondoren, ukitu pantailako edozein toki.
-"<ul><li>Gora edo behera egiteko, irristatu bi hatzekin edo gehiagorekin.</li>"
-"<li>Egin atximur bi hatzekin edo gehiagorekin zoom maila egokitzeko.</li></ul>"
+"<li><ul>"Gora edo behera egiteko, irristatu bi hatzekin edo gehiagorekin.
+"<li>Egin atximur bi hatzekin edo gehiagorekin zoom maila egokitzeko.</li></ul></li>"
 
 "<b>Zooma aldi baterako aplikatzeko</b>", ukitu Erabilerraztasun botoia, eta ondoren, ukitu eta eutsi pantailako edozein punturi.
-"<ul><li>Irristatu pantailan zehar mugitzeko.</li>"
-"<li>Jaso hatza txikitzeko.</li></ul>"
+"<li><ul>"Irristatu pantailan zehar mugitzeko.
+"<li>Jaso hatza txikitzeko.</li></ul></li>"
 
 Ezin da aplikatu zooma teklatuan edo nabigazio barran."</string>
     <string name="accessibility_screen_magnification_navbar_title">Ukitu botoia lupa erabiltzeko</string>
     <string name="accessibility_screen_magnification_short_summary">Erabili keinuak pantailako edukia handitzeko.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Ukitu hiru aldiz edo ukitu botoia lupa erabiltzeko</string>
     <string name="accessibility_screen_magnification_summary"><b>Zooma aplikatzeko</b>", ukitu pantaila bizkor hiru aldiz.
-"<ul><li>Gora edo behera egiteko, irristatu bi hatzekin edo gehiagorekin.</li>"
-"<li>Egin atximur bi hatzekin edo gehiagorekin zoom maila egokitzeko.</li></ul>"
+"<li><ul>"Gora edo behera egiteko, irristatu bi hatzekin edo gehiagorekin.
+"<li>Egin atximur bi hatzekin edo gehiagorekin zoom maila egokitzeko.</li></ul></li>"
 
 "<b>Zooma aldi baterako aplikatzeko</b>", ukitu pantaila bizkor hiru aldiz, hirugarrenean hatza sakatuta mantenduz.
-"<ul><li>Irristatu pantailan zehar mugitzeko.</li>"
-"<li>Jaso hatza txikitzeko.</li></ul>"
+"<li><ul>"Irristatu pantailan zehar mugitzeko.
+"<li>Jaso hatza txikitzeko.</li></ul></li>"
 
 Ezin da aplikatu zooma teklatuan edo nabigazio barran."</string>
     <string name="accessibility_screen_magnification_summary_1">"Handiagotu eta txikiagotu pantailako edozein toki hatz batez hiru aldiz ukituta.

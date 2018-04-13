@@ -76,24 +76,24 @@ Kej ta fōnkcyjo je załōnczōno, fōnkcyjo Autōmatyczny zwyrt ekranu bydzie w
     <string name="accessibility_screen_magnification_navbar_summary">"Kej powielgszanie je załōnczōne, użyj knefel Dostympnoś na spodku ekranu, coby gibko powielgszyć treść na ekranie.
 
 "<b>Coby powielgszyć</b>", tyknij knefel Dostympnoś, a potym tyknij leda kaj na ekranie.
-"<ul><li>Szibnij nojmynij 2 palcami, coby przewinōńć.</li>"
-"<li>Szczypnij nojmynij 2 palcami, coby przipasować poziōm zwielgszanio.</li></ul>"
+"<li><ul>"Szibnij nojmynij 2 palcami, coby przewinōńć.
+"<li>Szczypnij nojmynij 2 palcami, coby przipasować poziōm zwielgszanio.</li></ul></li>"
 
 "<b>Coby bez ta chwila powielgszyć</b>", tyknij knefel Dostympnoś, a potym tyknij ekranu i trzim w leda kerym placu.
-"<ul><li>Przeciōngej, coby ruszać sie po ekranie.</li>"
-"<li>Dźwignij palec, coby pomyńszyć.</li></ul>"
+"<li><ul>"Przeciōngej, coby ruszać sie po ekranie.
+"<li>Dźwignij palec, coby pomyńszyć.</li></ul></li>"
 
 Niy poradzisz powielgszać z tastatury ani pŏska ôd kerowanio."</string>
     <string name="accessibility_screen_magnification_navbar_title">Dotkn. przycisku, by powiększyć</string>
     <string name="accessibility_screen_magnification_short_summary">Coby zwielgszyć zawartość ekranu, używej gestōw.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Tyknij trzi razy ekranu abo tyknij knefel, coby powielgszyć</string>
     <string name="accessibility_screen_magnification_summary"><b>Coby powielgszyć</b>", gibko tyknij ekranu 3 razy.
-"<ul><li>Szibnij nojmynij 2 palcami, coby przewinōńć.</li>"
-"<li>Szczypnij nojmynij 2 palcami, coby przipasować poziōm zwielgszanio.</li></ul>"
+"<li><ul>"Szibnij nojmynij 2 palcami, coby przewinōńć.
+"<li>Szczypnij nojmynij 2 palcami, coby przipasować poziōm zwielgszanio.</li></ul></li>"
 
 "<b>Coby bez ta chwila powielgszyć</b>", gibko tyknij ekranu 3 razy i trzim palec przi trzecim tykniyńciu.
-"<ul><li>Przeciōngej, coby ruszać sie po ekranie.</li>"
-"<li>Dźwignij palec, coby pomyńszyć.</li></ul>"
+"<li><ul>"Przeciōngej, coby ruszać sie po ekranie.
+"<li>Dźwignij palec, coby pomyńszyć.</li></ul></li>"
 
 Niy poradzisz powielgszać z tastatury ani pŏska ôd kerowanio."</string>
     <string name="accessibility_screen_magnification_summary_1">"Możesz powielgszać i pōmyńszać bez tykniyńcie 3 razy leda jakigo placu na ekranie jednym palcym.

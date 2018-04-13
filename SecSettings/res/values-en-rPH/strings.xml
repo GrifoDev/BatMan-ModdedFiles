@@ -76,24 +76,24 @@ While this function is enabled, Auto rotate screen will be disabled. All calls, 
     <string name="accessibility_screen_magnification_navbar_summary">"When magnification is turned on, use the Accessibility button at the bottom of the screen to quickly magnify on-screen content.
 
 "<b>To zoom</b>", tap the Accessibility button, then tap anywhere on the screen.
-"<ul><li>Swipe with 2 or more fingers to scroll.</li>"
-"<li>Pinch with 2 or more fingers to adjust the zoom level.</li></ul>"
+"<li><ul>"Swipe with 2 or more fingers to scroll.
+"<li>Pinch with 2 or more fingers to adjust the zoom level.</li></ul></li>"
 
 "<b>To zoom temporarily</b>", tap the Accessibility button, then touch and hold anywhere on the screen.
-"<ul><li>Swipe to move around the screen.</li>"
-"<li>Lift your finger to zoom out.</li></ul>"
+"<li><ul>"Swipe to move around the screen.
+"<li>Lift your finger to zoom out.</li></ul></li>"
 
 You can't zoom in on the keyboard or navigation bar."</string>
     <string name="accessibility_screen_magnification_navbar_title">Tap button to magnify</string>
     <string name="accessibility_screen_magnification_short_summary">Use gestures to magnify content on the screen.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Triple tap screen or tap button to magnify</string>
     <string name="accessibility_screen_magnification_summary"><b>To zoom</b>", quickly tap the screen 3 times.
-"<ul><li>Swipe with 2 or more fingers to scroll.</li>"
-"<li>Pinch with 2 or more fingers to adjust the zoom level.</li></ul>"
+"<li><ul>"Swipe with 2 or more fingers to scroll.
+"<li>Pinch with 2 or more fingers to adjust the zoom level.</li></ul></li>"
 
 "<b>To zoom temporarily</b>", quickly tap the screen 3 times and hold down your finger on the third tap.
-"<ul><li>Swipe to move around the screen.</li>"
-"<li>Lift your finger to zoom out.</li></ul>"
+"<li><ul>"Swipe to move around the screen.
+"<li>Lift your finger to zoom out.</li></ul></li>"
 
 You can't zoom in on the keyboard or navigation bar."</string>
     <string name="accessibility_screen_magnification_summary_1">"Zoom in and out by triple tapping anywhere on the screen with one finger.

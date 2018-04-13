@@ -76,24 +76,24 @@ Bu funksiýa açyk wagty, Awto-aýlanyş ekrany ýapylar. Ähli jaňlar, käbir 
     <string name="accessibility_screen_magnification_navbar_summary">"Uladyş açyk bolanda ekranyndaky mazmuny basym ulaltmak üçin ekranyň aşagyndaky Elýeterlilik düwmesini ulanyň.
 
 "<b>Zumlamak</b>" üçin, Elýeterlilik düwmesini basyp soňra ekranda islendik ýere basyň.
-"<ul><li>Süýşürmek üçin 2 barmak bilen syryň.</li>"
-"<li>Zum derejesini sazlamak üçin 2 ýa-da has köp barmak bilen çümmükläň.</li></ul>"
+"<li><ul>"Süýşürmek üçin 2 barmak bilen syryň.
+"<li>Zum derejesini sazlamak üçin 2 ýa-da has köp barmak bilen çümmükläň.</li></ul></li>"
 
 "<b>Wagtlaýynça zumlamak üçin</b>", Elýeterlilik düwmesini basyp soňra ekranyň islendik ýeri basyp saklaň.
-"<ul><li>Ekranyň töwereginde gezmek üçin syryň.</li>"
-"<li>Daşa zumlamak üçin barmagyňyzy galdyryň.</li></ul>"
+"<li><ul>"Ekranyň töwereginde gezmek üçin syryň.
+"<li>Daşa zumlamak üçin barmagyňyzy galdyryň.</li></ul></li>"
 
 Klawiaturada ýa-da nawigasiýa panelinde ýakyna zumlap bilmersiňiz."</string>
     <string name="accessibility_screen_magnification_navbar_title">Ulaltmak üçin, düwmä basyň</string>
     <string name="accessibility_screen_magnification_short_summary">Ekrandaky materialy ulaltmak üçin, ümleri ulanyň.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Ulaltmak üçin ekrany üç gezek basyň ýa-da düwme basyň</string>
     <string name="accessibility_screen_magnification_summary"><b>Zumlamak</b>" üçin, basym ekrany 3 gezek basyň.
-"<ul><li>Süýşürmek üçin, 2 ýa-da has köp barmak bilen syryň.</li>"
-"<li>Zum derejesini sazlamak üçin 2 ýa-da has köp barmak bilen çümmükläň.</li></ul>"
+"<li><ul>"Süýşürmek üçin, 2 ýa-da has köp barmak bilen syryň.
+"<li>Zum derejesini sazlamak üçin 2 ýa-da has köp barmak bilen çümmükläň.</li></ul></li>"
 
 "<b>Wagtlaýynça zumlamak üçin</b>", ekrany 3 gezek çalt basyň we barmagyňyzy üçünji basmada saklaň.
-"<ul><li>Ekranyň töwereginde gezmek üçin syryň.</li>"
-"<li>Daşa zumlamak üçin barmagyňyzy galdyryň.</li></ul>"
+"<li><ul>"Ekranyň töwereginde gezmek üçin syryň.
+"<li>Daşa zumlamak üçin barmagyňyzy galdyryň.</li></ul></li>"
 
 Klawiaturada ýa-da nawigasiýa panelinde ýakyna zumlap bilmersiňiz."</string>
     <string name="accessibility_screen_magnification_summary_1">"Bir barmak bilen ekranyň islendik ýerine üç gezek basyp, ýakyna we daşa zumlaň.

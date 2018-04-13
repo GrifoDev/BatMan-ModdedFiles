@@ -92,24 +92,24 @@ Quando questa funzione è attivata, la rotazione automatica dello schermo verrà
     <string name="accessibility_screen_magnification_navbar_summary">"Quando la funzione di ingrandimento è attiva, utilizzate il pulsante Accessibilità in basso sullo schermo per ingrandire rapidamente i contenuti visualizzati.
 
 "<b>Per effettuare lo zoom</b>", toccate il pulsante Accessibilità, quindi toccate un punto qualsiasi dello schermo.
-"<ul><li>Trascinate con 2 o più dita per scorrere.</li>"
-"<li>Avvicinate 2 o più dita sullo schermo per regolare il livello di zoom.</li></ul>"
+"<li><ul>"Trascinate con 2 o più dita per scorrere.
+"<li>Avvicinate 2 o più dita sullo schermo per regolare il livello di zoom.</li></ul></li>"
 
 "<b>Per effettuare lo zoom temporaneo</b>", toccate il pulsante Accessibilità, quindi tenete premuto un punto qualsiasi dello schermo.
-"<ul><li>Trascinate il dito per muovervi nella schermata.</li>"
-"<li>Sollevate il dito per ridurre lo zoom.</li></ul>"
+"<li><ul>"Trascinate il dito per muovervi nella schermata.
+"<li>Sollevate il dito per ridurre lo zoom.</li></ul></li>"
 
 Non potete effettuare lo zoom sulla tastiera o sulla barra di navigazione."</string>
     <string name="accessibility_screen_magnification_navbar_title">Toccate pulsante per ingrandire</string>
     <string name="accessibility_screen_magnification_short_summary">Utilizzate i gesti per ingrandire i contenuti sullo schermo.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Toccate tre volte lo schermo o toccate il pulsante per ingrandire</string>
     <string name="accessibility_screen_magnification_summary"><b>Per effettuare lo zoom</b>", toccate rapidamente lo schermo per 3 volte.
-"<ul><li>Trascinate con 2 o più dita per scorrere.</li>"
-"<li>Avvicinate 2 o più dita sullo schermo per regolare il livello di zoom.</li></ul>"
+"<li><ul>"Trascinate con 2 o più dita per scorrere.
+"<li>Avvicinate 2 o più dita sullo schermo per regolare il livello di zoom.</li></ul></li>"
 
 "<b>Per effettuare lo zoom temporaneo</b>", toccate rapidamente lo schermo per 3 volte e tenete premuto il dito al terzo tocco.
-"<ul><li>Trascinate il dito per muovervi nella schermata.</li>"
-"<li>Sollevate il dito per ridurre lo zoom.</li></ul>"
+"<li><ul>"Trascinate il dito per muovervi nella schermata.
+"<li>Sollevate il dito per ridurre lo zoom.</li></ul></li>"
 
 Non potete effettuare lo zoom sulla tastiera o sulla barra di navigazione."</string>
     <string name="accessibility_screen_magnification_summary_1">"Potete ridurre e ingrandire toccando tre volte con un dito in qualsiasi area dello schermo.

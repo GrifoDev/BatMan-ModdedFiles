@@ -96,24 +96,24 @@ Wenn diese Funktion aktiviert ist, wird „Bildschirm drehen“ deaktiviert. All
     <string name="accessibility_screen_magnification_navbar_summary">"Wenn die Vergrößerung aktiviert ist, verwenden Sie die Eingabehilfe-Schaltfläche unten im Bildschirm, um Inhalte auf dem Bildschirm schnell zu vergrößern.
 
 Tippen Sie "<b>zum Zoomen</b>" auf die Eingabehilfe-Schaltfläche und tippen Sie dann auf eine beliebige Stelle auf dem Bildschirm.
-"<ul><li>Streichen Sie mit mindestens 2 Fingern, um zu scrollen.</li>"
-"<li>Ziehen Sie 2 oder mehr Finger zusammen, um die Zoomstufe einzustellen.</li></ul>"
+"<li><ul>"Streichen Sie mit mindestens 2 Fingern, um zu scrollen.
+"<li>Ziehen Sie 2 oder mehr Finger zusammen, um die Zoomstufe einzustellen.</li></ul></li>"
 
 "<b>Zum vorübergehenden Zoomen</b>" tippen Sie auf die Eingabehilfe-Schaltfläche und halten Sie dann eine beliebige Stelle auf dem Bildschirm gedrückt.
-"<ul><li>Streichen Sie zum Bewegen auf dem Bildschirm.</li>"
-"<li>Heben Sie Ihren Finger an, um herauszuzoomen</li></ul>"
+"<li><ul>"Streichen Sie zum Bewegen auf dem Bildschirm.
+"<li>Heben Sie Ihren Finger an, um herauszuzoomen</li></ul></li>"
 
 Über die Tastatur oder die Navigationsleiste können Sie nicht heranzoomen."</string>
     <string name="accessibility_screen_magnification_navbar_title">Zum Vergröß. auf Schaltfl. tippen</string>
     <string name="accessibility_screen_magnification_short_summary">Gesten verwenden, um Inhalt auf dem Bildschirm zu vergrößern.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Zum Vergrößern dreimal auf den Bildschirm tippen oder auf die Schaltfläche tippen</string>
     <string name="accessibility_screen_magnification_summary">Tippen Sie <b>zum Zoomen</b>" 3-mal schnell hintereinander auf den Bildschirm.
-"<ul><li>Streichen Sie mit mindestens 2 Fingern, um zu scrollen.</li>"
-"<li>Ziehen Sie 2 oder mehr Finger zusammen, um die Zoomstufe einzustellen.</li></ul>"
+"<li><ul>"Streichen Sie mit mindestens 2 Fingern, um zu scrollen.
+"<li>Ziehen Sie 2 oder mehr Finger zusammen, um die Zoomstufe einzustellen.</li></ul></li>"
 
 "<b>Zum vorübergehenden Zoomen</b>" tippen Sie 3-mal schnell hintereinander auf den Bildschirm und halten den Bildschirm beim dritten Tippen gedrückt.
-"<ul><li>Streichen Sie zum Bewegen auf dem Bildschirm.</li>"
-"<li>Heben Sie Ihren Finger an, um herauszuzoomen</li></ul>"
+"<li><ul>"Streichen Sie zum Bewegen auf dem Bildschirm.
+"<li>Heben Sie Ihren Finger an, um herauszuzoomen</li></ul></li>"
 
 Über die Tastatur oder die Navigationsleiste können Sie nicht heranzoomen."</string>
     <string name="accessibility_screen_magnification_summary_1">"Tippen Sie dreimal mit einem Finger auf den Bildschirm um heran- und wegzuzoomen.

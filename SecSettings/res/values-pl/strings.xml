@@ -94,24 +94,24 @@ Gdy ta funkcja jest włączona, funkcja Automatyczny obrót ekranu zostanie wył
     <string name="accessibility_screen_magnification_navbar_summary">"Kiedy powiększanie jest włączone, użyj przycisku Dostępność na dole ekranu, aby szybko powiększyć zawartość na ekranie.
 
 "<b>Aby powiększyć</b>", dotknij przycisku Dostępność, a następnie dotknij gdziekolwiek na ekranie.
-"<ul><li>Przeciągnij co najmniej 2 palcami, aby przewinąć.</li>"
-"<li>Uszczypnij co najmniej 2 palcami, aby dostosować poziom powiększenia.</li></ul>"
+"<li><ul>"Przeciągnij co najmniej 2 palcami, aby przewinąć.
+"<li>Uszczypnij co najmniej 2 palcami, aby dostosować poziom powiększenia.</li></ul></li>"
 
 "<b>Aby tymczasowo powiększyć</b>", dotknij przycisku Dostępność, a następnie dotknij ekranu i przytrzymaj w dowolnym miejscu.
-"<ul><li>Przeciągaj, aby poruszać się po ekranie.</li>"
-"<li>Unieś palec, aby pomniejszyć.</li></ul>"
+"<li><ul>"Przeciągaj, aby poruszać się po ekranie.
+"<li>Unieś palec, aby pomniejszyć.</li></ul></li>"
 
 Nie możesz powiększać z klawiatury ani paska nawigacyjnego."</string>
     <string name="accessibility_screen_magnification_navbar_title">Dotkn. przycisku, by powiększyć</string>
     <string name="accessibility_screen_magnification_short_summary">Aby powiększać zawartość ekranu, używaj gestów.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Dotknij trzykrotnie ekranu lub dotknij przycisku, aby powiększyć</string>
     <string name="accessibility_screen_magnification_summary"><b>Aby powiększyć</b>", szybko dotknij ekranu 3 razy.
-"<ul><li>Przeciągnij co najmniej 2 palcami, aby przewinąć.</li>"
-"<li>Uszczypnij co najmniej 2 palcami, aby dostosować poziom powiększenia.</li></ul>"
+"<li><ul>"Przeciągnij co najmniej 2 palcami, aby przewinąć.
+"<li>Uszczypnij co najmniej 2 palcami, aby dostosować poziom powiększenia.</li></ul></li>"
 
 "<b>Aby tymczasowo powiększyć</b>", szybko dotknij ekranu 3 razy i przytrzymaj palec przy trzecim dotknięciu.
-"<ul><li>Przeciągaj, aby poruszać się po ekranie.</li>"
-"<li>Unieś palec, aby pomniejszyć.</li></ul>"
+"<li><ul>"Przeciągaj, aby poruszać się po ekranie.
+"<li>Unieś palec, aby pomniejszyć.</li></ul></li>"
 
 Nie możesz powiększać z klawiatury ani paska nawigacyjnego."</string>
     <string name="accessibility_screen_magnification_summary_1">"Możesz powiększać i pomniejszać przez potrójne dotknięcie ekranu w dowolnym miejscu jednym palcem.

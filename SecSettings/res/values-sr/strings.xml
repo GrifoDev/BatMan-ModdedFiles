@@ -94,24 +94,24 @@ Dok je ova funkcija omogućena, opcija Automatski rotiraj ekran će biti onemogu
     <string name="accessibility_screen_magnification_navbar_summary">"Kada je uvećanje uključeno, koristite dugme Pristupačnost na dnu ekrana da biste brzo uvećali sadržaj na ekranu.
 
 "<b>Da biste zumirali</b>", kucnite dugme Pristupačnost, a zatim kucnite bilo gde na ekranu.
-"<ul><li>Prevucite koristeći 2 prsta ili više njih da biste listali.</li>"
-"<li>Skupite 2 prsta ili više njih da biste prilagodili nivo zumiranja.</li></ul>"
+"<li><ul>"Prevucite koristeći 2 prsta ili više njih da biste listali.
+"<li>Skupite 2 prsta ili više njih da biste prilagodili nivo zumiranja.</li></ul></li>"
 
 "<b>Da biste privremeno zumirali</b>", kucnite dugme Pristupačnost, a zatim kucnite i zadržite bilo gde na ekranu.
-"<ul><li>Prevucite da biste se kretali po ekranu.</li>"
-"<li>Podignite prst da biste umanjili prikaz.</li></ul>"
+"<li><ul>"Prevucite da biste se kretali po ekranu.
+"<li>Podignite prst da biste umanjili prikaz.</li></ul></li>"
 
 Ne možete da uvećate prikaz na tastaturi ili traci za navigaciju."</string>
     <string name="accessibility_screen_magnification_navbar_title">Kucnite dugme da biste uvećali</string>
     <string name="accessibility_screen_magnification_short_summary">Koristite pokrete da biste uvećali sadržaj na ekranu.</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Triput kucnite ekran ili kucnite dugme da biste uvećali</string>
     <string name="accessibility_screen_magnification_summary"><b>Da biste zumirali</b>", brzo kucnite ekran 3 puta.
-"<ul><li>Prevucite koristeći 2 prsta ili više njih da biste listali.</li>"
-"<li>Skupite 2 prsta ili više njih da biste prilagodili nivo zumiranja.</li></ul>"
+"<li><ul>"Prevucite koristeći 2 prsta ili više njih da biste listali.
+"<li>Skupite 2 prsta ili više njih da biste prilagodili nivo zumiranja.</li></ul></li>"
 
 "<b>Da biste privremeno zumirali</b>", brzo kucnite ekran 3 puta i zadržite prst kada treći put kucnete.
-"<ul><li>Prevucite da biste se kretali po ekranu.</li>"
-"<li>Podignite prst da biste umanjili prikaz.</li></ul>"
+"<li><ul>"Prevucite da biste se kretali po ekranu.
+"<li>Podignite prst da biste umanjili prikaz.</li></ul></li>"
 
 Ne možete da uvećate prikaz na tastaturi ili traci za navigaciju."</string>
     <string name="accessibility_screen_magnification_summary_1">"Uvećaj ili umanji prikaz tako što ćeš triput kucnuti bilo gde na ekranu koristeći jedan prst.

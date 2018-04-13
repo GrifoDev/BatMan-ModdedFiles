@@ -94,24 +94,24 @@
     <string name="accessibility_screen_magnification_navbar_summary">"画面拡大がONになっている場合、画面下部のユーザー補助ボタンを使用して画面上のコンテンツを素早く拡大することができます。
 
 "<b>ズームするには</b>"、ユーザー補助ボタンをタップしてから、画面の任意の場所をタップして操作します。
-"<ul><li>スクロールするには、2本以上の指でスワイプします。</li>"
-"<li>拡大/縮小を調整するには、2本以上の指でピンチします。</li></ul>"
+"<li><ul>"スクロールするには、2本以上の指でスワイプします。
+"<li>拡大/縮小を調整するには、2本以上の指でピンチします。</li></ul></li>"
 
 "<b>一時的にズームするには</b>"、ユーザー補助ボタンをタップしてから、画面の任意の場所を長押しします。
-"<ul><li>画面を移動するには、スワイプします。</li>"
-"<li>ズームアウトするには、指を離します。</li></ul>"
+"<li><ul>"画面を移動するには、スワイプします。
+"<li>ズームアウトするには、指を離します。</li></ul></li>"
 
 キーボードまたはナビゲーションバーをズームインすることはできません。"</string>
     <string name="accessibility_screen_magnification_navbar_title">ボタンをタップして拡大</string>
     <string name="accessibility_screen_magnification_short_summary">ジェスチャーで画面上のコンテンツを拡大します。</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">画面をトリプルタップ/ボタンをタップして拡大</string>
     <string name="accessibility_screen_magnification_summary"><b>ズームするには</b>"、画面を素早く3回タップします。
-"<ul><li>スクロールするには、2本以上の指でスワイプします。</li>"
-"<li>拡大/縮小を調整するには、2本以上の指でピンチします。</li></ul>"
+"<li><ul>"スクロールするには、2本以上の指でスワイプします。
+"<li>拡大/縮小を調整するには、2本以上の指でピンチします。</li></ul></li>"
 
 "<b>一時的にズームするには</b>"、画面を素早く3回タップし、3回目のタップは指を長押しします。
-"<ul><li>画面を移動するには、スワイプします。</li>"
-"<li>ズームアウトするには、指を離します。</li></ul>"
+"<li><ul>"画面を移動するには、スワイプします。
+"<li>ズームアウトするには、指を離します。</li></ul></li>"
 
 キーボードまたはナビゲーションバーをズームインすることはできません。"</string>
     <string name="accessibility_screen_magnification_summary_1">"画面の任意の場所を1本の指でトリプルタップすることで、表示を拡大/縮小することができます。
