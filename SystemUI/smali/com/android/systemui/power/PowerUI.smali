@@ -3354,8 +3354,6 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/power/PowerUI;->CriticalBatteryWarningPercentageNumber()I
 
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
-
     move-result v0
 
     iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mContext:Landroid/content/Context;
@@ -3371,8 +3369,6 @@
     move-result-object v4
 
     invoke-virtual {p0}, Lcom/android/systemui/power/PowerUI;->LowBatteryWarningPercentageNumber()I
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v1
 

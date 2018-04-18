@@ -35705,8 +35705,6 @@
 
     sput-boolean v0, Lcom/android/server/policy/PhoneWindowManager;->mAllowAllRotations:Z
 
-    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->longPressActions()V
-
     iget-object v10, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {v10}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;

@@ -18973,7 +18973,7 @@
 
     iput-object v6, p0, Landroid/widget/AbsListView;->mAccessibilityDelegate:Landroid/widget/AbsListView$ListItemAccessibilityDelegate;
 
-    :cond_8
+    :cond_9
     invoke-virtual {v0}, Landroid/view/View;->getAccessibilityDelegate()Landroid/view/View$AccessibilityDelegate;
 
     move-result-object v6

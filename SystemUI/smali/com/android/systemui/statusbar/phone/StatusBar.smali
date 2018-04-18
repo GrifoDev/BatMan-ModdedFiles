@@ -26414,7 +26414,7 @@
 
     if-eqz v0, :cond_22
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateGifAnimationView()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateGifAnimationView()V
 
     :cond_22
     return-void
@@ -30814,7 +30814,7 @@
 .method public setCustomBgView(I)V
     .locals 6
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -30828,7 +30828,7 @@
 
     move-result v3
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mNotificationPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mNotificationPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
 
     const-string v4, "CustomBg"
 
@@ -36914,7 +36914,7 @@
 
     const v3, 0x8
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
 
     const-string v8, "gif_animation"
 
@@ -36935,7 +36935,7 @@
     :cond_0
     const v3, 0x3
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
 
     const-string v8, "gif_animation"
 

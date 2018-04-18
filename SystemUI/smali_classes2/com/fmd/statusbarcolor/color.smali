@@ -221,7 +221,7 @@
 
     move-result-object v0
 
-    const v1, 0x1050017
+    const v1, 0x010502b1
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -827,7 +827,7 @@
 
     const v1, 0x8
 
-    const v0, 0x7f13054d
+    const v0, 0x7f0a05a6
 
     invoke-virtual {p0, v0}, Lcom/fmd/statusbarcolor/color;->findViewById(I)Landroid/view/View;
 
@@ -835,7 +835,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    const v0, 0x7f13054e
+    const v0, 0x7f0a05a7
 
     invoke-virtual {p0, v0}, Lcom/fmd/statusbarcolor/color;->findViewById(I)Landroid/view/View;
 
@@ -1902,7 +1902,7 @@
 
     const v1, 0x8
 
-    const v0, 0x7f13054e
+    const v0, 0x7f0a05a7
 
     invoke-virtual {p0, v0}, Lcom/fmd/statusbarcolor/color;->findViewById(I)Landroid/view/View;
 
@@ -1921,7 +1921,7 @@
 
     const v1, 0x8
 
-    const v0, 0x7f13054d
+    const v0, 0x7f0a05a6
 
     invoke-virtual {p0, v0}, Lcom/fmd/statusbarcolor/color;->findViewById(I)Landroid/view/View;
 
@@ -1947,7 +1947,7 @@
     :cond_39
     const v1, 0x8
 
-    const v0, 0x7f13054e
+    const v0, 0x7f0a05a7
 
     invoke-virtual {p0, v0}, Lcom/fmd/statusbarcolor/color;->findViewById(I)Landroid/view/View;
 
@@ -1966,7 +1966,7 @@
 
     const v1, 0x8
 
-    const v0, 0x7f13054d
+    const v0, 0x7f0a05a6
 
     invoke-virtual {p0, v0}, Lcom/fmd/statusbarcolor/color;->findViewById(I)Landroid/view/View;
 

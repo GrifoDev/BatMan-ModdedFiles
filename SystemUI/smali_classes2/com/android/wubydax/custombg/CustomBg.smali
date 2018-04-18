@@ -1,4 +1,4 @@
-.class public Lcom/android/wubydax/wubydax/CustomBg;
+.class public Lcom/android/wubydax/custombg/CustomBg;
 .super Landroid/widget/ImageView;
 .source "CustomBg.java"
 
@@ -6,7 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/wubydax/wubydax/CustomBg$CustomViewObserver;
+        Lcom/android/wubydax/custombg/CustomBg$CustomViewObserver;
     }
 .end annotation
 
@@ -38,7 +38,7 @@
 
 .field private mCustomBgType:I
 
-.field private mCustomViewObserver:Lcom/android/wubydax/wubydax/CustomBg$CustomViewObserver;
+.field private mCustomViewObserver:Lcom/android/wubydax/custombg/CustomBg$CustomViewObserver;
 
 .field private mImageUri:Landroid/net/Uri;
 
@@ -57,71 +57,71 @@
 
     const-string v1, "reboot_bg_image_uri"
 
-    iput-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->URI_KEY:Ljava/lang/String;
+    iput-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->URI_KEY:Ljava/lang/String;
 
     const-string v1, "reboot_bg_opacity"
 
-    iput-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->OPACITY_KEY:Ljava/lang/String;
+    iput-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->OPACITY_KEY:Ljava/lang/String;
 
     const-string v1, "reboot_crop_type"
 
-    iput-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->CROP_KEY:Ljava/lang/String;
+    iput-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->CROP_KEY:Ljava/lang/String;
 
     const-string v1, "reboot_bg_primary_color"
 
-    iput-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->COLOR_PRIMARY_KEY:Ljava/lang/String;
+    iput-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->COLOR_PRIMARY_KEY:Ljava/lang/String;
 
     const-string v1, "reboot_second_gradient_color"
 
-    iput-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->COLOR_SECONDARY_KEY:Ljava/lang/String;
+    iput-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->COLOR_SECONDARY_KEY:Ljava/lang/String;
 
     const-string v1, "reboot_bg_gradient_orientation"
 
-    iput-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->GRADIENT_ORIENTATION_KEY:Ljava/lang/String;
+    iput-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->GRADIENT_ORIENTATION_KEY:Ljava/lang/String;
 
     const-string v1, "reboot_custom_bg"
 
-    iput-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->MASTER_SWITCH_KEY:Ljava/lang/String;
+    iput-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->MASTER_SWITCH_KEY:Ljava/lang/String;
 
     const-string v1, "reboot_custom_bg_type"
 
-    iput-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->CUSTOM_BG_TYPE:Ljava/lang/String;
+    iput-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->CUSTOM_BG_TYPE:Ljava/lang/String;
 
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
-    new-instance v1, Lcom/android/wubydax/wubydax/CustomBg$CustomViewObserver;
+    new-instance v1, Lcom/android/wubydax/custombg/CustomBg$CustomViewObserver;
 
-    invoke-direct {v1, p0, v0}, Lcom/android/wubydax/wubydax/CustomBg$CustomViewObserver;-><init>(Lcom/android/wubydax/wubydax/CustomBg;Landroid/os/Handler;)V
+    invoke-direct {v1, p0, v0}, Lcom/android/wubydax/custombg/CustomBg$CustomViewObserver;-><init>(Lcom/android/wubydax/custombg/CustomBg;Landroid/os/Handler;)V
 
-    iput-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mCustomViewObserver:Lcom/android/wubydax/wubydax/CustomBg$CustomViewObserver;
+    iput-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->mCustomViewObserver:Lcom/android/wubydax/custombg/CustomBg$CustomViewObserver;
 
-    iput-object p1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContext:Landroid/content/Context;
+    iput-object p1, p0, Lcom/android/wubydax/custombg/CustomBg;->mContext:Landroid/content/Context;
 
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
+    iput-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
 
-    invoke-direct {p0}, Lcom/android/wubydax/wubydax/CustomBg;->initValues()V
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/wubydax/wubydax/CustomBg;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/wubydax/wubydax/CustomBg;->initValues()V
+    invoke-direct {p0}, Lcom/android/wubydax/custombg/CustomBg;->initValues()V
 
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/wubydax/wubydax/CustomBg;)V
+.method static synthetic access$000(Lcom/android/wubydax/custombg/CustomBg;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/wubydax/wubydax/CustomBg;->initView()V
+    invoke-direct {p0}, Lcom/android/wubydax/custombg/CustomBg;->initValues()V
+
+    return-void
+.end method
+
+.method static synthetic access$100(Lcom/android/wubydax/custombg/CustomBg;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/wubydax/custombg/CustomBg;->initView()V
 
     return-void
 .end method
@@ -129,9 +129,9 @@
 .method private getGradientOrientation()Landroid/graphics/drawable/GradientDrawable$Orientation;
     .locals 4
 
-    iget-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object v2, p0, Lcom/android/wubydax/wubydax/CustomBg;->GRADIENT_ORIENTATION_KEY:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/wubydax/custombg/CustomBg;->GRADIENT_ORIENTATION_KEY:Ljava/lang/String;
 
     const/4 v3, 0x0
 
@@ -186,11 +186,11 @@
 
     invoke-direct {v1, v8}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
 
-    iget-boolean v5, p0, Lcom/android/wubydax/wubydax/CustomBg;->mIsEnabled:Z
+    iget-boolean v5, p0, Lcom/android/wubydax/custombg/CustomBg;->mIsEnabled:Z
 
     if-eqz v5, :cond_0
 
-    iget v5, p0, Lcom/android/wubydax/wubydax/CustomBg;->mCustomBgType:I
+    iget v5, p0, Lcom/android/wubydax/custombg/CustomBg;->mCustomBgType:I
 
     packed-switch v5, :pswitch_data_0
 
@@ -199,14 +199,14 @@
     return-object v1
 
     :pswitch_0
-    iget-object v5, p0, Lcom/android/wubydax/wubydax/CustomBg;->mImageUri:Landroid/net/Uri;
+    iget-object v5, p0, Lcom/android/wubydax/custombg/CustomBg;->mImageUri:Landroid/net/Uri;
 
     if-eqz v5, :cond_0
 
     :try_start_0
-    iget-object v5, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object v5, p0, Lcom/android/wubydax/custombg/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object v6, p0, Lcom/android/wubydax/wubydax/CustomBg;->mImageUri:Landroid/net/Uri;
+    iget-object v6, p0, Lcom/android/wubydax/custombg/CustomBg;->mImageUri:Landroid/net/Uri;
 
     invoke-virtual {v5, v6}, Landroid/content/ContentResolver;->openInputStream(Landroid/net/Uri;)Ljava/io/InputStream;
 
@@ -218,7 +218,7 @@
 
     new-instance v2, Landroid/graphics/drawable/BitmapDrawable;
 
-    iget-object v5, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/wubydax/custombg/CustomBg;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -242,7 +242,7 @@
     :pswitch_1
     new-instance v1, Landroid/graphics/drawable/ColorDrawable;
 
-    iget v5, p0, Lcom/android/wubydax/wubydax/CustomBg;->mColorPrimary:I
+    iget v5, p0, Lcom/android/wubydax/custombg/CustomBg;->mColorPrimary:I
 
     invoke-direct {v1, v5}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
 
@@ -251,7 +251,7 @@
     :pswitch_2
     new-instance v1, Landroid/graphics/drawable/GradientDrawable;
 
-    invoke-direct {p0}, Lcom/android/wubydax/wubydax/CustomBg;->getGradientOrientation()Landroid/graphics/drawable/GradientDrawable$Orientation;
+    invoke-direct {p0}, Lcom/android/wubydax/custombg/CustomBg;->getGradientOrientation()Landroid/graphics/drawable/GradientDrawable$Orientation;
 
     move-result-object v5
 
@@ -259,13 +259,13 @@
 
     new-array v6, v6, [I
 
-    iget v7, p0, Lcom/android/wubydax/wubydax/CustomBg;->mColorPrimary:I
+    iget v7, p0, Lcom/android/wubydax/custombg/CustomBg;->mColorPrimary:I
 
     aput v7, v6, v8
 
     const/4 v7, 0x1
 
-    iget v8, p0, Lcom/android/wubydax/wubydax/CustomBg;->mColorSecondary:I
+    iget v8, p0, Lcom/android/wubydax/custombg/CustomBg;->mColorSecondary:I
 
     aput v8, v6, v7
 
@@ -294,9 +294,9 @@
 .method private getMyScaleType()Landroid/widget/ImageView$ScaleType;
     .locals 4
 
-    iget-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object v2, p0, Lcom/android/wubydax/wubydax/CustomBg;->CROP_KEY:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/wubydax/custombg/CustomBg;->CROP_KEY:Ljava/lang/String;
 
     const/4 v3, 0x0
 
@@ -341,9 +341,9 @@
 
     const/4 v3, 0x0
 
-    iget-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object v4, p0, Lcom/android/wubydax/wubydax/CustomBg;->URI_KEY:Ljava/lang/String;
+    iget-object v4, p0, Lcom/android/wubydax/custombg/CustomBg;->URI_KEY:Ljava/lang/String;
 
     invoke-static {v1, v4}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
@@ -364,11 +364,11 @@
     move-result-object v1
 
     :goto_0
-    iput-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mImageUri:Landroid/net/Uri;
+    iput-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->mImageUri:Landroid/net/Uri;
 
-    iget-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object v4, p0, Lcom/android/wubydax/wubydax/CustomBg;->MASTER_SWITCH_KEY:Ljava/lang/String;
+    iget-object v4, p0, Lcom/android/wubydax/custombg/CustomBg;->MASTER_SWITCH_KEY:Ljava/lang/String;
 
     invoke-static {v1, v4, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -379,11 +379,11 @@
     move v1, v2
 
     :goto_1
-    iput-boolean v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mIsEnabled:Z
+    iput-boolean v1, p0, Lcom/android/wubydax/custombg/CustomBg;->mIsEnabled:Z
 
-    iget-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object v2, p0, Lcom/android/wubydax/wubydax/CustomBg;->OPACITY_KEY:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/wubydax/custombg/CustomBg;->OPACITY_KEY:Ljava/lang/String;
 
     const/16 v4, 0xff
 
@@ -391,11 +391,11 @@
 
     move-result v1
 
-    iput v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mOpacity:I
+    iput v1, p0, Lcom/android/wubydax/custombg/CustomBg;->mOpacity:I
 
-    iget-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object v2, p0, Lcom/android/wubydax/wubydax/CustomBg;->COLOR_PRIMARY_KEY:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/wubydax/custombg/CustomBg;->COLOR_PRIMARY_KEY:Ljava/lang/String;
 
     const/4 v4, -0x1
 
@@ -403,11 +403,11 @@
 
     move-result v1
 
-    iput v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mColorPrimary:I
+    iput v1, p0, Lcom/android/wubydax/custombg/CustomBg;->mColorPrimary:I
 
-    iget-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object v2, p0, Lcom/android/wubydax/wubydax/CustomBg;->COLOR_SECONDARY_KEY:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/wubydax/custombg/CustomBg;->COLOR_SECONDARY_KEY:Ljava/lang/String;
 
     const v4, -0xff0001
 
@@ -415,23 +415,23 @@
 
     move-result v1
 
-    iput v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mColorSecondary:I
+    iput v1, p0, Lcom/android/wubydax/custombg/CustomBg;->mColorSecondary:I
 
-    invoke-direct {p0}, Lcom/android/wubydax/wubydax/CustomBg;->getMyScaleType()Landroid/widget/ImageView$ScaleType;
+    invoke-direct {p0}, Lcom/android/wubydax/custombg/CustomBg;->getMyScaleType()Landroid/widget/ImageView$ScaleType;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mScaleType:Landroid/widget/ImageView$ScaleType;
+    iput-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->mScaleType:Landroid/widget/ImageView$ScaleType;
 
-    iget-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object v2, p0, Lcom/android/wubydax/wubydax/CustomBg;->CUSTOM_BG_TYPE:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/wubydax/custombg/CustomBg;->CUSTOM_BG_TYPE:Ljava/lang/String;
 
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v1
 
-    iput v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mCustomBgType:I
+    iput v1, p0, Lcom/android/wubydax/custombg/CustomBg;->mCustomBgType:I
 
     return-void
 
@@ -449,19 +449,19 @@
 .method private initView()V
     .locals 2
 
-    invoke-direct {p0}, Lcom/android/wubydax/wubydax/CustomBg;->getMyDrawable()Landroid/graphics/drawable/Drawable;
+    invoke-direct {p0}, Lcom/android/wubydax/custombg/CustomBg;->getMyDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    iget v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mOpacity:I
+    iget v1, p0, Lcom/android/wubydax/custombg/CustomBg;->mOpacity:I
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
-    invoke-virtual {p0, v0}, Lcom/android/wubydax/wubydax/CustomBg;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, v0}, Lcom/android/wubydax/custombg/CustomBg;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mScaleType:Landroid/widget/ImageView$ScaleType;
+    iget-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->mScaleType:Landroid/widget/ImageView$ScaleType;
 
-    invoke-virtual {p0, v1}, Lcom/android/wubydax/wubydax/CustomBg;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
+    invoke-virtual {p0, v1}, Lcom/android/wubydax/custombg/CustomBg;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
     return-void
 .end method
@@ -475,99 +475,99 @@
 
     invoke-super {p0}, Landroid/widget/ImageView;->onAttachedToWindow()V
 
-    iget-object v0, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object v0, p0, Lcom/android/wubydax/custombg/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->MASTER_SWITCH_KEY:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->MASTER_SWITCH_KEY:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/wubydax/wubydax/CustomBg;->mCustomViewObserver:Lcom/android/wubydax/wubydax/CustomBg$CustomViewObserver;
+    iget-object v2, p0, Lcom/android/wubydax/custombg/CustomBg;->mCustomViewObserver:Lcom/android/wubydax/custombg/CustomBg$CustomViewObserver;
 
     invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    iget-object v0, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object v0, p0, Lcom/android/wubydax/custombg/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->CROP_KEY:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->CROP_KEY:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/wubydax/wubydax/CustomBg;->mCustomViewObserver:Lcom/android/wubydax/wubydax/CustomBg$CustomViewObserver;
+    iget-object v2, p0, Lcom/android/wubydax/custombg/CustomBg;->mCustomViewObserver:Lcom/android/wubydax/custombg/CustomBg$CustomViewObserver;
 
     invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    iget-object v0, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object v0, p0, Lcom/android/wubydax/custombg/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->OPACITY_KEY:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->OPACITY_KEY:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/wubydax/wubydax/CustomBg;->mCustomViewObserver:Lcom/android/wubydax/wubydax/CustomBg$CustomViewObserver;
+    iget-object v2, p0, Lcom/android/wubydax/custombg/CustomBg;->mCustomViewObserver:Lcom/android/wubydax/custombg/CustomBg$CustomViewObserver;
 
     invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    iget-object v0, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object v0, p0, Lcom/android/wubydax/custombg/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->COLOR_PRIMARY_KEY:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->COLOR_PRIMARY_KEY:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/wubydax/wubydax/CustomBg;->mCustomViewObserver:Lcom/android/wubydax/wubydax/CustomBg$CustomViewObserver;
+    iget-object v2, p0, Lcom/android/wubydax/custombg/CustomBg;->mCustomViewObserver:Lcom/android/wubydax/custombg/CustomBg$CustomViewObserver;
 
     invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    iget-object v0, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object v0, p0, Lcom/android/wubydax/custombg/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->GRADIENT_ORIENTATION_KEY:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->GRADIENT_ORIENTATION_KEY:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/wubydax/wubydax/CustomBg;->mCustomViewObserver:Lcom/android/wubydax/wubydax/CustomBg$CustomViewObserver;
+    iget-object v2, p0, Lcom/android/wubydax/custombg/CustomBg;->mCustomViewObserver:Lcom/android/wubydax/custombg/CustomBg$CustomViewObserver;
 
     invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    iget-object v0, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object v0, p0, Lcom/android/wubydax/custombg/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->COLOR_SECONDARY_KEY:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->COLOR_SECONDARY_KEY:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/wubydax/wubydax/CustomBg;->mCustomViewObserver:Lcom/android/wubydax/wubydax/CustomBg$CustomViewObserver;
+    iget-object v2, p0, Lcom/android/wubydax/custombg/CustomBg;->mCustomViewObserver:Lcom/android/wubydax/custombg/CustomBg$CustomViewObserver;
 
     invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    iget-object v0, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object v0, p0, Lcom/android/wubydax/custombg/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->URI_KEY:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->URI_KEY:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/wubydax/wubydax/CustomBg;->mCustomViewObserver:Lcom/android/wubydax/wubydax/CustomBg$CustomViewObserver;
+    iget-object v2, p0, Lcom/android/wubydax/custombg/CustomBg;->mCustomViewObserver:Lcom/android/wubydax/custombg/CustomBg$CustomViewObserver;
 
     invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    iget-object v0, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object v0, p0, Lcom/android/wubydax/custombg/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->CUSTOM_BG_TYPE:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->CUSTOM_BG_TYPE:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/wubydax/wubydax/CustomBg;->mCustomViewObserver:Lcom/android/wubydax/wubydax/CustomBg$CustomViewObserver;
+    iget-object v2, p0, Lcom/android/wubydax/custombg/CustomBg;->mCustomViewObserver:Lcom/android/wubydax/custombg/CustomBg$CustomViewObserver;
 
     invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
@@ -579,9 +579,9 @@
 
     invoke-super {p0}, Landroid/widget/ImageView;->onDetachedFromWindow()V
 
-    iget-object v0, p0, Lcom/android/wubydax/wubydax/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object v0, p0, Lcom/android/wubydax/custombg/CustomBg;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object v1, p0, Lcom/android/wubydax/wubydax/CustomBg;->mCustomViewObserver:Lcom/android/wubydax/wubydax/CustomBg$CustomViewObserver;
+    iget-object v1, p0, Lcom/android/wubydax/custombg/CustomBg;->mCustomViewObserver:Lcom/android/wubydax/custombg/CustomBg$CustomViewObserver;
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
@@ -593,7 +593,7 @@
 
     invoke-super {p0}, Landroid/widget/ImageView;->onFinishInflate()V
 
-    invoke-direct {p0}, Lcom/android/wubydax/wubydax/CustomBg;->initView()V
+    invoke-direct {p0}, Lcom/android/wubydax/custombg/CustomBg;->initView()V
 
     return-void
 .end method
