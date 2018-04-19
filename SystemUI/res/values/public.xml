@@ -324,6 +324,7 @@
     <public type="array" name="window_animation_scale_values" id="0x7f030056" />
     <public type="array" name="device_info_keys" id="0x7f030057" />
     <public type="array" name="device_info_titles" id="0x7f030058" />
+    <public type="array" name="config_globalActionsList" id="0x7f030059" />
     <public type="attr" name="actionBarDivider" id="0x7f040000" />
     <public type="attr" name="actionBarItemBackground" id="0x7f040001" />
     <public type="attr" name="actionBarPopupTheme" id="0x7f040002" />

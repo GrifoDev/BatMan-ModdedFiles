@@ -1575,6 +1575,33 @@
 .method protected updateCarrierText()V
     .locals 25
 
+    move-object/from16 v0, p0
+
+    sget-object v0, Lcom/android/keyguard/CarrierText;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v2, "custom_lock_carrier"
+
+    const v3, 0x0
+
+    invoke-static {v0, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v21
+
+    if-eqz v21, :cond_lg
+
+    const-string v1, "custom_lock_carrier_text"
+
+    invoke-static {v0, v1}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    goto/16 :goto_lg
+
+    :cond_lg
     const/4 v4, 0x1
 
     const/4 v5, 0x0
@@ -2140,6 +2167,7 @@
 
     invoke-static/range {v22 .. v23}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    :goto_lg
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v8}, Lcom/android/keyguard/CarrierText;->setText(Ljava/lang/CharSequence;)V

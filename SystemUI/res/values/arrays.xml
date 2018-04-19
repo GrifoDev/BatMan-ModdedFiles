@@ -770,4 +770,18 @@
         <item>Next alarm:</item>
         <item>Up time:</item>
     </string-array>
+    <string-array name="config_globalActionsList">
+        <item>power</item>
+        <item>datamode</item>
+        <item>airplane</item>
+        <item>restart</item>
+        <item>rebootrecovery</item>
+        <item>lockdown</item>
+        <item>bugreport</item>
+        <item>users</item>
+        <item>emergencymode</item>
+        <item>subscreen</item>
+        <item>screenshot</item>
+        <item>screenrec</item>
+    </string-array>
 </resources>

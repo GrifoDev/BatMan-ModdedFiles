@@ -3061,7 +3061,5 @@ Do you want to close it?"</string>
     <string name="zen_mode_until">Until %1$s</string>
     <string name="zzz_limited_service">LimitedService</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Clipboard</string>
-    <string name="global_action_screenshot">Screenshot</string>
-    <string name="screenrec">Screen Recorder</string>
     <item type="string" name="APKTOOL_DUMMY_1de">false</item>
 </resources>

@@ -5358,7 +5358,7 @@
 
     sget-object v25, Lcom/android/systemui/globalactions/GlobalActionsDialog;->sResource:Landroid/content/res/Resources;
 
-    const v26, 0x1070053
+    const v26, 0x7f030059
 
     invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -12704,13 +12704,11 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "tw_ic_lock_screenrec"
+    const-string v1, "tw_ic_lock_screenrec"
 
-    const-string/jumbo v2, "drawable"
+    const-string v2, "drawable"
 
-    const-string v3, "android"
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v5
 
@@ -12722,13 +12720,11 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "screenrec"
+    const-string v1, "screenrec"
 
-    const-string/jumbo v2, "string"
+    const-string v2, "string"
 
-    const-string v3, "android"
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v6
 
@@ -12750,13 +12746,11 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "tw_ic_lock_screenshot"
+    const-string v1, "tw_ic_lock_screenshot"
 
-    const-string/jumbo v2, "drawable"
+    const-string v2, "drawable"
 
-    const-string v3, "android"
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v5
 
@@ -12768,13 +12762,11 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "global_action_screenshot"
+    const-string v1, "global_action_screenshot"
 
-    const-string/jumbo v2, "string"
+    const-string v2, "string"
 
-    const-string v3, "android"
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v6
 

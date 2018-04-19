@@ -1340,8 +1340,6 @@
         <item>users</item>
         <item>emergencymode</item>
         <item>subscreen</item>
-        <item>screenshot</item>
-        <item>screenrec</item>
     </string-array>
     <string-array name="config_gpsParameters">
         <item>SUPL_HOST=supl.google.com</item>
