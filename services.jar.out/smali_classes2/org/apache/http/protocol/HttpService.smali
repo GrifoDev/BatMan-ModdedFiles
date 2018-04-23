@@ -556,7 +556,6 @@
     invoke-interface {v5, v3, v4, p2}, Lorg/apache/http/protocol/HttpExpectationVerifier;->verify(Lorg/apache/http/HttpRequest;Lorg/apache/http/HttpResponse;Lorg/apache/http/protocol/HttpContext;)V
     :try_end_3
     .catch Lorg/apache/http/HttpException; {:try_start_3 .. :try_end_3} :catch_1
-    .catch Lorg/apache/http/HttpException; {:try_start_3 .. :try_end_3} :catch_0
 
     goto :goto_5
 

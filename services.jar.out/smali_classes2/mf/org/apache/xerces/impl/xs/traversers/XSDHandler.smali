@@ -4256,7 +4256,6 @@
     :try_end_1
     .catch Lorg/xml/sax/SAXException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Lorg/xml/sax/SAXParseException; {:try_start_1 .. :try_end_1} :catch_3
-    .catch Lorg/xml/sax/SAXException; {:try_start_1 .. :try_end_1} :catch_4
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_5
 
     move-result-object v14
@@ -4275,7 +4274,6 @@
     :try_end_2
     .catch Lorg/xml/sax/SAXException; {:try_start_2 .. :try_end_2} :catch_2
     .catch Lorg/xml/sax/SAXParseException; {:try_start_2 .. :try_end_2} :catch_3
-    .catch Lorg/xml/sax/SAXException; {:try_start_2 .. :try_end_2} :catch_4
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_5
 
     if-nez v3, :cond_7
@@ -4291,7 +4289,6 @@
     :try_end_3
     .catch Lorg/xml/sax/SAXException; {:try_start_3 .. :try_end_3} :catch_7
     .catch Lorg/xml/sax/SAXParseException; {:try_start_3 .. :try_end_3} :catch_3
-    .catch Lorg/xml/sax/SAXException; {:try_start_3 .. :try_end_3} :catch_4
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_5
 
     move-result v22
@@ -4460,7 +4457,6 @@
     :try_end_7
     .catch Lorg/xml/sax/SAXException; {:try_start_7 .. :try_end_7} :catch_0
     .catch Lorg/xml/sax/SAXParseException; {:try_start_7 .. :try_end_7} :catch_3
-    .catch Lorg/xml/sax/SAXException; {:try_start_7 .. :try_end_7} :catch_4
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_5
 
     move-result v13
@@ -4510,7 +4506,6 @@
     :try_end_9
     .catch Lorg/xml/sax/SAXException; {:try_start_9 .. :try_end_9} :catch_2
     .catch Lorg/xml/sax/SAXParseException; {:try_start_9 .. :try_end_9} :catch_3
-    .catch Lorg/xml/sax/SAXException; {:try_start_9 .. :try_end_9} :catch_4
     .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_5
 
     goto/16 :goto_3

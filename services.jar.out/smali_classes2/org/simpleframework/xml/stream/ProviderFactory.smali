@@ -21,7 +21,6 @@
     invoke-direct {v1}, Lorg/simpleframework/xml/stream/StreamProvider;-><init>()V
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_1
 
     return-object v1
 
