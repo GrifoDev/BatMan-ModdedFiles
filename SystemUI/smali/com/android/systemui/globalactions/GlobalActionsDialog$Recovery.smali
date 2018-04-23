@@ -1,11 +1,11 @@
 .class Lcom/android/systemui/globalactions/GlobalActionsDialog$Recovery;
 .super Lcom/android/systemui/globalactions/GlobalActionsDialog$SinglePressAction;
-.source "GlobalActions.java"
+.source "GlobalActionsDialog.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/globalactions/GlobalActionsDialog;->createDialog()Lcom/android/systemui/globalactions/GlobalActionsDialog$GlobalActionsDialog;
+    value = Lcom/android/systemui/globalactions/GlobalActionsDialog;->makeActionsItems()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -15,6 +15,14 @@
 
 
 # instance fields
+
+.field mDrawableId:I
+
+.field mString:I
+
+.field mConfirmationString:I
+
+
 .field final synthetic this$0:Lcom/android/systemui/globalactions/GlobalActionsDialog;
 
 
@@ -32,13 +40,13 @@
 
 # virtual methods
 .method public onPress()V
-    .locals 3
+    .locals 4
 
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    const-string/jumbo v1, "com.mwilky.SERVICES"
+    const-string/jumbo v1, "com.mods.tkkg.SERVICES"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
@@ -48,7 +56,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    iget-object v1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog$Recovery;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialog;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog$Recovery;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialog; 
 
     invoke-static {v1}, Lcom/android/systemui/globalactions/GlobalActionsDialog;->-get12(Lcom/android/systemui/globalactions/GlobalActionsDialog;)Landroid/content/Context;
 
@@ -70,7 +78,9 @@
 .method public showConditional()Z
     .locals 4
 
-    const/4 v0, 0x1
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
 
     iget-object v2, p0, Lcom/android/systemui/globalactions/GlobalActionsDialog$Recovery;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialog;
 
@@ -82,13 +92,21 @@
 
     move-result-object v2
 
-    const-string v3, "reboot_recovery"
+    const-string/jumbo v3, "reboot_recovery"
 
-    invoke-static {v2, v3, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v2, v3, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v2
 
-    return v2
+    if-ne v2, v0, :cond_0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
 .end method
 
 .method public showDuringKeyguard()Z
