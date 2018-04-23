@@ -29,7 +29,7 @@
 
 .field private static final USE_ONLY_TITLE_IN_LOW_PRIORITY_SUMMARY:Z
 
-.field public static mAllowNotificationColorChange:I
+.field public static mAllowNotificationColorChange:Z
 
 .field public static mNotifSummaryTextColor:I
 
@@ -683,7 +683,7 @@
 .method private applyStandardTemplate(ILandroid/app/Notification$StandardTemplateParams;)Landroid/widget/RemoteViews;
     .locals 8
 
-    sget v7, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:I
+    sget-boolean v7, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:Z
 
     const/4 v6, 0x0
 
@@ -1132,7 +1132,7 @@
 .method private bindExpandButton(Landroid/widget/RemoteViews;)V
     .locals 8
 
-    sget v7, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:I
+    sget-boolean v7, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:Z
 
     const/4 v2, 0x0
 
@@ -1189,7 +1189,7 @@
 .method private bindHeaderAppName(Landroid/widget/RemoteViews;Z)V
     .locals 4
 
-    sget v3, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:I
+    sget-boolean v3, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:Z
 
     const v2, 0x10201ea
 
@@ -1251,7 +1251,7 @@
 .method private bindHeaderChronometerAndTime(Landroid/widget/RemoteViews;)V
     .locals 10
 
-    sget v9, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:I
+    sget-boolean v9, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:Z
 
     const v2, 0x1020523
 
@@ -1422,7 +1422,7 @@
 .method private bindHeaderText(Landroid/widget/RemoteViews;)V
     .locals 5
 
-    sget v4, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:I
+    sget-boolean v4, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:Z
 
     const v3, 0x10202ec
 
@@ -2244,7 +2244,7 @@
 .method private ensureColors()V
     .locals 13
 
-    sget v12, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:I
+    sget-boolean v12, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:Z
 
     invoke-direct {p0}, Landroid/app/Notification$Builder;->getBackgroundColor()I
 
@@ -2287,11 +2287,6 @@
 
     move-result v8
 
-    if-eqz v12, :cond_2
-
-    sget v8, Landroid/app/Notification$Builder;->mNotifTitleTextColor:I
-
-    :cond_2
     iput v8, p0, Landroid/app/Notification$Builder;->mPrimaryTextColor:I
 
     iget-object v8, p0, Landroid/app/Notification$Builder;->mContext:Landroid/content/Context;
@@ -2300,11 +2295,6 @@
 
     move-result v8
 
-    if-eqz v12, :cond_3
-
-    sget v8, Landroid/app/Notification$Builder;->mNotifSummaryTextColor:I
-
-    :cond_3
     iput v8, p0, Landroid/app/Notification$Builder;->mSecondaryTextColor:I
 
     if-eqz v2, :cond_5
@@ -2313,7 +2303,7 @@
 
     const/4 v9, 0x1
 
-    if-ne v8, v9, :cond_4
+    if-ne v8, v9, :cond_2
 
     invoke-direct {p0}, Landroid/app/Notification$Builder;->isColorized()Z
 
@@ -2321,11 +2311,16 @@
 
     if-eqz v8, :cond_5
 
-    :cond_4
+    :cond_2
     iget v8, p0, Landroid/app/Notification$Builder;->mPrimaryTextColor:I
 
     const-wide/high16 v10, 0x4012000000000000L    # 4.5
 
+    if-eqz v12, :cond_3
+
+    sget v8, Landroid/app/Notification$Builder;->mNotifTitleTextColor:I
+
+    :cond_3
     invoke-static {v8, v2, v10, v11}, Lcom/android/internal/util/NotificationColorUtil;->findAlphaToMeetContrast(IID)I
 
     move-result v8
@@ -2336,6 +2331,11 @@
 
     const-wide/high16 v10, 0x4012000000000000L    # 4.5
 
+    if-eqz v12, :cond_4
+
+    sget v8, Landroid/app/Notification$Builder;->mNotifSummaryTextColor:I
+
+    :cond_4
     invoke-static {v8, v2, v10, v11}, Lcom/android/internal/util/NotificationColorUtil;->findAlphaToMeetContrast(IID)I
 
     move-result v8
@@ -2567,7 +2567,7 @@
 .method private generateActionButton(Landroid/app/Notification$Action;ZZZ)Landroid/widget/RemoteViews;
     .locals 11
 
-    sget v10, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:I
+    sget-boolean v10, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:Z
 
     iget-object v1, p1, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
 
@@ -3802,7 +3802,7 @@
 .method private processSmallIconColor(Landroid/graphics/drawable/Icon;Landroid/widget/RemoteViews;Z)V
     .locals 10
 
-    sget v9, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:I
+    sget-boolean v9, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:Z
 
     const/4 v2, 0x0
 
@@ -5856,7 +5856,7 @@
     return-object p0
 .end method
 
-.method setNotifTextColor()V
+.method public setNotifTextColor()V
     .locals 3
 
     iget-object v0, p0, Landroid/app/Notification$Builder;->mContext:Landroid/content/Context;
@@ -5873,7 +5873,7 @@
 
     move-result v0
 
-    sput v0, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:I
+    sput-boolean v0, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:Z
 
     iget-object v0, p0, Landroid/app/Notification$Builder;->mContext:Landroid/content/Context;
 
