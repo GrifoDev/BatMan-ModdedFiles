@@ -46,7 +46,7 @@
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    const-string/jumbo v1, "com.mods.tkkg.SERVICES"
+    const-string/jumbo v1, "com.tkkg.SERVICES"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 

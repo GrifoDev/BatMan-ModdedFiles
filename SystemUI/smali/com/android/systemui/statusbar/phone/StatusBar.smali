@@ -18942,8 +18942,6 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->clockOnClick()V
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateGifAnimationView()V
-
     return-void
 .end method
 
@@ -22072,6 +22070,8 @@
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->setCustomBgView(I)V
 
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateGifAnimationView()V
+
     return-void
 
     :cond_1
@@ -22126,6 +22126,8 @@
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->setBlurImageView(I)V
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->setCustomBgView(I)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateGifAnimationView()V
 
     return-void
 
@@ -22226,6 +22228,8 @@
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->setCustomBgView(I)V
 
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateGifAnimationView()V
+
     return-void
 .end method
 
@@ -22287,6 +22291,8 @@
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->setCustomBgView(I)V
 
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateGifAnimationView()V
+
     return-void
 
     :cond_3
@@ -22329,6 +22335,8 @@
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->setBlurImageView(I)V
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->setCustomBgView(I)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateGifAnimationView()V
 
     return-void
 .end method
@@ -23336,7 +23344,7 @@
 
     iget-object v3, v0, Lcom/android/systemui/statusbar/phone/StatusBar;->mCarrierLabel:Landroid/widget/TextView;
 
-    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->setCarrierLabel(Landroid/widget/TextView;)V
+    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->setCarrierLabel(Landroid/view/View;)V
 
     :cond_10
     move-object/from16 v0, p0
@@ -26406,17 +26414,6 @@
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->setNavbarIconColors()V
 
     :cond_21
-    const-string/jumbo v0, "show_gif_animation"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_22
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateGifAnimationView()V
-
-    :cond_22
     return-void
 .end method
 
@@ -29061,10 +29058,6 @@
 
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v4, "show_gif_animation"
-
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
     new-instance v1, Lcom/android/wubydax/GearContentObserver;
 
     new-instance v4, Landroid/os/Handler;
@@ -30672,7 +30665,7 @@
 
     const v2, 0x0
 
-    const-string/jumbo v1, "pulldown_blur"
+    const-string/jumbo v1, "enable_blur"
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 

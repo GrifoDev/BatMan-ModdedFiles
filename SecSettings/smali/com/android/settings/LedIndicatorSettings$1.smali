@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method protected getMetricsCategory()I
+.method public getMetricsCategory()I
     .locals 1
 
     const/16 v0, 0x2e

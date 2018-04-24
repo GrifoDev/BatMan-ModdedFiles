@@ -20334,7 +20334,7 @@
     :try_start_0
     iget-boolean v3, p0, Lcom/android/server/InputMethodManagerService;->mSystemReady:Z
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_3
 
     const/4 v3, 0x1
 
@@ -20443,6 +20443,7 @@
 
     invoke-virtual {v3, v5}, Landroid/view/WindowManagerInternal;->setOnHardKeyboardStatusChangeListener(Landroid/view/WindowManagerInternal$OnHardKeyboardStatusChangeListener;)V
 
+    :cond_2
     iget-object v3, p0, Lcom/android/server/InputMethodManagerService;->mMyPackageMonitor:Lcom/android/server/InputMethodManagerService$MyPackageMonitor;
 
     iget-object v5, p0, Lcom/android/server/InputMethodManagerService;->mContext:Landroid/content/Context;
@@ -20539,7 +20540,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    :cond_2
+    :cond_3
     monitor-exit v4
 
     return-void
